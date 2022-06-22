@@ -10,5 +10,11 @@
     "sourceMap": true,
     "strict": true
   },
-  "exclude": ["src/stories/**/*"]
+  "exclude": [
+    "src/stories/**/*",
+    "**/*.spec.ts",
+    "jest.setup.ts",
+    "**/*.mock.ts",
+    "**/*Test.svelte"
+  ]
 }
