@@ -7,7 +7,7 @@ IntersectionObserverPassive.mockReturnValue({
 
 export class IntersectionObserverActive implements IntersectionObserver {
   public readonly root: Element | Document | null = null;
-  public readonly rootMargin: string = '';
+  public readonly rootMargin: string = "";
   public readonly thresholds: ReadonlyArray<number> = [];
   public takeRecords: () => IntersectionObserverEntry[] = () => [];
 
