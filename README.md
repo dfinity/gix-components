@@ -32,3 +32,8 @@ Within a `script` tag in your layout or app, import the global style of the libr
 
 We do not plan at the moment to bundle `CSS` files as we are using `Sass` in our consumer apps but, if you have such requirements let us know.
 
+### Theming
+
+Two themes - `dark` and `light` - are provided, `dark` being the default theme.
+
+A particular mode can be defined by setting a corresponding attribute `theme` on the root `html` element.  
