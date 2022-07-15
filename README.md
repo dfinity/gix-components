@@ -20,7 +20,7 @@ npm i @dfinity/gix-components
 
 ### Styling
 
-The styles provided by the kit are not pre-compiled - i.e. is not provided as `CSS` files but as `SCSS`. Make sure that a SASS preprocessing is installed on your side.
+The styles provided by the kit are not pre-compiled - i.e. is not provided as `CSS` files but as `SCSS`. Make sure that a SASS preprocessing is installed in your project.
 
 Within a `script` tag in your layout or app, import the global style of the library.
 
