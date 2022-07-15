@@ -36,4 +36,4 @@ We do not plan at the moment to bundle `CSS` files as we are using `Sass` in our
 
 Two themes - `dark` and `light` - are provided, `dark` being the default theme.
 
-A particular mode can be defined by setting a corresponding attribute `theme` on the root `html` element.  
+A particular mode can be defined by setting a corresponding attribute `theme` on the root `html` element.
