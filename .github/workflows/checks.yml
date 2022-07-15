@@ -1,0 +1,81 @@
+name: CI Checks
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  formatting:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install shfmt
+        run: sudo snap install --classic shfmt
+
+      - name: Format shell scripts
+        run: ./scripts/fmt-sh
+
+      - name: Install ts dependencies
+        run: npm ci
+
+      - name: Format ts
+        run: npm run format
+
+      - name: Commit Formatting changes - will not trigger rebuild
+        uses: EndBug/add-and-commit@v7.2.0
+        if: ${{ github.event_name == 'pull_request' }}
+        with:
+          add: .
+          author_name: Formatting Committer
+          author_email: "<nobody@example.com>"
+          message: "Updating formatting"
+          # do not pull: if this branch is behind, then we might as well let
+          # the pushing fail
+          pull_strategy: "NO-PULL"
+
+  build:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: npm ci
+      - name: Build
+        run: npm run build
+
+  lint:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: npm ci
+      - name: Lint
+        run: npm run lint
+
+  test:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: npm ci
+      - name: Build
+        run: npm run build
+      - name: Test
+        run: npm run test
+
+  may-merge:
+    needs: ["formatting", "build", "lint", "test"]
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Cleared for merging
+        run: echo OK
