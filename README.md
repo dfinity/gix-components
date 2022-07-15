@@ -37,3 +37,7 @@ We do not plan at the moment to bundle `CSS` files as we are using `Sass` in our
 Two themes - `dark` and `light` - are provided, `dark` being the default theme.
 
 A particular mode can be defined by setting a corresponding attribute `theme` on the root `html` element.
+
+### Internationalization
+
+Currently only provided in english, the design system supports i18n. If it were to be translated, a setup function will be exposed to select language and other i18n options.
