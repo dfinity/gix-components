@@ -9,3 +9,13 @@
 </script>
 
 <button on:click={demo} style="background: {color}">Hello I'm a button</button>
+
+<style lang="scss">
+  @use "../styles/mixins/media";
+
+  @include media.min-width(medium) {
+    button {
+      background: red !important;
+    }
+  }
+</style>
