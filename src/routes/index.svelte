@@ -1,10 +1,29 @@
 <script lang="ts">
-  import Demo from "$lib/components/Demo.svelte";
+  import SplitPane from "../lib/components/SplitPane.svelte";
+  import Menu from "../lib/components/Menu.svelte";
+  import Toolbar from "../lib/components/Toolbar.svelte";
+  import MenuButton from "../lib/components/MenuButton.svelte";
+  import Header from "../lib/components/Header.svelte";
+
+  let sticky: boolean;
+  let open: boolean;
 </script>
 
-<h1>Welcome to SvelteKit</h1>
-<p>
-  Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation
-</p>
+<SplitPane bind:sticky>
+  <Header slot="header">
+    <Toolbar>
+      <MenuButton slot="start" bind:open />
+      <h4>Gix Components</h4>
+    </Toolbar>
+  </Header>
 
-<Demo color="yellow" on:nnsDemo={() => alert("Demo")} />
+  <Menu slot="menu" bind:open {sticky} />
+
+  <main>
+    <h1>Hello World 👋</h1>
+  </main>
+</SplitPane>
+
+<style lang="scss" global>
+  @import "../lib/styles/global.scss";
+</style>

@@ -4,6 +4,7 @@
 
 interface I18nCore {
   close: string;
+  menu: string;
 }
 
 interface I18n {

@@ -47,8 +47,8 @@
 {/if}
 
 <style lang="scss">
-  @use "../../themes/mixins/interaction";
-  @use "../../themes/mixins/display";
+  @use "../styles/mixins/interaction";
+  @use "../styles/mixins/display";
 
   div[role="menu"] {
     position: fixed;

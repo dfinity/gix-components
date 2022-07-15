@@ -1,5 +1,6 @@
 {
   "core": {
-    "close": "Close"
+    "close": "Close",
+    "menu": "Open menu to access navigation options"
   }
 }
