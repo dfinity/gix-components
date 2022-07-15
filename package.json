@@ -2,8 +2,8 @@
   "name": "@dfinity/gix-components",
   "version": "0.0.1",
   "scripts": {
-    "dev": "vite dev",
-    "build": "vite build",
+    "dev": "npm run i18n && vite dev",
+    "build": "npm run i18n && vite build",
     "package": "svelte-kit package",
     "preview": "vite preview",
     "prepare": "svelte-kit sync",
@@ -13,7 +13,8 @@
     "format": "prettier --write --plugin-search-dir=. .",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "test": "TZ=UTC jest"
+    "test": "TZ=UTC jest",
+    "i18n": "node scripts/i18n.types.mjs"
   },
   "devDependencies": {
     "@babel/core": "^7.18.6",
