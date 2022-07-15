@@ -2,20 +2,19 @@
   import SplitPane from "../lib/components/SplitPane.svelte";
   import Menu from "../lib/components/Menu.svelte";
   import Toolbar from "../lib/components/Toolbar.svelte";
-  import MenuButton from "../lib/components/MenuButton.svelte";
-  import Header from "../lib/components/Header.svelte";
+  import MenuButton from "../lib/components/MenuButton.svelte"
 
   let sticky: boolean;
   let open: boolean;
 </script>
 
 <SplitPane bind:sticky>
-  <Header slot="header">
+  <header slot="header">
     <Toolbar>
       <MenuButton slot="start" bind:open />
       <h4>Gix Components</h4>
     </Toolbar>
-  </Header>
+  </header>
 
   <Menu slot="menu" bind:open {sticky} />
 
