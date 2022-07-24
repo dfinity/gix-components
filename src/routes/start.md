@@ -1,12 +1,10 @@
-# Gix Components
+# Getting Started
 
-Gix Components is a UI kit developed in Svelte by the Gix team.
+Welcome to Gix components! Gix components are currently used in [NNS-dapp](https://nns.ic0.app/). If you’re just getting started with designing or developing a (client side) dapp for the [Internet Computer](https://internetcomputer.org/), you’re in the right place.
 
-## Documentation
+## Principles
 
-The component library is in active development, and new features will incrementally be available.
-
-A full documentation will be available shortly.
+TODO: a brief explanations of the principles
 
 ## Installation
 
