@@ -6,7 +6,7 @@
 <Layout>
   <h4 slot="title">Gix Components</h4>
 
-  <DocsMenu slot="menu-items" />
+  <DocsMenu slot="menu-items" on:click />
 
   <slot />
 </Layout>

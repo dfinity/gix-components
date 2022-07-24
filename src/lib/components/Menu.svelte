@@ -40,7 +40,7 @@
       <Backdrop on:nnsClose={() => (open = false)} />
     {/if}
 
-    <div class="inner" transition:transition>
+    <div class="inner" transition:transition on:click={() => (open = false)}>
       <slot />
     </div>
   </div>

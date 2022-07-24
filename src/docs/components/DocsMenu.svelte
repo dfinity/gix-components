@@ -8,13 +8,13 @@
   } = $page);
 </script>
 
-<MenuItem href="/" selected={pathname === "/"}>Home</MenuItem>
-<MenuItem href="/start" selected={pathname === "/start"}>
+<MenuItem href="/" selected={pathname === "/"} on:click>Home</MenuItem>
+<MenuItem href="/start" selected={pathname === "/start"} on:click>
   Getting Started
 </MenuItem>
-<MenuItem href="/components" selected={pathname.indexOf("/components") > -1}>
+<MenuItem href="/components" selected={pathname.indexOf("/components") > -1} on:click>
   Components
 </MenuItem>
-<MenuItem href="/resources" selected={pathname === "/resources"}>
+<MenuItem href="/resources" selected={pathname === "/resources"} on:click>
   Resources
 </MenuItem>

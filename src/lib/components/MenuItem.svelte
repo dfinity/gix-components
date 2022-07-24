@@ -4,7 +4,7 @@
   export let testId: string | undefined = undefined;
 </script>
 
-<a role="menuitem" {href} class:selected data-tid={testId}>
+<a role="menuitem" {href} class:selected data-tid={testId} on:click>
   <slot name="icon" />
   <span><slot /></span>
   <slot name="statusIcon" />
