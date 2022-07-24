@@ -23,7 +23,7 @@ jobs:
       - name: Install ts dependencies
         run: npm ci
 
-      - name: Format ts
+      - name: Format
         run: npm run format
 
       - name: Commit Formatting changes - will not trigger rebuild

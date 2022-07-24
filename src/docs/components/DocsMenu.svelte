@@ -12,7 +12,11 @@
 <MenuItem href="/start" selected={pathname === "/start"} on:click>
   Getting Started
 </MenuItem>
-<MenuItem href="/components" selected={pathname.indexOf("/components") > -1} on:click>
+<MenuItem
+  href="/components"
+  selected={pathname.indexOf("/components") > -1}
+  on:click
+>
   Components
 </MenuItem>
 <MenuItem href="/resources" selected={pathname === "/resources"} on:click>
