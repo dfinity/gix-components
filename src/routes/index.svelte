@@ -5,5 +5,5 @@
 // TODO: card grid and some cards - e.g. a card to link to the components
 
 <a href="/components">
-    <article>Components</article>
+  <article>Components</article>
 </a>

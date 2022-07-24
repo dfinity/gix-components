@@ -1,14 +1,14 @@
 <script lang="ts">
-    import Layout from "$lib/components/Layout.svelte";
-    import DocsMenu from "$docs/components/DocsMenu.svelte";
+  import Layout from "$lib/components/Layout.svelte";
+  import DocsMenu from "$docs/components/DocsMenu.svelte";
 </script>
 
 <Layout>
-    <h4 slot="title">Gix Components</h4>
+  <h4 slot="title">Gix Components</h4>
 
-    <DocsMenu slot="menu-items" />
+  <DocsMenu slot="menu-items" />
 
-    <slot />
+  <slot />
 </Layout>
 
 <style lang="scss" global>

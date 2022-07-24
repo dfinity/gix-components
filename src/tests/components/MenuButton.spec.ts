@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-import {fireEvent, render, type RenderResult} from "@testing-library/svelte";
+import { fireEvent, render, type RenderResult } from "@testing-library/svelte";
 import MenuButtonTest from "./MenuButtonTest.svelte";
 
 describe("MenuButton", () => {

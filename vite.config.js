@@ -7,9 +7,9 @@ const config = {
   resolve: {
     alias: {
       $docs: resolve("./src/docs"),
-      $lib: resolve("./src/lib")
-    }
-  }
+      $lib: resolve("./src/lib"),
+    },
+  },
 };
 
 export default config;
