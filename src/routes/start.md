@@ -21,3 +21,15 @@ TODO: Installation guide
 ```bash
 npm i @dfinity/gix-components
 ```
+
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="themes/prism-ghcolors.css" rel="stylesheet" />
+    </head>
+    <body>
+        <script src="prism.js"></script>
+    </body>
+</html>
+```

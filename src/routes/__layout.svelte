@@ -13,4 +13,5 @@
 
 <style lang="scss" global>
   @import "../lib/styles/global.scss";
+  @import "../../node_modules/prismjs/themes/prism-tomorrow.css";
 </style>
