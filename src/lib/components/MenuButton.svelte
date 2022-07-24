@@ -2,7 +2,7 @@
   import { i18n } from "$lib/stores/i18n";
   import IconMenu from "$lib/icons/IconMenu.svelte";
 
-  export let open: boolean = false;
+  export let open = false;
 </script>
 
 <button

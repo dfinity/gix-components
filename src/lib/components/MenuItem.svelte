@@ -1,6 +1,6 @@
 <script lang="ts">
   export let href: string;
-  export let selected: boolean = false;
+  export let selected = false;
   export let testId: string | undefined = undefined;
 </script>
 

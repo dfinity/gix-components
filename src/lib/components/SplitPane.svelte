@@ -1,6 +1,6 @@
 <script lang="ts">
   export let sticky = false;
-  let innerWidth: number = 0;
+  let innerWidth = 0;
 
   // The media query breakpoint to stick the menu is xlarge 1300px
   $: sticky = innerWidth > 1300;
