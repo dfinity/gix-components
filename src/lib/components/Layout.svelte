@@ -14,9 +14,13 @@
 <SplitPane bind:sticky>
   <header slot="header">
     <Toolbar>
-      {#if showBack}{:else}
-        <MenuButton slot="start" bind:open />
-      {/if}
+      <svelte:fragment slot="start">
+        {#if showBack}
+          <slot name="back" />
+        {:else}
+          <MenuButton bind:open />
+        {/if}
+      </svelte:fragment>
 
       <slot name="title" />
     </Toolbar>
