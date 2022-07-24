@@ -23,7 +23,7 @@
   </header>
 
   <Menu slot="menu" bind:open {sticky}>
-    <slot name="menu" />
+    <slot name="menu-items" />
   </Menu>
 
   <main>
