@@ -14,7 +14,7 @@
 </MenuItem>
 <MenuItem
   href="/components"
-  selected={pathname.indexOf("/components") > -1}
+  selected={pathname.startsWith("/components")}
   on:click
 >
   Components
