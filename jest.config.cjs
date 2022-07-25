@@ -20,4 +20,5 @@ module.exports = {
   testEnvironmentOptions: {
     url: "https://nns.ic0.app/",
   },
+  moduleNameMapper: { "^\\$lib(.*)$": "<rootDir>/src/lib$1" },
 };

@@ -1,10 +1,9 @@
-<script lang="ts">
-  import Demo from "$lib/components/Demo.svelte";
-</script>
+<h1>Gix components</h1>
 
-<h1>Welcome to SvelteKit</h1>
-<p>
-  Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation
-</p>
+<p>A UI kit developed in Svelte by the Gix team.</p>
 
-<Demo color="yellow" on:nnsDemo={() => alert("Demo")} />
+// TODO: card grid and some cards - e.g. a card to link to the components
+
+<a href="/components">
+  <article>Components</article>
+</a>

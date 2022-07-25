@@ -1,0 +1,24 @@
+<script lang="ts">
+  import { page } from "$app/stores";
+  import MenuItem from "$lib/components/MenuItem.svelte";
+
+  let pathname: string;
+  $: ({
+    url: { pathname },
+  } = $page);
+</script>
+
+<MenuItem href="/" selected={pathname === "/"} on:click>Home</MenuItem>
+<MenuItem href="/start" selected={pathname === "/start"} on:click>
+  Getting Started
+</MenuItem>
+<MenuItem
+  href="/components"
+  selected={pathname.startsWith("/components")}
+  on:click
+>
+  Components
+</MenuItem>
+<MenuItem href="/resources" selected={pathname === "/resources"} on:click>
+  Resources
+</MenuItem>

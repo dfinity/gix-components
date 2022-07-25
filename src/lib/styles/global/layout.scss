@@ -1,0 +1,36 @@
+@use "../mixins/media";
+
+main {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  margin: 0 auto;
+  padding: var(--padding-4x) var(--padding-2x);
+  max-width: var(--max-main-content-width);
+  box-sizing: border-box;
+
+  @include media.min-width(medium) {
+    padding: var(--padding-4x);
+  }
+}
+
+header {
+  position: absolute;
+  top: var(--header-offset, 0);
+  left: 0;
+  right: 0;
+
+  z-index: var(--header-z-index);
+  box-shadow: var(--header-box-shadow);
+
+  height: var(--header-height);
+
+  display: block;
+
+  background: var(--primary-gradient-fallback);
+  background: var(--primary-gradient);
+  color: var(--primary-gradient-contrast);
+
+  --toolbar-pointer-events: all;
+}
