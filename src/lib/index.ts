@@ -1,4 +1,3 @@
-export { default as Demo } from "./components/Demo.svelte";
 export { default as Backdrop } from "./components/Backdrop.svelte";
 export { default as Layout } from "./components/Layout.svelte";
 export { default as Menu } from "./components/Menu.svelte";
