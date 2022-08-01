@@ -18,16 +18,20 @@
 
   // Custom sizes for docs
 
-  h2 {
-    margin-top: var(--padding-4x);
-  }
+  main {
+    & > h2, & > .grid {
+      margin-top: var(--padding-4x);
+    }
 
-  h3, ul {
-    margin-top: var(--padding-3x);
-  }
+    & > h3,
+    & > ul {
+      margin-top: var(--padding-3x);
+    }
 
-  table, pre[class*="language-"] {
-    margin: var(--padding-3x) 0;
+    table,
+    pre[class*="language-"] {
+      margin: var(--padding-3x) 0;
+    }
   }
 
   a {
@@ -44,8 +48,6 @@
     font-size: var(--font-size-small);
     background: #2d2d2d;
     padding: var(--padding-0_5x);
-    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
   }
-
-
 </style>
