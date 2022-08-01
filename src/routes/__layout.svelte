@@ -15,4 +15,37 @@
   @import "../lib/styles/global.scss";
   @import "../../node_modules/prismjs/themes/prism-tomorrow.css";
   @import "../docs/styles/docs-global.scss";
+
+  // Custom sizes for docs
+
+  h2 {
+    margin-top: var(--padding-4x);
+  }
+
+  h3, ul {
+    margin-top: var(--padding-3x);
+  }
+
+  table, pre[class*="language-"] {
+    margin: var(--padding-3x) 0;
+  }
+
+  a {
+    font-size: inherit;
+    text-decoration: underline;
+
+    &:focus,
+    &:hover {
+      color: var(--primary);
+    }
+  }
+
+  p code {
+    font-size: var(--font-size-small);
+    background: #2d2d2d;
+    padding: var(--padding-0_5x);
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+
 </style>
