@@ -19,8 +19,16 @@
   // Custom sizes for docs
 
   main {
+    & > h1:first-of-type {
+      font-size: var(--font-size-huge);
+    }
+
     & > h2, & > .grid {
       margin-top: var(--padding-4x);
+
+      &:not(:first-of-type) {
+        margin-top: var(--padding-6x);
+      }
     }
 
     & > h3,
