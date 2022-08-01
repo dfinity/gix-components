@@ -12,7 +12,7 @@
     return goto(referrer.length > 0 ? referrer : defaultRoute);
   };
 
-  $: back = ($page.routeId ?? '').includes("/");
+  $: back = ($page.routeId ?? "").includes("/");
 </script>
 
 <Layout {back}>

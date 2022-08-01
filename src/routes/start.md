@@ -56,8 +56,7 @@ A particular mode can be defined by setting a corresponding attribute `theme` on
 
 ```html
 <!DOCTYPE html>
-<html lang="en" theme="dark">
-</html>
+<html lang="en" theme="dark"></html>
 ```
 
 ### Utilization of Text Opacity
