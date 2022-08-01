@@ -1,12 +1,12 @@
 # Gix Components
 
-Gix Components is a UI kit developed in Svelte by the Gix team.
+Gix Components is a UI kit developed with [SvelteKit](https://kit.svelte.dev) by the Gix team.
 
-## Documentation
+## Getting Started
 
 The component library is in active development, and new features will incrementally be available.
 
-A full documentation will be available shortly.
+A full documentation will be available shortly as well.
 
 ## Installation
 
@@ -16,28 +16,17 @@ Install `gix-components` as a dependency.
 npm i @dfinity/gix-components
 ```
 
-## Usage
+## Packaging
 
-### Styling
+Running `npm run package` takes the contents of `src/lib` and generate the `package` directory - i.e. the library that is published to npm.
 
-The styles provided by the kit are not pre-compiled - i.e. is not provided as `CSS` files but as `SCSS`. Make sure that a SASS preprocessing is installed in your project.
+See [documentation](https://kit.svelte.dev/docs/packaging) for more information.
 
-Within a `script` tag in your layout or app, import the global style of the library.
+## Documentation & Showcase
 
-```html
-<style lang="scss" global>
-  @import "@dfinity/gix-components/styles/global.scss";
-</style>
-```
+To run the documentation locally, `npm run dev` can be executed.
 
-We do not plan at the moment to bundle `CSS` files as we are using `Sass` in our consumer apps but, if you have such requirements let us know.
+Running `npm run build` will bundle this showcase. It should be executed before deploying the documentation to a canister smart contract.
 
-### Theming
+Note: all pages of the application are set to be pre-rendered per default.
 
-Two themes - `dark` and `light` - are provided, `dark` being the default theme.
-
-A particular mode can be defined by setting a corresponding attribute `theme` on the root `html` element.
-
-### Internationalization
-
-Currently only provided in english, the design system supports i18n. If it were to be translated, a setup function will be exposed to select language and other i18n options.
