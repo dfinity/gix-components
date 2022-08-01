@@ -36,6 +36,12 @@ Two themes - `dark` and `light` - are provided, `dark` being the default theme.
 
 A particular mode can be defined by setting a corresponding attribute `theme` on the root `html` element.
 
+### Fonts
+
+`CircularXX` is the copyrighted font required for the expected typography to shine.
+
+The [fonts](https://github.com/dfinity/gix-components/tree/main/static) folder - providing `CircularXXWeb-Bold.woff` and `CircularXXWeb-Regular.woff` - should be copied at the root of your dapp.
+
 ### Utilization of Text Opacity
 
 The opacity is used to emphasize the importance of text blocks on the page:
