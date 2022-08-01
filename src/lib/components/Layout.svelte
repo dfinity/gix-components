@@ -4,18 +4,17 @@
   import Toolbar from "$lib/components/Toolbar.svelte";
   import MenuButton from "$lib/components/MenuButton.svelte";
 
+  export let back = false;
+
   let sticky: boolean;
   let open: boolean;
-
-  let showBack: boolean;
-  $: showBack = $$slots.back !== undefined;
 </script>
 
 <SplitPane bind:sticky>
   <header slot="header">
     <Toolbar>
       <svelte:fragment slot="start">
-        {#if showBack}
+        {#if back}
           <slot name="back" />
         {:else}
           <MenuButton bind:open />
