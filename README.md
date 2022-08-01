@@ -29,4 +29,3 @@ To run the documentation locally, `npm run dev` can be executed.
 Running `npm run build` will bundle this showcase. It should be executed before deploying the documentation to a canister smart contract.
 
 Note: all pages of the application are set to be pre-rendered per default.
-
