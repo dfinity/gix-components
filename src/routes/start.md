@@ -38,9 +38,9 @@ A particular mode can be defined by setting a corresponding attribute `theme` on
 
 ### Fonts
 
-`CircularXX` is the copyrighted font used to make the typography shine. If you own the copyright, the [fonts](https://github.com/dfinity/gix-components/tree/main/static) folder - providing `CircularXXWeb-Bold.woff` and `CircularXXWeb-Regular.woff` - can be copied to the root of your dapp.
+`CircularXX` is the copyrighted font used to make the typography shine. If you own the copyright, the [fonts](https://github.com/dfinity/gix-components/tree/main/static) folder - providing `CircularXXWeb-Bold.woff2` and `CircularXXWeb-Regular.woff2` - can be copied to the root of your dapp.
 
-Otherwise, specify another global `font-family` that shall be used to the `body` element.
+Otherwise, specify another global `font-family` that shall be used on the `body` element.
 
 ### Utilization of Text Opacity
 
