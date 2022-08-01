@@ -16,6 +16,8 @@ npm i @dfinity/gix-components
 
 ## Usage
 
+Following chapters guide you to use the library.
+
 ### Styling
 
 The styles provided by the kit are not pre-compiled - i.e. is not provided as `CSS` files but as `SCSS`. Make sure that a SASS preprocessing is installed in your project.
@@ -35,6 +37,12 @@ We do not plan at the moment to bundle `CSS` files as we are using `Sass` in our
 Two themes - `dark` and `light` - are provided, `dark` being the default theme.
 
 A particular mode can be defined by setting a corresponding attribute `theme` on the root `html` element.
+
+```html
+<!DOCTYPE html>
+<html lang="en" theme="dark">
+</html>
+```
 
 ### Utilization of Text Opacity
 
