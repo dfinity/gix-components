@@ -3,13 +3,13 @@
 
   export let role: "link" | "button" | "checkbox" | undefined = undefined;
   export let ariaLabel: string | undefined = undefined;
-  export let selected: boolean = false;
+  export let selected = false;
   export let disabled: boolean | undefined = undefined;
-  export let testId: string = "card";
+  export let testId = "card";
   export let highlighted: boolean | undefined = undefined;
   export let withArrow: boolean | undefined = undefined;
 
-  let clickable: boolean = false;
+  let clickable = false;
 
   $: clickable =
     role !== undefined ? ["button", "link", "checkbox"].includes(role) : false;
