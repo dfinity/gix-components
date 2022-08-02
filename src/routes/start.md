@@ -4,7 +4,23 @@ Welcome to Gix components! Gix components are currently used in [NNS-dapp](https
 
 ## Principles
 
-TODO: a brief explanations of the principles
+These design principles from the foundation of the `gix-components`.
+
+### Do not reinvent the wheel
+
+If the design of an element can be solved with `css` styling only, then no particular component should be created - e.g. that is why `<button />` are native HTML elements.
+
+### Agnostic
+
+We do indeed use Svelte to develop this design system but, we do not use any other dependencies. Mostly for security reason and to minimize the tech debt.
+
+### Accessibility
+
+The components should be for everyone. We can - and should - always improve but, we try our best to make sure people with different backgrounds can use the dapps in which the design system is being used.
+
+### Testing
+
+Any components and styles has to be ultimately tested. Whether it is with emulated tests or e2e screenshots testing.
 
 ## Installation
 
@@ -15,6 +31,8 @@ npm i @dfinity/gix-components
 ```
 
 ## Usage
+
+Following chapters guide you to use the library.
 
 ### Styling
 
@@ -35,6 +53,11 @@ We do not plan at the moment to bundle `CSS` files as we are using `Sass` in our
 Two themes - `dark` and `light` - are provided, `dark` being the default theme.
 
 A particular mode can be defined by setting a corresponding attribute `theme` on the root `html` element.
+
+```html
+<!DOCTYPE html>
+<html lang="en" theme="dark"></html>
+```
 
 ### Fonts
 
