@@ -1,6 +1,6 @@
 # Getting Started
 
-Welcome to Gix Components! Gix Components are currently used in [NNS-dapp](https://nns.ic0.app/). If you’re just getting started with designing or developing a (client side) dapp for the [Internet Computer](https://internetcomputer.org/), you’re in the right place.
+Welcome to GIX Components! GIX Components are currently used in [NNS-dapp](https://nns.ic0.app/). If you’re just getting started with designing or developing a (client side) dapp for the [Internet Computer](https://internetcomputer.org/), you’re in the right place.
 
 ## Principles
 
