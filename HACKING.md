@@ -1,6 +1,6 @@
 # Hacking
 
-This document list a couple of useful information to develop and deploy the `gix-components`
+This document list a couple of useful information to develop and deploy the `gix-components`.
 
 ## Deployment
 
