@@ -30,6 +30,12 @@ Install `gix-components` as a dependency.
 npm i @dfinity/gix-components
 ```
 
+## Technology
+
+GIX components are developed with [SvelteKit](https://kit.svelte.dev/). They were originally developed in Svelte for the [NNS-dapp](https://github.com/dfinity/nns-dapp/) rewrite.
+
+Currently, they are packaged as pure Svelte components - e.g. are not shipped as custom elements. If your concrete use case needs their usage in another language, please reach out.
+
 ## Usage
 
 Following chapters guide you to use the library.

@@ -6,7 +6,7 @@
 
 <h1>GIX Components</h1>
 
-<p>A UI kit developed in Svelte by the GIX team.</p>
+<p>A UI kit developed by the GIX team.</p>
 
 <CardGrid>
   <Card role="link" on:click={() => goto("/start")}>
