@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://papy.rs/sitemap/sitemap-index.xml
+Host: https://papy.rs

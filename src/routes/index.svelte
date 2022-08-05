@@ -4,7 +4,7 @@
   import { goto } from "$app/navigation";
 </script>
 
-<h1>Gix components</h1>
+<h1>Gix Components</h1>
 
 <p>A UI kit developed in Svelte by the Gix team.</p>
 
