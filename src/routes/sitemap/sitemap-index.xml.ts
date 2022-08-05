@@ -1,6 +1,6 @@
 import type { ResponseBody } from "@sveltejs/kit";
 
-const url = "https://papy.rs/";
+const url = "https://ipi2f-uqaaa-aaaad-aabza-cai.ic0.app/";
 
 const staticPages: string[] = [];
 
