@@ -1,13 +1,13 @@
-import type {ResponseBody} from '@sveltejs/kit';
+import type { ResponseBody } from "@sveltejs/kit";
 
-const url = 'https://papy.rs/';
+const url = "https://papy.rs/";
 
 const staticPages: string[] = [];
 
 export const GET = async (): Promise<ResponseBody> => {
   const headers: Record<string, string> = {
-    'Cache-Control': 'max-age=3600',
-    'Content-Type': 'application/xml'
+    "Cache-Control": "max-age=3600",
+    "Content-Type": "application/xml",
   };
 
   return {
@@ -33,7 +33,7 @@ export const GET = async (): Promise<ResponseBody> => {
         <priority>0.7</priority>
       </url>`
         )
-        .join('')}
-    </urlset>`
+        .join("")}
+    </urlset>`,
   };
 };
