@@ -1,0 +1,22 @@
+name: Next Publication
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  publish:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Package next
+        run: ./scripts/package-next
+      - name: Set up npm
+        run: printf '%s\n' '//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}' registry=https://registry.npmjs.org/ always-auth=true >> .npmrc
+      - name: Publish
+        run: npm publish --tag next
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          working-directory: ./package
