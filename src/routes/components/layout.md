@@ -6,7 +6,7 @@ Layout component is used to create the main layout of a dapp. It renders the `<T
 <Layout>
   <h4 slot="title">My dapp page</h4>
 
-  <svelte:fragment slot="menu">
+  <svelte:fragment slot="menu-items">
     <MenuItem href="/" on:click>
       Home
     </MenuItem>
