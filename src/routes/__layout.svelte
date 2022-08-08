@@ -1,7 +1,6 @@
 <script lang="ts">
   import Layout from "$lib/components/Layout.svelte";
   import DocsMenu from "$docs/components/DocsMenu.svelte";
-  import Back from "$lib/components/Back.svelte";
   import { page } from "$app/stores";
   import { goto, afterNavigate } from "$app/navigation";
 
@@ -18,9 +17,7 @@
   $: back = ($page.routeId ?? "").includes("/");
 </script>
 
-<Layout {back}>
-  <Back slot="back" on:nnsBack={async () => await goBack()} />
-
+<Layout {back} on:nnsBack={async () => await goBack()}>
   <h4 slot="title">GIX Components</h4>
 
   <DocsMenu slot="menu-items" on:click />

@@ -3,6 +3,7 @@
   import Menu from "$lib/components/Menu.svelte";
   import Toolbar from "$lib/components/Toolbar.svelte";
   import MenuButton from "$lib/components/MenuButton.svelte";
+  import Back from "$lib/components/Back.svelte";
 
   export let back = false;
 
@@ -15,7 +16,7 @@
     <Toolbar>
       <svelte:fragment slot="start">
         {#if back}
-          <slot name="back" />
+          <Back slot="back" on:nnsBack />
         {:else}
           <MenuButton bind:open />
         {/if}
