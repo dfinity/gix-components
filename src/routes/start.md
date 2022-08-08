@@ -1,6 +1,6 @@
 # Getting Started
 
-Welcome to Gix Components! Gix Components are currently used in [NNS-dapp](https://nns.ic0.app/). If you’re just getting started with designing or developing a (client side) dapp for the [Internet Computer](https://internetcomputer.org/), you’re in the right place.
+Welcome to GIX Components! GIX Components are currently used in [NNS-dapp](https://nns.ic0.app/). If you’re just getting started with designing or developing a (client side) dapp for the [Internet Computer](https://internetcomputer.org/), you’re in the right place.
 
 ## Principles
 
@@ -29,6 +29,12 @@ Install `gix-components` as a dependency.
 ```bash
 npm i @dfinity/gix-components
 ```
+
+## Technology
+
+GIX components are developed with [SvelteKit](https://kit.svelte.dev/). They were originally developed in Svelte for the [NNS-dapp](https://github.com/dfinity/nns-dapp/) rewrite.
+
+Currently, they are packaged as pure Svelte components - e.g. are not shipped as custom elements. If your concrete use case needs their usage in another language, please reach out.
 
 ## Usage
 
