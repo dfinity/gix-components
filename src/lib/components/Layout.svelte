@@ -22,6 +22,8 @@
       </svelte:fragment>
 
       <slot name="title" />
+
+      <slot name="more" slot="end" />
     </Toolbar>
   </header>
 
