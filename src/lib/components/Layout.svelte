@@ -24,7 +24,7 @@
 
       <slot name="title" />
 
-      <slot name="more" slot="end" />
+      <slot name="toolbar-end" slot="end" />
     </Toolbar>
   </header>
 
