@@ -22,14 +22,14 @@ Layout component is used to create the main layout of a dapp. It renders the `<T
 ## Properties
 
 | Property | Description                                                     | Type      | Default |
-|----------|-----------------------------------------------------------------|-----------|---------|
+| -------- | --------------------------------------------------------------- | --------- | ------- |
 | `back`   | Display an arrowed `back` button instead of the hamburger menu. | `boolean` | `false` |
 
 ## Slots
 
-| Slot name    | Description                                                                                                       |
-|--------------|-------------------------------------------------------------------------------------------------------------------|
-| Defautl slot | The default main section content.                                                                                 |
-| `title`      | The title of the page displayed centered in the toolbar.                                                          |
-| `menu-items` | The items of the menu - i.e. the links of the menu.                                                               |
-| `more`       | Addition options display on the right side of the toolbar.                                                        |
+| Slot name    | Description                                                |
+| ------------ | ---------------------------------------------------------- |
+| Defautl slot | The default main section content.                          |
+| `title`      | The title of the page displayed centered in the toolbar.   |
+| `menu-items` | The items of the menu - i.e. the links of the menu.        |
+| `more`       | Addition options display on the right side of the toolbar. |
