@@ -3,14 +3,17 @@
   import DocsMenu from "$docs/components/DocsMenu.svelte";
   import Back from "$lib/components/Back.svelte";
   import { page } from "$app/stores";
-  import { goto } from "$app/navigation";
+  import { goto, afterNavigate } from "$app/navigation";
 
+  let navHistory: { from: URL | null; to: URL }[] = [];
   let back = false;
 
-  const goBack = async (defaultRoute = "/") => {
-    const { referrer } = document;
-    return goto(referrer.length > 0 ? referrer : defaultRoute);
-  };
+  const goBack = async (defaultRoute = "/") =>
+    navHistory.length === 1
+      ? goto(defaultRoute, { replaceState: true })
+      : history.back();
+
+  afterNavigate((navigation) => (navHistory = [navigation, ...navHistory]));
 
   $: back = ($page.routeId ?? "").includes("/");
 </script>
