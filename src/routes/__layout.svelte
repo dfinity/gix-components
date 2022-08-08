@@ -18,7 +18,7 @@
 <Layout {back}>
   <Back slot="back" on:nnsBack={async () => await goBack()} />
 
-  <h4 slot="title">Gix Components</h4>
+  <h4 slot="title">GIX Components</h4>
 
   <DocsMenu slot="menu-items" on:click />
 
