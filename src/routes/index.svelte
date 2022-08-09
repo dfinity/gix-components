@@ -23,12 +23,14 @@
     <h2 class="title" slot="start">Components</h2>
 
     <p>
-      Browse all user interface components that can be used in your <a
-        href="https://svelte.dev/"
-        rel="external noopener noreferrer"
-        target="_blank">Svelte</a
-      > project.
+      Browse all user interface components that can be used in your project.
     </p>
+  </Card>
+
+  <Card role="link" on:click={() => goto("/icons")}>
+    <h2 class="title" slot="start">Icons</h2>
+
+    <p>Draw attention to important information with any icons provided by the design kit.</p>
   </Card>
 
   <Card role="link" on:click={() => goto("/resources")}>
