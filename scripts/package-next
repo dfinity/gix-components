@@ -3,8 +3,9 @@ set -eux
 
 npm ci
 
-: Update the version to SEMANTIC_VERSION-next-DATE e.g. 0.0.1-next-2022-08-05T15:02
+: Package first
+npm run package
+
+: Then update the version in the package to SEMANTIC_VERSION-next-DATE e.g. 0.0.1-next-2022-08-05T15:02
 node ./scripts/update-version.mjs
 
-: Now we can package
-npm run package
