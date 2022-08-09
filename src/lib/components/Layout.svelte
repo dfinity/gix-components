@@ -3,8 +3,10 @@
   import Menu from "$lib/components/Menu.svelte";
   import Toolbar from "$lib/components/Toolbar.svelte";
   import MenuButton from "$lib/components/MenuButton.svelte";
+  import Back from "$lib/components/Back.svelte";
 
   export let back = false;
+  export let modern = true;
 
   let sticky: boolean;
   let open: boolean;
@@ -15,13 +17,15 @@
     <Toolbar>
       <svelte:fragment slot="start">
         {#if back}
-          <slot name="back" />
+          <Back slot="back" on:nnsBack />
         {:else}
           <MenuButton bind:open />
         {/if}
       </svelte:fragment>
 
       <slot name="title" />
+
+      <slot name="toolbar-end" slot="end" />
     </Toolbar>
   </header>
 
@@ -29,7 +33,21 @@
     <slot name="menu-items" />
   </Menu>
 
-  <main>
+  <main class:nns={!modern}>
     <slot />
   </main>
 </SplitPane>
+
+<style lang="scss">
+  @use "../styles/mixins/media";
+
+  .nns {
+    margin: inherit;
+    padding: inherit;
+    max-width: inherit;
+
+    @include media.min-width(medium) {
+      padding: inherit;
+    }
+  }
+</style>

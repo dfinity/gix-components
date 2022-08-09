@@ -6,7 +6,7 @@ Layout component is used to create the main layout of a dapp. It renders the `<T
 <Layout>
   <h4 slot="title">My dapp page</h4>
 
-  <svelte:fragment slot="menu">
+  <svelte:fragment slot="menu-items">
     <MenuItem href="/" on:click>
       Home
     </MenuItem>
@@ -21,12 +21,16 @@ Layout component is used to create the main layout of a dapp. It renders the `<T
 
 ## Properties
 
-None.
+| Property | Description                                                                | Type      | Default |
+| -------- | -------------------------------------------------------------------------- | --------- | ------- |
+| `back`   | Display an arrowed `back` button instead of the hamburger menu.            | `boolean` | `false` |
+| `modern` | Backwards compatibility for deprecated layout. Will ultimately be removed. | `boolean` | `true`  |
 
 ## Slots
 
-| Slot name    | Description                                              |
-| ------------ | -------------------------------------------------------- |
-| Defautl slot | The default main section content.                        |
-| `title`      | The title of the page displayed centered in the toolbar. |
-| `menu-items` | The items of the menu - i.e. the links of the menu.      |
+| Slot name     | Description                                               |
+| ------------- | --------------------------------------------------------- |
+| Defautl slot  | The default main section content.                         |
+| `title`       | The title of the page displayed centered in the toolbar.  |
+| `menu-items`  | The items of the menu - i.e. the links of the menu.       |
+| `toolbar-end` | An element that can be added to the `end` of the toolbar. |
