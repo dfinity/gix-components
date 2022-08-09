@@ -30,7 +30,10 @@
   <Card role="link" on:click={() => goto("/icons")}>
     <h2 class="title" slot="start">Icons</h2>
 
-    <p>Draw attention to important information with any icons provided by the design kit.</p>
+    <p>
+      Draw attention to important information with any icons provided by the
+      design kit.
+    </p>
   </Card>
 
   <Card role="link" on:click={() => goto("/resources")}>
