@@ -21,14 +21,15 @@
     align-items: center;
 
     :global(svg) {
-      width: 36px;
-      height: 36px;
-      margin: var(--padding);
+      width: 24px;
+      height: 24px;
+      margin: var(--padding-0_5x) var(--padding-0_5x) 0;
+      color: var(--background-contrast);
     }
   }
 
   span {
     font-size: var(--font-size-ultra-small);
-    margin: var(--padding-0_5x) 0;
+    margin: var(--padding) 0;
   }
 </style>
