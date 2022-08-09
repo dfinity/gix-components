@@ -24,6 +24,11 @@
     text-decoration: none;
     outline: none;
 
+    &:focus,
+    &:hover {
+      text-decoration: none;
+    }
+
     padding: var(--padding-2x);
 
     &.selected {

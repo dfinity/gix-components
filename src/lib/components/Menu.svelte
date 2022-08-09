@@ -1,6 +1,8 @@
 <script lang="ts">
   import Backdrop from "./Backdrop.svelte";
   import { cubicOut } from "svelte/easing";
+  import { i18n } from "../stores/i18n";
+  import IconClose from "../icons/IconClose.svelte";
 
   // Type is not exposed by Svelte
   type SvelteTransitionConfig = {
@@ -41,6 +43,15 @@
     {/if}
 
     <div class="inner" transition:transition on:click={() => (open = false)}>
+      {#if !sticky}
+        <button
+          on:click={() => (open = false)}
+          aria-label={$i18n.core.close}
+          data-tid="menu-close"
+          class="close icon-only"><IconClose /></button
+        >
+      {/if}
+
       <slot />
     </div>
   </div>
@@ -89,5 +100,16 @@
     padding: var(--padding-4x) 0 0;
 
     overflow-y: auto;
+  }
+
+  .close {
+    align-self: flex-start;
+    display: flex;
+    margin: 0 var(--padding-0_5x) var(--padding);
+
+    :global(svg) {
+      width: var(--padding-6x);
+      height: var(--padding-6x);
+    }
   }
 </style>
