@@ -8,7 +8,7 @@
 <h1>Icons</h1>
 
 <p>
-  Icon components are simple wrappers around SVG elements with occasionally some
+  Icon components are simple wrapper around SVG elements with occasionally some
   additional properties such as <code>size</code> option.
 </p>
 
