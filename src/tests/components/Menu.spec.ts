@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-import {render, type RenderResult, waitFor} from "@testing-library/svelte";
+import { render, type RenderResult, waitFor } from "@testing-library/svelte";
 import Menu from "$lib/components/Menu.svelte";
 import MenuTest from "./MenuTest.svelte";
 
@@ -34,7 +34,7 @@ describe("Menu", () => {
     });
 
     const backdrop: HTMLDivElement | null =
-        container.querySelector("div.backdrop");
+      container.querySelector("div.backdrop");
 
     expect(backdrop).not.toBeNull();
   });
@@ -47,7 +47,7 @@ describe("Menu", () => {
     });
 
     const backdrop: HTMLDivElement | null =
-        container.querySelector("div.backdrop");
+      container.querySelector("div.backdrop");
 
     expect(backdrop).toBeNull();
   });
