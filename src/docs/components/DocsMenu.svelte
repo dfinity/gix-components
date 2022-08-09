@@ -19,6 +19,9 @@
 >
   Components
 </MenuItem>
+<MenuItem href="/icons" selected={pathname.startsWith("/icons")} on:click>
+  Icons
+</MenuItem>
 <MenuItem href="/resources" selected={pathname === "/resources"} on:click>
   Resources
 </MenuItem>
