@@ -6,7 +6,7 @@ Gix Components is a UI kit developed with [SvelteKit](https://kit.svelte.dev) by
 
 The component library is in active development, and new features will incrementally be available.
 
-A full documentation will be available shortly as well.
+Its documentation is constantly improved and deployed on the IC: [https://ipi2f-uqaaa-aaaad-aabza-cai.ic0.app/](https://ipi2f-uqaaa-aaaad-aabza-cai.ic0.app/)
 
 ## Installation
 
