@@ -22,7 +22,7 @@ Layout component is used to create the main layout of a dapp. It renders the `<T
 ## Properties
 
 | Property | Description                                                                | Type      | Default |
-|----------|----------------------------------------------------------------------------| --------- |---------|
+| -------- | -------------------------------------------------------------------------- | --------- | ------- |
 | `modern` | Backwards compatibility for deprecated layout. Will ultimately be removed. | `boolean` | `true`  |
 
 ## Slots
