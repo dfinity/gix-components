@@ -8,3 +8,7 @@ export { default as Toolbar } from "./components/Toolbar.svelte";
 export { default as Back } from "./components/Back.svelte";
 export { default as Card } from "./components/Card.svelte";
 export { default as CardGrid } from "./components/CardGrid.svelte";
+export { default as IconArrowRight } from "./components/IconArrowRight.svelte";
+export { default as IconBackIosNew } from "./components/IconBackIosNew.svelte";
+export { default as IconClose } from "./components/IconClose.svelte";
+export { default as IconMenu } from "./components/IconMenu.svelte";
