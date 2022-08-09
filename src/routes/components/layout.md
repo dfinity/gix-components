@@ -21,9 +21,10 @@ Layout component is used to create the main layout of a dapp. It renders the `<T
 
 ## Properties
 
-| Property | Description                                                     | Type      | Default |
-| -------- | --------------------------------------------------------------- | --------- | ------- |
-| `back`   | Display an arrowed `back` button instead of the hamburger menu. | `boolean` | `false` |
+| Property | Description                                                                | Type      | Default |
+| -------- | -------------------------------------------------------------------------- | --------- | ------- |
+| `back`   | Display an arrowed `back` button instead of the hamburger menu.            | `boolean` | `false` |
+| `modern` | Backwards compatibility for deprecated layout. Will ultimately be removed. | `boolean` | `true`  |
 
 ## Slots
 
