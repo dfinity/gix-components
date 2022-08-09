@@ -21,11 +21,17 @@
 <style lang="scss">
   @use "../lib/styles/mixins/media";
 
-  div  {
+  div {
     display: grid;
     --grid-columns: 4;
     --grid-max-width: min(var(--section-max-width), 100%);
-    grid-template-columns: repeat(var(--grid-columns), calc((var(--grid-max-width) - ((var(--grid-columns) - 1) * var(--padding))) / var(--grid-columns)));
+    grid-template-columns: repeat(
+      var(--grid-columns),
+      calc(
+        (var(--grid-max-width) - ((var(--grid-columns) - 1) * var(--padding))) /
+          var(--grid-columns)
+      )
+    );
     grid-gap: var(--padding);
 
     margin: var(--padding-4x) 0;

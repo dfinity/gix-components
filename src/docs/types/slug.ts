@@ -1,8 +1,8 @@
 export interface Slug {
-    slug: string;
+  slug: string;
 }
 
 export interface SlugIcon {
-    name: string;
-    svg: string;
+  name: string;
+  svg: string;
 }
