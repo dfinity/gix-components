@@ -27,3 +27,50 @@ table {
     font-size: var(--font-size-small);
   }
 }
+
+// Spacing and font-size of the content
+main {
+  & > h1:first-of-type {
+    font-size: var(--font-size-huge);
+  }
+
+  & > h2,
+  & > .grid {
+    margin-top: var(--padding-4x);
+
+    &:not(:first-of-type) {
+      margin-top: var(--padding-6x);
+    }
+  }
+
+  & > h3,
+  & > ul {
+    margin-top: var(--padding-3x);
+  }
+
+  table,
+  pre[class*="language-"] {
+    margin: var(--padding-3x) 0;
+  }
+}
+
+// Code fonts
+p code {
+  font-size: var(--font-size-small);
+  background: #2d2d2d;
+  padding: var(--padding-0_5x);
+  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+}
+
+// Content link color
+main {
+  a {
+    font-size: inherit;
+    text-decoration: underline;
+
+    &:focus,
+    &:hover {
+      color: var(--primary);
+    }
+  }
+}
