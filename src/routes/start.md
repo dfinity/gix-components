@@ -67,7 +67,7 @@ A particular mode can be defined by setting a corresponding attribute `theme` on
 
 ### Fonts
 
-`CircularXX` is the copyrighted font used to make the typography shine. If you own the copyright, the [fonts](https://github.com/dfinity/gix-components/tree/main/static) folder - providing `CircularXXWeb-Bold.woff2` and `CircularXXWeb-Regular.woff2` - can be copied to the `assets` folder of your dapp - e.g. `https://canister-id.ic0.app/assets/fonts/`.
+`CircularXX` is the copyrighted font used to make the typography shine. If you own the copyright, the [fonts](https://github.com/dfinity/gix-components/tree/main/static) folder - providing `CircularXXWeb-Bold.woff2` and `CircularXXWeb-Regular.woff2` - can be copied to the `assets` folder of your dapp - e.g. `https://canister-id.ic0.app/assets/fonts/...`.
 
 Otherwise, specify another global `font-family` that shall be used on the `body` element.
 
