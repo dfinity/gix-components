@@ -7,6 +7,8 @@
 
   export let pageLimit: number = DEFAULT_LIST_PAGINATION_LIMIT;
 
+  // IntersectionObserverInit is not recognized by the linter
+  // eslint-disable-next-line no-undef
   export let options: IntersectionObserverInit = {
     rootMargin: "300px",
     threshold: 0,

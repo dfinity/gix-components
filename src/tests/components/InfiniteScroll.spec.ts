@@ -15,9 +15,11 @@ import {
 import InfiniteScrollTest from "./InfiniteScrollTest.svelte";
 
 describe("InfiniteScroll", () => {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore: test file
   beforeAll(() => (global.IntersectionObserver = IntersectionObserverActive));
 
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore: test file
   afterAll(() => (global.IntersectionObserver = IntersectionObserverPassive));
 
