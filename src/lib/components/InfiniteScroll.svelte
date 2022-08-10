@@ -7,15 +7,6 @@
 
   export let pageLimit: number = DEFAULT_LIST_PAGINATION_LIMIT;
 
-  /**
-   * The Infinite Scroll component calls an action to be performed when the user scrolls a specified distance from the bottom or top of the page.
-   *
-   * Usage: To be wrapped around loops `<InfiniteScroll>{#each ...}</InfiniteScroll>`
-   *
-   * The component observe the elements of the list using the IntersectionObserver.
-   * It sets the reference after each re-render of the list. Pay attention to not trigger unnecessary updates.
-   */
-
   export let options: IntersectionObserverInit = {
     rootMargin: "300px",
     threshold: 0,

@@ -25,6 +25,7 @@ table {
     text-align: left;
     vertical-align: top;
     font-size: var(--font-size-small);
+    word-break: break-word;
   }
 }
 
@@ -61,6 +62,10 @@ p code {
   padding: 1px var(--padding-0_5x);
   font-family: inherit;
   font-size: inherit;
+}
+
+p strong {
+  color: #ffffff;
 }
 
 // Content link color
