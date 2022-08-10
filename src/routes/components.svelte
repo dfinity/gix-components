@@ -10,7 +10,9 @@
   <article>
     Infinite scroll
 
-    <span>Calls an action when the user scrolls a specified distance in a list.</span>
+    <span
+      >Calls an action when the user scrolls a specified distance in a list.</span
+    >
   </article>
 </a>
 

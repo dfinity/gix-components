@@ -18,17 +18,17 @@ It sets the reference after each re-render of the list. **Pay attention to not t
 ## Properties
 
 | Property    | Description                                    | Type     | Detail                              |
-|-------------|------------------------------------------------|----------|-------------------------------------|
+| ----------- | ---------------------------------------------- | -------- | ----------------------------------- |
 | `pageLimit` | How many items each pagination group contains? | `number` | `DEFAULT_LIST_PAGINATION_LIMIT=100` |
 
 ## Events
 
 | Event          | Description                                                                                                | Detail    |
-|----------------|------------------------------------------------------------------------------------------------------------|-----------|
+| -------------- | ---------------------------------------------------------------------------------------------------------- | --------- |
 | `nnsIntersect` | Triggered each time the next observed item is intersecting. The event that can be use to call your action. | No detail |
 
 ## Slots
 
-| Slot name     | Description                                 |
-| ------------- |---------------------------------------------|
-| Defautl slot  | The list of elements. Should be `li` nodes. |
+| Slot name    | Description                                 |
+| ------------ | ------------------------------------------- |
+| Defautl slot | The list of elements. Should be `li` nodes. |
