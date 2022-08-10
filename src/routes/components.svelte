@@ -28,7 +28,9 @@
 
 <ul>
   <li>Card</li>
-  <li>Back, menu, menubutton, menuitem, splitpane (maybe, included in layout)</li>
+  <li>
+    Back, menu, menubutton, menuitem, splitpane (maybe, included in layout)
+  </li>
   <li>Toolbar (maybe, included in layout)</li>
   <li>Backdrop (maybe, included in overlays)</li>
 </ul>

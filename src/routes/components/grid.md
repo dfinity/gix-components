@@ -6,13 +6,13 @@ Such layout is commonly use in the `main` content to spread cards.
 
 ```html
 <div class="grid">
-    <Card>
-        <h2 class="title" slot="start">Title A.</h2>
-    </Card>
-    
-    <Card>
-        <h2 class="title" slot="start">Title B.</h2>
-    </Card>
+  <Card>
+    <h2 class="title" slot="start">Title A.</h2>
+  </Card>
+
+  <Card>
+    <h2 class="title" slot="start">Title B.</h2>
+  </Card>
 </div>
 ```
 
