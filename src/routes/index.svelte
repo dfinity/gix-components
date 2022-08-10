@@ -1,5 +1,4 @@
 <script>
-  import CardGrid from "$lib/components/CardGrid.svelte";
   import Card from "$lib/components/Card.svelte";
   import { goto } from "$app/navigation";
 </script>
@@ -8,7 +7,7 @@
 
 <p>A UI kit developed by the GIX team.</p>
 
-<CardGrid>
+<div class="grid">
   <Card role="link" on:click={() => goto("/start")}>
     <h2 class="title" slot="start">Getting Started</h2>
 
@@ -41,4 +40,4 @@
 
     <p>Useful resources and links.</p>
   </Card>
-</CardGrid>
+</div>
