@@ -2,10 +2,8 @@
 
 main {
   height: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
+  width: 100%;
 
-  margin: 0 auto;
   padding: var(--padding-4x) var(--padding-2x);
   max-width: var(--max-main-content-width);
   box-sizing: border-box;
