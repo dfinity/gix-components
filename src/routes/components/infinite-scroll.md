@@ -17,9 +17,10 @@ It sets the reference after each re-render of the list. **Pay attention to not t
 
 ## Properties
 
-| Property    | Description                                    | Type     | Detail                              |
-| ----------- | ---------------------------------------------- | -------- | ----------------------------------- |
-| `pageLimit` | How many items each pagination group contains? | `number` | `DEFAULT_LIST_PAGINATION_LIMIT=100` |
+| Property    | Description                                                              | Type             | Detail                              |
+| ----------- | ------------------------------------------------------------------------ | ---------------- | ----------------------------------- |
+| `pageLimit` | How many items each pagination group contains?                           | `number`         | `DEFAULT_LIST_PAGINATION_LIMIT=100` |
+| `layout`    | Display of the rendered items. Defined by a class set on `ul` container. | `list` or `grid` | `list`                              |
 
 ## Events
 
