@@ -22,6 +22,12 @@
 
     <p>A grid based columns container to spread content.</p>
   </Card>
+
+  <Card role="link" on:click={() => goto("/components/infinite-scroll")}>
+    <h2 class="title" slot="start">Infinite scroll</h2>
+
+    <p>Calls an action when the user scrolls a specified distance in a list.</p>
+  </Card>
 </div>
 
 <p>TODO docs:</p>
