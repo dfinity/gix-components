@@ -14,7 +14,9 @@
     grid-template-columns: 1fr 1fr 1fr;
   }
 
-  :global(article) {
+  :global(article:first-of-type) {
     margin: 0;
+    height: 100%;
+    box-sizing: border-box;
   }
 }
