@@ -6,6 +6,7 @@
   } from "$lib/constants/constants";
 
   export let pageLimit: number = DEFAULT_LIST_PAGINATION_LIMIT;
+  export let layout: "list" | "grid" = "list";
 
   // IntersectionObserverInit is not recognized by the linter
   // eslint-disable-next-line no-undef
@@ -94,7 +95,7 @@
   onDestroy(() => observer.disconnect());
 </script>
 
-<ul bind:this={container}>
+<ul bind:this={container} class:layout>
   <slot />
 </ul>
 
