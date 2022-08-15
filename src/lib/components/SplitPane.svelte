@@ -32,6 +32,12 @@
   .content {
     position: relative;
     width: 100%;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    display: flex;
+    justify-content: center;
   }
 
   @include media.min-width(xlarge) {
