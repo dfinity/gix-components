@@ -1,19 +1,42 @@
+<script lang="ts">
+  import Card from "../lib/components/Card.svelte";
+  import { goto } from "$app/navigation";
+</script>
+
 <h1>Components</h1>
 
-// TODO: card grid and a card per component
+<p>
+  The UI elements that you can inject into your project either by using the
+  components or through styles.
+</p>
 
-<a href="/components/layout">
-  <article>Layout</article>
-</a>
+<div class="grid">
+  <Card role="link" on:click={() => goto("/components/layout")}>
+    <h2 class="title" slot="start">Layout</h2>
 
-<a href="/components/infinite-scroll">
-  <article>
-    Infinite scroll
+    <p>Header, menu and footer. The structure of your dapp.</p>
+  </Card>
 
-    <span
-      >Calls an action when the user scrolls a specified distance in a list.</span
-    >
-  </article>
-</a>
+  <Card role="link" on:click={() => goto("/components/grid")}>
+    <h2 class="title" slot="start">Grid</h2>
 
-// TODO: document "Back", "CardGrid" and "Card"
+    <p>A grid based columns container to spread content.</p>
+  </Card>
+
+  <Card role="link" on:click={() => goto("/components/infinite-scroll")}>
+    <h2 class="title" slot="start">Infinite scroll</h2>
+
+    <p>Calls an action when the user scrolls a specified distance in a list.</p>
+  </Card>
+</div>
+
+<p>TODO docs:</p>
+
+<ul>
+  <li>Card</li>
+  <li>
+    Back, menu, menubutton, menuitem, splitpane (maybe, included in layout)
+  </li>
+  <li>Toolbar (maybe, included in layout)</li>
+  <li>Backdrop (maybe, included in overlays)</li>
+</ul>
