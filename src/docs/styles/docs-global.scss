@@ -34,18 +34,22 @@ main {
     font-size: var(--font-size-huge);
   }
 
+  & > h2 {
+    font-size: 2.441rem;
+  }
+
   & > h2,
   & > .grid {
-    margin-top: var(--padding-4x);
+    margin-top: var(--padding-6x);
 
     &:not(:first-of-type) {
-      margin-top: var(--padding-6x);
+      margin-top: var(--padding-8x);
     }
   }
 
   & > h3,
   & > ul {
-    margin-top: var(--padding-3x);
+    margin-top: var(--padding-4x);
   }
 
   table,
