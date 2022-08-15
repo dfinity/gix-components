@@ -95,7 +95,7 @@
   onDestroy(() => observer.disconnect());
 </script>
 
-<ul bind:this={container} class:layout>
+<ul bind:this={container} class={layout}>
   <slot />
 </ul>
 
