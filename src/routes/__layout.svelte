@@ -23,7 +23,9 @@
 
   <DocsMenu slot="menu-items" on:click />
 
-  <slot />
+  <main>
+    <slot />
+  </main>
 </Layout>
 
 <style lang="scss" global>
