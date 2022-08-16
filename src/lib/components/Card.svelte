@@ -53,6 +53,7 @@
   @use "../styles/mixins/interaction";
   @use "../styles/mixins/media";
   @use "../styles/mixins/display";
+  @use "../styles/mixins/card";
 
   article {
     text-decoration: none;
@@ -124,15 +125,6 @@
   }
 
   div {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-
-    @include media.min-width(small) {
-      @include display.space-between;
-      flex-direction: row;
-
-      margin: 0 0 var(--padding);
-    }
+    @include card.meta;
   }
 </style>
