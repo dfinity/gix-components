@@ -17,6 +17,12 @@
     <p>Header, menu and footer. The structure of your dapp.</p>
   </Card>
 
+  <Card role="link" on:click={() => goto("/components/title")}>
+    <h2 class="title" slot="start">Layout</h2>
+
+    <p>An opinionated container to display a title.</p>
+  </Card>
+
   <Card role="link" on:click={() => goto("/components/grid")}>
     <h2 class="title" slot="start">Grid</h2>
 
