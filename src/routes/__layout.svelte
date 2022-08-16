@@ -3,6 +3,7 @@
   import DocsMenu from "$docs/components/DocsMenu.svelte";
   import { page } from "$app/stores";
   import { goto, afterNavigate } from "$app/navigation";
+  import HeaderTitle from "../lib/components/HeaderTitle.svelte";
 
   let navHistory: { from: URL | null; to: URL }[] = [];
   let back = false;
@@ -18,7 +19,7 @@
 </script>
 
 <Layout {back} on:nnsBack={async () => await goBack()}>
-  <h4 slot="title">GIX Components</h4>
+  <HeaderTitle slot="title">GIX Components</HeaderTitle>
 
   <DocsMenu slot="menu-items" on:click />
 
