@@ -14,7 +14,7 @@
     grid-template-columns: 1fr 1fr 1fr;
   }
 
-  :global(article:first-of-type) {
+  :global(.card) {
     margin: 0;
     height: 100%;
     box-sizing: border-box;
