@@ -1,6 +1,6 @@
 # Layout
 
-Layout component is used to create the main layout of a dapp. It renders the `<Toolbar />`, a `<Menu />` (sticky on wide screen, overlay on mobile) and encapsulates the `<main />` content.
+Layout component is used to create the main layout of a dapp. It renders the `<Toolbar />`, a `<Menu />` (sticky on wide screen, overlay on mobile) and a slotted content.
 
 ```javascript
 <Layout>
@@ -29,8 +29,8 @@ Layout component is used to create the main layout of a dapp. It renders the `<T
 ## Slots
 
 | Slot name     | Description                                               |
-| ------------- | --------------------------------------------------------- |
-| Defautl slot  | The default main section content.                         |
+| ------------- |-----------------------------------------------------------|
+| Defautl slot  | The content.                                              |
 | `title`       | The title of the page displayed centered in the toolbar.  |
 | `menu-items`  | The items of the menu - i.e. the links of the menu.       |
 | `toolbar-end` | An element that can be added to the `end` of the toolbar. |

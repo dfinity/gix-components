@@ -6,7 +6,6 @@
   import Back from "$lib/components/Back.svelte";
 
   export let back = false;
-  export let modern = true;
 
   let sticky: boolean;
   let open: boolean;
@@ -33,21 +32,5 @@
     <slot name="menu-items" />
   </Menu>
 
-  <main class:nns={!modern}>
-    <slot />
-  </main>
+  <slot />
 </SplitPane>
-
-<style lang="scss">
-  @use "../styles/mixins/media";
-
-  .nns {
-    margin: inherit;
-    padding: inherit;
-    max-width: inherit;
-
-    @include media.min-width(medium) {
-      padding: inherit;
-    }
-  }
-</style>

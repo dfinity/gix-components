@@ -4,12 +4,24 @@ main {
   height: fit-content;
   width: 100%;
 
+  margin: 0 auto;
+
   padding: var(--padding-4x) var(--padding-2x);
   max-width: var(--max-main-content-width);
   box-sizing: border-box;
 
   @include media.min-width(medium) {
     padding: var(--padding-4x);
+  }
+
+  &.nns {
+    margin: inherit;
+    padding: inherit;
+    max-width: inherit;
+
+    @include media.min-width(medium) {
+      padding: inherit;
+    }
   }
 }
 
@@ -31,4 +43,11 @@ header {
   color: var(--primary-gradient-contrast);
 
   --toolbar-pointer-events: all;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
