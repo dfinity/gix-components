@@ -3,11 +3,11 @@
  */
 
 import { render } from "@testing-library/svelte";
-import TitleTest from "./TitleTest.svelte";
+import HeaderTitleTest from "./HeaderTitleTest.svelte";
 
-describe("Title", () => {
+describe("HeaderTitle", () => {
   it("should render a slotted content", () => {
-    const { getByText } = render(TitleTest);
+    const { getByText } = render(HeaderTitleTest);
     expect(getByText("test title")).toBeInTheDocument();
   });
 });
