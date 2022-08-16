@@ -31,7 +31,7 @@ Layout component is used to create the layout of a dapp. It renders the `<Toolba
 ## Slots
 
 | Slot name     | Description                                               |
-| ------------- |-----------------------------------------------------------|
+| ------------- | --------------------------------------------------------- |
 | Defautl slot  | The content. See note about composition here under.       |
 | `title`       | The title of the page displayed centered in the toolbar.  |
 | `menu-items`  | The items of the menu - i.e. the links of the menu.       |
@@ -48,8 +48,8 @@ Example 1:
 ```html
 <!-- Your dapp _layout.svelte -->
 <Layout>
-  <Title slot="title">My dapp page</Title>
-  
+  <title slot="title">My dapp page</title>
+
   <slot />
 </Layout>
 
@@ -60,17 +60,16 @@ Example 1:
 
 Example 2:
 
-
 ```html
 <!-- Your dapp _layout.svelte -->
 <Layout>
-  <Title slot="title">My dapp page</Title>
-  
+  <title slot="title">My dapp page</title>
+
   <main>
-      <slot />
+    <slot />
   </main>
-    
-  <footer><slot name="footer" /></footer>  
+
+  <footer><slot name="footer" /></footer>
 </Layout>
 
 <!-- Your dapp index.svelte -->
