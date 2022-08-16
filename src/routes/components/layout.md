@@ -41,7 +41,7 @@ Layout component is used to create the layout of a dapp. It renders the `<Toolba
 
 Although the default slot accepts any type of elements, to implement a responsive layout, it is recommended to use a `main` element that will be styled by the library.
 
-Likewise, if you wish to display some footer action, it is also recommended to use a `footer` element that is automatically positioned too.
+Likewise, if you wish to display some footer action, it is also recommended to use a `footer` element that is automatically absolutely positioned too.
 
 Example 1:
 

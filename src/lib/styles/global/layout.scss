@@ -13,16 +13,6 @@ main {
   @include media.min-width(medium) {
     padding: var(--padding-4x);
   }
-
-  &.legacy {
-    margin: inherit;
-    padding: inherit;
-    max-width: inherit;
-
-    @include media.min-width(medium) {
-      padding: inherit;
-    }
-  }
 }
 
 header {
