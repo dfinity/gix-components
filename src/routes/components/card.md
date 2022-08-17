@@ -46,10 +46,16 @@ Cards are surfaces that display content and optionally actions on a single topic
 
 ## Styling
 
-In addition to the style that is inherited by using the component, the library also exposes few SCSS mixins that can be used to style the content projected in the card.
+In addition to the style that is inherited by using the component, the library also exposes a SCSS mixins that can be used to style the content projected in the card.
+
+```scss
+@use "@dfinity/gix-components/styles/mixins/card";
+```
+
+List of the mixins:
 
 | Mixin           | Description                                                                                                         |
-|-----------------|---------------------------------------------------------------------------------------------------------------------|
+| --------------- | ------------------------------------------------------------------------------------------------------------------- |
 | `stacked-title` | A column commonly use to display two information in `start` and `end` slots.                                        |
 | `list`          | To display a list of information in `ul` without bullet style.                                                      |
 | `list-item`     | Style the `li` within above list.                                                                                   |
@@ -84,4 +90,63 @@ In addition to the style that is inherited by using the component, the library a
         <p>Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>
     </Card>
 
+    <Card>
+        <div slot="start" class="title-block">
+            <span>Stacked title</span>
+            <span>Styling</span>
+        </div>
+
+        <p>Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>
+    </Card>
+
+    <Card>
+        <h3>List styling</h3>
+
+        <ul>
+            <li>First item</li>
+            <li>Second item</li>
+            <li>Third item</li>
+        </ul>
+    </Card>
+
+    <Card>
+        <div class="meta">
+            <span class="value">Meta</span>
+            <span class="value">Styling</span>
+        </div>
+
+        <div class="meta">
+            <span>Label</span>
+            <span class="value">Value</span>
+        </div>
+
+        <div class="meta">
+            <span>Label</span>
+            <span class="value">Value</span>
+        </div>
+
+        <p class="description">A description - Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>
+    </Card>
+
 </div>
+
+<style lang="scss">
+  @use "../../lib/styles/mixins/card";
+
+  .title-block {
+    @include card.stacked-title;
+    @include card.title;
+  }
+
+  ul {
+    @include card.list;
+  }
+
+  li {
+    @include card.list-item;
+  }
+
+  .meta {
+    @include card.meta;
+  }
+</style>
