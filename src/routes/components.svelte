@@ -29,6 +29,12 @@
     <p>A grid based columns container to spread content.</p>
   </Card>
 
+  <Card role="link" on:click={() => goto("/components/card")}>
+    <h2 class="title" slot="start">Card</h2>
+
+    <p>Cards are surfaces that display content and optionally actions on a single topic.</p>
+  </Card>
+
   <Card role="link" on:click={() => goto("/components/infinite-scroll")}>
     <h2 class="title" slot="start">Infinite Scroll</h2>
 
@@ -39,7 +45,6 @@
 <p>TODO docs:</p>
 
 <ul>
-  <li>Card</li>
   <li>
     Back, menu, menubutton, menuitem, splitpane (maybe, included in layout)
   </li>
