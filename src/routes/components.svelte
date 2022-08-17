@@ -32,7 +32,10 @@
   <Card role="link" on:click={() => goto("/components/card")}>
     <h2 class="title" slot="start">Card</h2>
 
-    <p>Cards are surfaces that display content and optionally actions on a single topic.</p>
+    <p>
+      Cards are surfaces that display content and optionally actions on a single
+      topic.
+    </p>
   </Card>
 
   <Card role="link" on:click={() => goto("/components/infinite-scroll")}>

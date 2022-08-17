@@ -23,9 +23,9 @@ Layout component is used to create the layout of a dapp. It renders the `<Toolba
 
 ## Properties
 
-| Property | Description                                                                | Type      | Default |
-| -------- | -------------------------------------------------------------------------- | --------- | ------- |
-| `back`   | Display an arrowed `back` button instead of the hamburger menu.            | `boolean` | `false` |
+| Property | Description                                                     | Type      | Default |
+| -------- | --------------------------------------------------------------- | --------- | ------- |
+| `back`   | Display an arrowed `back` button instead of the hamburger menu. | `boolean` | `false` |
 
 ## Slots
 
