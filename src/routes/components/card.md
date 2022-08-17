@@ -1,3 +1,7 @@
+<script lang="ts">
+    import Card from "$lib/components/Card.svelte";
+</script>
+
 # Card
 
 Cards are surfaces that display content and optionally actions on a single topic. They often serve as an entry point to more detailed information.
@@ -39,3 +43,30 @@ Cards are surfaces that display content and optionally actions on a single topic
 
 ## Showcase
 
+<div class="grid" style="margin-top: var(--padding)">
+    <Card>
+        <h2 slot="start">Start</h2>
+        <h3 slot="end">End</h3>
+
+        <p>A basic card.</p>
+        <p>Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>
+    </Card>
+
+    <Card selected>
+        <h3>Selected</h3>
+        
+        <p>Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>
+    </Card>
+
+    <Card highlighted>
+        <h3>Highlighted</h3>
+
+        <p>Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>
+    </Card>
+
+    <Card withArrow>
+        <h3>Arrow</h3>
+
+        <p>Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>
+    </Card>
+</div>
