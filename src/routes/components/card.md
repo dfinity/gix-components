@@ -48,10 +48,9 @@ Cards are surfaces that display content and optionally actions on a single topic
 
 <div class="grid" style="margin-top: var(--padding)">
     <Card>
-        <h2 slot="start">Start</h2>
-        <h3 slot="end">End</h3>
+        <h3 slot="start">A basic</h3>
+        <h3 slot="end">Card</h3>
 
-        <p>A basic card.</p>
         <p>Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>
     </Card>
 
