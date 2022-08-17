@@ -44,6 +44,18 @@ Cards are surfaces that display content and optionally actions on a single topic
 | ------- | ------------------------------------------ | --------- |
 | `click` | Propagated click event (if not `disabled`. | Inherited |
 
+## Styling
+
+In addition to the style that is inherited by using the component, the library also exposes few SCSS mixins that can be used to style the content projected in the card.
+
+| Mixin           | Description                                                                                                         |
+|-----------------|---------------------------------------------------------------------------------------------------------------------|
+| `stacked-title` | A column commonly use to display two information in `start` and `end` slots.                                        |
+| `list`          | To display a list of information in `ul` without bullet style.                                                      |
+| `list-item`     | Style the `li` within above list.                                                                                   |
+| `title`         | A title that will be truncated on one line if overflow.                                                             |
+| `meta`          | Add space between two information and ensure return to new lines. Commonly used to pressent a `label` and a `value` |
+
 ## Showcase
 
 <div class="grid" style="margin-top: var(--padding)">
