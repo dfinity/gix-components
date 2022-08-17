@@ -12,7 +12,9 @@
 
 <div class="split-pane">
   <slot name="menu" />
-  <div class="content"><slot /></div>
+  <div class="content">
+    <div class="scrollable-content"><slot /></div>
+  </div>
 </div>
 
 <style lang="scss">
@@ -32,12 +34,13 @@
   .content {
     position: relative;
     width: 100%;
+  }
+
+  .scrollable-content {
+    height: 100%;
 
     overflow-x: hidden;
     overflow-y: auto;
-
-    display: flex;
-    justify-content: center;
   }
 
   @include media.min-width(xlarge) {
