@@ -25,7 +25,7 @@ It sets the reference after each re-render of the list. **Pay attention to not t
 ## Slots
 
 | Slot name    | Description                                 |
-|--------------| ------------------------------------------- |
+| ------------ | ------------------------------------------- |
 | Default slot | The list of elements. Should be `li` nodes. |
 
 ## Events
