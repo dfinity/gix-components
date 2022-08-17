@@ -56,6 +56,9 @@
   @use "../styles/mixins/card";
 
   article {
+    display: flex;
+    flex-direction: column;
+
     text-decoration: none;
 
     background: var(--card-background);
@@ -68,6 +71,7 @@
     border-radius: var(--border-radius);
 
     outline: 2px solid transparent;
+
     &.selected {
       outline: 2px solid var(--primary);
     }
