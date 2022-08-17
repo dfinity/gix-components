@@ -38,15 +38,9 @@
 
 @mixin meta {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  @include display.space-between;
 
-  @include media.min-width(small) {
-    @include display.space-between;
-    flex-direction: row;
-
-    margin: 0 0 var(--padding);
-  }
+  margin: 0 0 var(--padding);
 
   :global(.value:last-of-type) {
     text-align: right;
