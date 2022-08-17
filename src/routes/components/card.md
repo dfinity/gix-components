@@ -49,7 +49,7 @@ Cards are surfaces that display content and optionally actions on a single topic
 In addition to the style that is inherited by using the component, the library also exposes few SCSS mixins that can be used to style the content projected in the card.
 
 | Mixin           | Description                                                                                                         |
-|-----------------|---------------------------------------------------------------------------------------------------------------------|
+| --------------- | ------------------------------------------------------------------------------------------------------------------- |
 | `stacked-title` | A column commonly use to display two information in `start` and `end` slots.                                        |
 | `list`          | To display a list of information in `ul` without bullet style.                                                      |
 | `list-item`     | Style the `li` within above list.                                                                                   |
