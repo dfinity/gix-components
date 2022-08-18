@@ -53,8 +53,12 @@
   @use "../styles/mixins/interaction";
   @use "../styles/mixins/media";
   @use "../styles/mixins/display";
+  @use "../styles/mixins/card";
 
   article {
+    display: flex;
+    flex-direction: column;
+
     text-decoration: none;
 
     background: var(--card-background);
@@ -67,6 +71,7 @@
     border-radius: var(--border-radius);
 
     outline: 2px solid transparent;
+
     &.selected {
       outline: 2px solid var(--primary);
     }
@@ -124,15 +129,6 @@
   }
 
   div {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-
-    @include media.min-width(small) {
-      @include display.space-between;
-      flex-direction: row;
-
-      margin: 0 0 var(--padding);
-    }
+    @include card.meta;
   }
 </style>

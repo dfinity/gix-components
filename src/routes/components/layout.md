@@ -23,16 +23,15 @@ Layout component is used to create the layout of a dapp. It renders the `<Toolba
 
 ## Properties
 
-| Property | Description                                                                | Type      | Default |
-| -------- | -------------------------------------------------------------------------- | --------- | ------- |
-| `back`   | Display an arrowed `back` button instead of the hamburger menu.            | `boolean` | `false` |
-| `modern` | Backwards compatibility for deprecated layout. Will ultimately be removed. | `boolean` | `true`  |
+| Property | Description                                                     | Type      | Default |
+| -------- | --------------------------------------------------------------- | --------- | ------- |
+| `back`   | Display an arrowed `back` button instead of the hamburger menu. | `boolean` | `false` |
 
 ## Slots
 
 | Slot name     | Description                                               |
 | ------------- | --------------------------------------------------------- |
-| Defautl slot  | The content. See note about composition here under.       |
+| Default slot  | The content. See note about composition here under.       |
 | `title`       | The title of the page displayed centered in the toolbar.  |
 | `menu-items`  | The items of the menu - i.e. the links of the menu.       |
 | `toolbar-end` | An element that can be added to the `end` of the toolbar. |
