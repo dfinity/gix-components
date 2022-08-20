@@ -1,18 +1,14 @@
-import type { ResponseBody } from "@sveltejs/kit";
-
 const url = "https://ipi2f-uqaaa-aaaad-aabza-cai.ic0.app/";
 
 const staticPages: string[] = [];
 
-export const GET = async (): Promise<ResponseBody> => {
+export const GET = async (): Promise<Response> => {
   const headers: Record<string, string> = {
     "Cache-Control": "max-age=3600",
     "Content-Type": "application/xml",
   };
 
-  return {
-    headers,
-    body: `<?xml version="1.0" encoding="UTF-8" ?>
+  return new Response(`<?xml version="1.0" encoding="UTF-8" ?>
     <urlset
       xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
       xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
@@ -34,6 +30,5 @@ export const GET = async (): Promise<ResponseBody> => {
       </url>`
         )
         .join("")}
-    </urlset>`,
-  };
+    </urlset>`, { headers: headers });
 };
