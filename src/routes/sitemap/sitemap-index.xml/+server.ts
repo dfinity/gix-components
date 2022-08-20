@@ -8,7 +8,8 @@ export const GET = async (): Promise<Response> => {
     "Content-Type": "application/xml",
   };
 
-  return new Response(`<?xml version="1.0" encoding="UTF-8" ?>
+  return new Response(
+    `<?xml version="1.0" encoding="UTF-8" ?>
     <urlset
       xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
       xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
@@ -30,5 +31,7 @@ export const GET = async (): Promise<Response> => {
       </url>`
         )
         .join("")}
-    </urlset>`, { headers: headers });
+    </urlset>`,
+    { headers: headers }
+  );
 };
