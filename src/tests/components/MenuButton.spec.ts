@@ -6,7 +6,7 @@ import { fireEvent, render, type RenderResult } from "@testing-library/svelte";
 import MenuButtonTest from "./MenuButtonTest.svelte";
 
 describe("MenuButton", () => {
-  const openMenu = async ({ getByTestId }: RenderResult) => {
+  const openMenu = async ({ getByTestId }: RenderResult<MenuButtonTest>) => {
     const button = getByTestId("menu") as HTMLButtonElement;
     await fireEvent.click(button);
   };

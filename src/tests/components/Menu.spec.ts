@@ -12,7 +12,7 @@ describe("Menu", () => {
     expect(() => getByRole("menu")).toThrow();
   });
 
-  const openMenu = async ({ getByRole }: RenderResult) => {
+  const openMenu = async ({ getByRole }: RenderResult<Menu>) => {
     await waitFor(() => expect(getByRole("menu")).not.toBeNull());
   };
 
