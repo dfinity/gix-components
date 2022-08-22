@@ -7,7 +7,7 @@
 
 <p>A UI kit developed by the GIX team.</p>
 
-<div class="grid">
+<div class="list-grid">
   <Card role="link" on:click={() => goto("/start")}>
     <h2 class="title" slot="start">Getting Started</h2>
 

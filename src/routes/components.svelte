@@ -10,7 +10,7 @@
   components or through styles.
 </p>
 
-<div class="grid">
+<div class="list-grid">
   <Card role="link" on:click={() => goto("/components/layout")}>
     <h2 class="title" slot="start">Layout</h2>
 
