@@ -1,8 +1,8 @@
 # Infinite Scroll
 
-The Infinite Scroll component calls an action to be performed when the user scrolls a specified distance of the list presented in the page.
+The `<InfiniteScroll />` component calls an action to be performed when the user scrolls a specified distance of the list presented in the page.
 
-```javascript
+```html
 <InfiniteScroll>
   {#each array as data}
     <li>{data}</li>

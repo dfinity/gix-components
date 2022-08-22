@@ -29,6 +29,12 @@
     <p>A grid based columns container to spread content.</p>
   </Card>
 
+  <Card role="link" on:click={() => goto("/components/two-columns")}>
+    <h2 class="title" slot="start">Two Columns</h2>
+
+    <p>A responsive columns based container.</p>
+  </Card>
+
   <Card role="link" on:click={() => goto("/components/card")}>
     <h2 class="title" slot="start">Card</h2>
 

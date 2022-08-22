@@ -1,8 +1,8 @@
 # Layout
 
-Layout component is used to create the layout of a dapp. It renders the `<Toolbar />`, a `<Menu />` (sticky on wide screen, overlay on mobile) and a slotted content.
+`<Layout />` component is used to create the layout of a dapp. It renders the `<Toolbar />`, a `<Menu />` (sticky on wide screen, overlay on mobile) and a slotted content.
 
-```javascript
+```html
 <Layout>
   <Title slot="title">My dapp page</Title>
 
