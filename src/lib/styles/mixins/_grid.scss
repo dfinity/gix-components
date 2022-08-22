@@ -1,0 +1,16 @@
+@use "./media";
+
+@mixin wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--row-gap);
+  width: 100%;
+
+  @include media.min-width(large) {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    place-items: stretch;
+    column-gap: var(--column-gap);
+    min-height: auto;
+  }
+}

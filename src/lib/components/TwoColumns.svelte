@@ -13,20 +13,12 @@
 
 <style lang="scss">
   @use "../styles/mixins/media";
+  @use "../styles/mixins/grid";
 
   .wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: var(--row-gap);
-    width: 100%;
+    @include grid.wrapper;
 
     @include media.min-width(large) {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      place-items: stretch;
-      column-gap: var(--column-gap);
-      min-height: auto;
-
       .start {
         grid-column-start: 1;
         grid-column-end: 6;
