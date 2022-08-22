@@ -4,15 +4,11 @@
 
 ```html
 <Layout>
-  <Title slot="title">My dapp page</Title>
+  <title slot="title">My dapp page</title>
 
   <svelte:fragment slot="menu-items">
-    <MenuItem href="/" on:click>
-      Home
-    </MenuItem>
-    <MenuItem href="/page" on:click>
-      page
-    </MenuItem>
+    <menuitem href="/" on:click> Home </menuitem>
+    <menuitem href="/page" on:click> page </menuitem>
   </svelte:fragment>
 
   <main>

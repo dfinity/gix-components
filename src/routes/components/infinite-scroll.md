@@ -5,7 +5,7 @@ The `<InfiniteScroll />` component calls an action to be performed when the user
 ```html
 <InfiniteScroll>
   {#each array as data}
-    <li>{data}</li>
+  <li>{data}</li>
   {/each}
 </InfiniteScroll>
 ```
