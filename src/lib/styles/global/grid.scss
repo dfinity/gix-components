@@ -36,23 +36,23 @@
 
     grid-template-rows: auto;
     grid-template-areas:
-      "item-a item-a item-a item-a item-a item-a item-b item-b item-b item-b item-b item-b"
-      "item-c item-c item-c item-c item-c item-c item-d item-d item-d item-d item-d item-d";
+      "content-a content-a content-a content-a content-a content-a content-b content-b content-b content-b content-b content-b"
+      "content-c content-c content-c content-c content-c content-c content-d content-d content-d content-d content-d content-d";
   }
 
-  .item-a {
-    grid-area: item-a;
+  .content-a {
+    grid-area: content-a;
   }
 
-  .item-b {
-    grid-area: item-b;
+  .content-b {
+    grid-area: content-b;
   }
 
-  .item-c {
-    grid-area: item-c;
+  .content-c {
+    grid-area: content-c;
   }
 
-  .item-d {
-    grid-area: item-d;
+  .content-d {
+    grid-area: content-d;
   }
 }
