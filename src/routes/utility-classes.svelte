@@ -3,7 +3,7 @@
   import { goto } from "$app/navigation";
 </script>
 
-<h1>Styling</h1>
+<h1>Utility Classes</h1>
 
 <p>
   Global styles and guidelines that you can use in addition to the components to
@@ -12,19 +12,19 @@
 </p>
 
 <div class="card-grid">
-  <Card role="link" on:click={() => goto("/styling/theming")}>
+  <Card role="link" on:click={() => goto("/utility-classes/theming")}>
     <h2 class="title" slot="start">Theming</h2>
 
     <p>Dark and light theme.</p>
   </Card>
 
-  <Card role="link" on:click={() => goto("/styling/text-opacity")}>
+  <Card role="link" on:click={() => goto("/utility-classes/text-opacity")}>
     <h2 class="title" slot="start">Text Opacity</h2>
 
     <p>Emphasize the importance of text blocks.</p>
   </Card>
 
-  <Card role="link" on:click={() => goto("/styling/grids")}>
+  <Card role="link" on:click={() => goto("/utility-classes/grids")}>
     <h2 class="title" slot="start">Grids</h2>
 
     <p>
