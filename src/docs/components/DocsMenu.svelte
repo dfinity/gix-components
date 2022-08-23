@@ -19,7 +19,11 @@
 >
   Components
 </MenuItem>
-<MenuItem href="/utility-classes" selected={pathname.startsWith("/utility-classes")} on:click>
+<MenuItem
+  href="/utility-classes"
+  selected={pathname.startsWith("/utility-classes")}
+  on:click
+>
   Utility Classes
 </MenuItem>
 <MenuItem href="/icons" selected={pathname.startsWith("/icons")} on:click>
