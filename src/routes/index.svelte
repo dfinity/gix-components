@@ -26,6 +26,12 @@
     </p>
   </Card>
 
+  <Card role="link" on:click={() => goto("/styling")}>
+    <h2 class="title" slot="start">Styling</h2>
+
+    <p>Global styles and guidelines to make your dapp shine.</p>
+  </Card>
+
   <Card role="link" on:click={() => goto("/icons")}>
     <h2 class="title" slot="start">Icons</h2>
 
