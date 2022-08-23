@@ -6,18 +6,12 @@
 <h1>Utility Classes</h1>
 
 <p>
-  Global styles and guidelines that you can use in addition to the components to
-  make your project shine and to display the content in a friendly manner that
-  matches well the pre-defined layout of the kit.
+  A collection of (CSS) utility classes that you can use - in addition to the
+  components - to make your project shine and to display the content in a
+  friendly manner that matches well the pre-defined layout of the kit.
 </p>
 
 <div class="card-grid">
-  <Card role="link" on:click={() => goto("/utility-classes/theming")}>
-    <h2 class="title" slot="start">Theming</h2>
-
-    <p>Dark and light theme.</p>
-  </Card>
-
   <Card role="link" on:click={() => goto("/utility-classes/text-opacity")}>
     <h2 class="title" slot="start">Text Opacity</h2>
 

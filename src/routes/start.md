@@ -32,33 +32,15 @@ npm i @dfinity/gix-components
 
 ## Usage
 
-Once the library added to your project, components can be used without further settings. However, you will need to load the global styles.
+Once the library added to your project, components can be use without further settings.
 
-### Load Global Styles
-
-The styles provided by the kit are not pre-compiled - i.e. is not provided as `CSS` files but as `SCSS`. Make sure that a SASS preprocessing is installed in your project.
-
-Within a `script` tag in your layout or app, import the global style of the library.
-
-```html
-<style lang="scss" global>
-  @import "@dfinity/gix-components/styles/global.scss";
-</style>
-```
-
-We do not plan at the moment to bundle `CSS` files as we are using `Sass` in our consumer apps but, if you have such requirements let us know.
+However, you will need to load the global styles (see [Usage](/styling/usage)) and define which theme option (see [Theming](/styling/theming)) you would like to apply to make your dapp looks awesome!
 
 ## Technology
 
 GIX components are developed with [SvelteKit](https://kit.svelte.dev/). They were originally developed in Svelte for the [NNS-dapp](https://github.com/dfinity/nns-dapp/) rewrite.
 
 Currently, they are packaged as pure Svelte components - e.g. are not shipped as custom elements. If your concrete use case needs their usage in another language, please reach out.
-
-## Fonts
-
-`CircularXX` is the copyrighted font used to make the typography shine. If you own the copyright, the [fonts](https://github.com/dfinity/gix-components/tree/main/static) folder - providing `CircularXXWeb-Bold.woff2` and `CircularXXWeb-Regular.woff2` - can be copied to the `assets` folder of your dapp - e.g. `https://canister-id.ic0.app/assets/fonts/...`.
-
-Otherwise, specify another global `font-family` that shall be used on the `body` element.
 
 ## Internationalization
 

@@ -83,3 +83,10 @@ main {
     }
   }
 }
+
+blockquote {
+  margin: var(--padding-2x) 0;
+  background: var(--warning-emphasis);
+  color: var(--warning-emphasis-contrast);
+  padding: var(--padding) var(--padding-2x);
+}

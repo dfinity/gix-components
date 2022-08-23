@@ -29,7 +29,15 @@
   <Card role="link" on:click={() => goto("/utility-classes")}>
     <h2 class="title" slot="start">Utility Classes</h2>
 
-    <p>Global style classes and guidelines to make your dapp shine.</p>
+    <p>
+      A collection of utility classes to make the content of your dapp shine.
+    </p>
+  </Card>
+
+  <Card role="link" on:click={() => goto("/styling")}>
+    <h2 class="title" slot="start">Styling</h2>
+
+    <p>Information and guidelines regarding global styling.</p>
   </Card>
 
   <Card role="link" on:click={() => goto("/icons")}>
