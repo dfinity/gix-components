@@ -41,18 +41,21 @@ On mobile devices, information are listed in a single column, two on medium size
     <h2 class="title" slot="start">Card 1</h2>
 
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porttitor nisi ut mi porttitor facilisis. Fusce sodales, sapien et convallis volutpat, velit lorem lacinia massa, sed dictum libero ex et lectus.</p>
+
   </Card>
 
   <Card>
     <h2 class="title" slot="start">Card 2</h2>
 
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porttitor nisi ut mi porttitor facilisis. Fusce sodales, sapien et convallis volutpat, velit lorem lacinia massa, sed dictum libero ex et lectus.</p>
+
   </Card>
 
   <Card>
     <h2 class="title" slot="start">Card 3</h2>
 
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porttitor nisi ut mi porttitor facilisis. Fusce sodales, sapien et convallis volutpat, velit lorem lacinia massa, sed dictum libero ex et lectus.</p>
+
   </Card>
 </div>
 
@@ -62,13 +65,13 @@ The `.content-grid` can be used to present detailed content. It can render up to
 
 ```html
 <div class="content-grid">
-    <h2 class="content-a">Content A.</h2>
+  <h2 class="content-a">Content A.</h2>
 
-    <h2 class="content-b">Content B.</h2>
+  <h2 class="content-b">Content B.</h2>
 
-    <h2 class="content-c">Content C.</h2>
+  <h2 class="content-c">Content C.</h2>
 
-    <h2 class="content-d">Content D.</h2>
+  <h2 class="content-d">Content D.</h2>
 </div>
 ```
 
@@ -82,4 +85,5 @@ The `.content-grid` can be used to present detailed content. It can render up to
     <p class="content-c">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porttitor nisi ut mi porttitor facilisis. Fusce sodales, sapien et convallis volutpat, velit lorem lacinia massa, sed dictum libero ex et lectus.</p>
 
     <p class="content-d">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porttitor nisi ut mi porttitor facilisis. Fusce sodales, sapien et convallis volutpat, velit lorem lacinia massa, sed dictum libero ex et lectus.</p>
+
 </div>

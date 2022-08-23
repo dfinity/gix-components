@@ -26,7 +26,9 @@
   <Card role="link" on:click={() => goto("/components/grids")}>
     <h2 class="title" slot="start">Grids</h2>
 
-    <p>Various grid styles - based on a 12 columns system - to spread content.</p>
+    <p>
+      Various grid styles - based on a 12 columns system - to spread content.
+    </p>
   </Card>
 
   <Card role="link" on:click={() => goto("/components/card")}>
