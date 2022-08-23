@@ -23,10 +23,10 @@
     <p>An opinionated title for the dapp.</p>
   </Card>
 
-  <Card role="link" on:click={() => goto("/components/grid")}>
-    <h2 class="title" slot="start">Grid</h2>
+  <Card role="link" on:click={() => goto("/components/grids")}>
+    <h2 class="title" slot="start">Grids</h2>
 
-    <p>A grid based columns container to spread content.</p>
+    <p>Various grid styles - based on a 12 columns system - to spread content.</p>
   </Card>
 
   <Card role="link" on:click={() => goto("/components/card")}>
