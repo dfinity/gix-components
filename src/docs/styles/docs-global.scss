@@ -40,7 +40,7 @@ main {
   }
 
   & > h2,
-  & > .list-grid {
+  & > .card-grid {
     margin-top: var(--padding-6x);
 
     &:not(:first-of-type) {

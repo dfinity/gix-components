@@ -5,7 +5,7 @@ The grid is based on a standard 12 columns-sizing approach. It spread the conten
 Such layout is commonly use in the `main` content to spread cards.
 
 ```html
-<div class="list-grid">
+<div class="card-grid">
   <Card>
     <h2 class="title" slot="start">Title A.</h2>
   </Card>

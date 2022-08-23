@@ -1,6 +1,6 @@
 @use "../mixins/media";
 
-.list-grid {
+.card-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--padding-4x);

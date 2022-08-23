@@ -95,7 +95,7 @@
   onDestroy(() => observer.disconnect());
 </script>
 
-<ul bind:this={container} class:list-grid={layout === "grid"}>
+<ul bind:this={container} class:card-grid={layout === "grid"}>
   <slot />
 </ul>
 
