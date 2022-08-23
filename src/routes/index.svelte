@@ -7,7 +7,7 @@
 
 <p>A UI kit developed by the GIX team.</p>
 
-<div class="grid">
+<div class="card-grid">
   <Card role="link" on:click={() => goto("/start")}>
     <h2 class="title" slot="start">Getting Started</h2>
 
@@ -24,6 +24,20 @@
     <p>
       Browse all user interface components that can be used in your project.
     </p>
+  </Card>
+
+  <Card role="link" on:click={() => goto("/utility-classes")}>
+    <h2 class="title" slot="start">Utility Classes</h2>
+
+    <p>
+      A collection of utility classes to make the content of your dapp shine.
+    </p>
+  </Card>
+
+  <Card role="link" on:click={() => goto("/styling")}>
+    <h2 class="title" slot="start">Styling</h2>
+
+    <p>Information and guidelines regarding global styling.</p>
   </Card>
 
   <Card role="link" on:click={() => goto("/icons")}>
