@@ -25,4 +25,10 @@
       Various grid styles - based on a 12 columns system - to spread content.
     </p>
   </Card>
+
+  <Card role="link" on:click={() => goto("/utility-classes/cells")}>
+    <h2 class="title" slot="start">Cells</h2>
+
+    <p>Some pre-defined utilities to set spaces for grid's cells.</p>
+  </Card>
 </div>

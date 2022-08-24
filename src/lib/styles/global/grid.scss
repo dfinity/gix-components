@@ -37,7 +37,8 @@
     grid-template-rows: auto;
     grid-template-areas:
       "content-a content-a content-a content-a content-a content-a content-b content-b content-b content-b content-b content-b"
-      "content-c content-c content-c content-c content-c content-c content-d content-d content-d content-d content-d content-d";
+      "content-c content-c content-c content-c content-c content-c content-d content-d content-d content-d content-d content-d"
+      "content-e content-e content-e content-e content-e content-e content-f content-f content-f content-f content-f content-f";
   }
 
   .content-a {
@@ -54,5 +55,13 @@
 
   .content-d {
     grid-area: content-d;
+  }
+
+  .content-e {
+    grid-area: content-e;
+  }
+
+  .content-f {
+    grid-area: content-f;
   }
 }
