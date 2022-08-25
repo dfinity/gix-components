@@ -22,30 +22,6 @@ body {
   box-sizing: border-box;
 }
 
-// text color helper classes
-.value {
-  color: var(--value-color);
-}
-.label {
-  color: var(--label-color);
-}
-.description {
-  color: var(--description-color);
-}
-
-// TODO: find a better solution.
-.card {
-  .value {
-    color: var(--card-background-contrast);
-  }
-  .label {
-    color: rgba(var(--card-background-contrast-rgb), var(--light-opacity));
-  }
-  .description {
-    color: rgba(var(--card-background-contrast-rgb), var(--very-light-opacity));
-  }
-}
-
 ::-webkit-scrollbar {
   background: var(--background);
 }
