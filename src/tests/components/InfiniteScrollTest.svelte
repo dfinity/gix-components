@@ -2,7 +2,7 @@
   import InfiniteScroll from "$lib/components/InfiniteScroll.svelte";
 
   export let elements: number[];
-  export let disabled: boolean = false;
+  export let disabled = false;
   export let spy: () => void;
 </script>
 

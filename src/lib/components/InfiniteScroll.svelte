@@ -7,7 +7,7 @@
   } from "svelte";
 
   export let layout: "list" | "grid" = "list";
-  export let disabled: boolean = false;
+  export let disabled = false;
 
   // IntersectionObserverInit is not recognized by the linter
   // eslint-disable-next-line no-undef
