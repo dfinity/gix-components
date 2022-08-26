@@ -18,7 +18,7 @@ It sets the reference to the last element of the list after each re-render. **Pa
 ## Properties
 
 | Property   | Description                                                                                                                      | Type             | Default |
-|------------|----------------------------------------------------------------------------------------------------------------------------------|------------------|---------|
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ------- |
 | `layout`   | Display of the rendered items. Defined by a class set on `ul` container.                                                         | `list` or `grid` | `list`  |
 | `disabled` | If `true`, the infinite scroll will stop observing for intersection and therefore, will stop calling the action to be performed. | `boolean`        | `false` |
 

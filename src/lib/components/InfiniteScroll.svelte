@@ -1,5 +1,10 @@
 <script lang="ts">
-  import {afterUpdate, beforeUpdate, createEventDispatcher, onDestroy} from "svelte";
+  import {
+    afterUpdate,
+    beforeUpdate,
+    createEventDispatcher,
+    onDestroy,
+  } from "svelte";
 
   export let layout: "list" | "grid" = "list";
   export let disabled: boolean = false;
@@ -39,7 +44,7 @@
   );
 
   // We disconnect previous observer first. We do want to trigger an intersection in case of layout shifting.
-  beforeUpdate(() => observer.disconnect())
+  beforeUpdate(() => observer.disconnect());
 
   afterUpdate(() => {
     // The DOM has been updated. We reset the observer to the current last HTML element of the infinite list.
@@ -60,13 +65,14 @@
   onDestroy(() => observer.disconnect());
 
   // The infinite scroll "disabled" property is updated. If it becomes "false", the observer should be disconnected.
-  $: disabled, (() => {
-    if (!disabled) {
-      return;
-    }
+  $: disabled,
+    () => {
+      if (!disabled) {
+        return;
+      }
 
-    observer.disconnect();
-  })
+      observer.disconnect();
+    };
 </script>
 
 <ul bind:this={container} class:card-grid={layout === "grid"}>
