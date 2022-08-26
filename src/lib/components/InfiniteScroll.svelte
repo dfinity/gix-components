@@ -50,7 +50,7 @@
     // The DOM has been updated. We reset the observer to the current last HTML element of the infinite list.
 
     // If not children, no element to observe
-    if (container.children.length === 0) {
+    if (container.lastElementChild === null) {
       return;
     }
 
