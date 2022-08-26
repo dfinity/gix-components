@@ -13,14 +13,14 @@ The Infinite Scroll component calls an action to be performed when the user scro
 ## Usage
 
 The component renders a `ul` and observe the elements of the list using the [IntersectionObserver](https://developer.mozilla.org/fr/docs/Web/API/Intersection_Observer_API).
-It sets the reference after each re-render of the list. **Pay attention to not trigger unnecessary updates**.
+It sets the reference to the last element of the list after each re-render. **Pay attention to not trigger unnecessary updates**.
 
 ## Properties
 
-| Property    | Description                                                              | Type             | Detail                              |
-| ----------- | ------------------------------------------------------------------------ | ---------------- | ----------------------------------- |
-| `pageLimit` | How many items each pagination group contains?                           | `number`         | `DEFAULT_LIST_PAGINATION_LIMIT=100` |
-| `layout`    | Display of the rendered items. Defined by a class set on `ul` container. | `list` or `grid` | `list`                              |
+| Property   | Description                                                                                                                      | Type             | Default |
+|------------|----------------------------------------------------------------------------------------------------------------------------------|------------------|---------|
+| `layout`   | Display of the rendered items. Defined by a class set on `ul` container.                                                         | `list` or `grid` | `list`  |
+| `disabled` | If `true`, the infinite scroll will stop observing for intersection and therefore, will stop calling the action to be performed. | `boolean`        | `false` |
 
 ## Slots
 
