@@ -43,7 +43,7 @@
     options
   );
 
-  // We disconnect previous observer first. We do want to trigger an intersection in case of layout shifting.
+  // We disconnect previous observer before any update. We do want to trigger an intersection in case of layout shifting.
   beforeUpdate(() => observer.disconnect());
 
   afterUpdate(() => {
@@ -63,16 +63,6 @@
   });
 
   onDestroy(() => observer.disconnect());
-
-  // The infinite scroll "disabled" property is updated. If it becomes "false", the observer should be disconnected.
-  $: disabled,
-    () => {
-      if (!disabled) {
-        return;
-      }
-
-      observer.disconnect();
-    };
 </script>
 
 <ul bind:this={container} class:card-grid={layout === "grid"}>
