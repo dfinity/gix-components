@@ -36,9 +36,16 @@
 
     grid-template-rows: auto;
     grid-template-areas:
-      "content-a content-a content-a content-a content-a content-b content-b content-b content-b content-b content-b content-b"
-      "content-c content-c content-c content-c content-c content-d content-d content-d content-d content-d content-d content-d"
-      "content-e content-e content-e content-e content-e content-f content-f content-f content-f content-f content-f content-f";
+      "content-a content-a content-a content-a content-a content-a content-b content-b content-b content-b content-b content-b"
+      "content-c content-c content-c content-c content-c content-c content-d content-d content-d content-d content-d content-d"
+      "content-e content-e content-e content-e content-e content-e content-f content-f content-f content-f content-f content-f";
+  }
+
+  @include media.min-width(xlarge) {
+    grid-template-areas:
+      "content-a content-a content-a content-a content-a content-spacer content-b content-b content-b content-b content-b content-b"
+      "content-c content-c content-c content-c content-c content-spacer content-d content-d content-d content-d content-d content-d"
+      "content-e content-e content-e content-e content-e content-spacer content-f content-f content-f content-f content-f content-f";
   }
 
   .content-a {
