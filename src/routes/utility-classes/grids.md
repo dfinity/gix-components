@@ -19,18 +19,24 @@ The grids follow a 12 columns-sizing approach. According the various [breakpoint
 
 ### Size S (e.g. Mobile)
 
-- One single column design.
-- Break point: S < `large` (`1024px`)
+<ul>
+<li>One single column design.</li>
+<li>Break point: <code>S &lt; large (1024px)</code></li>
+</ul>
 
 ### Size M (e.g. Tablet)
 
-- 12 columns design with two distinct sections spread across 6 columns ("left section") and 6 columns ("right section").
-- Break point: `large` (`1024px`) < M < `xlarge` (`1300px`)
+<ul>
+<li>12 columns design with two distinct sections spread across 6 columns ("left section") and 6 columns ("right section").</li>
+<li>Break point: <code>large (1024px) &lt; M &lt; xlarge (1300px)</code> </li>
+</ul>
 
 ### Size L (e.g. Desktop)
 
-- 12 columns design with two distinct sections spread across 5 columns ("left section"), an empty column ("spacer") and 6 columns ("right section").
-- Break point: `xlarge` (`1300px`) > M
+<ul>
+<li>12 columns design with two distinct sections spread across 5 columns ("left section"), an empty column ("spacer") and 6 columns ("right section").</li>
+<li>Break point: <code>xlarge (1300px) &gt; L</code> </li>
+</ul>
 
 <h2 id="usage">Usage</h2>
 
