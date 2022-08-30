@@ -14,7 +14,7 @@ The grids are based on a standard 12 columns-sizing approach. They can be used t
 
 <h2 id="usage">Usage</h2>
 
-Unlike components, the grids can be applied to any HTML elements through the use of `global` style classes.
+Unlike components, the grids can be applied to any HTML elements through the use of utility classes - styles that are available globally.
 
 <h2 id="card-grid">Card Grid</h2>
 
