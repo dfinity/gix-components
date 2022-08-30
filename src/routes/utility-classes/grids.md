@@ -4,13 +4,33 @@
 
 # Grids
 
-The grids are based on a standard 12 columns-sizing approach. They can be used to spread the content within a view.
+The grids are layout elements that can be used to present and spread the content within a view.
 
 ## Table of contents
 
+- [Definition](#definition)
 - [Usage](#usage)
 - [Card Grid](#card-grid)
 - [Content Grid](#content-grid)
+
+## Definition
+
+The grids follow a 12 columns-sizing approach. According the various [breakpoints](/styling/breakpoints) the number of columns varies.
+
+### Size S (e.g. Mobile)
+
+- One single column design.
+- Break point: S < `large` (`1024px`)
+
+### Size M (e.g. Tablet)
+
+- 12 columns design with two distinct sections spread across 6 columns ("left section") and 6 columns ("right section").
+- Break point: `large` (`1024px`) < M < `xlarge` (`1300px`)
+
+### Size L (e.g. Desktop)
+
+- 12 columns design with two distinct sections spread across 5 columns ("left section"), an empty column ("spacer") and 6 columns ("right section").
+- Break point: `xlarge` (`1300px`) > M
 
 <h2 id="usage">Usage</h2>
 
