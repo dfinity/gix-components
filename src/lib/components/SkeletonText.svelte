@@ -1,6 +1,6 @@
 <!-- adapted source: https://github.com/ionic-team/ionic-framework/tree/main/core/src/components/skeleton-text -->
 <script lang="ts">
-  export let animated: boolean = true;
+  export let animated = true;
   export let tagName: "span" | "p" | "h1" | "h2" | "h3" = "span";
 </script>
 
