@@ -25,4 +25,10 @@
 
     <p>License and installation of the fonts in your project.</p>
   </Card>
+
+  <Card role="link" on:click={() => goto("/styling/breakpoints")}>
+    <h2 class="title" slot="start">Breakpoints</h2>
+
+    <p>Viewport's breakpoints which make the styles adaptive.</p>
+  </Card>
 </div>

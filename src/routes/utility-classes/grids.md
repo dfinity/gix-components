@@ -4,17 +4,43 @@
 
 # Grids
 
-The grids are based on a standard 12 columns-sizing approach. They can be used to spread the content within a view.
+The grids are layout elements that can be used to present and spread the content within a view.
 
 ## Table of contents
 
+- [Definition](#definition)
 - [Usage](#usage)
 - [Card Grid](#card-grid)
 - [Content Grid](#content-grid)
 
+## Definition
+
+The grids follow a 12 columns-sizing approach. According the various [breakpoints](/styling/breakpoints) the number of columns varies.
+
+### Size S (e.g. Mobile)
+
+<ul>
+<li>One single column design.</li>
+<li>Break point: <code>S &lt; large (1024px)</code></li>
+</ul>
+
+### Size M (e.g. Tablet)
+
+<ul>
+<li>12 columns design with two distinct sections spread across 6 columns ("left section") and 6 columns ("right section").</li>
+<li>Break point: <code>large (1024px) &lt; M &lt; xlarge (1300px)</code> </li>
+</ul>
+
+### Size L (e.g. Desktop)
+
+<ul>
+<li>12 columns design with two distinct sections spread across 5 columns ("left section"), an empty column ("spacer") and 6 columns ("right section").</li>
+<li>Break point: <code>xlarge (1300px) &gt; L</code> </li>
+</ul>
+
 <h2 id="usage">Usage</h2>
 
-Unlike components, the grids can be applied to any HTML elements through the use of `global` style classes.
+Unlike components, the grids can be applied to any HTML elements through the use of utility classes - styles that are available globally.
 
 <h2 id="card-grid">Card Grid</h2>
 

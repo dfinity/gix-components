@@ -3,7 +3,7 @@
 :root {
   --header-height: 56px;
   --menu-width: 304px;
-  --max-main-content-width: 1450px;
+  --max-main-content-width: calc(1600px + (2 * var(--padding-4x)));
 
   --icon-width: 24px;
 
@@ -17,7 +17,7 @@
   --padding-6x: calc(6 * var(--padding));
   --padding-8x: calc(8 * var(--padding));
 
-  --column-gap: var(--padding-8x);
+  --column-gap: var(--padding-4x);
   --row-gap: var(--padding-6x);
 
   --border-radius: 10px;
