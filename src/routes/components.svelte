@@ -37,6 +37,12 @@
 
     <p>Calls an action when the user scrolls a specified distance in a list.</p>
   </Card>
+
+  <Card role="link" on:click={() => goto("/components/skeleton-text")}>
+    <h2 class="title" slot="start">Skeleton Text</h2>
+
+    <p>A component for rendering placeholder content.</p>
+  </Card>
 </div>
 
 <p>TODO docs:</p>
