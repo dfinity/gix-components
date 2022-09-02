@@ -1,7 +1,7 @@
 <!-- source: https://fonts.google.com/icons?selected=Material%20Icons%20Outlined%3Afiber_new%3A -->
 <script lang="ts">
   export let size = "24px";
-  export let fill: string = "currentColor"
+  export let fill: string = "currentColor";
 </script>
 
 <svg
