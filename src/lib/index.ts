@@ -12,6 +12,6 @@ export { default as HeaderTitle } from "./components/HeaderTitle.svelte";
 export { default as SkeletonText } from "./components/SkeletonText.svelte";
 
 export { default as IconArrowRight } from "./icons/IconArrowRight.svelte";
-export { default as IconBackIosNew } from "./icons/IconBackIosNew.svelte";
+export { default as IconArrowBack } from "./icons/IconArrowBack.svelte";
 export { default as IconClose } from "./icons/IconClose.svelte";
 export { default as IconMenu } from "./icons/IconMenu.svelte";
