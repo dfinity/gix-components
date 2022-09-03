@@ -25,9 +25,6 @@ const config = {
     serviceWorker: {
       register: false,
     },
-    prerender: {
-      default: true,
-    },
   },
 };
 

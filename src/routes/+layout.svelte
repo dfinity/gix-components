@@ -3,7 +3,7 @@
   import DocsMenu from "$docs/components/DocsMenu.svelte";
   import { page } from "$app/stores";
   import { goto, afterNavigate } from "$app/navigation";
-  import HeaderTitle from "../lib/components/HeaderTitle.svelte";
+  import HeaderTitle from "$lib/components/HeaderTitle.svelte";
 
   let navHistory: { from: URL | null; to: URL }[] = [];
   let back = false;

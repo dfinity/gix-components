@@ -7,7 +7,6 @@ const config = {
   resolve: {
     alias: {
       $docs: resolve("./src/docs"),
-      $lib: resolve("./src/lib"),
     },
   },
 };

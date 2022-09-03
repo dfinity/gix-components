@@ -131,7 +131,7 @@ List of the mixins:
 </div>
 
 <style lang="scss">
-  @use "../../lib/styles/mixins/card";
+  @use "../../../lib/styles/mixins/card";
 
   .title-block {
     @include card.stacked-title;
