@@ -1,6 +1,9 @@
 const url = "https://ipi2f-uqaaa-aaaad-aabza-cai.ic0.app/";
 
+// TODO: discover pages to complete sitemap - currently only root is rendered
 const staticPages: string[] = [];
+
+export const prerender = true;
 
 export const GET = async (): Promise<Response> => {
   const headers: Record<string, string> = {
