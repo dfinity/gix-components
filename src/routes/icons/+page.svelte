@@ -1,8 +1,12 @@
 <script lang="ts">
+  import type { PageData } from "./$types";
   import type { SlugIcon } from "$docs/types/slug";
   import DocsIcon from "$docs/components/DocsIcon.svelte";
 
-  export let icons: SlugIcon[];
+  export let data: PageData;
+  let icons: SlugIcon[];
+
+  $: ({ icons } = data);
 </script>
 
 <h1>Icons</h1>
@@ -19,7 +23,7 @@
 </div>
 
 <style lang="scss">
-  @use "../lib/styles/mixins/media";
+  @use "../../lib/styles/mixins/media";
 
   div {
     display: grid;
