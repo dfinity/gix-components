@@ -1,12 +1,13 @@
 <script lang="ts">
-  import { afterUpdate, createEventDispatcher, onDestroy } from "svelte";
   import {
-    INFINITE_SCROLL_OFFSET,
-    DEFAULT_LIST_PAGINATION_LIMIT,
-  } from "$lib/constants/constants";
+    afterUpdate,
+    beforeUpdate,
+    createEventDispatcher,
+    onDestroy,
+  } from "svelte";
 
-  export let pageLimit: number = DEFAULT_LIST_PAGINATION_LIMIT;
   export let layout: "list" | "grid" = "list";
+  export let disabled = false;
 
   // IntersectionObserverInit is not recognized by the linter
   // eslint-disable-next-line no-undef
@@ -42,60 +43,29 @@
     options
   );
 
+  // We disconnect previous observer before any update. We do want to trigger an intersection in case of layout shifting.
+  beforeUpdate(() => observer.disconnect());
+
   afterUpdate(() => {
     // The DOM has been updated. We reset the observer to the current last HTML element of the infinite list.
 
-    // We disconnect previous observer first. We do want to observe multiple elements.
-    observer.disconnect();
-
-    if (container.children.length === 0) {
+    // If not children, no element to observe
+    if (container.lastElementChild === null) {
       return;
     }
 
-    const pageIndex: number = container.children.length / pageLimit - 1;
-    // If the pageIndex is not an integer the all page was not fetched - e.g. 50 elements instead of 100 - therefore there is no more elements to fetch
-    if (!Number.isInteger(pageIndex)) {
+    // If the infinite scroll is disabled, no observation should happen
+    if (disabled) {
       return;
     }
 
-    /**
-     * The infinite scroll observe an element that finds place after x % of last page.
-     *
-     * For example given following list of elements:
-     *
-     * [0-100]
-     * [101-200]
-     *
-     * If ratio is set to `0.2`, the observer observes 20% of the last page aka element at position 120.
-     *
-     * [0-100]
-     * [101-200]
-     * [201-300]
-     *
-     * Infinite scroll observe element 220.
-     *
-     * [0-100]
-     * [101-200]
-     * [201-300]
-     * [301-345]
-     *
-     * Infinite scroll does not observe because all data are fetched.
-     */
-    const element: Element | undefined = Array.from(container.children)[
-      pageIndex * pageLimit + Math.round(pageLimit * INFINITE_SCROLL_OFFSET)
-    ];
-
-    if (element === undefined) {
-      return;
-    }
-
-    observer.observe(element);
+    observer.observe(container.lastElementChild);
   });
 
   onDestroy(() => observer.disconnect());
 </script>
 
-<ul bind:this={container} class={layout}>
+<ul bind:this={container} class:card-grid={layout === "grid"}>
   <slot />
 </ul>
 

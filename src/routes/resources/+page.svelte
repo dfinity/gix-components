@@ -1,6 +1,6 @@
 <h1>Resources</h1>
 
-Useful resources and links.
+<p>Useful resources and links.</p>
 
 <ul>
   <li>
@@ -11,3 +11,9 @@ Useful resources and links.
     >: wireframes, design spec, etc.
   </li>
 </ul>
+
+<style lang="scss">
+  p {
+    margin-bottom: var(--padding-4x);
+  }
+</style>

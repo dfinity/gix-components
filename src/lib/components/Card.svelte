@@ -40,7 +40,7 @@
   {/if}
 
   {#if showHeadline}
-    <div>
+    <div class="meta">
       <slot name="start" />
       <slot name="end" />
     </div>
@@ -128,7 +128,7 @@
     }
   }
 
-  div {
+  .meta {
     @include card.meta;
   }
 </style>

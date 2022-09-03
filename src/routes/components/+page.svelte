@@ -7,10 +7,10 @@
 
 <p>
   The UI elements that you can inject into your project either by using the
-  components or through styles.
+  components.
 </p>
 
-<div class="grid">
+<div class="card-grid">
   <Card role="link" on:click={() => goto("/components/layout")}>
     <h2 class="title" slot="start">Layout</h2>
 
@@ -21,12 +21,6 @@
     <h2 class="title" slot="start">Header Title</h2>
 
     <p>An opinionated title for the dapp.</p>
-  </Card>
-
-  <Card role="link" on:click={() => goto("/components/grid")}>
-    <h2 class="title" slot="start">Grid</h2>
-
-    <p>A grid based columns container to spread content.</p>
   </Card>
 
   <Card role="link" on:click={() => goto("/components/card")}>
@@ -42,6 +36,12 @@
     <h2 class="title" slot="start">Infinite Scroll</h2>
 
     <p>Calls an action when the user scrolls a specified distance in a list.</p>
+  </Card>
+
+  <Card role="link" on:click={() => goto("/components/skeleton-text")}>
+    <h2 class="title" slot="start">Skeleton Text</h2>
+
+    <p>A component for rendering placeholder content.</p>
   </Card>
 </div>
 

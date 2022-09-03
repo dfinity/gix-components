@@ -64,7 +64,7 @@ List of the mixins:
 
 ## Showcase
 
-<div class="grid" style="margin-top: var(--padding)">
+<div class="card-grid" style="margin-top: var(--padding)">
     <Card>
         <h3 slot="start">A basic</h3>
         <h3 slot="end">Card</h3>

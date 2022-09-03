@@ -1,6 +1,6 @@
 @use "../mixins/media";
 
-.grid {
+.card-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--padding-4x);
@@ -18,5 +18,57 @@
     margin: 0;
     height: 100%;
     box-sizing: border-box;
+  }
+}
+
+.content-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--row-gap);
+  width: 100%;
+
+  @include media.min-width(large) {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    place-items: stretch;
+    column-gap: var(--column-gap);
+    min-height: auto;
+
+    grid-template-rows: auto;
+    grid-template-areas:
+      "content-a content-a content-a content-a content-a content-a content-b content-b content-b content-b content-b content-b"
+      "content-c content-c content-c content-c content-c content-c content-d content-d content-d content-d content-d content-d"
+      "content-e content-e content-e content-e content-e content-e content-f content-f content-f content-f content-f content-f";
+  }
+
+  @include media.min-width(xlarge) {
+    grid-template-areas:
+      "content-a content-a content-a content-a content-a content-spacer content-b content-b content-b content-b content-b content-b"
+      "content-c content-c content-c content-c content-c content-spacer content-d content-d content-d content-d content-d content-d"
+      "content-e content-e content-e content-e content-e content-spacer content-f content-f content-f content-f content-f content-f";
+  }
+
+  .content-a {
+    grid-area: content-a;
+  }
+
+  .content-b {
+    grid-area: content-b;
+  }
+
+  .content-c {
+    grid-area: content-c;
+  }
+
+  .content-d {
+    grid-area: content-d;
+  }
+
+  .content-e {
+    grid-area: content-e;
+  }
+
+  .content-f {
+    grid-area: content-f;
   }
 }
