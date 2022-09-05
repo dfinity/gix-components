@@ -27,15 +27,15 @@
   --primary-gradient-contrast: var(--primary-contrast);
 
   // Json colors
-  --json-bracket-color: var(--background-shade);
-  --json-value-color: var(--background-tint);
-  --json-string-color: var(--brand-sea-buckthorn);
-  --json-number-color: var(--brand-picton-blue);
-  --json-null-color: var(--background-shade);
-  --json-principal-color: var(--warning-emphasis);
-  --json-hash-color: var(--warning-emphasis);
-  --json-bigint-color: var(--brand-picton-blue);
-  --json-boolean-color: var(--brand-picton-blue);
+  --json-bracket-color: inherit;
+  --json-value-color: var(--description-color);
+  --json-string-color: var(--primary);
+  --json-number-color: var(--primary);
+  --json-null-color: var(--description-color);
+  --json-principal-color: var(--primary);
+  --json-hash-color: var(--primary);
+  --json-bigint-color: var(--primary);
+  --json-boolean-color: var(--primary);
 
   // Inputs
   --input-border-color: #ffffff;
