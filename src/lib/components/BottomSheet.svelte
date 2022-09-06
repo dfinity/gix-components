@@ -11,8 +11,6 @@
     right: 0;
     bottom: 0;
 
-    padding: var(--padding-2x);
-
     background: var(--background);
     box-shadow: var(--bottom-sheet-box-shadow);
 
@@ -20,8 +18,6 @@
 
     @include media.min-width(large) {
       position: relative;
-
-      padding: 0;
 
       background: transparent;
       box-shadow: none;
