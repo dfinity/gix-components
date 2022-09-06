@@ -16,3 +16,4 @@ export { default as IconArrowRight } from "./icons/IconArrowRight.svelte";
 export { default as IconBackIosNew } from "./icons/IconBackIosNew.svelte";
 export { default as IconClose } from "./icons/IconClose.svelte";
 export { default as IconMenu } from "./icons/IconMenu.svelte";
+export { default as IconExpandCircleDown } from "./icons/IconExpandCircleDown.svelte";
