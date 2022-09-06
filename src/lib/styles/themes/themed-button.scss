@@ -28,7 +28,9 @@ button {
         --border-color-button: var(--positive-emphasis);
         --color-button: var(--positive-emphasis);
         --background-color-button-tint: var(--positive-emphasis-tint);
-        --background-color-button-tint-contrast: var(--positive-emphasis-contrast);
+        --background-color-button-tint-contrast: var(
+          --positive-emphasis-contrast
+        );
       }
 
       &.danger {
@@ -36,7 +38,9 @@ button {
         --border-color-button: var(--negative-emphasis);
         --color-button: var(--negative-emphasis);
         --background-color-button-tint: var(--negative-emphasis-tint);
-        --background-color-button-tint-contrast: var(--negative-emphasis-contrast);
+        --background-color-button-tint-contrast: var(
+          --negative-emphasis-contrast
+        );
       }
     }
   }
