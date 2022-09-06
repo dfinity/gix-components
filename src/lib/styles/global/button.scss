@@ -156,6 +156,7 @@ button {
     &[disabled],
     &[disabled]:hover {
       background: var(--disable);
+      border-color: var(--disable);
       color: var(--disable-contrast);
       cursor: default;
     }
