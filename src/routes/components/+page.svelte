@@ -43,6 +43,15 @@
 
     <p>A component for rendering placeholder content.</p>
   </Card>
+
+  <Card role="link" on:click={() => goto("/components/bottom-sheet")}>
+    <h2 class="title" slot="start">Bottom Sheet</h2>
+
+    <p>
+      A dialog containing supplementary content anchored to the bottom of the
+      screen.
+    </p>
+  </Card>
 </div>
 
 <p>TODO docs:</p>

@@ -19,7 +19,7 @@
     align-items: center;
 
     font-size: var(--font-size-h4);
-    font-weight: 700;
+    font-weight: var(--font-weight-bold);
 
     text-decoration: none;
     outline: none;
