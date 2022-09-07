@@ -28,3 +28,4 @@ export { default as IconHistoryToggleOff } from "./icons/IconHistoryToggleOff.sv
 export { default as IconWallet } from "./icons/IconWallet.svelte";
 export { default as IconHowToVote } from "./icons/IconHowToVote.svelte";
 export { default as IconWarning } from "./icons/IconWarning.svelte";
+export { default as IconExpandCircleDown } from "./icons/IconExpandCircleDown.svelte";

@@ -31,4 +31,10 @@
 
     <p>Some pre-defined utilities to set spaces for grid's cells.</p>
   </Card>
+
+  <Card role="link" on:click={() => goto("/utility-classes/buttons")}>
+    <h2 class="title" slot="start">Buttons</h2>
+
+    <p>All styles that can be applied to buttons.</p>
+  </Card>
 </div>

@@ -3,11 +3,14 @@
  */
 
 import { render } from "@testing-library/svelte";
-import HeaderTitleTest from "./HeaderTitleTest.svelte";
+import ComponentTest from "./ComponentTest.svelte";
+import { HeaderTitle } from "$lib";
 
 describe("HeaderTitle", () => {
   it("should render a slotted content", () => {
-    const { getByText } = render(HeaderTitleTest);
-    expect(getByText("test title")).toBeInTheDocument();
+    const { getByText } = render(ComponentTest, {
+      props: { cmp: HeaderTitle, testId: "header-test-slot" },
+    });
+    expect(getByText("TEST TITLE")).toBeInTheDocument();
   });
 });

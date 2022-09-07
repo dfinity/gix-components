@@ -68,6 +68,7 @@ button {
 
   &.primary,
   &.secondary,
+  &.success,
   &.danger,
   &.warning {
     padding: var(--padding) var(--padding-2x);
@@ -137,13 +138,43 @@ button {
     }
   }
 
+  &.success,
   &.danger {
-    --background-color-button: var(--negative-emphasis-light);
-    --background-color-button-contrast: var(--negative-emphasis-light-contrast);
-    --background-color-button-tint: var(--negative-emphasis-light-tint);
-    --color-button: var(--negative-emphasis-light-contrast);
+    background: var(--background-color-button);
+    color: var(--color-button);
+
+    border: 1px solid var(--border-color-button);
+
+    font-size: var(--font-size-small);
+
+    font-weight: var(--font-weight-bold);
+
+    @include media.min-width(medium) {
+      font-size: var(--font-size-h3);
+    }
+
+    &[disabled],
+    &[disabled]:hover {
+      background: var(--disable);
+      border-color: var(--disable);
+      color: var(--disable-contrast);
+      cursor: default;
+    }
+
+    @include effect.ripple-effect(--background-color-button-tint);
+
+    &:focus {
+      @include effect.ripple-effect(--background-color-button-tint);
+    }
+
+    &:hover,
+    &:focus {
+      background: var(--background-color-button-tint);
+      color: var(--background-color-button-tint-contrast);
+    }
   }
 
+  /// @deprecated - old design only
   &.warning {
     --background-color-button: var(--warning-emphasis);
     --background-color-button-contrast: var(--warning-emphasis-contrast);
@@ -151,7 +182,7 @@ button {
     --color-button: var(--background-contrast);
   }
 
-  &.danger,
+  /// @deprecated - old design only
   &.warning {
     background: var(--background-color-button);
     color: var(--background-color-button-contrast);
