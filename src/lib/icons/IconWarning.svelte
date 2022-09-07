@@ -1,5 +1,5 @@
 <script lang="ts">
-  export let size: string = "24px";
+  export let size = "24px";
 </script>
 
 <!-- Source: https://fonts.google.com/icons?selected=Material%20Icons%20Outlined%3Awarning%3A -->
