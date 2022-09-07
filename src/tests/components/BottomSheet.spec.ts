@@ -4,7 +4,7 @@
 
 import { render } from "@testing-library/svelte";
 import ComponentTest from "./ComponentTest.svelte";
-import { BottomSheet } from "$lib";
+import BottomSheet from "$lib/components/BottomSheet.svelte";
 
 describe("BottomSheet", () => {
   it("should render a slotted content", () => {
