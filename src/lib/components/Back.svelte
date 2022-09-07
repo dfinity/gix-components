@@ -1,5 +1,5 @@
 <script lang="ts">
-  import IconArrowBack from "$lib/icons/IconArrowBack.svelte";
+  import IconBackIosNew from "$lib/icons/IconBackIosNew.svelte";
   import { i18n } from "$lib/stores/i18n";
   import { createEventDispatcher } from "svelte";
 
@@ -10,7 +10,7 @@
   class="back icon-only"
   data-tid="back"
   on:click|stopPropagation={() => dispatch("nnsBack")}
-  aria-label={$i18n.core.back}><IconArrowBack /></button
+  aria-label={$i18n.core.back}><IconBackIosNew /></button
 >
 
 <style lang="scss">
