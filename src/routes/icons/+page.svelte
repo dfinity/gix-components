@@ -27,6 +27,7 @@
 
   div {
     display: grid;
+    
     --grid-columns: 3;
     --grid-max-width: min(var(--section-max-width), 100%);
     --grid-gap: var(--padding);
@@ -51,6 +52,5 @@
       --grid-columns: 5;
       --grid-gap: var(--padding-4x)
     }
-
   }
 </style>
