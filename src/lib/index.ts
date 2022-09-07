@@ -10,8 +10,10 @@ export { default as Card } from "./components/Card.svelte";
 export { default as InfiniteScroll } from "./components/InfiniteScroll.svelte";
 export { default as HeaderTitle } from "./components/HeaderTitle.svelte";
 export { default as SkeletonText } from "./components/SkeletonText.svelte";
+export { default as BottomSheet } from "./components/BottomSheet.svelte";
 
 export { default as IconArrowRight } from "./icons/IconArrowRight.svelte";
 export { default as IconBackIosNew } from "./icons/IconBackIosNew.svelte";
 export { default as IconClose } from "./icons/IconClose.svelte";
 export { default as IconMenu } from "./icons/IconMenu.svelte";
+export { default as IconExpandCircleDown } from "./icons/IconExpandCircleDown.svelte";
