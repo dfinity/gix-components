@@ -27,7 +27,7 @@
 
   div {
     display: grid;
-    
+
     --grid-columns: 3;
     --grid-max-width: min(var(--section-max-width), 100%);
     --grid-gap: var(--padding);
@@ -37,7 +37,8 @@
       calc(
         (var(--grid-max-width) - ((var(--grid-columns) - 1) * var(--grid-gap))) /
           var(--grid-columns)
-      ));
+      )
+    );
 
     grid-gap: var(--grid-gap);
 
@@ -45,12 +46,12 @@
 
     @include media.min-width(small) {
       --grid-columns: 4;
-      --grid-gap: var(--padding-2x)
+      --grid-gap: var(--padding-2x);
     }
 
     @include media.min-width(medium) {
       --grid-columns: 5;
-      --grid-gap: var(--padding-4x)
+      --grid-gap: var(--padding-4x);
     }
   }
 </style>
