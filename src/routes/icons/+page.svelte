@@ -27,21 +27,31 @@
 
   div {
     display: grid;
-    --grid-columns: 4;
+
+    --grid-columns: 3;
     --grid-max-width: min(var(--section-max-width), 100%);
+    --grid-gap: var(--padding);
+
     grid-template-columns: repeat(
-      var(--grid-columns),
+      auto-fill,
       calc(
-        (var(--grid-max-width) - ((var(--grid-columns) - 1) * var(--padding))) /
+        (var(--grid-max-width) - ((var(--grid-columns) - 1) * var(--grid-gap))) /
           var(--grid-columns)
       )
     );
-    grid-gap: var(--padding);
+
+    grid-gap: var(--grid-gap);
 
     margin: var(--padding-4x) 0;
 
+    @include media.min-width(small) {
+      --grid-columns: 4;
+      --grid-gap: var(--padding-2x);
+    }
+
     @include media.min-width(medium) {
-      --grid-columns: 7;
+      --grid-columns: 5;
+      --grid-gap: var(--padding-4x);
     }
   }
 </style>
