@@ -52,6 +52,15 @@
       screen.
     </p>
   </Card>
+
+  <Card role="link" on:click={() => goto("/components/spinner")}>
+    <h2 class="title" slot="start">Spinner</h2>
+
+    <p>
+      A spinner component is used to indicate users that their action is being
+      processed.
+    </p>
+  </Card>
 </div>
 
 <p>TODO docs:</p>
