@@ -14,7 +14,7 @@ const initToastsStore = () => {
   return {
     subscribe,
 
-    show(msg: Omit<ToastMsg, 'id'>): symbol {
+    show(msg: Omit<ToastMsg, "id">): symbol {
       const id = Symbol("toast");
 
       update((messages: ToastMsg[]) => {
