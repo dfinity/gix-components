@@ -10,7 +10,7 @@ Spinners are visual indicators that the app is loading content or performing ano
 <Spinner />
 ```
 
-# Styling
+## Usage
 
 The component has a `absolute` positioning. If you would like to include it within your components, you would need to wrap it around a container.
 

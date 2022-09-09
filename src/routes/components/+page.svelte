@@ -61,6 +61,15 @@
       processed.
     </p>
   </Card>
+
+  <Card role="link" on:click={() => goto("/components/toasts")}>
+    <h2 class="title" slot="start">Toasts</h2>
+
+    <p>
+      Toasts are non-disruptive messages that appear in the interface to provide
+      quick, at-a-glance feedback on the outcome of an action.
+    </p>
+  </Card>
 </div>
 
 <p>TODO docs:</p>
