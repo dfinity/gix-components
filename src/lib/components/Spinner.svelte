@@ -1,6 +1,6 @@
 <!-- adapted source: https://github.com/angular/components/tree/master/src/material/progress-spinner -->
 <script lang="ts">
-  export let inline: boolean = false;
+  export let inline = false;
   export let size: "small" | "medium" = "medium";
 </script>
 
