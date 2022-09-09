@@ -10,3 +10,4 @@ export { default as Card } from "./components/Card.svelte";
 export { default as InfiniteScroll } from "./components/InfiniteScroll.svelte";
 export { default as HeaderTitle } from "./components/HeaderTitle.svelte";
 export { default as SkeletonText } from "./components/SkeletonText.svelte";
+export { default as BottomSheet } from "./components/BottomSheet.svelte";
