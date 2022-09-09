@@ -44,10 +44,6 @@
     // This to avoid the content to be presented behind the bottom sheet and
     // to display a scrollbar that ends before the bottom sheet.
     padding-bottom: var(--layout-bottom-offset, 0);
-
-    @include media.min-width(large) {
-      padding-bottom: 0;
-    }
   }
 
   .scrollable-content {

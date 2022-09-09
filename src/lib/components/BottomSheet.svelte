@@ -3,13 +3,19 @@
   import { onDestroy } from "svelte";
 
   onDestroy(() => ($layoutBottomOffset = 0));
+
+  // 1024 is the $breakpoint-large size. See also the CSS code of this component. On large screen the bottom sheet is not sticky.
+  const updateBottomOffset = () =>
+    ($layoutBottomOffset = innerWidth < 1024 ? height : 0);
+
+  let height = 0;
+  let innerWidth = 0;
+  $: height, innerWidth, updateBottomOffset();
 </script>
 
-<div
-  role="dialog"
-  data-tid="bottom-sheet"
-  bind:clientHeight={$layoutBottomOffset}
->
+<svelte:window bind:innerWidth />
+
+<div role="dialog" data-tid="bottom-sheet" bind:clientHeight={height}>
   <slot />
 </div>
 
