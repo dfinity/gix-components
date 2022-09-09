@@ -8,7 +8,7 @@ import type { ToastMsg } from "$lib/types/toast";
 
 describe("Toast", () => {
   const props: { msg: ToastMsg } = {
-    msg: { text: "Test", level: "success" },
+    msg: { id: Symbol("test"), text: "Test", level: "success" },
   };
 
   it("should render a text", async () => {
