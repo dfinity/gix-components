@@ -1,4 +1,15 @@
-<div role="dialog" data-tid="bottom-sheet">
+<script lang="ts">
+  import { layoutBottomOffset } from "../stores/layout.store";
+  import { onDestroy } from "svelte";
+
+  onDestroy(() => ($layoutBottomOffset = 0));
+</script>
+
+<div
+  role="dialog"
+  data-tid="bottom-sheet"
+  bind:clientHeight={$layoutBottomOffset}
+>
   <slot />
 </div>
 
