@@ -1,5 +1,6 @@
 <script lang="ts">
     import { toastsStore } from "$lib/stores/toasts.store";
+    import BottomSheet from "$lib/components/BottomSheet.svelte";
 
     const show = () => toastsStore.show({
         text: "An information",
@@ -68,14 +69,19 @@ A toast message can be created with following properties.
 
 ## Showcase
 
-<button class="primary small" on:click={show}>Info</button>
+<BottomSheet>
+    <div style="padding: var(--padding-2x)">
+        <button class="primary small" on:click={show}>Info</button>
 
-<button class="success small" on:click={success}>Success</button>
+        <button class="success small" on:click={success}>Success</button>
 
-<button class="danger small" on:click={error}>Error</button>
+        <button class="danger small" on:click={error}>Error</button>
 
-<button class="secondary small" on:click={warn}>Warn</button>
+        <button class="secondary small" on:click={warn}>Warn</button>
 
-<button class="primary small" on:click={spinner}>Info and spinner</button>
+        <button class="primary small" on:click={spinner}>Info and spinner</button>
 
-<button class="primary small" on:click={duration}>Info and auto fade after 3s</button>
+        <button class="primary small" on:click={duration}>Info and auto fade after 3s</button>
+    </div>
+
+</BottomSheet>

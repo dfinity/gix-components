@@ -29,3 +29,5 @@ export { default as IconWallet } from "./icons/IconWallet.svelte";
 export { default as IconHowToVote } from "./icons/IconHowToVote.svelte";
 export { default as IconWarning } from "./icons/IconWarning.svelte";
 export { default as IconExpandCircleDown } from "./icons/IconExpandCircleDown.svelte";
+export { default as IconEast } from "./icons/IconEast.svelte";
+export { default as IconWest } from "./icons/IconWest.svelte";
