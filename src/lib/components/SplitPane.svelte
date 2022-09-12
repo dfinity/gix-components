@@ -50,7 +50,7 @@
     height: 100%;
 
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: scroll;
   }
 
   @include media.min-width(xlarge) {
