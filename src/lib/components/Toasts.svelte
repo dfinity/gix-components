@@ -1,10 +1,14 @@
 <script lang="ts">
   import { toastsStore } from "$lib/stores/toasts.store";
   import Toast from "./Toast.svelte";
+  import { layoutBottomOffset } from "$lib/stores/layout.store";
 </script>
 
 {#if $toastsStore.length > 0}
-  <div class="wrapper">
+  <div
+    class="wrapper"
+    style={`--layout-bottom-offset: ${$layoutBottomOffset}px`}
+  >
     {#each $toastsStore as msg (msg.id)}
       <Toast {msg} />
     {/each}
@@ -16,9 +20,11 @@
 
   .wrapper {
     position: fixed;
-    bottom: var(--padding-2x);
     left: 50%;
     transform: translate(-50%, 0);
+
+    // If a bottom sheet is displayed the toasts should have a related offset
+    bottom: calc(var(--layout-bottom-offset, 0) + var(--padding-2x));
 
     // A little narrowwer than the section to differentiate notifications from content
     width: calc(100% - var(--padding-8x) - var(--padding-0_5x));
