@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { layoutBottomOffset } from "$lib/stores/layout.store";
+
   export let sticky = false;
   let innerWidth = 0;
 
@@ -12,7 +14,10 @@
 
 <div class="split-pane">
   <slot name="menu" />
-  <div class="content">
+  <div
+    class="content"
+    style={`--layout-bottom-offset: ${$layoutBottomOffset}px`}
+  >
     <div class="scrollable-content"><slot /></div>
   </div>
 </div>
@@ -34,6 +39,11 @@
   .content {
     position: relative;
     width: 100%;
+
+    // If a bottom sheet is displayed the content pane height should be updated accordingly
+    // This to avoid the content to be presented behind the bottom sheet and
+    // to display a scrollbar that ends before the bottom sheet.
+    padding-bottom: var(--layout-bottom-offset, 0);
   }
 
   .scrollable-content {
