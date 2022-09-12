@@ -31,7 +31,7 @@
     background: var(--background);
     box-shadow: var(--bottom-sheet-box-shadow);
 
-    z-index: var(--z-index);
+    z-index: var(--bottom-sheet-z-index);
 
     @include media.min-width(large) {
       position: relative;
