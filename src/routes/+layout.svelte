@@ -4,6 +4,7 @@
   import { page } from "$app/stores";
   import { goto, afterNavigate } from "$app/navigation";
   import HeaderTitle from "$lib/components/HeaderTitle.svelte";
+  import Toasts from "$lib/components/Toasts.svelte";
 
   let navHistory: { from: URL | null; to: URL }[] = [];
   let back = false;
@@ -27,6 +28,8 @@
     <slot />
   </main>
 </Layout>
+
+<Toasts />
 
 <style lang="scss" global>
   @import "../lib/styles/global.scss";
