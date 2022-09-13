@@ -105,7 +105,7 @@
       }
 
       .content {
-        margin: 0 0 var(--alert-padding-y);
+        margin: 0 0 calc(var(--alert-padding-y) / 2);
         padding: var(--alert-padding-x) var(--alert-padding-x) 0;
       }
 
