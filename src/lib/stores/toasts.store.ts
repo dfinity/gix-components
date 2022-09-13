@@ -6,6 +6,7 @@ import type { ToastMsg } from "$lib/types/toast";
  *
  * - show: display a message in toast component
  * - hide: remove the toast message with that timestamp or the first one.
+ * - update: update the existed toast content.
  * - reset: empty all toasts
  */
 const initToastsStore = () => {
@@ -27,6 +28,27 @@ const initToastsStore = () => {
     hide(idToHide: symbol) {
       update((messages: ToastMsg[]) =>
         messages.filter(({ id }) => id !== idToHide)
+      );
+    },
+
+    update({
+      id,
+      content,
+    }: {
+      id: symbol;
+      content: Partial<Omit<ToastMsg, "id">>;
+    }) {
+      update((messages: ToastMsg[]) =>
+        // use map to preserve order
+        messages.map((message) => {
+          if (message.id !== id) {
+            return message;
+          }
+          return {
+            ...message,
+            ...content,
+          };
+        })
       );
     },
 
