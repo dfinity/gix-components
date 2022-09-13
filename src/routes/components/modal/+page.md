@@ -1,0 +1,59 @@
+<script lang="ts">
+    import Modal from "$lib/components/Modal.svelte";
+
+    let visible = false;
+</script>
+
+# Modal
+
+A Modal is a dialog that appears on top of the app's content, and must be dismissed by the app before interaction can resume. It is useful as a select component when there are a lot of options to choose from, or when filtering items in a list, as well as many other use cases.
+
+```html
+<script lang="ts">
+    let visible = false;
+</script>
+
+<button on:click={() => (visible = true)}>
+  Open modal
+</button>
+
+<Modal {visible} on:nnsClose={() => (visible = false)}>
+  <svelte:fragment slot="title">My title</svelte:fragment>
+
+  <p>My content</p>
+</Modal>
+```
+
+## Properties
+
+| Property               | Description                                                                                              | Type                    | Default     |
+| ---------------------- | -------------------------------------------------------------------------------------------------------- | ----------------------- | ----------- |
+| `visible`              | Display or hide the modal.                                                                               | `boolean`               | `false`     |
+| `size`                 | The size of the dialog. Commonly use with its default value but, in its small for when used as a popover | `big` or `small`        | `big`       |
+| `testId`               | Add a `data-tid` attribute to the DOM, useful for test purpose.                                          | `string` or `undefined` | `undefined` |
+| `disablePointerEvents` | Disable interactive elements - close actions - of the modal.                                             | `boolean`               | `false`     |
+
+## Slots
+
+| Slot name    | Description                                                                                  |
+| ------------ | -------------------------------------------------------------------------------------------- |
+| Default slot | The content of the modal.                                                                    |
+| Title        | The title of the modal. Displayed in a toolbar with a "Close" icon button on the right side. |
+
+## Events
+
+| Event      | Description                                                                                                                                           | Detail    |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| `nnsClose` | Triggered when a closing interaction element is clicks - close button or backdrop. Note that the modal itself does not update the `visible` property. | No detail |
+
+## Showcase
+
+<button on:click={() => (visible = true)} class="primary">
+Open modal
+</button>
+
+<Modal {visible} on:nnsClose={() => (visible = false)}>
+<svelte:fragment slot="title">My title</svelte:fragment>
+
+  <p>My content</p>
+</Modal>
