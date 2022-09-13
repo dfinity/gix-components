@@ -85,9 +85,6 @@
 
     background: var(--background);
 
-    --select-color: var(--background-contrast);
-    --select-border-radius: 0;
-
     overflow: hidden;
 
     box-sizing: border-box;
@@ -106,7 +103,7 @@
 
       .content {
         margin: 0 0 calc(var(--alert-padding-y) / 2);
-        padding: var(--alert-padding-x) var(--alert-padding-x) 0;
+        padding: var(--alert-padding-y) calc(var(--alert-padding-x) / 2) 0;
       }
 
       .toolbar {
@@ -134,7 +131,7 @@
 
       .content {
         margin: 0 0 var(--dialog-padding-y);
-        padding: var(--dialog-padding-x) var(--dialog-padding-x) 0;
+        padding: var(--dialog-padding-y) var(--dialog-padding-x) 0;
       }
 
       .toolbar {
