@@ -11,8 +11,8 @@
   export let testId: string | undefined = undefined;
   export let disablePointerEvents = false;
 
-  let showToolbar: boolean;
-  $: showToolbar = $$slots.title !== undefined;
+  let showHeader: boolean;
+  $: showHeader = $$slots.title !== undefined;
 
   const dispatch = createEventDispatcher();
   const close = () => dispatch("nnsClose");
@@ -24,7 +24,7 @@
     transition:fade
     {role}
     data-tid={testId}
-    aria-labelledby={showToolbar ? "modalTitle" : undefined}
+    aria-labelledby={showHeader ? "modalTitle" : undefined}
     aria-describedby="modalContent"
     on:click|stopPropagation
     on:introend
@@ -34,8 +34,8 @@
       transition:scale={{ delay: 25, duration: 150, easing: quintOut }}
       class={`wrapper ${role}`}
     >
-      {#if showToolbar}
-        <div class="toolbar">
+      {#if showHeader}
+        <div class="header">
           <h2 id="modalTitle"><slot name="title" /></h2>
           <button
             data-tid="close-modal"
@@ -49,6 +49,12 @@
       <div class="content" id="modalContent" class:alert={role === "alert"}>
         <slot />
       </div>
+
+      {#if $$slots.toolbar}
+        <div class="toolbar">
+          <slot name="toolbar" />
+        </div>
+      {/if}
     </div>
   </div>
 {/if}
@@ -57,6 +63,7 @@
   @use "../styles/mixins/interaction";
   @use "../styles/mixins/text";
   @use "../styles/mixins/display";
+  @use "../styles/mixins/media";
 
   .modal {
     position: fixed;
@@ -92,6 +99,19 @@
       max-height: var(--alert-max-height);
 
       border-radius: var(--alert-border-radius);
+
+      .header {
+        padding: var(--alert-padding-y) var(--alert-padding-x) var(--padding);
+      }
+
+      .content {
+        margin: 0 0 var(--alert-padding-y);
+        padding: var(--alert-padding-x) var(--alert-padding-x) 0;
+      }
+
+      .toolbar {
+        padding: 0 var(--alert-padding-x) var(--alert-padding-y);
+      }
     }
 
     &.dialog {
@@ -107,15 +127,27 @@
       }
 
       border-radius: var(--dialog-border-radius);
+
+      .header {
+        padding: var(--dialog-padding-y) var(--dialog-padding-x) var(--padding);
+      }
+
+      .content {
+        margin: 0 0 var(--dialog-padding-y);
+        padding: var(--dialog-padding-x) var(--dialog-padding-x) 0;
+      }
+
+      .toolbar {
+        padding: 0 var(--dialog-padding-x) var(--dialog-padding-y);
+      }
     }
   }
 
-  .toolbar {
+  .header {
     display: flex;
     justify-content: space-between;
 
     z-index: var(--z-index);
-    padding: var(--modal-padding-y) var(--modal-padding-x) var(--padding);
 
     position: relative;
 
@@ -157,9 +189,24 @@
 
     flex: 1;
 
-    padding: var(--modal-padding-y) var(--modal-padding-x);
-
     overflow-y: auto;
     overflow-x: hidden;
+  }
+
+  .toolbar {
+    display: flex;
+    gap: var(--padding-2x);
+
+    :global(button) {
+      flex: 1;
+    }
+
+    @include media.min-width(small) {
+      justify-content: flex-end;
+
+      :global(button) {
+        flex: none;
+      }
+    }
   }
 </style>

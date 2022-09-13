@@ -42,26 +42,25 @@
 
   // Modal
 
-  --modal-padding-y: var(--padding-4x);
-  --modal-padding-x: var(--padding-2x);
-
   --alert-width: calc(100% - var(--padding-8x));
   --alert-max-width: calc(100vw - var(--padding-4x));
   --alert-max-height: calc(100vh - var(--padding-4x));
   --alert-border-radius: 0;
+  --alert-padding-y: var(--padding-4x);
+  --alert-padding-x: var(--padding-2x);
 
   --dialog-width: 100vw;
   --dialog-max-width: 100vw;
   --dialog-height: 100vh;
   --dialog-border-radius: 0;
+  --dialog-padding-y: var(--padding-4x);
+  --dialog-padding-x: var(--padding-2x);
 
   @supports (-webkit-touch-callout: none) {
     --dialog-height: -webkit-fill-available;
   }
 
   @include media.min-width(medium) {
-    --modal-padding-x: var(--padding-6x);
-
     --alert-width: 500px;
 
     --dialog-width: 888px;
@@ -69,5 +68,6 @@
     --dialog-height: var(--alert-max-height);
     --dialog-max-height: 554.25px;
     --dialog-border-radius: var(--alert-border-radius);
+    --dialog-padding-x: var(--padding-6x);
   }
 }

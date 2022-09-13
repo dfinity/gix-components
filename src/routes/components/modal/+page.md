@@ -58,6 +58,8 @@ Open modal
 <svelte:fragment slot="title">My title</svelte:fragment>
 
 <DocsLoremIpsum length={role === "alert" ? 1 : 10} />
+
+<button slot="toolbar" class="primary">An action</button>
 </Modal>
 
 <p style="padding-top: var(--padding-2x)">Role of the modal:</p>
