@@ -49,12 +49,6 @@
       <div class="content" id="modalContent" class:small={size === "small"}>
         <slot />
       </div>
-
-      {#if $$slots.footer}
-        <div class="footer">
-          <slot name="footer" />
-        </div>
-      {/if}
     </div>
   </div>
 {/if}
@@ -63,7 +57,6 @@
   @use "../styles/mixins/interaction";
   @use "../styles/mixins/text";
   @use "../styles/mixins/display";
-  @use "../styles/mixins/modal";
 
   .modal {
     position: fixed;
@@ -164,10 +157,5 @@
     height: calc(100% - var(--modal-toolbar-height));
     overflow-y: auto;
     overflow-x: hidden;
-  }
-
-  .footer {
-    padding: var(--padding-2x);
-    @include modal.bottom-buttons;
   }
 </style>
