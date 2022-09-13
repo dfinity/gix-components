@@ -7,7 +7,7 @@
     "Quisque id tincidunt nunc. In hac habitasse platea dictumst. Donec molestie diam feugiat justo feugiat ultricies. Mauris sit amet quam mattis, congue justo in, sagittis urna. Quisque vel nisl tempor, mattis nisl eget, sodales risus. In blandit elementum nisi vel sagittis. Fusce ex mi, pulvinar nec iaculis eget, consequat nec turpis. Praesent ultrices egestas sapien eget tempor. Nunc mollis ante est, aliquet porta arcu ultrices suscipit. Cras eu lobortis dui, id facilisis lacus. Maecenas at ex bibendum, volutpat turpis quis, egestas justo. Phasellus mattis erat elit. Integer iaculis blandit dui in molestie. Phasellus quam purus, efficitur in sem non, congue elementum tortor. Vivamus id dui ullamcorper, vulputate risus in, ultricies felis. Nunc in libero ut ante blandit rutrum.",
   ];
 
-  export let length: number = 1;
+  export let length = 1;
 
   let elements: number[];
   $: elements = [...Array(length).keys()];
