@@ -16,6 +16,6 @@
     paragraphs[Math.round(Math.random() * (paragraphs.length - 1))];
 </script>
 
-{#each elements as element}
+{#each elements as _}
   <p class="description">{randomParagraph()}</p>
 {/each}
