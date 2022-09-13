@@ -1,5 +1,6 @@
 <script lang="ts">
     import Modal from "$lib/components/Modal.svelte";
+    import DocsLoremIpsum from "$docs/components/DocsLoremIpsum.svelte";
 
     let visible = false;
 </script>
@@ -55,5 +56,5 @@ Open modal
 <Modal {visible} on:nnsClose={() => (visible = false)}>
 <svelte:fragment slot="title">My title</svelte:fragment>
 
-  <p>My content</p>
+  <DocsLoremIpsum length={10} />
 </Modal>

@@ -52,7 +52,8 @@
   --modal-big-height: 100vh;
   --modal-big-border-radius: 0;
 
-  --modal-padding: var(--padding-2x) var(--padding);
+  --modal-padding-y: var(--padding-4x);
+  --modal-padding-x: var(--padding-2x);
 
   @supports (-webkit-touch-callout: none) {
     --modal-big-height: -webkit-fill-available;
@@ -67,6 +68,6 @@
     --modal-big-max-height: 554.25px;
     --modal-big-border-radius: var(--modal-small-border-radius);
 
-    --modal-padding: var(--padding-4x);
+    --modal-padding-x: var(--padding-6x);
   }
 }

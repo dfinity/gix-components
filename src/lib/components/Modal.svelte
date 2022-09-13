@@ -36,12 +36,12 @@
     >
       {#if showToolbar}
         <div class="toolbar">
-          <h3 id="modalTitle"><slot name="title" /></h3>
+          <h2 id="modalTitle"><slot name="title" /></h2>
           <button
             data-tid="close-modal"
             on:click|stopPropagation={close}
             aria-label={$i18n.core.close}
-            disabled={disablePointerEvents}><IconClose /></button
+            disabled={disablePointerEvents}><IconClose size="32px" /></button
           >
         </div>
       {/if}
@@ -84,7 +84,6 @@
     overflow: hidden;
 
     box-sizing: border-box;
-    padding: var(--modal-padding);
 
     &.small {
       width: var(--modal-small-width);
@@ -112,24 +111,16 @@
   }
 
   .toolbar {
-    padding: var(--padding) var(--padding-2x);
-
-    display: grid;
-    --toolbar-icon-width: calc((var(--padding) / 2) + var(--icon-width));
-    grid-template-columns: var(--toolbar-icon-width) 1fr var(
-        --toolbar-icon-width
-      );
+    display: flex;
+    justify-content: space-between;
 
     z-index: var(--z-index);
+    padding: var(--modal-padding-y) var(--modal-padding-x) var(--padding);
 
-    h3 {
+    position: relative;
+
+    h2 {
       @include text.clamp(1);
-
-      font-weight: 400;
-      margin-bottom: 0;
-      line-height: 1.5;
-      text-align: center;
-      grid-column-start: 2;
     }
 
     button {
@@ -145,6 +136,17 @@
         border-radius: var(--border-radius);
       }
     }
+
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: var(--modal-padding-x);
+
+      width: 78px;
+
+      border-bottom: 1px solid var(--background-contrast);
+    }
   }
 
   .content {
@@ -154,6 +156,8 @@
     flex-direction: column;
 
     flex: 1;
+
+    padding: var(--modal-padding-y) var(--modal-padding-x);
 
     overflow-y: auto;
     overflow-x: hidden;
