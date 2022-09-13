@@ -76,14 +76,15 @@
     display: flex;
     flex-direction: column;
 
-    --modal-toolbar-height: 35px;
-
     background: var(--background);
 
     --select-color: var(--background-contrast);
     --select-border-radius: 0;
 
     overflow: hidden;
+
+    box-sizing: border-box;
+    padding: var(--modal-padding);
 
     &.small {
       width: var(--modal-small-width);
@@ -121,8 +122,6 @@
 
     z-index: var(--z-index);
 
-    height: var(--modal-toolbar-height);
-
     h3 {
       @include text.clamp(1);
 
@@ -154,7 +153,8 @@
     display: flex;
     flex-direction: column;
 
-    height: calc(100% - var(--modal-toolbar-height));
+    flex: 1;
+
     overflow-y: auto;
     overflow-x: hidden;
   }
