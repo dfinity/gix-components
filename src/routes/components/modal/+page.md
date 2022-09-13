@@ -3,6 +3,7 @@
     import DocsLoremIpsum from "$docs/components/DocsLoremIpsum.svelte";
 
     let visible = false;
+    let size: "big" | "small" = "big";
 </script>
 
 # Modal
@@ -53,8 +54,20 @@ A Modal is a dialog that appears on top of the app's content, and must be dismis
 Open modal
 </button>
 
-<Modal {visible} on:nnsClose={() => (visible = false)}>
+<Modal {visible} on:nnsClose={() => (visible = false)} {size}>
 <svelte:fragment slot="title">My title</svelte:fragment>
 
   <DocsLoremIpsum length={10} />
 </Modal>
+
+<p style="padding-top: var(--padding-2x)">Modal size</p>
+
+<label>
+	<input type=radio bind:group={size} name="size" value="big">
+	Big
+</label>
+
+<label>
+	<input type=radio bind:group={size} name="size" value="small">
+	Small
+</label>
