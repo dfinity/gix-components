@@ -1,5 +1,6 @@
 <script lang="ts">
     import BottomSheet from "$lib/components/BottomSheet.svelte";
+    import DocsLoremIpsum from "$docs/components/DocsLoremIpsum.svelte";
 </script>
 
 # Bottom Sheet
@@ -28,7 +29,7 @@ In GIX components, such dialogs are displayed with a `fixed` position on **mobil
         <button class="danger small">Reject</button>
     </div>
     
-    <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae lorem ipsum. Morbi id pulvinar tellus. Pellentesque iaculis tempor nunc. Maecenas ut pellentesque purus, sit amet fermentum velit.</p>
+    <DocsLoremIpsum />
 </BottomSheet>
 
 <style lang="scss">

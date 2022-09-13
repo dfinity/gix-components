@@ -1,5 +1,6 @@
 <script lang="ts">
     import Card from "$lib/components/Card.svelte";
+    import DocsLoremIpsum from "$docs/components/DocsLoremIpsum.svelte";
 </script>
 
 # Grids
@@ -66,21 +67,21 @@ On mobile devices, information are listed in a single column, two on medium size
   <Card>
     <h2 class="title" slot="start">Card 1</h2>
 
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porttitor nisi ut mi porttitor facilisis. Fusce sodales, sapien et convallis volutpat, velit lorem lacinia massa, sed dictum libero ex et lectus.</p>
+    <DocsLoremIpsum />
 
   </Card>
 
   <Card>
     <h2 class="title" slot="start">Card 2</h2>
 
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porttitor nisi ut mi porttitor facilisis. Fusce sodales, sapien et convallis volutpat, velit lorem lacinia massa, sed dictum libero ex et lectus.</p>
+    <DocsLoremIpsum />
 
   </Card>
 
   <Card>
     <h2 class="title" slot="start">Card 3</h2>
 
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porttitor nisi ut mi porttitor facilisis. Fusce sodales, sapien et convallis volutpat, velit lorem lacinia massa, sed dictum libero ex et lectus.</p>
+    <DocsLoremIpsum />
 
   </Card>
 </div>
@@ -104,12 +105,12 @@ The `.content-grid` can be used to present detailed content. It can render up to
 ### Showcase
 
 <div class="content-grid">
-    <p class="content-a">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porttitor nisi ut mi porttitor facilisis. Fusce sodales, sapien et convallis volutpat, velit lorem lacinia massa, sed dictum libero ex et lectus.</p>
+    <div class="content-a"><DocsLoremIpsum /></div>
 
-    <p class="content-b">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porttitor nisi ut mi porttitor facilisis. Fusce sodales, sapien et convallis volutpat, velit lorem lacinia massa, sed dictum libero ex et lectus.</p>
+    <div class="content-b"><DocsLoremIpsum /></div>
 
-    <p class="content-c">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porttitor nisi ut mi porttitor facilisis. Fusce sodales, sapien et convallis volutpat, velit lorem lacinia massa, sed dictum libero ex et lectus.</p>
+    <div class="content-c"><DocsLoremIpsum /></div>
 
-    <p class="content-d">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porttitor nisi ut mi porttitor facilisis. Fusce sodales, sapien et convallis volutpat, velit lorem lacinia massa, sed dictum libero ex et lectus.</p>
+    <div class="content-d"><DocsLoremIpsum /></div>
 
 </div>

@@ -17,5 +17,5 @@
 </script>
 
 {#each elements as element}
-  <p>{randomParagraph()}</p>
+  <p class="description">{randomParagraph()}</p>
 {/each}
