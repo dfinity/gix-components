@@ -3,7 +3,7 @@
     import DocsLoremIpsum from "$docs/components/DocsLoremIpsum.svelte";
 
     let visible = false;
-    let size: "big" | "small" = "big";
+    let role: "dialog" | "alert" = "dialog";
 </script>
 
 # Modal
@@ -28,12 +28,12 @@ A Modal is a dialog that appears on top of the app's content, and must be dismis
 
 ## Properties
 
-| Property               | Description                                                                                              | Type                    | Default     |
-| ---------------------- | -------------------------------------------------------------------------------------------------------- | ----------------------- | ----------- |
-| `visible`              | Display or hide the modal.                                                                               | `boolean`               | `false`     |
-| `size`                 | The size of the dialog. Commonly use with its default value but, in its small for when used as a popover | `big` or `small`        | `big`       |
-| `testId`               | Add a `data-tid` attribute to the DOM, useful for test purpose.                                          | `string` or `undefined` | `undefined` |
-| `disablePointerEvents` | Disable interactive elements - close actions - of the modal.                                             | `boolean`               | `false`     |
+| Property               | Description                                                                                             | Type                    | Default     |
+| ---------------------- | ------------------------------------------------------------------------------------------------------- | ----------------------- | ----------- |
+| `visible`              | Display or hide the modal.                                                                              | `boolean`               | `false`     |
+| `role`                 | The modal is either a dialog meant for getting work done or an alert that requires immediate attention. | `dialog` or `alert`     | `dialog`    |
+| `testId`               | Add a `data-tid` attribute to the DOM, useful for test purpose.                                         | `string` or `undefined` | `undefined` |
+| `disablePointerEvents` | Disable interactive elements - close actions - of the modal.                                            | `boolean`               | `false`     |
 
 ## Slots
 
@@ -54,20 +54,20 @@ A Modal is a dialog that appears on top of the app's content, and must be dismis
 Open modal
 </button>
 
-<Modal {visible} on:nnsClose={() => (visible = false)} {size}>
+<Modal {visible} on:nnsClose={() => (visible = false)} {role}>
 <svelte:fragment slot="title">My title</svelte:fragment>
 
-  <DocsLoremIpsum length={10} />
+<DocsLoremIpsum length={role === "alert" ? 1 : 10} />
 </Modal>
 
-<p style="padding-top: var(--padding-2x)">Modal size</p>
+<p style="padding-top: var(--padding-2x)">Role of the modal:</p>
 
 <label>
-	<input type=radio bind:group={size} name="size" value="big">
-	Big
+	<input type=radio bind:group={role} name="role" value="dialog">
+	Dialog
 </label>
 
 <label>
-	<input type=radio bind:group={size} name="size" value="small">
-	Small
+	<input type=radio bind:group={role} name="role" value="alert">
+	Alert
 </label>

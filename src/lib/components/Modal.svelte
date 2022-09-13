@@ -7,7 +7,7 @@
   import Backdrop from "$lib/components/Backdrop.svelte";
 
   export let visible = true;
-  export let size: "small" | "big" = "big";
+  export let role: "dialog" | "alert" = "dialog";
   export let testId: string | undefined = undefined;
   export let disablePointerEvents = false;
 
@@ -22,7 +22,7 @@
   <div
     class="modal"
     transition:fade
-    role="dialog"
+    {role}
     data-tid={testId}
     aria-labelledby={showToolbar ? "modalTitle" : undefined}
     aria-describedby="modalContent"
@@ -32,7 +32,7 @@
     <Backdrop {disablePointerEvents} on:nnsClose />
     <div
       transition:scale={{ delay: 25, duration: 150, easing: quintOut }}
-      class={`wrapper ${size}`}
+      class={`wrapper ${role}`}
     >
       {#if showToolbar}
         <div class="toolbar">
@@ -46,7 +46,7 @@
         </div>
       {/if}
 
-      <div class="content" id="modalContent" class:small={size === "small"}>
+      <div class="content" id="modalContent" class:alert={role === "alert"}>
         <slot />
       </div>
     </div>
@@ -85,28 +85,28 @@
 
     box-sizing: border-box;
 
-    &.small {
-      width: var(--modal-small-width);
-      max-width: var(--modal-small-max-width);
+    &.alert {
+      width: var(--alert-width);
+      max-width: var(--alert-max-width);
 
-      max-height: var(--modal-small-max-height);
+      max-height: var(--alert-max-height);
 
-      border-radius: var(--modal-small-border-radius);
+      border-radius: var(--alert-border-radius);
     }
 
-    &.big {
-      width: var(--modal-big-width);
-      max-width: var(--modal-big-max-width);
+    &.dialog {
+      width: var(--dialog-width);
+      max-width: var(--dialog-max-width);
 
-      height: var(--modal-big-height);
+      height: var(--dialog-height);
 
-      max-height: var(--modal-big-max-height, 100%);
+      max-height: var(--dialog-max-height, 100%);
 
       @supports (-webkit-touch-callout: none) {
         max-height: -webkit-fill-available;
       }
 
-      border-radius: var(--modal-big-border-radius);
+      border-radius: var(--dialog-border-radius);
     }
   }
 
