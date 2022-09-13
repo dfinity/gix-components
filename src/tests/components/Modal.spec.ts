@@ -23,12 +23,14 @@ describe("Modal", () => {
     expect(container.querySelector("div.modal")).not.toBeNull();
   });
 
-  it("should display a medium size modal", () => {
+  it("should display an alert modal", () => {
     const { container } = render(Modal, {
-      props: { visible: true, size: "medium" },
+      props: { visible: true, role: "alert" },
     });
 
-    expect(container.querySelector("div.wrapper.medium")).not.toBeNull();
+    const alert: HTMLElement | null = container.querySelector('[role="alert"]');
+
+    expect(alert).not.toBeNull();
   });
 
   it("should be an accessible modal", () => {
