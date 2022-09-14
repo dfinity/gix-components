@@ -103,7 +103,8 @@
 
       .content {
         margin: 0 0 calc(var(--alert-padding-y) / 2);
-        padding: calc(var(--alert-padding-y) / 2) calc(var(--alert-padding-x) / 2) 0;
+        padding: calc(var(--alert-padding-y) / 2)
+          calc(var(--alert-padding-x) / 2) 0;
       }
 
       .toolbar {
@@ -135,7 +136,8 @@
       }
 
       .toolbar {
-        padding: 0 var(--dialog-padding-x) var(--dialog-padding-y);
+        padding: 0 var(--dialog-padding-x)
+          max(var(--dialog-padding-y), env(safe-area-inset-bottom));
       }
     }
   }
