@@ -31,3 +31,5 @@ export { default as IconWarning } from "./icons/IconWarning.svelte";
 export { default as IconExpandCircleDown } from "./icons/IconExpandCircleDown.svelte";
 export { default as IconEast } from "./icons/IconEast.svelte";
 export { default as IconWest } from "./icons/IconWest.svelte";
+export { default as IconPsychology } from "./icons/IconPsychology.svelte";
+export { default as IconEngineering } from "./icons/IconEngineering.svelte";
