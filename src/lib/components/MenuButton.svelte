@@ -25,7 +25,5 @@
     }
 
     @include header.button(--primary-tint);
-
-    padding: var(--padding-0_5x);
   }
 </style>
