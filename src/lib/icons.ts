@@ -13,7 +13,6 @@ export { default as IconMenu } from "./icons/IconMenu.svelte";
 export { default as IconCopy } from "./icons/IconCopy.svelte";
 export { default as IconRocketLaunch } from "./icons/IconRocketLaunch.svelte";
 export { default as IconDarkMode } from "./icons/IconDarkMode.svelte";
-export { default as IconSettingsApplications } from "./icons/IconSettingsApplications.svelte";
 export { default as IconError } from "./icons/IconError.svelte";
 export { default as IconSouth } from "./icons/IconSouth.svelte";
 export { default as IconExit } from "./icons/IconExit.svelte";
