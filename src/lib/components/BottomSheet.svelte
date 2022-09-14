@@ -33,6 +33,8 @@
 
     z-index: var(--bottom-sheet-z-index);
 
+    padding-bottom: env(safe-area-inset-bottom);
+
     @include media.min-width(large) {
       position: relative;
 
@@ -40,6 +42,8 @@
       box-shadow: none;
 
       z-index: auto;
+
+      padding-bottom: 0;
     }
   }
 </style>
