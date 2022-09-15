@@ -18,8 +18,10 @@
     justify-content: flex-start;
     align-items: center;
 
-    font-size: var(--font-size-h4);
+    font-size: var(--font-size-h5);
     font-weight: var(--font-weight-bold);
+
+    letter-spacing: var(--letter-spacing-title);
 
     text-decoration: none;
     outline: none;
@@ -68,6 +70,6 @@
     overflow: hidden;
     text-overflow: ellipsis;
 
-    margin: 0 0 0 var(--padding);
+    margin: 0 0 0 var(--padding-0_5x);
   }
 </style>

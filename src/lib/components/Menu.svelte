@@ -97,7 +97,7 @@
     width: var(--menu-width);
     max-width: 100vw;
 
-    padding: var(--padding-4x) 0 0;
+    padding: var(--padding-2x) 0 0;
 
     overflow-y: auto;
   }

@@ -89,4 +89,8 @@ blockquote {
   background: var(--warning-emphasis);
   color: var(--warning-emphasis-contrast);
   padding: var(--padding) var(--padding-2x);
+
+  &:before {
+    content: none;
+  }
 }
