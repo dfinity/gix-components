@@ -28,7 +28,14 @@ header {
   display: block;
 
   background: var(--brand-picton-blue);
-  background: linear-gradient(16deg, var(--brand-picton-blue) 28%, var(--brand-razzmatazz) 37%, var(--brand-meteorite) 63%, var(--brand-sea-buckthorn) 70%, var(--brand-flamingo) 81%);
+  background: linear-gradient(
+    16deg,
+    var(--brand-picton-blue) 28%,
+    var(--brand-razzmatazz) 37%,
+    var(--brand-meteorite) 63%,
+    var(--brand-sea-buckthorn) 70%,
+    var(--brand-flamingo) 81%
+  );
   color: var(--primary-gradient-contrast);
 
   --toolbar-pointer-events: all;
