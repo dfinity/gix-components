@@ -70,6 +70,15 @@
       quick, at-a-glance feedback on the outcome of an action.
     </p>
   </Card>
+
+  <Card role="link" on:click={() => goto("/components/modal")}>
+    <h2 class="title" slot="start">Modal</h2>
+
+    <p>
+      Modal component is used to display content that temporarily blocks
+      interactions with the main view of an application.
+    </p>
+  </Card>
 </div>
 
 <p>TODO docs:</p>

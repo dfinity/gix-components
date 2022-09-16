@@ -13,3 +13,4 @@ export { default as SkeletonText } from "./components/SkeletonText.svelte";
 export { default as BottomSheet } from "./components/BottomSheet.svelte";
 export { default as Toasts } from "./components/Toasts.svelte";
 export { default as Spinner } from "./components/Spinner.svelte";
+export { default as Modal } from "./components/Modal.svelte";

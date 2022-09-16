@@ -1,3 +1,7 @@
+<script lang="ts">
+    import DocsLoremIpsum from "$docs/components/DocsLoremIpsum.svelte";
+</script>
+
 # Cells
 
 Some pre-defined utilities to set spaces for grid's cells.
@@ -29,8 +33,7 @@ Some pre-defined utilities to set spaces for grid's cells.
         <h2 class="content-cell-title">Lorem ipsum</h2>
 
         <div class="content-cell-details">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porttitor nisi ut mi porttitor facilisis. Fusce sodales, sapien et convallis volutpat.</p>
-            <p>Velit lorem lacinia massa, sed dictum libero ex et lectus.</p>
+            <DocsLoremIpsum length={2} />
         </div>
     </div>
 
@@ -38,8 +41,7 @@ Some pre-defined utilities to set spaces for grid's cells.
         <h2 class="content-cell-title">Lorem ipsum</h2>
 
         <div class="content-cell-details">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porttitor nisi ut mi porttitor facilisis. Fusce sodales, sapien et convallis volutpat.</p>
-            <p>Velit lorem lacinia massa, sed dictum libero ex et lectus.</p>
+            <DocsLoremIpsum length={2} />
         </div>
     </div>
 
