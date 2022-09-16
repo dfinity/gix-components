@@ -40,7 +40,7 @@ A Modal is a dialog that appears on top of the app's content, and must be dismis
 | Slot name    | Description                                                                                  |
 | ------------ | -------------------------------------------------------------------------------------------- |
 | Default slot | The content of the modal.                                                                    |
-| Title        | The title of the modal. Displayed in a toolbar with a "Close" icon button on the right side. |
+| `title`      | The title of the modal. Displayed in a toolbar with a "Close" icon button on the right side. |
 
 ## Events
 
