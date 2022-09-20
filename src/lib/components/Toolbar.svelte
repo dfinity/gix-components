@@ -42,8 +42,13 @@
     grid-column: 2 / 3;
 
     display: flex;
+    justify-content: center;
+    align-items: stretch;
+
     justify-self: center;
 
     max-width: 100%;
+
+    gap: var(--padding);
   }
 </style>
