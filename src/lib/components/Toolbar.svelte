@@ -15,8 +15,13 @@
     position: absolute;
     @include display.inset;
 
+    --actions-width: 15%;
+    --main-width: calc(100% - (2 * var(--actions-width)));
+
     display: grid;
-    grid-template-columns: 25% 50% 25%;
+    grid-template-columns: var(--actions-width) var(--main-width) var(
+        --actions-width
+      );
 
     justify-content: center;
     align-items: center;
@@ -41,6 +46,8 @@
     align-items: stretch;
 
     justify-self: center;
+
+    max-width: 100%;
 
     gap: var(--padding);
   }

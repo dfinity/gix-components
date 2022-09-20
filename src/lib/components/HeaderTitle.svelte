@@ -7,7 +7,7 @@
     margin: 0;
     color: white;
 
-    @include text.clamp(2);
+    @include text.truncate;
 
     text-align: center;
     line-height: inherit;
