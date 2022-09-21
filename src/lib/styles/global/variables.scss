@@ -28,7 +28,8 @@
   --z-index: 1;
   --menu-z-index: calc(var(--z-index) + 996);
   --overlay-z-index: calc(var(--menu-z-index) + 1);
-  --toast-z-index: calc(var(--overlay-z-index) + 1);
+  --toast-info-z-index: calc(var(--overlay-z-index) + 1);
+  --toast-error-z-index: calc(var(--overlay-z-index) + 4);
   --modal-z-index: calc(var(--overlay-z-index) + 3);
   --bottom-sheet-z-index: calc(var(--overlay-z-index) + 2);
 
