@@ -21,6 +21,10 @@ button {
     &:focus {
       text-decoration: underline;
     }
+
+    &[disabled] {
+      text-decoration: none;
+    }
   }
 
   &.ghost {
@@ -45,6 +49,7 @@ button {
 
     &[disabled] {
       color: var(--disable-contrast);
+      text-decoration: none;
     }
   }
 
