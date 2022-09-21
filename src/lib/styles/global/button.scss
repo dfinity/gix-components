@@ -71,16 +71,18 @@ button {
   &.success,
   &.danger,
   &.warning {
-    padding: var(--padding) var(--padding-2x);
+    padding: var(--padding-1_5x);
 
     border-radius: var(--element-border-radius);
     box-shadow: var(--interaction-box-shadow);
+    border: 1px solid var(--border-color-button, var(--background-color-button));
 
     position: relative;
     min-height: var(--button-min-height);
 
     font-size: var(--font-size-small);
     line-height: var(--line-height-standard);
+    font-weight: var(--font-weight-bold);
 
     @include media.min-width(medium) {
       font-size: var(--font-size-h4);
@@ -88,9 +90,27 @@ button {
 
     &.small {
       min-height: inherit;
+
       font-size: inherit;
+      font-weight: inherit;
       line-height: var(--line-height-title);
+
       padding: var(--padding-0_5x) var(--padding-2x);
+    }
+  }
+
+  &.primary,
+  &.secondary,
+  &.success,
+  &.danger,
+  &.warning {
+    &[disabled],
+    &[disabled]:hover {
+      background: var(--disable);
+      color: var(--disable-contrast);
+      cursor: default;
+      border: 1px solid var(--disable);
+      box-shadow: none;
     }
   }
 
@@ -127,8 +147,6 @@ button {
 
     background: var(--secondary);
     color: var(--secondary-contrast);
-    // Use inset border to avoid messing up with size.
-    border: 1px inset var(--input-error-color, var(--input-border-color));
 
     @include effect.ripple-effect(--secondary-tint);
 
@@ -143,11 +161,7 @@ button {
     background: var(--background-color-button);
     color: var(--color-button);
 
-    border: 1px solid var(--border-color-button);
-
     font-size: var(--font-size-small);
-
-    font-weight: var(--font-weight-bold);
 
     @include media.min-width(medium) {
       font-size: var(--font-size-h3);
