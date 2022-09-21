@@ -17,6 +17,7 @@ button {
     color: var(--background-contrast);
 
     &:hover,
+    &:active,
     &:focus {
       text-decoration: underline;
     }
@@ -37,8 +38,9 @@ button {
     color: var(--primary);
 
     &:hover,
+    &:active,
     &:focus {
-      color: var(--primary-tint);
+      text-decoration: underline;
     }
 
     &[disabled] {
@@ -97,13 +99,7 @@ button {
 
       padding: var(--padding-0_5x) var(--padding-2x);
     }
-  }
 
-  &.primary,
-  &.secondary,
-  &.success,
-  &.danger,
-  &.warning {
     &[disabled],
     &[disabled]:hover {
       background: var(--disable);
@@ -112,80 +108,26 @@ button {
       border: 1px solid var(--disable);
       box-shadow: none;
     }
+
+    &:focus {
+      text-decoration: underline;
+    }
   }
 
   &.primary {
-    &[disabled],
-    &[disabled]:hover {
-      background: var(--disable);
-      color: var(--disable-contrast);
-      cursor: default;
-    }
-
     background: var(--primary);
     color: var(--primary-contrast);
-
-    @include effect.ripple-effect(--primary-tint);
-
-    &:focus {
-      background: var(--primary-tint);
-      @include effect.ripple-effect(--primary-tint);
-    }
-
-    &:hover {
-      background: var(--primary-tint);
-    }
   }
 
   &.secondary {
-    &[disabled],
-    &[disabled]:hover {
-      background: var(--disable);
-      color: var(--disable-contrast);
-      cursor: default;
-    }
-
     background: var(--secondary);
     color: var(--secondary-contrast);
-
-    @include effect.ripple-effect(--secondary-tint);
-
-    &:focus {
-      background: var(--secondary-tint);
-      @include effect.ripple-effect(--secondary-tint);
-    }
   }
 
   &.success,
   &.danger {
     background: var(--background-color-button);
     color: var(--color-button);
-
-    font-size: var(--font-size-small);
-
-    @include media.min-width(medium) {
-      font-size: var(--font-size-h3);
-    }
-
-    &[disabled],
-    &[disabled]:hover {
-      background: var(--disable);
-      border-color: var(--disable);
-      color: var(--disable-contrast);
-      cursor: default;
-    }
-
-    @include effect.ripple-effect(--background-color-button-tint);
-
-    &:focus {
-      @include effect.ripple-effect(--background-color-button-tint);
-    }
-
-    &:hover,
-    &:focus {
-      background: var(--background-color-button-tint);
-      color: var(--background-color-button-tint-contrast);
-    }
   }
 
   /// @deprecated - old design only
@@ -200,30 +142,5 @@ button {
   &.warning {
     background: var(--background-color-button);
     color: var(--background-color-button-contrast);
-
-    font-size: var(--font-size-small);
-
-    @include media.min-width(medium) {
-      font-size: var(--font-size-h3);
-    }
-
-    &[disabled],
-    &[disabled]:hover {
-      background: var(--disable);
-      color: var(--disable-contrast);
-      cursor: default;
-    }
-
-    @include effect.ripple-effect(--background-color-button-tint);
-
-    &:focus {
-      @include effect.ripple-effect(--background-color-button-tint);
-      color: var(--color-button);
-    }
-
-    &:hover,
-    &:focus {
-      background: var(--background-color-button-tint);
-    }
   }
 }

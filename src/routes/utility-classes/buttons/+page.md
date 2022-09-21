@@ -26,8 +26,8 @@ In Figma file the `success` and `danger` are named `positive` and `negative` but
 
 | Styles                                          | Disabled                                                 |
 | ----------------------------------------------- | -------------------------------------------------------- |
-| <button class="icon-only"><IconMenu /></button> | <button class="icon-only disabled"><IconMenu /></button> |
-| <button class="text">Text Button</button>       | <button class="text disabled">Text Button</button>       |
+| <button class="icon-only"><IconMenu /></button> | <button class="icon-only" disabled><IconMenu /></button> |
+| <button class="text">Text Button</button>       | <button class="text" disabled>Text Button</button>       |
 
 ### `.small`
 
