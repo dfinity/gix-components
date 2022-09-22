@@ -21,8 +21,6 @@ header {
   left: 0;
   right: 0;
 
-  box-shadow: var(--header-box-shadow);
-
   height: var(--header-height);
 
   display: block;
@@ -39,6 +37,16 @@ header {
   color: var(--primary-gradient-contrast);
 
   --toolbar-pointer-events: all;
+
+  // bottom shadow
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    box-shadow: var(--header-box-shadow);
+    pointer-events: none;
+    z-index: calc(var(--menu-z-index) + 1);
+  }
 }
 
 footer {
