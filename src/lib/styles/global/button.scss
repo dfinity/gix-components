@@ -32,12 +32,8 @@ button {
 
     width: fit-content;
 
-    font-size: var(--font-size-small);
+    font-size: inherit;
     line-height: var(--line-height-standard);
-
-    @include media.min-width(medium) {
-      font-size: inherit;
-    }
 
     color: var(--primary);
 
@@ -78,7 +74,7 @@ button {
   &.success,
   &.danger,
   &.warning {
-    padding: var(--padding-1_5x);
+    padding: var(--padding) var(--padding-2x);
 
     border-radius: var(--element-border-radius);
     box-shadow: var(--interaction-box-shadow);
@@ -87,23 +83,9 @@ button {
     position: relative;
     min-height: var(--button-min-height);
 
-    font-size: var(--font-size-small);
+    font-size: inherit;
     line-height: var(--line-height-standard);
     font-weight: var(--font-weight-bold);
-
-    @include media.min-width(medium) {
-      font-size: var(--font-size-h4);
-    }
-
-    &.small {
-      min-height: inherit;
-
-      font-size: inherit;
-      font-weight: inherit;
-      line-height: var(--line-height-title);
-
-      padding: var(--padding-0_5x) var(--padding-2x);
-    }
 
     &[disabled],
     &[disabled]:hover {
