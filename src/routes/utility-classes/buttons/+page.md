@@ -6,67 +6,35 @@
 
 All styles that can be applied to buttons.
 
+## Note
+
+In Figma file the `success` and `danger` are named `positive` and `negative` buttons.
+
 ## Showcase
 
-<div class="card-grid">
-    <div>
-        <button class="primary">Button</button>
-        <code>primary</code>
-    </div>
+### Default
 
-    <div>
-        <button class="secondary">Button</button>
-        <code>secondary</code>
-    </div>
+| Styles                                              | Disabled                                                       |
+| --------------------------------------------------- | -------------------------------------------------------------- |
+| <button class="primary">Primary Button</button>     | <button class="primary" disabled>Primary Disabled</button>     |
+| <button class="secondary">Secondary Button</button> | <button class="secondary" disabled>Secondary Disabled</button> |
+| <button class="ghost">Ghost Button</button>         | <button class="ghost" disabled>Ghost Disabled</button>         |
+| <button class="success">Success Button</button>     | <button class="success" disabled>Success Disabled</button>     |
+| <button class="danger">Danger Button</button>       | <button class="danger" disabled>Danger Disabled</button>       |
 
-    <div>
-        <button class="success">Button</button>
-        <code>success</code>
-    </div>
+### Others
 
-    <div>
-        <button class="danger">Button</button>
-        <code>danger</code>
-    </div>
+| Styles                                          | Disabled                                                 |
+| ----------------------------------------------- | -------------------------------------------------------- |
+| <button class="icon-only"><IconMenu /></button> | <button class="icon-only" disabled><IconMenu /></button> |
+| <button class="text">Text Button</button>       | <button class="text" disabled>Text Button</button>       |
 
-    <div>
-        <button class="text">Button</button>
-        <code>text</code>
-    </div>
+### `.full-width`
 
-    <div>
-        <button class="ghost">Button</button>
-        <code>ghost</code>
-    </div>
-
-    <div>
-        <button class="icon-only"><IconMenu /></button>
-        <code>icon-only</code>
-    </div>
-
-    <div>
-        <button class="primary full-width">Button</button>
-        <code>primary + full-width</code>
-    </div>
-
-    <div>
-        <button class="primary small">Button</button>
-        <code>primary + small</code>
-    </div>
-
-    <div>
-        <button class="primary" disabled>Button</button>
-        <code>primary & disabled</code>
-    </div>
-
-</div>
-
-<style lang="scss">
-    .card-grid > div {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: var(--padding-2x);
-    }
-</style>
+| Styles                                                         | Disabled                                                                  |
+| -------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| <button class="primary full-width">Primary Button</button>     | <button class="primary full-width" disabled>Primary Disabled</button>     |
+| <button class="secondary full-width">Secondary Button</button> | <button class="secondary full-width" disabled>Secondary Disabled</button> |
+| <button class="ghost full-width">Ghost Button</button>         | <button class="ghost full-width" disabled>Ghost Disabled</button>         |
+| <button class="success full-width">Success Button</button>     | <button class="success full-width" disabled>Success Disabled</button>     |
+| <button class="danger full-width">Danger Button</button>       | <button class="danger full-width" disabled>Danger Disabled</button>       |
