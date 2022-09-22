@@ -3,7 +3,6 @@
 button {
   &.success {
     --background-color-button: var(--positive-emphasis);
-    --border-color-button: var(--positive-emphasis);
     --color-button: var(--positive-emphasis-contrast);
     --background-color-button-tint: var(--positive-emphasis-tint);
     --background-color-button-tint-contrast: var(--positive-emphasis-contrast);
@@ -11,10 +10,13 @@ button {
 
   &.danger {
     --background-color-button: var(--negative-emphasis);
-    --border-color-button: var(--negative-emphasis);
     --color-button: var(--negative-emphasis-contrast);
     --background-color-button-tint: var(--negative-emphasis-tint);
     --background-color-button-tint-contrast: var(--negative-emphasis-contrast);
+  }
+
+  &.secondary {
+    --border-color-button: var(--secondary-contrast);
   }
 }
 
