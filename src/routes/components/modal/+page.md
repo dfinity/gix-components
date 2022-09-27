@@ -37,17 +37,23 @@ A Modal is a dialog that appears on top of the app's content, and must be dismis
 
 ## Slots
 
-| Slot name    | Description                                                                                                                             |
-| ------------ | --------------------------------------------------------------------------------------------------------------------------------------- |
-| Default slot | The content of the modal.                                                                                                               |
-| `title`      | The title of the modal. Displayed in a toolbar with a "Close" icon button on the right side.                                            |
-| `toolbar`    | A toolbar added next to the content in case of "dialog" behavior. In case of "alert", the toolbar is sticky to the bottom of the modal. |
+| Slot name    | Description                                                                                  |
+| ------------ | -------------------------------------------------------------------------------------------- |
+| Default slot | The content of the modal.                                                                    |
+| `title`      | The title of the modal. Displayed in a toolbar with a "Close" icon button on the right side. |
+| `toolbar`    | A sticky toolbar displayed at the bottom of the modal. Available for "alert" only.           |
 
 ## Events
 
 | Event      | Description                                                                                                                                           | Detail    |
 | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
 | `nnsClose` | Triggered when a closing interaction element is clicks - close button or backdrop. Note that the modal itself does not update the `visible` property. | No detail |
+
+## Utility Classes
+
+| CSS classes | Description                                             |
+| ----------- | ------------------------------------------------------- |
+| `toolbar`   | Append inlined actions after the content of a "dialog". |
 
 ## Showcase
 
@@ -60,10 +66,21 @@ Open modal
 
 <DocsLoremIpsum length={role === "alert" ? 1 : 10} />
 
-<svelte:fragment slot="toolbar">
+{#if role === "dialog"}
+
+<div class="toolbar">
+    <button class="secondary">Cancel</button>
+    <button class="primary">An action</button>
+</div>
+{/if}
+
+<svelte:fragment slot="footer">
+{#if role === "alert"}
 <button class="secondary">Cancel</button>
 <button class="primary">An action</button>
+{/if}
 </svelte:fragment>
+
 </Modal>
 
 <p style="padding-top: var(--padding-2x)">Role of the modal:</p>

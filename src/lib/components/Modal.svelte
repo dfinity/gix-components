@@ -14,11 +14,11 @@
   let showHeader: boolean;
   $: showHeader = $$slots.title !== undefined;
 
-  let showToolbarDialog: boolean;
-  $: showToolbarDialog = $$slots.toolbar !== undefined && role === "dialog";
-
-  let showToolbarAlert: boolean;
-  $: showToolbarAlert = $$slots.toolbar !== undefined && role === "alert";
+  /**
+   * @deprecated according new design there should be no sticky footer
+   */
+  let showFooterAlert: boolean;
+  $: showFooterAlert = $$slots.footer !== undefined && role === "alert";
 
   const dispatch = createEventDispatcher();
   const close = () => dispatch("nnsClose");
@@ -54,17 +54,11 @@
 
       <div class="content" id="modalContent" class:alert={role === "alert"}>
         <slot />
-
-        {#if showToolbarDialog}
-          <div class="toolbar">
-            <slot name="toolbar" />
-          </div>
-        {/if}
       </div>
 
-      {#if showToolbarAlert}
-        <div class="toolbar">
-          <slot name="toolbar" />
+      {#if showFooterAlert}
+        <div class="footer toolbar">
+          <slot name="footer" />
         </div>
       {/if}
     </div>
@@ -119,7 +113,7 @@
           calc(var(--alert-padding-x) / 2) 0;
       }
 
-      .toolbar {
+      .footer {
         padding: 0 var(--alert-padding-x) var(--alert-padding-y);
 
         @include media.min-width(small) {
@@ -149,10 +143,6 @@
       .content {
         margin: 0 0 var(--dialog-padding-y);
         padding: var(--dialog-padding-y) var(--dialog-padding-x);
-      }
-
-      .toolbar {
-        padding: var(--padding-2x) 0 0;
       }
     }
   }
@@ -205,20 +195,5 @@
 
     overflow-y: auto;
     overflow-x: hidden;
-  }
-
-  .toolbar {
-    display: flex;
-    gap: var(--padding-2x);
-
-    :global(button) {
-      flex: 1;
-    }
-
-    @include media.min-width(small) {
-      :global(button) {
-        flex: none;
-      }
-    }
   }
 </style>
