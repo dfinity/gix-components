@@ -14,6 +14,12 @@
   let showHeader: boolean;
   $: showHeader = $$slots.title !== undefined;
 
+  /**
+   * @deprecated according new design there should be no sticky footer
+   */
+  let showFooterAlert: boolean;
+  $: showFooterAlert = $$slots.footer !== undefined && role === "alert";
+
   const dispatch = createEventDispatcher();
   const close = () => dispatch("nnsClose");
 </script>
@@ -50,9 +56,9 @@
         <slot />
       </div>
 
-      {#if $$slots.toolbar}
-        <div class="toolbar">
-          <slot name="toolbar" />
+      {#if showFooterAlert}
+        <div class="footer toolbar">
+          <slot name="footer" />
         </div>
       {/if}
     </div>
@@ -107,8 +113,12 @@
           calc(var(--alert-padding-x) / 2) 0;
       }
 
-      .toolbar {
+      .footer {
         padding: 0 var(--alert-padding-x) var(--alert-padding-y);
+
+        @include media.min-width(small) {
+          justify-content: flex-end;
+        }
       }
     }
 
@@ -132,12 +142,7 @@
 
       .content {
         margin: 0 0 var(--dialog-padding-y);
-        padding: var(--dialog-padding-y) var(--dialog-padding-x) 0;
-      }
-
-      .toolbar {
-        padding: 0 var(--dialog-padding-x)
-          max(var(--dialog-padding-y), env(safe-area-inset-bottom));
+        padding: var(--dialog-padding-y) var(--dialog-padding-x);
       }
     }
   }
@@ -190,22 +195,5 @@
 
     overflow-y: auto;
     overflow-x: hidden;
-  }
-
-  .toolbar {
-    display: flex;
-    gap: var(--padding-2x);
-
-    :global(button) {
-      flex: 1;
-    }
-
-    @include media.min-width(small) {
-      justify-content: flex-end;
-
-      :global(button) {
-        flex: none;
-      }
-    }
   }
 </style>
