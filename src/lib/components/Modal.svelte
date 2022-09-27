@@ -14,6 +14,12 @@
   let showHeader: boolean;
   $: showHeader = $$slots.title !== undefined;
 
+  let showToolbarDialog: boolean;
+  $: showToolbarDialog = $$slots.toolbar !== undefined && role === "dialog";
+
+  let showToolbarAlert: boolean;
+  $: showToolbarAlert = $$slots.toolbar !== undefined && role === "alert";
+
   const dispatch = createEventDispatcher();
   const close = () => dispatch("nnsClose");
 </script>
@@ -48,9 +54,15 @@
 
       <div class="content" id="modalContent" class:alert={role === "alert"}>
         <slot />
+
+        {#if showToolbarDialog}
+          <div class="toolbar">
+            <slot name="toolbar" />
+          </div>
+        {/if}
       </div>
 
-      {#if $$slots.toolbar}
+      {#if showToolbarAlert}
         <div class="toolbar">
           <slot name="toolbar" />
         </div>
@@ -109,6 +121,10 @@
 
       .toolbar {
         padding: 0 var(--alert-padding-x) var(--alert-padding-y);
+
+        @include media.min-width(small) {
+          justify-content: flex-end;
+        }
       }
     }
 
@@ -132,12 +148,11 @@
 
       .content {
         margin: 0 0 var(--dialog-padding-y);
-        padding: var(--dialog-padding-y) var(--dialog-padding-x) 0;
+        padding: var(--dialog-padding-y) var(--dialog-padding-x);
       }
 
       .toolbar {
-        padding: 0 var(--dialog-padding-x)
-          max(var(--dialog-padding-y), env(safe-area-inset-bottom));
+        padding: var(--padding-2x) 0 0;
       }
     }
   }
@@ -201,8 +216,6 @@
     }
 
     @include media.min-width(small) {
-      justify-content: flex-end;
-
       :global(button) {
         flex: none;
       }
