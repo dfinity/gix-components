@@ -25,12 +25,11 @@
 
 <style lang="scss">
   @use "../styles/mixins/interaction";
-  @use "../styles/mixins/media";
 
   input {
     appearance: none;
-    border-radius: 5px;
-    height: 5px;
+    border-radius: var(--padding-0_5x);
+    height: var(--padding);
     width: 100%;
 
     /** Declaring this value as a CSS variable in dark.scss and light.scss was not interpreted correctly, therefore we implement these here */
@@ -38,19 +37,10 @@
       99.27deg,
       var(--primary) -0.11%,
       #4e48d2 var(--range-progression),
-      var(--background) var(--range-end)
+      var(--card-background) var(--range-end)
     );
-  }
 
-  @include media.light-theme() {
-    input {
-      background: linear-gradient(
-        99.27deg,
-        var(--primary) -0.11%,
-        #4e48d2 var(--range-progression),
-        var(--background-shade) var(--range-end)
-      );
-    }
+    box-shadow: var(--inner-box-shadow);
   }
 
   input:focus {
