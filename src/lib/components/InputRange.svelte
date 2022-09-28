@@ -40,7 +40,7 @@
       var(--card-background) var(--range-end)
     );
 
-    box-shadow: var(--inner-box-shadow);
+    box-shadow: var(--range-box-inset-shadow);
   }
 
   input:focus {
