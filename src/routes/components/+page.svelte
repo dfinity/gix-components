@@ -85,6 +85,15 @@
 
     <p>A styled input field where the user can enter data.</p>
   </Card>
+
+  <Card role="link" on:click={() => goto("/components/input-range")}>
+    <h2 class="title" slot="start">Input Range</h2>
+
+    <p>
+      An input of type range to let the user specify a numeric value which must
+      be no less than a given value, and no more than another given value.
+    </p>
+  </Card>
 </div>
 
 <p>TODO docs:</p>
