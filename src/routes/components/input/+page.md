@@ -16,7 +16,7 @@ The input component is a wrapper to the HTML input element with custom styling a
 | Property       | Description                                                                               | Type                                | Default     |
 | -------------- | ----------------------------------------------------------------------------------------- | ----------------------------------- | ----------- |
 | `name`         | HTML input `name` field.                                                                  | `string`                            |             |
-| `inputType`    | TML input `type` field.                                                                   | `text` or `number`                  | `number`    |
+| `inputType`    | HTML input `type` field extended with a custom `icp` type.                                | `text` or `number` or `icp`         | `number`    |
 | `required`     | HTML input `required` field.                                                              | `boolean`                           | `true`      |
 | `spellcheck`   | HTML input `spellcheck` field.                                                            | `boolean` or `undefined`            | `undefined` |
 | `step`         | HTML input `step` field.                                                                  | `number` or `any` or `undefined`    | `undefined` |
@@ -28,7 +28,6 @@ The input component is a wrapper to the HTML input element with custom styling a
 | `autocomplete` | HTML input `autocomplete` field.                                                          | `off` or `on` or `undefined`        | `undefined` |
 | `showInfo`     | Display additional information related to the input. Should be used in addition to slots. | `boolean`                           | `false`     |
 | `testId`       | Add a `data-tid` attribute to the DOM, useful for test purpose.                           | `string` or `undefined`             | `undefined` |
-| `inputElement` | A reference to rendered input element.                                                    | `HTMLInputElement` or `undefined`   |             |
 
 ## Slots
 
@@ -45,6 +44,8 @@ Both slots are displayed `flex` with `space-between`.
     <Input placeholder="Input number" />
 
     <Input placeholder="Input text" inputType="text" value="" />
+
+    <Input placeholder="Enter ICP" inputType="icp" value="" />
 
     <Input placeholder="Disabled" disabled value="This is a disabled value" inputType="text" />
 
