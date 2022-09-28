@@ -204,6 +204,7 @@
     border-radius: var(--element-border-radius);
 
     outline: none;
+    -webkit-appearance: none;
   }
 
   input:focus {
