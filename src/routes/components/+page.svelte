@@ -79,6 +79,12 @@
       interactions with the main view of an application.
     </p>
   </Card>
+
+  <Card role="link" on:click={() => goto("/components/input")}>
+    <h2 class="title" slot="start">Input</h2>
+
+    <p>A styled input field where the user can enter data.</p>
+  </Card>
 </div>
 
 <p>TODO docs:</p>
