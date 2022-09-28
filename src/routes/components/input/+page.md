@@ -28,6 +28,7 @@ The input component is a wrapper to the HTML input element with custom styling a
 | `autocomplete` | HTML input `autocomplete` field.                                                          | `off` or `on` or `undefined`        | `undefined` |
 | `showInfo`     | Display additional information related to the input. Should be used in addition to slots. | `boolean`                           | `false`     |
 | `testId`       | Add a `data-tid` attribute to the DOM, useful for test purpose.                           | `string` or `undefined`             | `undefined` |
+| `inputElement` | A reference to rendered input element.                                                    | `HTMLInputElement` or `undefined`   |             |
 
 ## Slots
 

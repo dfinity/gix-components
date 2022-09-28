@@ -22,6 +22,8 @@
   // showInfo = $$slots.label || $$slots.additional
   export let showInfo = true;
 
+  export let inputElement: HTMLInputElement | undefined;
+
   $: step = inputType === "number" ? step ?? "any" : undefined;
   $: autocomplete = inputType !== "number" ? autocomplete ?? "off" : undefined;
 </script>
@@ -34,6 +36,7 @@
     </div>
   {/if}
   <input
+    bind:this={inputElement}
     data-tid={testId}
     type={inputType}
     {required}
