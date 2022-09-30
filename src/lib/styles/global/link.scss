@@ -1,6 +1,11 @@
 /** Similar behavior as button.text */
 
 a {
+  font-size: inherit;
+  font-family: inherit;
+
+  color: var(--primary);
+
   text-decoration: none;
 
   &:active,
