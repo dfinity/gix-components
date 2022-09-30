@@ -132,6 +132,10 @@
 
       @supports (-webkit-touch-callout: none) {
         max-height: -webkit-fill-available;
+
+        @include media.min-width(medium) {
+          max-height: var(--dialog-max-height, 100%);
+        }
       }
 
       border-radius: var(--dialog-border-radius);

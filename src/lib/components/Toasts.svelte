@@ -4,9 +4,9 @@
   import { layoutBottomOffset } from "$lib/stores/layout.store";
 
   let hasErrors: boolean;
-  $: hasErrors = $toastsStore?.find(({ level }) =>
-    ["error", "warn"].includes(level)
-  );
+  $: hasErrors =
+    $toastsStore?.find(({ level }) => ["error", "warn"].includes(level)) !==
+    undefined;
 </script>
 
 {#if $toastsStore.length > 0}

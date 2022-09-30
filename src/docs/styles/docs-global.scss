@@ -71,19 +71,6 @@ p strong {
   color: var(--background-contrast);
 }
 
-// Content link color
-main {
-  a {
-    font-size: inherit;
-    text-decoration: underline;
-
-    &:focus,
-    &:hover {
-      color: var(--primary);
-    }
-  }
-}
-
 blockquote {
   margin: var(--padding-2x) 0;
   background: var(--warning-emphasis);
