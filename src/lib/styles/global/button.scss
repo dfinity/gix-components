@@ -78,7 +78,8 @@ button {
 
     border-radius: var(--element-border-radius);
     box-shadow: var(--interaction-box-shadow);
-    border: 1px solid var(--border-color-button, var(--background-color-button));
+    --border-color: var(--border-color-button, var(--background-color-button));
+    border: 1px solid var(--border-color, transparent);
 
     position: relative;
     min-height: var(--button-min-height);
