@@ -13,7 +13,7 @@
   let amount: string | undefined = value;
   $: amount, (() => dispatch("testAmount", { amount }))();
 
-  // We want to test that we can change value programtically
+  // We want to test that we can change value programmatically
   const changeValue = () => {
     amount = "new value";
   };
