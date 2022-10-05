@@ -35,5 +35,9 @@ div.modal {
         flex: none;
       }
     }
+
+    @include media.min-width(medium) {
+      justify-content: flex-end;
+    }
   }
 }
