@@ -1,8 +1,12 @@
 <!-- source: https://fonts.google.com/icons?selected=Material%20Symbols%20Outlined%3Aaccount_circle%3AFILL%401%3Bwght%40400%3BGRAD%400%3Bopsz%4048 -->
+<script lang="ts">
+  export let size = "48px";
+</script>
+
 <svg
   xmlns="http://www.w3.org/2000/svg"
-  height="48"
-  width="48"
+  height={size}
+  width={size}
   viewBox="0 0 48 48"
   fill="currentColor"
   ><path

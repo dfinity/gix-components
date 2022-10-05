@@ -16,3 +16,4 @@ export { default as Spinner } from "./components/Spinner.svelte";
 export { default as Modal } from "./components/Modal.svelte";
 export { default as Input } from "./components/Input.svelte";
 export { default as InputRange } from "./components/InputRange.svelte";
+export { default as Popover } from "./components/Popover.svelte";

@@ -1,0 +1,126 @@
+<script lang="ts">
+    import Popover from "$lib/components/Popover.svelte";
+    import {IconMenu, IconAccount, IconExit, IconWallet, IconLightMode, IconDarkMode} from "$lib/icons";
+    let visible = false;
+    let button: HTMLButtonElement | undefined;
+    let visible2 = false;
+    let button2: HTMLButtonElement | undefined;
+    let visible3 = false;
+    let button3: HTMLButtonElement | undefined;
+    let selected1: boolean = true;
+</script>
+
+# Popover
+
+A popover is a floating container that is rendered over the content 
+next to an anchor — commonly a button — which initiates its display. 
+To improve the visual focus of the overlay, a backdrop is generally 
+used to partially obfuscate the view behind it.
+
+# Showcase
+<div id="display">
+    <button 
+        class="primary"
+        bind:this={button2} 
+        on:click={() => (visible2 = !visible2)}
+    >
+        Open Popover
+    </button>
+    <Popover bind:visible={visible2} anchor={button2}>
+        This is a popover!
+    </Popover>
+    <button
+        data-tid="account-menu"
+        class="icon-only toggle"
+        bind:this={button}
+        on:click={() => (visible = !visible)}
+    >  
+        <IconMenu size={40}/>
+    </button>
+    <Popover bind:visible anchor={button} closeButton>
+        <div class="account">
+            <span class="account_icon">
+                <IconAccount size={34} />
+            </span>Account
+        </div>
+        <div class="account">
+            <span class="account_icon">
+                <IconWallet size={34}/>
+            </span>Wallet
+        </div>
+        <div class="account">
+            <span class="account_icon">
+                <IconExit size={34}/>
+            </span>Logout
+        </div>
+    </Popover>
+    <button
+        class="secondary"
+        bind:this={button3}
+        on:click={() => (visible3 = !visible3)}
+    > Appearance Mode
+    </button>
+    <Popover bind:visible={visible3} anchor={button3}>
+        <div>
+            <div class="mode" class:selected={selected1 === true} 
+                on:click={() => (selected1 = true)}>
+                <IconLightMode /> Light Mode
+            </div>
+            <div class="mode" class:selected={selected1 === false} 
+                on:click={() => (selected1 = false)}>
+                <IconDarkMode /> Dark Mode
+            </div>
+        </div>
+    </Popover>
+</div>
+
+<style>
+    #display {
+        padding: 2rem;
+        display: flex;
+    }
+    .account {
+        height: 3rem;
+        display: flex;
+        align-items: center;
+    }
+    .account_icon {
+        margin-right: 1rem;
+    }
+    .mode {
+        display: flex;
+        height: 2rem;
+        padding: 1rem 0;
+        align-items: center;
+        justify-content: space-evenly;
+        border-radius: 15px;
+    }
+    .mode:hover {
+        cursor: pointer;
+    }
+    button {
+        margin-right: 2rem;
+    }
+    .selected {
+        background-color: grey;
+    }
+</style>
+
+# Usage
+```html
+<script lang="ts">
+    let visible = false;
+    let button: HTMLButtonElement | undefined;
+</script>
+<button class="primary"
+    bind:this={button} 
+    on:click={() => (visible = !visible)}
+>
+    Open Popover
+</button>
+<Popover bind:visible anchor={button}>
+    This is a popover!
+</Popover>
+```
+
+# Properties
