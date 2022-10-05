@@ -14,8 +14,7 @@
 
 A popover is a floating container that is rendered over the content 
 next to an anchor — commonly a button — which initiates its display. 
-To improve the visual focus of the overlay, a backdrop is generally 
-used to partially obfuscate the view behind it.
+<br />
 
 # Showcase
 <div id="display">
@@ -76,13 +75,16 @@ used to partially obfuscate the view behind it.
 
 <style>
     #display {
-        padding: 2rem;
+        padding: 1rem;
         display: flex;
     }
     .account {
         height: 3rem;
         display: flex;
         align-items: center;
+    }
+    .account:hover {
+        cursor: pointer;
     }
     .account_icon {
         margin-right: 1rem;
@@ -105,8 +107,11 @@ used to partially obfuscate the view behind it.
         background-color: grey;
     }
 </style>
+<br />
 
 # Usage
+The popover placement will be below the anchor element, either from left to right (default) 
+or from right to left.
 ```html
 <script lang="ts">
     let visible = false;
@@ -124,3 +129,9 @@ used to partially obfuscate the view behind it.
 ```
 
 # Properties
+| Property       | Description                                            | Type                          | Default     |
+| ---------------| ------------------------------------------------------ | ----------------------------- | ----------- |
+| `visible`      | Display or hide the popover.                           | `boolean`                     | `false`     |
+| `direction`    | Layout direction, either left-to-right `ltr` or right-to-left `rtl`.   | `string`  | `ltr`       |
+| `anchor`       | The anchor element on which the popover depends on.    | `HTMLElement` or `undefined`  | `undefined` |
+| `closeButton`  | Option to add a close button on top right corner.      | `true` or `undefined`         | `undefined` |
