@@ -12,11 +12,12 @@
 
 # Popover
 
-A popover is a floating container that is rendered over the content 
-next to an anchor — commonly a button — which initiates its display. 
+A popover is a floating container that is rendered over the content
+next to an anchor — commonly a button — which initiates its display.
 <br />
 
 # Showcase
+
 <div id="display">
     <button 
         class="primary"
@@ -110,15 +111,17 @@ next to an anchor — commonly a button — which initiates its display.
 <br />
 
 # Usage
-The popover placement will be below the anchor element, either from left to right (default) 
+
+The popover placement will be below the anchor element, either from left to right (default)
 or from right to left.
+
 ```html
 <script lang="ts">
     let visible = false;
     let button: HTMLButtonElement | undefined;
 </script>
 <button class="primary"
-    bind:this={button} 
+    bind:this={button}
     on:click={() => (visible = !visible)}
 >
     Open Popover
@@ -129,9 +132,10 @@ or from right to left.
 ```
 
 # Properties
-| Property       | Description                                            | Type                          | Default     |
-| ---------------| ------------------------------------------------------ | ----------------------------- | ----------- |
-| `visible`      | Display or hide the popover.                           | `boolean`                     | `false`     |
-| `direction`    | Layout direction, either left-to-right `ltr` or right-to-left `rtl`.   | `string`  | `ltr`       |
-| `anchor`       | The anchor element on which the popover depends on.    | `HTMLElement` or `undefined`  | `undefined` |
-| `closeButton`  | Option to add a close button on top right corner.      | `true` or `undefined`         | `undefined` |
+
+| Property      | Description                                                          | Type                         | Default     |
+| ------------- | -------------------------------------------------------------------- | ---------------------------- | ----------- |
+| `visible`     | Display or hide the popover.                                         | `boolean`                    | `false`     |
+| `direction`   | Layout direction, either left-to-right `ltr` or right-to-left `rtl`. | `string`                     | `ltr`       |
+| `anchor`      | The anchor element on which the popover depends on.                  | `HTMLElement` or `undefined` | `undefined` |
+| `closeButton` | Option to add a close button on top right corner.                    | `true` or `undefined`        | `undefined` |
