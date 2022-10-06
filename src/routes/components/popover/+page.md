@@ -5,9 +5,6 @@
     let button: HTMLButtonElement | undefined;
     let visible2 = false;
     let button2: HTMLButtonElement | undefined;
-    let visible3 = false;
-    let button3: HTMLButtonElement | undefined;
-    let selected1: boolean = true;
 </script>
 
 # Popover
@@ -52,24 +49,6 @@ next to an anchor — commonly a button — which initiates its display.
             <span class="account_icon">
                 <IconExit size={34}/>
             </span>Logout
-        </div>
-    </Popover>
-    <button
-        class="secondary"
-        bind:this={button3}
-        on:click={() => (visible3 = !visible3)}
-    > Appearance Mode
-    </button>
-    <Popover bind:visible={visible3} anchor={button3}>
-        <div>
-            <div class="mode" class:selected={selected1 === true} 
-                on:click={() => (selected1 = true)}>
-                <IconLightMode /> Light Mode
-            </div>
-            <div class="mode" class:selected={selected1 === false} 
-                on:click={() => (selected1 = false)}>
-                <IconDarkMode /> Dark Mode
-            </div>
         </div>
     </Popover>
 </div>
