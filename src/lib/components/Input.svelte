@@ -199,7 +199,7 @@
     padding: var(--padding-2x);
     box-sizing: border-box;
 
-    box-shadow: var(--current-box-inset-shadow);
+    box-shadow: var(--input-box-shadow);
 
     border-radius: var(--element-border-radius);
 
