@@ -3,5 +3,8 @@
     "close": "Close",
     "back": "Back",
     "menu": "Open menu to access navigation options"
+  },
+  "theme": {
+    "switch_theme": "Switch theme"
   }
 }

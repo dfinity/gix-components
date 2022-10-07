@@ -8,7 +8,12 @@ interface I18nCore {
   menu: string;
 }
 
+interface I18nTheme {
+  switch_theme: string;
+}
+
 interface I18n {
   lang: Languages;
   core: I18nCore;
+  theme: I18nTheme;
 }

@@ -5,6 +5,7 @@
   import { goto, afterNavigate } from "$app/navigation";
   import HeaderTitle from "$lib/components/HeaderTitle.svelte";
   import Toasts from "$lib/components/Toasts.svelte";
+  import DocsAccountMenu from "$docs/components/DocsAccountMenu.svelte";
 
   let navHistory: { from: URL | null; to: URL }[] = [];
   let back = false;
@@ -23,6 +24,8 @@
   <HeaderTitle slot="title">GIX Components</HeaderTitle>
 
   <DocsMenu slot="menu-items" on:click />
+
+  <DocsAccountMenu slot="toolbar-end" />
 
   <main>
     <slot />
