@@ -113,13 +113,3 @@
     <p>An opinionated theme toggle.</p>
   </Card>
 </div>
-
-<p>TODO docs:</p>
-
-<ul>
-  <li>
-    Back, menu, menubutton, menuitem, splitpane (maybe, included in layout)
-  </li>
-  <li>Toolbar (maybe, included in layout)</li>
-  <li>Backdrop (maybe, included in overlays)</li>
-</ul>
