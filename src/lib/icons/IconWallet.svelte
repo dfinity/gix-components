@@ -1,9 +1,13 @@
 <!-- source: https://fonts.google.com/icons?selected=Material%20Icons%3Awallet%3A -->
+<script lang="ts">
+  export let size = "24px";
+</script>
+
 <svg
   xmlns="http://www.w3.org/2000/svg"
-  height="24px"
+  height={size}
   viewBox="0 0 24 24"
-  width="24px"
+  width={size}
   fill="currentColor"
   ><g><rect fill="none" height="24" width="24" /></g><g
     ><path

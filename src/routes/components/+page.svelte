@@ -94,6 +94,14 @@
       be no less than a given value, and no more than another given value.
     </p>
   </Card>
+
+  <Card role="link" on:click={() => goto("/components/popover")}>
+    <h2 class="title" slot="start">Popover</h2>
+    <p>
+      A popover is a floating container that is rendered over the content next
+      to an anchor — commonly a button — which initiates its display.
+    </p>
+  </Card>
 </div>
 
 <p>TODO docs:</p>
