@@ -3,7 +3,7 @@
   import { fade, scale } from "svelte/transition";
   import { quintOut } from "svelte/easing";
   import { i18n } from "$lib/stores/i18n";
-  import { debounce } from "$lib/utils/debounce";
+  import { debounce } from "$lib/utils/debounce.utils";
   import Backdrop from "./Backdrop.svelte";
   import IconClose from "$lib/icons/IconClose.svelte";
 
