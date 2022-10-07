@@ -107,6 +107,11 @@
     <h2 class="title" slot="start">Toggle</h2>
     <p>Toggles are switches that change the state of a single option.</p>
   </Card>
+
+  <Card role="link" on:click={() => goto("/components/theme-toggle")}>
+    <h2 class="title" slot="start">Theme Toggle</h2>
+    <p>An opinionated theme toggle.</p>
+  </Card>
 </div>
 
 <p>TODO docs:</p>

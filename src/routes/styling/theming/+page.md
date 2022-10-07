@@ -37,3 +37,7 @@ To init the theme as fast as possible, and therefore to avoid FOUC, we advise to
   }
 </script>
 ```
+
+## Component
+
+An opinionated [Theme Toggle](/components/theme-toggle) component is provided to add a theme switcher to your dapp easily.
