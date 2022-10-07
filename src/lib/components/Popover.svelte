@@ -3,7 +3,6 @@
   import { fade, scale } from "svelte/transition";
   import { quintOut } from "svelte/easing";
   import { i18n } from "$lib/stores/i18n";
-  import { debounce } from "$lib/utils/debounce.utils";
   import Backdrop from "./Backdrop.svelte";
   import IconClose from "$lib/icons/IconClose.svelte";
 
@@ -15,12 +14,10 @@
   let bottom: number;
   let left: number;
   let right: number;
-  const initPosition = debounce(
-    () =>
-      ({ bottom, left, right } = anchor
-        ? anchor.getBoundingClientRect()
-        : { bottom: 0, left: 0, right: 0 })
-  );
+  const initPosition = () =>
+    ({ bottom, left, right } = anchor
+      ? anchor.getBoundingClientRect()
+      : { bottom: 0, left: 0, right: 0 });
   $: anchor, visible, initPosition();
   const close = () => (visible = false);
 </script>
