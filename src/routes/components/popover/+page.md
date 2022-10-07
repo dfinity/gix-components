@@ -34,7 +34,7 @@ next to an anchor — commonly a button — which initiates its display.
     >  
         <IconMenu size={40}/>
     </button>
-    <Popover bind:visible anchor={button} closeButton>
+    <Popover bind:visible anchor={button} closeButton direction="rtl">
         <div class="account">
             <span class="account_icon">
                 <IconAccount size={34} />
