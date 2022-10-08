@@ -17,3 +17,5 @@ export { default as Modal } from "./components/Modal.svelte";
 export { default as Input } from "./components/Input.svelte";
 export { default as InputRange } from "./components/InputRange.svelte";
 export { default as Popover } from "./components/Popover.svelte";
+export { default as Toggle } from "./components/Toggle.svelte";
+export { default as ThemeToggle } from "./components/ThemeToggle.svelte";
