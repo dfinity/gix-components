@@ -19,7 +19,7 @@ export const initTheme = (): Theme => {
     document.documentElement.getAttribute(THEME_ATTRIBUTE);
 
   const initialTheme: Theme = enumFromStringExists({
-    obj: Theme as unknown as Theme,
+    obj: Theme,
     value: theme,
   })
     ? (theme as Theme)
