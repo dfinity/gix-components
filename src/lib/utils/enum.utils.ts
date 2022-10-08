@@ -1,4 +1,4 @@
-export const enumFromStringExists = <T>({
+export const enumFromStringExists = <T extends object>({
   obj,
   value,
 }: {
