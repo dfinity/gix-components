@@ -9,7 +9,7 @@ div.modal {
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    justify-content: center;
+    justify-content: flex-start;
     gap: var(--padding-3x);
   }
 
