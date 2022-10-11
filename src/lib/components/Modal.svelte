@@ -126,8 +126,8 @@
       width: var(--dialog-width);
       max-width: var(--dialog-max-width);
 
+      min-height: var(--dialog-min-height);
       height: var(--dialog-height);
-
       max-height: var(--dialog-max-height, 100%);
 
       @supports (-webkit-touch-callout: none) {
