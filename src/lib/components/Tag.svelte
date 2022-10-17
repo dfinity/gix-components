@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Color } from "../types/color";
+  import { Color } from "../enums/color";
 
   export let color: Color = Color.PRIMARY;
   export let tagName: "span" | "h3" | "li" = "span";

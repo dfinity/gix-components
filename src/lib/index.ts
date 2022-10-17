@@ -4,4 +4,4 @@ export * from "./icons";
 export type { ToastMsg, ToastLevel } from "./types/toast";
 export * from "./stores/toasts.store";
 
-export { Color } from "./types/color";
+export * from "./enums/color";
