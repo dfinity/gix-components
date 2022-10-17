@@ -3,7 +3,7 @@
  */
 
 import Tag from "$lib/components/Tag.svelte";
-import { Color } from "../../lib/enums/color";
+import { Color } from "$lib/enums/color";
 import { render } from "@testing-library/svelte";
 import TagTest from "./TagTest.svelte";
 
