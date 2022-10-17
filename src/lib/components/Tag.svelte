@@ -1,7 +1,7 @@
 <script lang="ts">
-  import type { Color } from "../types/color";
+  import { Color } from "../types/color";
 
-  export let color: Color | undefined = undefined;
+  export let color: Color = Color.PRIMARY;
   export let tagName: "span" | "h3" | "li" = "span";
 </script>
 
@@ -24,14 +24,16 @@
 
     height: fit-content;
 
-    // Color.WARNING
     &.warning {
       --badge-color: var(--warning-emphasis);
     }
 
-    // Color.SUCCESS
     &.success {
       --badge-color: var(--positive-emphasis);
+    }
+
+    &.error {
+      --badge-color: var(--negative-emphasis);
     }
   }
 </style>

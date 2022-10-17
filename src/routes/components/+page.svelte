@@ -112,4 +112,12 @@
     <h2 class="title" slot="start">Theme Toggle</h2>
     <p>An opinionated theme toggle.</p>
   </Card>
+
+  <Card role="link" on:click={() => goto("/components/tag")}>
+    <h2 class="title" slot="start">Tag</h2>
+    <p>
+      Tags are used to inform users of the status of an object or of an action
+      that’s been taken.
+    </p>
+  </Card>
 </div>
