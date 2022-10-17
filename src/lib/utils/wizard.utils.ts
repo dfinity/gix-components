@@ -1,4 +1,4 @@
-import type { WizardStep } from "$lib/stores/wizard.state";
+import type { WizardStep } from "$lib/types/wizard";
 
 export const wizardStepIndex = ({
   name: stepName,

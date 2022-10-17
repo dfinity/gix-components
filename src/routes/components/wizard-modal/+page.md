@@ -1,6 +1,6 @@
 <script lang="ts">
     import WizardModal from "$lib/components/WizardModal.svelte";
-    import type { WizardStep, WizardSteps } from "$lib/stores/wizard.state";
+    import type { WizardStep, WizardSteps } from "$lib/types/wizard.types";
 
     let visible = false;
 

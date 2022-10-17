@@ -1,9 +1,4 @@
-export interface WizardStep {
-  readonly name: string;
-  readonly title: string;
-}
-
-export type WizardSteps = [WizardStep, ...WizardStep[]];
+import type { WizardStep, WizardSteps } from "$lib/types/wizard";
 
 export class WizardStepsState {
   public currentStep: WizardStep | undefined;

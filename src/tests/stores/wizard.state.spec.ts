@@ -1,6 +1,6 @@
-import type { WizardSteps } from "$lib/stores/wizard.state";
 import { WizardStepsState } from "$lib/stores/wizard.state";
 import { wizardStepIndex } from "$lib/utils/wizard.utils";
+import type { WizardSteps } from "$lib/types/wizard";
 
 describe("StepsState", () => {
   const steps: WizardSteps = [
