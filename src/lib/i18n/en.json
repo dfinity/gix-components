@@ -2,7 +2,8 @@
   "core": {
     "close": "Close",
     "back": "Back",
-    "menu": "Open menu to access navigation options"
+    "menu": "Open menu to access navigation options",
+    "toggle": "$toggle_view"
   },
   "theme": {
     "switch_theme": "Switch theme"

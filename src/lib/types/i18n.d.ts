@@ -6,6 +6,7 @@ interface I18nCore {
   close: string;
   back: string;
   menu: string;
+  toggle: string;
 }
 
 interface I18nTheme {
