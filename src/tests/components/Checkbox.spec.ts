@@ -114,14 +114,4 @@ describe("Checkbox", () => {
 
     expect(label?.classList.contains("block")).toBeTruthy();
   });
-
-  it("should apply ref to container", () => {
-    const { container } = render(Checkbox, {
-      props: { ...props, selector: "test" },
-    });
-
-    const div: HTMLDivElement | null = container.querySelector("div.checkbox");
-
-    expect(div?.classList.contains("test")).toBeTruthy();
-  });
 });
