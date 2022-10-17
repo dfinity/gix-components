@@ -44,6 +44,7 @@
     &:focus-within {
       outline: 2px solid var(--primary);
     }
+
     select {
       // Needed to keep the clickable area of the dropdown the whole width of the div.
       width: 100%;
