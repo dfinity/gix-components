@@ -5,10 +5,7 @@
   export let checked: boolean;
   export let preventDefault = false;
   export let disabled = false;
-
   export let text: "block" | "inline" = "inline";
-
-  export let selector: string | undefined = undefined;
 
   const dispatch = createEventDispatcher();
 
@@ -25,7 +22,7 @@
 
 <div
   on:click|preventDefault={onClick}
-  class={`checkbox ${selector ?? ""}`}
+  class="checkbox"
   class:disabled
   role="button"
 >
@@ -49,25 +46,25 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-direction: var(--select-flex-direction);
+    flex-direction: var(--checkbox-flex-direction);
     gap: var(--padding-2x);
 
-    padding: var(--select-padding, var(--padding-2x));
+    padding: var(--checkbox-padding, var(--padding-2x));
 
-    color: var(--select-color);
+    color: var(--checkbox-color);
 
     @include interaction.tappable;
 
-    font-size: var(--select-font-size, inherit);
+    font-size: var(--checkbox-font-size, inherit);
 
     &:hover {
       background: var(--background-shade);
     }
 
-    border-radius: var(--select-border-radius, var(--border-radius));
+    border-radius: var(--checkbox-border-radius, var(--border-radius));
 
-    --select-input-size: 20px;
-    --select-background-hover: var(--background-shade);
+    --checkbox-input-size: 20px;
+    --checkbox-background-hover: var(--background-shade);
 
     &.disabled {
       pointer-events: none;
@@ -79,7 +76,7 @@
     cursor: pointer;
 
     flex: 1;
-    order: var(--select-label-order);
+    order: var(--checkbox-label-order);
 
     color: var(--value-color);
 
@@ -96,8 +93,8 @@
     appearance: none;
     margin: 0;
 
-    width: var(--select-input-size);
-    height: var(--select-input-size);
+    width: var(--checkbox-input-size);
+    height: var(--checkbox-input-size);
 
     box-shadow: var(--box-shadow);
     border-radius: var(--border-radius-0_5x);
