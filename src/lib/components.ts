@@ -14,6 +14,7 @@ export { default as BottomSheet } from "./components/BottomSheet.svelte";
 export { default as Toasts } from "./components/Toasts.svelte";
 export { default as Spinner } from "./components/Spinner.svelte";
 export { default as Modal } from "./components/Modal.svelte";
+export { default as WizardModal } from "./components/WizardModal.svelte";
 export { default as Input } from "./components/Input.svelte";
 export { default as InputRange } from "./components/InputRange.svelte";
 export { default as Popover } from "./components/Popover.svelte";
