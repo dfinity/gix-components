@@ -2,8 +2,8 @@
   import Modal from "$lib/components/Modal.svelte";
   import WizardTransition from "./WizardTransition.svelte";
   import {
-    WizardStep,
-    WizardSteps,
+    type WizardStep,
+    type WizardSteps,
     WizardStepsState,
   } from "../stores/wizard.state";
 
