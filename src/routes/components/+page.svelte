@@ -112,4 +112,9 @@
     <h2 class="title" slot="start">Theme Toggle</h2>
     <p>An opinionated theme toggle.</p>
   </Card>
+
+  <Card role="link" on:click={() => goto("/components/progress-bar")}>
+    <h2 class="title" slot="start">Progress Bar</h2>
+    <p>An indicator showing the completion progress of a task.</p>
+  </Card>
 </div>
