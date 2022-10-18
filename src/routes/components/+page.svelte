@@ -80,6 +80,15 @@
     </p>
   </Card>
 
+  <Card role="link" on:click={() => goto("/components/wizard-modal")}>
+    <h2 class="title" slot="start">Wizard Modal</h2>
+
+    <p>
+      A particular type of Modal component used to present several steps in form
+      of a wizard.
+    </p>
+  </Card>
+
   <Card role="link" on:click={() => goto("/components/input")}>
     <h2 class="title" slot="start">Input</h2>
 

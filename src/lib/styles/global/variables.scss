@@ -66,9 +66,14 @@
 
     --dialog-width: 888px;
     --dialog-max-width: var(--alert-max-width);
-    --dialog-height: var(--alert-max-height);
-    --dialog-max-height: 554.25px;
+    --dialog-min-height: calc(100vh - var(--padding-8x));
+    --dialog-height: initial;
+    --dialog-max-height: var(--alert-max-height);
     --dialog-border-radius: var(--alert-border-radius);
     --dialog-padding-x: var(--padding-6x);
+  }
+
+  @media (min-width: 768px) and (min-height: 560px) {
+    --dialog-min-height: 554.25px;
   }
 }
