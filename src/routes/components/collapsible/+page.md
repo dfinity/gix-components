@@ -15,9 +15,7 @@ Collapsible is an accordion element that expands when clicked on. They allow you
 
 ```html
 <Collapsible iconSize="medium">
-  <div slot="header">
-    About smart contracts
-  </div>
+  <div slot="header">About smart contracts</div>
   <p>
     Advanced smart contracts process HTTP requests, control other chains, and
     scale infinitely.
@@ -33,8 +31,8 @@ Collapsible is an accordion element that expands when clicked on. They allow you
   let toggleFunction: function;
 </script>
 
-<button class="secondary toggleButton" 
-  bind:this={toggleButton} 
+<button class="secondary toggleButton"
+  bind:this={toggleButton}
   on:click={() => toggleContentF()}
 >
   Press to open
@@ -42,7 +40,7 @@ Collapsible is an accordion element that expands when clicked on. They allow you
 
 <Collapsible iconSize="medium" expandButton={false} bind:toggleContent={toggleFunction}>
   <div slot="header" class="header_div" id="header2">
-    Collapsible with external button 
+    Collapsible with external button
   </div>
   <div class="content_text">
     This collapsible uses an external button element to toggle open its content.
@@ -52,27 +50,27 @@ Collapsible is an accordion element that expands when clicked on. They allow you
 
 ## Properties
 
-| Property    | Description                                             | Type                    | Default     |
-| ------------| --------------------------------------------------------| ------------------------| ----------- |
-| `id` | Corresponding id of the content element, for selection purposes| `string` or `undefined` | `undefined` |
-| `initallyExpanded`| Initially collapsed or expanded                   | `boolean`               | `false`     |
-| `maxContentHeight`| Optional height that defines the maximum content height | `number` or `undefined`| `undefined` |
-| `iconSize`  | Size of the icon: either `small` or `medium`            | `string`                | `small`     |
-| `expandButton` | Whether to include an expand button                  | `boolean`               | `true`      |
-| `externalToggle`  | To have an external toggle element                | `boolean`               | `false`     |
-| `wrapHeight`  | To have wrapped height                                | `boolean`               | `false`     |
+| Property           | Description                                                     | Type                    | Default     |
+| ------------------ | --------------------------------------------------------------- | ----------------------- | ----------- |
+| `id`               | Corresponding id of the content element, for selection purposes | `string` or `undefined` | `undefined` |
+| `initallyExpanded` | Initially collapsed or expanded                                 | `boolean`               | `false`     |
+| `maxContentHeight` | Optional height that defines the maximum content height         | `number` or `undefined` | `undefined` |
+| `iconSize`         | Size of the icon: either `small` or `medium`                    | `string`                | `small`     |
+| `expandButton`     | Whether to include an expand button                             | `boolean`               | `true`      |
+| `externalToggle`   | To have an external toggle element                              | `boolean`               | `false`     |
+| `wrapHeight`       | To have wrapped height                                          | `boolean`               | `false`     |
 
 ## Slots
-| Slot name | Description                                
-| --------- | ------------------------------------------ 
-|  `header` | Summary header of the collapsible, usually displayed with an anchor button on the right.
+
+| Slot name | Description                                                                              |
+| --------- | ---------------------------------------------------------------------------------------- |
+| `header`  | Summary header of the collapsible, usually displayed with an anchor button on the right. |
 
 ## Events
 
-| Event   | Description                                
-| ------- | ------------------------------------------ 
-| `toggleContent` | A toggle content function that could be bound to an external element.
-
+| Event           | Description                                                           |
+| --------------- | --------------------------------------------------------------------- |
+| `toggleContent` | A toggle content function that could be bound to an external element. |
 
 ## Showcase
 
