@@ -112,4 +112,9 @@
     <h2 class="title" slot="start">Theme Toggle</h2>
     <p>An opinionated theme toggle.</p>
   </Card>
+
+  <Card role="link" on:click={() => goto("/components/collapsible")}>
+    <h2 class="title" slot="start">Collapsible</h2>
+    <p>A Collapsible toggle summary.</p>
+  </Card>
 </div>
