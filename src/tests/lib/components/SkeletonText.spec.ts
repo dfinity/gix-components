@@ -3,7 +3,7 @@
  */
 
 import { render } from "@testing-library/svelte";
-import SkeletonText from "../../../lib/components/SkeletonText.svelte";
+import SkeletonText from "$lib/components/SkeletonText.svelte";
 
 describe("SkeletonText", () => {
   it("should contains a selector for external test", () => {

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Toasts from "../../../lib/components/Toasts.svelte";
+  import Toasts from "$lib/components/Toasts.svelte";
 </script>
 
 <!-- We need the wrapper to avoid having an error in the tests -->

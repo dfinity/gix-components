@@ -3,7 +3,7 @@
  */
 
 import { fireEvent, render } from "@testing-library/svelte";
-import Back from "../../../lib/components/Back.svelte";
+import Back from "$lib/components/Back.svelte";
 
 describe("Back", () => {
   it("should forward the click event", (done) => {

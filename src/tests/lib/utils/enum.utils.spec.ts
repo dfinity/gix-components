@@ -1,5 +1,5 @@
-import { Theme } from "../../../lib/types/theme";
-import { enumFromStringExists } from "../../../lib/utils/enum.utils";
+import { Theme } from "$lib/types/theme";
+import { enumFromStringExists } from "$lib/utils/enum.utils";
 
 describe("enum-utils", () => {
   it("should return enum exists", () => {

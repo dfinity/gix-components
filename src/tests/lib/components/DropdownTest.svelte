@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Dropdown from "../../../lib/components/Dropdown.svelte";
-  import DropdownItem from "../../../lib/components/DropdownItem.svelte";
+  import Dropdown from "$lib/components/Dropdown.svelte";
+  import DropdownItem from "$lib/components/DropdownItem.svelte";
 
   export let options: { label: string; value: string }[];
   export let value: string | undefined = undefined;

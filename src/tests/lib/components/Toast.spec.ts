@@ -3,8 +3,8 @@
  */
 
 import { render } from "@testing-library/svelte";
-import Toast from "../../../lib/components/Toast.svelte";
-import type { ToastMsg } from "../../../lib/types/toast";
+import Toast from "$lib/components/Toast.svelte";
+import type { ToastMsg } from "$lib/types/toast";
 
 describe("Toast", () => {
   const props: { msg: ToastMsg } = {

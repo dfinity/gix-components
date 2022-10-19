@@ -3,7 +3,7 @@
  */
 
 import { render } from "@testing-library/svelte";
-import InfiniteScroll from "../../../lib/components/InfiniteScroll.svelte";
+import InfiniteScroll from "$lib/components/InfiniteScroll.svelte";
 import {
   IntersectionObserverActive,
   IntersectionObserverPassive,

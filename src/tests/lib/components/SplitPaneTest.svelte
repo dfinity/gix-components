@@ -1,5 +1,5 @@
 <script lang="ts">
-  import SplitPane from "../../../lib/components/SplitPane.svelte";
+  import SplitPane from "$lib/components/SplitPane.svelte";
 </script>
 
 <SplitPane>

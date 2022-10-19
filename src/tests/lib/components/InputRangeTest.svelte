@@ -1,5 +1,5 @@
 <script lang="ts">
-  import InputRange from "../../../lib/components/InputRange.svelte";
+  import InputRange from "$lib/components/InputRange.svelte";
 
   let value = 25;
 

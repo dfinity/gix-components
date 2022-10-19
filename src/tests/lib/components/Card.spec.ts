@@ -3,7 +3,7 @@
  */
 
 import { fireEvent, render } from "@testing-library/svelte";
-import Card from "../../../lib/components/Card.svelte";
+import Card from "$lib/components/Card.svelte";
 
 describe("Card", () => {
   it("should render an article", () => {

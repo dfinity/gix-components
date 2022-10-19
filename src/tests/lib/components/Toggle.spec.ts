@@ -3,7 +3,7 @@
  */
 
 import { fireEvent, render } from "@testing-library/svelte";
-import Toggle from "../../../lib/components/Toggle.svelte";
+import Toggle from "$lib/components/Toggle.svelte";
 
 describe("Toggle", () => {
   const props = {

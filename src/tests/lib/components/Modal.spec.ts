@@ -3,7 +3,7 @@
  */
 
 import { fireEvent, render } from "@testing-library/svelte";
-import Modal from "../../../lib/components/Modal.svelte";
+import Modal from "$lib/components/Modal.svelte";
 import ModalTest from "./ModalTest.svelte";
 
 describe("Modal", () => {

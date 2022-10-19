@@ -1,5 +1,5 @@
 <script lang="ts">
-  import InfiniteScroll from "../../../lib/components/InfiniteScroll.svelte";
+  import InfiniteScroll from "$lib/components/InfiniteScroll.svelte";
 
   export let elements: number[];
   export let disabled = false;

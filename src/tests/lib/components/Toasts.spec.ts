@@ -3,7 +3,7 @@
  */
 
 import { fireEvent, render, waitFor } from "@testing-library/svelte";
-import { toastsStore } from "../../../lib/stores/toasts.store";
+import { toastsStore } from "$lib/stores/toasts.store";
 import ToastsTest from "./ToastsTest.svelte";
 
 describe("Toasts", () => {

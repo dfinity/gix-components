@@ -1,5 +1,5 @@
 <script lang="ts">
-  import MenuButton from "../../../lib/components/MenuButton.svelte";
+  import MenuButton from "$lib/components/MenuButton.svelte";
 
   export let spy: (open: boolean) => void;
 

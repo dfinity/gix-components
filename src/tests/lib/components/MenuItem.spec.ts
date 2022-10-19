@@ -3,7 +3,7 @@
  */
 
 import { render } from "@testing-library/svelte";
-import MenuItem from "../../../lib/components/MenuItem.svelte";
+import MenuItem from "$lib/components/MenuItem.svelte";
 import MenuItemTest from "./MenuItemTest.svelte";
 
 describe("Menuitem", () => {
