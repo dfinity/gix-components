@@ -126,4 +126,9 @@
     <h2 class="title" slot="start">Dropdown</h2>
     <p>Dropdown displays a list of selectable options for a user.</p>
   </Card>
+
+  <Card role="link" on:click={() => goto("/components/progress-bar")}>
+    <h2 class="title" slot="start">Progress Bar</h2>
+    <p>An indicator showing the completion progress of a task.</p>
+  </Card>
 </div>
