@@ -139,4 +139,11 @@
       that’s been taken.
     </p>
   </Card>
+
+  <Card role="link" on:click={() => goto("/components/checkbox")}>
+    <h2 class="title" slot="start">Checkbox</h2>
+    <p>
+      Checkboxes allow the selection of multiple options from a set of options.
+    </p>
+  </Card>
 </div>
