@@ -15,7 +15,7 @@ const props = (props: {
   maxContentHeight?: number;
   iconSize?: string;
   externalToggle?: boolean;
-  warpHeight?: boolean;
+  wrapHeight?: boolean;
 }) => ({
   props: {
     props,
