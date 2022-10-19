@@ -122,6 +122,11 @@
     <p>An opinionated theme toggle.</p>
   </Card>
 
+  <Card role="link" on:click={() => goto("/components/collapsible")}>
+    <h2 class="title" slot="start">Collapsible</h2>
+    <p>A Collapsible toggle summary.</p>
+  </Card>
+
   <Card role="link" on:click={() => goto("/components/dropdown")}>
     <h2 class="title" slot="start">Dropdown</h2>
     <p>Dropdown displays a list of selectable options for a user.</p>

@@ -25,3 +25,4 @@ export { default as DropdownItem } from "./components/DropdownItem.svelte";
 export { default as ProgressBar } from "./components/ProgressBar.svelte";
 export { default as Tag } from "./components/Tag.svelte";
 export { default as Checkbox } from "./components/Checkbox.svelte";
+export { default as Collapsible } from "./components/Collapsible.svelte";
