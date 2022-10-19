@@ -20,3 +20,5 @@ export { default as InputRange } from "./components/InputRange.svelte";
 export { default as Popover } from "./components/Popover.svelte";
 export { default as Toggle } from "./components/Toggle.svelte";
 export { default as ThemeToggle } from "./components/ThemeToggle.svelte";
+export { default as Dropdown } from "./components/Dropdown.svelte";
+export { default as DropdownItem } from "./components/DropdownItem.svelte";
