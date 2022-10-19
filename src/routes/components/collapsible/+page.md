@@ -1,7 +1,6 @@
 <script lang="ts">
     import Collapsible from "$lib/components/Collapsible.svelte";
-    let toggleButton: HTMLElement;
-    let toggleContentF: function;
+    let toggleFunction: Function;
     let expanded: boolean;
     let message: string;
     $: message = expanded ? 'close' : 'open';
@@ -27,19 +26,17 @@ Collapsible is an accordion element that expands when clicked on. They allow you
 
 ```html
 <script>
-  let toggleButton: HTMLElement;
-  let toggleFunction: function;
+  let toggleContent: Function;
 </script>
 
 <button class="secondary toggleButton"
-  bind:this={toggleButton}
-  on:click={() => toggleContentF()}
+  on:click={() => toggleContent()}
 >
-  Press to open
+  Press to toggle
 </button>
 
-<Collapsible iconSize="medium" expandButton={false} bind:toggleContent={toggleFunction}>
-  <div slot="header" class="header_div" id="header2">
+<Collapsible iconSize="medium" expandButton={false} externalToggle={true} bind:toggleContent={toggleContent}>
+  <div slot="header" class="header_div">
     Collapsible with external button
   </div>
   <div class="content_text">
@@ -74,9 +71,9 @@ Collapsible is an accordion element that expands when clicked on. They allow you
 
 ## Showcase
 
-<div id="container">
+<div class="container">
   <div class="collapseA">
-    <Collapsible id="head" iconSize="medium" maxContentHeight={100} wrapHeight>
+    <Collapsible iconSize="medium" maxContentHeight={100} wrapHeight>
       <div slot="header" class="header_div">
         About smart contracts
       </div>
@@ -86,20 +83,22 @@ Collapsible is an accordion element that expands when clicked on. They allow you
       </p>
     </Collapsible>
   </div>
-  <button class="secondary toggleButton" bind:this={toggleButton} on:click={() => toggleContentF()}>Press to {message}</button>
+  <button class="secondary toggleButton" 
+    on:click={() => toggleFunction()}>Press to {message}
+  </button>
   <div class="collapseA">
-    <Collapsible class="collapsible" iconSize="medium" expandButton={false} bind:toggleContent={toggleContentF} bind:expanded={expanded} externalToggle>
+    <Collapsible iconSize="medium" expandButton={false} bind:toggleContent={toggleFunction} bind:expanded={expanded} externalToggle>
       <div slot="header" class="header_div">
         Collapsible with external button 
       </div>
-      <div class="content_text">
+      <div>
         This collapsible uses an external element to toggle open its content.
       </div>
     </Collapsible>
   </div>
 </div>
 <style>
-  #container {
+  .container {
     padding: 2rem;
   }
   .collapseA {
@@ -110,14 +109,8 @@ Collapsible is an accordion element that expands when clicked on. They allow you
     margin-bottom: 8px;
     color: #282828;
   }
-  #head {
-    background-color: pink;
-  }
   .header_div {
     font-weight: bold;
-  }
-  #head {
-    min-height: 100px;
   }
   .toggleButton {
     margin: 1rem;

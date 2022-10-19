@@ -2,7 +2,6 @@
   import { afterUpdate, createEventDispatcher } from "svelte";
   import IconExpandMore from "$lib/icons/IconExpandMore.svelte";
   import { i18n } from "$lib/stores/i18n";
-  import { replacePlaceholders } from "$lib/utils/i18n.utils";
 
   export let id: string | undefined = undefined;
   export let initiallyExpanded = false;
@@ -78,9 +77,7 @@
       data-tid="collapsible-expand-button"
       aria-expanded={expanded}
       aria-controls={id}
-      title={replacePlaceholders($i18n.core.toggle, {
-        $toggleView: toggleView,
-      })}
+      title={expanded ? $i18n.core.collapse : $i18n.core.expand}
     >
       <IconExpandMore />
     </button>

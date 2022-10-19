@@ -3,7 +3,8 @@
     "close": "Close",
     "back": "Back",
     "menu": "Open menu to access navigation options",
-    "toggle": "$toggleView"
+    "collapse": "Collapse",
+    "expand": "Expand"
   },
   "theme": {
     "switch_theme": "Switch theme"
