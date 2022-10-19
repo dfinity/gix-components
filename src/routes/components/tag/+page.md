@@ -4,7 +4,7 @@
 
 # Tag
 
-Tags are inline block elements that usually appear near another element. They are used to inform users of the status of an object or of an action that’s been taken.
+Tags are block elements that usually appear near another element. They are used to inform users of the status of an object or of an action that’s been taken.
 
 ```html
 <Tag>Demo</Tag>
