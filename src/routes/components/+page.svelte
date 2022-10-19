@@ -80,6 +80,15 @@
     </p>
   </Card>
 
+  <Card role="link" on:click={() => goto("/components/wizard-modal")}>
+    <h2 class="title" slot="start">Wizard Modal</h2>
+
+    <p>
+      A particular type of Modal component used to present several steps in form
+      of a wizard.
+    </p>
+  </Card>
+
   <Card role="link" on:click={() => goto("/components/input")}>
     <h2 class="title" slot="start">Input</h2>
 
@@ -111,6 +120,11 @@
   <Card role="link" on:click={() => goto("/components/theme-toggle")}>
     <h2 class="title" slot="start">Theme Toggle</h2>
     <p>An opinionated theme toggle.</p>
+  </Card>
+
+  <Card role="link" on:click={() => goto("/components/dropdown")}>
+    <h2 class="title" slot="start">Dropdown</h2>
+    <p>Dropdown displays a list of selectable options for a user.</p>
   </Card>
 
   <Card role="link" on:click={() => goto("/components/progress-bar")}>
