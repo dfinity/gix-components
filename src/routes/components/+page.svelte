@@ -131,4 +131,12 @@
     <h2 class="title" slot="start">Progress Bar</h2>
     <p>An indicator showing the completion progress of a task.</p>
   </Card>
+
+  <Card role="link" on:click={() => goto("/components/tag")}>
+    <h2 class="title" slot="start">Tag</h2>
+    <p>
+      Tags are used to inform users of the status of an object or of an action
+      that’s been taken.
+    </p>
+  </Card>
 </div>

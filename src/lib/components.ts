@@ -23,3 +23,4 @@ export { default as ThemeToggle } from "./components/ThemeToggle.svelte";
 export { default as Dropdown } from "./components/Dropdown.svelte";
 export { default as DropdownItem } from "./components/DropdownItem.svelte";
 export { default as ProgressBar } from "./components/ProgressBar.svelte";
+export { default as Tag } from "./components/Tag.svelte";
