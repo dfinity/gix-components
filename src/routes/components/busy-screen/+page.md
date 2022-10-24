@@ -25,29 +25,25 @@
 A BusyScreen is a screen that displays a spinning loader and corresponding message (if available), while an application is loading content or performing another process. The component has an absolute centered positioning with the a faded overlay of the screen.
 
 ```html
-import {busyStore} from "$lib/stores/busy.store";
-import BusyScreen from "$lib/components/BusyScreen.svelte";
-
-const startBusy = () => busyStore.startBusy({
-    initator: 'stake-neuron',
-    text: 'staking a neuron...',
-})
-<button on:click={startBusy}>click to start</button>
+import {busyStore} from "$lib/stores/busy.store"; import BusyScreen from
+"$lib/components/BusyScreen.svelte"; const startBusy = () =>
+busyStore.startBusy({ initator: 'stake-neuron', text: 'staking a neuron...', })
+<button on:click="{startBusy}">click to start</button>
 <BusyScreen />
-
 ```
 
-## Store: busyStore 
+## Store: busyStore
 
-The `busyStore` is a writable storage that has the following methods. 
+The `busyStore` is a writable storage that has the following methods.
 
-| Function Methods | Description                       | Argument type         |
-|-----------------|------------------------------------|-----------------------|
-| startBusy       | to activate the BusyScreen         |`BusyState`            |
-| stopBusy        | to deactivate the BusyScreen     | `BusyStateInitiatorType`|
-| subscribe       | ... | ... |
+| Function Methods | Description                  | Argument type            |
+| ---------------- | ---------------------------- | ------------------------ |
+| startBusy        | to activate the BusyScreen   | `BusyState`              |
+| stopBusy         | to deactivate the BusyScreen | `BusyStateInitiatorType` |
+| subscribe        | ...                          | ...                      |
 
 ## Showcase
+
 <div>
 <button class="primary" id="start" on:click={click}>click to start Busy Screen</button>
 <BusyScreen />

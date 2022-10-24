@@ -27,8 +27,7 @@ export type BusyStateInitiatorType =
   | "disburse-neuron"
   | "disburse-sns-neuron";
 
-
 export interface BusyState {
-    initiator: BusyStateInitiatorType;
-    text?: string;
-  }
+  initiator: BusyStateInitiatorType;
+  text?: string;
+}
