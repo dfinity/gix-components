@@ -7,7 +7,20 @@ import DOMPurify from "dompurify";
  * See the jest-setup.ts for details.
  */
 export const sanitize = (text: string): string => {
-  const domPurify =
-    typeof DOMPurify === "function" ? DOMPurify : global.DOMPurify;
-  return domPurify.sanitize(text);
+  try {
+    if (typeof DOMPurify.sanitize === "function") {
+      return DOMPurify.sanitize(text);
+    }
+
+    if (typeof global.DOMPurify.sanitize === "function") {
+      // utilize jest version
+      return global.DOMPurify.sanitize(text);
+    }
+  } catch (err) {
+    console.error(err);
+  }
+
+  console.error('no DOMPurify support');
+
+  return '';
 };
