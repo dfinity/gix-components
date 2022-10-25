@@ -20,7 +20,7 @@ export const sanitize = (text: string): string => {
     console.error(err);
   }
 
-  console.error('no DOMPurify support');
+  console.error("no DOMPurify support");
 
-  return '';
+  return "";
 };
