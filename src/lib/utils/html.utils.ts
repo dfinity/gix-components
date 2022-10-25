@@ -8,6 +8,6 @@ import DOMPurify from "dompurify";
  */
 export const sanitize = (text: string): string => {
   const domPurify =
-    typeof DOMPurify === "object" ? DOMPurify : global.DOMPurify;
+    typeof DOMPurify === "function" ? DOMPurify : global.DOMPurify;
   return domPurify.sanitize(text);
 };
