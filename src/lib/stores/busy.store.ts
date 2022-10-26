@@ -44,6 +44,5 @@ export const busy: Readable<boolean> = derived(
 export const busyMessage: Readable<string | undefined> = derived(
   busyStore,
   ($busyStore) =>
-    $busyStore.reverse().find(({ text }) => text !== undefined)
-      ?.text
+    $busyStore.reverse().find(({ text }) => text !== undefined)?.text
 );
