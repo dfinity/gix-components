@@ -35,18 +35,19 @@ Showing or hiding the screen happens through the use of a writable storage `busy
 
 ```typescript
 busyStore.startBusy({
-    initiator: 'stake-neuron',
-    text: 'staking a neuron...',
+  initiator: "stake-neuron",
+  text: "staking a neuron...",
 });
 
-busyStore.stopBusy('stake-neuron');
-``` 
-The `startBusy` method will take in an object with properties `initiator` and `text`. The initiator is the identifying key label of your busyStore , while the text will be the message shown on the busy screen. 
+busyStore.stopBusy("stake-neuron");
+```
 
-| busyStore  | Description                      | Argument type                                              |
-| ---------- |--------------------------------- | ---------------------------------------------------------- |
-| startBusy  | to activate the BusyScreen       | `BusyState` object with properties `initiator` and  `text` |
-| stopBusy   | to deactivate the BusyScreen     | `initiator`                                                |
+The `startBusy` method will take in an object with properties `initiator` and `text`. The initiator is the identifying key label of your busyStore , while the text will be the message shown on the busy screen.
+
+| busyStore | Description                  | Argument type                                             |
+| --------- | ---------------------------- | --------------------------------------------------------- |
+| startBusy | to activate the BusyScreen   | `BusyState` object with properties `initiator` and `text` |
+| stopBusy  | to deactivate the BusyScreen | `initiator`                                               |
 
 ## Showcase
 
