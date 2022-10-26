@@ -4,7 +4,7 @@
   export let sticky = false;
   let innerWidth = 0;
 
-  // The media query breakpoint to stick the menu is xlarge 1300px
+  // The media query breakpoint to stick the menu is media xlarge 1300px
   $: sticky = innerWidth > 1300;
 </script>
 
@@ -44,6 +44,10 @@
     // This to avoid the content to be presented behind the bottom sheet and
     // to display a scrollbar that ends before the bottom sheet.
     padding-bottom: var(--layout-bottom-offset, 0);
+
+    @include media.min-width(xlarge) {
+      margin-left: var(--menu-width);
+    }
   }
 
   .scrollable-content {
