@@ -1,9 +1,8 @@
 <script lang="ts">
     import { busyStore } from "$lib/stores/busy.store";
     import BusyScreen from "$lib/components/BusyScreen.svelte";
-    import { type BusyStateInitiatorType } from "$lib/types/busyState";
 
-    const initiator: BusyStateInitiatorType = "stake-neuron";
+    const initiator = "stake-neuron";
     
     const startBusy = () => busyStore.startBusy({
         initiator: initiator,
@@ -22,40 +21,35 @@
 
 # BusyScreen
 
-A BusyScreen is a screen that displays a spinning loader and corresponding message (if available), while an application is loading content or performing another process. The component has an absolute centered positioning with the a faded overlay of the screen.
+A BusyScreen is a screen that displays a spinning loader and corresponding message (if available), while an application is loading content or performing another process. The component has an absolute centered positioning with a faded overlay.
 
 ```html
-import {busyStore} from "$lib/stores/busy.store";
-import BusyScreen from "$lib/components/BusyScreen.svelte";
-
-const startBusy = () => busyStore.startBusy({
-    initator: 'stake-neuron',
-    text: 'staking a neuron...',
-})
-<button on:click={startBusy}>click to start</button>
 <BusyScreen />
-
 ```
 
-## Store: busyStore 
+## Usage
 
-The `busyStore` is a writable storage that has the following methods. 
+The `<BusyScreen />` component should be provided once for your dapp, commonly added to your root layout.
 
-| Function Methods | Description                       | Argument type         |
+Showing or hiding the screen happens through the use of a writable storage `busyStore`:
+
+```typescript
+busyStore.startBusy({
+    initiator: 'stake-neuron',
+    text: 'staking a neuron...',
+});
+
+busyStore.stopBusy('stake-neuron');
+``` 
+The `startBusy` method will take in an object with properties `initiator` and `text`. The initiator is the identifying key label of your busyStore , while the text will be the message shown on the busy screen. 
+
+| busyStore | Description                       | Argument type         |
 |-----------------|------------------------------------|-----------------------|
-| startBusy       | to activate the BusyScreen         |`BusyState`            |
-| stopBusy        | to deactivate the BusyScreen     | `BusyStateInitiatorType`|
-| subscribe       | ... | ... |
+| startBusy       | to activate the BusyScreen         |  `BusyState` object with properties `initiator` and  `text`   |
+| stopBusy        | to deactivate the BusyScreen     | `initiator`|
 
 ## Showcase
 <div>
 <button class="primary" id="start" on:click={click}>click to start Busy Screen</button>
 <BusyScreen />
 </div>
-
-<style>
-    .hello {
-        background-color: pink;
-        minheightt: 5rem;
-    }
-</style>

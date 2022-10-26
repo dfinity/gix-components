@@ -1,20 +1,19 @@
 import { derived, writable, type Readable } from "svelte/store";
-import type { BusyState, BusyStateInitiatorType } from "$lib/types/busyState";
+import type { BusyState } from "$lib/types/busy";
 
 /**
  * Store that reflects the app busy state.
  * Is used to show the busy-screen that locks the UI.
  */
 const initBusyStore = () => {
-  const { subscribe, update } = writable<Array<BusyState>>([]);
+  const { subscribe, update } = writable<Array<BusyState<any>>>([]);
 
   return {
     subscribe,
-
     /**
      * Show the busy-screen if not visible
      */
-    startBusy({ initiator: newInitiator, text }: BusyState) {
+    startBusy({ initiator: newInitiator, text }: BusyState<any>) {
       update((state) => [
         ...state.filter(({ initiator }) => newInitiator !== initiator),
         { initiator: newInitiator, text },
@@ -24,7 +23,7 @@ const initBusyStore = () => {
     /**
      * Hide the busy-screen if no other initiators are done
      */
-    stopBusy(initiatorToRemove: BusyStateInitiatorType) {
+    stopBusy(initiatorToRemove: BusyState<any>["initiator"]) {
       update((state) =>
         state.filter(({ initiator }) => initiator !== initiatorToRemove)
       );
