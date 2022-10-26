@@ -20,6 +20,9 @@ npm i @dfinity/gix-components
 
 Running `npm run package` takes the contents of `src/lib` and generate the `package` directory - i.e. the library that is published to npm.
 
+Then this directory can be used to install the local version of `gix-components` in another project (`npm i /../gix-components/package`).
+To use it with 'jest' unit tests the content needs to be packed first (`cd package && npm pack`) then the created package file can be used by another project (e.g. `npm i /../gix-components/package/dfinity-gix-components-0.0.1.tgz`).
+
 See [documentation](https://kit.svelte.dev/docs/packaging) for more information.
 
 ## Documentation & Showcase
