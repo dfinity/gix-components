@@ -4,7 +4,7 @@
   export let sticky = false;
   let innerWidth = 0;
 
-  // The media query breakpoint to stick the menu is xlarge 1300px
+  // The media query breakpoint to stick the menu is media xlarge 1300px
   $: sticky = innerWidth > 1300;
 </script>
 
