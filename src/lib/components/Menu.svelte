@@ -70,7 +70,7 @@
     z-index: var(--menu-z-index);
 
     &.sticky {
-      position: relative;
+      position: absolute;
       width: var(--menu-width);
       min-width: var(--menu-width);
     }

@@ -156,4 +156,9 @@
     <h2 class="title" slot="start">BusyScreen</h2>
     <p>A screen that indicates busy loading.</p>
   </Card>
+
+  <Card role="link" on:click={() => goto("/components/html")}>
+    <h2 class="title" slot="start">Html</h2>
+    <p>A component for safe (sanitized) html content rendering.</p>
+  </Card>
 </div>
