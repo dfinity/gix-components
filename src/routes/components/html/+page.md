@@ -8,7 +8,8 @@ Html component sanitizes the provided text and renders HTML directly into a comp
 
 ```html
 <Html text="Valid HTML: <a target="_blank" href="/">A link</a>." />
-<html text="Dangerous HTML: <img src=x onerror=alert('HTML')//>." />
+
+<Html text="Dangerous HTML: <img src=x onerror=alert('HTML')//>." />
 ```
 
 ## Properties
