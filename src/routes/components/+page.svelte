@@ -151,4 +151,9 @@
       Checkboxes allow the selection of multiple options from a set of options.
     </p>
   </Card>
+
+  <Card role="link" on:click={() => goto("/components/html")}>
+    <h2 class="title" slot="start">Html</h2>
+    <p>A component for safe (sanitized) html content rendering.</p>
+  </Card>
 </div>

@@ -15,3 +15,12 @@ global.TextEncoder = TextEncoder;
 configure({
   testIdAttribute: "data-tid",
 });
+
+// make `DOMPurify` available for unit tests
+import { JSDOM } from "jsdom";
+import DOMPurify from "dompurify";
+const { window } = new JSDOM("<!DOCTYPE html>");
+const purify = DOMPurify(window as unknown as Window);
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore: used for testing only
+global.DOMPurify = purify;
