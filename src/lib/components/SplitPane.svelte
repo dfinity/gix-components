@@ -46,7 +46,7 @@
     padding-bottom: var(--layout-bottom-offset, 0);
 
     @include media.min-width(xlarge) {
-        margin-left: var(--menu-width);
+      margin-left: var(--menu-width);
     }
   }
 
