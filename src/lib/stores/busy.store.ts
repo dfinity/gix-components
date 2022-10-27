@@ -6,14 +6,14 @@ import type { BusyState } from "$lib/types/busy";
  * Is used to show the busy-screen that locks the UI.
  */
 const initBusyStore = () => {
-  const { subscribe, update } = writable<Array<BusyState<any>>>([]);
+  const { subscribe, update } = writable<Array<BusyState>>([]);
 
   return {
     subscribe,
     /**
      * Show the busy-screen if not visible
      */
-    startBusy({ initiator: newInitiator, text }: BusyState<any>) {
+    startBusy({ initiator: newInitiator, text }: BusyState) {
       update((state) => [
         ...state.filter(({ initiator }) => newInitiator !== initiator),
         { initiator: newInitiator, text },
@@ -23,7 +23,7 @@ const initBusyStore = () => {
     /**
      * Hide the busy-screen if no other initiators are done
      */
-    stopBusy(initiatorToRemove: BusyState<any>["initiator"]) {
+    stopBusy(initiatorToRemove: BusyState["initiator"]) {
       update((state) =>
         state.filter(({ initiator }) => initiator !== initiatorToRemove)
       );
