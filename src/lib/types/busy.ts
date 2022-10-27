@@ -1,4 +1,4 @@
 export interface BusyState {
-    initiator: string | number;
-    text?: string;
-  }
+  initiator: string | number;
+  text?: string;
+}
