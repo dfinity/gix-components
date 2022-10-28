@@ -26,4 +26,5 @@ export { default as ProgressBar } from "./components/ProgressBar.svelte";
 export { default as Tag } from "./components/Tag.svelte";
 export { default as Checkbox } from "./components/Checkbox.svelte";
 export { default as Collapsible } from "./components/Collapsible.svelte";
+export { default as BusyScreen } from "./components/BusyScreen.svelte";
 export { default as Html } from "./components/Html.svelte";
