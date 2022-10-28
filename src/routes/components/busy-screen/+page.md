@@ -51,5 +51,5 @@ The `startBusy` method will take in an object with properties `initiator` and `t
 
 ## Showcase
 
-<button class="primary" id="start" on:click={click}>click to start Busy Screen</button>
+<button class="primary" id="start" on:click={click}>Click to start Busy Screen</button>
 <BusyScreen />
