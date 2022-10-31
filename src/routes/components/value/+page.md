@@ -12,9 +12,9 @@ Text blocks are highlighted with various [text opacity](/utility-classes/text-op
 
 ## Properties
 
-| Property    | Description                                                      | Type      | Default |
-| ----------- |------------------------------------------------------------------| --------- | ------- |
-| `ariaLabel` | An accessible label for the `span` that gets rendered in the DOM | `string`  |         |
+| Property    | Description                                                      | Type     | Default |
+| ----------- | ---------------------------------------------------------------- | -------- | ------- |
+| `ariaLabel` | An accessible label for the `span` that gets rendered in the DOM | `string` |         |
 
 ## Showcase
 

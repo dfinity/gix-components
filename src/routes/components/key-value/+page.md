@@ -15,15 +15,14 @@ Often a value needs to be displayed with a predecessor related label.
 
 ## Properties
 
-| Property       | Description                                                                               | Type                                | Default     |
-| -------------- | ----------------------------------------------------------------------------------------- | ----------------------------------- | ----------- |
-| `testId`       | Add a `data-tid` attribute to the DOM, useful for test purpose.                           | `string` or `undefined`             | `undefined` |
-
+| Property | Description                                                     | Type                    | Default     |
+| -------- | --------------------------------------------------------------- | ----------------------- | ----------- |
+| `testId` | Add a `data-tid` attribute to the DOM, useful for test purpose. | `string` or `undefined` | `undefined` |
 
 ## Slots
 
 | Slot name | Description                     |
-|-----------|---------------------------------|
+| --------- | ------------------------------- |
 | `key`     | The key that defines the value. |
 | `value`   | The value.                      |
 
