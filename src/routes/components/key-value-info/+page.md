@@ -1,5 +1,5 @@
 <script lang="ts">
-    import KeyValuePairInfo from "$lib/components/KeyValueInfo.svelte";
+    import KeyValuePairInfo from "$lib/components/KeyValuePairInfo.svelte";
 </script>
 
 # Key Value
