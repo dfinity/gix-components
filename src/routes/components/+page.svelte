@@ -166,4 +166,14 @@
     <h2 class="title" slot="start">Value</h2>
     <p>Shorthand to render a value.</p>
   </Card>
+
+  <Card role="link" on:click={() => goto("/components/key-value")}>
+    <h2 class="title" slot="start">Key Value</h2>
+    <p>Render a label and its value.</p>
+  </Card>
+
+  <Card role="link" on:click={() => goto("/components/key-value-info")}>
+    <h2 class="title" slot="start">Key Value Info</h2>
+    <p>Render a label, its value and an information.</p>
+  </Card>
 </div>
