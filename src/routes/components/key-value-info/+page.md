@@ -2,7 +2,7 @@
     import KeyValuePairInfo from "$lib/components/KeyValuePairInfo.svelte";
 </script>
 
-# Key Value
+# Key Value Info
 
 As [KeyValuePair](/components/key-value), this component renders a value and a label but, in addition, also displays a related information that is per default hidden and can be displayed by a click on an information icon.
 
