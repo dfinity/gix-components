@@ -28,3 +28,6 @@ export { default as Checkbox } from "./components/Checkbox.svelte";
 export { default as Collapsible } from "./components/Collapsible.svelte";
 export { default as BusyScreen } from "./components/BusyScreen.svelte";
 export { default as Html } from "./components/Html.svelte";
+export { default as Value } from "./components/Value.svelte";
+export { default as KeyValuePair } from "./components/KeyValuePair.svelte";
+export { default as KeyValuePairInfo } from "./components/KeyValuePairInfo.svelte";
