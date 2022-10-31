@@ -161,4 +161,9 @@
     <h2 class="title" slot="start">Html</h2>
     <p>A component for safe (sanitized) html content rendering.</p>
   </Card>
+
+  <Card role="link" on:click={() => goto("/components/value")}>
+    <h2 class="title" slot="start">Value</h2>
+    <p>Shorthand to render a value.</p>
+  </Card>
 </div>
