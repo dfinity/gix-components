@@ -2,20 +2,22 @@
 
 <p>Useful resources and links.</p>
 
+<h2>Figma</h2>
+
 <ul>
   <li>
-    <a
+    New NNS <a
       href="https://www.figma.com/file/ei7wVYd4l8SuDQlQqVC0NV/New-NNS?node-id=9%3A2"
       rel="external noopener noreferrer"
-      target="_blank">Figma - New NNS design and UX</a
-    >: wireframes
+      target="_blank">design and UX wireframes</a
+    >
   </li>
   <li>
-    <a
+    General <a
       href="https://www.figma.com/file/CDcJmaBoY9JbI0snYoQToq/Design?node-id=0%3A1"
       rel="external noopener noreferrer"
-      target="_blank">Figma - Design</a
-    >: general design spec, buttons, etc.
+      target="_blank">ui spec, buttons, etc.</a
+    >
   </li>
 </ul>
 

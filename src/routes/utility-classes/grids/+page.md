@@ -14,7 +14,7 @@ The grids are layout elements that can be used to present and spread the content
 - [Card Grid](#card-grid)
 - [Content Grid](#content-grid)
 
-## Definition
+<h2 id="definition">Definition</h2>
 
 The grids follow a 12 columns-sizing approach. According the various [breakpoints](/styling/breakpoints) the number of columns varies.
 

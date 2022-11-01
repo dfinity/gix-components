@@ -6,8 +6,9 @@
   import HeaderTitle from "$lib/components/HeaderTitle.svelte";
   import Toasts from "$lib/components/Toasts.svelte";
   import DocsAccountMenu from "$docs/components/DocsAccountMenu.svelte";
+  import type { Navigation } from "@sveltejs/kit";
 
-  let navHistory: { from: URL | null; to: URL }[] = [];
+  let navHistory: Navigation[] = [];
   let back = false;
 
   const goBack = async (defaultRoute = "/") =>
