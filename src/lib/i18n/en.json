@@ -4,7 +4,8 @@
     "back": "Back",
     "menu": "Open menu to access navigation options",
     "collapse": "Collapse",
-    "expand": "Expand"
+    "expand": "Expand",
+    "copy": "Copy to clipboard"
   },
   "theme": {
     "switch_theme": "Switch theme"

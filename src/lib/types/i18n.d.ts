@@ -8,6 +8,7 @@ interface I18nCore {
   menu: string;
   collapse: string;
   expand: string;
+  copy: string;
 }
 
 interface I18nTheme {
