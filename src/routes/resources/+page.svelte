@@ -21,6 +21,18 @@
   </li>
 </ul>
 
+<h2>Others</h2>
+
+<ul>
+  <li>
+    Source code on <a
+      href="https://github.com/dfinity/gix-components"
+      rel="external noopener noreferrer"
+      target="_blank">GitHub</a
+    >
+  </li>
+</ul>
+
 <style lang="scss">
   p {
     margin-bottom: var(--padding-4x);
