@@ -31,3 +31,4 @@ export { default as Html } from "./components/Html.svelte";
 export { default as Value } from "./components/Value.svelte";
 export { default as KeyValuePair } from "./components/KeyValuePair.svelte";
 export { default as KeyValuePairInfo } from "./components/KeyValuePairInfo.svelte";
+export { default as Copy } from "./components/Copy.svelte";

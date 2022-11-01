@@ -1,0 +1,26 @@
+<script lang="ts">
+  import { IconCopy } from "$lib/icons";
+  import { i18n } from "$lib/stores/i18n";
+
+  export let value: string;
+
+  const copyToClipboard = async () =>
+    await navigator.clipboard.writeText(value);
+</script>
+
+<button
+  on:click|stopPropagation={copyToClipboard}
+  aria-label={$i18n.core.copy}
+  class="icon-only"
+>
+  <IconCopy />
+</button>
+
+<style lang="scss">
+  button {
+    height: 30px;
+    width: 30px;
+
+    color: var(--primary-tint);
+  }
+</style>
