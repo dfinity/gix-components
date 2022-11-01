@@ -18,7 +18,8 @@
 
   afterNavigate((navigation) => (navHistory = [navigation, ...navHistory]));
 
-  $: back = ($page.routeId ?? "").includes("/");
+  $: back =
+    ($page.routeId ?? "").split("/").filter((match) => match !== "").length > 1;
 </script>
 
 <Layout {back} on:nnsBack={async () => await goBack()}>
