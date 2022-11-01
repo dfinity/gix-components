@@ -1,7 +1,18 @@
-const url = "https://ipi2f-uqaaa-aaaad-aabza-cai.ic0.app/";
+const url = "https://ipi2f-uqaaa-aaaad-aabza-cai.ic0.app";
 
-// TODO: discover pages to complete sitemap - currently only root is rendered
-const staticPages: string[] = [];
+const staticPages = Object.keys(
+  import.meta.glob("/src/routes/**/+page.(svelte|md)")
+)
+  .filter(
+    (page) =>
+      !["/src/routes/+page.svelte"].find((filter) => page.includes(filter))
+  )
+  .map((page) =>
+    page
+      .replace("/src/routes", url)
+      .replace("/+page.svelte", ".html")
+      .replace("/+page.md", ".html")
+  );
 
 export const prerender = true;
 
@@ -22,15 +33,17 @@ export const GET = async (): Promise<Response> => {
     >
       <url>
         <loc>${url}</loc>
-        <changefreq>daily</changefreq>
+        <changefreq>weekly</changefreq>
         <priority>0.7</priority>
+        <lastmod>${`${process.env.VITE_BUILD_TIME}`}</lastmod>
       </url>
       ${staticPages
         .map(
-          (path: string) => `<url>
-        <loc>${url}${path}</loc>
+          (url: string) => `<url>
+        <loc>${url}</loc>
         <changefreq>daily</changefreq>
         <priority>0.7</priority>
+        <lastmod>${`${process.env.VITE_BUILD_TIME}`}</lastmod>
       </url>`
         )
         .join("")}
