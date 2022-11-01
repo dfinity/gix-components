@@ -176,4 +176,9 @@
     <h2 class="title" slot="start">Key Value Info</h2>
     <p>Render a label, its value and an information.</p>
   </Card>
+
+  <Card role="link" on:click={() => goto("/components/copy")}>
+    <h2 class="title" slot="start">Copy</h2>
+    <p>Copy component that copies selection.</p>
+  </Card>
 </div>
