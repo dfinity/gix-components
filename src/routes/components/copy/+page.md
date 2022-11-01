@@ -6,7 +6,7 @@
 
 # Copy
 
-The copy component will copy a given text value using the native asynchronous Clipboard API.
+The copy component will copy a given text value using the native asynchronous [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText).
 
 ```html
 <Copy value="{copyString}" />
@@ -17,12 +17,6 @@ The copy component will copy a given text value using the native asynchronous Cl
 | Property | Description                                    | Type     | Default |
 | -------- | ---------------------------------------------- | -------- | ------- |
 | `value`  | The value given to be copied to the clipboard. | `string` |         |
-
-## Events
-
-| Event             | Description                                     | Detail    |
-| ----------------- | ----------------------------------------------- | --------- |
-| `copyToClipboard` | Triggered when the component button is clicked. | No detail |
 
 ## Showcase
 
