@@ -9,22 +9,23 @@
 The copy component will copy a given text value using the native asynchronous Clipboard API.
 
 ```html
-<Copy value={copyString} />
+<Copy value="{copyString}" />
 ```
 
 ## Properties
 
-| Property       | Description                                          | Type                | Default  |
-| ---------------| ---------------------------------------------------- | ------------------- | -------- |
-| `value`        | The value given to be copied to the clipboard.       | `string`            |          |
+| Property | Description                                    | Type     | Default |
+| -------- | ---------------------------------------------- | -------- | ------- |
+| `value`  | The value given to be copied to the clipboard. | `string` |         |
 
 ## Events
 
-| Event       | Description                                       | Detail    |
-| ----------- | ------------------------------------------------- | --------- |
-| `copyToClipboard` | Triggered when the component button is clicked.   | No detail |
+| Event             | Description                                     | Detail    |
+| ----------------- | ----------------------------------------------- | --------- |
+| `copyToClipboard` | Triggered when the component button is clicked. | No detail |
 
 ## Showcase
+
 <div class="showcase">
 <div id="first">
     Your id number is 
