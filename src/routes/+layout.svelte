@@ -6,8 +6,9 @@
   import HeaderTitle from "$lib/components/HeaderTitle.svelte";
   import Toasts from "$lib/components/Toasts.svelte";
   import DocsAccountMenu from "$docs/components/DocsAccountMenu.svelte";
+  import type { Navigation } from "@sveltejs/kit";
 
-  let navHistory: { from: URL | null; to: URL }[] = [];
+  let navHistory: Navigation[] = [];
   let back = false;
 
   const goBack = async (defaultRoute = "/") =>
@@ -17,7 +18,8 @@
 
   afterNavigate((navigation) => (navHistory = [navigation, ...navHistory]));
 
-  $: back = ($page.routeId ?? "").includes("/");
+  $: back =
+    ($page.routeId ?? "").split("/").filter((match) => match !== "").length > 1;
 </script>
 
 <Layout {back} on:nnsBack={async () => await goBack()}>
