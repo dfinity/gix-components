@@ -36,6 +36,13 @@
     // This to avoid the content to be presented behind the bottom sheet and
     // to display a scrollbar that ends before the bottom sheet.
     padding-bottom: var(--layout-bottom-offset, 0);
+
+    // On small screen the menu pushes the content
+    min-width: 100vw;
+
+    @include media.min-width(xlarge) {
+      min-width: auto;
+    }
   }
 
   .scrollable-content {
