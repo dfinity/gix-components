@@ -7,7 +7,6 @@ let domPurify: typeof DOMPurify | undefined = undefined;
  * Utilizes data-target flag (set by flagTargetAttributeHook).
  *
  * Inspired by https://github.com/cure53/DOMPurify/issues/317#issuecomment-728100494
- * @param node
  */
 const restoreTargetAttributeHook = (node: Element) => {
   if (node.getAttribute("data-target") === "blank") {
