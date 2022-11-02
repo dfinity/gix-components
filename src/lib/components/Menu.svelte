@@ -3,7 +3,12 @@
 </script>
 
 <div role="menu">
-  <div class="inner" data-tid="menu-inner" class:open on:click={() => (open = false)}>
+  <div
+    class="inner"
+    data-tid="menu-inner"
+    class:open
+    on:click={() => (open = false)}
+  >
     <slot />
   </div>
 </div>
