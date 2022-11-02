@@ -51,11 +51,7 @@ export const sanitize = (text: string): string => {
     if (domPurify === undefined) {
       if (typeof DOMPurify.sanitize === "function") {
         domPurify = DOMPurify;
-      }
-      if (
-        domPurify === undefined &&
-        typeof global.DOMPurify.sanitize === "function"
-      ) {
+      } else if (typeof global.DOMPurify.sanitize === "function") {
         // utilize jest version
         domPurify = global.DOMPurify;
       }
