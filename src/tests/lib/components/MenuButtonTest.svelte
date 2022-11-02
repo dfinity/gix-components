@@ -3,7 +3,7 @@
 
   export let spy: (open: boolean) => void;
 
-  let open = false;
+  export let open = false;
 
   $: open, spy(open);
 </script>

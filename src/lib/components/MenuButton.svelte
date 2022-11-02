@@ -7,7 +7,7 @@
 </script>
 
 <button
-  data-tid="menu"
+  data-tid="menu-toggle"
   class="icon-only"
   on:click={() => (open = !open)}
   aria-label={open ? $i18n.core.close : $i18n.core.menu}
