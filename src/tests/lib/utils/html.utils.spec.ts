@@ -20,4 +20,32 @@ describe("html-utils", () => {
       '<ul><li><a href="//google.com">click</a></li></ul>'
     );
   });
+
+  describe("target=_blank workaround", () => {
+    it("should preserve the target attribute", () => {
+      expect(
+        sanitize(`<a target="_blank" rel="noreferrer" href="/">link</a>`)
+      ).toEqual(`<a href="/" rel="noreferrer" target="_blank">link</a>`);
+      expect(
+        sanitize(`<a target="_blank" rel=" noreferrer " href="/">link</a>`)
+      ).toEqual(`<a href="/" rel="noreferrer" target="_blank">link</a>`);
+    });
+
+    it('should add "noopener" if rel not set', () => {
+      expect(sanitize(`<a target="_blank" href="/">link</a>`)).toEqual(
+        `<a href="/" target="_blank" rel="noopener">link</a>`
+      );
+    });
+
+    it('should replace unknown|insecure rel value with "noopener"', () => {
+      expect(
+        sanitize(`<a target="_blank" rel="nocloser" href="/">link</a>`)
+      ).toEqual(`<a href="/" rel="noopener" target="_blank">link</a>`);
+      expect(
+        sanitize(
+          `<a target="_blank" rel="noopenernoreferrer" href="/">link</a>`
+        )
+      ).toEqual(`<a href="/" rel="noopener" target="_blank">link</a>`);
+    });
+  });
 });
