@@ -7,11 +7,10 @@
 
   export let back = false;
 
-  let sticky: boolean;
   let open: boolean;
 </script>
 
-<SplitPane bind:sticky>
+<SplitPane>
   <header slot="header">
     <Toolbar>
       <svelte:fragment slot="start">
@@ -28,7 +27,7 @@
     </Toolbar>
   </header>
 
-  <Menu slot="menu" bind:open {sticky}>
+  <Menu slot="menu" bind:open>
     <slot name="menu-items" />
   </Menu>
 

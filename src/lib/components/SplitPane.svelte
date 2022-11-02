@@ -1,16 +1,6 @@
 <script lang="ts">
   import { layoutBottomOffset } from "$lib/stores/layout.store";
-
-  export let sticky = false;
-  let innerWidth = 0;
-
-  // The media query breakpoint to stick the menu is media xlarge 1300px
-  $: sticky = innerWidth > 1300;
 </script>
-
-<svelte:window bind:innerWidth />
-
-<slot name="header" />
 
 <div class="split-pane">
   <slot name="menu" />
@@ -18,19 +8,21 @@
     class="content"
     style={`--layout-bottom-offset: ${$layoutBottomOffset}px`}
   >
-    <div class="scrollable-content"><slot /></div>
+    <div class="scrollable-content">
+      <slot name="header" />
+
+      <slot />
+    </div>
   </div>
 </div>
 
 <style lang="scss">
   @use "../styles/mixins/media";
+  @use "../styles/mixins/display";
 
   .split-pane {
     position: absolute;
-    top: calc(var(--header-offset, 0px) + var(--header-height));
-    left: 0;
-    right: 0;
-    bottom: 0;
+    @include display.inset;
 
     display: flex;
     flex-flow: row nowrap;
@@ -44,10 +36,6 @@
     // This to avoid the content to be presented behind the bottom sheet and
     // to display a scrollbar that ends before the bottom sheet.
     padding-bottom: var(--layout-bottom-offset, 0);
-
-    @include media.min-width(xlarge) {
-      margin-left: var(--menu-width);
-    }
   }
 
   .scrollable-content {
