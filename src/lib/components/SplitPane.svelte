@@ -55,7 +55,7 @@
   // BEGIN: On small devices the header is sticky
 
   .split-pane {
-    padding-top: var(--header-height);
+    padding-top: calc(var(--header-offset, 0px) + var(--header-height));
 
     :global(header) {
       position: fixed;

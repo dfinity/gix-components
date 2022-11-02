@@ -22,6 +22,11 @@
     @include interaction.initial;
 
     z-index: var(--menu-z-index);
+
+    // Shift the menu on xlarge screen e.g. if a banner is displayed
+    @include media.min-width(xlarge) {
+      padding-top: var(--header-offset, 0px);
+    }
   }
 
   .inner {
