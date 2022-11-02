@@ -45,9 +45,23 @@
     overflow-y: scroll;
   }
 
-  @include media.min-width(xlarge) {
-    :global(header [role="toolbar"]) {
-      padding-left: var(--menu-width);
+  // BEGIN: On small devices the header is sticky
+
+  .split-pane {
+    padding-top: var(--header-height);
+
+    :global(header) {
+      position: fixed;
+    }
+
+    @include media.min-width(xlarge) {
+      padding-top: 0;
+
+      :global(header) {
+        position: absolute;
+      }
     }
   }
+
+  // END: sticky header
 </style>
