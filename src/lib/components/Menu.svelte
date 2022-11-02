@@ -43,7 +43,8 @@
       width: var(--menu-width);
     }
 
-    transition: width var(--animation-time-normal) cubic-bezier(.17,.67,.93,.66);
+    transition: width var(--animation-time-normal)
+      cubic-bezier(0.55, 0.49, 0.44, 0.87);
 
     // On xlarge screen the header is not sticky but within the content that's why we align the inner menu start
     box-sizing: border-box;
