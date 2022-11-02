@@ -8,9 +8,9 @@
     class="content"
     style={`--layout-bottom-offset: ${$layoutBottomOffset}px`}
   >
-    <div class="scrollable-content">
-      <slot name="header" />
+    <slot name="header" />
 
+    <div class="scrollable-content">
       <slot />
     </div>
   </div>
@@ -59,6 +59,10 @@
 
       :global(header) {
         position: absolute;
+      }
+
+      .content {
+        padding-top: var(--header-height);
       }
     }
   }
