@@ -1,21 +1,9 @@
 <script lang="ts">
-  import { i18n } from "../stores/i18n";
-  import IconClose from "../icons/IconClose.svelte";
-
   export let open = false;
 </script>
 
 <div role="menu">
   <div class="inner" class:open on:click={() => (open = false)}>
-    <button
-      on:click={() => (open = false)}
-      aria-label={$i18n.core.close}
-      data-tid="menu-close"
-      className="close icon-only"
-    >
-      <IconClose />
-    </button>
-
     <slot />
   </div>
 </div>
@@ -56,16 +44,5 @@
     }
 
     transition: width var(--animation-time-normal) cubic-bezier(.17,.67,.93,.66);
-  }
-
-  .close {
-    align-self: flex-start;
-    display: flex;
-    margin: 0 var(--padding-0_5x) var(--padding);
-
-    :global(svg) {
-      width: var(--padding-6x);
-      height: var(--padding-6x);
-    }
   }
 </style>
