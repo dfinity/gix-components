@@ -6,17 +6,26 @@
 
 <ul>
   <li>
-    New NNS <a
+    <a
       href="https://www.figma.com/file/ei7wVYd4l8SuDQlQqVC0NV/New-NNS?node-id=9%3A2"
       rel="external noopener noreferrer"
-      target="_blank">design and UX wireframes</a
+      target="_blank"
+    >
+      UX wireframes</a
     >
   </li>
   <li>
-    General <a
+    General v1 <a
       href="https://www.figma.com/file/CDcJmaBoY9JbI0snYoQToq/Design?node-id=0%3A1"
       rel="external noopener noreferrer"
       target="_blank">ui spec, buttons, etc.</a
+    >
+  </li>
+  <li>
+    v2 <a
+      href="https://www.figma.com/file/RzKlXRk83r48hMVh0cHmPt/II%26NNS?node-id=158%3A16670"
+      rel="external noopener noreferrer"
+      target="_blank">design</a
     >
   </li>
 </ul>
