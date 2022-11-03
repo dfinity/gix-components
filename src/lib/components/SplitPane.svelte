@@ -59,6 +59,7 @@
 
     :global(header) {
       position: fixed;
+      z-index: var(--menu-z-index);
     }
 
     @include media.min-width(xlarge) {
