@@ -55,8 +55,6 @@
 
   // recalculate max-height after DOM update
   afterUpdate(updateMaxHeight);
-  let toggleView: string;
-  $: toggleView = expanded ? "collpase" : "expand";
 </script>
 
 <div

@@ -9,6 +9,9 @@ const config = {
       $docs: resolve("./src/docs"),
     },
   },
+  define: {
+    "process.env.VITE_BUILD_TIME": JSON.stringify(new Date().toISOString()),
+  },
 };
 
 export default config;

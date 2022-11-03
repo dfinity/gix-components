@@ -152,8 +152,33 @@
     </p>
   </Card>
 
+  <Card role="link" on:click={() => goto("/components/busy-screen")}>
+    <h2 class="title" slot="start">BusyScreen</h2>
+    <p>A screen that indicates busy loading.</p>
+  </Card>
+
   <Card role="link" on:click={() => goto("/components/html")}>
     <h2 class="title" slot="start">Html</h2>
     <p>A component for safe (sanitized) html content rendering.</p>
+  </Card>
+
+  <Card role="link" on:click={() => goto("/components/value")}>
+    <h2 class="title" slot="start">Value</h2>
+    <p>Shorthand to render a value.</p>
+  </Card>
+
+  <Card role="link" on:click={() => goto("/components/key-value")}>
+    <h2 class="title" slot="start">Key Value</h2>
+    <p>Render a label and its value.</p>
+  </Card>
+
+  <Card role="link" on:click={() => goto("/components/key-value-info")}>
+    <h2 class="title" slot="start">Key Value Info</h2>
+    <p>Render a label, its value and an information.</p>
+  </Card>
+
+  <Card role="link" on:click={() => goto("/components/copy")}>
+    <h2 class="title" slot="start">Copy</h2>
+    <p>Copy component that copies selection.</p>
   </Card>
 </div>
