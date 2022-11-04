@@ -25,7 +25,7 @@
   @use "../styles/mixins/media";
 
   button.icon-only {
-    // On large screen the menu is sticky therefore if cannot be opened or closed
+    // On large screen the menu is sticky therefore it cannot be opened or closed
     @include media.min-width(xlarge) {
       display: none;
     }
