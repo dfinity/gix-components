@@ -1,16 +1,6 @@
 <script lang="ts">
   import { layoutBottomOffset } from "$lib/stores/layout.store";
-
-  export let sticky = false;
-  let innerWidth = 0;
-
-  // The media query breakpoint to stick the menu is media xlarge 1300px
-  $: sticky = innerWidth > 1300;
 </script>
-
-<svelte:window bind:innerWidth />
-
-<slot name="header" />
 
 <div class="split-pane">
   <slot name="menu" />
@@ -18,19 +8,21 @@
     class="content"
     style={`--layout-bottom-offset: ${$layoutBottomOffset}px`}
   >
-    <div class="scrollable-content"><slot /></div>
+    <slot name="header" />
+
+    <div class="scrollable-content">
+      <slot />
+    </div>
   </div>
 </div>
 
 <style lang="scss">
   @use "../styles/mixins/media";
+  @use "../styles/mixins/display";
 
   .split-pane {
     position: absolute;
-    top: calc(var(--header-offset, 0px) + var(--header-height));
-    left: 0;
-    right: 0;
-    bottom: 0;
+    @include display.inset;
 
     display: flex;
     flex-flow: row nowrap;
@@ -45,8 +37,11 @@
     // to display a scrollbar that ends before the bottom sheet.
     padding-bottom: var(--layout-bottom-offset, 0);
 
+    // On small screen the menu pushes the content
+    min-width: 100vw;
+
     @include media.min-width(xlarge) {
-      margin-left: var(--menu-width);
+      min-width: auto;
     }
   }
 
@@ -57,9 +52,28 @@
     overflow-y: scroll;
   }
 
-  @include media.min-width(xlarge) {
-    :global(header [role="toolbar"]) {
-      padding-left: var(--menu-width);
+  // BEGIN: On small devices the header is sticky
+
+  .split-pane {
+    padding-top: calc(var(--header-offset, 0px) + var(--header-height));
+
+    :global(header) {
+      position: fixed;
+      z-index: var(--menu-z-index);
+    }
+
+    @include media.min-width(xlarge) {
+      padding-top: 0;
+
+      :global(header) {
+        position: absolute;
+      }
+
+      .content {
+        padding-top: var(--header-height);
+      }
     }
   }
+
+  // END: sticky header
 </style>

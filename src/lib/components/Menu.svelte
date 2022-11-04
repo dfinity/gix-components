@@ -1,92 +1,35 @@
 <script lang="ts">
-  import Backdrop from "./Backdrop.svelte";
-  import { cubicOut } from "svelte/easing";
-  import { i18n } from "../stores/i18n";
-  import IconClose from "../icons/IconClose.svelte";
-
-  // Type is not exposed by Svelte
-  type SvelteTransitionConfig = {
-    delay?: number;
-    duration?: number;
-    easing?: (t: number) => number;
-    css?: (t: number, u: number) => string;
-    tick?: (t: number, u: number) => void;
-  };
-
-  /* eslint-disable @typescript-eslint/no-unused-vars */
-  const animateMenu = (
-    _node: Element,
-    _options: { delay?: number; duration?: number }
-  ): SvelteTransitionConfig => ({
-    easing: cubicOut,
-    css: (t: number) => `transform: translate(${-100 * (1 - t)}%);`,
-  });
-  /* eslint-enable */
-
   export let open = false;
-  export let sticky = false;
-
-  let backdrop = true;
-  $: backdrop = !sticky;
-
-  let transition: (
-    _node: Element,
-    _options: { delay?: number; duration?: number }
-  ) => SvelteTransitionConfig;
-  $: transition = sticky ? () => ({ duration: 0 }) : animateMenu;
 </script>
 
-{#if open || sticky}
-  <div role="menu" class:sticky class:open>
-    {#if backdrop}
-      <Backdrop on:nnsClose={() => (open = false)} />
-    {/if}
-
-    <div class="inner" transition:transition on:click={() => (open = false)}>
-      {#if !sticky}
-        <button
-          on:click={() => (open = false)}
-          aria-label={$i18n.core.close}
-          data-tid="menu-close"
-          class="close icon-only"><IconClose /></button
-        >
-      {/if}
-
-      <slot />
-    </div>
+<div role="menu">
+  <div
+    class="inner"
+    data-tid="menu-inner"
+    class:open
+    on:click={() => (open = false)}
+  >
+    <slot />
   </div>
-{/if}
+</div>
 
 <style lang="scss">
   @use "../styles/mixins/interaction";
   @use "../styles/mixins/display";
+  @use "../styles/mixins/media";
 
   div[role="menu"] {
-    position: fixed;
-    @include display.inset;
-
     @include interaction.initial;
 
     z-index: var(--menu-z-index);
 
-    &.sticky {
-      position: absolute;
-      width: var(--menu-width);
-      min-width: var(--menu-width);
-    }
-
-    &.open:not(.sticky) {
-      z-index: var(--overlay-z-index);
+    // Shift the menu on xlarge screen e.g. if a banner is displayed
+    @include media.min-width(xlarge) {
+      padding-top: var(--header-offset, 0px);
     }
   }
 
   .inner {
-    position: absolute;
-    top: 0;
-    right: auto;
-    bottom: 0;
-    left: 0;
-
     display: flex;
     flex-direction: column;
 
@@ -94,22 +37,30 @@
     color: var(--menu-background-contrast);
     box-shadow: var(--menu-box-shadow);
 
-    width: var(--menu-width);
+    width: 0;
     max-width: 100vw;
-
-    padding: var(--padding-2x) 0 0;
+    height: 100%;
 
     overflow-y: auto;
-  }
 
-  .close {
-    align-self: flex-start;
-    display: flex;
-    margin: 0 var(--padding-0_5x) var(--padding);
+    // On xlarge screen the menu is always open
+    @include media.min-width(xlarge) {
+      width: var(--menu-width);
+    }
 
-    :global(svg) {
-      width: var(--padding-6x);
-      height: var(--padding-6x);
+    // On smaller screen the menu is open on demand
+    &.open {
+      width: var(--menu-width);
+    }
+
+    transition: width var(--animation-time-normal)
+      cubic-bezier(0.55, 0.49, 0.44, 0.87);
+
+    // On xlarge screen the header is not sticky but within the content that's why we align the inner menu start
+    box-sizing: border-box;
+
+    @include media.min-width(xlarge) {
+      padding-top: var(--header-height);
     }
   }
 </style>

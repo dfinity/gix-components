@@ -7,49 +7,24 @@ import Menu from "$lib/components/Menu.svelte";
 import MenuTest from "./MenuTest.svelte";
 
 describe("Menu", () => {
-  it("menu should be closed per default", () => {
-    const { getByRole } = render(Menu);
-    expect(() => getByRole("menu")).toThrow();
-  });
-
-  const openMenu = async ({ getByRole }: RenderResult<Menu>) => {
-    await waitFor(() => expect(getByRole("menu")).not.toBeNull());
-  };
-
-  it("should be open", async () => {
-    const renderResult = render(Menu, {
+  it("should be displayed open on small devices", async () => {
+    const { getByTestId } = render(Menu, {
       props: {
         open: true,
       },
     });
 
-    await openMenu(renderResult);
+    expect(getByTestId("menu-inner")).toHaveClass("open");
   });
 
-  it("should render a backdrop", () => {
-    const { container } = render(Menu, {
+  it("should inherit default behavior", () => {
+    const { getByTestId } = render(Menu, {
       props: {
-        open: true,
+        open: false,
       },
     });
 
-    const backdrop: HTMLDivElement | null =
-      container.querySelector("div.backdrop");
-
-    expect(backdrop).not.toBeNull();
-  });
-
-  it("should not render a backdrop if sticky", () => {
-    const { container } = render(Menu, {
-      props: {
-        sticky: true,
-      },
-    });
-
-    const backdrop: HTMLDivElement | null =
-      container.querySelector("div.backdrop");
-
-    expect(backdrop).toBeNull();
+    expect(getByTestId("menu-inner")).not.toHaveClass("open");
   });
 
   it("should render slotted content", () => {
