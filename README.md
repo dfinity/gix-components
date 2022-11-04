@@ -1,6 +1,6 @@
-# Gix Components
+# GIX Components
 
-Gix Components is a UI kit developed with [SvelteKit](https://kit.svelte.dev) by the Gix team.
+GIX Components is a UI kit developed with [SvelteKit](https://kit.svelte.dev) by the GIX team.
 
 ## Getting Started
 

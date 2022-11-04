@@ -23,7 +23,7 @@
       href="https://github.com/dfinity/gix-components"
       rel="external noopener noreferrer"
       target="_blank"
-      aria-label="The source code of the Gix Components UI kit"
+      aria-label="The source code of the GIX Components UI kit"
     >
       <!-- source: ionicons -->
       <svg
