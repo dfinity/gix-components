@@ -67,8 +67,26 @@
   --line: #505050;
   --line-contrast: #969696;
 
+  // Background
+  --body-background: linear-gradient(
+      0deg,
+      rgba(29, 22, 51, 0.8),
+      rgba(29, 22, 51, 0.8)
+    ),
+    linear-gradient(
+      37.89deg,
+      rgba(19, 1, 134, 0.2) 0%,
+      rgba(173, 92, 236, 0.198) 44.9%
+    );
+  --body-color: #efedf8;
+
+  --content-background: rgba(29, 22, 51, 0.5);
+  --content-backdrop-filter: blur(4px);
+  --content-background-solid: #312a47;
+  --content-color: #baabdc;
+
   // Palette
-  --background: #383c3c;
+  --background: rgba(29, 22, 51, 0.5);
   --background-rgb: 56, 60, 60;
   --background-contrast: #ffffff;
   --background-contrast-rgb: 255, 255, 255;

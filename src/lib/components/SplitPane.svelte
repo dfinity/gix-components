@@ -32,6 +32,12 @@
     position: relative;
     width: 100%;
 
+    overflow: hidden;
+    border-radius: var(--border-radius-2x);
+
+    box-sizing: border-box;
+    margin: var(--padding);
+
     // If a bottom sheet is displayed the content pane height should be updated accordingly
     // This to avoid the content to be presented behind the bottom sheet and
     // to display a scrollbar that ends before the bottom sheet.

@@ -16,26 +16,26 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  background: var(--background);
-  color: var(--background-contrast);
+  background: var(--body-background);
+  color: var(--body-color);
 
   box-sizing: border-box;
 }
 
 ::-webkit-scrollbar {
-  background: var(--background);
+  background: var(--body-background);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--background-shade);
+  background: var(--body-color);
   height: 200px;
-  border: solid 2.5px var(--background);
+  border: solid 2.5px var(--body-background);
   border-radius: 0.5em;
   -webkit-border-radius: 0.5em;
 }
 
 ::-webkit-scrollbar-corner {
-  background: var(--background-shade);
+  background: var(--body-color);
 }
 
 input,
@@ -68,7 +68,9 @@ button {
 }
 
 main {
-  background: var(--background);
+  background: var(--content-background);
+  backdrop-filter: var(--content-backdrop-filter);
+
   transition: background 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
 
   // set default color for the content
