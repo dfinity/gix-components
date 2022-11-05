@@ -41,6 +41,7 @@
     max-width: 100vw;
     height: 100%;
 
+    overflow-x: hidden;
     overflow-y: auto;
 
     // On xlarge screen the menu is always open
@@ -54,7 +55,7 @@
     }
 
     transition: width var(--animation-time-normal)
-      cubic-bezier(0.55, 0.49, 0.44, 0.87);
+      var(--menu-animation-timing-function);
 
     // On xlarge screen the header is not sticky but within the content that's why we align the inner menu start
     box-sizing: border-box;

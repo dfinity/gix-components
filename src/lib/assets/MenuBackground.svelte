@@ -2608,6 +2608,6 @@
     }
 
     transition: translate var(--animation-time-normal)
-    cubic-bezier(0.55, 0.49, 0.44, 0.87);
+      var(--menu-animation-timing-function);
   }
 </style>
