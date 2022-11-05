@@ -29,7 +29,7 @@
   }
 
   span {
-    font-size: var(--font-size-ultra-small);
+    font-size: var(--font-size-small);
     margin: var(--padding) 0;
   }
 </style>

@@ -10,7 +10,7 @@ table {
   th {
     background: rgba(var(--card-background-rgb), 0.4);
     color: var(--card-background-contrast);
-    font-weight: 700;
+    font-weight: var(--font-weight-bold);
     padding: var(--padding) var(--padding-1_5x);
     border-bottom: 1px solid var(--card-background-tint);
   }

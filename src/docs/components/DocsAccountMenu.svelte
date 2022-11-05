@@ -73,8 +73,6 @@
     font-size: var(--font-size-h5);
     font-weight: var(--font-weight-bold);
 
-    letter-spacing: var(--letter-spacing-title);
-
     text-decoration: none;
     outline: none;
 
