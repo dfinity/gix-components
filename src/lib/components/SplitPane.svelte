@@ -32,6 +32,9 @@
     position: relative;
     width: 100%;
 
+    background: var(--content-background);
+    color: var(--content-color);
+
     overflow: hidden;
     border-radius: var(--border-radius-2x);
 
