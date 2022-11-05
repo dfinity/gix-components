@@ -1,3 +1,5 @@
+@use "../mixins/fonts";
+
 @font-face {
   font-family: CircularXX;
   src: url("/assets/fonts/CircularXXWeb-Regular.woff2") format("woff2");
@@ -29,7 +31,6 @@ h2,
 h3,
 h4,
 h5 {
-  font-weight: var(--font-weight-bold);
   margin: 0 0 var(--padding-0_5x);
 }
 
@@ -68,34 +69,28 @@ textarea {
 }
 
 h1 {
-  font-size: var(--font-size-h1);
-  line-height: var(--line-height-h1);
+  @include fonts.h1;
 }
 
 h2 {
-  font-size: var(--font-size-h2);
-  line-height: var(--line-height-h2);
+  @include fonts.h2;
 }
 
 h3 {
-  font-size: var(--font-size-h3);
-  line-height: var(--line-height-h3);
+  @include fonts.h3;
 }
 
 h4 {
-  font-size: var(--font-size-h4);
-  line-height: var(--line-height-h4);
+  @include fonts.h4;
 }
 
 h5 {
-  font-size: var(--font-size-h5);
-  line-height: var(--line-height-h5);
+  @include fonts.h5;
 }
 
 small,
 .text_small {
-  font-size: var(--font-size-small);
-  line-height: var(--line-height-small);
+  @include fonts.small;
 }
 
 a,
