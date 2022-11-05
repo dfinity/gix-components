@@ -44,7 +44,7 @@
     padding-bottom: var(--layout-bottom-offset, 0);
 
     // On small screen the menu pushes the content
-    min-width: 100vw;
+    min-width: calc(100vw - var(--padding-2x));
 
     @include media.min-width(xlarge) {
       min-width: auto;
