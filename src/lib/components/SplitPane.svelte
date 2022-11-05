@@ -34,6 +34,7 @@
 
     background: var(--content-background);
     color: var(--content-color);
+    box-shadow: var(--content-box-shadow);
 
     overflow: hidden;
     border-radius: var(--border-radius-2x);
