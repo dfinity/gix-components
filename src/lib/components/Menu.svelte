@@ -1,4 +1,6 @@
 <script lang="ts">
+  import MenuBackground from "$lib/assets/MenuBackground.svelte";
+
   export let open = false;
 </script>
 
@@ -11,6 +13,8 @@
   >
     <slot />
   </div>
+
+  <MenuBackground {open} />
 </div>
 
 <style lang="scss">
@@ -32,10 +36,6 @@
   .inner {
     display: flex;
     flex-direction: column;
-
-    background: var(--menu-background);
-    color: var(--menu-background-contrast);
-    box-shadow: var(--menu-box-shadow);
 
     width: 0;
     max-width: 100vw;
