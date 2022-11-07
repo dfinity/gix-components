@@ -2,9 +2,9 @@
  * @jest-environment jsdom
  */
 
-import { render } from "@testing-library/svelte";
 import Html from "$lib/components/Html.svelte";
 import { sanitize } from "$lib/utils/html.utils";
+import { render } from "@testing-library/svelte";
 
 jest.mock("$lib/utils/html.utils", () => {
   return {

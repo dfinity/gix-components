@@ -2,8 +2,8 @@
  * @jest-environment jsdom
  */
 
-import { fireEvent, render } from "@testing-library/svelte";
 import Toggle from "$lib/components/Toggle.svelte";
+import { fireEvent, render } from "@testing-library/svelte";
 
 describe("Toggle", () => {
   const props = {

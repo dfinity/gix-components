@@ -2,8 +2,8 @@
  * @jest-environment jsdom
  */
 
-import { fireEvent, render } from "@testing-library/svelte";
 import InputRange from "$lib/components/InputRange.svelte";
+import { fireEvent, render } from "@testing-library/svelte";
 import InputRangeTest from "./InputRangeTest.svelte";
 
 describe("InputRange", () => {

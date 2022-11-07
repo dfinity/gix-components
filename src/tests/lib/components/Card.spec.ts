@@ -2,8 +2,8 @@
  * @jest-environment jsdom
  */
 
-import { fireEvent, render } from "@testing-library/svelte";
 import Card from "$lib/components/Card.svelte";
+import { fireEvent, render } from "@testing-library/svelte";
 
 describe("Card", () => {
   it("should render an article", () => {

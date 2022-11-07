@@ -2,8 +2,8 @@
  * @jest-environment jsdom
  */
 
-import { fireEvent, render } from "@testing-library/svelte";
 import Input from "$lib/components/Input.svelte";
+import { fireEvent, render } from "@testing-library/svelte";
 import InputTest from "./InputTest.svelte";
 import InputValueTest from "./InputValueTest.svelte";
 

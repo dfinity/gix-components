@@ -3,8 +3,8 @@
  */
 
 import { fireEvent, render } from "@testing-library/svelte";
-import DropdownTest from "./DropdownTest.svelte";
 import { clickByTestId } from "../../utils/utils.test-utils";
+import DropdownTest from "./DropdownTest.svelte";
 
 describe("Dropdown", () => {
   const options = [
