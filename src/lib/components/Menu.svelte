@@ -35,7 +35,9 @@
 
     // Shift the menu on xlarge screen e.g. if a banner is displayed
     @include media.min-width(xlarge) {
-      padding-top: calc(var(--menu-logo-height) + var(--padding-2x) + var(--header-offset, 0px));
+      padding-top: calc(
+        var(--menu-logo-height) + var(--padding-2x) + var(--header-offset, 0px)
+      );
     }
 
     position: relative;

@@ -1,17 +1,35 @@
 <script lang="ts">
   import logoNNS from "../assets/logo-nns.svg";
   import logoOnChain from "../assets/logo-onchain.svg";
-  import background from '$lib/assets/menu-background.png';
+  import background from "$lib/assets/menu-background.png";
 
   export let open = false;
 </script>
 
 <div class:open>
-  <img class="logo-nns" src={logoNNS} role="presentation" alt="Network Nervous System logo" loading="lazy" />
+  <img
+    class="logo-nns"
+    src={logoNNS}
+    role="presentation"
+    alt="Network Nervous System logo"
+    loading="lazy"
+  />
 
-  <img class="on-chain" src={logoOnChain} role="presentation" alt="100% on-chain Internet Computer logo" loading="lazy" />
+  <img
+    class="on-chain"
+    src={logoOnChain}
+    role="presentation"
+    alt="100% on-chain Internet Computer logo"
+    loading="lazy"
+  />
 
-  <img class="background" src={background} role="presentation" alt="" loading="lazy" />
+  <img
+    class="background"
+    src={background}
+    role="presentation"
+    alt=""
+    loading="lazy"
+  />
 </div>
 
 <style lang="scss">
