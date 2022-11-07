@@ -47,6 +47,7 @@
 
     :global(svg:first-of-type) {
       height: var(--menu-logo-height);
+      zoom: 1.2;
     }
 
     :global(svg:nth-child(2)) {

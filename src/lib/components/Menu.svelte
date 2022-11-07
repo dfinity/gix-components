@@ -27,9 +27,14 @@
 
     z-index: var(--menu-z-index);
 
-    --menu-logo-height: calc(60px + var(--padding-4x));
+    --menu-logo-height: 68px;
+
+    @include media.min-width(xlarge) {
+      --menu-logo-height: calc(68px + var(--padding-4x));
+    }
+
     padding-top: calc(
-      var(--menu-logo-height) + var(--padding-2x) + var(--header-offset, 0px)
+      var(--menu-logo-height) + var(--padding-4x) + var(--header-offset, 0px)
     );
 
     // Shift the menu on xlarge screen e.g. if a banner is displayed
@@ -73,7 +78,7 @@
     box-sizing: border-box;
 
     @include media.min-width(xlarge) {
-      padding-top: var(--header-height);
+      padding-top: var(--padding-4x);
     }
   }
 </style>
