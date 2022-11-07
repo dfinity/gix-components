@@ -1,5 +1,6 @@
 @use "../mixins/effect";
 @use "../mixins/media";
+@use "../mixins/fonts";
 
 button {
   &[disabled],
@@ -32,8 +33,7 @@ button {
 
     width: fit-content;
 
-    font-size: inherit;
-    line-height: var(--line-height-standard);
+    @include fonts.standard;
 
     color: var(--primary);
 
@@ -84,8 +84,6 @@ button {
     position: relative;
     min-height: var(--button-min-height);
 
-    font-size: inherit;
-    line-height: var(--line-height-standard);
     font-weight: var(--font-weight-bold);
 
     &[disabled],

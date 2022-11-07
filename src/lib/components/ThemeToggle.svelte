@@ -31,7 +31,7 @@
     align-items: center;
 
     font-size: var(--font-size-h4);
-    line-height: var(--line-height-title);
+    line-height: var(--line-height-h4);
 
     padding: 0 var(--padding-0_5x);
     gap: var(--padding);
