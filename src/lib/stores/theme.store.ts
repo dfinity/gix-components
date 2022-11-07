@@ -1,6 +1,6 @@
-import { writable } from "svelte/store";
 import type { Theme } from "$lib/types/theme";
 import { applyTheme, initTheme } from "$lib/utils/theme.utils";
+import { writable } from "svelte/store";
 
 const initialTheme: Theme = initTheme();
 

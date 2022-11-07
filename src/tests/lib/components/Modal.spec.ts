@@ -2,8 +2,8 @@
  * @jest-environment jsdom
  */
 
-import { fireEvent, render } from "@testing-library/svelte";
 import Modal from "$lib/components/Modal.svelte";
+import { fireEvent, render } from "@testing-library/svelte";
 import ModalTest from "./ModalTest.svelte";
 
 describe("Modal", () => {

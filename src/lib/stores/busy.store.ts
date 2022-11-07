@@ -1,5 +1,5 @@
-import { derived, writable, type Readable } from "svelte/store";
 import type { BusyState } from "$lib/types/busy";
+import { derived, writable, type Readable } from "svelte/store";
 
 /**
  * Store that reflects the app busy state.

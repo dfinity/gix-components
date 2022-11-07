@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { writeFileSync, readFileSync } from "fs";
+import { readFileSync, writeFileSync } from "fs";
 import prettier from "prettier";
 
 const en = JSON.parse(readFileSync("./src/lib/i18n/en.json"));

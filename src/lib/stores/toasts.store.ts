@@ -1,5 +1,5 @@
-import { writable } from "svelte/store";
 import type { ToastMsg } from "$lib/types/toast";
+import { writable } from "svelte/store";
 
 /**
  * Toast messages.
