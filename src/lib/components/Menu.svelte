@@ -1,10 +1,13 @@
 <script lang="ts">
   import MenuBackground from "$lib/assets/MenuBackground.svelte";
+  import MenuLogo from "$lib/assets/MenuLogo.svelte";
 
   export let open = false;
 </script>
 
 <div role="menu">
+  <MenuLogo {open} />
+
   <div
     class="inner"
     data-tid="menu-inner"
@@ -27,10 +30,17 @@
 
     z-index: var(--menu-z-index);
 
+    --menu-logo-height: 60px;
+    padding-top: calc(
+      var(--menu-logo-height) + var(--padding-6x) + var(--header-offset, 0px)
+    );
+
     // Shift the menu on xlarge screen e.g. if a banner is displayed
     @include media.min-width(xlarge) {
-      padding-top: var(--header-offset, 0px);
+      padding-top: calc(var(--menu-logo-height) + var(--header-offset, 0px));
     }
+
+    position: relative;
   }
 
   .inner {
@@ -44,18 +54,23 @@
     overflow-x: hidden;
     overflow-y: auto;
 
+    transform: translate(-100%, 0);
+
     // On xlarge screen the menu is always open
     @include media.min-width(xlarge) {
       width: var(--menu-width);
+      transform: translate(0, 0);
     }
 
     // On smaller screen the menu is open on demand
     &.open {
       width: var(--menu-width);
+      transform: translate(0, 0);
     }
 
-    transition: width var(--animation-time-normal)
-      var(--menu-animation-timing-function);
+    transition: transform var(--animation-time-normal)
+        var(--menu-animation-timing-function),
+      width var(--animation-time-normal) var(--menu-animation-timing-function);
 
     // On xlarge screen the header is not sticky but within the content that's why we align the inner menu start
     box-sizing: border-box;

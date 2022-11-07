@@ -1781,7 +1781,7 @@
       transform: translate(0, 0);
     }
 
-    transition: translate var(--animation-time-normal)
+    transition: transform var(--animation-time-normal)
       var(--menu-animation-timing-function);
   }
 </style>
