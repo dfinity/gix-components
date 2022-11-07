@@ -1,12 +1,11 @@
 <script lang="ts">
-  import MenuBackground from "$lib/assets/MenuBackground.svelte";
-  import MenuLogo from "$lib/assets/MenuLogo.svelte";
+  import MenuBackground from "./MenuBackground.svelte";
 
   export let open = false;
 </script>
 
 <div role="menu">
-  <MenuLogo {open} />
+  <MenuBackground {open} />
 
   <div
     class="inner"
@@ -16,8 +15,6 @@
   >
     <slot />
   </div>
-
-  <MenuBackground {open} />
 </div>
 
 <style lang="scss">
@@ -30,9 +27,9 @@
 
     z-index: var(--menu-z-index);
 
-    --menu-logo-height: 60px;
+    --menu-logo-height: calc(60px + var(--padding-4x));
     padding-top: calc(
-      var(--menu-logo-height) + var(--padding-6x) + var(--header-offset, 0px)
+      var(--menu-logo-height) + var(--padding-2x) + var(--header-offset, 0px)
     );
 
     // Shift the menu on xlarge screen e.g. if a banner is displayed

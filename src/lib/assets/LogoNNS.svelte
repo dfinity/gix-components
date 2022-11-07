@@ -1,15 +1,9 @@
-<script lang="ts">
-  export let open = false;
-</script>
-
 <svg
   width="160"
   height="53"
   viewBox="0 0 160 53"
   fill="none"
   xmlns="http://www.w3.org/2000/svg"
-  class:open
-  style="height: var(--menu-logo-height)"
 >
   <g opacity="0.7">
     <path
@@ -71,29 +65,3 @@
     </filter>
   </defs>
 </svg>
-
-<style lang="scss">
-  @use "../styles/mixins/media";
-
-  svg {
-    position: absolute;
-    left: 50%;
-    top: var(--padding-2x);
-    pointer-events: none;
-
-    transform: translate(-150%, 0);
-
-    // On xlarge screen the menu is always open
-    @include media.min-width(xlarge) {
-      transform: translate(-50%, 0);
-    }
-
-    // On smaller screen the menu is open on demand
-    &.open {
-      transform: translate(-50%, 0);
-    }
-
-    transition: transform var(--animation-time-normal)
-    var(--menu-animation-timing-function);
-  }
-</style>

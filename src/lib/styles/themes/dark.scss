@@ -63,16 +63,7 @@
   --line-contrast: #969696;
 
   // Background
-  --body-background: linear-gradient(
-      0deg,
-      rgba(29, 22, 51, 0.8),
-      rgba(29, 22, 51, 0.8)
-    ),
-    linear-gradient(
-      37.89deg,
-      rgba(19, 1, 134, 0.2) 0%,
-      rgba(173, 92, 236, 0.198) 44.9%
-    );
+  --body-background: linear-gradient(251.01deg, #382E59 1.99%, #42375B 37.89%, #473954 98.4%);;
   --body-color: rgba(239, 237, 248, 0.4);
 
   --content-background: rgba(29, 22, 51, 0.5);
@@ -92,12 +83,12 @@
   --background-shade: #313535;
   --background-tint: #4c5050;
 
-  --card-background: #34294e;
-  --card-background-rgb: 52, 41, 78;
-  --card-background-contrast: #9791b6;
-  --card-background-contrast-rgb: 151, 145, 182;
-  --card-background-shade: #2e2445;
-  --card-background-tint: #483e60;
+  --card-background: #32294C;
+  --card-background-rgb: 50,41,76;
+  --card-background-contrast: #ffffff;
+  --card-background-contrast-rgb: 255,255,255;
+  --card-background-shade: #2c2443;
+  --card-background-tint: #473e5e;
 
   --primary: #8266D6;
   --primary-rgb: 130,102,214;
