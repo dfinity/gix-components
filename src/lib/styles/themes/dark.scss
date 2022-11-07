@@ -63,7 +63,12 @@
   --line-contrast: #969696;
 
   // Background
-  --body-background: linear-gradient(251.01deg, #382E59 1.99%, #42375B 37.89%, #473954 98.4%);;
+  --body-background: linear-gradient(
+    251.01deg,
+    #382e59 1.99%,
+    #42375b 37.89%,
+    #473954 98.4%
+  );
   --body-color: rgba(239, 237, 248, 0.4);
 
   --content-background: rgba(29, 22, 51, 0.5);
@@ -83,24 +88,24 @@
   --background-shade: #313535;
   --background-tint: #4c5050;
 
-  --card-background: #32294C;
-  --card-background-rgb: 50,41,76;
+  --card-background: #32294c;
+  --card-background-rgb: 50, 41, 76;
   --card-background-contrast: #ffffff;
-  --card-background-contrast-rgb: 255,255,255;
+  --card-background-contrast-rgb: 255, 255, 255;
   --card-background-shade: #2c2443;
   --card-background-tint: #473e5e;
 
-  --primary: #8266D6;
-  --primary-rgb: 130,102,214;
+  --primary: #8266d6;
+  --primary-rgb: 130, 102, 214;
   --primary-contrast: #ffffff;
-  --primary-contrast-rgb: 255,255,255;
+  --primary-contrast-rgb: 255, 255, 255;
   --primary-shade: #725abc;
   --primary-tint: #8f75da;
 
-  --secondary: #D9ACD6;
-  --secondary-rgb: 217,172,214;
+  --secondary: #d9acd6;
+  --secondary-rgb: 217, 172, 214;
   --secondary-contrast: #000000;
-  --secondary-contrast-rgb: 0,0,0;
+  --secondary-contrast-rgb: 0, 0, 0;
   --secondary-shade: #bf97bc;
   --secondary-tint: #ddb4da;
 
@@ -111,10 +116,10 @@
   --warning-emphasis-shade: #e0af00;
   --warning-emphasis-tint: #ffcd1a;
 
-  --positive-emphasis: #30AF91;
-  --positive-emphasis-rgb: 48,175,145;
+  --positive-emphasis: #30af91;
+  --positive-emphasis-rgb: 48, 175, 145;
   --positive-emphasis-contrast: #000000;
-  --positive-emphasis-contrast-rgb: 0,0,0;
+  --positive-emphasis-contrast-rgb: 0, 0, 0;
   --positive-emphasis-shade: #2a9a80;
   --positive-emphasis-tint: #45b79c;
 
@@ -125,10 +130,10 @@
   --negative-emphasis-light-shade: #d85a5a;
   --negative-emphasis-light-tint: #f77575;
 
-  --negative-emphasis: #EA6C99;
-  --negative-emphasis-rgb: 234,108,153;
+  --negative-emphasis: #ea6c99;
+  --negative-emphasis-rgb: 234, 108, 153;
   --negative-emphasis-contrast: #000000;
-  --negative-emphasis-contrast-rgb: 0,0,0;
+  --negative-emphasis-contrast-rgb: 0, 0, 0;
   --negative-emphasis-shade: #ce5f87;
   --negative-emphasis-tint: #ec7ba3;
 }
