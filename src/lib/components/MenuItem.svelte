@@ -36,7 +36,7 @@
       text-decoration: none;
     }
 
-    padding: var(--padding-2x);
+    padding: var(--padding-1_5x);
 
     &.selected {
       --menuitem-border-color: white;
