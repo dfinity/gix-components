@@ -42,11 +42,7 @@
     &.selected {
       --menuitem-border-color: white;
       background: var(--menu-selected-background);
-
-      &:focus,
-      &:hover {
-        color: var(--content-color);
-      }
+      color: var(--content-color);
     }
 
     &:not(.selected):focus,
