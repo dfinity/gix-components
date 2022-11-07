@@ -23,7 +23,7 @@
   </li>
   <li>
     v2 <a
-      href="https://www.figma.com/file/RzKlXRk83r48hMVh0cHmPt/II%26NNS?node-id=158%3A16670"
+      href="https://www.figma.com/file/LrnZCYtBw5rDrbsMcx6yGj/NNS_Dmytro?node-id=158%3A16670"
       rel="external noopener noreferrer"
       target="_blank">design</a
     >
