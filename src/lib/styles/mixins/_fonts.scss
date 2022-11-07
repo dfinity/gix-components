@@ -34,7 +34,13 @@
   @include bold($bold);
 }
 
-@mixin small($bold: true) {
+@mixin standard($bold: false) {
+  font-size: var(--font-size-standard);
+  line-height: var(--line-height-standard);
+  @include bold($bold);
+}
+
+@mixin small($bold: false) {
   font-size: var(--font-size-small);
   line-height: var(--line-height-small);
   @include bold($bold);
