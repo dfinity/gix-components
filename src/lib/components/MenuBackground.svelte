@@ -1,7 +1,7 @@
 <script lang="ts">
   import LogoNNS from "../assets/LogoNNS.svelte";
-  import Dots from "../assets/Dots.svelte";
   import LogoOnChain from "../assets/LogoOnChain.svelte";
+  import background from '$lib/assets/menu-background.png';
 
   export let open = false;
 </script>
@@ -10,7 +10,7 @@
   <LogoNNS />
   <LogoOnChain />
 
-  <Dots />
+  <img src={background} role="presentation" alt="" loading="lazy" />
 </div>
 
 <style lang="scss">
@@ -60,7 +60,7 @@
       }
     }
 
-    :global(svg:last-of-type) {
+    img {
       position: absolute;
       bottom: 0;
       left: 0;
