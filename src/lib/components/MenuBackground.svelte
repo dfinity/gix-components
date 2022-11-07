@@ -1,16 +1,17 @@
 <script lang="ts">
-  import LogoNNS from "../assets/LogoNNS.svelte";
-  import LogoOnChain from "../assets/LogoOnChain.svelte";
+  import logoNNS from "../assets/logo-nns.svg";
+  import logoOnChain from "../assets/logo-onchain.svg";
   import background from '$lib/assets/menu-background.png';
 
   export let open = false;
 </script>
 
 <div class:open>
-  <LogoNNS />
-  <LogoOnChain />
+  <img class="logo-nns" src={logoNNS} role="presentation" alt="Network Nervous System logo" loading="lazy" />
 
-  <img src={background} role="presentation" alt="" loading="lazy" />
+  <img class="on-chain" src={logoOnChain} role="presentation" alt="100% on-chain Internet Computer logo" loading="lazy" />
+
+  <img class="background" src={background} role="presentation" alt="" loading="lazy" />
 </div>
 
 <style lang="scss">
@@ -44,26 +45,29 @@
 
     transition: transform var(--animation-time-normal)
       var(--menu-animation-timing-function);
+  }
 
-    :global(svg:first-of-type) {
-      height: var(--menu-logo-height);
-      zoom: 1.2;
+  .logo-nns {
+    height: var(--menu-logo-height);
+
+    @include media.min-width(xlarge) {
+      padding-top: var(--padding-2x);
     }
+  }
 
-    :global(svg:nth-child(2)) {
-      // We do not want to display the logo "on chain" behind the menu items
-      display: none;
-      padding: 0 0 var(--padding-4x);
+  .on-chain {
+    // We do not want to display the logo "on chain" behind the menu items
+    display: none;
+    padding: 0 0 var(--padding-3x);
 
-      @media (min-height: 654px) {
-        display: block;
-      }
+    @media (min-height: 654px) {
+      display: block;
     }
+  }
 
-    img {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-    }
+  .background {
+    position: absolute;
+    bottom: 0;
+    left: 0;
   }
 </style>
