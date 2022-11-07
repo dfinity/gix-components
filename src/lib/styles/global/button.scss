@@ -103,7 +103,7 @@ button {
   }
 
   &.primary {
-    background: var(--primary);
+    background: linear-gradient(80.26deg, var(--primary) 23.69%, var(--secondary) 143.36%);;
     color: var(--primary-contrast);
   }
 
