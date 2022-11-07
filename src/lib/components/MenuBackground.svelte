@@ -1,7 +1,7 @@
 <script lang="ts">
   import LogoNNS from "../assets/LogoNNS.svelte";
   import LogoOnChain from "../assets/LogoOnChain.svelte";
-  import background from '$lib/assets/menu-background.png';
+  import background from "$lib/assets/menu-background.png";
 
   export let open = false;
 </script>
