@@ -87,15 +87,15 @@
   // Palette
   --background: rgba(29, 22, 51, 0.5);
   --background-rgb: 56, 60, 60;
-  --background-contrast: #ffffff;
-  --background-contrast-rgb: 255, 255, 255;
+  --background-contrast: #d1cee2;
+  --background-contrast-rgb: 209, 206, 226;
   --background-shade: #313535;
   --background-tint: #4c5050;
 
   --card-background: #34294e;
   --card-background-rgb: 52, 41, 78;
-  --card-background-contrast: #d1cee2;
-  --card-background-contrast-rgb: 209, 206, 226;
+  --card-background-contrast: #9791b6;
+  --card-background-contrast-rgb: 151, 145, 182;
   --card-background-shade: #2e2445;
   --card-background-tint: #483e60;
 
@@ -120,12 +120,12 @@
   --warning-emphasis-shade: #e0af00;
   --warning-emphasis-tint: #ffcd1a;
 
-  --positive-emphasis: #03ae00;
-  --positive-emphasis-rgb: 3, 174, 0;
-  --positive-emphasis-contrast: #ffffff;
-  --positive-emphasis-contrast-rgb: 255, 255, 255;
-  --positive-emphasis-shade: #039900;
-  --positive-emphasis-tint: #1cb61a;
+  --positive-emphasis: #30AF91;
+  --positive-emphasis-rgb: 48,175,145;
+  --positive-emphasis-contrast: #000000;
+  --positive-emphasis-contrast-rgb: 0,0,0;
+  --positive-emphasis-shade: #2a9a80;
+  --positive-emphasis-tint: #45b79c;
 
   --negative-emphasis-light: #f66666;
   --negative-emphasis-light-rgb: 246, 102, 102;
@@ -134,10 +134,10 @@
   --negative-emphasis-light-shade: #d85a5a;
   --negative-emphasis-light-tint: #f77575;
 
-  --negative-emphasis: #ef0000;
-  --negative-emphasis-rgb: 239, 0, 0;
-  --negative-emphasis-contrast: #ffffff;
-  --negative-emphasis-contrast-rgb: 255, 255, 255;
-  --negative-emphasis-shade: #d20000;
-  --negative-emphasis-tint: #f11a1a;
+  --negative-emphasis: #EA6C99;
+  --negative-emphasis-rgb: 234,108,153;
+  --negative-emphasis-contrast: #000000;
+  --negative-emphasis-contrast-rgb: 0,0,0;
+  --negative-emphasis-shade: #ce5f87;
+  --negative-emphasis-tint: #ec7ba3;
 }
