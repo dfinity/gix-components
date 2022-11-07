@@ -1,7 +1,6 @@
-import type { Slug } from "$docs/types/slug";
+import type { Slug, SlugIcon } from "$docs/types/slug";
 import { readdirSync, readFileSync } from "fs";
 import { parse } from "path";
-import type { SlugIcon } from "$docs/types/slug";
 
 export const listIcons = (): SlugIcon[] => {
   const slugs = listIconSlugs();

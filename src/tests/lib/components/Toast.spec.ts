@@ -2,9 +2,9 @@
  * @jest-environment jsdom
  */
 
-import { render } from "@testing-library/svelte";
 import Toast from "$lib/components/Toast.svelte";
 import type { ToastMsg } from "$lib/types/toast";
+import { render } from "@testing-library/svelte";
 
 describe("Toast", () => {
   const props: { msg: ToastMsg } = {

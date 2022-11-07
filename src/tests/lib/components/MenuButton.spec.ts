@@ -3,8 +3,8 @@
  */
 
 import { fireEvent, render, type RenderResult } from "@testing-library/svelte";
-import MenuButtonTest from "./MenuButtonTest.svelte";
 import en from "../mocks/i18n.mock";
+import MenuButtonTest from "./MenuButtonTest.svelte";
 
 describe("MenuButton", () => {
   const toggleMenu = async ({ getByTestId }: RenderResult<MenuButtonTest>) => {

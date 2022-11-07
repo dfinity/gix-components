@@ -2,11 +2,11 @@
  * @jest-environment jsdom
  */
 
-import { fireEvent, render } from "@testing-library/svelte";
-import { get } from "svelte/store";
 import ThemeToggle from "$lib/components/ThemeToggle.svelte";
 import { themeStore } from "$lib/stores/theme.store";
 import { Theme } from "$lib/types/theme";
+import { fireEvent, render } from "@testing-library/svelte";
+import { get } from "svelte/store";
 import en from "../mocks/i18n.mock";
 
 describe("ThemeToggle", () => {

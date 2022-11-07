@@ -2,9 +2,9 @@
  * @jest-environment jsdom
  */
 
+import { HeaderTitle } from "$lib";
 import { render } from "@testing-library/svelte";
 import ComponentTest from "./ComponentTest.svelte";
-import { HeaderTitle } from "$lib";
 
 describe("HeaderTitle", () => {
   it("should render a slotted content", () => {

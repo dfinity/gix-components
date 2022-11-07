@@ -17,8 +17,8 @@ configure({
 });
 
 // make `DOMPurify` available for unit tests
-import { JSDOM } from "jsdom";
 import DOMPurify from "dompurify";
+import { JSDOM } from "jsdom";
 const { window } = new JSDOM("<!DOCTYPE html>");
 const purify = DOMPurify(window as unknown as Window);
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment

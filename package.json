@@ -33,6 +33,7 @@
     "node-fetch": "^3.2.10",
     "postcss": "^8.4.18",
     "prettier": "^2.7.1",
+    "prettier-plugin-organize-imports": "^3.1.1",
     "prettier-plugin-svelte": "^2.8.0",
     "sass": "^1.55.0",
     "svelte": "^3.52.0",
