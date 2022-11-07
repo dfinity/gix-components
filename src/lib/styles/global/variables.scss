@@ -9,6 +9,7 @@
 
   --padding: 8px;
 
+  --padding-0_25x: calc(var(--padding) / 4);
   --padding-0_5x: calc(var(--padding) / 2);
   --padding-1_5x: calc(1.5 * var(--padding));
   --padding-2x: calc(2 * var(--padding));

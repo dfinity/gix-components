@@ -29,6 +29,9 @@
     text-decoration: none;
     outline: none;
 
+    --menuitem-border-color: transparent;
+    border-left: var(--padding-0_25x) solid var(--menuitem-border-color);
+
     &:focus,
     &:hover {
       text-decoration: none;
@@ -37,18 +40,18 @@
     padding: var(--padding-2x);
 
     &.selected {
-      color: var(--primary);
-      background: inherit;
+      --menuitem-border-color: white;
+      background: var(--menu-selected-background);
 
       &:focus,
       &:hover {
-        background: var(--background-shade);
+        color: var(--content-color);
       }
     }
 
     &:not(.selected):focus,
     &:not(.selected):hover {
-      background: var(--background-shade);
+      color: var(--content-color);
     }
 
     :global(& > :first-child) {
