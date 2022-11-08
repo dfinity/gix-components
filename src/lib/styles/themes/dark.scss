@@ -48,11 +48,8 @@
 
   // text color
   --value-color: #fff;
-  --label-color: rgba(var(--background-contrast-rgb), var(--light-opacity));
-  --description-color: rgba(
-    var(--background-contrast-rgb),
-    var(--very-light-opacity)
-  );
+  --label-color: #d1cee2;
+  --description-color: #9791B6;
 
   // Overlays - based on dark card background rgb color
   --backdrop: rgba(17, 14, 23, 0.9);
@@ -60,7 +57,7 @@
 
   // Disable
   --disable: #483c64;
-  --disable-contrast: #9791b6;
+  --disable-contrast: var(--description-color);
 
   // Line
   --line: #9078a4;
