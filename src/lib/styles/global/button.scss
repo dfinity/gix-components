@@ -111,7 +111,11 @@ button {
     background: inherit;
     color: var(--content-background-contrast);
     border: solid 2px transparent;
-    background-image: linear-gradient(var(--content-background), var(--content-background)), linear-gradient(to right, var(--primary), var(--secondary));
+    background-image: linear-gradient(
+        var(--content-background),
+        var(--content-background)
+      ),
+      linear-gradient(to right, var(--primary), var(--secondary));
     background-origin: border-box;
     background-clip: padding-box, border-box;
   }
