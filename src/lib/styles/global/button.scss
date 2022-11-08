@@ -105,15 +105,37 @@ button {
       var(--secondary) 143.36%
     );
     color: var(--primary-contrast);
+
+    &:hover,
+    &:focus {
+      background: linear-gradient(
+        93deg,
+        var(--primary-shade) 36.37%,
+        var(--secondary-shade) 108.11%
+      );
+    }
   }
 
   &.secondary {
-    background: inherit;
+    background: var(--content-background);
     color: var(--content-background-contrast);
     border: solid 2px transparent;
-    background-image: linear-gradient(var(--content-background), var(--content-background)), linear-gradient(to right, var(--primary), var(--secondary));
+    background-image: linear-gradient(
+        var(--content-background),
+        var(--content-background)
+      ),
+      linear-gradient(to right, var(--primary), var(--secondary));
     background-origin: border-box;
     background-clip: padding-box, border-box;
+
+    &:hover,
+    &:focus {
+      background-image: linear-gradient(
+          var(--content-background),
+          var(--content-background)
+        ),
+        linear-gradient(to right, var(--primary-shade), var(--secondary-shade));
+    }
   }
 
   &.success,
