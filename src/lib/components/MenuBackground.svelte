@@ -61,8 +61,7 @@
       transform: translate(0, 0);
     }
 
-    transition: transform var(--animation-time-normal)
-      var(--menu-animation-timing-function);
+    transition: transform var(--animation-time-normal) ease-out;
   }
 
   .logo-nns {

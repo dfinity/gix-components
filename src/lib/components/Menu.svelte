@@ -53,21 +53,21 @@
 
     overflow-y: auto;
 
-    transform: translate(-100%, 0);
+    margin-left: -100%;
 
     // On xlarge screen the menu is always open
     @include media.min-width(xlarge) {
       width: var(--menu-width);
-      transform: translate(0, 0);
+      margin-left: 0;
     }
 
     // On smaller screen the menu is open on demand
     &.open {
       width: var(--menu-width);
-      transform: translate(0, 0);
+      margin-left: 0;
     }
 
-    transition: transform var(--animation-time-normal)
+    transition: margin-left var(--animation-time-normal)
         var(--menu-animation-timing-function),
       width var(--animation-time-normal) var(--menu-animation-timing-function);
 
