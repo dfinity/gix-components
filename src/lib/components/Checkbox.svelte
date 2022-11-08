@@ -47,7 +47,7 @@
     justify-content: space-between;
     align-items: center;
     flex-direction: var(--checkbox-flex-direction);
-    gap: var(--padding-2x);
+    gap: var(--padding);
 
     padding: var(--checkbox-padding, var(--padding-2x));
 
