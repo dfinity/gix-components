@@ -23,19 +23,20 @@ body {
 }
 
 ::-webkit-scrollbar {
-  background: var(--body-background);
+  background: var(--content-background);
+  width: var(--padding);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--body-color);
-  height: 200px;
+  background: var(--content-color);
+  height: 100px;
   border: solid 2.5px var(--body-background);
   border-radius: 0.5em;
   -webkit-border-radius: 0.5em;
 }
 
 ::-webkit-scrollbar-corner {
-  background: var(--body-color);
+  background: var(--content-color);
 }
 
 input,
