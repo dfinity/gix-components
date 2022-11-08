@@ -40,7 +40,7 @@
   --json-boolean-color: var(--primary);
 
   // Inputs
-  --input-border-color: var(--card-background);
+  --input-border-color: var(--focus-background);
   --input-border-size: 1.5px;
 
   --light-opacity: 0.6;
@@ -55,8 +55,8 @@
   );
 
   // Overlays - based on dark card background rgb color
-  --backdrop: rgba(var(--card-background-rgb), 0.8);
-  --backdrop-contrast: var(--card-background-contrast);
+  --backdrop: rgba(var(--focus-background-rgb), 0.8);
+  --backdrop-contrast: var(--focus-background-contrast);
 
   // Disable
   --disable: #483c64;
