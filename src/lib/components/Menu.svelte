@@ -51,7 +51,6 @@
     max-width: 100vw;
     height: 100%;
 
-    overflow-x: hidden;
     overflow-y: auto;
 
     transform: translate(-100%, 0);
