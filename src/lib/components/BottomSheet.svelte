@@ -35,6 +35,9 @@
 
     padding-bottom: env(safe-area-inset-bottom);
 
+    border-top-left-radius: var(--border-radius-2x);
+    border-top-right-radius: var(--border-radius-2x);
+
     @include media.min-width(large) {
       position: relative;
 
