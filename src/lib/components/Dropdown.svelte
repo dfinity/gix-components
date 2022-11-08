@@ -68,8 +68,7 @@
 
       pointer-events: none;
 
-      position: absolute;
-      right: var(--padding-2x);
+      margin-right: var(--padding-1_5x);
 
       color: var(--disable-contrast);
 
