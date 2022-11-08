@@ -19,7 +19,7 @@
     justify-content: flex-start;
     align-items: center;
 
-    color: var(--label-color);
+    color: var(--body-color);
     transition: color var(--animation-time-short) ease-in;
 
     @include fonts.h5;
@@ -40,12 +40,12 @@
     &.selected {
       --menuitem-border-color: white;
       background: var(--menu-selected-background);
-      color: var(--content-color);
+      color: var(--value-color);
     }
 
     &:not(.selected):focus,
     &:not(.selected):hover {
-      color: var(--content-color);
+      color: var(--value-color);
     }
 
     :global(& > :first-child) {
