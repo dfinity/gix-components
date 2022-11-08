@@ -76,10 +76,9 @@ button {
   &.warning {
     padding: var(--padding) var(--padding-2x);
 
-    border-radius: var(--element-border-radius);
-    box-shadow: var(--interaction-box-shadow);
-    --border-color: var(--border-color-button, var(--background-color-button));
-    border: 1px solid var(--border-color, transparent);
+    border-radius: var(--border-radius);
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
 
     position: relative;
     min-height: var(--button-min-height);
@@ -91,7 +90,6 @@ button {
       background: var(--disable);
       color: var(--disable-contrast);
       cursor: default;
-      border: 1px solid var(--disable);
       box-shadow: none;
     }
 
@@ -110,8 +108,12 @@ button {
   }
 
   &.secondary {
-    background: var(--secondary);
-    color: var(--secondary-contrast);
+    background: inherit;
+    color: var(--content-background-contrast);
+    border: solid 2px transparent;
+    background-image: linear-gradient(var(--content-background), var(--content-background)), linear-gradient(to right, var(--primary), var(--secondary));
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
   }
 
   &.success,

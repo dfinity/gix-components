@@ -201,7 +201,7 @@
 
     box-shadow: var(--input-box-shadow);
 
-    border-radius: var(--element-border-radius);
+    border-radius: var(--border-radius);
 
     outline: none;
     -webkit-appearance: none;

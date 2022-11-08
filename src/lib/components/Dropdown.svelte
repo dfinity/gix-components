@@ -31,7 +31,7 @@
     align-items: center;
     justify-content: space-between;
 
-    border-radius: var(--element-border-radius);
+    border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
 
     padding: var(--padding-2x);
@@ -54,7 +54,7 @@
       padding-right: var(--padding-4x);
       background: var(--card-background);
       border: none;
-      border-radius: var(--element-border-radius);
+      border-radius: var(--border-radius);
 
       appearance: none;
 
