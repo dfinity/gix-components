@@ -171,13 +171,15 @@
 
     width: var(--input-width);
 
-    --disabled-color: var(--disable-contrast);
+    --disabled-color: var(--card-background);
 
     &.disabled {
       color: var(--disabled-color);
 
       input {
-        border: 1px solid var(--disabled-color);
+        background: var(--background);
+        border: var(--input-border-size) solid var(--disabled-color);
+        color: var(--disabled-color);
       }
     }
 
@@ -199,16 +201,28 @@
     padding: var(--padding-2x);
     box-sizing: border-box;
 
-    box-shadow: var(--input-box-shadow);
-
     border-radius: var(--border-radius);
 
     outline: none;
     -webkit-appearance: none;
+
+    background: var(--input-background);
+    color: var(--input-background-contrast);
+    border: var(--input-border-size) solid var(--card-background);
+
+    transition: color var(--animation-time-short) ease-out,
+      background var(--animation-time-short) ease-out,
+      border var(--animation-time-short) ease-in;
+
+    &::placeholder {
+      color: var(--disable-contrast);
+    }
   }
 
   input:focus {
-    border: 1px solid var(--primary);
+    border: var(--input-border-size) solid var(--primary);
+    background: var(--card-background);
+    color: var(--card-background-color);
   }
 
   input[disabled] {

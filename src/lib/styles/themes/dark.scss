@@ -61,7 +61,10 @@
   // Line
   --line: #9078a4;
 
-  // Background
+  // Borders
+  --input-border-size: 1.5px;
+
+  // Custom backgrounds
   --body-background: linear-gradient(
     251.01deg,
     #382e59 1.99%,
@@ -80,19 +83,30 @@
   );
 
   // Palette
-  --background: #241D3B;
-  --background-rgb: 36,29,59;
-  --background-contrast: #ffffff;
-  --background-contrast-rgb: 255,255,255;
-  --background-shade: #201a34;
-  --background-tint: #3a344f;
 
-  --card-background: #32294c;
-  --card-background-rgb: 50, 41, 76;
-  --card-background-contrast: #ffffff;
-  --card-background-contrast-rgb: 255, 255, 255;
-  --card-background-shade: #2c2443;
-  --card-background-tint: #473e5e;
+  /* Design: Dark/Bg/Background-05 */
+  --input-background: #342951;
+  --input-background-rgb: 52, 41, 81;
+  --input-background-contrast: #d1cee2;
+  --input-background-contrast-rgb: 209, 206, 226;
+  --input-background-shade: #2e2447;
+  --input-background-tint: #483e62;
+
+  /* Design: Dark/Bg/Background-03 */
+  --card-background: #483C64;
+  --card-background-rgb: 72,60,100;
+  --card-background-contrast: #d1cee2;
+  --card-background-contrast-rgb: 209, 206, 226;
+  --card-background-shade: #3f3558;
+  --card-background-tint: #5a5074;
+
+  /* Design: Dark/Bg/Background */
+  --background: #2f2747;
+  --background-rgb: 47, 39, 71;
+  --background-contrast: #d1cee2;
+  --background-contrast-rgb: 209, 206, 226;
+  --background-shade: #29223e;
+  --background-tint: #443d59;
 
   --primary: #8266d6;
   --primary-rgb: 130, 102, 214;
