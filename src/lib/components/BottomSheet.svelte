@@ -28,7 +28,7 @@
     right: 0;
     bottom: 0;
 
-    background: var(--background);
+    background: var(--card-background);
     box-shadow: var(--bottom-sheet-box-shadow);
 
     z-index: var(--bottom-sheet-z-index);
