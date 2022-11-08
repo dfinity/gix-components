@@ -19,6 +19,6 @@
 
 @mixin input-focus {
   border: var(--input-border-size) solid var(--primary);
-  background: var(--card-background);
-  color: var(--card-background-color);
+  background: var(--focus-background);
+  color: var(--focus-background-contrast);
 }
