@@ -9,7 +9,7 @@
 >
   <path
     d="M6 8L10 12L14 8"
-    stroke="#D1CEE2"
+    stroke="currentColor"
     stroke-width="1.5"
     stroke-linecap="round"
   />
