@@ -69,10 +69,10 @@
     #42375b 37.89%,
     #473954 98.4%
   );
-  --body-color: rgba(239, 237, 248, 0.4);
+  --body-color: var(--background-contrast);
 
   --content-background: #2d2545;
-  --content-color: #baabdc;
+  --content-color: var(--background-contrast);
 
   --menu-selected-background: linear-gradient(
     90deg,
