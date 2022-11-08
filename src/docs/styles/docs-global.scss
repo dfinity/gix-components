@@ -55,6 +55,7 @@ main {
   table,
   pre[class*="language-"] {
     margin: var(--padding-3x) 0;
+    background: var(--background);
   }
 }
 
