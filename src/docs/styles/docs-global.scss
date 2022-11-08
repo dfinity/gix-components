@@ -61,7 +61,7 @@ main {
 
 // Code fonts
 code {
-  background: #2d2d2d;
+  background: var(--card-background);
   color: #ffffff;
   padding: 1px var(--padding-0_5x);
   font-family: inherit;
