@@ -1,16 +1,16 @@
 <!-- source: DFINITY foundation -->
-
 <svg
   width="20"
-  height="20"
-  viewBox="0 0 20 20"
+  height="21"
+  viewBox="0 0 20 21"
   fill="none"
   xmlns="http://www.w3.org/2000/svg"
 >
   <path
-    d="M6 8L10 12L14 8"
+    d="M12.25 15.5L7 10.25L12.25 5"
     stroke="#D1CEE2"
     stroke-width="1.5"
     stroke-linecap="round"
+    stroke-linejoin="round"
   />
 </svg>

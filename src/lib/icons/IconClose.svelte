@@ -1,15 +1,32 @@
+<!-- source: DFINITY foundation -->
+
 <script lang="ts">
-  export let size = "24px";
+  export let size = "20px";
 </script>
 
-<!-- source: https://fonts.google.com/icons?selected=Material%20Icons%20Outlined%3Aclose%3A -->
 <svg
-  xmlns="http://www.w3.org/2000/svg"
   height={size}
-  viewBox="0 0 24 24"
   width={size}
-  fill="currentColor"
-  ><path d="M0 0h24v24H0z" fill="none" /><path
-    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-  /></svg
+  viewBox="0 0 20 20"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
 >
+  <rect
+    x="14.4194"
+    y="4.52441"
+    width="1.5"
+    height="14"
+    rx="0.75"
+    transform="rotate(45 14.4194 4.52441)"
+    fill="#D1CEE2"
+  />
+  <rect
+    x="4.5199"
+    y="5.58496"
+    width="1.5"
+    height="14"
+    rx="0.75"
+    transform="rotate(-45 4.5199 5.58496)"
+    fill="#D1CEE2"
+  />
+</svg>

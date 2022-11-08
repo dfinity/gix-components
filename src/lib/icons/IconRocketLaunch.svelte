@@ -2,9 +2,9 @@
 <svg
   xmlns="http://www.w3.org/2000/svg"
   fill="currentColor"
-  height="24px"
+  height="20px"
   viewBox="0 0 24 24"
-  width="24px"
+  width="20px"
   ><g><rect fill="none" height="24" width="24" /></g><g
     ><g
       ><path

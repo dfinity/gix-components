@@ -1,11 +1,30 @@
-<!-- Source: https://fonts.google.com/icons?selected=Material%20Icons%3Ainfo%3A -->
+<!-- source: DFINITY foundation -->
 <svg
+  width="20"
+  height="20"
+  viewBox="0 0 20 20"
+  fill="none"
   xmlns="http://www.w3.org/2000/svg"
-  height="24px"
-  viewBox="0 0 24 24"
-  width="24px"
-  fill="currentColor"
-  ><path d="M0 0h24v24H0z" fill="none" /><path
-    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
-  /></svg
 >
+  <path
+    d="M10.2222 17.5C14.3643 17.5 17.7222 14.1421 17.7222 10C17.7222 5.85786 14.3643 2.5 10.2222 2.5C6.08003 2.5 2.72217 5.85786 2.72217 10C2.72217 14.1421 6.08003 17.5 10.2222 17.5Z"
+    stroke="#D1CEE2"
+    stroke-width="1.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M10.2222 13.3333V10"
+    stroke="#D1CEE2"
+    stroke-width="1.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M10.2222 6.66699H10.2305"
+    stroke="#D1CEE2"
+    stroke-width="1.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>
