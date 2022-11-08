@@ -55,14 +55,14 @@ main {
   table,
   pre[class*="language-"] {
     margin: var(--padding-3x) 0;
-    background: var(--background);
+    background: var(--input-background);
   }
 }
 
 // Code fonts
 code {
-  background: var(--card-background);
-  color: #ffffff;
+  background: var(--input-background);
+  color: var(--input-background-contrast);
   padding: 1px var(--padding-0_5x);
   font-family: inherit;
   font-size: inherit;
