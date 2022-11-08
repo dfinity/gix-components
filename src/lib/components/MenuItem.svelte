@@ -18,7 +18,7 @@
     justify-content: flex-start;
     align-items: center;
 
-    color: inherit;
+    color: var(--label-color);
     transition: color var(--animation-time-short) ease-in;
 
     font-size: var(--font-size-h5);
