@@ -206,23 +206,7 @@
     outline: none;
     -webkit-appearance: none;
 
-    background: var(--input-background);
-    color: var(--input-background-contrast);
-    border: var(--input-border-size) solid var(--card-background);
-
-    transition: color var(--animation-time-short) ease-out,
-      background var(--animation-time-short) ease-out,
-      border var(--animation-time-short) ease-in;
-
-    &::placeholder {
-      color: var(--disable-contrast);
-    }
-  }
-
-  input:focus {
-    border: var(--input-border-size) solid var(--primary);
-    background: var(--card-background);
-    color: var(--card-background-color);
+    @include form.input;
   }
 
   input[disabled] {

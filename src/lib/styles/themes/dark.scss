@@ -37,7 +37,8 @@
   --json-boolean-color: var(--primary);
 
   // Inputs
-  --input-border-color: #ffffff;
+  --input-border-color: var(--card-background);
+  --input-border-size: 1.5px;
 
   --light-opacity: 0.6;
   --very-light-opacity: 0.4;
@@ -60,9 +61,6 @@
 
   // Line
   --line: #9078a4;
-
-  // Borders
-  --input-border-size: 1.5px;
 
   // Custom backgrounds
   --body-background: linear-gradient(

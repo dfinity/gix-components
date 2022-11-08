@@ -59,6 +59,10 @@
 
     &:hover {
       background: var(--background-shade);
+
+      input {
+        @include form.input-focus;
+      }
     }
 
     border-radius: var(--checkbox-border-radius, var(--border-radius));
@@ -90,22 +94,18 @@
 
   input[type="checkbox"] {
     @include form.input;
+
     appearance: none;
     margin: 0;
 
     width: var(--checkbox-input-size);
     height: var(--checkbox-input-size);
 
-    box-shadow: var(--box-shadow);
     border-radius: var(--border-radius-0_5x);
 
     cursor: pointer;
 
     position: relative;
-
-    &:checked {
-      box-shadow: var(--input-box-shadow);
-    }
 
     &[disabled],
     &[disabled]:hover {
@@ -115,11 +115,6 @@
       &:checked:after {
         border-color: var(--disable-contrast);
       }
-    }
-
-    &:focus {
-      outline: 2px solid var(--primary);
-      outline-offset: 2px;
     }
 
     &:checked:after {
