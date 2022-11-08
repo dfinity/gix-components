@@ -55,8 +55,8 @@
   );
 
   // Overlays - based on dark card background rgb color
-  --backdrop: rgba(var(--focus-background-rgb), 0.8);
-  --backdrop-contrast: var(--focus-background-contrast);
+  --backdrop: rgba(17, 14, 23, 0.9);
+  --backdrop-contrast: var(--background-contrast);
 
   // Disable
   --disable: #483c64;
@@ -74,7 +74,7 @@
   );
   --body-color: var(--background-contrast);
 
-  --content-background: #2d2545;
+  --content-background: var(--background);
   --content-color: var(--background-contrast);
 
   --menu-selected-background: linear-gradient(
@@ -109,13 +109,13 @@
   --card-background-shade: #2e2445;
   --card-background-tint: #483e60;
 
-  /* Design: Dark/Bg/Background */
-  --background: #2f2747;
-  --background-rgb: 47, 39, 71;
+  /* Design: Dark/Bg/Background b5 again? */
+  --background: #251D3C;
+  --background-rgb: 37,29,60;
   --background-contrast: #d1cee2;
   --background-contrast-rgb: 209, 206, 226;
-  --background-shade: #29223e;
-  --background-tint: #443d59;
+  --background-shade: #211a35;
+  --background-tint: #3b3450;
 
   --primary: #8266d6;
   --primary-rgb: 130, 102, 214;
