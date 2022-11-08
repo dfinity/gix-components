@@ -51,8 +51,8 @@
   );
 
   // Overlays - based on dark card background rgb color
-  --backdrop: rgba(39, 41, 41, 0.8);
-  --backdrop-contrast: #ffffff;
+  --backdrop: rgba(var(--card-background-rgb), 0.8);
+  --backdrop-contrast: var(--card-background-contrast);
 
   // Disable
   --disable: #483c64;
