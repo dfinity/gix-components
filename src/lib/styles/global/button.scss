@@ -8,7 +8,8 @@ button {
     cursor: default;
   }
 
-  &.ghost, &.text {
+  &.ghost,
+  &.text {
     z-index: var(--z-index);
 
     width: fit-content;
