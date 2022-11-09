@@ -35,7 +35,7 @@
         position: absolute;
       }
 
-      :global(> .content) {
+      :global(& > .content) {
         padding-top: var(--split-pane-content-top-offset);
       }
     }
