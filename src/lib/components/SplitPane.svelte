@@ -29,7 +29,7 @@
     }
 
     @include media.min-width(xlarge) {
-      padding-top: 0;
+      padding-top: var(--header-offset, 0px);
 
       :global(header) {
         position: absolute;
