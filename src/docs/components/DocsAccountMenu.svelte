@@ -1,7 +1,7 @@
 <script lang="ts">
   import Popover from "$lib/components/Popover.svelte";
   import ThemeToggle from "$lib/components/ThemeToggle.svelte";
-  import IconUser from "../../lib/icons/IconUser.svelte";
+  import IconUser from "$lib/icons/IconUser.svelte";
 
   let visible = false;
   let button: HTMLButtonElement | undefined;
