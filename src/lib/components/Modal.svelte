@@ -91,8 +91,8 @@
     display: flex;
     flex-direction: column;
 
-    background: var(--modal-background);
-    color: var(--modal-background-contrast);
+    background: var(--overlay-background);
+    color: var(--overlay-background-contrast);
 
     overflow: hidden;
 
@@ -213,7 +213,7 @@
     overflow: hidden;
     border-radius: 16px;
 
-    background: var(--modal-content-background);
-    color: var(--modal-content-background-contrast);
+    background: var(--overlay-content-background);
+    color: var(--overlay-content-background-contrast);
   }
 </style>

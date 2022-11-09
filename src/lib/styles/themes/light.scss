@@ -66,10 +66,10 @@
     --content-contrast-background: var(--card-background);
     --content-contrast-color: var(--card-background-contrast);
 
-    --modal-background: var(--background);
-    --modal-background-contrast: var(--background-contrast);
-    --modal-content-background: var(--focus-background);
-    --modal-content-background-contrast: var(--focus-background-contrast);
+    --overlay-background: var(--background);
+    --overlay-background-contrast: var(--background-contrast);
+    --overlay-content-background: var(--focus-background);
+    --overlay-content-background-contrast: var(--focus-background-contrast);
 
     // Menu
     --menu-color: var(--text5-color);

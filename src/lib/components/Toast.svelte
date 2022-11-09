@@ -82,7 +82,8 @@
     gap: var(--padding-1_5x);
 
     border-radius: var(--border-radius);
-    background: var(--card-background);
+    background: var(--overlay-background);
+    color: var(--overlay-background-contrast);
     box-shadow: var(--strong-shadow, 8px 8px 16px 0 rgba(0, 0, 0, 0.25));
 
     padding: var(--padding-1_5x);
