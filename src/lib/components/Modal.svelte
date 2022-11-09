@@ -47,7 +47,7 @@
             data-tid="close-modal"
             on:click|stopPropagation={close}
             aria-label={$i18n.core.close}
-            disabled={disablePointerEvents}><IconClose size="32px" /></button
+            disabled={disablePointerEvents}><IconClose size="24px" /></button
           >
         </div>
       {/if}
