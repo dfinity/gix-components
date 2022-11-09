@@ -60,8 +60,11 @@
     );
     --content-color: var(--text4-color);
 
-    --content-contrast-background: #f4f1fa;
-    --content-contrast-color: var(--text4-color);
+    --content-contrast-background: var(--focus-background);
+    --content-contrast-color: var(--focus-background-contrast);
+
+    --modal-background: var(--focus-background);
+    --modal-background-contrast: var(--focus-background-contrast);
 
     // Menu
     --menu-color: var(--text5-color);

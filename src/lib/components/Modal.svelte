@@ -89,7 +89,8 @@
     display: flex;
     flex-direction: column;
 
-    background: var(--background);
+    background: var(--modal-background);
+    color: var(--modal-background-contrast);
 
     overflow: hidden;
 
