@@ -113,7 +113,8 @@
       }
 
       .container {
-        margin: var(--padding-1_5x) var(--padding-2x) calc(var(--alert-padding-y) * 2 / 3);
+        margin: var(--padding-1_5x) var(--padding-2x)
+          calc(var(--alert-padding-y) * 2 / 3);
       }
 
       .content {
