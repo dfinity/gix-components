@@ -5,5 +5,4 @@
 <SplitPane>
   <div data-tid="split-pane-test-slot" />
   <div data-tid="split-pane-test-menu-slot" slot="menu" />
-  <div data-tid="split-pane-test-header-slot" slot="header" />
 </SplitPane>
