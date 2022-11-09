@@ -99,11 +99,11 @@ button {
 
   &.secondary {
     background: var(--content-background);
-    color: var(--content-background-contrast);
+    color: var(--content-color);
     border: solid 2px transparent;
     background-image: linear-gradient(
-        var(--content-background),
-        var(--content-background)
+        var(--background),
+        var(--background)
       ),
       linear-gradient(to right, var(--primary), var(--secondary));
     background-origin: border-box;

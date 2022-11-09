@@ -5,7 +5,7 @@
 
   h4 {
     margin: 0;
-    color: var(--content-background-contrast);
+    color: var(--content-color);
 
     @include text.truncate;
 

@@ -48,15 +48,15 @@
 
   // text color
   --value-color: #fff;
-  --label-color: #d1cee2;
+  --label-color: var(--text-color);
   --description-color: #9791b6;
 
   // Overlays - based on dark card background rgb color
   --backdrop: rgba(17, 14, 23, 0.9);
-  --backdrop-contrast: var(--background-contrast);
+  --backdrop-contrast: var(--text-color);
 
   // Disable
-  --disable: #483c64;
+  --disable: var(--focus-background);
   --disable-contrast: var(--description-color);
 
   // Line
@@ -69,10 +69,10 @@
     #42375b 37.89%,
     #473954 98.4%
   );
-  --body-color: var(--background-contrast);
+  --body-color: var(--text-color);
 
   --content-background: var(--background);
-  --content-color: var(--background-contrast);
+  --content-color: var(--text-color);
 
   --menu-selected-background: linear-gradient(
     90deg,
@@ -82,42 +82,46 @@
 
   // Palette
 
+  /* Light/Text/Text-xx? */
+  --text-color: #d1cee2;
+  --text-color-rgb: 209, 206, 226;
+
   /* Design: Dark/Bg/Background-05 */
   --input-background: #342951;
   --input-background-rgb: 52, 41, 81;
-  --input-background-contrast: #d1cee2;
-  --input-background-contrast-rgb: 209, 206, 226;
+  --input-background-contrast: var(--text-color);
+  --input-background-contrast-rgb: var(--text-color-rgb);
   --input-background-shade: #2e2447;
   --input-background-tint: #483e62;
 
   /* Design: Dark/Bg/Background-03 */
   --focus-background: #483c64;
   --focus-background-rgb: 72, 60, 100;
-  --focus-background-contrast: #d1cee2;
-  --focus-background-contrast-rgb: 209, 206, 226;
+  --focus-background-contrast: var(--text-color);
+  --focus-background-contrast-rgb: var(--text-color-rgb);
   --focus-background-shade: #3f3558;
   --focus-background-tint: #5a5074;
 
   /* Design: Dark/Bg/Background-02 */
   --card-background: #34294e;
   --card-background-rgb: 52, 41, 78;
-  --card-background-contrast: #d1cee2;
-  --card-background-contrast-rgb: 209, 206, 226;
+  --card-background-contrast: var(--text-color);
+  --card-background-contrast-rgb: var(--text-color-rgb);
   --card-background-shade: #2e2445;
   --card-background-tint: #483e60;
 
   /* Design: Dark/Bg/Background b5 again? */
   --background: #251d3c;
   --background-rgb: 37, 29, 60;
-  --background-contrast: #d1cee2;
-  --background-contrast-rgb: 209, 206, 226;
+  --background-contrast: var(--text-color);
+  --background-contrast-rgb: var(--text-color-rgb);
   --background-shade: #211a35;
   --background-tint: #3b3450;
 
   --primary: #8266d6;
   --primary-rgb: 130, 102, 214;
-  --primary-contrast: #d1cee2;
-  --primary-contrast-rgb: 209, 206, 226;
+  --primary-contrast: var(--text-color);
+  --primary-contrast-rgb: var(--text-color-rgb);
   --primary-shade: #725abc;
   --primary-tint: #8f75da;
 
