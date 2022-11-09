@@ -17,7 +17,7 @@
   @use "../styles/mixins/header";
   @use "../styles/mixins/media";
 
-  button {
+  .back {
     @include header.button(--primary-tint);
   }
 </style>
