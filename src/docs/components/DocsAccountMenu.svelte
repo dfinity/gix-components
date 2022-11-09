@@ -44,12 +44,11 @@
 </Popover>
 
 <style lang="scss">
-  @use "../../lib/styles/mixins/overlay";
   @use "../../lib/styles/mixins/media";
   @use "../../lib/styles/mixins/header";
 
   .info {
-    @include overlay.content;
+    width: 100%;
 
     display: flex;
     flex-direction: column;

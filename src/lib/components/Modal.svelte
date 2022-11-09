@@ -96,6 +96,8 @@
 
     box-sizing: border-box;
 
+    box-shadow: var(--overlay-box-shadow);
+
     &.alert {
       width: var(--alert-width);
       max-width: var(--alert-max-width);
