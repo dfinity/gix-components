@@ -32,7 +32,6 @@
     justify-content: space-between;
 
     border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
 
     width: var(--dropdown-width, auto);
 
