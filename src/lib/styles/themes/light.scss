@@ -63,12 +63,13 @@
       #e8d7e5 100%
     );
     --content-color: var(--text4-color);
-
     --content-contrast-background: var(--focus-background);
     --content-contrast-color: var(--focus-background-contrast);
 
-    --modal-background: var(--focus-background);
-    --modal-background-contrast: var(--focus-background-contrast);
+    --modal-background: var(--background);
+    --modal-background-contrast: var(--background-contrast);
+    --modal-content-background: var(--focus-background);
+    --modal-content-background-contrast: var(--focus-background-contrast);
 
     // Menu
     --menu-color: var(--text5-color);

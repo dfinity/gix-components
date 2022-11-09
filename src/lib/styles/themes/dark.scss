@@ -78,12 +78,13 @@
 
   --content-background: var(--background);
   --content-color: var(--text-color);
-
-  --modal-background: var(--background);
-  --modal-background-contrast: var(--background-contrast);
-
   --content-contrast-background: var(--content-background);
   --content-contrast-color: var(--content-color);
+
+  --modal-background: var(--focus-background);
+  --modal-background-contrast: var(--focus-background-contrast);
+  --modal-content-background: var(--background);
+  --modal-content-background-contrast: var(--background-contrast);
 
   // Menu
   --menu-color: var(--body-color);

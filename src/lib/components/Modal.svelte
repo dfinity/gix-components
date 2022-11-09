@@ -52,8 +52,10 @@
         </div>
       {/if}
 
-      <div class="content" id="modalContent" class:alert={role === "alert"}>
-        <slot />
+      <div class="container">
+        <div class="content" id="modalContent" class:alert={role === "alert"}>
+          <slot />
+        </div>
       </div>
 
       {#if showFooterAlert}
@@ -110,6 +112,10 @@
         padding: var(--alert-padding-y) var(--alert-padding-x) var(--padding);
       }
 
+      .container {
+        margin: var(--padding-1_5x) var(--padding-2x) calc(var(--alert-padding-y) * 2 / 3);
+      }
+
       .content {
         margin: 0 0 calc(var(--alert-padding-y) / 2);
         padding: calc(var(--alert-padding-y) / 2)
@@ -117,7 +123,7 @@
       }
 
       .footer {
-        padding: 0 var(--alert-padding-x) var(--alert-padding-y);
+        padding: 0 var(--alert-padding-x) calc(var(--alert-padding-y) * 2 / 3);
 
         @include media.min-width(small) {
           justify-content: flex-end;
@@ -147,16 +153,20 @@
         padding: var(--dialog-padding-y) var(--dialog-padding-x) var(--padding);
       }
 
+      .container {
+        margin: var(--padding-1_5x) var(--padding-2x) var(--dialog-padding-y);
+      }
+
       .content {
-        margin: 0 0 var(--dialog-padding-y);
+        margin: 0;
         padding: var(--dialog-padding-y) var(--dialog-padding-x);
       }
     }
   }
 
   .header {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
 
     z-index: var(--z-index);
 
@@ -164,6 +174,8 @@
 
     h2 {
       @include text.clamp(1);
+      grid-column-start: 2;
+      text-align: center;
     }
 
     button {
@@ -172,6 +184,8 @@
       align-items: center;
       padding: 0;
 
+      justify-self: flex-end;
+
       &:active,
       &:focus,
       &:hover {
@@ -179,20 +193,14 @@
         border-radius: var(--border-radius);
       }
     }
-
-    &:after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: var(--modal-padding-x);
-
-      width: 78px;
-
-      border-bottom: 1px solid var(--background-contrast);
-    }
   }
 
   .content {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .container {
     position: relative;
 
     display: flex;
@@ -200,7 +208,10 @@
 
     flex: 1;
 
-    overflow-y: auto;
-    overflow-x: hidden;
+    overflow: hidden;
+    border-radius: 16px;
+
+    background: var(--modal-content-background);
+    color: var(--modal-content-background-contrast);
   }
 </style>
