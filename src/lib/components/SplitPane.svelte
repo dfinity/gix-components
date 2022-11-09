@@ -34,10 +34,6 @@
       :global(header) {
         position: absolute;
       }
-
-      :global(& > .content) {
-        padding-top: var(--split-pane-content-top-offset);
-      }
     }
   }
 
