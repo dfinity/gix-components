@@ -5,7 +5,7 @@
 import MenuButton from "$lib/components/MenuButton.svelte";
 import { fireEvent, render, type RenderResult } from "@testing-library/svelte";
 import { get } from "svelte/store";
-import { layoutMenuOpen } from "../../../lib/stores/layout.store";
+import { layoutMenuOpen } from "$lib/stores/layout.store";
 import en from "../mocks/i18n.mock";
 
 describe("MenuButton", () => {
