@@ -1,10 +1,17 @@
 @use "./effect";
 @use "./text";
+@use "./media";
 
 @mixin button($color) {
   width: fit-content;
   padding: var(--padding-0_5x);
   margin: 0 var(--padding-0_5x);
+
+  color: var(--body-color);
+
+  @include media.min-width(xlarge) {
+    color: var(--content-color);
+  }
 
   @include effect.ripple-effect($color);
 
