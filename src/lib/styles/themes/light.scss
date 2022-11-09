@@ -17,10 +17,14 @@
     /* Design Light/7969C0 (8%)-light */
     --input-border-color: #d9d2ea;
 
-    // text color
+    // Text color
     --value-color: #000;
     --label-color: var(--text4-color);
     --description-color: #9791b6;
+
+    // Overlays - based on dark card background rgb color
+    --backdrop: rgba(185, 181, 204, 0.6);
+    --backdrop-contrast: var(--text4-color);
 
     // Disable
     /* Light/Bg/Background-02 */
