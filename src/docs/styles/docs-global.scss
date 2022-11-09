@@ -55,7 +55,15 @@ main {
   table,
   pre[class*="language-"] {
     margin: var(--padding-3x) 0;
+  }
+
+  table {
     background: var(--card-background);
+  }
+
+  pre[class*="language-"] {
+    // We always want dark code block
+    background: #34294e;
   }
 }
 
