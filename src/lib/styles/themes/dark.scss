@@ -62,6 +62,10 @@
   // Line
   --line: #9078a4;
 
+  // Scrollbar
+  --scrollbar-thumb-background: var(--content-background);
+  --scrollbar-thumb-color: var(--content-color);
+
   // Custom backgrounds
   --body-background: linear-gradient(
     251.01deg,
