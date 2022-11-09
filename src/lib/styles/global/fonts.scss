@@ -54,7 +54,7 @@ textarea {
   --font-size-h3: 1.285714285714286rem; // 18px
   --font-size-h4: 1.142857142857143rem; // 16px
   --font-size-h5: 1rem;
-  --font-size-standard: 14px;
+  --font-size-standard: 16px;
   --font-size-small: 0.785714285714286rem; // 11px
 
   --line-height-h1: 1.333333333333333; // 32
@@ -62,7 +62,7 @@ textarea {
   --line-height-h3: 1.333333333333333; // 24
   --line-height-h4: 1.25; // 20
   --line-height-h5: var(--line-height-standard);
-  --line-height-standard: 1.142857142857143; // 16
+  --line-height-standard: 1.142857142857143; // 16 / 14 because 14px was the original base font size defined by the designer to calculate that family of font sizes
   --line-height-small: 1.181818181818182; // 13
 
   --font-weight-bold: 450;
