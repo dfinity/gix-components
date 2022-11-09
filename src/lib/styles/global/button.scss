@@ -101,10 +101,7 @@ button {
     background: var(--content-background);
     color: var(--content-color);
     border: solid 2px transparent;
-    background-image: linear-gradient(
-        var(--background),
-        var(--background)
-      ),
+    background-image: linear-gradient(var(--background), var(--background)),
       linear-gradient(to right, var(--primary), var(--secondary));
     background-origin: border-box;
     background-clip: padding-box, border-box;
@@ -119,23 +116,13 @@ button {
     }
   }
 
-  &.success,
+  &.success {
+    background: var(--positive-emphasis);
+    color: var(--positive-emphasis-contrast);
+  }
+
   &.danger {
-    background: var(--background-color-button);
-    color: var(--color-button);
-  }
-
-  /// @deprecated - old design only
-  &.warning {
-    --background-color-button: var(--warning-emphasis);
-    --background-color-button-contrast: var(--warning-emphasis-contrast);
-    --background-color-button-tint: var(--warning-emphasis-tint);
-    --color-button: var(--background-contrast);
-  }
-
-  /// @deprecated - old design only
-  &.warning {
-    background: var(--background-color-button);
-    color: var(--background-color-button-contrast);
+    background: var(--negative-emphasis);
+    color: var(--negative-emphasis-contrast);
   }
 }

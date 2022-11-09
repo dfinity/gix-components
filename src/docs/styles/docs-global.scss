@@ -17,7 +17,7 @@ table {
 
   td {
     padding: var(--padding-2x) var(--padding-1_5x);
-    border-bottom: 1px solid var(--card-background);
+    border-bottom: 1px solid var(--background);
   }
 
   th,
@@ -55,7 +55,7 @@ main {
   table,
   pre[class*="language-"] {
     margin: var(--padding-3x) 0;
-    background: var(--input-background);
+    background: var(--card-background);
   }
 }
 

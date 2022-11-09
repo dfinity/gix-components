@@ -22,17 +22,29 @@
     --label-color: var(--text4-color);
     --description-color: #9791b6;
 
+    // Disable
+    /* Light/Bg/Background-02 */
+    --disable: #e5ddf0;
+    --disable-contrast: #a28db4;
+
     // Custom backgrounds
     --body-background: linear-gradient(
-        180deg,
+        360deg,
         rgba(239, 237, 248, 0.18) 0%,
-        rgba(239, 237, 248, 0.3) 20.15%
+        rgba(239, 237, 248, 0.3) 23.97%
       ),
       linear-gradient(
-        37.89deg,
+        116.49deg,
         #220bad 0%,
-        rgba(68, 37, 167, 0.867455) 8.5%,
-        rgba(220, 88, 88, 0.4) 44.9%
+        rgba(68, 37, 167, 0.867455) 8.78%,
+        rgba(220, 88, 88, 0.4) 46.37%
+      ),
+      linear-gradient(
+        251.87deg,
+        #9db6f6 0%,
+        #c1aef6 32.2%,
+        #c39ef2 63.56%,
+        #f9cab1 100%
       );
     --body-color: var(--text4-color);
 
