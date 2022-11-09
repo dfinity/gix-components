@@ -151,7 +151,7 @@
       border-radius: var(--dialog-border-radius);
 
       .header {
-        padding: var(--dialog-padding-y) var(--dialog-padding-x) var(--padding);
+        padding: var(--dialog-padding-y) var(--padding-3x) var(--padding);
       }
 
       .container {
@@ -167,14 +167,15 @@
 
   .header {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr auto 1fr;
+    gap: var(--padding);
 
     z-index: var(--z-index);
 
     position: relative;
 
     h2 {
-      @include text.clamp(1);
+      @include text.truncate;
       grid-column-start: 2;
       text-align: center;
     }
