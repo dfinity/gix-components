@@ -1,11 +1,9 @@
 # Layout
 
-Layout component is used to create the layout of a dapp. It renders the `<Toolbar />`, a `<Menu />` (sticky on wide screen, overlay on mobile) and a slotted content.
+`Layout` component is used to create the layout of a dapp. It encapsulates a split pane that renders a `<Menu />` (sticky on wide screen, reveal on mobile) and a slotted content which is commonly a component [Content](/components/content).
 
 ```javascript
 <Layout>
-  <Title slot="title">My dapp page</Title>
-
   <svelte:fragment slot="menu-items">
     <MenuItem href="/" on:click>
       Home
@@ -15,30 +13,26 @@ Layout component is used to create the layout of a dapp. It renders the `<Toolba
     </MenuItem>
   </svelte:fragment>
 
-  <main>
-    <slot />
-  </main>
+  <Content>
+      <Title slot="title">My dapp page</Title>
+
+      <main>
+          <slot />
+      </main>
+  </Content>
 </Layout>
 ```
-
-## Properties
-
-| Property | Description                                                     | Type      | Default |
-| -------- | --------------------------------------------------------------- | --------- | ------- |
-| `back`   | Display an arrowed `back` button instead of the hamburger menu. | `boolean` | `false` |
 
 ## Slots
 
 | Slot name     | Description                                               |
 | ------------- | --------------------------------------------------------- |
 | Default slot  | The content. See note about composition here under.       |
-| `title`       | The title of the page displayed centered in the toolbar.  |
 | `menu-items`  | The items of the menu - i.e. the links of the menu.       |
-| `toolbar-end` | An element that can be added to the `end` of the toolbar. |
 
 ### Composition
 
-Although the default slot accepts any type of elements, to implement a responsive layout, it is recommended to use a `main` element that will be styled by the library.
+Although the default slot accepts any type of elements, to implement a responsive layout, it is recommended to use a `Content` component that will be styled by the library.
 
 Likewise, if you wish to display some footer action, it is also recommended to use a `footer` element that is automatically absolutely positioned too.
 
@@ -47,9 +41,11 @@ Example 1:
 ```html
 <!-- Your dapp _layout.svelte -->
 <Layout>
-  <title slot="title">My dapp page</title>
-
-  <slot />
+  <Content>
+      <title slot="title">My dapp page</title>
+      
+      <slot />
+  </Content>
 </Layout>
 
 <!-- Your dapp index.svelte -->
@@ -62,13 +58,15 @@ Example 2:
 ```html
 <!-- Your dapp _layout.svelte -->
 <Layout>
-  <title slot="title">My dapp page</title>
+  <Content>
+      <title slot="title">My dapp page</title>
 
-  <main>
-    <slot />
-  </main>
+      <main>
+          <slot />
+      </main>
 
-  <footer><slot name="footer" /></footer>
+      <footer><slot name="footer" /></footer>
+  </Content>
 </Layout>
 
 <!-- Your dapp index.svelte -->

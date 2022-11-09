@@ -6,8 +6,7 @@
   import backgroundLight from "../assets/menu-bg-light.png";
   import { themeStore } from "$lib/stores/theme.store";
   import { Theme } from "$lib/types/theme";
-
-  export let open = false;
+  import {layoutMenuOpen} from "$lib/stores/layout.store";
 
   let logoOnChain: string;
   $: logoOnChain =
@@ -18,7 +17,7 @@
     $themeStore === Theme.LIGHT ? backgroundLight : backgroundDark;
 </script>
 
-<div class:open>
+<div class:open={$layoutMenuOpen}>
   <img
     class="logo-nns"
     src={logoNNS}

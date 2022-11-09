@@ -51,10 +51,6 @@ button {
   padding: 0 var(--padding-0_5x);
 }
 
-main {
-  transition: background 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
-}
-
 section {
   padding: var(--padding-2x) var(--padding-2x) var(--footer-height);
   max-width: var(--section-max-width);

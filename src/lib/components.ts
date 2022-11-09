@@ -16,6 +16,7 @@ export { default as InputRange } from "./components/InputRange.svelte";
 export { default as KeyValuePair } from "./components/KeyValuePair.svelte";
 export { default as KeyValuePairInfo } from "./components/KeyValuePairInfo.svelte";
 export { default as Layout } from "./components/Layout.svelte";
+export { default as Content } from "./components/Content.svelte";
 export { default as Menu } from "./components/Menu.svelte";
 export { default as MenuButton } from "./components/MenuButton.svelte";
 export { default as MenuItem } from "./components/MenuItem.svelte";

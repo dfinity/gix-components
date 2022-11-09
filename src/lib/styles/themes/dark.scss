@@ -78,6 +78,9 @@
   --content-background: var(--background);
   --content-color: var(--text-color);
 
+  --content-contrast-background: var(--content-background);
+  --content-contrast-color: var(--content-color);
+
   // Menu
   --menu-color: var(--body-color);
   --menu-select-color: var(--value-color);

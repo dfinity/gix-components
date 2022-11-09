@@ -1,17 +1,16 @@
 <script lang="ts">
   import MenuBackground from "./MenuBackground.svelte";
-
-  export let open = false;
+  import {layoutMenuOpen} from "$lib/stores/layout.store";
 </script>
 
 <div role="menu">
-  <MenuBackground {open} />
+  <MenuBackground />
 
   <div
     class="inner"
     data-tid="menu-inner"
-    class:open
-    on:click={() => (open = false)}
+    class:open={$layoutMenuOpen}
+    on:click={() => (layoutMenuOpen.set(false))}
   >
     <slot />
   </div>

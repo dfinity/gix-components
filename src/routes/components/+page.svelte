@@ -14,7 +14,13 @@
   <Card role="link" on:click={() => goto("/components/layout")}>
     <h2 class="title" slot="start">Layout</h2>
 
-    <p>Header, menu and footer. The structure of your dapp.</p>
+    <p>Header, menu and content. The structure of your dapp.</p>
+  </Card>
+
+  <Card role="link" on:click={() => goto("/components/content")}>
+    <h2 class="title" slot="start">Content</h2>
+
+    <p>The detail of the layout where your content finds place.</p>
   </Card>
 
   <Card role="link" on:click={() => goto("/components/header-title")}>
