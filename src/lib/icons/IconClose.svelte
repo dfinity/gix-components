@@ -17,7 +17,7 @@
     height="14"
     rx="0.75"
     transform="rotate(45 14.4194 4.52441)"
-    fill="#D1CEE2"
+    fill="currentColor"
   />
   <rect
     x="4.5199"
@@ -26,6 +26,6 @@
     height="14"
     rx="0.75"
     transform="rotate(-45 4.5199 5.58496)"
-    fill="#D1CEE2"
+    fill="currentColor"
   />
 </svg>
