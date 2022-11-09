@@ -74,6 +74,9 @@
   --content-background: var(--background);
   --content-color: var(--text-color);
 
+  // Menu
+  --menu-color: var(--body-color);
+  --menu-select-color: var(--value-color);
   --menu-selected-background: linear-gradient(
     90deg,
     rgba(255, 255, 255, 0.1) 0%,
