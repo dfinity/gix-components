@@ -14,21 +14,21 @@
   </svelte:fragment>
 
   <Content>
-      <Title slot="title">My dapp page</Title>
+    <Title slot="title">My dapp page</Title>
 
-      <main>
-          <slot />
-      </main>
+    <main>
+      <slot />
+    </main>
   </Content>
 </Layout>
 ```
 
 ## Slots
 
-| Slot name     | Description                                               |
-| ------------- | --------------------------------------------------------- |
-| Default slot  | The content. See note about composition here under.       |
-| `menu-items`  | The items of the menu - i.e. the links of the menu.       |
+| Slot name    | Description                                         |
+| ------------ | --------------------------------------------------- |
+| Default slot | The content. See note about composition here under. |
+| `menu-items` | The items of the menu - i.e. the links of the menu. |
 
 ### Composition
 
@@ -41,11 +41,11 @@ Example 1:
 ```html
 <!-- Your dapp _layout.svelte -->
 <Layout>
-  <Content>
-      <title slot="title">My dapp page</title>
-      
-      <slot />
-  </Content>
+  <content>
+    <title slot="title">My dapp page</title>
+
+    <slot />
+  </content>
 </Layout>
 
 <!-- Your dapp index.svelte -->
@@ -58,15 +58,15 @@ Example 2:
 ```html
 <!-- Your dapp _layout.svelte -->
 <Layout>
-  <Content>
-      <title slot="title">My dapp page</title>
+  <content>
+    <title slot="title">My dapp page</title>
 
-      <main>
-          <slot />
-      </main>
+    <main>
+      <slot />
+    </main>
 
-      <footer><slot name="footer" /></footer>
-  </Content>
+    <footer><slot name="footer" /></footer>
+  </content>
 </Layout>
 
 <!-- Your dapp index.svelte -->

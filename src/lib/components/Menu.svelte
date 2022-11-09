@@ -1,6 +1,6 @@
 <script lang="ts">
   import MenuBackground from "./MenuBackground.svelte";
-  import {layoutMenuOpen} from "$lib/stores/layout.store";
+  import { layoutMenuOpen } from "$lib/stores/layout.store";
 </script>
 
 <div role="menu">
@@ -10,7 +10,7 @@
     class="inner"
     data-tid="menu-inner"
     class:open={$layoutMenuOpen}
-    on:click={() => (layoutMenuOpen.set(false))}
+    on:click={() => layoutMenuOpen.set(false)}
   >
     <slot />
   </div>

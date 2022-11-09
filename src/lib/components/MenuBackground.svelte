@@ -6,7 +6,7 @@
   import backgroundLight from "../assets/menu-bg-light.png";
   import { themeStore } from "$lib/stores/theme.store";
   import { Theme } from "$lib/types/theme";
-  import {layoutMenuOpen} from "$lib/stores/layout.store";
+  import { layoutMenuOpen } from "$lib/stores/layout.store";
 
   let logoOnChain: string;
   $: logoOnChain =

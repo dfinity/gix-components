@@ -10,7 +10,11 @@
   export let contrast = false;
 </script>
 
-<div class="content" style={`--layout-bottom-offset: ${$layoutBottomOffset}px`} class:contrast>
+<div
+  class="content"
+  style={`--layout-bottom-offset: ${$layoutBottomOffset}px`}
+  class:contrast
+>
   <header>
     <Toolbar>
       <svelte:fragment slot="start">
@@ -49,7 +53,8 @@
       color: var(--content-contrast-color);
     }
 
-    transition: background var(--animation-time-normal) cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+    transition: background var(--animation-time-normal)
+      cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
 
     overflow: hidden;
     border-radius: var(--border-radius-2x);
