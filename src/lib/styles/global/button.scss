@@ -109,8 +109,8 @@ button {
     &:hover,
     &:focus {
       background-image: linear-gradient(
-          var(--content-background),
-          var(--content-background)
+          var(--background),
+          var(--background)
         ),
         linear-gradient(to right, var(--primary-shade), var(--secondary-shade));
     }
