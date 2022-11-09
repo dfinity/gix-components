@@ -2,6 +2,6 @@
   import Menu from "$lib/components/Menu.svelte";
 </script>
 
-<Menu open={true}>
+<Menu>
   <div data-tid="menu-test-slot" />
 </Menu>
