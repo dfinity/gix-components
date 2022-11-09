@@ -58,7 +58,7 @@
     font-size: var(--checkbox-font-size, inherit);
 
     &:hover {
-      background: var(--background-shade);
+      background: rgba(var(--primary-rgb), 0.2);
 
       input {
         @include form.input-focus;
@@ -68,7 +68,6 @@
     border-radius: var(--checkbox-border-radius, var(--border-radius));
 
     --checkbox-input-size: 20px;
-    --checkbox-background-hover: var(--background-shade);
 
     &.disabled {
       pointer-events: none;
