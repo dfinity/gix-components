@@ -46,19 +46,28 @@
       "content-c content-c content-c content-c content-c content-spacer content-d content-d content-d content-d content-d content-d";
   }
 
+  .ff-flexbox-fix {
+    // https://stackoverflow.com/a/28909778/4971475
+    min-width: 0;
+  }
+
   .content-a {
+    @extend .ff-flexbox-fix;
     grid-area: content-a;
   }
 
   .content-b {
+    @extend .ff-flexbox-fix;
     grid-area: content-b;
   }
 
   .content-c {
+    @extend .ff-flexbox-fix;
     grid-area: content-c;
   }
 
   .content-d {
+    @extend .ff-flexbox-fix;
     grid-area: content-d;
   }
 }
