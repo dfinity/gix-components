@@ -61,7 +61,7 @@
 
     box-sizing: border-box;
     margin: var(--padding);
-    padding-top: var(--split-pane-content-top-offset);
+    padding-top: 0;
 
     // If a bottom sheet is displayed the content pane height should be updated accordingly
     // This to avoid the content to be presented behind the bottom sheet and
@@ -72,6 +72,7 @@
     min-width: calc(100vw - var(--padding-2x));
 
     @include media.min-width(xlarge) {
+      padding-top: var(--split-pane-content-top-offset);
       min-width: auto;
     }
   }
