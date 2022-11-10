@@ -75,7 +75,7 @@ button {
     }
 
     &:focus {
-      text-decoration: underline;
+      filter: contrast(1.25);
     }
   }
 
