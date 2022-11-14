@@ -27,7 +27,7 @@
 {#if visible}
   <div
     class="modal"
-    transition:fade
+    transition:fade={{ duration: 150 }}
     {role}
     data-tid={testId}
     aria-labelledby={showHeader ? "modalTitle" : undefined}

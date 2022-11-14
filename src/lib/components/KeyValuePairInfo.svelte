@@ -33,7 +33,7 @@
   }
 
   .icon {
-    color: rgba(var(--primary-rgb), 0.6);
+    color: var(--line);
     display: flex;
     align-items: center;
     justify-content: center;

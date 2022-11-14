@@ -53,8 +53,9 @@
   --description-color: #9791b6;
 
   // Overlays - based on dark card background rgb color
-  --backdrop: rgba(17, 14, 23, 0.9);
+  --backdrop: rgba(28, 16, 48, 0.65);
   --backdrop-contrast: var(--text-color);
+  --backdrop-filter: blur(6px);
 
   // Disable
   --disable: var(--focus-background);
@@ -69,25 +70,30 @@
 
   // Custom backgrounds
   --body-background: linear-gradient(
-    251.01deg,
-    #382e59 1.99%,
-    #42375b 37.89%,
-    #473954 98.4%
-  );
-  --body-color: var(--text-color);
+      275.08deg,
+      rgba(255, 255, 255, 0.05) 0%,
+      rgba(0, 0, 0, 0) 54.36%
+    ),
+    linear-gradient(167.22deg, #12022e 7.72%, #1e1033 41.87%, #2b0a40 84.98%);
+  --body-color: var(--text2-color);
 
-  --content-background: var(--background);
+  --content-background: linear-gradient(
+    113.27deg,
+    #24133c 0%,
+    #291641 49.25%,
+    #29103c 100%
+  );
   --content-color: var(--text-color);
   --content-contrast-background: var(--content-background);
   --content-contrast-color: var(--content-color);
 
-  --overlay-background: var(--focus-background);
-  --overlay-background-contrast: var(--focus-background-contrast);
-  --overlay-content-background: var(--background);
-  --overlay-content-background-contrast: var(--background-contrast);
+  --overlay-background: var(--background);
+  --overlay-background-contrast: var(--background-contrast);
+  --overlay-content-background: var(--focus-background);
+  --overlay-content-background-contrast: var(--focus-background-contrast);
 
   // Menu
-  --menu-color: var(--body-color);
+  --menu-color: var(--text2-color);
   --menu-select-color: var(--value-color);
   --menu-selected-background: linear-gradient(
     90deg,
@@ -100,62 +106,66 @@
 
   // Palette
 
+  /* Light/Text/Text-02 */
+  --text2-color: #9a91b6;
+  --text2-color-rgb: 154, 145, 182;
+
   /* Light/Text/Text-xx? */
   --text-color: #d1cee2;
   --text-color-rgb: 209, 206, 226;
 
-  /* Design: Dark/Bg/Background-05 */
-  --input-background: #342951;
-  --input-background-rgb: 52, 41, 81;
+  /* Design: Dark/Bg/Background-03 */
+  --input-background: #382a54;
+  --input-background-rgb: 56, 42, 84;
   --input-background-contrast: var(--text-color);
   --input-background-contrast-rgb: var(--text-color-rgb);
-  --input-background-shade: #2e2447;
-  --input-background-tint: #483e62;
+  --input-background-shade: #31254a;
+  --input-background-tint: #4c3f65;
 
-  /* Design: Dark/Bg/Background-03 */
-  --focus-background: #483c64;
-  --focus-background-rgb: 72, 60, 100;
+  /* Design: Dark/Bg/Background */
+  --focus-background: #41325e;
+  --focus-background-rgb: 65, 50, 94;
   --focus-background-contrast: var(--text-color);
   --focus-background-contrast-rgb: var(--text-color-rgb);
-  --focus-background-shade: #3f3558;
-  --focus-background-tint: #5a5074;
+  --focus-background-shade: #392c53;
+  --focus-background-tint: #54476e;
 
-  /* Design: Dark/Bg/Background-02 */
-  --card-background: #34294e;
-  --card-background-rgb: 52, 41, 78;
+  /* Design: Dark/Bg/Background-01 */
+  --card-background: #352652;
+  --card-background-rgb: 53, 38, 82;
   --card-background-contrast: var(--text-color);
   --card-background-contrast-rgb: var(--text-color-rgb);
-  --card-background-shade: #2e2445;
-  --card-background-tint: #483e60;
+  --card-background-shade: #2f2148;
+  --card-background-tint: #493c63;
 
-  /* Design: Dark/Bg/Background b5 again? */
-  --background: #251d3c;
-  --background-rgb: 37, 29, 60;
+  /* Design: Dark/Bg/Background-02 */
+  --background: #3a2c57;
+  --background-rgb: 58, 44, 87;
   --background-contrast: var(--text-color);
   --background-contrast-rgb: var(--text-color-rgb);
-  --background-shade: #211a35;
-  --background-tint: #3b3450;
+  --background-shade: #33274d;
+  --background-tint: #4e4168;
 
-  --primary: #8266d6;
-  --primary-rgb: 130, 102, 214;
+  --primary: #6426c9;
+  --primary-rgb: 100, 38, 201;
   --primary-contrast: var(--text-color);
   --primary-contrast-rgb: var(--text-color-rgb);
-  --primary-shade: #725abc;
-  --primary-tint: #8f75da;
+  --primary-shade: #5821b1;
+  --primary-tint: #743cce;
 
-  --secondary: #d9acd6;
-  --secondary-rgb: 217, 172, 214;
-  --secondary-contrast: #000000;
-  --secondary-contrast-rgb: 0, 0, 0;
-  --secondary-shade: #bf97bc;
-  --secondary-tint: #ddb4da;
+  --secondary: #a25fc3;
+  --secondary-rgb: 162, 95, 195;
+  --secondary-contrast: #ffffff;
+  --secondary-contrast-rgb: 255, 255, 255;
+  --secondary-shade: #8f54ac;
+  --secondary-tint: #ab6fc9;
 
-  --warning-emphasis: #f4e04d;
-  --warning-emphasis-rgb: 244, 224, 77;
+  --warning-emphasis: #fdc087;
+  --warning-emphasis-rgb: 253, 192, 135;
   --warning-emphasis-contrast: #000000;
   --warning-emphasis-contrast-rgb: 0, 0, 0;
-  --warning-emphasis-shade: #d7c544;
-  --warning-emphasis-tint: #f5e35f;
+  --warning-emphasis-shade: #dfa977;
+  --warning-emphasis-tint: #fdc693;
 
   --positive-emphasis: #30af91;
   --positive-emphasis-rgb: 48, 175, 145;
