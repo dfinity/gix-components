@@ -9,6 +9,7 @@ a {
   text-decoration: underline;
 
   &:active,
+  &:focus,
   &:hover {
     color: var(--value-color);
   }
