@@ -38,8 +38,7 @@
     @include interaction.tappable;
 
     &.disablePointerEvents {
-      cursor: inherit;
-      pointer-events: none;
+      @include interaction.none;
     }
   }
 </style>

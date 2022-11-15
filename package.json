@@ -48,5 +48,13 @@
   "type": "module",
   "dependencies": {
     "dompurify": "^2.4.0"
-  }
+  },
+  "keywords": [
+    "ui",
+    "ux",
+    "designsystem",
+    "uikit",
+    "sveltekit",
+    "svelte"
+  ]
 }
