@@ -10,7 +10,7 @@
   let open: boolean;
 </script>
 
-<SplitPane>
+<SplitPane bind:open>
   <header slot="header">
     <Toolbar>
       <svelte:fragment slot="start">
