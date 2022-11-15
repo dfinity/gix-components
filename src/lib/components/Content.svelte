@@ -1,8 +1,9 @@
 <script lang="ts">
-  import { layoutBottomOffset } from "$lib/stores/layout.store";
+  import { layoutBottomOffset, layoutMenuOpen } from "$lib/stores/layout.store";
   import Toolbar from "$lib/components/Toolbar.svelte";
   import MenuButton from "$lib/components/MenuButton.svelte";
   import Back from "$lib/components/Back.svelte";
+  import Backdrop from "$lib/components/Backdrop.svelte";
 
   export let back = false;
 
@@ -31,7 +32,9 @@
     </Toolbar>
   </header>
 
-  <div class="scrollable-content">
+  <div class="scrollable-content" class:open={$layoutMenuOpen}>
+    <Backdrop on:nnsClose={() => layoutMenuOpen.set(false)} />
+
     <slot />
   </div>
 </div>
@@ -39,6 +42,7 @@
 <style lang="scss">
   @use "../styles/mixins/media";
   @use "../styles/mixins/display";
+  @use "../styles/mixins/interaction";
 
   .content {
     position: relative;
@@ -82,5 +86,31 @@
 
     overflow-x: hidden;
     overflow-y: auto;
+  }
+
+  // Reusing the component <Backdrop> but animated and displayed with CSS only for UX performance reason
+  .scrollable-content {
+    & > :global(div.backdrop) {
+      opacity: 0;
+      visibility: hidden;
+
+      transition: opacity var(--animation-time-short);
+    }
+
+    // On smaller screen the menu is open on demand
+    &.open > :global(div.backdrop) {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    // On xlarge screen the menu is sticky so we do not display a backdrop even if .open is set
+    @include media.min-width(xlarge) {
+      &.open > :global(div.backdrop) {
+        opacity: 0;
+        visibility: hidden;
+
+        @include interaction.none;
+      }
+    }
   }
 </style>
