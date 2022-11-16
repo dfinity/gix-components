@@ -12,7 +12,7 @@
   // Enhance UI contrast for readability
   export let contrast = false;
 
-  // Observed: nested component - bottom sheet - might not called destroy when navigating route and therefore offset might not be resetted
+  // Observed: nested component - bottom sheet - might not call destroy when navigating route and therefore offset might not be reseted which is not the case here
   onDestroy(() => ($layoutBottomOffset = 0));
 </script>
 
