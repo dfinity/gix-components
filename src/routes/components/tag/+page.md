@@ -12,10 +12,15 @@ Tags are block elements that usually appear near another element. They are used 
 
 ## Properties
 
-| Property  | Description                                         | Type                   | Default   |
-| --------- | --------------------------------------------------- | ---------------------- | --------- |
-| `color`   | A color for the tag.                                | `Color`                | `primary` |
-| `tagName` | The type of the HTML element to render for the tag. | `span` or `h3` or `li` | `span``   |
+| Property  | Description                                         | Type                   | Default |
+| --------- | --------------------------------------------------- | ---------------------- | ------- |
+| `tagName` | The type of the HTML element to render for the tag. | `span` or `h3` or `li` | `span`` |
+
+## CSS variables
+
+| Property      | Description          | Default         |
+| ------------- | -------------------- | --------------- |
+| `--tag-color` | A color for the tag. | `--value-color` |
 
 ## Showcase
 
@@ -26,10 +31,10 @@ Tags are block elements that usually appear near another element. They are used 
 
     <ul><Tag tagName="li">li</Tag></ul>
 
-    <Tag color="success">Success</Tag>
+    <div style="--tag-color: var(--positive-emphasis)"><Tag color="success">Success</Tag></div>
 
-    <Tag color="warning">Warning</Tag>
+    <div style="--tag-color: var(--warning-emphasis)"><Tag color="warning">Warning</Tag></div>
 
-    <Tag color="error">Error</Tag>
+    <div style="--tag-color: var(--negative-emphasis)"><Tag color="error">Error</Tag></div>
 
 </div>

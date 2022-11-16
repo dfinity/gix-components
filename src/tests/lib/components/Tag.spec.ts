@@ -3,7 +3,6 @@
  */
 
 import Tag from "$lib/components/Tag.svelte";
-import { Color } from "$lib/enums/color";
 import { render } from "@testing-library/svelte";
 import TagTest from "./TagTest.svelte";
 
@@ -26,17 +25,5 @@ describe("Tag", () => {
     const { getByText } = render(TagTest);
 
     expect(getByText("Test_Tag")).toBeInTheDocument();
-  });
-
-  it("should render a success Tag", () => {
-    const { container } = render(Tag, { props: { color: Color.SUCCESS } });
-
-    expect(container.querySelector("span.success")).not.toBeNull();
-  });
-
-  it("should render a warning Tag", () => {
-    const { container } = render(Tag, { props: { color: Color.WARNING } });
-
-    expect(container.querySelector("span.warning")).not.toBeNull();
   });
 });

@@ -1,5 +1,4 @@
 export * from "./components";
-export * from "./enums/color";
 export * from "./icons";
 export * from "./stores/busy.store";
 export * from "./stores/toasts.store";
