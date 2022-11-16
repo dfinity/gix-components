@@ -1,5 +1,5 @@
 <script lang="ts">
-  import IconBack from "../icons/IconBack.svelte";
+  import IconBack from "$lib/icons/IconBack.svelte";
   import { i18n } from "$lib/stores/i18n";
   import { createEventDispatcher } from "svelte";
 

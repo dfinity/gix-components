@@ -2,7 +2,7 @@
   import { fade, scale } from "svelte/transition";
   import { quintOut } from "svelte/easing";
   import { createEventDispatcher } from "svelte";
-  import { i18n } from "../stores/i18n";
+  import { i18n } from "$lib/stores/i18n";
   import IconClose from "$lib/icons/IconClose.svelte";
   import Backdrop from "$lib/components/Backdrop.svelte";
 

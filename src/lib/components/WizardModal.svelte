@@ -1,7 +1,7 @@
 <script lang="ts">
   import Modal from "$lib/components/Modal.svelte";
   import WizardTransition from "./WizardTransition.svelte";
-  import { WizardStepsState } from "../stores/wizard.state";
+  import { WizardStepsState } from "$lib/stores/wizard.state";
   import type { WizardStep, WizardSteps } from "$lib/types/wizard";
 
   export let steps: WizardSteps;

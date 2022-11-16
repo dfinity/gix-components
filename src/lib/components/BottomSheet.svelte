@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { layoutBottomOffset } from "../stores/layout.store";
+  import { layoutBottomOffset } from "$lib/stores/layout.store";
   import { onDestroy } from "svelte";
 
   onDestroy(() => ($layoutBottomOffset = 0));

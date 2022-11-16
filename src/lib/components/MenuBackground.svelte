@@ -1,9 +1,9 @@
 <script lang="ts">
-  import logoNNS from "../assets/logo-nns.svg";
-  import logoOnChainDark from "../assets/logo-onchain-dark.svg";
-  import logoOnChainLight from "../assets/logo-onchain-light.svg";
-  import backgroundDark from "../assets/menu-bg-dark.png";
-  import backgroundLight from "../assets/menu-bg-light.png";
+  import logoNNS from "$lib/assets/logo-nns.svg";
+  import logoOnChainDark from "$lib/assets/logo-onchain-dark.svg";
+  import logoOnChainLight from "$lib/assets/logo-onchain-light.svg";
+  import backgroundDark from "$lib/assets/menu-bg-dark.png";
+  import backgroundLight from "$lib/assets/menu-bg-light.png";
   import { themeStore } from "$lib/stores/theme.store";
   import { Theme } from "$lib/types/theme";
   import { layoutMenuOpen } from "$lib/stores/layout.store";
