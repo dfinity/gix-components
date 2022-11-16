@@ -58,8 +58,8 @@
   --backdrop-filter: blur(6px);
 
   // Disable
-  --disable: var(--focus-background);
-  --disable-contrast: var(--description-color);
+  --disable: var(--card-background);
+  --disable-contrast: #8170a6;
 
   // Line
   --line: #9078a4;
