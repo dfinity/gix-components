@@ -2,8 +2,8 @@
   "name": "GIX Components",
   "short_name": "GIX Components",
   "start_url": "/",
-  "background_color": "#34294e",
-  "theme_color": "#34294e",
+  "background_color": "#352652",
+  "theme_color": "#352652",
   "display": "standalone",
   "icons": [
     {
