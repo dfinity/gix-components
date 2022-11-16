@@ -4,11 +4,15 @@
   import MenuButton from "$lib/components/MenuButton.svelte";
   import Back from "$lib/components/Back.svelte";
   import Backdrop from "$lib/components/Backdrop.svelte";
+  import { onDestroy } from "svelte";
 
   export let back = false;
 
   // Enhance UI contrast for readability
   export let contrast = false;
+
+  // Observed: nested component - bottom sheet - might not call destroy when navigating route and therefore offset might not be reseted which is not the case here
+  onDestroy(() => ($layoutBottomOffset = 0));
 </script>
 
 <div
