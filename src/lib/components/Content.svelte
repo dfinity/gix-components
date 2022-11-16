@@ -4,11 +4,16 @@
   import MenuButton from "$lib/components/MenuButton.svelte";
   import Back from "$lib/components/Back.svelte";
   import Backdrop from "$lib/components/Backdrop.svelte";
+  import { fade } from "svelte/transition";
+  import { onDestroy } from "svelte";
 
   export let back = false;
 
   // Enhance UI contrast for readability
   export let contrast = false;
+
+  // Observed: nested component - bottom sheet - might not called destroy when navigating route and therefore offset might not be resetted
+  onDestroy(() => ($layoutBottomOffset = 0));
 </script>
 
 <div
@@ -18,13 +23,17 @@
 >
   <header>
     <Toolbar>
-      <svelte:fragment slot="start">
+      <div slot="start">
         {#if back}
-          <Back slot="back" on:nnsBack />
+          <div transition:fade={{ duration: 125 }}>
+            <Back slot="back" on:nnsBack />
+          </div>
         {:else}
-          <MenuButton />
+          <div transition:fade={{ duration: 125 }}>
+            <MenuButton />
+          </div>
         {/if}
-      </svelte:fragment>
+      </div>
 
       <slot name="title" />
 
