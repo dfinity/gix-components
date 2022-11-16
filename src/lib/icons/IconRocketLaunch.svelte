@@ -1,10 +1,14 @@
 <!-- source: https://fonts.google.com/icons?selected=Material%20Icons%3Arocket_launch%3A -->
+<script lang="ts">
+  import { DEFAULT_ICON_SIZE } from "$lib/constants/constants";
+</script>
+
 <svg
   xmlns="http://www.w3.org/2000/svg"
   fill="currentColor"
-  height="20px"
+  height={DEFAULT_ICON_SIZE}
   viewBox="0 0 24 24"
-  width="20px"
+  width={DEFAULT_ICON_SIZE}
   ><g><rect fill="none" height="24" width="24" /></g><g
     ><g
       ><path

@@ -1,5 +1,5 @@
 <script lang="ts">
-  export let size = "20px";
+  export let size = `${DEFAULT_ICON_SIZE}px`;
 </script>
 
 <!-- source: https://fonts.google.com/icons?selected=Material%20Icons%3Aerror%3A -->
