@@ -7,6 +7,7 @@
   import Toasts from "$lib/components/Toasts.svelte";
   import DocsAccountMenu from "$docs/components/DocsAccountMenu.svelte";
   import type { Navigation } from "@sveltejs/kit";
+  import Content from "$lib/components/Content.svelte";
 
   let navHistory: Navigation[] = [];
   let back = false;
@@ -22,16 +23,18 @@
     ($page.routeId ?? "").split("/").filter((match) => match !== "").length > 1;
 </script>
 
-<Layout {back} on:nnsBack={async () => await goBack()}>
-  <HeaderTitle slot="title">GIX Components</HeaderTitle>
-
+<Layout>
   <DocsMenu slot="menu-items" on:click />
 
-  <DocsAccountMenu slot="toolbar-end" />
+  <Content {back} on:nnsBack={async () => await goBack()}>
+    <HeaderTitle slot="title">GIX Components</HeaderTitle>
 
-  <main>
-    <slot />
-  </main>
+    <DocsAccountMenu slot="toolbar-end" />
+
+    <main>
+      <slot />
+    </main>
+  </Content>
 </Layout>
 
 <Toasts />

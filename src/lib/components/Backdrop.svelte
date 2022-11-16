@@ -33,6 +33,8 @@
     background: var(--backdrop);
     color: var(--backdrop-contrast);
 
+    backdrop-filter: var(--backdrop-filter);
+
     @include interaction.tappable;
 
     &.disablePointerEvents {

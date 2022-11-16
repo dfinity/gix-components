@@ -1,4 +1,4 @@
-import { sanitize } from "../../../lib/utils/html.utils";
+import { sanitize } from "$lib/utils/html.utils";
 
 describe("html-utils", () => {
   it("should sanitize HTML", () => {

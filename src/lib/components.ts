@@ -5,6 +5,7 @@ export { default as BusyScreen } from "./components/BusyScreen.svelte";
 export { default as Card } from "./components/Card.svelte";
 export { default as Checkbox } from "./components/Checkbox.svelte";
 export { default as Collapsible } from "./components/Collapsible.svelte";
+export { default as Content } from "./components/Content.svelte";
 export { default as Copy } from "./components/Copy.svelte";
 export { default as Dropdown } from "./components/Dropdown.svelte";
 export { default as DropdownItem } from "./components/DropdownItem.svelte";

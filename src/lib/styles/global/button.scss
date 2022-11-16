@@ -8,34 +8,15 @@ button {
     cursor: default;
   }
 
+  &.ghost,
   &.text {
-    z-index: var(--z-index);
-
-    width: fit-content;
-
-    margin: 0 var(--padding);
-
-    color: var(--background-contrast);
-
-    &:hover,
-    &:active,
-    &:focus {
-      text-decoration: underline;
-    }
-
-    &[disabled] {
-      text-decoration: none;
-    }
-  }
-
-  &.ghost {
     z-index: var(--z-index);
 
     width: fit-content;
 
     @include fonts.standard;
 
-    color: var(--primary);
+    color: inherit;
 
     &:hover,
     &:active,
@@ -76,10 +57,9 @@ button {
   &.warning {
     padding: var(--padding) var(--padding-2x);
 
-    border-radius: var(--element-border-radius);
-    box-shadow: var(--interaction-box-shadow);
-    --border-color: var(--border-color-button, var(--background-color-button));
-    border: 1px solid var(--border-color, transparent);
+    border-radius: var(--border-radius);
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
 
     position: relative;
     min-height: var(--button-min-height);
@@ -91,42 +71,55 @@ button {
       background: var(--disable);
       color: var(--disable-contrast);
       cursor: default;
-      border: 1px solid var(--disable);
       box-shadow: none;
     }
 
     &:focus {
-      text-decoration: underline;
+      filter: contrast(1.25);
     }
   }
 
   &.primary {
-    background: var(--primary);
+    background: linear-gradient(
+      80.26deg,
+      var(--primary) 23.69%,
+      var(--secondary) 143.36%
+    );
     color: var(--primary-contrast);
+
+    &:hover,
+    &:focus {
+      background: linear-gradient(
+        93deg,
+        var(--primary-shade) 36.37%,
+        var(--secondary-shade) 108.11%
+      );
+    }
   }
 
   &.secondary {
-    background: var(--secondary);
-    color: var(--secondary-contrast);
+    background: var(--content-background);
+    color: var(--content-color);
+    border: solid 2px transparent;
+    background-image: linear-gradient(var(--background), var(--background)),
+      linear-gradient(to right, var(--primary), var(--secondary));
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+
+    &:hover,
+    &:focus {
+      background-image: linear-gradient(var(--background), var(--background)),
+        linear-gradient(to right, var(--primary-shade), var(--secondary-shade));
+    }
   }
 
-  &.success,
+  &.success {
+    background: var(--positive-emphasis);
+    color: var(--positive-emphasis-contrast);
+  }
+
   &.danger {
-    background: var(--background-color-button);
-    color: var(--color-button);
-  }
-
-  /// @deprecated - old design only
-  &.warning {
-    --background-color-button: var(--warning-emphasis);
-    --background-color-button-contrast: var(--warning-emphasis-contrast);
-    --background-color-button-tint: var(--warning-emphasis-tint);
-    --color-button: var(--background-contrast);
-  }
-
-  /// @deprecated - old design only
-  &.warning {
-    background: var(--background-color-button);
-    color: var(--background-color-button-contrast);
+    background: var(--negative-emphasis);
+    color: var(--negative-emphasis-contrast);
   }
 }

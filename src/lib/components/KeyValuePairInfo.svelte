@@ -1,5 +1,5 @@
 <script lang="ts">
-  import IconInfoOutline from "$lib/icons/IconInfoOutline.svelte";
+  import IconInfo from "$lib/icons/IconInfo.svelte";
   import Collapsible from "./Collapsible.svelte";
   import KeyValuePair from "./KeyValuePair.svelte";
 
@@ -13,7 +13,7 @@
     <div class="wrapper" slot="key">
       <slot name="key" />
       <button class="icon" on:click|stopPropagation={toggleContent}>
-        <IconInfoOutline />
+        <IconInfo />
       </button>
     </div>
 
@@ -33,7 +33,7 @@
   }
 
   .icon {
-    color: var(--primary);
+    color: var(--line);
     display: flex;
     align-items: center;
     justify-content: center;

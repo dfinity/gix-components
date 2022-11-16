@@ -1,6 +1,6 @@
 <script lang="ts">
     import Popover from "$lib/components/Popover.svelte";
-    import {IconMenu, IconAccount, IconLogout, IconWallet, IconLightMode, IconDarkMode} from "$lib/icons";
+    import {IconMenu, IconUser, IconLogout, IconWallet, IconLightMode, IconDarkMode} from "$lib/icons";
     let visible = false;
     let button: HTMLButtonElement | undefined;
     let visible2 = false;
@@ -37,7 +37,7 @@ next to an anchor — commonly a button — which initiates its display.
     <Popover bind:visible anchor={button} closeButton direction="rtl">
         <div class="account">
             <span class="account_icon">
-                <IconAccount size={34} />
+                <IconUser size={34} />
             </span>Account
         </div>
         <div class="account">

@@ -2,42 +2,42 @@
  * @jest-environment jsdom
  */
 
+import MenuButton from "$lib/components/MenuButton.svelte";
+import { layoutMenuOpen } from "$lib/stores/layout.store";
 import { fireEvent, render, type RenderResult } from "@testing-library/svelte";
+import { get } from "svelte/store";
 import en from "../mocks/i18n.mock";
-import MenuButtonTest from "./MenuButtonTest.svelte";
 
 describe("MenuButton", () => {
-  const toggleMenu = async ({ getByTestId }: RenderResult<MenuButtonTest>) => {
+  const toggleMenu = async ({ getByTestId }: RenderResult<MenuButton>) => {
     const button = getByTestId("menu-toggle") as HTMLButtonElement;
     await fireEvent.click(button);
   };
 
   it("should open the menu", async () => {
-    const spyOpen = jest.fn();
-
-    const renderResult = render(MenuButtonTest, { props: { spy: spyOpen } });
+    const renderResult = render(MenuButton);
 
     await toggleMenu(renderResult);
 
-    expect(spyOpen).toBeCalledWith(true);
+    expect(get(layoutMenuOpen)).toEqual(true);
   });
 
   it("should close the menu", async () => {
-    const spyOpen = jest.fn();
+    layoutMenuOpen.set(false);
 
-    const renderResult = render(MenuButtonTest, { props: { spy: spyOpen } });
-
-    await toggleMenu(renderResult);
-    expect(spyOpen).toBeCalledWith(true);
+    const renderResult = render(MenuButton);
 
     await toggleMenu(renderResult);
-    expect(spyOpen).toBeCalledWith(false);
+    expect(get(layoutMenuOpen)).toEqual(true);
+
+    await toggleMenu(renderResult);
+    expect(get(layoutMenuOpen)).toEqual(false);
   });
 
   const testA11y = ({ label, open }: { label: string; open: boolean }) => {
-    const { getByTestId } = render(MenuButtonTest, {
-      props: { spy: jest.fn(), open },
-    });
+    layoutMenuOpen.set(open);
+
+    const { getByTestId } = render(MenuButton);
     const button = getByTestId("menu-toggle") as HTMLButtonElement;
     expect(button.getAttribute("aria-label")).toEqual(label);
   };

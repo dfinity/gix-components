@@ -1,7 +1,11 @@
 <!-- source(figma): https://www.figma.com/file/ei7wVYd4l8SuDQlQqVC0NV/New-NNS?node-id=1979%3A7905 -->
+<script lang="ts">
+  import { DEFAULT_ICON_SIZE } from "$lib/constants/constants";
+</script>
+
 <svg
   width="12"
-  height="20"
+  height={DEFAULT_ICON_SIZE}
   viewBox="0 0 12 20"
   fill="currentColor"
   xmlns="http://www.w3.org/2000/svg"

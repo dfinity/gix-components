@@ -12,6 +12,7 @@ module.exports = {
     ],
     "^.+\\.ts$": "ts-jest",
     "^.+\\.js$": "ts-jest",
+    "\\.(svg|png)$": "<rootDir>/jest-transform.cjs",
   },
   moduleFileExtensions: ["js", "ts", "svelte"],
   setupFilesAfterEnv: ["<rootDir>/jest-setup.ts"],

@@ -12,42 +12,40 @@
 
 <style lang="scss">
   @use "../styles/mixins/media";
+  @use "../styles/mixins/fonts";
 
   a {
     display: flex;
     justify-content: flex-start;
     align-items: center;
 
-    color: inherit;
+    color: var(--menu-color);
     transition: color var(--animation-time-short) ease-in;
 
-    font-size: var(--font-size-h5);
-    line-height: var(--line-height-h5);
-    font-weight: var(--font-weight-bold);
+    @include fonts.h5;
 
     text-decoration: none;
     outline: none;
+
+    --menuitem-border-color: transparent;
+    border-left: var(--padding-0_25x) solid var(--menuitem-border-color);
 
     &:focus,
     &:hover {
       text-decoration: none;
     }
 
-    padding: var(--padding-2x);
+    padding: var(--padding-1_5x);
 
     &.selected {
-      color: var(--primary);
-      background: inherit;
-
-      &:focus,
-      &:hover {
-        background: var(--background-shade);
-      }
+      --menuitem-border-color: white;
+      background: var(--menu-selected-background);
+      color: var(--menu-select-color);
     }
 
     &:not(.selected):focus,
     &:not(.selected):hover {
-      background: var(--background-shade);
+      color: var(--menu-select-color);
     }
 
     :global(& > :first-child) {

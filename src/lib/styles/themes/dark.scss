@@ -2,13 +2,16 @@
 
 :root {
   // Shadows
-  --box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  --menu-box-shadow: var(--box-shadow);
-  --interaction-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
-    1px 1px 2px rgba(0, 0, 0, 0.3);
-  --header-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-  --bottom-sheet-box-shadow: -1px -1px 10px rgba(0, 0, 0, 0.25);
-  --input-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4) inset;
+  --box-shadow-color: #281f3f;
+  --box-shadow-color-rgb: 40, 31, 63;
+
+  --box-shadow: 0px 1px 0px var(--box-shadow-color);
+  --interaction-box-shadow: 0px 4px 4px rgba(var(--box-shadow-color-rgb), 0.25),
+    1px 1px 2px rgba(var(--box-shadow-color-rgb), 0.3);
+  --bottom-sheet-box-shadow: -1px -1px 10px rgba(var(--box-shadow-color-rgb), 0.25);
+  --input-box-shadow: 1px 1px 3px rgba(var(--box-shadow-color-rgb), 0.4) inset;
+  --content-box-shadow: 0px 0px 10px rgba(var(--box-shadow-color-rgb), 0.05);
+  --overlay-box-shadow: 0px 0px 8px rgba(var(--box-shadow-color-rgb), 0.2);
 
   // Footer
   --footer-background: linear-gradient(
@@ -38,89 +41,143 @@
   --json-boolean-color: var(--primary);
 
   // Inputs
-  --input-border-color: #ffffff;
-
-  // Menu
-  --menu-background: var(--card-background);
-  --menu-background-contrast: var(--card-background-contrast);
+  --input-border-color: var(--focus-background);
+  --input-border-size: 1.5px;
 
   --light-opacity: 0.6;
   --very-light-opacity: 0.4;
 
-  // text color
-  --value-color: var(--background-contrast);
-  --label-color: rgba(var(--background-contrast-rgb), var(--light-opacity));
-  --description-color: rgba(
-    var(--background-contrast-rgb),
-    var(--very-light-opacity)
-  );
+  // Text color
+  --value-color: #fff;
+  --label-color: var(--text-color);
+  --description-color: #9791b6;
 
   // Overlays - based on dark card background rgb color
-  --backdrop: rgba(39, 41, 41, 0.8);
-  --backdrop-contrast: #ffffff;
+  --backdrop: rgba(28, 16, 48, 0.65);
+  --backdrop-contrast: var(--text-color);
+  --backdrop-filter: blur(6px);
 
   // Disable
-  --disable: #505050;
-  --disable-contrast: #969696;
+  --disable: var(--card-background);
+  --disable-contrast: #8170a6;
 
   // Line
-  --line: #505050;
-  --line-contrast: #969696;
+  --line: #9078a4;
+
+  // Scrollbar
+  --scrollbar-thumb-background: var(--content-background);
+  --scrollbar-thumb-color: var(--content-color);
+
+  // Custom backgrounds
+  --body-background: linear-gradient(
+      275.08deg,
+      rgba(255, 255, 255, 0.05) 0%,
+      rgba(0, 0, 0, 0) 54.36%
+    ),
+    linear-gradient(167.22deg, #12022e 7.72%, #1e1033 41.87%, #2b0a40 84.98%);
+  --body-color: var(--text2-color);
+
+  --content-background: linear-gradient(
+    113.27deg,
+    #24133c 0%,
+    #291641 49.25%,
+    #29103c 100%
+  );
+  --content-color: var(--text-color);
+  --content-contrast-background: var(--content-background);
+  --content-contrast-color: var(--content-color);
+
+  --overlay-background: var(--background);
+  --overlay-background-contrast: var(--background-contrast);
+  --overlay-content-background: var(--focus-background);
+  --overlay-content-background-contrast: var(--focus-background-contrast);
+
+  // Menu
+  --menu-color: var(--text2-color);
+  --menu-select-color: var(--value-color);
+  --menu-selected-background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0) 85%
+  );
+
+  // Theme color
+  --theme-color: var(--card-background);
 
   // Palette
-  --background: #383c3c;
-  --background-rgb: 56, 60, 60;
-  --background-contrast: #ffffff;
-  --background-contrast-rgb: 255, 255, 255;
-  --background-shade: #313535;
-  --background-tint: #4c5050;
 
-  --card-background: #272929;
-  --card-background-rgb: 39, 41, 41;
-  --card-background-contrast: #ffffff;
-  --card-background-contrast-rgb: 255, 255, 255;
-  --card-background-shade: #222424;
-  --card-background-tint: #3d3e3e;
+  /* Light/Text/Text-02 */
+  --text2-color: #9a91b6;
+  --text2-color-rgb: 154, 145, 182;
 
-  --primary: #00a5ff;
-  --primary-rgb: 0, 165, 255;
-  --primary-contrast: #ffffff;
-  --primary-contrast-rgb: 255, 255, 255;
-  --primary-shade: #0091e0;
-  --primary-tint: #1aaeff;
+  /* Light/Text/Text-xx? */
+  --text-color: #d1cee2;
+  --text-color-rgb: 209, 206, 226;
 
-  --secondary: #272929;
-  --secondary-rgb: 39, 41, 41;
+  /* Design: Dark/Bg/Background-03 */
+  --input-background: #382a54;
+  --input-background-rgb: 56, 42, 84;
+  --input-background-contrast: var(--text-color);
+  --input-background-contrast-rgb: var(--text-color-rgb);
+  --input-background-shade: #31254a;
+  --input-background-tint: #4c3f65;
+
+  /* Design: Dark/Bg/Background */
+  --focus-background: #41325e;
+  --focus-background-rgb: 65, 50, 94;
+  --focus-background-contrast: var(--text-color);
+  --focus-background-contrast-rgb: var(--text-color-rgb);
+  --focus-background-shade: #392c53;
+  --focus-background-tint: #54476e;
+
+  /* Design: Dark/Bg/Background-01 */
+  --card-background: #352652;
+  --card-background-rgb: 53, 38, 82;
+  --card-background-contrast: var(--text-color);
+  --card-background-contrast-rgb: var(--text-color-rgb);
+  --card-background-shade: #2f2148;
+  --card-background-tint: #493c63;
+
+  /* Design: Dark/Bg/Background-02 */
+  --background: #3a2c57;
+  --background-rgb: 58, 44, 87;
+  --background-contrast: var(--text-color);
+  --background-contrast-rgb: var(--text-color-rgb);
+  --background-shade: #33274d;
+  --background-tint: #4e4168;
+
+  --primary: #6426c9;
+  --primary-rgb: 100, 38, 201;
+  --primary-contrast: var(--text-color);
+  --primary-contrast-rgb: var(--text-color-rgb);
+  --primary-shade: #5821b1;
+  --primary-tint: #743cce;
+
+  --secondary: #a25fc3;
+  --secondary-rgb: 162, 95, 195;
   --secondary-contrast: #ffffff;
   --secondary-contrast-rgb: 255, 255, 255;
-  --secondary-shade: #222424;
-  --secondary-tint: #3d3e3e;
+  --secondary-shade: #8f54ac;
+  --secondary-tint: #ab6fc9;
 
-  --warning-emphasis: #ffc700;
-  --warning-emphasis-rgb: 255, 199, 0;
+  --warning-emphasis: #fdc087;
+  --warning-emphasis-rgb: 253, 192, 135;
   --warning-emphasis-contrast: #000000;
   --warning-emphasis-contrast-rgb: 0, 0, 0;
-  --warning-emphasis-shade: #e0af00;
-  --warning-emphasis-tint: #ffcd1a;
+  --warning-emphasis-shade: #dfa977;
+  --warning-emphasis-tint: #fdc693;
 
-  --positive-emphasis: #03ae00;
-  --positive-emphasis-rgb: 3, 174, 0;
-  --positive-emphasis-contrast: #ffffff;
-  --positive-emphasis-contrast-rgb: 255, 255, 255;
-  --positive-emphasis-shade: #039900;
-  --positive-emphasis-tint: #1cb61a;
+  --positive-emphasis: #30af91;
+  --positive-emphasis-rgb: 48, 175, 145;
+  --positive-emphasis-contrast: #000000;
+  --positive-emphasis-contrast-rgb: 0, 0, 0;
+  --positive-emphasis-shade: #2a9a80;
+  --positive-emphasis-tint: #45b79c;
 
-  --negative-emphasis-light: #f66666;
-  --negative-emphasis-light-rgb: 246, 102, 102;
-  --negative-emphasis-light-contrast: #ffffff;
-  --negative-emphasis-light-contrast-rgb: 255, 255, 255;
-  --negative-emphasis-light-shade: #d85a5a;
-  --negative-emphasis-light-tint: #f77575;
-
-  --negative-emphasis: #ef0000;
-  --negative-emphasis-rgb: 239, 0, 0;
-  --negative-emphasis-contrast: #ffffff;
-  --negative-emphasis-contrast-rgb: 255, 255, 255;
-  --negative-emphasis-shade: #d20000;
-  --negative-emphasis-tint: #f11a1a;
+  --negative-emphasis: #ea6c99;
+  --negative-emphasis-rgb: 234, 108, 153;
+  --negative-emphasis-contrast: #000000;
+  --negative-emphasis-contrast-rgb: 0, 0, 0;
+  --negative-emphasis-shade: #ce5f87;
+  --negative-emphasis-tint: #ec7ba3;
 }

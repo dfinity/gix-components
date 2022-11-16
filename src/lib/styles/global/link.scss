@@ -4,12 +4,13 @@ a {
   font-size: inherit;
   font-family: inherit;
 
-  color: var(--primary);
+  color: inherit;
 
-  text-decoration: none;
+  text-decoration: underline;
 
   &:active,
+  &:focus,
   &:hover {
-    text-decoration: underline;
+    color: var(--value-color);
   }
 }

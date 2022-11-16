@@ -1,0 +1,15 @@
+::-webkit-scrollbar {
+  background: var(--scrollbar-thumb-background);
+  width: var(--padding);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb-color);
+  border: solid 2.5px var(--scrollbar-thumb-color);
+  border-radius: 0.5em;
+  -webkit-border-radius: 0.5em;
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--scrollbar-thumb-color);
+}

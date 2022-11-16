@@ -3,26 +3,23 @@
  */
 
 import Menu from "$lib/components/Menu.svelte";
+import { layoutMenuOpen } from "$lib/stores/layout.store";
 import { render } from "@testing-library/svelte";
 import MenuTest from "./MenuTest.svelte";
 
 describe("Menu", () => {
-  it("should be displayed open on small devices", async () => {
-    const { getByTestId } = render(Menu, {
-      props: {
-        open: true,
-      },
-    });
+  it("should be displayed open", async () => {
+    layoutMenuOpen.set(true);
+
+    const { getByTestId } = render(Menu);
 
     expect(getByTestId("menu-inner")).toHaveClass("open");
   });
 
-  it("should inherit default behavior", () => {
-    const { getByTestId } = render(Menu, {
-      props: {
-        open: false,
-      },
-    });
+  it("should be displayed closed", () => {
+    layoutMenuOpen.set(false);
+
+    const { getByTestId } = render(Menu);
 
     expect(getByTestId("menu-inner")).not.toHaveClass("open");
   });

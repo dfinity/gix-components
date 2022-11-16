@@ -171,13 +171,15 @@
 
     width: var(--input-width);
 
-    --disabled-color: var(--disable-contrast);
+    --disabled-color: var(--card-background);
 
     &.disabled {
       color: var(--disabled-color);
 
       input {
-        border: 1px solid var(--disabled-color);
+        background: var(--background);
+        border: var(--input-border-size) solid var(--disabled-color);
+        color: var(--disabled-color);
       }
     }
 
@@ -199,16 +201,12 @@
     padding: var(--padding-2x);
     box-sizing: border-box;
 
-    box-shadow: var(--input-box-shadow);
-
-    border-radius: var(--element-border-radius);
+    border-radius: var(--border-radius);
 
     outline: none;
     -webkit-appearance: none;
-  }
 
-  input:focus {
-    border: 1px solid var(--primary);
+    @include form.input;
   }
 
   input[disabled] {

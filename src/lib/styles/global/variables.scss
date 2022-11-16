@@ -9,6 +9,7 @@
 
   --padding: 8px;
 
+  --padding-0_25x: calc(var(--padding) / 4);
   --padding-0_5x: calc(var(--padding) / 2);
   --padding-1_5x: calc(1.5 * var(--padding));
   --padding-2x: calc(2 * var(--padding));
@@ -20,10 +21,10 @@
   --column-gap: var(--padding-4x);
   --row-gap: var(--padding-6x);
 
-  --border-radius: 10px;
-  --border-radius-5x: calc(5 * var(--border-radius));
+  --border-radius: 8px;
   --border-radius-0_5x: calc(0.5 * var(--border-radius));
-  --element-border-radius: var(--border-radius-5x);
+  --border-radius-2x: calc(2 * var(--border-radius));
+  --border-radius-5x: calc(5 * var(--border-radius));
 
   --z-index: 1;
   --menu-z-index: calc(var(--z-index) + 996);
@@ -39,6 +40,8 @@
   --animation-time-normal: 0.2s;
   --animation-time-short: 0.125s;
 
+  --menu-animation-timing-function: cubic-bezier(0.55, 0.49, 0.44, 0.87);
+
   --button-min-height: 45px;
 
   // Modal
@@ -46,7 +49,7 @@
   --alert-width: calc(100% - var(--padding-8x));
   --alert-max-width: calc(100vw - var(--padding-4x));
   --alert-max-height: calc(100vh - var(--padding-4x));
-  --alert-border-radius: 0;
+  --alert-border-radius: var(--border-radius-2x);
   --alert-padding-y: var(--padding-4x);
   --alert-padding-x: var(--padding-2x);
 

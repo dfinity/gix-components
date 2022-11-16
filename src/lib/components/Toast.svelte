@@ -7,7 +7,7 @@
   import Spinner from "./Spinner.svelte";
   import IconWarning from "$lib/icons/IconWarning.svelte";
   import IconClose from "$lib/icons/IconClose.svelte";
-  import IconInfoOutline from "$lib/icons/IconInfoOutline.svelte";
+  import IconInfo from "$lib/icons/IconInfo.svelte";
   import IconCheckCircleOutline from "$lib/icons/IconCheckCircleOutline.svelte";
   import IconError from "$lib/icons/IconError.svelte";
 
@@ -18,7 +18,7 @@
       ["success"]: IconCheckCircleOutline,
       ["warn"]: IconWarning,
       ["error"]: IconError,
-      ["info"]: IconInfoOutline,
+      ["info"]: IconInfo,
     }[level]);
 
   const close = () => toastsStore.hide(msg.id);
@@ -82,7 +82,8 @@
     gap: var(--padding-1_5x);
 
     border-radius: var(--border-radius);
-    background: var(--card-background);
+    background: var(--overlay-background);
+    color: var(--overlay-background-contrast);
     box-shadow: var(--strong-shadow, 8px 8px 16px 0 rgba(0, 0, 0, 0.25));
 
     padding: var(--padding-1_5x);

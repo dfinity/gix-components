@@ -3,12 +3,8 @@
 :root {
   &[theme="light"] {
     // Shadows
-    --box-shadow: -1px -1px 2px rgba(255, 255, 255, 0.8), var(--menu-box-shadow);
-    --menu-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-    --interaction-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), -1px -1px 2px #ffffff,
-      var(--menu-box-shadow);
-    --input-box-shadow: inset -1px -1px 4px rgba(255, 255, 255, 0.25),
-      inset 1px 1px 3px rgba(54, 54, 54, 0.4);
+    --box-shadow-color: #d6c3db;
+    --box-shadow-color-rgb: 111, 89, 133;
 
     // Footer
     --footer-background: linear-gradient(
@@ -18,40 +14,127 @@
     );
 
     // Inputs
-    --input-border-color: transparent;
+    /* Design Light/7969C0 (8%)-light */
+    --input-border-color: #d9d2ea;
 
-    // Menu
-    --menu-background: #fafbfc;
-    --menu-background-contrast: #333333;
+    // Text color
+    --value-color: #000;
+    --label-color: var(--text4-color);
+    --description-color: #574d6a;
+
+    // Overlays - based on dark card background rgb color
+    --backdrop: rgba(185, 181, 204, 0.6);
+    --backdrop-contrast: var(--text4-color);
+    --backdrop-filter: blur(4px);
 
     // Disable
-    --disable: #e5e5e5;
-    --disable-contrast: #858585;
+    /* Light/Bg/Background-03 */
+    --disable: #e5ddf0;
+    --disable-contrast: #a28db4;
 
-    // Line
-    --line: #e5e5e5;
-    --line-contrast: #858585;
+    // Scrollbar
+    --scrollbar-thumb-background: transparent;
+    --scrollbar-thumb-color: #9f9ba5;
+
+    // Custom backgrounds
+    --body-background: linear-gradient(
+        360deg,
+        rgba(239, 237, 248, 0.18) 0%,
+        rgba(239, 237, 248, 0.3) 23.97%
+      ),
+      linear-gradient(
+        116.49deg,
+        #220bad 0%,
+        rgba(68, 37, 167, 0.867455) 8.78%,
+        rgba(220, 88, 88, 0.4) 46.37%
+      ),
+      linear-gradient(
+        251.87deg,
+        #9db6f6 0%,
+        #c1aef6 32.2%,
+        #c39ef2 63.56%,
+        #f9cab1 100%
+      );
+    --body-color: var(--text5-color);
+
+    --content-background: linear-gradient(
+      113.27deg,
+      #c9bbe3 0%,
+      #eed4e1 46.8%,
+      #e8d7e5 100%
+    );
+    --content-color: var(--text4-color);
+    --content-contrast-background: var(--card-background);
+    --content-contrast-color: var(--card-background-contrast);
+
+    // Menu
+    --menu-color: var(--text5-color);
+    --menu-select-color: #fff;
+
+    // Theme color
+    --theme-color: #8266d6;
 
     // Palette
-    --background: #f4f5f6;
-    --background-rgb: 244, 245, 246;
-    --background-contrast: #333333;
-    --background-contrast-rgb: 51, 51, 51;
-    --background-shade: #d7d8d8;
-    --background-tint: #f5f6f7;
 
-    --card-background: #ffffff;
-    --card-background-rgb: 255, 255, 255;
-    --card-background-contrast: #333333;
-    --card-background-contrast-rgb: 51, 51, 51;
-    --card-background-shade: #e0e0e0;
-    --card-background-tint: #ffffff;
+    /* Light/Text/Text-05 */
+    --text5-color: #efedf8;
+    --text5-color-rgb: 239, 237, 248;
 
-    --secondary: #ffffff;
-    --secondary-rgb: 255, 255, 255;
-    --secondary-contrast: var(--primary);
-    --secondary-contrast-rgb: 0, 165, 255;
-    --secondary-shade: #e0e0e0;
-    --secondary-tint: #ffffff;
+    /* Light/Text/Text-04 */
+    --text4-color: #3e374c;
+    --text4-color-rgb: 62, 55, 76;
+
+    /* Design: Extracted from Light/7969C0 (8%)-light */
+    --input-background: #e1dcef;
+    --input-background-rgb: 225, 220, 239;
+    --input-background-contrast: var(--text4-color);
+    --input-background-contrast-rgb: var(--text4-color-rgb);
+    --input-background-shade: #c6c2d2;
+    --input-background-tint: #e4e0f1;
+
+    /* Design: Light/Bg/Background */
+    --focus-background: #f4f1fa;
+    --focus-background-rgb: 244, 241, 250;
+    --focus-background-contrast: var(--text4-color);
+    --focus-background-contrast-rgb: var(--text4-color-rgb);
+    --focus-background-shade: #d7d4dc;
+    --focus-background-tint: #f5f2fb;
+
+    /* Design: Dark/Bg/Background-04 */
+    --card-background: #edeaf7;
+    --card-background-rgb: 237, 234, 247;
+    --card-background-contrast: var(--text4-color);
+    --card-background-contrast-rgb: var(--text4-color-rgb);
+    --card-background-shade: #d1ced9;
+    --card-background-tint: #efecf8;
+
+    /* Design: Light/Bg/Background-01 */
+    --background: #ebe5f4;
+    --background-rgb: 235, 229, 244;
+    --background-contrast: var(--text4-color);
+    --background-contrast-rgb: var(--text4-color-rgb);
+    --background-shade: #cfcad7;
+    --background-tint: #ede8f5;
+
+    --primary: #8266d6;
+    --primary-rgb: 130, 102, 214;
+    --primary-contrast: #f4f1fa;
+    --primary-contrast-rgb: 244, 241, 250;
+    --primary-shade: #725abc;
+    --primary-tint: #8f75da;
+
+    --secondary: #d9acd6;
+    --secondary-rgb: 217, 172, 214;
+    --secondary-contrast: #000000;
+    --secondary-contrast-rgb: 0, 0, 0;
+    --secondary-shade: #bf97bc;
+    --secondary-tint: #ddb4da;
+
+    --warning-emphasis: #fabc2a;
+    --warning-emphasis-rgb: 250, 188, 42;
+    --warning-emphasis-contrast: #000000;
+    --warning-emphasis-contrast-rgb: 0, 0, 0;
+    --warning-emphasis-shade: #dca525;
+    --warning-emphasis-tint: #fbc33f;
   }
 }

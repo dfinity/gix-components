@@ -56,9 +56,50 @@
 {/if}
 
 <style lang="scss">
-  @use "../styles/mixins/overlay";
+  @use "../styles/mixins/display";
 
   .popover {
-    @include overlay.popover;
+    position: fixed;
+    @include display.inset;
+
+    z-index: var(--overlay-z-index);
+  }
+
+  .wrapper {
+    cursor: initial;
+
+    // position
+    position: absolute;
+    top: calc(var(--popover-top) + var(--padding));
+    left: var(--popover-left);
+
+    &.rtl {
+      left: auto;
+      right: var(--popover-right);
+    }
+
+    // size
+    --size: min(calc(20 * var(--padding)), calc(100vw - var(--padding)));
+
+    min-width: var(--size);
+    max-width: var(--size);
+
+    width: fit-content;
+    height: auto;
+
+    padding: var(--padding-2x);
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--background);
+    color: var(--background-contrast);
+
+    border-radius: var(--border-radius);
+
+    box-shadow: var(--overlay-box-shadow);
+  }
+
+  .close {
+    align-self: flex-end;
   }
 </style>

@@ -1,7 +1,7 @@
 <script lang="ts">
   import Popover from "$lib/components/Popover.svelte";
   import ThemeToggle from "$lib/components/ThemeToggle.svelte";
-  import IconAccount from "$lib/icons/IconAccount.svelte";
+  import IconUser from "$lib/icons/IconUser.svelte";
 
   let visible = false;
   let button: HTMLButtonElement | undefined;
@@ -14,7 +14,7 @@
   on:click={() => (visible = !visible)}
   aria-label="Open menu to access some settings"
 >
-  <IconAccount />
+  <IconUser />
 </button>
 
 <Popover bind:visible anchor={button} direction="rtl">
@@ -44,12 +44,11 @@
 </Popover>
 
 <style lang="scss">
-  @use "../../lib/styles/mixins/overlay";
   @use "../../lib/styles/mixins/media";
   @use "../../lib/styles/mixins/header";
 
   .info {
-    @include overlay.content;
+    width: 100%;
 
     display: flex;
     flex-direction: column;
@@ -59,7 +58,7 @@
   .toggle {
     justify-self: flex-end;
 
-    @include header.button(--brand-sea-buckthorn);
+    @include header.button(--primary-tint);
   }
 
   a {

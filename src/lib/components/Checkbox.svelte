@@ -47,7 +47,7 @@
     justify-content: space-between;
     align-items: center;
     flex-direction: var(--checkbox-flex-direction);
-    gap: var(--padding-2x);
+    gap: var(--padding);
 
     padding: var(--checkbox-padding, var(--padding-2x));
 
@@ -58,13 +58,16 @@
     font-size: var(--checkbox-font-size, inherit);
 
     &:hover {
-      background: var(--background-shade);
+      background: rgba(var(--primary-rgb), 0.2);
+
+      input {
+        @include form.input-focus;
+      }
     }
 
     border-radius: var(--checkbox-border-radius, var(--border-radius));
 
     --checkbox-input-size: 20px;
-    --checkbox-background-hover: var(--background-shade);
 
     &.disabled {
       pointer-events: none;
@@ -90,22 +93,18 @@
 
   input[type="checkbox"] {
     @include form.input;
+
     appearance: none;
     margin: 0;
 
     width: var(--checkbox-input-size);
     height: var(--checkbox-input-size);
 
-    box-shadow: var(--box-shadow);
     border-radius: var(--border-radius-0_5x);
 
     cursor: pointer;
 
     position: relative;
-
-    &:checked {
-      box-shadow: var(--input-box-shadow);
-    }
 
     &[disabled],
     &[disabled]:hover {
@@ -115,11 +114,6 @@
       &:checked:after {
         border-color: var(--disable-contrast);
       }
-    }
-
-    &:focus {
-      outline: 2px solid var(--primary);
-      outline-offset: 2px;
     }
 
     &:checked:after {

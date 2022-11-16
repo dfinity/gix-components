@@ -1,10 +1,14 @@
 <!-- source: https://fonts.google.com/icons?selected=Material+Icons+Outlined:filter_alt -->
+<script lang="ts">
+  import { DEFAULT_ICON_SIZE } from "$lib/constants/constants";
+</script>
+
 <svg
   xmlns="http://www.w3.org/2000/svg"
   enable-background="new 0 0 24 24"
-  height="24px"
+  height={DEFAULT_ICON_SIZE}
   viewBox="0 0 24 24"
-  width="24px"
+  width={DEFAULT_ICON_SIZE}
   fill="currentColor"
   ><g
     ><path d="M0,0h24 M24,24H0" fill="none" /><path

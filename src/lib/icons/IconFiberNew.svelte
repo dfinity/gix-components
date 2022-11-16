@@ -1,6 +1,8 @@
 <!-- source: https://fonts.google.com/icons?selected=Material%20Icons%20Outlined%3Afiber_new%3A -->
 <script lang="ts">
-  export let size = "24px";
+  import { DEFAULT_ICON_SIZE } from "$lib/constants/constants";
+
+  export let size = `${DEFAULT_ICON_SIZE}px`;
 </script>
 
 <svg

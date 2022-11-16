@@ -18,9 +18,7 @@
 
 <style lang="scss">
   button {
-    height: 30px;
-    width: 30px;
-
-    color: var(--primary-tint);
+    height: var(--padding-4x);
+    width: var(--padding-4x);
   }
 </style>

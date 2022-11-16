@@ -11,6 +11,5 @@ describe("SplitPane", () => {
 
     expect(getByTestId("split-pane-test-slot")).not.toBeNull();
     expect(getByTestId("split-pane-test-menu-slot")).not.toBeNull();
-    expect(getByTestId("split-pane-test-header-slot")).not.toBeNull();
   });
 });

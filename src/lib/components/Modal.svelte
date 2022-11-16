@@ -2,7 +2,7 @@
   import { fade, scale } from "svelte/transition";
   import { quintOut } from "svelte/easing";
   import { createEventDispatcher } from "svelte";
-  import { i18n } from "../stores/i18n";
+  import { i18n } from "$lib/stores/i18n";
   import IconClose from "$lib/icons/IconClose.svelte";
   import Backdrop from "$lib/components/Backdrop.svelte";
 
@@ -27,7 +27,7 @@
 {#if visible}
   <div
     class="modal"
-    transition:fade
+    transition:fade={{ duration: 125 }}
     {role}
     data-tid={testId}
     aria-labelledby={showHeader ? "modalTitle" : undefined}
@@ -47,13 +47,15 @@
             data-tid="close-modal"
             on:click|stopPropagation={close}
             aria-label={$i18n.core.close}
-            disabled={disablePointerEvents}><IconClose size="32px" /></button
+            disabled={disablePointerEvents}><IconClose size="24px" /></button
           >
         </div>
       {/if}
 
-      <div class="content" id="modalContent" class:alert={role === "alert"}>
-        <slot />
+      <div class="container">
+        <div class="content" id="modalContent" class:alert={role === "alert"}>
+          <slot />
+        </div>
       </div>
 
       {#if showFooterAlert}
@@ -89,11 +91,14 @@
     display: flex;
     flex-direction: column;
 
-    background: var(--background);
+    background: var(--overlay-background);
+    color: var(--overlay-background-contrast);
 
     overflow: hidden;
 
     box-sizing: border-box;
+
+    box-shadow: var(--overlay-box-shadow);
 
     &.alert {
       width: var(--alert-width);
@@ -107,6 +112,11 @@
         padding: var(--alert-padding-y) var(--alert-padding-x) var(--padding);
       }
 
+      .container {
+        margin: var(--padding-1_5x) var(--padding-2x)
+          calc(var(--alert-padding-y) * 2 / 3);
+      }
+
       .content {
         margin: 0 0 calc(var(--alert-padding-y) / 2);
         padding: calc(var(--alert-padding-y) / 2)
@@ -114,7 +124,7 @@
       }
 
       .footer {
-        padding: 0 var(--alert-padding-x) var(--alert-padding-y);
+        padding: 0 var(--alert-padding-x) calc(var(--alert-padding-y) * 2 / 3);
 
         @include media.min-width(small) {
           justify-content: flex-end;
@@ -141,26 +151,33 @@
       border-radius: var(--dialog-border-radius);
 
       .header {
-        padding: var(--dialog-padding-y) var(--dialog-padding-x) var(--padding);
+        padding: var(--dialog-padding-y) var(--padding-3x) var(--padding);
+      }
+
+      .container {
+        margin: var(--padding-1_5x) var(--padding-2x) var(--dialog-padding-y);
       }
 
       .content {
-        margin: 0 0 var(--dialog-padding-y);
+        margin: 0;
         padding: var(--dialog-padding-y) var(--dialog-padding-x);
       }
     }
   }
 
   .header {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: var(--padding);
 
     z-index: var(--z-index);
 
     position: relative;
 
     h2 {
-      @include text.clamp(1);
+      @include text.truncate;
+      grid-column-start: 2;
+      text-align: center;
     }
 
     button {
@@ -169,6 +186,8 @@
       align-items: center;
       padding: 0;
 
+      justify-self: flex-end;
+
       &:active,
       &:focus,
       &:hover {
@@ -176,20 +195,14 @@
         border-radius: var(--border-radius);
       }
     }
-
-    &:after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: var(--modal-padding-x);
-
-      width: 78px;
-
-      border-bottom: 1px solid var(--background-contrast);
-    }
   }
 
   .content {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .container {
     position: relative;
 
     display: flex;
@@ -197,7 +210,10 @@
 
     flex: 1;
 
-    overflow-y: auto;
-    overflow-x: hidden;
+    overflow: hidden;
+    border-radius: 16px;
+
+    background: var(--overlay-content-background);
+    color: var(--overlay-content-background-contrast);
   }
 </style>

@@ -1,4 +1,4 @@
-import { Theme } from "../types/theme";
+import { Theme } from "$lib/types/theme";
 import { enumFromStringExists } from "./enum.utils";
 
 const isNode = (): boolean =>
@@ -42,7 +42,7 @@ export const applyTheme = ({
   documentElement.setAttribute(THEME_ATTRIBUTE, theme);
 
   const color: string =
-    getComputedStyle(documentElement).getPropertyValue("--card-background");
+    getComputedStyle(documentElement).getPropertyValue("--theme-color");
 
   // Update theme-color for mobile devices to customize the display of the page or of the surrounding user interface
   // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name/theme-color

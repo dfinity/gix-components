@@ -2,17 +2,16 @@
   import { i18n } from "$lib/stores/i18n";
   import IconMenu from "$lib/icons/IconMenu.svelte";
   import IconClose from "$lib/icons/IconClose.svelte";
-
-  export let open = false;
+  import { layoutMenuOpen } from "$lib/stores/layout.store";
 </script>
 
 <button
   data-tid="menu-toggle"
   class="icon-only"
-  on:click={() => (open = !open)}
-  aria-label={open ? $i18n.core.close : $i18n.core.menu}
+  on:click={() => layoutMenuOpen.set(!$layoutMenuOpen)}
+  aria-label={$layoutMenuOpen ? $i18n.core.close : $i18n.core.menu}
 >
-  {#if open}
+  {#if $layoutMenuOpen}
     <IconClose />
   {:else}
     <IconMenu />

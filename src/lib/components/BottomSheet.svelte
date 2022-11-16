@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { layoutBottomOffset } from "../stores/layout.store";
+  import { layoutBottomOffset } from "$lib/stores/layout.store";
   import { onDestroy } from "svelte";
 
   onDestroy(() => ($layoutBottomOffset = 0));
@@ -28,12 +28,15 @@
     right: 0;
     bottom: 0;
 
-    background: var(--background);
+    background: var(--card-background);
     box-shadow: var(--bottom-sheet-box-shadow);
 
     z-index: var(--bottom-sheet-z-index);
 
     padding-bottom: env(safe-area-inset-bottom);
+
+    border-top-left-radius: var(--border-radius-2x);
+    border-top-right-radius: var(--border-radius-2x);
 
     @include media.min-width(large) {
       position: relative;

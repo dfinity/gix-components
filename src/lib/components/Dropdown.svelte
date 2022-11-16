@@ -31,10 +31,7 @@
     align-items: center;
     justify-content: space-between;
 
-    border-radius: var(--element-border-radius);
-    box-shadow: var(--box-shadow);
-
-    padding: var(--padding-2x);
+    border-radius: var(--border-radius);
 
     width: var(--dropdown-width, auto);
 
@@ -42,19 +39,17 @@
     // https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-within
     // Matches an element if the element or any of its descendants are focused.
     &:focus-within {
-      outline: 2px solid var(--primary);
+      @include form.input-focus;
     }
 
+    overflow: hidden;
+
     select {
-      // Needed to keep the clickable area of the dropdown the whole width of the div.
       width: 100%;
-      // Apply the width to the content
-      box-sizing: content-box;
-      // Space for the caret icon.
-      padding-right: var(--padding-4x);
-      background: var(--card-background);
+      background: transparent;
       border: none;
-      border-radius: var(--element-border-radius);
+
+      padding: var(--padding-2x);
 
       appearance: none;
 
@@ -72,8 +67,9 @@
 
       pointer-events: none;
 
-      // Place the caret inside the select.
-      margin-left: calc(-1 * var(--padding-3x));
+      margin-right: var(--padding-1_5x);
+
+      color: var(--disable-contrast);
 
       // Size to match the line-height when font-size is 16px
       :global(svg) {
