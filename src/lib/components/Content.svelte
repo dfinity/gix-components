@@ -4,7 +4,6 @@
   import MenuButton from "$lib/components/MenuButton.svelte";
   import Back from "$lib/components/Back.svelte";
   import Backdrop from "$lib/components/Backdrop.svelte";
-  import { fade } from "svelte/transition";
   import { onDestroy } from "svelte";
 
   export let back = false;
@@ -23,17 +22,13 @@
 >
   <header>
     <Toolbar>
-      <div slot="start">
+      <svelte:fragment slot="start">
         {#if back}
-          <div transition:fade={{ duration: 125 }}>
-            <Back slot="back" on:nnsBack />
-          </div>
+          <Back slot="back" on:nnsBack />
         {:else}
-          <div transition:fade={{ duration: 125 }}>
-            <MenuButton />
-          </div>
+          <MenuButton />
         {/if}
-      </div>
+      </svelte:fragment>
 
       <slot name="title" />
 
