@@ -20,5 +20,9 @@
   button {
     height: var(--padding-4x);
     width: var(--padding-4x);
+
+    &.icon-only {
+      color: var(--tertiary);
+    }
   }
 </style>

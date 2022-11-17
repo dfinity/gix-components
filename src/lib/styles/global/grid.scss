@@ -3,7 +3,7 @@
 .card-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--padding-4x);
+  gap: var(--padding-2x);
   grid-auto-rows: minmax(0, max-content);
 
   @include media.min-width(medium) {

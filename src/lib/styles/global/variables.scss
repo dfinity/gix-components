@@ -35,7 +35,7 @@
   --bottom-sheet-z-index: calc(var(--overlay-z-index) + 2);
 
   --section-max-width: 800px;
-  --footer-height: 20vh;
+  --footer-height: calc(14vh + var(--padding));
 
   --animation-time-normal: 0.2s;
   --animation-time-short: 0.125s;
