@@ -62,6 +62,7 @@
 
   @supports (-webkit-touch-callout: none) {
     --dialog-height: -webkit-fill-available;
+    --alert-max-height: -webkit-fill-available;
   }
 
   @include media.min-width(medium) {
