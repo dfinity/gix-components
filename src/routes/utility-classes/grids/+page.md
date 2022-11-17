@@ -11,6 +11,7 @@ The grids are layout elements that can be used to present and spread the content
 
 - [Definition](#definition)
 - [Usage](#usage)
+- [Summary Grid](#summary-grid)
 - [Card Grid](#card-grid)
 - [Content Grid](#content-grid)
 
@@ -42,6 +43,61 @@ The grids follow a 12 columns-sizing approach. According the various [breakpoint
 <h2 id="usage">Usage</h2>
 
 Unlike components, the grids can be applied to any HTML elements through the use of utility classes - styles that are available globally.
+
+<h2 id="summary-grid">Summary Grid</h2>
+
+Commonly use to present summaries information, the global `.summary-grid` style distribute its children according the window size and menu width as well.
+
+```html
+<div class="summary-grid">
+  <Card>
+    <h2 class="title" slot="start">Title A.</h2>
+  </Card>
+
+  <Card>
+    <h2 class="title" slot="start">Title B.</h2>
+  </Card>
+</div>
+```
+
+### Showcase
+
+<div class="summary-grid">
+  <Card>
+    <h2 class="title" slot="start">Summary 1</h2>
+
+    <DocsLoremIpsum />
+
+  </Card>
+
+  <Card>
+    <h2 class="title" slot="start">Summary 2</h2>
+
+    <DocsLoremIpsum />
+
+  </Card>
+
+  <Card>
+    <h2 class="title" slot="start">Summary 3</h2>
+
+    <DocsLoremIpsum />
+
+  </Card>
+
+  <Card>
+    <h2 class="title" slot="start">Summary 4</h2>
+
+    <DocsLoremIpsum />
+
+  </Card>
+
+  <Card>
+    <h2 class="title" slot="start">Summary 5</h2>
+
+    <DocsLoremIpsum />
+
+  </Card>
+</div>
 
 <h2 id="card-grid">Card Grid</h2>
 

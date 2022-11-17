@@ -2,13 +2,14 @@
 
 The layout is defined for following viewport's breakpoints:
 
-| Breakpoint | Value    | Description         |
-| ---------- | -------- | ------------------- |
-| `xsmall`   | `320px`  | Extra small devices |
-| `small`    | `576px`  | Small               |
-| `medium`   | `768px`  | Medium              |
-| `large`    | `1024px` | Large               |
-| `xlarge`   | `1300px` | Extra large         |
+| Breakpoint   | Value    | Description                      |
+|--------------|----------|----------------------------------|
+| `xsmall`     | `320px`  | Extra small devices              |
+| `small`      | `576px`  | Small                            |
+| `medium`     | `768px`  | Medium                           |
+| `large`      | `1024px` | Large                            |
+| `xlarge`     | `1300px` | Extra large                      |
+| `xlargemenu` | `1540px` | Extra large including menu width |
 
 ## Usage
 

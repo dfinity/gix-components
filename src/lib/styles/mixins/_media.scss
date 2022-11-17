@@ -3,6 +3,8 @@ $breakpoint-small: 576px;
 $breakpoint-medium: 768px;
 $breakpoint-large: 1024px;
 $breakpoint-extra-large: 1300px;
+// = calc(var(--menu-width) + $breakpoint-extra-large)
+$breakpoint-extra-large-plus-menu: 1540px;
 
 @mixin min-width($breakpoint) {
   @if ($breakpoint == xsmall) {
@@ -23,6 +25,10 @@ $breakpoint-extra-large: 1300px;
     }
   } @else if ($breakpoint == xlarge) {
     @media (min-width: $breakpoint-extra-large) {
+      @content;
+    }
+  } @else if ($breakpoint == xlargemenu) {
+    @media (min-width: $breakpoint-extra-large-plus-menu) {
       @content;
     }
   } @else {

@@ -1,23 +1,47 @@
 @use "../mixins/media";
 
-.card-grid {
+.card-grid,
+.summary-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--padding-4x);
   grid-auto-rows: minmax(0, max-content);
 
-  @include media.min-width(medium) {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  @include media.min-width(xlarge) {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-
   :global(.card) {
     margin: 0;
     height: 100%;
     box-sizing: border-box;
+  }
+}
+
+.card-grid {
+  @include media.min-width(medium) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include media.min-width(xlarge) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.summary-grid {
+  @include media.min-width(medium) {
+    grid-template-columns: repeat(2, 1fr);
+    width: 85%;
+  }
+
+  @include media.min-width(large) {
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+  }
+  @include media.min-width(xlarge) {
+    grid-template-columns: repeat(2, 1fr);
+    width: 80%;
+  }
+
+  @include media.min-width(xlargemenu) {
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
   }
 }
 
