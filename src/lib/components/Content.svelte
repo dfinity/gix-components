@@ -37,7 +37,9 @@
   </header>
 
   <div class="scrollable-content" class:open={$layoutMenuOpen}>
-    <Backdrop on:nnsClose={() => layoutMenuOpen.set(false)} />
+    {#if $layoutMenuOpen}
+      <Backdrop on:nnsClose={() => layoutMenuOpen.set(false)} />
+    {/if}
 
     <slot />
   </div>
@@ -92,29 +94,9 @@
     overflow-y: auto;
   }
 
-  // Reusing the component <Backdrop> but animated and displayed with CSS only for UX performance reason
   .scrollable-content {
     & > :global(div.backdrop) {
-      opacity: 0;
-      visibility: hidden;
-
-      transition: opacity var(--animation-time-short);
-    }
-
-    // On smaller screen the menu is open on demand
-    &.open > :global(div.backdrop) {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    // On xlarge screen the menu is sticky so we do not display a backdrop even if .open is set
-    @include media.min-width(xlarge) {
-      &.open > :global(div.backdrop) {
-        opacity: 0;
-        visibility: hidden;
-
-        @include interaction.none;
-      }
+      z-index: var(--overlay-z-index);
     }
   }
 </style>
