@@ -22,6 +22,8 @@
     color: var(--menu-color);
     transition: color var(--animation-time-short) ease-in;
 
+    z-index: var(--menu-z-index);
+
     @include fonts.h5;
 
     text-decoration: none;
