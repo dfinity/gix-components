@@ -10,7 +10,7 @@
 
 <button
   on:click|stopPropagation={copyToClipboard}
-  aria-label={$i18n.core.copy}
+  aria-label={`${$i18n.core.copy}: ${value}`}
   class="icon-only"
 >
   <IconCopy />
@@ -20,5 +20,9 @@
   button {
     height: var(--padding-4x);
     width: var(--padding-4x);
+
+    &.icon-only {
+      color: var(--tertiary);
+    }
   }
 </style>
