@@ -16,7 +16,9 @@ describe("Copy", () => {
 
     const button = queryByRole("button");
 
-    expect(button?.getAttribute("aria-label")).toEqual(`Copy to clipboard`);
+    expect(button?.getAttribute("aria-label")).toEqual(
+      `Copy to clipboard: ${value}`
+    );
   });
 
   it("should copy value to clipboard", () => {
