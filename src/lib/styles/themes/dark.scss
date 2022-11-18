@@ -70,7 +70,12 @@
   --scrollbar-thumb-color: var(--content-color);
 
   // Badge
-  --card-badge-background: linear-gradient(113.27deg, #24133C 0%, #291641 49.25%, #29103C 100%);
+  --card-badge-background: linear-gradient(
+    113.27deg,
+    #24133c 0%,
+    #291641 49.25%,
+    #29103c 100%
+  );
   --card-badge-color: var(--content-color);
 
   // Custom backgrounds

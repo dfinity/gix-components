@@ -38,7 +38,11 @@
     --scrollbar-thumb-color: #9f9ba5;
 
     // Badge
-    --card-badge-background: linear-gradient(113.27deg, #D5C7EB 0%, #EDDCEA 100%);
+    --card-badge-background: linear-gradient(
+      113.27deg,
+      #d5c7eb 0%,
+      #eddcea 100%
+    );
 
     // Custom backgrounds
     --body-background: linear-gradient(
