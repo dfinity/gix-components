@@ -171,14 +171,12 @@
 
     width: var(--input-width);
 
-    --disabled-color: var(--card-background);
-
     &.disabled {
+      --disabled-color: rgba(var(--disable-contrast-rgb), 0.2);
       color: var(--disabled-color);
 
       input {
-        background: var(--background);
-        border: var(--input-border-size) solid var(--disabled-color);
+        border: var(--input-border-size) solid var(--disable);
         color: var(--disabled-color);
       }
     }

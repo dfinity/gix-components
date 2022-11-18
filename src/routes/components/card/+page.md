@@ -84,6 +84,12 @@ List of the mixins:
         <p>Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>
     </Card>
 
+    <Card disabled>
+        <h3>Disabled</h3>
+
+        <p>Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>
+    </Card>
+
     <Card withArrow>
         <h3>Arrow</h3>
 

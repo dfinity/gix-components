@@ -77,7 +77,12 @@
     }
 
     &.disabled {
-      background: var(--background-shade);
+      background: var(--input-background);
+      color: rgba(var(--disable-contrast-rgb), 0.2);
+
+      :global(*) {
+        color: inherit;
+      }
     }
 
     &.highlighted {
