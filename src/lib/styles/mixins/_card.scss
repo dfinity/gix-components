@@ -37,7 +37,6 @@
 }
 
 @mixin meta {
-  display: flex;
   @include display.space-between;
 
   margin: 0 0 var(--padding);

@@ -13,7 +13,9 @@ export const listIcons = (): SlugIcon[] => {
       })
         .match(/<svg.*svg\W*>/s)?.[0]
         .replace("height={size}", "")
-        .replace("width={size}", ""),
+        .replace("width={size}", "")
+        .replace("height={DEFAULT_ICON_SIZE}", "")
+        .replace("width={DEFAULT_ICON_SIZE}", ""),
     }))
     .filter(({ svg }) => svg !== undefined) as SlugIcon[];
 };
