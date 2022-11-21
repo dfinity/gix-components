@@ -49,7 +49,8 @@
       background: transparent;
       border: none;
 
-      padding: var(--padding) calc(5 * var(--padding)) var(--padding) var(--padding-2x);
+      padding: var(--padding) calc(5 * var(--padding)) var(--padding)
+        var(--padding-2x);
 
       appearance: none;
 
