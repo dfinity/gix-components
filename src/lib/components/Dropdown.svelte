@@ -34,6 +34,7 @@
 
 <style lang="scss">
   @use "../styles/mixins/form";
+  @use "../styles/mixins/text";
 
   .select {
     @include form.input;
@@ -81,6 +82,8 @@
       &:focus {
         outline: none;
       }
+
+      @include text.truncate;
     }
 
     .icon {
