@@ -55,6 +55,7 @@
       appearance: none;
 
       font-size: inherit;
+      font-weight: inherit;
 
       &:focus {
         outline: none;
