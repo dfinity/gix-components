@@ -49,11 +49,13 @@
       background: transparent;
       border: none;
 
-      padding: var(--padding-2x);
+      padding: var(--padding) calc(5 * var(--padding)) var(--padding)
+        var(--padding-2x);
 
       appearance: none;
 
       font-size: inherit;
+      font-weight: inherit;
 
       &:focus {
         outline: none;
@@ -70,6 +72,9 @@
       margin-right: var(--padding-1_5x);
 
       color: var(--disable-contrast);
+
+      position: absolute;
+      right: 0;
 
       // Size to match the line-height when font-size is 16px
       :global(svg) {
