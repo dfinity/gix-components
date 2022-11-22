@@ -7,10 +7,24 @@
   export let name: string;
   export let testId: string | undefined = undefined;
   export let disabled = false;
+
+  let showStart: boolean;
+  $: showStart = $$slots.start !== undefined;
 </script>
 
-<div>
-  <select {disabled} bind:value={selectedValue} {name} data-tid={testId}>
+<div class="select">
+  {#if showStart}
+    <div class="start">
+      <slot name="start" />
+    </div>
+  {/if}
+  <select
+    {disabled}
+    bind:value={selectedValue}
+    {name}
+    data-tid={testId}
+    class:offset={showStart}
+  >
     <slot />
   </select>
   <span class="icon">
@@ -20,8 +34,9 @@
 
 <style lang="scss">
   @use "../styles/mixins/form";
+  @use "../styles/mixins/text";
 
-  div {
+  .select {
     @include form.input;
 
     position: relative;
@@ -50,7 +65,14 @@
       border: none;
 
       padding: var(--padding) calc(5 * var(--padding)) var(--padding)
-        var(--padding-2x);
+        var(--select-offset-inner-start, var(--padding-2x));
+
+      &.offset {
+        --select-offset-inner-start: var(
+          --select-offset-start,
+          calc(5 * var(--padding))
+        );
+      }
 
       appearance: none;
 
@@ -60,6 +82,8 @@
       &:focus {
         outline: none;
       }
+
+      @include text.truncate;
     }
 
     .icon {
@@ -82,5 +106,12 @@
         height: 20px;
       }
     }
+  }
+
+  .start {
+    position: absolute;
+    left: 0;
+
+    pointer-events: none;
   }
 </style>
