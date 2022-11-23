@@ -64,12 +64,13 @@
       background: transparent;
       border: none;
 
-      padding: var(--padding) calc(5 * var(--padding)) var(--padding)
-        var(--select-offset-inner-start, var(--padding-2x));
+      --select-padding-inner-top-bottom: var(--select-padding-top-bottom, var(--padding-2x));
+      padding: var(--select-padding-inner-top-bottom) calc(5 * var(--padding)) var(--select-padding-inner-top-bottom)
+        var(--select-padding-inner-start, var(--padding-2x));
 
       &.offset {
-        --select-offset-inner-start: var(
-          --select-offset-start,
+        --select-padding-inner-start: var(
+          --select-padding-start,
           calc(5 * var(--padding))
         );
       }
