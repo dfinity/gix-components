@@ -88,6 +88,8 @@
     display: none;
     padding: 0 0 var(--padding-3x);
 
+    z-index: var(--menu-z-index);
+
     @media (min-height: 654px) {
       display: block;
     }

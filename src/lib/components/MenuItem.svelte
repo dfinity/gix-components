@@ -22,7 +22,7 @@
     color: var(--menu-color);
     transition: color var(--animation-time-short) ease-in;
 
-    z-index: var(--menu-z-index);
+    z-index: calc(var(--menu-z-index) + 1);
 
     @include fonts.h5;
 
