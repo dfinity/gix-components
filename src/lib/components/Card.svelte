@@ -78,7 +78,7 @@
 
     &.disabled {
       background: var(--input-background);
-      color: rgba(var(--disable-contrast-rgb), 0.2);
+      color: rgba(var(--disable-contrast-rgb), 0.8);
 
       :global(*) {
         color: inherit;

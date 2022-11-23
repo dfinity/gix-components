@@ -172,7 +172,7 @@
     width: var(--input-width);
 
     &.disabled {
-      --disabled-color: rgba(var(--disable-contrast-rgb), 0.2);
+      --disabled-color: rgba(var(--disable-contrast-rgb), 0.8);
       color: var(--disabled-color);
 
       input {
