@@ -1,3 +1,17 @@
+<script lang="ts">
+  import { onDestroy } from "svelte";
+  import { layoutContentScrollY } from "../stores/layout.store";
+
+  // 1024 is the $breakpoint-large size.
+  let innerWidth = 0;
+  $: innerWidth,
+    layoutContentScrollY.set(innerWidth < 1024 ? "auto" : "hidden");
+
+  onDestroy(() => layoutContentScrollY.set("auto"));
+</script>
+
+<svelte:window bind:innerWidth />
+
 <div class="island">
   <div class="scrollable-island">
     <slot />
