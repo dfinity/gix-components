@@ -31,7 +31,7 @@ table {
 
 // Spacing and font-size of the content
 main,
-div.scrollable-island {
+div.scrollable-island > div {
   & > h1:first-of-type {
     font-size: var(--font-size-huge);
   }
