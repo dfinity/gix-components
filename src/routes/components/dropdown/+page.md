@@ -31,7 +31,7 @@ Dropdown are form controls to select an option, or options, from a set of option
 | --------- | -------------------------------------------------------------------------------------------------- |
 | `start`   | An element that can be displayed over the `select` on its left side. e.g. useful to display icons. |
 
-If a slot `start` is provided but, its element is hided through CSS, the start padding can be adjusted with a CSS variable `--select-offset-start`.
+If a slot `start` is provided but, its element is hided through CSS, the start padding can be adjusted with a CSS variable `--select-padding-start`.
 
 ## Showcase
 
