@@ -11,9 +11,6 @@
   // Enhance UI contrast for readability
   export let contrast = false;
 
-  // Spread the content on the all page (full width and height) or within a "page"
-  export let layout: 'stretch' | 'page' = 'stretch';
-
   // Observed: nested component - bottom sheet - might not call destroy when navigating route and therefore offset might not be reseted which is not the case here
   onDestroy(() => ($layoutBottomOffset = 0));
 </script>
@@ -39,14 +36,12 @@
     </Toolbar>
   </header>
 
-  <div class="scrollable-content" class:open={$layoutMenuOpen} class:no-overflow={layout === 'page'}>
+  <div class="scrollable-content" class:open={$layoutMenuOpen}>
     {#if $layoutMenuOpen}
       <Backdrop on:nnsClose={() => layoutMenuOpen.set(false)} />
     {/if}
 
-    <div class:page={layout === 'page'}>
-      <slot />
-    </div>
+    <slot />
   </div>
 </div>
 
@@ -97,39 +92,11 @@
 
     overflow-x: hidden;
     overflow-y: auto;
-
-    @include media.min-width(large) {
-      &.no-overflow {
-        overflow-y: hidden;
-      }
-    }
   }
 
   .scrollable-content {
     & > :global(div.backdrop) {
       z-index: var(--z-index);
     }
-    .page {
-      background: var(--focus-background);
-      color: var(--focus-background-contrast);
-
-      @include media.min-width(large) {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-
-        border-radius: var(--border-radius-2x);
-
-        overflow-x: hidden;
-        overflow-y: auto;
-
-        width: 768px;
-        height: calc(100% - var(--padding-8x));
-
-        margin-top: var(--padding-2x);
-      }
-    }
   }
-
 </style>
