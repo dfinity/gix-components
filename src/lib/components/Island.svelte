@@ -25,6 +25,8 @@
     background: var(--focus-background);
     color: var(--focus-background-contrast);
 
+    height: 100%;
+
     ::-webkit-scrollbar {
       background: var(--focus-background);
     }
