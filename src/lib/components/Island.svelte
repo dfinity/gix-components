@@ -25,6 +25,10 @@
     background: var(--focus-background);
     color: var(--focus-background-contrast);
 
+    ::-webkit-scrollbar {
+      background: var(--focus-background);
+    }
+
     overflow: hidden;
 
     @include media.min-width(large) {
