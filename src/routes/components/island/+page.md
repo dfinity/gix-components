@@ -9,13 +9,13 @@ These lines are by the way displayed within such a component 🤪.
   <Title slot="title">My dapp page</Title>
 
   <Island>
-      <h1>Hello World</h1>
+    <h1>Hello World</h1>
   </Island>
 </Content>
 ```
 
 ## Slots
 
-| Slot name     | Description                |
-| ------------- |----------------------------|
-| Default slot  | The content of the island. |
+| Slot name    | Description                |
+| ------------ | -------------------------- |
+| Default slot | The content of the island. |
