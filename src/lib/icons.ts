@@ -10,7 +10,6 @@ export { default as IconError } from "./icons/IconError.svelte";
 export { default as IconExpandCircleDown } from "./icons/IconExpandCircleDown.svelte";
 export { default as IconExpandMore } from "./icons/IconExpandMore.svelte";
 export { default as IconExplore } from "./icons/IconExplore.svelte";
-export { default as IconFiberNew } from "./icons/IconFiberNew.svelte";
 export { default as IconFilter } from "./icons/IconFilter.svelte";
 export { default as IconHistoryToggleOff } from "./icons/IconHistoryToggleOff.svelte";
 export { default as IconInfo } from "./icons/IconInfo.svelte";
