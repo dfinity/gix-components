@@ -26,7 +26,7 @@
 <Layout>
   <DocsMenu slot="menu-items" on:click />
 
-  <Content {back} on:nnsBack={async () => await goBack()}>
+  <Content {back} on:nnsBack={async () => await goBack()} layout="page">
     <HeaderTitle slot="title">GIX Components</HeaderTitle>
 
     <DocsAccountMenu slot="toolbar-end" />
