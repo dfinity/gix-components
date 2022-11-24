@@ -55,12 +55,6 @@
       flex: none;
     }
 
-    :global(:nth-child(3)) {
-      margin: 0 var(--padding-2x) 0 auto;
-      // preserve icon size
-      flex: none;
-    }
-
     :global(svg) {
       width: var(--padding-3x);
       height: var(--padding-3x);
@@ -72,6 +66,6 @@
     overflow: hidden;
     text-overflow: ellipsis;
 
-    margin: 0 0 0 var(--padding-0_5x);
+    margin: 0 var(--padding) 0 var(--padding-2x);
   }
 </style>
