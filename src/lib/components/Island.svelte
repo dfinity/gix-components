@@ -1,11 +1,11 @@
 <script lang="ts">
   import { onDestroy } from "svelte";
   import { layoutContentScrollY } from "../stores/layout.store";
+  import { BREAKPOINT_LARGE } from "../constants/constants";
 
-  // 1024 is the $breakpoint-large size.
   let innerWidth = 0;
   $: innerWidth,
-    layoutContentScrollY.set(innerWidth < 1024 ? "auto" : "hidden");
+    layoutContentScrollY.set(innerWidth < BREAKPOINT_LARGE ? "auto" : "hidden");
 
   onDestroy(() => layoutContentScrollY.set("auto"));
 </script>
