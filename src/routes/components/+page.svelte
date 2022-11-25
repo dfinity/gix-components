@@ -94,6 +94,12 @@
     </p>
   </Card>
 
+  <Card role="link" on:click={() => goto("/components/island")}>
+    <h2 class="title" slot="start">Island</h2>
+
+    <p>Scope your content within an island.</p>
+  </Card>
+
   <Card role="link" on:click={() => goto("/components/key-value")}>
     <h2 class="title" slot="start">Key Value</h2>
     <p>Render a label and its value.</p>

@@ -1,5 +1,9 @@
 <script lang="ts">
-  import { layoutBottomOffset, layoutMenuOpen } from "$lib/stores/layout.store";
+  import {
+    layoutBottomOffset,
+    layoutContentScrollY,
+    layoutMenuOpen,
+  } from "$lib/stores/layout.store";
   import Toolbar from "$lib/components/Toolbar.svelte";
   import MenuButton from "$lib/components/MenuButton.svelte";
   import Back from "$lib/components/Back.svelte";
@@ -17,7 +21,7 @@
 
 <div
   class="content"
-  style={`--layout-bottom-offset: ${$layoutBottomOffset}px`}
+  style={`--layout-bottom-offset: ${$layoutBottomOffset}px; --content-overflow-y: ${$layoutContentScrollY}`}
   class:contrast
 >
   <header>
@@ -91,7 +95,7 @@
     height: 100%;
 
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: var(--content-overflow-y, auto);
   }
 
   .scrollable-content {

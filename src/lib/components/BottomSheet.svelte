@@ -1,12 +1,13 @@
 <script lang="ts">
   import { layoutBottomOffset } from "$lib/stores/layout.store";
   import { onDestroy } from "svelte";
+  import { BREAKPOINT_LARGE } from "../constants/constants";
 
   onDestroy(() => ($layoutBottomOffset = 0));
 
-  // 1024 is the $breakpoint-large size. See also the CSS code of this component. On large screen the bottom sheet is not sticky.
+  // See also the CSS code of this component. On large screen the bottom sheet is not sticky.
   const updateBottomOffset = () =>
-    ($layoutBottomOffset = innerWidth < 1024 ? height : 0);
+    ($layoutBottomOffset = innerWidth < BREAKPOINT_LARGE ? height : 0);
 
   let height = 0;
   let innerWidth = 0;
