@@ -20,7 +20,8 @@
   afterNavigate((navigation) => (navHistory = [navigation, ...navHistory]));
 
   $: back =
-    ($page.routeId ?? "").split("/").filter((match) => match !== "").length > 1;
+    ($page.route.id ?? "").split("/").filter((match) => match !== "").length >
+    1;
 </script>
 
 <Layout>
