@@ -20,15 +20,15 @@
 
 <style lang="scss">
   @use "../styles/mixins/media";
+  @use "../styles/mixins/content";
 
   .island {
-    background: var(--background);
-    color: var(--background-contrast);
+    @include content.island;
 
     height: 100%;
 
     ::-webkit-scrollbar {
-      background: var(--background);
+      @include content.island;
     }
 
     overflow: hidden;

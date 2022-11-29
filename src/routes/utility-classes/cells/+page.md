@@ -25,6 +25,9 @@ Some pre-defined utilities to set spaces for grid's cells.
 | -------------------------------------- | ---------------------- |
 | header, title, first information, etc. | `content-cell-title`   |
 | related content or details             | `content-cell-details` |
+| display as cell as an "Island"         | `content-cell-island`  |
+
+> Unlike the [Island](/components/island) component, displaying a cell as an "Island" has no effect on the scroll - i.e. it does not produce any inner scrolling and is only cosmetic.
 
 ### Showcase
 
@@ -37,7 +40,7 @@ Some pre-defined utilities to set spaces for grid's cells.
         </div>
     </div>
 
-    <div class="content-b">
+    <div class="content-b content-cell-island">
         <h2 class="content-cell-title">Lorem ipsum</h2>
 
         <div class="content-cell-details">
