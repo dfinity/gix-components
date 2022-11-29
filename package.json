@@ -1,6 +1,6 @@
 {
   "name": "@dfinity/gix-components",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "scripts": {
     "dev": "npm run i18n && vite dev",
     "build": "npm run i18n && vite build",
@@ -48,6 +48,9 @@
   "type": "module",
   "dependencies": {
     "dompurify": "^2.4.1"
+  },
+  "peerDependencies": {
+    "svelte": "^3.0.0"
   },
   "keywords": [
     "ui",
