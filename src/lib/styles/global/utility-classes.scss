@@ -1,3 +1,5 @@
+@use "../mixins/content";
+
 // text color helper classes
 .value {
   color: var(--value-color);
@@ -34,5 +36,12 @@
 
   display: flex;
   flex-direction: column;
-  gap: calc(var(--padding) * 3 / 4);
+  gap: var(--padding);
+}
+
+.content-cell-island {
+  @include content.island;
+
+  padding: var(--padding-2x);
+  border-radius: var(--border-radius);
 }
