@@ -68,8 +68,8 @@ button {
 
     &[disabled],
     &[disabled]:hover {
-      background: var(--disable);
-      color: var(--disable-contrast);
+      background: var(--background-disable);
+      color: var(--background-disable-contrast);
       cursor: default;
       box-shadow: none;
     }
@@ -82,18 +82,14 @@ button {
   &.primary {
     background: linear-gradient(
       80.26deg,
-      var(--primary) 23.69%,
-      var(--secondary) 143.36%
+      var(--primary) 4.98%,
+      var(--secondary) 90.33%
     );
     color: var(--primary-contrast);
 
     &:hover,
     &:focus {
-      background: linear-gradient(
-        93deg,
-        var(--primary-shade) 36.37%,
-        var(--secondary-shade) 108.11%
-      );
+      background: var(--primary-tint);
     }
   }
 
@@ -116,10 +112,18 @@ button {
   &.success {
     background: var(--positive-emphasis);
     color: var(--positive-emphasis-contrast);
+
+    &:not([disabled]):hover {
+      filter: contrast(1.25);
+    }
   }
 
   &.danger {
     background: var(--negative-emphasis);
     color: var(--negative-emphasis-contrast);
+
+    &:not([disabled]):hover {
+      filter: contrast(1.25);
+    }
   }
 }
