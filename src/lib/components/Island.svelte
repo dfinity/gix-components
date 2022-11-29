@@ -22,13 +22,13 @@
   @use "../styles/mixins/media";
 
   .island {
-    background: var(--focus-background);
-    color: var(--focus-background-contrast);
+    background: var(--background);
+    color: var(--background-contrast);
 
     height: 100%;
 
     ::-webkit-scrollbar {
-      background: var(--focus-background);
+      background: var(--background);
     }
 
     overflow: hidden;
