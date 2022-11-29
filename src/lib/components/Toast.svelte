@@ -75,15 +75,17 @@
 </div>
 
 <style lang="scss">
+  @use "../styles/mixins/overlay";
+
   .toast {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     gap: var(--padding-1_5x);
 
+    @include overlay.colors;
+
     border-radius: var(--border-radius);
-    background: var(--overlay-background);
-    color: var(--overlay-background-contrast);
     box-shadow: var(--strong-shadow, 8px 8px 16px 0 rgba(0, 0, 0, 0.25));
 
     padding: var(--padding-1_5x);

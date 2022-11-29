@@ -17,14 +17,17 @@
     /* Design Light/7969C0 (8%)-light */
     --input-border-color: #d9d2ea;
 
+    // Buttons custom colors
+    --button-secondary-color: var(--primary);
+
     // Text color
     --value-color: #000;
-    --label-color: var(--text4-color);
+    --label-color: var(--text-color);
     --description-color: #574d6a;
 
     // Overlays - based on dark card background rgb color
     --backdrop: rgba(185, 181, 204, 0.6);
-    --backdrop-contrast: var(--text4-color);
+    --backdrop-contrast: var(--text-color);
     --backdrop-filter: blur(4px);
 
     // Disable
@@ -67,7 +70,7 @@
       #eed4e1 46.8%,
       #e8d7e5 100%
     );
-    --content-color: var(--text4-color);
+    --content-color: var(--text-color);
     --content-contrast-background: var(--card-background);
     --content-contrast-color: var(--card-background-contrast);
 
@@ -84,39 +87,39 @@
     --text5-color: #efedf8;
     --text5-color-rgb: 239, 237, 248;
 
-    /* Light/Text/Text-04 */
-    --text4-color: #3e374c;
-    --text4-color-rgb: 62, 55, 76;
+    /* Light/Text/Text */
+    --text-color: #3e374c;
+    --text-color-rgb: 62, 55, 76;
 
     /* Design: Extracted from Light/7969C0 (8%)-light */
     --input-background: #e1dcef;
     --input-background-rgb: 225, 220, 239;
-    --input-background-contrast: var(--text4-color);
-    --input-background-contrast-rgb: var(--text4-color-rgb);
+    --input-background-contrast: var(--text-color);
+    --input-background-contrast-rgb: var(--text-color-rgb);
     --input-background-shade: #c6c2d2;
     --input-background-tint: #e4e0f1;
 
     /* Design: Light/Bg/Background */
     --focus-background: #f4f1fa;
     --focus-background-rgb: 244, 241, 250;
-    --focus-background-contrast: var(--text4-color);
-    --focus-background-contrast-rgb: var(--text4-color-rgb);
+    --focus-background-contrast: var(--text-color);
+    --focus-background-contrast-rgb: var(--text-color-rgb);
     --focus-background-shade: #d7d4dc;
     --focus-background-tint: #f5f2fb;
 
     /* Design: Dark/Bg/Background-04 */
     --card-background: #edeaf7;
     --card-background-rgb: 237, 234, 247;
-    --card-background-contrast: var(--text4-color);
-    --card-background-contrast-rgb: var(--text4-color-rgb);
+    --card-background-contrast: var(--text-color);
+    --card-background-contrast-rgb: var(--text-color-rgb);
     --card-background-shade: #d1ced9;
     --card-background-tint: #efecf8;
 
     /* Design: Light/Bg/Background-01 */
     --background: #ebe5f4;
     --background-rgb: 235, 229, 244;
-    --background-contrast: var(--text4-color);
-    --background-contrast-rgb: var(--text4-color-rgb);
+    --background-contrast: var(--text-color);
+    --background-contrast-rgb: var(--text-color-rgb);
     --background-shade: #cfcad7;
     --background-tint: #ede8f5;
 

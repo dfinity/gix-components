@@ -72,6 +72,7 @@
   @use "../styles/mixins/text";
   @use "../styles/mixins/display";
   @use "../styles/mixins/media";
+  @use "../styles/mixins/overlay";
 
   .modal {
     position: fixed;
@@ -91,8 +92,7 @@
     display: flex;
     flex-direction: column;
 
-    background: var(--overlay-background);
-    color: var(--overlay-background-contrast);
+    @include overlay.colors;
 
     overflow: hidden;
 
