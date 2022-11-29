@@ -120,19 +120,27 @@
     --background-shade: #cfcad7;
     --background-tint: #ede8f5;
 
+    /* Design: Light/Bg/Background-03 */
+    --background-disable: #e7dff2;
+    --background-disable-rgb: 231, 223, 242;
+    --background-disable-contrast: var(--disable-contrast);
+    --background-disable-contrast-rgb: var(--disable-contrastrgb);
+    --background-disable-shade: #cbc4d5;
+    --background-disable-tint: #e9e2f3;
+
     --primary: #8266d6;
     --primary-rgb: 130, 102, 214;
-    --primary-contrast: #f4f1fa;
-    --primary-contrast-rgb: 244, 241, 250;
+    --primary-contrast: #ffffff;
+    --primary-contrast-rgb: 255, 255, 255;
     --primary-shade: #725abc;
     --primary-tint: #8f75da;
 
-    --secondary: #d9acd6;
-    --secondary-rgb: 217, 172, 214;
+    --secondary: #dd87c2;
+    --secondary-rgb: 221, 135, 194;
     --secondary-contrast: #000000;
     --secondary-contrast-rgb: 0, 0, 0;
-    --secondary-shade: #bf97bc;
-    --secondary-tint: #ddb4da;
+    --secondary-shade: #c277ab;
+    --secondary-tint: #e093c8;
 
     --warning-emphasis: #fabc2a;
     --warning-emphasis-rgb: 250, 188, 42;

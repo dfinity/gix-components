@@ -147,6 +147,14 @@
   --background-shade: #33274d;
   --background-tint: #4e4168;
 
+  /* Design: Dark/Bg/Background-01 */
+  --background-disable: #3d2d5c;
+  --background-disable-rgb: 61, 45, 92;
+  --background-disable-contrast: var(--disable-contrast);
+  --background-disable-contrast-rgb: var(--disable-contrastrgb);
+  --background-disable-shade: #362851;
+  --background-disable-tint: #50426c;
+
   --primary: #6426c9;
   --primary-rgb: 100, 38, 201;
   --primary-contrast: var(--text-color);
@@ -156,8 +164,8 @@
 
   --secondary: #a25fc3;
   --secondary-rgb: 162, 95, 195;
-  --secondary-contrast: #ffffff;
-  --secondary-contrast-rgb: 255, 255, 255;
+  --secondary-contrast: var(--text-color);
+  --secondary-contrast-rgb: var(--text-color-rgb);
   --secondary-shade: #8f54ac;
   --secondary-tint: #ab6fc9;
 
