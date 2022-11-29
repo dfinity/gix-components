@@ -1,0 +1,5 @@
+@mixin colors {
+  background: var(--overlay-background);
+  color: var(--overlay-background-contrast);
+  --button-secondary-background: var(--focus-background);
+}
