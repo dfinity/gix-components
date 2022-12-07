@@ -34,3 +34,4 @@ export { default as Toggle } from "./components/Toggle.svelte";
 export { default as Toolbar } from "./components/Toolbar.svelte";
 export { default as Value } from "./components/Value.svelte";
 export { default as WizardModal } from "./components/WizardModal.svelte";
+export { default as ExternalLink } from "./components/ExternalLink.svelte";

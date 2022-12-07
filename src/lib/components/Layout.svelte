@@ -1,12 +1,19 @@
 <script lang="ts">
   import SplitPane from "$lib/components/SplitPane.svelte";
   import Menu from "$lib/components/Menu.svelte";
+  import type {SvelteComponent} from "svelte";
+  import StretchPane from "$lib/components/StretchPane.svelte";
+
+  export let layout: "split" | "stretch" = "split";
+
+  let component: typeof SvelteComponent;
+  $: component = layout === "stretch" ? StretchPane : SplitPane;
 </script>
 
-<SplitPane>
-  <Menu slot="menu">
+<svelte:component this={component}>
+  <Menu slot="menu" sticky={layout === "split"}>
     <slot name="menu-items" />
   </Menu>
 
   <slot />
-</SplitPane>
+</svelte:component>

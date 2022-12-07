@@ -32,3 +32,4 @@ export { default as IconUsers } from "./icons/IconUsers.svelte";
 export { default as IconWallet } from "./icons/IconWallet.svelte";
 export { default as IconWarning } from "./icons/IconWarning.svelte";
 export { default as IconWest } from "./icons/IconWest.svelte";
+export { default as IconGitHub } from "./icons/IconGitHub.svelte";
