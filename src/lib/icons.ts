@@ -11,6 +11,7 @@ export { default as IconExpandCircleDown } from "./icons/IconExpandCircleDown.sv
 export { default as IconExpandMore } from "./icons/IconExpandMore.svelte";
 export { default as IconExplore } from "./icons/IconExplore.svelte";
 export { default as IconFilter } from "./icons/IconFilter.svelte";
+export { default as IconGitHub } from "./icons/IconGitHub.svelte";
 export { default as IconHistoryToggleOff } from "./icons/IconHistoryToggleOff.svelte";
 export { default as IconInfo } from "./icons/IconInfo.svelte";
 export { default as IconLightMode } from "./icons/IconLightMode.svelte";
@@ -32,4 +33,3 @@ export { default as IconUsers } from "./icons/IconUsers.svelte";
 export { default as IconWallet } from "./icons/IconWallet.svelte";
 export { default as IconWarning } from "./icons/IconWarning.svelte";
 export { default as IconWest } from "./icons/IconWest.svelte";
-export { default as IconGitHub } from "./icons/IconGitHub.svelte";

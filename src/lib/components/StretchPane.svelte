@@ -1,26 +1,26 @@
 <script lang="ts">
-    import { layoutMenuOpen } from "../stores/layout.store";
+  import { layoutMenuOpen } from "../stores/layout.store";
 
-    let innerWidth = 0;
+  let innerWidth = 0;
 
-    // Close menu if it was opened and the viewport width becomes larger than large screen (where the menu becomes sticky)
-    const onWindowSizeChange = (innerWidth: number) => {
-        if (!$layoutMenuOpen) {
-            return;
-        }
+  // Close menu if it was opened and the viewport width becomes larger than large screen (where the menu becomes sticky)
+  const onWindowSizeChange = (innerWidth: number) => {
+    if (!$layoutMenuOpen) {
+      return;
+    }
 
-        // The media query breakpoint to stick the menu is media large 1024px
-        layoutMenuOpen.set(innerWidth > 1024 ? false : $layoutMenuOpen);
-    };
+    // The media query breakpoint to stick the menu is media large 1024px
+    layoutMenuOpen.set(innerWidth > 1024 ? false : $layoutMenuOpen);
+  };
 
-    $: onWindowSizeChange(innerWidth);
+  $: onWindowSizeChange(innerWidth);
 </script>
 
 <svelte:window bind:innerWidth />
 
 <div class="stretch-pane">
-    <slot name="menu" />
-    <slot />
+  <slot name="menu" />
+  <slot />
 </div>
 
 <style lang="scss">

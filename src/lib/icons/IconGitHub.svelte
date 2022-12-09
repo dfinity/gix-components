@@ -1,6 +1,6 @@
 <!-- source: ionicons -->
 <script lang="ts">
-  import {DEFAULT_ICON_SIZE} from "$lib/constants/constants";
+  import { DEFAULT_ICON_SIZE } from "$lib/constants/constants";
 </script>
 
 <svg
