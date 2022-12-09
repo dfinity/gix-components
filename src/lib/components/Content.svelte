@@ -97,6 +97,8 @@
   }
 
   .scrollable-content {
-    --backdrop-z-index: var(--z-index);
+    & > :global(div.backdrop) {
+      --backdrop-z-index: var(--z-index);
+    }
   }
 </style>
