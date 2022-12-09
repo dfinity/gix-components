@@ -35,6 +35,8 @@
 
     backdrop-filter: var(--backdrop-filter);
 
+    z-index: var(--backdrop-z-index);
+
     @include interaction.tappable;
 
     &.disablePointerEvents {
