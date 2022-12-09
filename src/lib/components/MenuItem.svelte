@@ -2,9 +2,11 @@
   export let href: string;
   export let selected = false;
   export let testId: string | undefined = undefined;
+  export let rel: string | undefined = undefined;
+  export let target: "_blank" | undefined = undefined;
 </script>
 
-<a role="menuitem" {href} class:selected data-tid={testId} on:click>
+<a role="menuitem" {href} {rel} {target} class:selected data-tid={testId} on:click>
   <slot name="icon" />
   <span><slot /></span>
   <slot name="statusIcon" />
