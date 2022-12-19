@@ -33,3 +33,7 @@ export { default as IconUsers } from "./icons/IconUsers.svelte";
 export { default as IconWallet } from "./icons/IconWallet.svelte";
 export { default as IconWarning } from "./icons/IconWarning.svelte";
 export { default as IconWest } from "./icons/IconWest.svelte";
+export { default as IconLaunchpad } from "./icons/IconLaunchpad.svelte";
+export { default as IconNeurons } from "./icons/IconNeurons.svelte";
+export { default as IconTokens } from "./icons/IconTokens.svelte";
+export { default as IconVote } from "./icons/IconVote.svelte";
