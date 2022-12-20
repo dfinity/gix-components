@@ -20,6 +20,7 @@
   class="backdrop"
   on:click|stopPropagation={close}
   class:disablePointerEvents
+  data-tid="backdrop"
 />
 
 <style lang="scss">
