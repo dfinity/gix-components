@@ -62,6 +62,11 @@
     <p>Dropdown displays a list of selectable options for a user.</p>
   </Card>
 
+  <Card role="link" on:click={() => goto("/components/external-link")}>
+    <h2 class="title" slot="start">External Link</h2>
+    <p>A wrapper to render quickly external link.</p>
+  </Card>
+
   <Card role="link" on:click={() => goto("/components/header-title")}>
     <h2 class="title" slot="start">Header Title</h2>
 

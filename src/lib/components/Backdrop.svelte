@@ -20,6 +20,7 @@
   class="backdrop"
   on:click|stopPropagation={close}
   class:disablePointerEvents
+  data-tid="backdrop"
 />
 
 <style lang="scss">
@@ -34,6 +35,8 @@
     color: var(--backdrop-contrast);
 
     backdrop-filter: var(--backdrop-filter);
+
+    z-index: var(--backdrop-z-index);
 
     @include interaction.tappable;
 

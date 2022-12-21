@@ -7,8 +7,8 @@
   import Toolbar from "$lib/components/Toolbar.svelte";
   import MenuButton from "$lib/components/MenuButton.svelte";
   import Back from "$lib/components/Back.svelte";
-  import Backdrop from "$lib/components/Backdrop.svelte";
   import { onDestroy } from "svelte";
+  import ContentBackdrop from "$lib/components/ContentBackdrop.svelte";
 
   export let back = false;
 
@@ -41,9 +41,7 @@
   </header>
 
   <div class="scrollable-content" class:open={$layoutMenuOpen}>
-    {#if $layoutMenuOpen}
-      <Backdrop on:nnsClose={() => layoutMenuOpen.set(false)} />
-    {/if}
+    <ContentBackdrop />
 
     <slot />
   </div>
@@ -100,7 +98,7 @@
 
   .scrollable-content {
     & > :global(div.backdrop) {
-      z-index: var(--z-index);
+      --backdrop-z-index: var(--z-index);
     }
   }
 </style>

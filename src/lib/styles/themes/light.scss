@@ -45,23 +45,12 @@
 
     // Custom backgrounds
     --body-background: linear-gradient(
-        360deg,
-        rgba(239, 237, 248, 0.18) 0%,
-        rgba(239, 237, 248, 0.3) 23.97%
+        245.71deg,
+        rgba(200, 173, 203, 0.3) 15.55%,
+        rgba(220, 173, 202, 0.12) 35.61%,
+        rgba(220, 173, 202, 0) 59.06%
       ),
-      linear-gradient(
-        116.49deg,
-        #220bad 0%,
-        rgba(68, 37, 167, 0.867455) 8.78%,
-        rgba(220, 88, 88, 0.4) 46.37%
-      ),
-      linear-gradient(
-        251.87deg,
-        #9db6f6 0%,
-        #c1aef6 32.2%,
-        #c39ef2 63.56%,
-        #f9cab1 100%
-      );
+      linear-gradient(182.9deg, #5b4bb8 4.82%, #c18cc1 52.19%, #edada5 98.81%);
     --body-color: var(--text5-color);
 
     --content-background: linear-gradient(

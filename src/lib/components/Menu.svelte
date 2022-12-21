@@ -1,6 +1,8 @@
 <script lang="ts">
   import MenuBackground from "./MenuBackground.svelte";
   import { layoutMenuOpen } from "$lib/stores/layout.store";
+
+  export let sticky = true;
 </script>
 
 <div role="menu">
@@ -8,6 +10,7 @@
 
   <div
     class="inner"
+    class:sticky
     data-tid="menu-inner"
     class:open={$layoutMenuOpen}
     on:click={() => layoutMenuOpen.set(false)}
@@ -23,6 +26,8 @@
 
   div[role="menu"] {
     @include interaction.initial;
+
+    box-sizing: border-box;
 
     z-index: var(--menu-z-index);
 
@@ -54,10 +59,12 @@
 
     margin-left: -100%;
 
-    // On xlarge screen the menu is always open
-    @include media.min-width(xlarge) {
-      width: var(--menu-width);
-      margin-left: 0;
+    &.sticky {
+      // On xlarge screen the menu can be always open
+      @include media.min-width(xlarge) {
+        width: var(--menu-width);
+        margin-left: 0;
+      }
     }
 
     // On smaller screen the menu is open on demand
