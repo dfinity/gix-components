@@ -27,18 +27,18 @@ On the contrary, with a `stretch`, the inner part uses the entire space regardle
 </Layout>
 ```
 
+## Properties
+
+| Property | Description                          | Type                 | Default |
+| -------- | ------------------------------------ | -------------------- | ------- |
+| `layout` | Renders a "split" or "stretch" pane. | `split` or `stretch` | `split` |
+
 ## Slots
 
 | Slot name    | Description                                         |
 | ------------ | --------------------------------------------------- |
 | Default slot | The content. See note about composition here under. |
 | `menu-items` | The items of the menu - i.e. the links of the menu. |
-
-## Properties
-
-| Property | Description                          | Type                 | Default |
-| -------- | ------------------------------------ | -------------------- | ------- |
-| `layout` | Renders a "split" or "stretch" pane. | `split` or `stretch` | `split` |
 
 ### Composition
 
