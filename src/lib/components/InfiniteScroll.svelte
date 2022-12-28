@@ -43,9 +43,6 @@
     options
   );
 
-  // We disconnect previous observer before any update. We do want to trigger an intersection in case of layout shifting.
-  beforeUpdate(() => observer.disconnect());
-
   afterUpdate(() => {
     // The DOM has been updated. We reset the observer to the current last HTML element of the infinite list.
 
