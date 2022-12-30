@@ -16,7 +16,7 @@
     threshold: 0,
   };
 
-  let container: HTMLUListElement;
+  let container: HTMLUListElement | undefined;
 
   const dispatch = createEventDispatcher();
 
@@ -43,14 +43,26 @@
     options
   );
 
+  // Svelte workaround: beforeUpdate is called twice when bindings are used -> https://github.com/sveltejs/svelte/issues/6016
+  let skipContainerNextUpdate = false;
+
   // We disconnect previous observer before any update. We do want to trigger an intersection in case of layout shifting.
-  beforeUpdate(() => observer.disconnect());
+  beforeUpdate(() => {
+    if (!skipContainerNextUpdate) {
+      observer.disconnect();
+    }
+
+    skipContainerNextUpdate = container === undefined;
+  });
 
   afterUpdate(() => {
     // The DOM has been updated. We reset the observer to the current last HTML element of the infinite list.
 
     // If not children, no element to observe
-    if (container.lastElementChild === null) {
+    if (
+      container?.lastElementChild === null ||
+      container?.lastElementChild === undefined
+    ) {
       return;
     }
 
