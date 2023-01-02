@@ -12,9 +12,6 @@
 
   export let back = false;
 
-  // Enhance UI contrast for readability
-  export let contrast = false;
-
   // Observed: nested component - bottom sheet - might not call destroy when navigating route and therefore offset might not be reseted which is not the case here
   onDestroy(() => ($layoutBottomOffset = 0));
 </script>
@@ -22,7 +19,6 @@
 <div
   class="content"
   style={`--layout-bottom-offset: ${$layoutBottomOffset}px; --content-overflow-y: ${$layoutContentScrollY}`}
-  class:contrast
 >
   <header>
     <Toolbar>
@@ -59,11 +55,6 @@
     background: var(--content-background);
     color: var(--content-color);
     box-shadow: var(--content-box-shadow);
-
-    &.contrast {
-      background: var(--content-contrast-background);
-      color: var(--content-contrast-color);
-    }
 
     transition: background var(--animation-time-normal)
       cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
