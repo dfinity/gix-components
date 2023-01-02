@@ -65,6 +65,9 @@
   .start {
     min-height: var(--content-start-height);
 
+    background: var(--content-start-background);
+    color: var(--content-start-color);
+
     @include media.min-width(large) {
       display: block;
       min-width: var(--content-start-width);

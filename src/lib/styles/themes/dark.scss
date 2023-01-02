@@ -69,7 +69,7 @@
   --line: #4b3870;
 
   // Scrollbar
-  --scrollbar-thumb-background: var(--content-background);
+  --scrollbar-thumb-background: transparent;
   --scrollbar-thumb-color: var(--content-color);
 
   // Custom backgrounds
@@ -88,6 +88,8 @@
     #29103c 100%
   );
   --content-color: var(--text-color);
+  --content-start-background: rgba(61, 45, 92, 0.4);
+  --content-start-color: var(--text-color);
 
   --overlay-background: var(--background);
   --overlay-background-contrast: var(--background-contrast);
