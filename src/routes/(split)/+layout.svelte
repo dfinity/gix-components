@@ -2,10 +2,11 @@
   import SplitContent from "$lib/components/SplitContent.svelte";
   import HeaderTitle from "$lib/components/HeaderTitle.svelte";
   import DocsAccountMenu from "$docs/components/DocsAccountMenu.svelte";
+  import DocsComponentsNav from "$docs/components/DocsComponentsNav.svelte";
 </script>
 
 <SplitContent>
-  <div slot="start">ABCD</div>
+  <DocsComponentsNav slot="start" />
 
   <HeaderTitle slot="title">GIX Components</HeaderTitle>
 

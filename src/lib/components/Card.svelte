@@ -8,6 +8,7 @@
   export let testId = "card";
   export let highlighted: boolean | undefined = undefined;
   export let withArrow: boolean | undefined = undefined;
+  export let transparent = false;
 
   let clickable = false;
 
@@ -31,6 +32,7 @@
   class:selected
   class:disabled
   class:highlighted
+  class:transparent
   aria-disabled={disabled}
   aria-checked={ariaChecked}
   aria-label={ariaLabel}
@@ -74,6 +76,11 @@
 
     &.selected {
       outline: 2px solid var(--primary);
+    }
+
+    &.transparent {
+      background: transparent;
+      box-shadow: none;
     }
 
     &.disabled {

@@ -21,7 +21,7 @@
   </Card>
 
   <Card role="link" on:click={() => goto("/components/busy-screen")}>
-    <h2 class="title" slot="start">BusyScreen</h2>
+    <h2 class="title" slot="start">Busy Screen</h2>
     <p>A screen that indicates busy loading.</p>
   </Card>
 

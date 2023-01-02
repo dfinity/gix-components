@@ -47,3 +47,11 @@
     --backdrop-z-index: var(--z-index);
   }
 }
+
+@mixin main {
+  height: fit-content;
+  min-height: 100%;
+  width: 100%;
+
+  box-sizing: border-box;
+}
