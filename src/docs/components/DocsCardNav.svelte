@@ -1,14 +1,19 @@
 <script lang="ts">
-    import Card from "$lib/components/Card.svelte";
-    import {goto} from "$app/navigation";
-    import {page} from "$app/stores";
-    
-    export let url: string;
+  import Card from "$lib/components/Card.svelte";
+  import { goto } from "$app/navigation";
+  import { page } from "$app/stores";
 
-    let routeId = "";
-    $: routeId = ($page.route.id ?? "").replace('/(split)', '');
+  export let url: string;
+
+  let routeId = "";
+  $: routeId = ($page.route.id ?? "").replace("/(split)", "");
 </script>
 
-<Card role="link" on:click={() => goto(url)} selected={routeId === url} transparent={routeId !== url}>
-    <span class="title"><slot /></span>
+<Card
+  role="link"
+  on:click={() => goto(url)}
+  selected={routeId === url}
+  transparent={routeId !== url}
+>
+  <span class="title"><slot /></span>
 </Card>
