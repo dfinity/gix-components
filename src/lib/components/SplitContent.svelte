@@ -18,8 +18,6 @@
   style={`--layout-bottom-offset: ${$layoutBottomOffset}px; --content-overflow-y: ${$layoutContentScrollY}`}
 >
   <div class="start">
-    <slot name="header-start" />
-
     <ContentBackdrop />
 
     <div class="scrollable-content-start">
@@ -29,9 +27,9 @@
 
   <div class="end">
     <Header {back} on:nnsBack>
-      <slot name="header-end-title" slot="title" />
+      <slot name="title" slot="title" />
 
-      <slot name="header-end-toolbar-end" slot="toolbar-end" />
+      <slot name="toolbar-end" slot="toolbar-end" />
     </Header>
 
     <div class="scrollable-content-end">

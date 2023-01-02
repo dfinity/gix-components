@@ -5,13 +5,11 @@
 </script>
 
 <SplitContent>
-  <header slot="header-start">Title</header>
-
   <div slot="start">ABCD</div>
 
-  <HeaderTitle slot="header-end-title">GIX Components</HeaderTitle>
+  <HeaderTitle slot="title">GIX Components</HeaderTitle>
 
-  <DocsAccountMenu slot="header-end-toolbar-end" />
+  <DocsAccountMenu slot="toolbar-end" />
 
   <main slot="end">
     <slot />
