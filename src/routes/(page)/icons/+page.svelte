@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { PageData } from "./$types";
+  import type { PageData } from "../../../../.svelte-kit/types/src/routes";
   import type { SlugIcon } from "$docs/types/slug";
   import DocsIcon from "$docs/components/DocsIcon.svelte";
 
@@ -23,7 +23,7 @@
 </div>
 
 <style lang="scss">
-  @use "../../lib/styles/mixins/media";
+  @use "../../../lib/styles/mixins/media";
 
   div {
     display: grid;

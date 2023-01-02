@@ -4,6 +4,9 @@
     layoutBottomOffset,
     layoutContentScrollY,
   } from "$lib/stores/layout.store";
+  import Header from "$lib/components/Header.svelte";
+
+  export let back = false;
 
   // Same as in <Content />
   onDestroy(() => ($layoutBottomOffset = 0));
@@ -22,7 +25,11 @@
   </div>
 
   <div class="end">
-    <slot name="header-end" />
+    <Header {back} on:nnsBack>
+      <slot name="header-end-title" slot="title" />
+
+      <slot name="header-end-toolbar-end" slot="toolbar-end" />
+    </Header>
 
     <div class="scrollable-content-end">
       <slot name="end" />
