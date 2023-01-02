@@ -86,7 +86,7 @@
     :global(article:not(.selected)) {
       display: none;
 
-      @include media.min-width(medium) {
+      @include media.min-width(large) {
         display: block;
       }
     }
