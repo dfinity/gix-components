@@ -5,6 +5,7 @@
     layoutContentScrollY,
   } from "$lib/stores/layout.store";
   import Header from "$lib/components/Header.svelte";
+  import ContentBackdrop from "$lib/components/ContentBackdrop.svelte";
 
   export let back = false;
 
@@ -19,6 +20,8 @@
   <div class="start">
     <slot name="header-start" />
 
+    <ContentBackdrop />
+
     <div class="scrollable-content-start">
       <slot name="start" />
     </div>
@@ -32,6 +35,8 @@
     </Header>
 
     <div class="scrollable-content-end">
+      <ContentBackdrop />
+
       <slot name="end" />
     </div>
   </div>
@@ -39,27 +44,42 @@
 
 <style lang="scss">
   @use "../styles/mixins/layout";
+  @use "../styles/mixins/media";
 
   .content {
     @include layout.content;
 
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column;
+
+    @include media.min-width(large) {
+      flex-flow: row nowrap;
+    }
   }
 
   .start,
   .end {
     @include layout.content-offset;
-
     position: relative;
+    box-sizing: border-box;
   }
 
   .start {
-    min-width: var(--content-start-width);
+    min-height: var(--content-start-height);
+
+    @include media.min-width(large) {
+      display: block;
+      min-width: var(--content-start-width);
+    }
   }
 
   .end {
     width: 100%;
+    height: calc(100% - var(--content-start-height));
+
+    @include media.min-width(large) {
+      height: 100%;
+    }
   }
 
   .scrollable-content-start,

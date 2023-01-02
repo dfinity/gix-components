@@ -1,13 +1,13 @@
 <script lang="ts">
-    import Layout from "$lib/components/Layout.svelte";
-    import DocsMenu from "$docs/components/DocsMenu.svelte";
-    import Toasts from "$lib/components/Toasts.svelte";
+  import Layout from "$lib/components/Layout.svelte";
+  import DocsMenu from "$docs/components/DocsMenu.svelte";
+  import Toasts from "$lib/components/Toasts.svelte";
 </script>
 
 <Layout>
-    <DocsMenu slot="menu-items" on:click />
+  <DocsMenu slot="menu-items" on:click />
 
-    <slot />
+  <slot />
 </Layout>
 
 <Toasts />
