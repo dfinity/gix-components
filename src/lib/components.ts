@@ -28,6 +28,7 @@ export { default as Popover } from "./components/Popover.svelte";
 export { default as ProgressBar } from "./components/ProgressBar.svelte";
 export { default as SkeletonText } from "./components/SkeletonText.svelte";
 export { default as Spinner } from "./components/Spinner.svelte";
+export { default as SplitContent } from "./components/SplitContent.svelte";
 export { default as SplitPane } from "./components/SplitPane.svelte";
 export { default as Tag } from "./components/Tag.svelte";
 export { default as ThemeToggle } from "./components/ThemeToggle.svelte";
