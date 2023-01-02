@@ -84,4 +84,12 @@
   .scrollable-content-end {
     @include layout.scrollable-content;
   }
+
+  .scrollable-content-start {
+    overflow-y: hidden;
+
+    @include media.min-width(large) {
+      overflow-y: auto;
+    }
+  }
 </style>

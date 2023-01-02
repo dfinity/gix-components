@@ -6,9 +6,9 @@
     export let url: string;
 
     let routeId = "";
-    $: routeId = $page.route.id ?? "";
+    $: routeId = ($page.route.id ?? "").replace('/(split)', '');
 </script>
 
-<Card role="link" on:click={() => goto(url)} selected={routeId.includes(url)} transparent={!routeId.includes(url)}>
+<Card role="link" on:click={() => goto(url)} selected={routeId === url} transparent={routeId !== url}>
     <span class="title"><slot /></span>
 </Card>

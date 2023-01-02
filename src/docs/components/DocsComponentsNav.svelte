@@ -137,4 +137,14 @@
   h3 {
     padding: var(--padding-2x) var(--padding-2x) 0;
   }
+
+  nav {
+    :global(article:not(.selected)) {
+      display: none;
+
+      @include media.min-width(medium) {
+        display: block;
+      }
+    }
+  }
 </style>
