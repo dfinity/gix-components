@@ -9,19 +9,19 @@
   @use "../styles/mixins/media";
 
   div {
-    padding: var(--padding-4x) var(--padding-4x) var(--padding-2x);
+    padding: var(--padding-2x) var(--padding-2x) 0;
     margin: 0;
+
+    @include media.min-width(large) {
+      padding: var(--padding-4x) var(--padding-4x) var(--padding-2x);
+    }
   }
 
   nav {
     @include layout.main;
 
     margin: 0;
-    padding: var(--padding-2x);
-
-    @include media.min-width(medium) {
-      padding: 0 var(--padding-2x);
-    }
+    padding: 0 var(--padding-2x);
   }
 
   nav {
