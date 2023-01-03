@@ -24,6 +24,7 @@ export { default as Menu } from "./components/Menu.svelte";
 export { default as MenuButton } from "./components/MenuButton.svelte";
 export { default as MenuItem } from "./components/MenuItem.svelte";
 export { default as Modal } from "./components/Modal.svelte";
+export { default as Nav } from "./components/Nav.svelte";
 export { default as Popover } from "./components/Popover.svelte";
 export { default as ProgressBar } from "./components/ProgressBar.svelte";
 export { default as SkeletonText } from "./components/SkeletonText.svelte";

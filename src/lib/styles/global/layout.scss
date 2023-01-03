@@ -6,7 +6,9 @@ main {
   @include layout.main;
 
   margin: 0 auto;
+
   max-width: var(--max-main-content-width);
+  min-height: 100%;
 
   padding: var(--padding-2x);
 

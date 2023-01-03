@@ -1,9 +1,10 @@
 <script lang="ts">
   import DocsCardNav from "$docs/components/DocsCardNav.svelte";
+  import Nav from "$lib/components/Nav.svelte";
 </script>
 
-<nav>
-  <h3>Pick a component</h3>
+<Nav>
+  <h3 slot="title">Pick a component</h3>
 
   <DocsCardNav url="/components/bottom-sheet">Bottom Sheet</DocsCardNav>
 
@@ -60,35 +61,10 @@
   <DocsCardNav url="/components/value">Value</DocsCardNav>
 
   <DocsCardNav url="/components/wizard-modal">Wizard Modal</DocsCardNav>
-</nav>
+</Nav>
 
 <style lang="scss">
-  @use "../../lib/styles/mixins/layout";
-  @use "../../lib/styles/mixins/media";
-
-  nav {
-    @include layout.main;
-
-    margin: 0;
-
-    padding: var(--padding-2x);
-
-    @include media.min-width(medium) {
-      padding: var(--padding-4x) var(--padding-2x);
-    }
-  }
-
   h3 {
-    padding: var(--padding-2x) var(--padding-2x) 0;
-  }
-
-  nav {
-    :global(article:not(.selected)) {
-      display: none;
-
-      @include media.min-width(large) {
-        display: block;
-      }
-    }
+    padding: var(--padding-2x) 0 0;
   }
 </style>
