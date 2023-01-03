@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { createEventDispatcher } from "svelte";
+
   export let name: string;
   export let inputType: "icp" | "number" | "text" = "number";
   export let required = true;
@@ -10,6 +12,8 @@
   export let value: string | number | undefined = undefined;
   export let placeholder: string;
   export let testId: string | undefined = undefined;
+  export let handleInput: (() => void) | undefined = undefined;
+  const dispatch = createEventDispatcher();
 
   // https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete
   export let autocomplete: "off" | "on" | undefined = undefined;
@@ -19,7 +23,7 @@
   // https://github.com/sveltejs/svelte/issues/6059
   // To hack this, we pass a prop to avoid showing info element when not needed
   // Ideally, this would be calculated
-  // showInfo = $$slots.label || $$slots.additional
+  // showInfo = $$slots.label || $$slots.right
   export let showInfo = true;
 
   let inputElement: HTMLInputElement | undefined;
@@ -82,7 +86,7 @@
   const isValidICPFormat = (text: string): boolean =>
     /^[\d]*(\.[\d]{0,8})?$/.test(text);
 
-  const handleInput = ({ currentTarget }: InputEventHandler) => {
+  const handleOnInput = ({ currentTarget }: InputEventHandler) => {
     if (inputType === "icp") {
       const currentValue = currentTarget.value;
 
@@ -90,12 +94,14 @@
       if (isValidICPFormat(currentValue) === false) {
         // restore value (e.g. to fix invalid paste)
         restoreFromValidValue();
+        dispatch("input");
         return;
       }
 
       // reset to undefined ("" => undefined)
       if (currentValue.length === 0) {
         restoreFromValidValue(true);
+        dispatch("input");
         return;
       }
 
@@ -106,11 +112,13 @@
       // for inputType="icp" value is a number
       // TODO: do we need to fix lost precision for too big for number inputs?
       value = +currentValue;
+      dispatch("input");
       return;
     }
 
     internalValueChange = true;
     value = inputType === "number" ? +currentTarget.value : currentTarget.value;
+    dispatch("input");
   };
 
   const handleKeyDown = () => {
@@ -132,8 +140,9 @@
 <div class="input-block" class:disabled>
   {#if showInfo}
     <div class="info">
+      <slot name="left" />
       <label class="label" for={name}><slot name="label" /></label>
-      <slot name="additional" />
+      <slot name="right" />
     </div>
   {/if}
   <input
@@ -147,13 +156,12 @@
     {step}
     {disabled}
     value={inputType === "icp" ? icpValue : value}
-    {minLength}
     {placeholder}
     {max}
     {autocomplete}
     on:blur
     on:focus
-    on:input={handleInput}
+    on:input={handleOnInput}
     on:keydown={handleKeyDown}
   />
 </div>
@@ -188,6 +196,11 @@
   .info {
     display: flex;
     justify-content: space-between;
+    gap: var(--padding);
+
+    .label {
+      flex: 1 1 100%;
+    }
   }
 
   input {
