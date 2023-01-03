@@ -140,6 +140,20 @@
     }
   }
 
+  .clickable.transparent {
+    &:not([disabled]):hover,
+    &:not([disabled]):focus {
+      background: var(--card-background-shade);
+    }
+  }
+
+  .clickable.selected {
+    &:not([disabled]):hover,
+    &:not([disabled]):focus {
+      background: var(--focus-background);
+    }
+  }
+
   .meta {
     @include card.meta;
   }
