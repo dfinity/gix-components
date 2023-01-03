@@ -25,6 +25,10 @@
   }
 
   nav {
+    :global(article:first-of-type) {
+      margin-top: 0;
+    }
+
     :global(article:not(.selected)) {
       display: none;
 
