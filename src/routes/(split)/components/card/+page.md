@@ -20,15 +20,15 @@ Cards are surfaces that display content and optionally actions on a single topic
 
 ## Properties
 
-| Property      | Description                                                                                    | Type                                            | Default     |
-| ------------- | ---------------------------------------------------------------------------------------------- | ----------------------------------------------- | ----------- |
-| `role`        | The semantic role of the `article` that will be rendered in the DOM when using this component. | `link` or `button` or `checkbox` or `undefined` | `undefined` |
-| `ariaLabel`   | An accessible label for the card.                                                              | `string` or `undefined`                         | `undefined` |
-| `selected`    | Display the surface as `selected`. Useful if used as a on/off call to action.                  | `boolean`                                       | `false`     |
-| `disabled`    | Disable clickable events.                                                                      | `boolean` or `undefined`                        | `undefined` |
-| `testId`      | Add a `data-tid` attribute to the DOM, useful for test purpose.                                | `string`                                        | `card`      |
-| `highlighted` | Display the surface as `highlighted`.                                                          | `boolean` or `undefined`                        | `undefined` |
-| `icon`        | Render an icon / call to action next within the card on the right side.                        | `arrow` or `expand` or `check` or `undefined`   | `undefined` |
+| Property    | Description                                                                                    | Type                                                     | Default     |
+| ----------- | ---------------------------------------------------------------------------------------------- | -------------------------------------------------------- | ----------- |
+| `role`      | The semantic role of the `article` that will be rendered in the DOM when using this component. | `link` or `button` or `checkbox` or `undefined`          | `undefined` |
+| `ariaLabel` | An accessible label for the card.                                                              | `string` or `undefined`                                  | `undefined` |
+| `selected`  | Display the surface as `selected`. Useful if used as a on/off call to action.                  | `boolean`                                                | `false`     |
+| `disabled`  | Disable clickable events.                                                                      | `boolean` or `undefined`                                 | `undefined` |
+| `testId`    | Add a `data-tid` attribute to the DOM, useful for test purpose.                                | `string`                                                 | `card`      |
+| `style`     | Display a particular style for surface of the card.                                            | `highlighted` or `transparent` or `input` or `undefined` | `undefined` |
+| `icon`      | Render an icon / call to action next within the card on the right side.                        | `arrow` or `expand` or `check` or `undefined`            | `undefined` |
 
 ## Slots
 
@@ -78,20 +78,26 @@ List of the mixins:
         <p>Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>
     </Card>
 
-    <Card highlighted>
+    <Card style="highlighted">
         <h3>Highlighted</h3>
+
+        <p>Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>
+    </Card>
+
+    <Card style="transparent">
+        <h3>Transparent</h3>
+
+        <p>Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>
+    </Card>
+
+    <Card style="input">
+        <h3>Input</h3>
 
         <p>Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>
     </Card>
 
     <Card disabled>
         <h3>Disabled</h3>
-
-        <p>Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>
-    </Card>
-
-    <Card icon="arrow">
-        <h3>Arrow</h3>
 
         <p>Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>
     </Card>
@@ -132,6 +138,35 @@ List of the mixins:
         </div>
 
         <p class="description">A description - Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>
+    </Card>
+
+</div>
+
+<p style="padding: var(--padding-4x) 0 var(--padding);">With icons:</p>
+
+<div class="card-grid" style="margin-top: var(--padding)">
+    <Card icon="arrow">
+        <h3>Arrow</h3>
+
+        <p>Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>
+    </Card>
+
+    <Card icon="check">
+        <h3>Checkmark</h3>
+
+        <p>Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>
+    </Card>
+
+    <Card icon="check" selected>
+        <h3>Checkmark and selected</h3>
+
+        <p>Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>
+    </Card>
+
+    <Card icon="expand">
+        <h3>Expand</h3>
+
+        <p>Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>
     </Card>
 
 </div>
