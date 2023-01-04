@@ -80,6 +80,7 @@
 
     @include media.min-width(large) {
       height: 100%;
+      width: calc(100% - var(--content-start-width));
     }
   }
 
