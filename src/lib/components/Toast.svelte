@@ -8,14 +8,14 @@
   import IconWarning from "$lib/icons/IconWarning.svelte";
   import IconClose from "$lib/icons/IconClose.svelte";
   import IconInfo from "$lib/icons/IconInfo.svelte";
-  import IconCheckCircleOutline from "$lib/icons/IconCheckCircleOutline.svelte";
+  import IconCheckCircle from "$lib/icons/IconCheckCircle.svelte";
   import IconError from "$lib/icons/IconError.svelte";
 
   export let msg: ToastMsg;
 
   const iconMapper = (level: ToastLevel): typeof SvelteComponent =>
     ({
-      ["success"]: IconCheckCircleOutline,
+      ["success"]: IconCheckCircle,
       ["warn"]: IconWarning,
       ["error"]: IconError,
       ["info"]: IconInfo,
