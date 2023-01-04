@@ -28,7 +28,7 @@ Cards are surfaces that display content and optionally actions on a single topic
 | `disabled`    | Disable clickable events.                                                                      | `boolean` or `undefined`                        | `undefined` |
 | `testId`      | Add a `data-tid` attribute to the DOM, useful for test purpose.                                | `string`                                        | `card`      |
 | `highlighted` | Display the surface as `highlighted`.                                                          | `boolean` or `undefined`                        | `undefined` |
-| `withArrow`   | Render an arrow icon / call to action next within the card on the right side.                  | `boolean` or `undefined`                        | `undefined` |
+| `icon`        | Render an icon / call to action next within the card on the right side.                        | `arrow` or `expand` or `check` or `undefined`   | `undefined` |
 
 ## Slots
 
@@ -90,7 +90,7 @@ List of the mixins:
         <p>Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>
     </Card>
 
-    <Card withArrow>
+    <Card icon="arrow">
         <h3>Arrow</h3>
 
         <p>Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>

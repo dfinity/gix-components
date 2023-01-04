@@ -39,7 +39,7 @@ describe("Card", () => {
 
   it("should render an arrow", () => {
     const { container } = render(Card, {
-      props: { withArrow: true },
+      props: { icon: "arrow" },
     });
 
     const arrow = container.querySelector("svg");

@@ -1,5 +1,8 @@
 <script lang="ts">
   import IconArrowRight from "$lib/icons/IconArrowRight.svelte";
+  import { SvelteComponent } from "svelte";
+  import IconExpandMore from "$lib/icons/IconExpandMore.svelte";
+  import IconCheckCircle from "$lib/icons/IconCheckCircle.svelte";
 
   export let role: "link" | "button" | "checkbox" | undefined = undefined;
   export let ariaLabel: string | undefined = undefined;
@@ -7,7 +10,7 @@
   export let disabled: boolean | undefined = undefined;
   export let testId = "card";
   export let highlighted: boolean | undefined = undefined;
-  export let withArrow: boolean | undefined = undefined;
+  export let icon: "arrow" | "expand" | "check" | undefined = undefined;
   export let transparent = false;
 
   let clickable = false;
@@ -20,6 +23,22 @@
 
   let ariaChecked: boolean | undefined = undefined;
   $: ariaChecked = role === "checkbox" ? selected : undefined;
+
+  let iconCmp: typeof SvelteComponent | undefined = undefined;
+
+  $: (() => {
+    switch (icon) {
+      case "arrow":
+        iconCmp = IconArrowRight;
+        break;
+      case "expand":
+        iconCmp = IconExpandMore;
+        break;
+      case "check":
+        iconCmp = IconCheckCircle;
+        break;
+    }
+  })();
 </script>
 
 <article
@@ -28,7 +47,7 @@
   on:click
   class="card"
   class:clickable
-  class:withArrow
+  class:icon={icon !== undefined}
   class:selected
   class:disabled
   class:highlighted
@@ -37,8 +56,8 @@
   aria-checked={ariaChecked}
   aria-label={ariaLabel}
 >
-  {#if withArrow === true}
-    <IconArrowRight />
+  {#if iconCmp !== undefined}
+    <svelte:component this={iconCmp} />
   {/if}
 
   {#if showHeadline}
@@ -116,11 +135,11 @@
       }
     }
 
-    &.withArrow {
+    &.icon {
       position: relative;
       padding-right: var(--padding-6x);
 
-      :global(svg:first-child) {
+      > :global(svg:first-child) {
         position: absolute;
 
         height: var(--padding-3x);
@@ -130,7 +149,12 @@
         top: 50%;
         margin-top: calc(-1 * var(--padding-1_5x));
 
-        opacity: var(--light-opacity);
+        color: var(--tertiary);
+      }
+
+      &.selected {
+        --icon-check-circle-background: var(--primary);
+        --icon-check-circle-color: var(--primary-contrast);
       }
     }
   }
