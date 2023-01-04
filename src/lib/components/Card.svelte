@@ -68,14 +68,17 @@
 
     transition: color var(--animation-time-normal);
 
-    padding: var(--padding-2x);
+    padding: calc(var(--padding-2x) - var(--border-size));
     margin: var(--padding-2x) 0;
     border-radius: var(--border-radius);
 
-    outline: 2px solid transparent;
+    box-sizing: border-box;
+
+    --border-size: 2px;
+    border: var(--border-size) solid transparent;
 
     &.selected {
-      outline: 2px solid var(--primary);
+      border: 2px solid var(--primary);
     }
 
     &.transparent {
