@@ -10,7 +10,8 @@
   export let disabled: boolean | undefined = undefined;
   export let testId = "card";
   export let icon: "arrow" | "expand" | "check" | undefined = undefined;
-  export let style: "transparent" | "input" | "highlighted" | undefined = undefined;
+  export let style: "transparent" | "input" | "highlighted" | undefined =
+    undefined;
 
   let clickable = false;
 
@@ -44,7 +45,7 @@
   data-tid={testId}
   {role}
   on:click
-  class={`card ${style ?? ''}`}
+  class={`card ${style ?? ""}`}
   class:clickable
   class:icon={icon !== undefined}
   class:selected
