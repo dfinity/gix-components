@@ -13,7 +13,7 @@
     margin: 0;
 
     @include media.min-width(large) {
-      padding: var(--padding-4x) var(--padding-4x)
+      padding: var(--padding-2x) var(--padding-4x)
         calc(var(--padding-4x) + var(--padding-0_25x));
     }
   }
