@@ -111,8 +111,12 @@
     }
 
     &.highlighted {
-      background: var(--primary);
+      background: var(--primary-gradient-fallback);
+      background: var(--primary-gradient);
       color: rgba(var(--primary-contrast-rgb), var(--light-opacity));
+
+      margin: var(--border-size) 0;
+      border: 0;
 
       // TODO: find a better solution (a mixin?)
       :global(h3) {
