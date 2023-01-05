@@ -4,7 +4,8 @@
   import IconExpandMore from "$lib/icons/IconExpandMore.svelte";
   import IconCheckCircle from "$lib/icons/IconCheckCircle.svelte";
 
-  export let role: "link" | "button" | "checkbox" | "radio" | undefined = undefined;
+  export let role: "link" | "button" | "checkbox" | "radio" | undefined =
+    undefined;
   export let ariaLabel: string | undefined = undefined;
   export let selected = false;
   export let disabled: boolean | undefined = undefined;
@@ -16,7 +17,9 @@
   let clickable = false;
 
   $: clickable =
-    role !== undefined ? ["button", "link", "checkbox", "radio"].includes(role) : false;
+    role !== undefined
+      ? ["button", "link", "checkbox", "radio"].includes(role)
+      : false;
 
   let showHeadline: boolean;
   $: showHeadline = $$slots.start !== undefined || $$slots.end !== undefined;
