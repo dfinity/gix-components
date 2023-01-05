@@ -98,11 +98,6 @@
       border: 2px solid var(--primary);
     }
 
-    &.transparent {
-      background: transparent;
-      box-shadow: none;
-    }
-
     &.disabled {
       background: var(--input-background);
       color: rgba(var(--disable-contrast-rgb), 0.8);
@@ -114,7 +109,6 @@
 
     &.highlighted {
       background: var(--primary);
-
       color: rgba(var(--primary-contrast-rgb), var(--light-opacity));
 
       // TODO: find a better solution (a mixin?)
@@ -164,17 +158,62 @@
     }
   }
 
-  .clickable.transparent {
-    &:not([disabled]):hover,
-    &:not([disabled]):focus {
-      background: var(--card-background-shade);
+  .transparent {
+    background: transparent;
+    box-shadow: none;
+
+    &.selected {
+      background: var(--card-background);
+    }
+
+    &.clickable {
+      &:not([disabled]):hover,
+      &:not([disabled]):focus {
+        background: var(--card-background-shade);
+
+        &.selected {
+          background: var(--focus-background);
+        }
+      }
     }
   }
 
-  .clickable.selected {
-    &:not([disabled]):hover,
-    &:not([disabled]):focus {
-      background: var(--focus-background);
+  .input {
+    background: var(--background);
+    color: var(--background-contrast);
+    box-shadow: none;
+    border: 2px solid var(--line);
+
+    &.selected {
+      background: var(--background);
+      border: 2px solid var(--primary);
+    }
+
+    &.clickable {
+      &:not([disabled]):hover,
+      &:not([disabled]):focus {
+        background: var(--input-background);
+
+        &.selected {
+          background: var(--input-background);
+        }
+
+        &:not(.selected) {
+          border: 2px solid rgba(var(--disable-contrast-rgb), 0.4);
+
+          &.icon {
+            > :global(svg:first-child) {
+              color: rgba(var(--disable-contrast-rgb), 0.8);
+            }
+          }
+        }
+      }
+    }
+
+    &.icon:not(.selected) {
+      > :global(svg:first-child) {
+        color: var(--line);
+      }
     }
   }
 
