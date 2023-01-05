@@ -10,7 +10,7 @@
   export let disabled: boolean | undefined = undefined;
   export let testId = "card";
   export let icon: "arrow" | "expand" | "check" | undefined = undefined;
-  export let theme: "transparent" | "input" | "highlighted" | undefined =
+  export let theme: "transparent" | "button" | "highlighted" | undefined =
     undefined;
 
   let clickable = false;
@@ -178,7 +178,7 @@
     }
   }
 
-  .input {
+  .button {
     background: var(--background);
     color: var(--background-contrast);
     box-shadow: none;

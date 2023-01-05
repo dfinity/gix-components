@@ -27,7 +27,7 @@ Cards are surfaces that display content and optionally actions on a single topic
 | `selected`  | Display the surface as `selected`. Useful if used as a on/off call to action.                  | `boolean`                                                | `false`     |
 | `disabled`  | Disable clickable events.                                                                      | `boolean` or `undefined`                                 | `undefined` |
 | `testId`    | Add a `data-tid` attribute to the DOM, useful for test purpose.                                | `string`                                                 | `card`      |
-| `theme`     | Display a particular theme for surface of the card.                                            | `highlighted` or `transparent` or `input` or `undefined` | `undefined` |
+| `theme`     | Display a particular theme for surface of the card.                                            | `highlighted` or `transparent` or `button` or `undefined` | `undefined` |
 | `icon`      | Render an icon / call to action next within the card on the right side.                        | `arrow` or `expand` or `check` or `undefined`            | `undefined` |
 
 ## Slots
@@ -78,24 +78,6 @@ List of the mixins:
         <p>Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>
     </Card>
 
-    <Card theme="highlighted">
-        <h3>Highlighted</h3>
-
-        <p>Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>
-    </Card>
-
-    <Card theme="transparent">
-        <h3>Transparent</h3>
-
-        <p>Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>
-    </Card>
-
-    <Card theme="input">
-        <h3>Input</h3>
-
-        <p>Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>
-    </Card>
-
     <Card disabled>
         <h3>Disabled</h3>
 
@@ -142,7 +124,29 @@ List of the mixins:
 
 </div>
 
-<p style="padding: var(--padding-4x) 0 var(--padding);">With icons:</p>
+<p style="padding: var(--padding-4x) 0 var(--padding);">Themes:</p>
+
+<div class="card-grid" style="margin-top: var(--padding)">
+    <Card theme="highlighted">
+        <h3>Highlighted</h3>
+
+        <p>Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>
+    </Card>
+
+    <Card theme="transparent">
+        <h3>Transparent</h3>
+
+        <p>Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>
+    </Card>
+
+    <Card theme="button">
+        <h3>Button</h3>
+
+        <p>Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>
+    </Card>
+</div>
+
+<p style="padding: var(--padding-4x) 0 var(--padding);">Icons:</p>
 
 <div class="card-grid" style="margin-top: var(--padding)">
     <Card icon="arrow">
