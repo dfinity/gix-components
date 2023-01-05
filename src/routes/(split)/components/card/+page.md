@@ -21,7 +21,7 @@ Cards are surfaces that display content and optionally actions on a single topic
 ## Properties
 
 | Property    | Description                                                                                    | Type                                                     | Default     |
-|-------------| ---------------------------------------------------------------------------------------------- | -------------------------------------------------------- | ----------- |
+| ----------- | ---------------------------------------------------------------------------------------------- | -------------------------------------------------------- | ----------- |
 | `role`      | The semantic role of the `article` that will be rendered in the DOM when using this component. | `link` or `button` or `checkbox` or `undefined`          | `undefined` |
 | `ariaLabel` | An accessible label for the card.                                                              | `string` or `undefined`                                  | `undefined` |
 | `selected`  | Display the surface as `selected`. Useful if used as a on/off call to action.                  | `boolean`                                                | `false`     |
