@@ -13,8 +13,13 @@
     margin: 0;
 
     @include media.min-width(large) {
-      padding: var(--padding-2x) var(--padding-4x)
+      padding: var(--nav-padding-top) var(--padding-4x)
         calc(var(--padding-4x) + var(--padding-0_25x));
+      --nav-padding-top: var(--padding-4x);
+    }
+
+    @include media.min-width(xlarge) {
+      --nav-padding-top: var(--padding-2x);
     }
   }
 
