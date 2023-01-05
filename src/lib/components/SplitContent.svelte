@@ -18,9 +18,9 @@
   style={`--layout-bottom-offset: ${$layoutBottomOffset}px; --content-overflow-y: ${$layoutContentScrollY}`}
 >
   <div class="start">
-    <ContentBackdrop />
-
     <div class="scrollable-content-start">
+      <ContentBackdrop />
+
       <slot name="start" />
     </div>
   </div>
