@@ -112,8 +112,7 @@
     }
 
     &.highlighted {
-      background: var(--primary-gradient-fallback);
-      background: var(--primary-gradient);
+      background: var(--primary);
 
       color: rgba(var(--primary-contrast-rgb), var(--light-opacity));
 
