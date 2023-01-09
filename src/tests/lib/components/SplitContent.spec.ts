@@ -1,0 +1,17 @@
+/**
+ * @jest-environment jsdom
+ */
+
+import { render } from "@testing-library/svelte";
+import SplitContentTest from "./SplitContentTest.svelte";
+
+describe("SplitContent", () => {
+  it("should render slotted elements", () => {
+    const { getByTestId } = render(SplitContentTest);
+
+    expect(getByTestId("content-test-start-slot")).not.toBeNull();
+    expect(getByTestId("content-test-end-slot")).not.toBeNull();
+    expect(getByTestId("content-test-title-slot")).not.toBeNull();
+    expect(getByTestId("content-test-toolbar-end-slot")).not.toBeNull();
+  });
+});
