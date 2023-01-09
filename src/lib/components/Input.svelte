@@ -203,8 +203,6 @@
 
     outline: none;
     appearance: none;
-
-    @include form.input;
   }
 
   input[disabled] {

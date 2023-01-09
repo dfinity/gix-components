@@ -1,0 +1,32 @@
+<div><slot name="title" /></div>
+
+<nav>
+  <slot />
+</nav>
+
+<style lang="scss">
+  @use "../styles/mixins/layout";
+  @use "../styles/mixins/media";
+
+  div {
+    padding: var(--padding-2x) var(--padding-2x) 0;
+    margin: 0;
+
+    @include media.min-width(large) {
+      padding: var(--nav-padding-top) var(--padding-4x)
+        calc(var(--padding-4x) + var(--padding-0_25x));
+      --nav-padding-top: var(--padding-4x);
+    }
+
+    @include media.min-width(xlarge) {
+      --nav-padding-top: var(--padding-2x);
+    }
+  }
+
+  nav {
+    @include layout.main;
+
+    margin: 0;
+    padding: 0 var(--padding-2x);
+  }
+</style>

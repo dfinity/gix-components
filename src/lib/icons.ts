@@ -1,7 +1,7 @@
 export { default as IconAccountBalance } from "./icons/IconAccountBalance.svelte";
 export { default as IconArrowRight } from "./icons/IconArrowRight.svelte";
 export { default as IconBack } from "./icons/IconBack.svelte";
-export { default as IconCheckCircleOutline } from "./icons/IconCheckCircleOutline.svelte";
+export { default as IconCheckCircle } from "./icons/IconCheckCircle.svelte";
 export { default as IconClose } from "./icons/IconClose.svelte";
 export { default as IconCopy } from "./icons/IconCopy.svelte";
 export { default as IconDarkMode } from "./icons/IconDarkMode.svelte";

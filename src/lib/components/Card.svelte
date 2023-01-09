@@ -1,42 +1,64 @@
 <script lang="ts">
   import IconArrowRight from "$lib/icons/IconArrowRight.svelte";
+  import type { SvelteComponent } from "svelte";
+  import IconExpandMore from "$lib/icons/IconExpandMore.svelte";
+  import IconCheckCircle from "$lib/icons/IconCheckCircle.svelte";
 
-  export let role: "link" | "button" | "checkbox" | undefined = undefined;
+  export let role: "link" | "button" | "checkbox" | "radio" | undefined =
+    undefined;
   export let ariaLabel: string | undefined = undefined;
   export let selected = false;
   export let disabled: boolean | undefined = undefined;
   export let testId = "card";
-  export let highlighted: boolean | undefined = undefined;
-  export let withArrow: boolean | undefined = undefined;
+  export let icon: "arrow" | "expand" | "check" | undefined = undefined;
+  export let theme: "transparent" | "framed" | "highlighted" | undefined =
+    undefined;
 
   let clickable = false;
 
   $: clickable =
-    role !== undefined ? ["button", "link", "checkbox"].includes(role) : false;
+    role !== undefined
+      ? ["button", "link", "checkbox", "radio"].includes(role)
+      : false;
 
   let showHeadline: boolean;
   $: showHeadline = $$slots.start !== undefined || $$slots.end !== undefined;
 
   let ariaChecked: boolean | undefined = undefined;
   $: ariaChecked = role === "checkbox" ? selected : undefined;
+
+  let iconCmp: typeof SvelteComponent | undefined = undefined;
+
+  $: (() => {
+    switch (icon) {
+      case "arrow":
+        iconCmp = IconArrowRight;
+        break;
+      case "expand":
+        iconCmp = IconExpandMore;
+        break;
+      case "check":
+        iconCmp = IconCheckCircle;
+        break;
+    }
+  })();
 </script>
 
 <article
   data-tid={testId}
   {role}
   on:click
-  class="card"
+  class={`card ${theme ?? ""}`}
   class:clickable
-  class:withArrow
+  class:icon={icon !== undefined}
   class:selected
   class:disabled
-  class:highlighted
   aria-disabled={disabled}
   aria-checked={ariaChecked}
   aria-label={ariaLabel}
 >
-  {#if withArrow === true}
-    <IconArrowRight />
+  {#if iconCmp !== undefined}
+    <svelte:component this={iconCmp} />
   {/if}
 
   {#if showHeadline}
@@ -66,14 +88,17 @@
 
     transition: color var(--animation-time-normal);
 
-    padding: var(--padding-2x);
+    padding: calc(var(--padding-2x) - var(--border-size));
     margin: var(--padding-2x) 0;
     border-radius: var(--border-radius);
 
-    outline: 2px solid transparent;
+    box-sizing: border-box;
+
+    --border-size: 2px;
+    border: var(--border-size) solid transparent;
 
     &.selected {
-      outline: 2px solid var(--primary);
+      border: 2px solid var(--primary);
     }
 
     &.disabled {
@@ -88,8 +113,10 @@
     &.highlighted {
       background: var(--primary-gradient-fallback);
       background: var(--primary-gradient);
-
       color: rgba(var(--primary-contrast-rgb), var(--light-opacity));
+
+      margin: var(--border-size) 0;
+      border: 0;
 
       // TODO: find a better solution (a mixin?)
       :global(h3) {
@@ -106,11 +133,11 @@
       }
     }
 
-    &.withArrow {
+    &.icon {
       position: relative;
       padding-right: var(--padding-6x);
 
-      :global(svg:first-child) {
+      > :global(svg:first-child) {
         position: absolute;
 
         height: var(--padding-3x);
@@ -120,7 +147,12 @@
         top: 50%;
         margin-top: calc(-1 * var(--padding-1_5x));
 
-        opacity: var(--light-opacity);
+        color: var(--tertiary);
+      }
+
+      &.selected {
+        --icon-check-circle-background: var(--primary);
+        --icon-check-circle-color: var(--primary-contrast);
       }
     }
   }
@@ -130,6 +162,65 @@
 
     &.disabled {
       @include interaction.disabled;
+    }
+  }
+
+  .transparent {
+    background: transparent;
+    box-shadow: none;
+
+    &.selected {
+      background: var(--card-background);
+    }
+
+    &.clickable {
+      &:not([disabled]):hover,
+      &:not([disabled]):focus {
+        background: var(--card-background-shade);
+
+        &.selected {
+          background: var(--focus-background);
+        }
+      }
+    }
+  }
+
+  .framed {
+    background: var(--background);
+    color: var(--background-contrast);
+    box-shadow: none;
+    border: 2px solid var(--line);
+
+    &.selected {
+      background: var(--background);
+      border: 2px solid var(--primary);
+    }
+
+    &.clickable {
+      &:not([disabled]):hover,
+      &:not([disabled]):focus {
+        background: var(--input-background);
+
+        &.selected {
+          background: var(--input-background);
+        }
+
+        &:not(.selected) {
+          border: 2px solid rgba(var(--disable-contrast-rgb), 0.4);
+
+          &.icon {
+            > :global(svg:first-child) {
+              color: rgba(var(--disable-contrast-rgb), 0.8);
+            }
+          }
+        }
+      }
+    }
+
+    &.icon:not(.selected) {
+      > :global(svg:first-child) {
+        color: var(--line);
+      }
     }
   }
 
