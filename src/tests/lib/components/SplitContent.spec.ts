@@ -22,4 +22,9 @@ describe("SplitContent", () => {
     const { getAllByTestId } = render(SplitContentTest);
     expect(getAllByTestId("backdrop").length).toEqual(2);
   });
+
+  it("should render a header", () => {
+    const { container } = render(SplitContentTest);
+    expect(container.querySelector("header")).not.toBeNull();
+  });
 });

@@ -21,4 +21,9 @@ describe("Content", () => {
     const { getByTestId } = render(ContentTest);
     expect(getByTestId("backdrop")).not.toBeNull();
   });
+
+  it("should render a header", () => {
+    const { container } = render(ContentTest);
+    expect(container.querySelector("header")).not.toBeNull();
+  });
 });
