@@ -164,6 +164,14 @@ export const COMPONENT_ROUTES: ComponentRoute[] = [
   },
 
   {
+    path: "/components/split-content",
+    title: "Split Content",
+
+    description:
+      "The detail of the layout where the content finds place in two columns.",
+  },
+
+  {
     path: "/components/tag",
     title: "Tag",
     description:
