@@ -37,12 +37,30 @@ describe("Card", () => {
     article && fireEvent.click(article);
   });
 
-  it("should render an arrow", () => {
+  it("should render an icon", () => {
     const { container } = render(Card, {
       props: { icon: "arrow" },
     });
 
     const arrow = container.querySelector("svg");
     expect(arrow).not.toBeNull();
+  });
+
+  it("should has a clickable style", () => {
+    const { container } = render(Card, {
+      props: { role: "radio" },
+    });
+
+    const article = container.querySelector(".clickable");
+    expect(article).not.toBeNull();
+  });
+
+  it("should apply a theme style", () => {
+    const { container } = render(Card, {
+      props: { theme: "transparent" },
+    });
+
+    const article = container.querySelector(".transparent");
+    expect(article).not.toBeNull();
   });
 });
