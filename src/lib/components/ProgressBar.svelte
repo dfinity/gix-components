@@ -19,8 +19,6 @@
 </div>
 
 <style lang="scss">
-  @use "../styles/mixins/display";
-
   div {
     --current-height: var(--padding);
   }
@@ -64,7 +62,7 @@
   progress {
     width: 100%;
 
-    @include display.appearance-none;
+    appearance: none;
 
     height: var(--current-height);
 

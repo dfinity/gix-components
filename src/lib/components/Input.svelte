@@ -160,7 +160,6 @@
 
 <style lang="scss">
   @use "../styles/mixins/form";
-  @use "../styles/mixins/display";
 
   .input-block {
     position: relative;
@@ -203,7 +202,7 @@
     border-radius: var(--border-radius);
 
     outline: none;
-    @include display.appearance-none;
+    appearance: none;
 
     @include form.input;
   }
