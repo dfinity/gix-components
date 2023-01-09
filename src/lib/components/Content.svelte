@@ -28,7 +28,7 @@
     <Toolbar>
       <svelte:fragment slot="start">
         {#if back}
-          <Back slot="back" on:nnsBack />
+          <Back on:nnsBack />
         {:else}
           <MenuButton />
         {/if}
