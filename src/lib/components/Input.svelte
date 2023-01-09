@@ -147,7 +147,7 @@
     {step}
     {disabled}
     value={inputType === "icp" ? icpValue : value}
-    {minLength}
+    minlength={minLength}
     {placeholder}
     {max}
     {autocomplete}
@@ -160,6 +160,7 @@
 
 <style lang="scss">
   @use "../styles/mixins/form";
+  @use "../styles/mixins/display";
 
   .input-block {
     position: relative;
@@ -202,7 +203,7 @@
     border-radius: var(--border-radius);
 
     outline: none;
-    -webkit-appearance: none;
+    @include display.appearance-none;
 
     @include form.input;
   }

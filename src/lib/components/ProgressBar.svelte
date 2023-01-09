@@ -19,6 +19,8 @@
 </div>
 
 <style lang="scss">
+  @use "../styles/mixins/display";
+
   div {
     --current-height: var(--padding);
   }
@@ -58,12 +60,11 @@
       }
     }
   }
+
   progress {
     width: 100%;
 
-    // Styles are custom for FF and Webkit
-    -webkit-appearance: none;
-    -moz-appearance: none;
+    @include display.appearance-none;
 
     height: var(--current-height);
 

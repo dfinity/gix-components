@@ -5,7 +5,7 @@
   export let alt = "";
 </script>
 
-<a {href} rel="external noopener noreferrer" target="_blank" {alt}>
+<a {href} rel="external noopener noreferrer" target="_blank" title={alt}>
   <slot />
   <IconNorthEast size="16px" />
 </a>
