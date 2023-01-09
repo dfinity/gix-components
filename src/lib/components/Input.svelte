@@ -202,7 +202,7 @@
     border-radius: var(--border-radius);
 
     outline: none;
-    -webkit-appearance: none;
+    appearance: none;
   }
 
   input[disabled] {
