@@ -1,6 +1,6 @@
 <script lang="ts">
   import IconArrowRight from "$lib/icons/IconArrowRight.svelte";
-  import { SvelteComponent } from "svelte";
+  import type { SvelteComponent } from "svelte";
   import IconExpandMore from "$lib/icons/IconExpandMore.svelte";
   import IconCheckCircle from "$lib/icons/IconCheckCircle.svelte";
 

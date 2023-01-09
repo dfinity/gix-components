@@ -13,7 +13,7 @@
   role="link"
   on:click={() => goto(url)}
   selected={routeId === url}
-  transparent={routeId !== url}
+  theme={routeId !== url ? "transparent" : undefined}
 >
   <span class="title"><slot /></span>
 </Card>

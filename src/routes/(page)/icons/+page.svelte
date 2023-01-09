@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { PageData } from "../../../../.svelte-kit/types/src/routes";
+  import type { PageData } from "./$types";
   import type { SlugIcon } from "$docs/types/slug";
   import DocsIcon from "$docs/components/DocsIcon.svelte";
 

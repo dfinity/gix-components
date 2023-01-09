@@ -147,7 +147,7 @@
     {step}
     {disabled}
     value={inputType === "icp" ? icpValue : value}
-    {minLength}
+    minlength={minLength}
     {placeholder}
     {max}
     {autocomplete}
