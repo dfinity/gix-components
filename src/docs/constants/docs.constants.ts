@@ -136,6 +136,13 @@ export const COMPONENT_ROUTES: ComponentRoute[] = [
   },
 
   {
+    path: "/components/nav",
+    title: "Nav",
+
+    description: "A navigation column.",
+  },
+
+  {
     path: "/components/popover",
     title: "Popover",
     description:
