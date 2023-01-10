@@ -31,7 +31,7 @@
 
     z-index: var(--menu-z-index);
 
-    --menu-logo-height: 68px;
+    --menu-logo-height: 65px;
 
     padding-top: calc(
       var(--menu-logo-height) + var(--padding-4x) + var(--header-offset, 0px)
@@ -40,7 +40,7 @@
     // Shift the menu on xlarge screen e.g. if a banner is displayed
     @include media.min-width(xlarge) {
       padding-top: calc(
-        var(--menu-logo-height) + var(--padding-2x) + var(--header-offset, 0px)
+        var(--menu-logo-height) + var(--padding-3x) + var(--header-offset, 0px)
       );
     }
 
