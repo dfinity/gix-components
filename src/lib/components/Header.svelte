@@ -21,3 +21,15 @@
     <slot name="toolbar-end" slot="end" />
   </Toolbar>
 </header>
+
+<style lang="scss">
+  @use "../styles/mixins/media";
+
+  header {
+    --toolbar-padding: 0 var(--padding-2x);
+
+    @include media.min-width(xlarge) {
+      --toolbar-padding: 0;
+    }
+  }
+</style>
