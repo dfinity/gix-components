@@ -36,6 +36,8 @@
     :global(.tooltip-wrapper) {
       pointer-events: all;
     }
+
+    padding: var(--toolbar-padding);
   }
 
   .main {
