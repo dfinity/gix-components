@@ -70,7 +70,7 @@
 
     @include media.min-width(large) {
       display: block;
-      min-width: var(--content-start-width);
+      width: var(--content-start-width);
     }
   }
 
