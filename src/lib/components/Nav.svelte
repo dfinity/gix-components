@@ -13,8 +13,9 @@
     margin: 0;
 
     @include media.min-width(large) {
+      // Observed aligned value in NNS-dapp
       padding: var(--nav-padding-top) var(--padding-4x)
-        calc(var(--padding-4x) + var(--padding-0_25x));
+        calc(var(--padding-2x) - 3px);
       --nav-padding-top: var(--padding-4x);
     }
 
