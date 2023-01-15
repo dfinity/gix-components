@@ -14,10 +14,9 @@ A component that renders a header and your content.
 
 ## Properties
 
-| Property   | Description                                                                                     | Type      | Default |
-| ---------- | ----------------------------------------------------------------------------------------------- | --------- | ------- |
-| `back`     | Display an arrowed `back` button instead of the hamburger menu.                                 | `boolean` | `false` |
-| `contrast` | Some pages need more contrast for readability reason. This can be enhanced using this property. | `boolean` | `false` |
+| Property | Description                                                     | Type      | Default |
+| -------- | --------------------------------------------------------------- | --------- | ------- |
+| `back`   | Display an arrowed `back` button instead of the hamburger menu. | `boolean` | `false` |
 
 ## Slots
 

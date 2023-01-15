@@ -79,7 +79,7 @@
     height: var(--menu-logo-height);
 
     @include media.min-width(xlarge) {
-      padding-top: var(--padding-2x);
+      padding-top: var(--padding);
     }
   }
 

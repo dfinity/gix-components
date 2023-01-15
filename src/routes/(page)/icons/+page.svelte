@@ -23,7 +23,7 @@
 </div>
 
 <style lang="scss">
-  @use "../../lib/styles/mixins/media";
+  @use "../../../lib/styles/mixins/media";
 
   div {
     display: grid;

@@ -4,26 +4,27 @@
 
 import { render } from "@testing-library/svelte";
 import { layoutMenuOpen } from "../../../lib/stores/layout.store";
-import ContentTest from "./ContentTest.svelte";
+import SplitContentTest from "./SplitContentTest.svelte";
 
-describe("Content", () => {
+describe("SplitContent", () => {
   it("should render slotted elements", () => {
-    const { getByTestId } = render(ContentTest);
+    const { getByTestId } = render(SplitContentTest);
 
-    expect(getByTestId("content-test-slot")).not.toBeNull();
+    expect(getByTestId("content-test-start-slot")).not.toBeNull();
+    expect(getByTestId("content-test-end-slot")).not.toBeNull();
     expect(getByTestId("content-test-title-slot")).not.toBeNull();
     expect(getByTestId("content-test-toolbar-end-slot")).not.toBeNull();
   });
 
-  it("should render backdrop", () => {
+  it("should render two backdrops", () => {
     layoutMenuOpen.set(true);
 
-    const { getByTestId } = render(ContentTest);
-    expect(getByTestId("backdrop")).not.toBeNull();
+    const { getAllByTestId } = render(SplitContentTest);
+    expect(getAllByTestId("backdrop").length).toEqual(2);
   });
 
   it("should render a header", () => {
-    const { container } = render(ContentTest);
+    const { container } = render(SplitContentTest);
     expect(container.querySelector("header")).not.toBeNull();
   });
 });

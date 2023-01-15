@@ -69,7 +69,7 @@
   --line: #4b3870;
 
   // Scrollbar
-  --scrollbar-thumb-background: var(--content-background);
+  --scrollbar-thumb-background: transparent;
   --scrollbar-thumb-color: var(--content-color);
 
   // Custom backgrounds
@@ -88,8 +88,8 @@
     #29103c 100%
   );
   --content-color: var(--text-color);
-  --content-contrast-background: var(--content-background);
-  --content-contrast-color: var(--content-color);
+  --content-start-background: rgba(61, 45, 92, 0.4);
+  --content-start-color: var(--text-color);
 
   --overlay-background: var(--background);
   --overlay-background-contrast: var(--background-contrast);
@@ -139,7 +139,7 @@
   --card-background-rgb: 53, 38, 82;
   --card-background-contrast: var(--text-color);
   --card-background-contrast-rgb: var(--text-color-rgb);
-  --card-background-shade: #2f2148;
+  --card-background-shade: #33274d;
   --card-background-tint: #493c63;
 
   /* Design: Dark/Bg/Background-02 */

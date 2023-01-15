@@ -1,0 +1,56 @@
+@use "./media";
+
+@mixin content {
+  position: relative;
+  width: 100%;
+
+  background: var(--content-background);
+  color: var(--content-color);
+  box-shadow: var(--content-box-shadow);
+
+  transition: background var(--animation-time-normal)
+    cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+
+  overflow: hidden;
+  border-radius: var(--border-radius-2x);
+
+  box-sizing: border-box;
+  margin: var(--padding);
+  padding-top: 0;
+
+  // If a bottom sheet is displayed the content pane height should be updated accordingly
+  // This to avoid the content to be presented behind the bottom sheet and
+  // to display a scrollbar that ends before the bottom sheet.
+  padding-bottom: var(--layout-bottom-offset, 0);
+
+  // On small screen the menu pushes the content
+  min-width: calc(100vw - var(--padding-2x));
+
+  @include media.min-width(xlarge) {
+    min-width: auto;
+  }
+}
+
+@mixin content-offset {
+  @include media.min-width(xlarge) {
+    padding-top: var(--split-pane-content-top-offset);
+  }
+}
+
+@mixin scrollable-content {
+  height: 100%;
+
+  overflow-x: hidden;
+  overflow-y: var(--content-overflow-y, auto);
+
+  & > :global(div.backdrop) {
+    --backdrop-z-index: var(--z-index);
+  }
+}
+
+@mixin main {
+  height: fit-content;
+  width: 100%;
+
+  box-sizing: border-box;
+}

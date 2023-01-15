@@ -40,7 +40,6 @@
     --line: #ddd4ec;
 
     // Scrollbar
-    --scrollbar-thumb-background: transparent;
     --scrollbar-thumb-color: #9f9ba5;
 
     // Custom backgrounds
@@ -53,15 +52,10 @@
       linear-gradient(182.9deg, #5b4bb8 4.82%, #c18cc1 52.19%, #edada5 98.81%);
     --body-color: var(--text5-color);
 
-    --content-background: linear-gradient(
-      113.27deg,
-      #c9bbe3 0%,
-      #eed4e1 46.8%,
-      #e8d7e5 100%
-    );
+    --content-background: linear-gradient(113.27deg, #d5c7eb 0%, #eddcea 100%);
     --content-color: var(--text-color);
-    --content-contrast-background: var(--card-background);
-    --content-contrast-color: var(--card-background-contrast);
+    --content-start-background: rgba(235, 230, 245, 0.4);
+    --content-start-color: var(--text-color);
 
     // Menu
     --menu-color: var(--text5-color);
@@ -101,7 +95,7 @@
     --card-background-rgb: 237, 234, 247;
     --card-background-contrast: var(--text-color);
     --card-background-contrast-rgb: var(--text-color-rgb);
-    --card-background-shade: #d1ced9;
+    --card-background-shade: #d7cde6;
     --card-background-tint: #efecf8;
 
     /* Design: Light/Bg/Background-01 */

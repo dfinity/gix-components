@@ -1,17 +1,12 @@
 module.exports = {
   preset: "ts-jest",
-  globals: {
-    "ts-jest": {
-      tsconfig: "tsconfig.spec.json",
-    },
-  },
   transform: {
     "^.+\\.svelte$": [
       "svelte-jester",
       { preprocess: "./svelte.config.test.cjs" },
     ],
-    "^.+\\.ts$": "ts-jest",
-    "^.+\\.js$": "ts-jest",
+    "^.+\\.ts$": ["ts-jest", { tsconfig: "tsconfig.spec.json" }],
+    "^.+\\.js$": ["ts-jest", { tsconfig: "tsconfig.spec.json" }],
     "\\.(svg|png)$": "<rootDir>/jest-transform.cjs",
   },
   moduleFileExtensions: ["js", "ts", "svelte"],

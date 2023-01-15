@@ -37,6 +37,6 @@ describe("ExternalLink", () => {
       },
     });
     const a = container.querySelector("a") as unknown as HTMLLinkElement;
-    expect(a.getAttribute("alt")).toEqual(alt);
+    expect(a.getAttribute("title")).toEqual(alt);
   });
 });

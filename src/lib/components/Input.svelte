@@ -156,6 +156,7 @@
     {step}
     {disabled}
     value={inputType === "icp" ? icpValue : value}
+    minlength={minLength}
     {placeholder}
     {max}
     {autocomplete}
@@ -215,9 +216,7 @@
     border-radius: var(--border-radius);
 
     outline: none;
-    -webkit-appearance: none;
-
-    @include form.input;
+    appearance: none;
   }
 
   input[disabled] {
