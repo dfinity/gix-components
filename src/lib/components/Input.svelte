@@ -23,7 +23,7 @@
   // https://github.com/sveltejs/svelte/issues/6059
   // To hack this, we pass a prop to avoid showing info element when not needed
   // Ideally, this would be calculated
-  // showInfo = $$slots.label || $$slots.right
+  // showInfo = $$slots.label || $$slots.additional
   export let showInfo = true;
 
   let inputElement: HTMLInputElement | undefined;
@@ -142,7 +142,7 @@
     <div class="info">
       <slot name="left" />
       <label class="label" for={name}><slot name="label" /></label>
-      <slot name="right" />
+      <slot name="additional" />
     </div>
   {/if}
   <input
