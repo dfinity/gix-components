@@ -12,7 +12,6 @@
   export let value: string | number | undefined = undefined;
   export let placeholder: string;
   export let testId: string | undefined = undefined;
-  export let handleInput: (() => void) | undefined = undefined;
   const dispatch = createEventDispatcher();
 
   // https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete
@@ -86,7 +85,7 @@
   const isValidICPFormat = (text: string): boolean =>
     /^[\d]*(\.[\d]{0,8})?$/.test(text);
 
-  const handleOnInput = ({ currentTarget }: InputEventHandler) => {
+  const handleInput = ({ currentTarget }: InputEventHandler) => {
     if (inputType === "icp") {
       const currentValue = currentTarget.value;
 
@@ -162,7 +161,7 @@
     {autocomplete}
     on:blur
     on:focus
-    on:input={handleOnInput}
+    on:input={handleInput}
     on:keydown={handleKeyDown}
   />
 </div>
