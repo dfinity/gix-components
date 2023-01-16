@@ -238,6 +238,18 @@ describe("Input", () => {
     expect(getByText("Test Button")).toBeInTheDocument();
   });
 
+  it("should render the left slot", () => {
+    const { getByText } = render(InputTest, {
+      props: {
+        props: {
+          ...props,
+          inputType: "text",
+        },
+      },
+    });
+    expect(getByText("Left Button")).toBeInTheDocument();
+  });
+
   it("should not be disabled per default", () => {
     const { container } = render(Input, {
       props: { ...props },
