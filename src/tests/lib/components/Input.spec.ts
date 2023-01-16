@@ -238,7 +238,7 @@ describe("Input", () => {
     expect(getByText("Test Button")).toBeInTheDocument();
   });
 
-  it("should render the left slot", () => {
+  it("should render the start slot", () => {
     const { getByText } = render(InputTest, {
       props: {
         props: {

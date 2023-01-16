@@ -22,7 +22,7 @@
   // https://github.com/sveltejs/svelte/issues/6059
   // To hack this, we pass a prop to avoid showing info element when not needed
   // Ideally, this would be calculated
-  // showInfo = $$slots.label || $$slots.additional
+  // showInfo = $$slots.label || $$slots.end
   export let showInfo = true;
 
   let inputElement: HTMLInputElement | undefined;
@@ -93,14 +93,14 @@
       if (isValidICPFormat(currentValue) === false) {
         // restore value (e.g. to fix invalid paste)
         restoreFromValidValue();
-        dispatch("input");
+        dispatch("nnsInput");
         return;
       }
 
       // reset to undefined ("" => undefined)
       if (currentValue.length === 0) {
         restoreFromValidValue(true);
-        dispatch("input");
+        dispatch("nnsInput");
         return;
       }
 
@@ -111,13 +111,13 @@
       // for inputType="icp" value is a number
       // TODO: do we need to fix lost precision for too big for number inputs?
       value = +currentValue;
-      dispatch("input");
+      dispatch("nnsInput");
       return;
     }
 
     internalValueChange = true;
     value = inputType === "number" ? +currentTarget.value : currentTarget.value;
-    dispatch("input");
+    dispatch("nnsInput");
   };
 
   const handleKeyDown = () => {
@@ -139,9 +139,9 @@
 <div class="input-block" class:disabled>
   {#if showInfo}
     <div class="info">
-      <slot name="left" />
+      <slot name="start" />
       <label class="label" for={name}><slot name="label" /></label>
-      <slot name="additional" />
+      <slot name="end" />
     </div>
   {/if}
   <input
