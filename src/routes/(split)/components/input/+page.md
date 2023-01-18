@@ -51,7 +51,7 @@ Both slots are displayed `flex` with `space-between`.
 
     <Input placeholder="Input text" inputType="text" value="" showInfo>
         <svelte:fragment slot="label">A label</svelte:fragment>
-        <span slot="right" class="label">More</span>
+        <span slot="end" class="label">More</span>
     </Input>
 
 </div>
