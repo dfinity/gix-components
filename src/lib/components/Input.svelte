@@ -93,30 +93,23 @@
       if (isValidICPFormat(currentValue) === false) {
         // restore value (e.g. to fix invalid paste)
         restoreFromValidValue();
-        dispatch("nnsInput");
-        return;
-      }
-
-      // reset to undefined ("" => undefined)
-      if (currentValue.length === 0) {
+      } else if (currentValue.length === 0) {
+        // reset to undefined ("" => undefined)
         restoreFromValidValue(true);
-        dispatch("nnsInput");
-        return;
+      } else {
+        lastValidICPValue = currentValue;
+        icpValue = fixUndefinedValue(currentValue);
+
+        internalValueChange = true;
+        // for inputType="icp" value is a number
+        // TODO: do we need to fix lost precision for too big for number inputs?
+        value = +currentValue;
       }
-
-      lastValidICPValue = currentValue;
-      icpValue = fixUndefinedValue(currentValue);
-
+    } else {
       internalValueChange = true;
-      // for inputType="icp" value is a number
-      // TODO: do we need to fix lost precision for too big for number inputs?
-      value = +currentValue;
-      dispatch("nnsInput");
-      return;
+      value = inputType === "number" ? +currentTarget.value : currentTarget.value;
     }
 
-    internalValueChange = true;
-    value = inputType === "number" ? +currentTarget.value : currentTarget.value;
     dispatch("nnsInput");
   };
 
