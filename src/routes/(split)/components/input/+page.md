@@ -31,10 +31,11 @@ The input component is a wrapper to the HTML input element with custom styling a
 
 ## Slots
 
-| Slot name    | Description                                                                                            |
-| ------------ | ------------------------------------------------------------------------------------------------------ |
-| `label`      | A label related to the input. Need to be activated with the property `showInfo`.                       |
-| `additional` | An addition such as an action related to the input. Need to be activated with the property `showInfo`. |
+| Slot name | Description                                                                                                            |
+|-----------|------------------------------------------------------------------------------------------------------------------------|
+| `start`   | An addition before the label (e.g. an action related to the input). Need to be activated with the property `showInfo`. |
+| `label`   | A label related to the input. Need to be activated with the property `showInfo`.                                       |
+| `end`     | An addition after the label (e.g. an action related to the input). Need to be activated with the property `showInfo`.  |
 
 Both slots are displayed `flex` with `space-between`.
 
