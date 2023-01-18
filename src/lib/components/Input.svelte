@@ -107,7 +107,8 @@
       }
     } else {
       internalValueChange = true;
-      value = inputType === "number" ? +currentTarget.value : currentTarget.value;
+      value =
+        inputType === "number" ? +currentTarget.value : currentTarget.value;
     }
 
     dispatch("nnsInput");
