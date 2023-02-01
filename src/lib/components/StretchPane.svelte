@@ -1,5 +1,6 @@
 <script lang="ts">
   import { layoutMenuOpen } from "../stores/layout.store";
+  import { BREAKPOINT_LARGE } from "$lib";
 
   let innerWidth = 0;
 
@@ -10,7 +11,7 @@
     }
 
     // The media query breakpoint to stick the menu is media large 1024px
-    layoutMenuOpen.set(innerWidth > 1024 ? false : $layoutMenuOpen);
+    layoutMenuOpen.set(innerWidth > BREAKPOINT_LARGE ? false : $layoutMenuOpen);
   };
 
   $: onWindowSizeChange(innerWidth);
