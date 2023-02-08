@@ -5,7 +5,7 @@
    * - Shoelace: https://github.com/shoelace-style/shoelace/blob/next/src/components/qr-code/qr-code.ts
    * - DeckDeckGo: https://github.com/deckgo/deckdeckgo/blob/main/webcomponents/elements/src/components/qrcode/qrcode/qrcode.tsx
    */
-  import { afterUpdate } from "svelte";
+  import { afterUpdate, createEventDispatcher } from "svelte";
   import QrCreator from "qr-creator";
   import { debounce } from "$lib/utils/debounce.utils";
 
@@ -50,6 +50,8 @@
     once = true;
   });
 
+  const dispatch = createEventDispatcher();
+
   const renderCanvas = () => {
     if (canvas === undefined || size === undefined) {
       return;
@@ -67,6 +69,8 @@
       },
       canvas
     );
+
+    dispatch("nnsQRCodeRendered");
   };
 
   let canvas: HTMLCanvasElement | undefined;

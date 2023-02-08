@@ -45,7 +45,7 @@
 
     const { left: parentClientLeft } = parentElement.getBoundingClientRect();
     const { left: currentClientLeft, width: currentClientWidth } =
-            selectedElement.getBoundingClientRect();
+      selectedElement.getBoundingClientRect();
 
     indicator = {
       left: currentClientLeft - parentClientLeft,
@@ -55,8 +55,11 @@
 
   $: selectedElement, (() => initIndicator())();
 
-    let segmentsCount = 0;
-    $: segment, (() => segmentsCount = segment?.querySelectorAll(".segment-button").length ?? 0)();
+  let segmentsCount = 0;
+  $: segment,
+    (() =>
+      (segmentsCount =
+        segment?.querySelectorAll(".segment-button").length ?? 0))();
 </script>
 
 <div
@@ -108,7 +111,9 @@
       -1px,
       0
     );
-    width: calc((100% - (var(--segments) * var(--padding-2x))) / var(--segments));
+    width: calc(
+      (100% - (var(--segments) * var(--padding-2x))) / var(--segments)
+    );
     padding: var(--padding-2x) 0 var(--padding);
     border-radius: var(--border-radius);
     box-shadow: var(--interaction-box-shadow);
