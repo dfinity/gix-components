@@ -30,37 +30,39 @@
   $: selectedElement =
     $store.element ?? segment?.querySelector(".segment-button");
 
-  $: selectedElement,
-    (() => {
-      if (selectedElement === undefined || selectedElement === null) {
-        indicator = undefined;
-        return;
-      }
+  export const initIndicator = () => {
+    if (selectedElement === undefined || selectedElement === null) {
+      indicator = undefined;
+      return;
+    }
 
-      const { parentElement } = selectedElement;
+    const { parentElement } = selectedElement;
 
-      if (parentElement === null) {
-        indicator = undefined;
-        return;
-      }
+    if (parentElement === null) {
+      indicator = undefined;
+      return;
+    }
 
-      const { paddingLeft } = window.getComputedStyle(parentElement);
+    const { left: parentClientLeft } = parentElement.getBoundingClientRect();
+    const { left: currentClientLeft, width: currentClientWidth } =
+            selectedElement.getBoundingClientRect();
 
-      const { left: parentClientLeft } = parentElement.getBoundingClientRect();
-      const { left: currentClientLeft, width: currentClientWidth } =
-        selectedElement.getBoundingClientRect();
+    indicator = {
+      left: currentClientLeft - parentClientLeft,
+      width: currentClientWidth,
+    };
+  };
 
-      indicator = {
-        left: currentClientLeft - parentClientLeft - parseFloat(paddingLeft),
-        width: currentClientWidth,
-      };
-    })();
+  $: selectedElement, (() => initIndicator())();
+
+    let segmentsCount = 0;
+    $: segment, (() => segmentsCount = segment?.querySelectorAll(".segment-button").length ?? 0)();
 </script>
 
 <div
   bind:this={segment}
   class="segment"
-  style={`${
+  style={`--segments: ${segmentsCount}; ${
     indicator !== undefined
       ? `--position: ${indicator.left}px; --width: ${indicator.width}px`
       : ""
@@ -75,7 +77,11 @@
 
 <style lang="scss">
   .segment {
-    display: flex;
+    display: grid;
+    grid-auto-columns: minmax(0, 1fr);
+    grid-auto-flow: column;
+    align-items: center;
+
     background: var(--overlay-background);
     color: var(--overlay-background-contrast);
 
@@ -102,7 +108,7 @@
       -1px,
       0
     );
-    width: calc(var(--width) + var(--padding));
+    width: calc((100% - (var(--segments) * var(--padding-2x))) / var(--segments));
     padding: var(--padding-2x) 0 var(--padding);
     border-radius: var(--border-radius);
     box-shadow: var(--interaction-box-shadow);

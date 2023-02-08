@@ -19,7 +19,7 @@
 </script>
 
 <div bind:this={element} class="segment-button">
-  <button on:click={onClick} role="tab">
+  <button on:click={onClick} role="tab" class:selected>
     <slot />
   </button>
 </div>
@@ -28,5 +28,16 @@
   .segment-button {
     padding: var(--padding-0_25x);
     transform: translate3d(0, 0, 0);
+  }
+
+  button {
+    width: 100%;
+
+    color: rgba(var(--disable-contrast-rgb), 0.8);
+    transition: color var(--animation-time-normal);
+
+    &.selected {
+      color: inherit;
+    }
   }
 </style>
