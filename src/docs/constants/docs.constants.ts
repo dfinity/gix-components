@@ -162,6 +162,13 @@ export const COMPONENT_ROUTES: ComponentRoute[] = [
   },
 
   {
+    path: "/components/segment",
+    title: "Segment",
+
+    description: "A segment controls.",
+  },
+
+  {
     path: "/components/skeleton-text",
     title: "Skeleton Text",
 
