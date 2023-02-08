@@ -48,7 +48,7 @@
 
     initSize();
     once = true;
-  })
+  });
 
   const renderCanvas = () => {
     if (canvas === undefined || size === undefined) {
