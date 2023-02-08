@@ -94,7 +94,8 @@
     border-radius: var(--border-radius);
     overflow: hidden;
 
-    width: var(--segment-width, fit-content);
+    width: var(--segment-min-width, var(--segment-width, fit-content));
+    --segment-min-width: calc(var(--segment-button-width) * var(--segments));
 
     position: relative;
   }
@@ -112,7 +113,7 @@
       0
     );
     width: calc(
-      (100% - (var(--segments) * var(--padding-2x))) / var(--segments)
+      (100% - (var(--segments) * var(--padding))) / var(--segments)
     );
     padding: var(--padding-2x) 0 var(--padding);
     border-radius: var(--border-radius);
