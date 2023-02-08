@@ -94,7 +94,7 @@
     border-radius: var(--border-radius);
     overflow: hidden;
 
-    width: fit-content;
+    width: var(--segment-width, fit-content);
 
     position: relative;
   }
