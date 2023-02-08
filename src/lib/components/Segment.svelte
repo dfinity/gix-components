@@ -112,9 +112,7 @@
       -1px,
       0
     );
-    width: calc(
-      (100% - (var(--segments) * var(--padding))) / var(--segments)
-    );
+    width: calc((100% - (var(--segments) * var(--padding))) / var(--segments));
     padding: var(--padding-2x) 0 var(--padding);
     border-radius: var(--border-radius);
     box-shadow: var(--interaction-box-shadow);
