@@ -105,6 +105,9 @@
     rgba(255, 255, 255, 0) 85%
   );
 
+  // Tab and segment
+  --segment-selected-background: var(--overlay-content-background);
+
   // Theme color
   --theme-color: var(--card-background);
 

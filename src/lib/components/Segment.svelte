@@ -106,6 +106,6 @@
     padding: var(--padding-2x) 0 var(--padding);
     border-radius: var(--border-radius);
     box-shadow: var(--interaction-box-shadow);
-    background: var(--focus-background);
+    background: var(--segment-selected-background);
   }
 </style>
