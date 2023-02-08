@@ -7,6 +7,10 @@
 
 Generates a [QR Code](https://www.qrcode.com/).
 
+## Styling
+
+The component fits the available space where it is used. Therefore, the parents should be rendered before mounting this component.
+
 ## Showcase
 
 <QRCode value="https://nns.ic0.app/" ariaLabel="Network Nervous System" >

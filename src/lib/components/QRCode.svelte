@@ -29,7 +29,7 @@
 
   // Add a small debounce in case the screen is resized
   const initSize = debounce(() => {
-    if (container === undefined) {
+    if (container === undefined || container === null) {
       size = undefined;
       return;
     }
@@ -40,7 +40,15 @@
     };
   }, 25);
 
-  afterUpdate(() => initSize());
+  let once = false;
+  afterUpdate(() => {
+    if (once) {
+      return;
+    }
+
+    initSize();
+    once = true;
+  })
 
   const renderCanvas = () => {
     if (canvas === undefined || size === undefined) {
@@ -62,7 +70,7 @@
   };
 
   let canvas: HTMLCanvasElement | undefined;
-  $: size, canvas, (() => renderCanvas())();
+  $: value, canvas, (() => renderCanvas())();
 
   let showLogo: boolean;
   $: showLogo = $$slots.logo !== undefined;

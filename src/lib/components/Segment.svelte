@@ -56,8 +56,8 @@
 <style lang="scss">
     .segment {
       display: flex;
-      background: var(--content-start-background);
-      color: var(--content-start-color);
+      background: var(--overlay-background);
+      color: var(--overlay-background-contrast);
 
       padding: var(--padding) var(--padding-2x);
       gap: var(--padding-2x);
@@ -77,11 +77,11 @@
       box-sizing: border-box;
       will-change: transform, opacity;
       pointer-events: none;
-      transform: translate3d(var(--position, 0), 0, 0);
-      width: var(--width);
+      transform: translate3d(calc(var(--position, 0) - var(--padding-0_5x)), -1px, 0);
+      width: calc(var(--width) + var(--padding));
       padding: var(--padding-2x) 0 var(--padding);
-      background: var(--body-color);
       border-radius: var(--border-radius);
-      box-shadow: var(--interaction-box-shadow)
+      box-shadow: var(--interaction-box-shadow);
+      background: var(--focus-background);
     }
 </style>
