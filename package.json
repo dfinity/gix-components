@@ -47,7 +47,8 @@
   },
   "type": "module",
   "dependencies": {
-    "dompurify": "^2.4.3"
+    "dompurify": "^2.4.3",
+    "qr-creator": "^1.0.0"
   },
   "peerDependencies": {
     "svelte": "^3.0.0"
