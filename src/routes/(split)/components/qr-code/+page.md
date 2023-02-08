@@ -1,6 +1,18 @@
 <script lang="ts">
-    import QRCode from "$lib/components/QRCode.svelte";
+    import { browser } from "$app/environment";
+    import type { SvelteComponent } from "svelte";
+    import { onMount } from "svelte";
     import logoOnChainDark from "$lib/assets/logo-onchain-dark.svg";
+
+    let QRCode: typeof SvelteComponent | undefined = undefined;
+
+    onMount(async () => {
+        if (!browser) {
+            return;
+        }
+
+        QRCode = (await import("../../../../lib/components/QRCode.svelte")).default;
+    });
 </script>
 
 # QR Code
@@ -13,13 +25,15 @@ The component fits the available space where it is used. Therefore, the parents 
 
 ## Showcase
 
-<QRCode value="https://nns.ic0.app/" ariaLabel="Network Nervous System" >
-  <img
-    src={logoOnChainDark}
-    role="presentation"
-    alt="Test logo"
-    loading="lazy"
-    slot="logo"
-    style="background: var(--secondary); color: var(--secondary-contrast); width: 20vw; height: 20vw; padding: var(--padding-2x); border-radius: 50%;"
-  />
-</QRCode>
+{#if QRCode !== undefined}
+<svelte:component this={QRCode} value="https://nns.ic0.app/" ariaLabel="Network Nervous System" >
+<img
+        src={logoOnChainDark}
+        role="presentation"
+        alt="Test logo"
+        loading="lazy"
+        slot="logo"
+        style="background: var(--secondary); color: var(--secondary-contrast); width: 20vw; height: 20vw; padding: var(--padding-2x); border-radius: 50%;"
+      />
+</svelte:component>
+{/if}
