@@ -14,6 +14,33 @@ Segments display a group of related buttons, sometimes known as segmented contro
 
 Their functionality is similar to tabs, where selecting one will deselect all others. Segments are useful for toggling between different views inside of the content.
 
+```
+<Segment bind:selectedSegmentId>
+    <SegmentButton segmentId={firstSegmentId}>Default</SegmentButton>
+    <SegmentButton segmentId={secondSegmentId}>Segment</SegmentButton>
+    <SegmentButton segmentId={thirdSegmentId}>Other</SegmentButton>
+</Segment>
+```
+
+### Notes
+
+To implement a segment both `Segment` and `SegmentButton` components are required.
+
+## Properties
+
+### Segment
+
+| Property            | Description                                                                              | Type         | Default |
+| ------------------- | ---------------------------------------------------------------------------------------- | ------------ | ------- |
+| `selectedSegmentId` | The selected segment.                                                                    | `symbol`     |         |
+| `initIndicator`     | A function that can be called on demand to reinitialize the indicator position and size. | `() => void` |         |
+
+### SegmentButton
+
+| Property    | Description                                                   | Type     | Default |
+| ----------- | ------------------------------------------------------------- | -------- | ------- |
+| `segmentId` | The ID of the segment that will be use for selection purpose. | `symbol` |         |
+
 ## Showcase
 
 <Segment bind:selectedSegmentId>
