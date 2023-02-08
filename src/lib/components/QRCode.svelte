@@ -9,7 +9,7 @@
   import QrCreator from "qr-creator";
   import { debounce } from "$lib/utils/debounce.utils";
 
-  export let ariaLabel: string | undefined;
+  export let ariaLabel: string | undefined = undefined;
   export let value: string;
 
   // Valid CSS colors
