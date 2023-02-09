@@ -50,6 +50,12 @@ This component uses the library [qr-creator](https://github.com/nimiq/qr-creator
 
 The component fits the available space where it is used. Therefore, the parents should be rendered before mounting this component.
 
+## Slots
+
+| Slot name | Description                                  |
+|-----------|----------------------------------------------|
+| `logo`    | An optional logo displayed over the QR code. |
+
 ## Showcase
 
 {#if QRCode !== undefined}
