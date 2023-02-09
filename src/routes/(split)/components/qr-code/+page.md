@@ -13,6 +13,13 @@
 
         QRCode = (await import("../../../../lib/components/QRCode.svelte")).default;
     });
+
+    const NNS = "https://nns.ic0.app/";
+    const II = "https://identity.ic0.app/";
+
+    let value = NNS;
+
+    const toggle = () => value = value === NNS ? II : NNS; 
 </script>
 
 # QR Code
@@ -59,8 +66,11 @@ The component fits the available space where it is used. Therefore, the parents 
 ## Showcase
 
 <div data-tid="showcase" style="max-width: 30vw">
+
+<button class="primary" on:click={toggle} style="margin: 0 0 var(--padding-2x);" data-tid="qr-code-toggle">Toggle value</button>
+
 {#if QRCode !== undefined}
-<svelte:component this={QRCode} value="https://nns.ic0.app/" ariaLabel="Network Nervous System" >
+<svelte:component this={QRCode} {value} ariaLabel="Network Nervous System" >
 <img
         src={logoOnChainDark}
         role="presentation"
@@ -71,4 +81,5 @@ The component fits the available space where it is used. Therefore, the parents 
       />
 </svelte:component>
 {/if}
+
 </div>
