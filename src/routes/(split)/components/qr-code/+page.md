@@ -53,7 +53,7 @@ The component fits the available space where it is used. Therefore, the parents 
 ## Slots
 
 | Slot name | Description                                  |
-|-----------|----------------------------------------------|
+| --------- | -------------------------------------------- |
 | `logo`    | An optional logo displayed over the QR code. |
 
 ## Showcase

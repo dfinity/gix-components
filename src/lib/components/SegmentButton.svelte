@@ -19,7 +19,12 @@
 </script>
 
 <div bind:this={element} class="segment-button">
-  <button on:click={onClick} role="tab" class:selected>
+  <button
+    on:click={onClick}
+    role="tab"
+    class:selected
+    data-tid="segment-button"
+  >
     <slot />
   </button>
 </div>
