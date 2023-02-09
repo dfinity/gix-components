@@ -9,7 +9,6 @@ test("QR code renders https://nns.ic0.app", async ({ page }) => {
   await page.goto("/components/qr-code");
 
   const showcase = page.getByTestId("showcase");
-
   await showcase.scrollIntoViewIfNeeded();
 
   await expect(page).toHaveScreenshot();
