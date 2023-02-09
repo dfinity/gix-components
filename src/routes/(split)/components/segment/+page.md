@@ -43,8 +43,10 @@ To implement a segment both `Segment` and `SegmentButton` components are require
 
 ## Showcase
 
+<div data-tid="showcase">
 <Segment bind:selectedSegmentId>
     <SegmentButton segmentId={firstSegmentId}>Default</SegmentButton>
     <SegmentButton segmentId={secondSegmentId}>Segment</SegmentButton>
     <SegmentButton segmentId={thirdSegmentId}>Other</SegmentButton>
 </Segment>
+</div>
