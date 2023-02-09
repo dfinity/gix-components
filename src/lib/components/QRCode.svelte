@@ -82,7 +82,7 @@
 
 <svelte:window on:resize={initSize} />
 
-<div class="container" bind:this={container}>
+<div class="container" bind:this={container} data-tid="qr-code">
   {#if size !== undefined}
     <canvas
       bind:this={canvas}
