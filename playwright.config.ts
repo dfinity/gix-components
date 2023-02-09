@@ -6,7 +6,7 @@ const config: PlaywrightTestConfig = {
     port: 4173,
   },
   testDir: "e2e",
-  testMatch: ["**/*.spec.ts"],
+  testMatch: ["**/*.e2e.ts"],
   use: {
     testIdAttribute: "data-tid",
   },

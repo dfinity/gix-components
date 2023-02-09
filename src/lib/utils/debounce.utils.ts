@@ -1,3 +1,4 @@
+// TODO: copied from NNS-dapp and needs to be moved to utils
 /* eslint-disable-next-line @typescript-eslint/ban-types */
 export const debounce = (func: Function, timeout?: number) => {
   let timer: NodeJS.Timer | undefined;
