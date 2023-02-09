@@ -58,6 +58,7 @@ The component fits the available space where it is used. Therefore, the parents 
 
 ## Showcase
 
+<div data-tid="showcase" style="max-width: 30vw">
 {#if QRCode !== undefined}
 <svelte:component this={QRCode} value="https://nns.ic0.app/" ariaLabel="Network Nervous System" >
 <img
@@ -66,7 +67,8 @@ The component fits the available space where it is used. Therefore, the parents 
         alt="Test logo"
         loading="lazy"
         slot="logo"
-        style="background: var(--secondary); color: var(--secondary-contrast); width: 20vw; height: 20vw; padding: var(--padding-2x); border-radius: 50%;"
+        style="width: 5vw; height: 5vw; background: var(--secondary); color: var(--secondary-contrast); padding: var(--padding-2x); border-radius: 50%;"
       />
 </svelte:component>
 {/if}
+</div>
