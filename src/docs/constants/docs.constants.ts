@@ -156,6 +156,19 @@ export const COMPONENT_ROUTES: ComponentRoute[] = [
   },
 
   {
+    path: "/components/qr-code",
+    title: "QR Code",
+    description: "Generates a QR Code.",
+  },
+
+  {
+    path: "/components/segment",
+    title: "Segment",
+
+    description: "A segment controls.",
+  },
+
+  {
     path: "/components/skeleton-text",
     title: "Skeleton Text",
 

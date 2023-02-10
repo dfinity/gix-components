@@ -12,3 +12,5 @@ node_modules
 .vscode/
 
 .dfx
+
+test-results
