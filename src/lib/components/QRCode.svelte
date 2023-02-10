@@ -16,6 +16,7 @@
   export let fillColor = "black";
   export let backgroundColor = "white";
 
+  // The edge radius of each module. Must be between 0 and 0.5.
   export let radius = 0;
   // https://www.qrcode.com/en/about/error_correction.html
   export let ecLevel: "L" | "M" | "Q" | "H" = "H";
