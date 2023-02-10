@@ -55,6 +55,7 @@
 
   $: selectedElement, (() => initIndicator())();
 
+  // TODO: support adding segmebt buttons dynamically
   let segmentsCount = 0;
   $: segment,
     (() =>
