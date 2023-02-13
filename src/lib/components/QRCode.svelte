@@ -5,9 +5,9 @@
    * - Shoelace: https://github.com/shoelace-style/shoelace/blob/next/src/components/qr-code/qr-code.ts
    * - DeckDeckGo: https://github.com/deckgo/deckdeckgo/blob/main/webcomponents/elements/src/components/qrcode/qrcode/qrcode.tsx
    */
-  import { afterUpdate, createEventDispatcher } from "svelte";
-  import QrCreator from "qr-creator";
+  import { afterUpdate, createEventDispatcher, onMount } from "svelte";
   import { debounce } from "$lib/utils/debounce.utils";
+  import type { QrCreateClass } from "$lib/types/qr-creator";
 
   export let ariaLabel: string | undefined = undefined;
   export let value: string;
@@ -41,6 +41,27 @@
     };
   }, 25);
 
+  const isBrowser = typeof window !== "undefined";
+
+  let QrCreator: QrCreateClass | undefined;
+  onMount(async () => {
+    // The qr-creator library is not compatible with NodeJS environment
+    if (!isBrowser) {
+      return;
+    }
+
+    // The library leads to issues (es modules import error, segmentation fault, blocking tests etc.) in jest tests of NNS-dapp when use explicitly or imported implicitly.
+    // Therefore, the simplest way to avoid these problems is to skip it globally in jest tests.
+    // It remains tested in e2e tests.
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    if (process.env.NODE_ENV === "test") {
+      return;
+    }
+
+    QrCreator = (await import("qr-creator")).default;
+  });
+
   let once = false;
   afterUpdate(() => {
     if (once) {
@@ -58,7 +79,7 @@
       return;
     }
 
-    QrCreator.render(
+    QrCreator?.render(
       {
         text: value,
         radius,
