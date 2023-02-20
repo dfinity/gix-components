@@ -1,10 +1,9 @@
+<!-- source: https://fonts.google.com/icons?selected=Material%20Icons%3Aerror%3A -->
 <script lang="ts">
   import { DEFAULT_ICON_SIZE } from "$lib/constants/constants";
 
   export let size = `${DEFAULT_ICON_SIZE}px`;
 </script>
-
-<!-- source: https://fonts.google.com/icons?selected=Material%20Icons%3Aerror%3A -->
 
 <svg
   xmlns="http://www.w3.org/2000/svg"
