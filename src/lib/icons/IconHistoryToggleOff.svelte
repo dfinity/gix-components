@@ -1,4 +1,4 @@
-<!-- Source: https://fonts.google.com/icons?selected=Material%20Icons%20Outlined%3Ahistory_toggle_off%3A -->
+<!-- source: https://fonts.google.com/icons?selected=Material%20Icons%20Outlined%3Ahistory_toggle_off%3A -->
 <svg
   xmlns="http://www.w3.org/2000/svg"
   enable-background="new 0 0 24 24"
