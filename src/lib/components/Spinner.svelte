@@ -1,7 +1,7 @@
 <!-- adapted source: https://github.com/angular/components/tree/master/src/material/progress-spinner -->
 <script lang="ts">
   export let inline = false;
-  export let size: "tiny" | "small" | "medium" = "medium";
+  export let size: "small" | "medium" = "medium";
 </script>
 
 <svg
@@ -23,11 +23,6 @@
   .small {
     --spinner-size: calc(var(--line-height-standard) * 1rem);
   }
-
-  .tiny {
-    --spinner-size: calc(var(--line-height-standard) * 0.6rem);
-  }
-
   svg {
     width: var(--spinner-size);
     height: var(--spinner-size);
