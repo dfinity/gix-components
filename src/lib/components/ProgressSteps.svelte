@@ -1,36 +1,35 @@
-<script>
+<script lang="ts">
   import IconCheckCircle from "$lib/icons/IconCheckCircle.svelte";
   import Spinner from "$lib/components/Spinner.svelte";
+  import type { ProgressStep } from "$lib/types/progress-step";
+  import { i18n } from "$lib/stores/i18n";
+
+  export let steps: [ProgressStep, ...ProgressStep[]];
 </script>
 
-<div class="step">
-  <IconCheckCircle />
-  <span class="text">Connection with sale canister</span>
-  <div class="line" />
-  <span class="state">Completed</span>
-</div>
+{#each steps as { id, text, state }, i}
+  {@const last = i === steps.length - 1}
+  <div class={`step ${state} ${last ? "last" : ""}`}>
+    {#if state === "completed"}
+      <IconCheckCircle />
+    {:else}
+      <span class="checkmark">{i + 1}</span>
+    {/if}
 
-<div class="step">
-  <IconCheckCircle />
-  <span class="text">Sending tokens</span>
-  <div class="line" />
-  <span class="state">Completed</span>
-</div>
+    <span class="text">{text}</span>
 
-<div class="step in-progress">
-  <span class="checkmark">3</span>
-  <span class="text">Confirming your participation...</span>
-  <div class="line" />
-  <div class="state">
-    <span>In progress</span>
-    <div><Spinner inline size="tiny" /></div>
+    <div class:line={!last} />
+
+    {#if state === "completed"}
+      <span class="state">{$i18n.progress.completed}</span>
+    {:else if state === "in_progress"}
+      <div class="state">
+        <span>{$i18n.progress.in_progress}</span>
+        <div><Spinner inline size="tiny" /></div>
+      </div>
+    {/if}
   </div>
-</div>
-
-<div class="step last">
-  <span class="checkmark">4</span>
-  <span class="text">Updating your data</span>
-</div>
+{/each}
 
 <style lang="scss">
   @use "../styles/mixins/fonts";
@@ -38,14 +37,14 @@
   .step {
     display: grid;
     grid-template-columns: max-content auto;
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
 
     align-items: center;
 
     column-gap: var(--padding-2x);
-    row-gap: var(--padding-0_25x);
+    row-gap: var(--padding);
 
-    padding: 0 0 var(--padding-0_25x);
+    padding: 0 0 var(--padding);
 
     --icon-check-circle-background: var(--positive-emphasis);
     --icon-check-circle-color: white;
@@ -58,7 +57,7 @@
     align-self: flex-start;
   }
 
-  .in-progress {
+  .in_progress {
     color: var(--primary);
 
     --icon-check-circle-background: var(--primary);
@@ -78,14 +77,12 @@
     }
   }
 
-  .last {
+  .next {
     color: var(--tertiary);
 
     --icon-check-circle-background: transparent;
     --icon-check-circle-color: var(--tertiary);
     --icon-check-circle-border-color: var(--tertiary);
-
-    padding: var(--padding) 0 0;
   }
 
   .state {
@@ -116,8 +113,8 @@
   .checkmark {
     @include fonts.small;
 
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
 
     display: flex;
     justify-content: center;
