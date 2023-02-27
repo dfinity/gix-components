@@ -5,6 +5,7 @@
   import type { WizardStep, WizardSteps } from "$lib/types/wizard";
 
   export let steps: WizardSteps;
+  export let disablePointerEvents = false;
 
   let stepState: WizardStepsState;
   $: stepState = new WizardStepsState(steps);
@@ -22,7 +23,11 @@
   let presented = false;
 </script>
 
-<Modal on:nnsClose on:introend={() => (presented = true)}>
+<Modal
+  on:nnsClose
+  on:introend={() => (presented = true)}
+  {disablePointerEvents}
+>
   <slot name="title" slot="title" />
 
   {#if presented}

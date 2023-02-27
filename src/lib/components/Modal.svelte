@@ -194,6 +194,11 @@
         background: var(--background-shade);
         border-radius: var(--border-radius);
       }
+
+      &[disabled],
+      &[disabled]:hover {
+        color: var(--background-disable-contrast);
+      }
     }
   }
 
