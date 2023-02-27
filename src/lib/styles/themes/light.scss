@@ -42,6 +42,11 @@
     // Scrollbar
     --scrollbar-thumb-color: #9f9ba5;
 
+    // Progress
+    --progress-color: var(--primary);
+    --progress-color-contrast: var(--primary-contrast);
+    --progress-color-rgb: var(--primary-rgb);
+
     // Custom backgrounds
     --body-background: linear-gradient(
         245.71deg,

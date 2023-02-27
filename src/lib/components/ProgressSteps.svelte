@@ -61,23 +61,26 @@
     align-self: flex-start;
   }
 
-  .in_progress {
-    color: var(--primary);
-
-    --icon-check-circle-background: var(--primary);
-    --icon-check-circle-color: var(--primary-contrast);
-
-    .state {
-      color: var(--primary);
-      background: rgba(var(--primary-rgb), 0.3);
-    }
-
+  .in_progress,
+  .next {
     .line {
       --line-color: var(--tertiary);
     }
+  }
+
+  .in_progress {
+    color: var(--progress-color);
+
+    --icon-check-circle-background: var(--progress-color);
+    --icon-check-circle-color: var(--progress-color-contrast);
+
+    .state {
+      color: var(--progress-color);
+      background: rgba(var(--progress-color-rgb), 0.3);
+    }
 
     .checkmark {
-      --checkmark-color: var(--primary);
+      --checkmark-color: var(--progress-color);
     }
   }
 

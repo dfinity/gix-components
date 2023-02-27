@@ -8,11 +8,11 @@
     },{
         step: "2",
         text: "Sending tokens",
-        state: "completed"
+        state: "in_progress"
     },{
         step: "3",
         text: "Confirming your participation...",
-        state: "in_progress"
+        state: "next"
     },{
         step: "4",
         text: "Updating your data",
