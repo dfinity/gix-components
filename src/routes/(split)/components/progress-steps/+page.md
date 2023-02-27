@@ -2,19 +2,19 @@
     import ProgressSteps from "$lib/components/ProgressSteps.svelte";
 
     let steps = [{
-        id: Symbol(1),
+        step: "1",
         text: "Connection with sale canister",
         state: "completed"
     },{
-        id: Symbol(2),
+        step: "2",
         text: "Sending tokens",
         state: "completed"
     },{
-        id: Symbol(3),
+        step: "3",
         text: "Confirming your participation...",
         state: "in_progress"
     },{
-        id: Symbol(4),
+        step: "4",
         text: "Updating your data",
         state: "next"
     }];

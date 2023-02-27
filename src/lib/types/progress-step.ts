@@ -1,5 +1,7 @@
+export type ProgressStepState = "next" | "in_progress" | "completed";
+
 export interface ProgressStep {
-  id: symbol;
+  step: string;
   text: string;
-  state: "next" | "in_progress" | "completed";
+  state: ProgressStepState;
 }
