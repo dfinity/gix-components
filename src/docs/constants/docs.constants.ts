@@ -156,6 +156,13 @@ export const COMPONENT_ROUTES: ComponentRoute[] = [
   },
 
   {
+    path: "/components/progress-steps",
+    title: "Progress Steps",
+    description:
+      "Display the progression of a long lasting tasks with various steps.",
+  },
+
+  {
     path: "/components/qr-code",
     title: "QR Code",
     description: "Generates a QR Code.",
