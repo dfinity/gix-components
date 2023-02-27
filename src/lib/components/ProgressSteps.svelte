@@ -12,8 +12,13 @@
   <div class={`step ${state} ${last ? "last" : ""}`}>
     {#if state === "completed"}
       <IconCheckCircle />
+    {:else if state === "in_progress"}
+      <div class="spinner">
+        <span class="checkmark">{i + 1}</span>
+        <Spinner size="large" />
+      </div>
     {:else}
-      <span class="checkmark">{i + 1}</span>
+      <span class="checkmark round">{i + 1}</span>
     {/if}
 
     <span class="text">{text}</span>
@@ -25,7 +30,6 @@
     {:else if state === "in_progress"}
       <div class="state">
         <span>{$i18n.progress.in_progress}</span>
-        <div><Spinner inline size="tiny" /></div>
       </div>
     {/if}
   </div>
@@ -113,15 +117,29 @@
   .checkmark {
     @include fonts.small;
 
-    width: 22px;
-    height: 22px;
+    --checkmark-color: var(--tertiary);
+  }
+
+  .spinner {
+    width: 24px;
+    height: 24px;
+
+    position: relative;
 
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .round {
+    width: 22px;
+    height: 22px;
+
     border-radius: 50%;
 
-    --checkmark-color: var(--tertiary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: 1px solid var(--checkmark-color);
   }
 </style>
