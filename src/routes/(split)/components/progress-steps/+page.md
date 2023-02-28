@@ -62,8 +62,8 @@
             state: "completed",
           },
         ];
-      }, 2500);
-    }, 2500);
+      }, 1000);
+    }, 1000);
   };
 </script>
 
@@ -97,6 +97,8 @@ The component itself is not animated. Updating the `steps` property re-render th
 
 ## Showcase
 
-<ProgressSteps {steps} />
+<div data-tid="showcase">
+    <ProgressSteps {steps} />
+</div>
 
-<button on:click={animate} class="primary" style="margin-top: var(--padding-2x)">Test</button>
+<button on:click={animate} class="primary" style="margin-top: var(--padding-2x)" data-tid="progress-steps-test">Test</button>
