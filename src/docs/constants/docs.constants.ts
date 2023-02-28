@@ -159,7 +159,7 @@ export const COMPONENT_ROUTES: ComponentRoute[] = [
     path: "/components/progress-steps",
     title: "Progress Steps",
     description:
-      "Display the progression of a long.lasting task with various steps.",
+      "Display the progression of a long-lasting task with various steps.",
   },
 
   {
