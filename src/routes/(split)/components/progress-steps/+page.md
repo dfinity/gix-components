@@ -69,8 +69,34 @@
 
 # Progress Steps
 
-Display the progression of a long lasting tasks with various steps
+Display the progression of a long-lasting task with various steps
+
+```html
+<ProgressSteps {steps} />
+```
+
+## Properties
+
+| Property | Description                                                                     | Type           | Default |
+| -------- | ------------------------------------------------------------------------------- | -------------- | ------- |
+| `steps`  | The steps to display the progress. The array must contain at least one element. | `ProgressStep` |         |
+
+### Interface
+
+A `Step` requires following information:
+
+| Property | Description                                   | Type                                   | Default |
+| -------- | --------------------------------------------- | -------------------------------------- | ------- |
+| `step`   | A key.                                        | `string`                               |         |
+| `text`   | The related text to display next to the step. | `string`                               |         |
+| `state`  | The status of the step.                       | `next` or `in_progress` or `completed` |         |
+
+### Note
+
+The component itself is not animated. Updating the `steps` property re-render the UI accordingly and per extension can be use to display a progression.
+
+## Showcase
 
 <ProgressSteps {steps} />
 
-<button on:click={animate} class="primary">Animate</button>
+<button on:click={animate} class="primary" style="margin-top: var(--padding-2x)">Test</button>
