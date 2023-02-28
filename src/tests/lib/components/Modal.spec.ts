@@ -120,4 +120,17 @@ describe("Modal", () => {
 
     button && fireEvent.click(button);
   });
+
+  it("should not trigger close modal on click on backdrop", () => {
+    const { getByTestId } = render(ModalTest, {
+      props: {
+        ...props,
+        disablePointerEvents: true,
+      },
+    });
+
+    const button: HTMLElement = getByTestId("close-modal") as HTMLElement;
+
+    expect(button).toBeDisabled();
+  });
 });
