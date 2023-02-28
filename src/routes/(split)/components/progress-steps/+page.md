@@ -1,44 +1,70 @@
 <script lang="ts">
     import ProgressSteps from "$lib/components/ProgressSteps.svelte";
 
-    let steps = [{
-        step: "1",
-        text: "Connection with sale canister",
-        state: "completed"
-    },{
-        step: "2",
-        text: "Sending tokens",
-        state: "in_progress"
-    },{
-        step: "3",
-        text: "Confirming your participation...",
-        state: "next"
-    },{
-        step: "4",
-        text: "Updating your data",
-        state: "next"
-    }];
+  let steps = [
+    {
+      step: "1",
+      text: "Connection with sale canister",
+      state: "completed",
+    },
+    {
+      step: "2",
+      text: "Sending tokens",
+      state: "in_progress",
+    },
+    {
+      step: "3",
+      text: "Confirming your participation...",
+      state: "next",
+    },
+    {
+      step: "4",
+      text: "Updating your data",
+      state: "next",
+    },
+  ];
 
-    const animate = () => {
+  const animate = () => {
     steps = [
-                steps[0], steps[1], {   
-    ...steps[2],
-    state: "completed"
-                }, {
-    ...steps[3],
-    state: "in_progress"
-}
-            ];
+      steps[0],
+      {
+        ...steps[1],
+        state: "completed",
+      },
+      {
+        ...steps[2],
+        state: "in_progress",
+      },
+      steps[3],
+    ];
 
-        setTimeout(() => {
-            steps = [
-                steps[0], steps[1], steps[2], {   
-    ...steps[3],
-    state: "completed"
-                }
-            ];
-        }, 2500);
-    }
+    setTimeout(() => {
+      steps = [
+        steps[0],
+        steps[1],
+        {
+          ...steps[2],
+          state: "completed",
+        },
+        {
+          ...steps[3],
+          state: "in_progress",
+        },
+      ];
+
+      setTimeout(() => {
+        steps = [
+          steps[0],
+          steps[1],
+          steps[2],
+          {
+            ...steps[3],
+            state: "completed",
+          },
+        ];
+      }, 2500);
+    }, 2500);
+  };
 </script>
 
 # Progress Steps

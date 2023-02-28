@@ -54,6 +54,7 @@
     --icon-check-circle-color: white;
 
     color: var(--value-color);
+    transition: color var(--animation-time-normal) ease-out;
   }
 
   .line,
@@ -100,6 +101,7 @@
 
     color: var(--positive-emphasis);
     background: rgba(var(--positive-emphasis-rgb), 0.3);
+
     width: fit-content;
 
     padding: var(--padding-0_5x) var(--padding);
