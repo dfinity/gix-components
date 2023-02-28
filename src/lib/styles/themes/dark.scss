@@ -72,6 +72,11 @@
   --scrollbar-thumb-background: transparent;
   --scrollbar-thumb-color: var(--content-color);
 
+  // Progress
+  --progress-color: var(--secondary);
+  --progress-color-contrast: var(--secondary-contrast);
+  --progress-color-rgb: var(--secondary-rgb);
+
   // Custom backgrounds
   --body-background: linear-gradient(
       275.08deg,

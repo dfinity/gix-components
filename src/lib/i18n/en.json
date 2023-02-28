@@ -9,5 +9,9 @@
   },
   "theme": {
     "switch_theme": "Switch theme"
+  },
+  "progress": {
+    "completed": "Completed",
+    "in_progress": "In progress"
   }
 }

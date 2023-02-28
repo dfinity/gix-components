@@ -6,6 +6,7 @@ export * from "./stores/layout.store";
 export * from "./stores/toasts.store";
 export * from "./stores/wizard.state";
 export type { BusyState } from "./types/busy";
+export type { ProgressStep, ProgressStepState } from "./types/progress-step";
 export type { ToastLevel, ToastMsg } from "./types/toast";
 export type { WizardStep, WizardSteps } from "./types/wizard";
 export * from "./utils/wizard.utils";

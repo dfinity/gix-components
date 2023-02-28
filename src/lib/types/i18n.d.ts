@@ -15,8 +15,14 @@ interface I18nTheme {
   switch_theme: string;
 }
 
+interface I18nProgress {
+  completed: string;
+  in_progress: string;
+}
+
 interface I18n {
   lang: Languages;
   core: I18nCore;
   theme: I18nTheme;
+  progress: I18nProgress;
 }

@@ -27,6 +27,7 @@ export { default as Modal } from "./components/Modal.svelte";
 export { default as Nav } from "./components/Nav.svelte";
 export { default as Popover } from "./components/Popover.svelte";
 export { default as ProgressBar } from "./components/ProgressBar.svelte";
+export { default as ProgressSteps } from "./components/ProgressSteps.svelte";
 export { default as QRCode } from "./components/QRCode.svelte";
 export { default as Segment } from "./components/Segment.svelte";
 export { default as SegmentButton } from "./components/SegmentButton.svelte";
