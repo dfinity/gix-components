@@ -37,11 +37,12 @@
 
     const message = () => toastsStore.show({
         text: "An information",
-        level: "info",
+        level: "custom",
         position: "top",
         title: "An important message",
         truncate: true,
-        icon: IconMeter
+        icon: IconMeter,
+        theme: "inverted",
     });
 </script>
 

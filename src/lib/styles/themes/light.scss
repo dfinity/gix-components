@@ -62,6 +62,10 @@
     --content-start-background: rgba(235, 230, 245, 0.4);
     --content-start-color: var(--text-color);
 
+    // Overlay inverted colors - i.e. light mode colors
+    --toast-inverted-background: #3a2c57;
+    --toast-inverted-background-contrast: #d1cee2;
+
     // Menu
     --menu-color: var(--text5-color);
     --menu-select-color: #fff;
