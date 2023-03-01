@@ -101,6 +101,10 @@
   --overlay-content-background: var(--focus-background);
   --overlay-content-background-contrast: var(--focus-background-contrast);
 
+  // Overlay inverted colors - i.e. light mode colors
+  --toast-inverted-background: #ebe5f4;
+  --toast-inverted-background-contrast: #3e374c;
+
   // Menu
   --menu-color: var(--text2-color);
   --menu-select-color: var(--value-color);

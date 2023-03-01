@@ -2,7 +2,12 @@
   import { toastsStore } from "$lib/stores/toasts.store";
   import { fade, fly } from "svelte/transition";
   import { i18n } from "$lib/stores/i18n";
-  import type { ToastLevel, ToastMsg, ToastPosition } from "$lib/types/toast";
+  import type {
+    ToastLevel,
+    ToastMsg,
+    ToastPosition,
+    ToastTheme,
+  } from "$lib/types/toast";
   import { onDestroy, onMount, SvelteComponent } from "svelte";
   import Spinner from "./Spinner.svelte";
   import IconWarning from "$lib/icons/IconWarning.svelte";
@@ -31,8 +36,9 @@
   let truncate: boolean | undefined;
   let position: ToastPosition | undefined;
   let icon: typeof SvelteComponent | undefined;
+  let theme: ToastTheme | undefined;
 
-  $: ({ text, level, spinner, title, truncate, position, icon } = msg);
+  $: ({ text, level, spinner, title, truncate, position, icon, theme } = msg);
 
   let timeoutId: NodeJS.Timeout | undefined = undefined;
 
@@ -60,7 +66,7 @@
 
 <div
   role="dialog"
-  class="toast"
+  class={`toast ${theme ?? "themed"}`}
   in:fly={{ y: (position === "top" ? -1 : 1) * 100, duration: 200 }}
   out:fade={{ delay: 100 }}
 >
@@ -98,6 +104,10 @@
     gap: var(--padding-1_5x);
 
     @include overlay.colors;
+
+    &.inverted {
+      @include overlay.toast-inverted;
+    }
 
     border-radius: var(--border-radius);
     box-shadow: var(--strong-shadow, 8px 8px 16px 0 rgba(0, 0, 0, 0.25));
@@ -154,6 +164,7 @@
     button.close {
       padding: 0;
       line-height: 0;
+      color: inherit;
     }
   }
 </style>

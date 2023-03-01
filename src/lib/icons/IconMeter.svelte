@@ -39,7 +39,7 @@
 
 <style lang="scss">
   svg {
-    color: var(--value-color);
+    color: inherit;
   }
 
   .progress {
