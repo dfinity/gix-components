@@ -43,12 +43,13 @@
       {#if showHeader}
         <div class="header">
           <h2 id="modalTitle"><slot name="title" /></h2>
-          <button
-            data-tid="close-modal"
-            on:click|stopPropagation={close}
-            aria-label={$i18n.core.close}
-            disabled={disablePointerEvents}><IconClose size="24px" /></button
-          >
+          {#if !disablePointerEvents}
+            <button
+              data-tid="close-modal"
+              on:click|stopPropagation={close}
+              aria-label={$i18n.core.close}><IconClose size="24px" /></button
+            >
+          {/if}
         </div>
       {/if}
 
