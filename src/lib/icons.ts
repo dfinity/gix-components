@@ -21,6 +21,7 @@ export { default as IconLockOpen } from "./icons/IconLockOpen.svelte";
 export { default as IconLogin } from "./icons/IconLogin.svelte";
 export { default as IconLogout } from "./icons/IconLogout.svelte";
 export { default as IconMenu } from "./icons/IconMenu.svelte";
+export { default as IconMeter } from "./icons/IconMeter.svelte";
 export { default as IconNeurons } from "./icons/IconNeurons.svelte";
 export { default as IconNorthEast } from "./icons/IconNorthEast.svelte";
 export { default as IconPassword } from "./icons/IconPassword.svelte";

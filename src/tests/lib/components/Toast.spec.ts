@@ -30,4 +30,21 @@ describe("Toast", () => {
 
     expect(button).toBeInTheDocument();
   });
+
+  it("should render a title", async () => {
+    const title = "A super title";
+
+    const { container } = render(Toast, {
+      props: {
+        msg: {
+          ...props.msg,
+          title,
+        },
+      },
+    });
+
+    const span: HTMLSpanElement | null = container.querySelector(".title");
+
+    expect(span?.textContent).toContain(title);
+  });
 });
