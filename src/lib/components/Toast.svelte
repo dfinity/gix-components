@@ -10,8 +10,7 @@
   import IconInfo from "$lib/icons/IconInfo.svelte";
   import IconCheckCircle from "$lib/icons/IconCheckCircle.svelte";
   import IconError from "$lib/icons/IconError.svelte";
-  import {DEFAULT_ICON_SIZE} from "$lib/constants/constants";
-
+  import { DEFAULT_ICON_SIZE } from "$lib/constants/constants";
 
   export let msg: ToastMsg;
 
