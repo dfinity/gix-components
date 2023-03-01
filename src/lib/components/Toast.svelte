@@ -30,7 +30,7 @@
   let title: string | undefined;
   let truncate: boolean | undefined;
   let position: ToastPosition | undefined;
-  let icon: SvelteComponent | undefined;
+  let icon: typeof SvelteComponent | undefined;
 
   $: ({ text, level, spinner, title, truncate, position, icon } = msg);
 

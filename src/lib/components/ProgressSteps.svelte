@@ -7,7 +7,7 @@
   export let steps: [ProgressStep, ...ProgressStep[]];
 </script>
 
-{#each steps as { id, text, state }, i}
+{#each steps as { step, text, state }, i}
   {@const last = i === steps.length - 1}
   <div class={`step ${state} ${last ? "last" : ""}`}>
     {#if state === "completed"}
@@ -15,7 +15,7 @@
     {:else if state === "in_progress"}
       <div class="spinner">
         <span class="checkmark">{i + 1}</span>
-        <Spinner size="large" />
+        <Spinner />
       </div>
     {:else}
       <span class="checkmark round">{i + 1}</span>
