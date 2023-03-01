@@ -25,7 +25,10 @@ const initToastsStore = (): ToastsStore => {
   return {
     subscribe,
 
-    show({id, ...rest}: Partial<Pick<ToastMsg, "id">> & Omit<ToastMsg, "id">): symbol {
+    show({
+      id,
+      ...rest
+    }: Partial<Pick<ToastMsg, "id">> & Omit<ToastMsg, "id">): symbol {
       const toastId = id ?? Symbol("toast");
 
       update((messages: ToastMsg[]) => {

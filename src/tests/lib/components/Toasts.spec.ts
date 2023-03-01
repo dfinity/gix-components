@@ -114,4 +114,34 @@ describe("Toasts", () => {
     expect(typeof id).toBe("symbol");
     expect(id.description).toBe("toast");
   });
+
+  it("should display multiple toasts for the bottom position", async () => {
+    const { container } = render(ToastsTest);
+
+    toastsStore.show({ text: "Test", level: "error", position: "bottom" });
+    toastsStore.show({ text: "Test", level: "error" });
+    toastsStore.show({ text: "Test", level: "error", position: "top-end" });
+
+    await waitFor(() =>
+      expect(container.querySelectorAll("div.toast").length).toEqual(2)
+    );
+  });
+
+  it("should display multiple toasts for the top-end position", async () => {
+    const { container } = render(ToastsTest, {
+      props: {
+        position: "top-end",
+      },
+    });
+
+    toastsStore.show({ text: "Test", level: "error", position: "bottom" });
+    toastsStore.show({ text: "Test", level: "error", position: "top-end" });
+    toastsStore.show({ text: "Test", level: "error", position: "top-end" });
+    toastsStore.show({ text: "Test", level: "error" });
+    toastsStore.show({ text: "Test", level: "error", position: "top-end" });
+
+    await waitFor(() =>
+      expect(container.querySelectorAll("div.toast").length).toEqual(3)
+    );
+  });
 });
