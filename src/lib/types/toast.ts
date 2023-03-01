@@ -1,4 +1,4 @@
-import type {SvelteComponent} from "svelte";
+import type { SvelteComponent } from "svelte";
 
 export type ToastLevel = "success" | "warn" | "error" | "info";
 
