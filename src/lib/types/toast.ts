@@ -13,5 +13,5 @@ export interface ToastMsg {
   duration?: number;
   position?: ToastPosition;
   truncate?: boolean;
-  icon?: SvelteComponent;
+  icon?: typeof SvelteComponent;
 }
