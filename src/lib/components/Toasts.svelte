@@ -6,15 +6,14 @@
 
   export let position: ToastPosition = "bottom";
 
-  let hasErrors: boolean;
-  $: hasErrors =
-    $toastsStore?.find(({ level }) => ["error", "warn"].includes(level)) !==
-    undefined;
-
   let toasts: ToastMsg[] = [];
   $: toasts = $toastsStore.filter(
     ({ position: pos }) => (pos ?? "bottom") === position
   );
+
+  let hasErrors: boolean;
+  $: hasErrors =
+    toasts.find(({ level }) => ["error", "warn"].includes(level)) !== undefined;
 </script>
 
 {#if toasts.length > 0}
