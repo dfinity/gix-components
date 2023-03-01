@@ -1,6 +1,7 @@
 <script lang="ts">
     import { toastsStore } from "$lib/stores/toasts.store";
     import BottomSheet from "$lib/components/BottomSheet.svelte";
+    import IconMeter from "$lib/icons/IconMeter.svelte";
 
     const show = () => toastsStore.show({
         text: "An information",
@@ -40,6 +41,7 @@
         position: "top-end",
         title: "An important message",
         truncate: true,
+        icon: IconMeter
     });
 </script>
 

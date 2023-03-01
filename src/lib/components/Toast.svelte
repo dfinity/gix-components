@@ -30,8 +30,9 @@
   let title: string | undefined;
   let truncate: boolean | undefined;
   let position: ToastPosition | undefined;
+  let icon: SvelteComponent | undefined;
 
-  $: ({ text, level, spinner, title, truncate, position } = msg);
+  $: ({ text, level, spinner, title, truncate, position, icon } = msg);
 
   let timeoutId: NodeJS.Timeout | undefined = undefined;
 
@@ -66,6 +67,8 @@
   <div class="icon {level}" aria-hidden="true">
     {#if spinner}
       <Spinner size="small" inline />
+    {:else if icon !== undefined}
+      <svelte:component this={icon} />
     {:else}
       <svelte:component this={iconMapper(level)} size={DEFAULT_ICON_SIZE} />
     {/if}
@@ -91,7 +94,7 @@
   .toast {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     gap: var(--padding-1_5x);
 
     @include overlay.colors;
@@ -104,7 +107,6 @@
 
     .icon {
       line-height: 0;
-      align-self: center;
 
       &.success {
         color: var(--positive-emphasis);
@@ -125,7 +127,6 @@
 
     .msg {
       flex-grow: 1;
-      align-self: center;
 
       margin: 0;
       word-break: break-word;
