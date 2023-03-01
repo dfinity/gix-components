@@ -2,7 +2,7 @@ import type { ToastMsg } from "$lib/types/toast";
 import { writable, type Readable } from "svelte/store";
 
 export interface ToastsStore extends Readable<ToastMsg[]> {
-  show: (msg: Omit<ToastMsg, "id">) => symbol;
+  show: (msg: Partial<Pick<ToastMsg, "id">> & Omit<ToastMsg, "id">) => symbol;
   hide: (idToHide: symbol) => void;
   update: (params: {
     id: symbol;
@@ -25,14 +25,14 @@ const initToastsStore = (): ToastsStore => {
   return {
     subscribe,
 
-    show(msg: Omit<ToastMsg, "id">): symbol {
-      const id = Symbol("toast");
+    show({id, ...rest}: Partial<Pick<ToastMsg, "id">> & Omit<ToastMsg, "id">): symbol {
+      const toastId = id ?? Symbol("toast");
 
       update((messages: ToastMsg[]) => {
-        return [...messages, { ...msg, id }];
+        return [...messages, { ...rest, id: toastId }];
       });
 
-      return id;
+      return toastId;
     },
 
     hide(idToHide: symbol) {
