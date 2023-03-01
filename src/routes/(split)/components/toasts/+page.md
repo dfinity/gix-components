@@ -55,7 +55,7 @@ A Toast is a subtle notification commonly used in modern applications. It can be
 
 ## Usage
 
-The `<Toasts />` component should be provided once for your dapp. Commonly added to your root layout.
+The `<Toasts />` component should be provided once - per `position` for your dapp. Commonly added to your root layout.
 
 Showing or hiding messages happen through the use of a `toastsStore`:
 
@@ -70,12 +70,17 @@ toastsStore.show({
 
 A toast message can be created with following properties.
 
-| Property   | Description                                                                                               | Type                                     | Mandatory |
-| ---------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------- | --------- |
-| `text`     | The text to display.                                                                                      | `string`                                 | ✅        |
-| `level`    | How important the toast is?                                                                               | `info` or `success` or `warn` or `error` | ✅        |
-| `spinner`  | Display a spinner instead of an icon that represents the `level`. The spinner inherits the `level` color. | `boolean`                                |           |
-| `duration` | A timeout (in milliseconds) after which the toast automatically disappear.                                | `number`                                 |           |
+| Property   | Description                                                                                                  | Type                                     | Mandatory |
+| ---------- | ------------------------------------------------------------------------------------------------------------ | ---------------------------------------- | --------- |
+| `id`       | A unique ID to identify the toast.                                                                           | `symbol`                                 |           |
+| `title`    | A title that can be displayed before the text.                                                               | `string`                                 |           |
+| `text`     | The text to display.                                                                                         | `string`                                 | ✅        |
+| `level`    | How important the toast is?                                                                                  | `info` or `success` or `warn` or `error` | ✅        |
+| `spinner`  | Display a spinner instead of an icon that represents the `level`. The spinner inherits the `level` color.    | `boolean`                                |           |
+| `duration` | A timeout (in milliseconds) after which the toast automatically disappear.                                   | `number`                                 |           |
+| `position` | The position of the toast. A related `<Toasts />` component should be declared in order to use the position. | `bottom` or `top-end`                    |           |
+| `truncate` | By default, a text content of a toast is scrollbable. This option fix and truncate the text and title.       | `boolean`                                |           |
+| `icon`     | A custom icon to be displayed before the text of the toast.                                                  | `SvelteComponent`                        |           |
 
 ## Showcase
 
@@ -85,16 +90,17 @@ A toast message can be created with following properties.
     </div>
 </BottomSheet>
 
+<div data-tid="showcase">
 <p>Bottom toasts:</p>
 
 <div style="padding: var(--padding-2x); display: flex; flex-wrap: wrap; gap: var(--padding);">
-    <button class="primary small" on:click={show}>Info</button>
+    <button class="primary small" on:click={show} data-tid="toast-info">Info</button>
 
-    <button class="success small" on:click={success}>Success</button>
+    <button class="success small" on:click={success} data-tid="toast-success">Success</button>
 
-    <button class="danger small" on:click={error}>Error</button>
+    <button class="danger small" on:click={error} data-tid="toast-error">Error</button>
 
-    <button class="secondary small" on:click={warn}>Warn</button>
+    <button class="secondary small" on:click={warn} data-tid="toast-warn">Warn</button>
 
     <button class="primary small" on:click={spinner}>Info and spinner</button>
 
@@ -105,5 +111,6 @@ A toast message can be created with following properties.
 <p>Top end toasts:</p>
 
 <div style="padding: var(--padding-2x); display: flex; flex-wrap: wrap; gap: var(--padding);">
-    <button class="primary small" on:click={message}>Message</button>
+    <button class="primary small" on:click={message} data-tid="toast-message">Message</button>
+</div>
 </div>
