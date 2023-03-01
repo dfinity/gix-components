@@ -11,6 +11,7 @@
 </Layout>
 
 <Toasts />
+<Toasts position="top-end" />
 
 <style lang="scss" global>
   @import "../lib/styles/global";

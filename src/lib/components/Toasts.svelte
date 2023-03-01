@@ -2,20 +2,28 @@
   import { toastsStore } from "$lib/stores/toasts.store";
   import Toast from "./Toast.svelte";
   import { layoutBottomOffset } from "$lib/stores/layout.store";
+  import type { ToastMsg, ToastPosition } from "$lib/types/toast";
+
+  export let position: ToastPosition = "bottom";
 
   let hasErrors: boolean;
   $: hasErrors =
     $toastsStore?.find(({ level }) => ["error", "warn"].includes(level)) !==
     undefined;
+
+  let toasts: ToastMsg[] = [];
+  $: toasts = $toastsStore.filter(
+    ({ position: pos }) => (pos ?? "bottom") === position
+  );
 </script>
 
-{#if $toastsStore.length > 0}
+{#if toasts.length > 0}
   <div
-    class="wrapper"
+    class={`wrapper ${position}`}
     class:error={hasErrors}
     style={`--layout-bottom-offset: ${$layoutBottomOffset}px`}
   >
-    {#each $toastsStore as msg (msg.id)}
+    {#each toasts as msg (msg.id)}
       <Toast {msg} />
     {/each}
   </div>
@@ -48,6 +56,21 @@
     @include media.min-width(large) {
       // A little narrowwer than the section to differentiate notifications from content
       max-width: calc(var(--section-max-width) - var(--padding-2x));
+    }
+  }
+
+  .top-end {
+    top: calc(var(--header-height) + var(--padding-3x));
+    bottom: unset;
+
+    width: calc(100% - var(--padding-6x));
+
+    @include media.min-width(large) {
+      right: var(--padding-2x);
+      left: unset;
+      transform: none;
+
+      max-width: calc(calc(var(--section-max-width) / 1.5) - var(--padding-2x));
     }
   }
 </style>

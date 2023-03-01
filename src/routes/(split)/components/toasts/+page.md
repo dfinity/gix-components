@@ -33,6 +33,14 @@
         level: "info",
         duration: 3000
     });
+
+    const message = () => toastsStore.show({
+        text: "An information",
+        level: "info",
+        position: "top-end",
+        title: "An important message",
+        truncate: true,
+    });
 </script>
 
 # Toasts
@@ -71,17 +79,29 @@ A toast message can be created with following properties.
 
 <BottomSheet>
     <div style="padding: var(--padding-2x)">
-        <button class="primary small" on:click={show}>Info</button>
-
-        <button class="success small" on:click={success}>Success</button>
-
-        <button class="danger small" on:click={error}>Error</button>
-
-        <button class="secondary small" on:click={warn}>Warn</button>
-
-        <button class="primary small" on:click={spinner}>Info and spinner</button>
-
-        <button class="primary small" on:click={duration}>Info and auto fade after 3s</button>
+        <!-- A placeholder to display the toast being presented above the bottom sheet on small devices -->
     </div>
-
 </BottomSheet>
+
+<p>Bottom toasts:</p>
+
+<div style="padding: var(--padding-2x); display: flex; flex-wrap: wrap; gap: var(--padding);">
+    <button class="primary small" on:click={show}>Info</button>
+
+    <button class="success small" on:click={success}>Success</button>
+
+    <button class="danger small" on:click={error}>Error</button>
+
+    <button class="secondary small" on:click={warn}>Warn</button>
+
+    <button class="primary small" on:click={spinner}>Info and spinner</button>
+
+    <button class="primary small" on:click={duration}>Info and auto fade after 3s</button>
+
+</div>
+
+<p>Top end toasts:</p>
+
+<div style="padding: var(--padding-2x); display: flex; flex-wrap: wrap; gap: var(--padding);">
+    <button class="primary small" on:click={message}>Message</button>
+</div>

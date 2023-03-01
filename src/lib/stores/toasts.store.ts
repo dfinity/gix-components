@@ -1,5 +1,15 @@
 import type { ToastMsg } from "$lib/types/toast";
-import { writable } from "svelte/store";
+import { writable, type Readable } from "svelte/store";
+
+export interface ToastsStore extends Readable<ToastMsg[]> {
+  show: (msg: Omit<ToastMsg, "id">) => symbol;
+  hide: (idToHide: symbol) => void;
+  update: (params: {
+    id: symbol;
+    content: Partial<Omit<ToastMsg, "id">>;
+  }) => void;
+  reset: () => void;
+}
 
 /**
  * Toast messages.
@@ -9,7 +19,7 @@ import { writable } from "svelte/store";
  * - update: update the existed toast content.
  * - reset: empty all toasts
  */
-const initToastsStore = () => {
+const initToastsStore = (): ToastsStore => {
   const { subscribe, update, set } = writable<ToastMsg[]>([]);
 
   return {
