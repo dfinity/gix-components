@@ -120,25 +120,25 @@ describe("Toasts", () => {
 
     toastsStore.show({ text: "Test", level: "error", position: "bottom" });
     toastsStore.show({ text: "Test", level: "error" });
-    toastsStore.show({ text: "Test", level: "error", position: "top-end" });
+    toastsStore.show({ text: "Test", level: "error", position: "top" });
 
     await waitFor(() =>
       expect(container.querySelectorAll("div.toast").length).toEqual(2)
     );
   });
 
-  it("should display multiple toasts for the top-end position", async () => {
+  it("should display multiple toasts for the top position", async () => {
     const { container } = render(ToastsTest, {
       props: {
-        position: "top-end",
+        position: "top",
       },
     });
 
     toastsStore.show({ text: "Test", level: "error", position: "bottom" });
-    toastsStore.show({ text: "Test", level: "error", position: "top-end" });
-    toastsStore.show({ text: "Test", level: "error", position: "top-end" });
+    toastsStore.show({ text: "Test", level: "error", position: "top" });
+    toastsStore.show({ text: "Test", level: "error", position: "top" });
     toastsStore.show({ text: "Test", level: "error" });
-    toastsStore.show({ text: "Test", level: "error", position: "top-end" });
+    toastsStore.show({ text: "Test", level: "error", position: "top" });
 
     await waitFor(() =>
       expect(container.querySelectorAll("div.toast").length).toEqual(3)

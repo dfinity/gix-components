@@ -2,7 +2,7 @@ import type { SvelteComponent } from "svelte";
 
 export type ToastLevel = "success" | "warn" | "error" | "info";
 
-export type ToastPosition = "bottom" | "top-end";
+export type ToastPosition = "bottom" | "top";
 
 export interface ToastMsg {
   id: symbol;

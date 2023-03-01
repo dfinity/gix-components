@@ -61,7 +61,7 @@
 <div
   role="dialog"
   class="toast"
-  in:fly={{ y: (position === "top-end" ? -1 : 1) * 100, duration: 200 }}
+  in:fly={{ y: (position === "top" ? -1 : 1) * 100, duration: 200 }}
   out:fade={{ delay: 100 }}
 >
   <div class="icon {level}" aria-hidden="true">

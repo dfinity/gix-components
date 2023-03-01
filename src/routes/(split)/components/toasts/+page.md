@@ -38,7 +38,7 @@
     const message = () => toastsStore.show({
         text: "An information",
         level: "info",
-        position: "top-end",
+        position: "top",
         title: "An important message",
         truncate: true,
         icon: IconMeter
@@ -78,7 +78,7 @@ A toast message can be created with following properties.
 | `level`    | How important the toast is?                                                                                  | `info` or `success` or `warn` or `error` | ✅        |
 | `spinner`  | Display a spinner instead of an icon that represents the `level`. The spinner inherits the `level` color.    | `boolean`                                |           |
 | `duration` | A timeout (in milliseconds) after which the toast automatically disappear.                                   | `number`                                 |           |
-| `position` | The position of the toast. A related `<Toasts />` component should be declared in order to use the position. | `bottom` or `top-end`                    |           |
+| `position` | The position of the toast. A related `<Toasts />` component should be declared in order to use the position. | `bottom` or `top`                        |           |
 | `truncate` | By default, a text content of a toast is scrollbable. This option fix and truncate the text and title.       | `boolean`                                |           |
 | `icon`     | A custom icon to be displayed before the text of the toast.                                                  | `SvelteComponent`                        |           |
 

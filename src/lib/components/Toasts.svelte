@@ -59,7 +59,7 @@
     }
   }
 
-  .top-end {
+  .top {
     top: calc(var(--header-height) + var(--padding-3x));
     bottom: unset;
 
