@@ -129,8 +129,6 @@ describe("Modal", () => {
       },
     });
 
-    const button: HTMLElement = getByTestId("close-modal") as HTMLElement;
-
-    expect(button).toBeDisabled();
+    expect(() => getByTestId("close-modal")).toThrow();
   });
 });
