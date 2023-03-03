@@ -46,9 +46,7 @@
   const fixUndefinedValue = (value: string | number | undefined): string =>
     value === undefined ? "" : `${value}`;
 
-  let icpValue: string = exponentToPlainNumberString(
-    fixUndefinedValue(value)
-  ) as string;
+  let icpValue: string = exponentToPlainNumberString(fixUndefinedValue(value));
   let lastValidICPValue: string | number | undefined = value;
   let internalValueChange = true;
 
