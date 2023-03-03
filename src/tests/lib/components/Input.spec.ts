@@ -376,24 +376,23 @@ describe("Input", () => {
       const { container } = render(InputValueTest, {
         props: {
           ...props,
-          value: ".00000001",
+          value: 0.00000001,
           inputType: "icp",
         },
       });
-      expect(container.querySelector("input")?.value).toBe(".00000001");
+
+      expect(container.querySelector("input")?.value).toBe("0.00000001");
     });
 
     it("should avoid exponent formatted initial value in icp mode", () => {
       const { container } = render(InputValueTest, {
         props: {
           ...props,
-          value: "999999999.999999999",
+          value: 11111111.11111111,
           inputType: "icp",
         },
       });
-      expect(container.querySelector("input")?.value).toBe(
-        "999999999.999999999"
-      );
+      expect(container.querySelector("input")?.value).toBe("11111111.11111111");
     });
   });
 });
