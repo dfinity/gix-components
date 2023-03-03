@@ -1,4 +1,4 @@
-import type { ToastMsg } from "$lib/types/toast";
+import type { ToastLevel, ToastMsg } from "$lib/types/toast";
 import { writable, type Readable } from "svelte/store";
 
 export interface ToastsStore extends Readable<ToastMsg[]> {
@@ -8,7 +8,7 @@ export interface ToastsStore extends Readable<ToastMsg[]> {
     id: symbol;
     content: Partial<Omit<ToastMsg, "id">>;
   }) => void;
-  reset: () => void;
+  reset: (levels?: ToastLevel[]) => void;
 }
 
 /**
@@ -17,7 +17,7 @@ export interface ToastsStore extends Readable<ToastMsg[]> {
  * - show: display a message in toast component
  * - hide: remove the toast message with that timestamp or the first one.
  * - update: update the existed toast content.
- * - reset: empty all toasts
+ * - reset: empty all toasts or optionally only those that match particular levels
  */
 const initToastsStore = (): ToastsStore => {
   const { subscribe, update, set } = writable<ToastMsg[]>([]);
@@ -65,7 +65,14 @@ const initToastsStore = (): ToastsStore => {
       );
     },
 
-    reset() {
+    reset(levels?: ToastLevel[]) {
+      if (levels !== undefined && levels.length > 0) {
+        update((messages: ToastMsg[]) =>
+          messages.filter(({ level }) => !levels.includes(level))
+        );
+        return;
+      }
+
       set([]);
     },
   };
