@@ -14,6 +14,20 @@
     "e2e": "playwright test",
     "i18n": "node scripts/i18n.types.mjs"
   },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "svelte": "./dist/index.js"
+    }
+  },
+  "svelte": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "devDependencies": {
     "@playwright/test": "^1.31.2",
     "@sveltejs/adapter-static": "^2.0.1",
@@ -38,7 +52,6 @@
     "prettier-plugin-organize-imports": "^3.2.2",
     "prettier-plugin-svelte": "^2.9.0",
     "sass": "^1.58.3",
-    "svelte": "^3.55.1",
     "svelte-check": "^3.0.4",
     "svelte-jester": "^2.3.2",
     "svelte-preprocess": "^5.0.1",
@@ -47,13 +60,9 @@
     "typescript": "^4.9.5",
     "vite": "^4.1.4"
   },
-  "type": "module",
   "dependencies": {
     "dompurify": "^3.0.1",
     "qr-creator": "^1.0.0"
-  },
-  "peerDependencies": {
-    "svelte": "^3.0.0"
   },
   "keywords": [
     "ui",
@@ -62,5 +71,8 @@
     "uikit",
     "sveltekit",
     "svelte"
-  ]
+  ],
+  "peerDependencies": {
+    "svelte": "^3.55.1"
+  }
 }
