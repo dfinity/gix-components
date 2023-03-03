@@ -35,7 +35,7 @@
 
   // replace exponent format (1e-4) w/ plain (0.0001)
   const exponentToPlainNumberString = (value: string): string =>
-    typeof value === "string" && value.includes("e")
+    value.includes("e")
       ? Number(value).toLocaleString("en", {
           useGrouping: false,
           maximumFractionDigits: 8,
