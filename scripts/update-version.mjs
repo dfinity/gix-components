@@ -25,7 +25,7 @@ const nextVersion = async ({ project, currentVersion }) => {
 };
 
 const updateVersion = async () => {
-  const packagePath = join(process.cwd(), "package", "package.json");
+  const packagePath = join(process.cwd(), "package.json");
 
   if (!existsSync(packagePath)) {
     console.log(`Target ${packagePath} does not exist.`);
