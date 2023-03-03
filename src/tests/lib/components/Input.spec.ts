@@ -371,5 +371,39 @@ describe("Input", () => {
         done();
       });
     });
+
+    it("should avoid exponent formatted initial zero in icp mode", () => {
+      const { container } = render(InputValueTest, {
+        props: {
+          ...props,
+          value: 0,
+          inputType: "icp",
+        },
+      });
+
+      expect(container.querySelector("input")?.value).toBe("0");
+    });
+
+    it("should avoid exponent formatted initial value (<0) in icp mode", () => {
+      const { container } = render(InputValueTest, {
+        props: {
+          ...props,
+          value: 0.00000001,
+          inputType: "icp",
+        },
+      });
+      expect(container.querySelector("input")?.value).toBe("0.00000001");
+    });
+
+    it("should avoid exponent formatted initial value (>0) in icp mode", () => {
+      const { container } = render(InputValueTest, {
+        props: {
+          ...props,
+          value: 11111111.11111111,
+          inputType: "icp",
+        },
+      });
+      expect(container.querySelector("input")?.value).toBe("11111111.11111111");
+    });
   });
 });
