@@ -185,7 +185,7 @@
   onMount(async () => {
     worker = await initQRCodeWorker(decodeCallback);
 
-    // Workaround muted not set
+    // Workaround muted not set with binding. muted + autoPlay + playsInline needs to be set to autostart with Webkit.
     if (video !== undefined && video !== null) {
       video.setAttribute("muted", "");
     }
