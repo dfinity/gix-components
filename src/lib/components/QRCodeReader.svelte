@@ -185,6 +185,11 @@
   onMount(async () => {
     worker = await initQRCodeWorker(decodeCallback);
 
+    // Workaround muted not set
+    if (video !== undefined && video !== null) {
+      video.setAttribute("muted", "");
+    }
+
     await initStream();
   });
 
