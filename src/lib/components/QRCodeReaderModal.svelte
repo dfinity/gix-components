@@ -10,7 +10,8 @@
     }
 
     // TODO: resolve workaround with CSS
-    const { width, height } = container.parentElement.parentElement.getBoundingClientRect()
+    const { width, height } =
+      container.parentElement.parentElement.getBoundingClientRect();
     parentSize = {
       width,
       height,

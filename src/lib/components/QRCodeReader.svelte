@@ -3,6 +3,7 @@
   import type { InitQRCodeWorker } from "$lib/services/qrcode.services";
   import { initQRCodeWorker } from "$lib/services/qrcode.services";
   import type { PostMessageDataResponse } from "$lib/types/post-message";
+  import { isIOS, isPortrait } from "$lib/utils/device.utils";
 
   let worker: InitQRCodeWorker | undefined;
 
@@ -77,11 +78,13 @@
       return;
     }
 
+    const invert = isPortrait() && isIOS();
+
     stream = await navigator.mediaDevices.getUserMedia({
       audio: false,
       video: {
-        width: { ideal: 1920 },
-        height: { ideal: 1080 },
+        width: { ideal: invert ? 1080 : 1920 },
+        height: { ideal: invert ? 1920 : 1080 },
         facingMode: "environment",
       },
     });
@@ -95,8 +98,8 @@
     const settings = track.getSettings();
 
     videoSize = {
-      width: settings.width as number,
-      height: settings.height as number,
+      width: invert ? (settings.height as number) : (settings.width as number),
+      height: invert ? (settings.width as number) : (settings.height as number),
     };
 
     video.srcObject = stream;
@@ -170,11 +173,14 @@
 
     const image = context.getImageData(0, 0, canvas.width, canvas.height);
 
-    worker?.decodeQRCode({
-      image,
-      width: canvas.width,
-      height: canvas.height,
-    });
+    worker?.decodeQRCode(
+      {
+        image,
+        width: canvas.width,
+        height: canvas.height,
+      },
+      { transfer: [image.data.buffer] }
+    );
 
     scan();
   };
@@ -182,16 +188,25 @@
   let video: HTMLVideoElement | undefined | null;
   let canvas: HTMLCanvasElement | undefined;
 
+  let tmp;
+
   onMount(async () => {
     worker = await initQRCodeWorker(decodeCallback);
 
-    // Workaround muted not set with binding. muted + autoPlay + playsInline needs to be set to autostart with Webkit.
-    if (video !== undefined && video !== null) {
-      video.setAttribute("muted", "");
-    }
 
     await initStream();
   });
+
+  const stopVideoStream = (stream: MediaStream | undefined) => {
+    if (stream === undefined) {
+      return;
+    }
+
+    for (const track of stream.getTracks()) {
+      track.stop(); //  note that this will also automatically turn the flashlight off
+      stream.removeTrack(track);
+    }
+  };
 
   onDestroy(() => {
     if (animationFrame !== undefined) {
@@ -199,6 +214,8 @@
     }
 
     if (video !== undefined && video !== null) {
+      stopVideoStream(stream);
+
       video.pause();
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore https://html.spec.whatwg.org/multipage/media.html#best-practices-for-authors-using-media-elements

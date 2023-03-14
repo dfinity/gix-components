@@ -7,7 +7,10 @@ import type {
 export type QRCodeCallback = (data: PostMessageDataResponse) => void;
 
 export interface InitQRCodeWorker {
-  decodeQRCode: (data: PostMessageDataRequest) => void;
+  decodeQRCode: (
+    data: PostMessageDataRequest,
+    options: StructuredSerializeOptions
+  ) => void;
 }
 
 export const initQRCodeWorker = async (
@@ -29,11 +32,17 @@ export const initQRCodeWorker = async (
   };
 
   return {
-    decodeQRCode: (data: PostMessageDataRequest) => {
-      qrCodeWorker.postMessage({
-        msg: "nnsQRCodeDecode",
-        data,
-      });
+    decodeQRCode: (
+      data: PostMessageDataRequest,
+      options: StructuredSerializeOptions
+    ) => {
+      qrCodeWorker.postMessage(
+        {
+          msg: "nnsQRCodeDecode",
+          data,
+        },
+        options
+      );
     },
   };
 };
