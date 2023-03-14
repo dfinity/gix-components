@@ -41,8 +41,6 @@
       return;
     }
 
-    console.log(scanRegionSize.width, videoDisplaySize.width, videoSize.width);
-
     scanRegionDisplaySize = {
       width: (scanRegionSize.width * videoDisplaySize.width) / videoSize.width,
       height:
@@ -72,8 +70,6 @@
     // If scanRegionSize is used as auto-subscriber, it does not fire according test. Therefore the imperative call.
     initScanRegionDisplaySize();
   };
-
-  $: videoSize, initScanSize();
 
   const initStream = async () => {
     if (video === undefined) {
@@ -117,28 +113,46 @@
   const decodeCallback = ({ value }: PostMessageDataResponse) =>
     console.log("QRCode value", value);
 
-  const streamFeed = () => {
-    if (
-      video === undefined ||
-      canvas === undefined ||
-      videoSize === undefined ||
-      scanRegionSize === undefined
-    ) {
+  let context: CanvasRenderingContext2D | null | undefined;
+
+  const initCanvas = () => {
+    if (videoSize === undefined || canvas === undefined) {
       return;
     }
 
     canvas.width = videoSize.width;
     canvas.height = videoSize.height;
 
-    const context = canvas.getContext("2d", {
+    context = canvas.getContext("2d", {
       alpha: false,
       willReadFrequently: true,
     });
+
+    if (context === null) {
+      return;
+    }
+
     context.imageSmoothingEnabled = false;
+
+    initScanSize();
+  };
+
+  $: videoSize, initCanvas();
+
+  const streamFeed = () => {
+    if (
+      video === undefined ||
+      canvas === undefined ||
+      context === undefined ||
+      context === null ||
+      scanRegionSize === undefined
+    ) {
+      return;
+    }
 
     const { x, y, width, height } = scanRegionSize;
 
-    context?.drawImage(
+    context.drawImage(
       video,
       x,
       y,
