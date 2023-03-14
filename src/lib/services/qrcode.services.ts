@@ -1,5 +1,6 @@
 import type {
-  PostMessage, PostMessageDataRequest,
+  PostMessage,
+  PostMessageDataRequest,
   PostMessageDataResponse,
 } from "$lib/types/post-message";
 
@@ -9,7 +10,9 @@ export interface InitQRCodeWorker {
   decodeQRCode: (data: PostMessageDataRequest) => void;
 }
 
-export const initQRCodeWorker = async (qrCodeCallback: QRCodeCallback): Promise<InitQRCodeWorker> => {
+export const initQRCodeWorker = async (
+  qrCodeCallback: QRCodeCallback
+): Promise<InitQRCodeWorker> => {
   const QRCodeWorker = await import("$lib/workers/qrcode.worker?worker");
   const qrCodeWorker: Worker = new QRCodeWorker.default();
 
