@@ -60,7 +60,7 @@
 
     const { width, height } = videoSize;
 
-    const size = Math.min(width, height) / 2;
+    const size = Math.min(width, height) * (2 / 3);
 
     scanRegionSize = {
       width: size,
