@@ -23,6 +23,7 @@
     }
 
     const { width, height } = video.getBoundingClientRect();
+
     videoDisplaySize = {
       width,
       height,
