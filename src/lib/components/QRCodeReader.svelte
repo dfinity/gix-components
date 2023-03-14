@@ -193,7 +193,6 @@
   onMount(async () => {
     worker = await initQRCodeWorker(decodeCallback);
 
-
     await initStream();
   });
 
