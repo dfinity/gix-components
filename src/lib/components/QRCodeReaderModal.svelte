@@ -1,45 +1,19 @@
 <script lang="ts">
   import QRCodeReader from "$lib/components/QRCodeReader.svelte";
-
-  let container: HTMLDivElement | undefined;
-  let parentSize: { width: number; height: number } | undefined;
-
-  const initParentSize = () => {
-    if (container === undefined) {
-      return;
-    }
-
-    // TODO: resolve workaround with CSS
-    const { width, height } =
-      container.parentElement.parentElement.getBoundingClientRect();
-    parentSize = {
-      width,
-      height,
-    };
-
-    container.parentElement.style.padding = "0";
-  };
-
-  $: container, initParentSize();
 </script>
 
-<svelte:window on:resize={initParentSize} />
-
-<div
-  class="container"
-  bind:this={container}
-  style={`--container-width: ${parentSize?.width ?? 0}px; --container-height: ${
-    parentSize?.height ?? 0
-  }px`}
->
-  {#if parentSize !== undefined}
-    <QRCodeReader on:nnsQRCode />
-  {/if}
+<div class="container">
+  <QRCodeReader on:nnsQRCode />
 </div>
 
 <style lang="scss">
+  @use "../styles/mixins/media";
+
   .container {
-    height: var(--container-height);
-    width: var(--container-width);
+    height: 54vh;
+
+    @include media.min-width(medium) {
+      height: calc(var(--dialog-min-height) - var(--dialog-header-height));
+    }
   }
 </style>
