@@ -12,7 +12,7 @@
   .container {
     height: calc(
       var(--dialog-height) - var(--padding-1_5x) - var(--padding-2x) -
-        var(--dialog-padding-y) - var(--dialog-header-height) -
+        var(--dialog-padding-y) - var(--dialog-header-height) - var(--dialog-toolbar-height) -
         var(--dialog-padding-y) - var(--dialog-padding-x)
     );
 
