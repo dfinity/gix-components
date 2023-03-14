@@ -1,4 +1,4 @@
-export type PostMessageRequest = "nnsQRCodeDecode";
+export type PostMessageRequest = "nnsQRCodeDecode" | "nnsQRCodeClose";
 
 export type PostMessageResponse = "nnsQRCodeValue";
 

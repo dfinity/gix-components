@@ -11,6 +11,7 @@ export interface InitQRCodeWorker {
     data: PostMessageDataRequest;
     options: StructuredSerializeOptions;
   }) => void;
+  closeQRCode: () => void;
 }
 
 export const initQRCodeWorker = async (
@@ -46,6 +47,11 @@ export const initQRCodeWorker = async (
         },
         options
       );
+    },
+    closeQRCode: () => {
+      qrCodeWorker.postMessage({
+        msg: "nnsQRCodeClose",
+      });
     },
   };
 };

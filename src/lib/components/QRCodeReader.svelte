@@ -208,6 +208,8 @@
   };
 
   onDestroy(() => {
+    worker?.closeQRCode();
+
     if (animationFrame !== undefined) {
       cancelAnimationFrame(animationFrame);
     }
