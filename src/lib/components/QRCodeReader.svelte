@@ -173,14 +173,14 @@
 
     const image = context.getImageData(0, 0, canvas.width, canvas.height);
 
-    worker?.decodeQRCode(
-      {
+    worker?.decodeQRCode({
+      data: {
         image,
         width: canvas.width,
         height: canvas.height,
       },
-      { transfer: [image.data.buffer] }
-    );
+      options: { transfer: [image.data.buffer] },
+    });
 
     scan();
   };
@@ -192,7 +192,6 @@
 
   onMount(async () => {
     worker = await initQRCodeWorker(decodeCallback);
-
 
     await initStream();
   });
