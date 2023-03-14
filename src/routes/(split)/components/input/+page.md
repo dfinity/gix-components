@@ -1,5 +1,6 @@
 <script lang="ts">
     import Input from "$lib/components/Input.svelte";
+    import IconQRCodeScanner from "$lib/icons/IconQRCodeScanner.svelte";
 </script>
 
 # Input
@@ -53,6 +54,10 @@ Both slots are displayed `flex` with `space-between`.
     <Input placeholder="Input text" inputType="text" value="" showInfo>
         <svelte:fragment slot="label">A label</svelte:fragment>
         <span slot="end" class="label">More</span>
+    </Input>
+
+    <Input placeholder="Input text" inputType="text" value="">
+        <IconQRCodeScanner slot="inner-end" />
     </Input>
 
 </div>
