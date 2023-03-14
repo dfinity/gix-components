@@ -42,7 +42,7 @@ const decodeQRCode = ({
     inversionAttempts: "dontInvert",
   });
 
-  if (result === undefined || result == null) {
+  if (result === undefined || result == null || result.data === "") {
     return;
   }
 
