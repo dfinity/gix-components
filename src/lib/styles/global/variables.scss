@@ -63,10 +63,6 @@
   --dialog-padding-y: var(--padding-4x);
   --dialog-padding-x: var(--padding-2x);
 
-  // CSS variables used when the content needs to fit the maximum height as when a QR-Code reader is embedded in a modal
-  --dialog-header-height: 74px;
-  --dialog-toolbar-height: calc(45px + var(--padding-2x));
-
   @supports (-webkit-touch-callout: none) {
     --dialog-height: -webkit-fill-available;
     --alert-max-height: -webkit-fill-available;
