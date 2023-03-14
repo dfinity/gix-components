@@ -23,7 +23,6 @@ export const initQRCodeWorker = async (
 
     switch (msg) {
       case "nnsQRCodeValue":
-        console.log("RESULT", data.data);
         qrCodeCallback?.(data.data);
         return;
     }

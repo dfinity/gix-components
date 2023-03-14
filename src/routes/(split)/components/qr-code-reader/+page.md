@@ -3,6 +3,13 @@
     import QRCodeReader from "$lib/components/QRCodeReader.svelte";
     
     let visible = false;
+    let renderQRCodeReader = false;
+    let qrCode = undefined; 
+
+    const close = () => {
+        visible = false;
+        renderQRCodeReader = false;
+    }
 </script>
 
 # QR Code Reader
@@ -13,8 +20,19 @@
 Open modal
 </button>
 
-<Modal {visible} on:nnsClose={() => (visible = false)}>
+<Modal {visible} on:nnsClose={close} on:introend={() => renderQRCodeReader = true}>
 <svelte:fragment slot="title">Scan QR Code</svelte:fragment>
 
-<QRCodeReader />
+{#if renderQRCodeReader}
+<QRCodeReader on:nnsQRCode={({detail: value}) => {
+close();
+qrCode = value;
+}} />
+{/if}
 </Modal>
+
+<p style="padding-top: var(--padding-2x);" class="label">Result:</p>
+
+<textarea style="width: 100%; resize: none; border: 2px solid var(--primary); border-radius: var(--border-radius)" rows="10">
+    {qrCode ?? ""}
+</textarea>

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onDestroy, onMount } from "svelte";
+  import { createEventDispatcher, onDestroy, onMount } from "svelte";
   import type { InitQRCodeWorker } from "$lib/services/qrcode.services";
   import { initQRCodeWorker } from "$lib/services/qrcode.services";
   import type { PostMessageDataResponse } from "$lib/types/post-message";
@@ -110,8 +110,10 @@
     animationFrame = requestAnimationFrame(streamFeed);
   };
 
+  const dispatch = createEventDispatcher();
+
   const decodeCallback = ({ value }: PostMessageDataResponse) =>
-    console.log("QRCode value", value);
+    dispatch("nnsQRCode", value);
 
   let context: CanvasRenderingContext2D | null | undefined;
 
@@ -205,12 +207,14 @@
 
   <canvas bind:this={canvas} />
 
-  <div
-    class="region"
-    style={`--region-width: ${
-      scanRegionDisplaySize?.width ?? 0
-    }px; --region-height: ${scanRegionDisplaySize?.height ?? 0}px`}
-  />
+  {#if scanRegionDisplaySize?.width > 0 && scanRegionDisplaySize?.height > 0}
+    <div
+      class="region"
+      style={`--region-width: ${
+        scanRegionDisplaySize?.width ?? 0
+      }px; --region-height: ${scanRegionDisplaySize?.height ?? 0}px`}
+    />
+  {/if}
 </article>
 
 <style lang="scss">
@@ -244,7 +248,8 @@
 
     transform: translate(-50%, -50%);
 
-    border: 8px solid var(--primary);
+    border: var(--padding) solid var(--primary);
+    box-shadow: 0 0 0 9999px rgba(var(--primary-rgb), 0.4);
     border-radius: var(--border-radius);
 
     width: var(--region-width);
