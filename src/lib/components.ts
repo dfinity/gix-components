@@ -30,6 +30,7 @@ export { default as ProgressBar } from "./components/ProgressBar.svelte";
 export { default as ProgressSteps } from "./components/ProgressSteps.svelte";
 export { default as QRCode } from "./components/QRCode.svelte";
 export { default as QRCodeReader } from "./components/QRCodeReader.svelte";
+export { default as QRCodeReaderModal } from "./components/QRCodeReaderModal.svelte";
 export { default as Segment } from "./components/Segment.svelte";
 export { default as SegmentButton } from "./components/SegmentButton.svelte";
 export { default as SkeletonText } from "./components/SkeletonText.svelte";

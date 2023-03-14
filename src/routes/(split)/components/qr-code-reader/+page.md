@@ -1,6 +1,6 @@
 <script lang="ts">
     import Modal from "$lib/components/Modal.svelte";
-    import QRCodeReader from "$lib/components/QRCodeReader.svelte";
+    import QRCodeReaderModal from "$lib/components/QRCodeReaderModal.svelte";
     
     let visible = false;
     let renderQRCodeReader = false;
@@ -24,7 +24,7 @@ Open modal
 <svelte:fragment slot="title">Scan QR Code</svelte:fragment>
 
 {#if renderQRCodeReader}
-<QRCodeReader on:nnsQRCode={({detail: value}) => {
+<QRCodeReaderModal on:nnsQRCode={({detail: value}) => {
 close();
 qrCode = value;
 }} />

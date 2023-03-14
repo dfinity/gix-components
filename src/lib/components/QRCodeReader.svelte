@@ -73,7 +73,7 @@
   };
 
   const initStream = async () => {
-    if (video === undefined) {
+    if (video === undefined || video === null) {
       return;
     }
 
@@ -145,6 +145,7 @@
   const streamFeed = () => {
     if (
       video === undefined ||
+      video === null ||
       canvas === undefined ||
       context === undefined ||
       context === null ||
@@ -178,7 +179,7 @@
     scan();
   };
 
-  let video: HTMLVideoElement | undefined;
+  let video: HTMLVideoElement | undefined | null;
   let canvas: HTMLCanvasElement | undefined;
 
   onMount(async () => {
@@ -192,7 +193,7 @@
       cancelAnimationFrame(animationFrame);
     }
 
-    if (video !== undefined) {
+    if (video !== undefined && video !== null) {
       video.pause();
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore https://html.spec.whatwg.org/multipage/media.html#best-practices-for-authors-using-media-elements
@@ -222,6 +223,7 @@
   .container {
     position: relative;
     width: 100%;
+    height: 100%;
 
     border-radius: var(--border-radius);
     overflow: hidden;
@@ -229,15 +231,17 @@
 
   video,
   canvas {
-    width: 100%;
-    height: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: auto;
+    height: 100%;
   }
 
   canvas {
-    position: absolute;
-    left: 0;
-    top: 0;
-
     visibility: hidden;
     opacity: 0;
   }
@@ -255,5 +259,8 @@
 
     width: var(--region-width);
     height: var(--region-height);
+    max-width: 100%;
+
+    box-sizing: border-box;
   }
 </style>
