@@ -7,7 +7,73 @@
   let worker: InitQRCodeWorker | undefined;
 
   let stream: MediaStream | undefined;
-  let videoSize: { width: number; height: number } | undefined;
+
+  type Size = { width: number; height: number };
+
+  let videoDisplaySize: Size | undefined;
+  let scanRegionDisplaySize: Size | undefined;
+
+  let videoSize: Size | undefined;
+  let scanRegionSize: (Size & { x: number; y: number }) | undefined;
+
+  const initVideoDisplaySize = () => {
+    if (video === undefined || video === null) {
+      videoDisplaySize = undefined;
+      return;
+    }
+
+    const { width, height } = video.getBoundingClientRect();
+    videoDisplaySize = {
+      width,
+      height,
+    };
+  };
+
+  $: video, initVideoDisplaySize();
+
+  const initScanRegionDisplaySize = () => {
+    if (
+      videoDisplaySize === undefined ||
+      videoSize === undefined ||
+      scanRegionSize === undefined
+    ) {
+      scanRegionDisplaySize = undefined;
+      return;
+    }
+
+    console.log(scanRegionSize.width, videoDisplaySize.width, videoSize.width);
+
+    scanRegionDisplaySize = {
+      width: (scanRegionSize.width * videoDisplaySize.width) / videoSize.width,
+      height:
+        (scanRegionSize.height * videoDisplaySize.height) / videoSize.height,
+    };
+  };
+
+  $: videoDisplaySize, videoSize, initScanRegionDisplaySize();
+
+  const initScanSize = () => {
+    if (videoSize === undefined) {
+      scanRegionSize = undefined;
+      return;
+    }
+
+    const { width, height } = videoSize;
+
+    const size = Math.min(width, height) / 2;
+
+    scanRegionSize = {
+      width: size,
+      height: size,
+      x: Math.round((width - size) / 2),
+      y: Math.round((height - size) / 2),
+    };
+
+    // If scanRegionSize is used as auto-subscriber, it does not fire according test. Therefore the imperative call.
+    initScanRegionDisplaySize();
+  };
+
+  $: videoSize, initScanSize();
 
   const initStream = async () => {
     if (video === undefined) {
@@ -55,7 +121,8 @@
     if (
       video === undefined ||
       canvas === undefined ||
-      videoSize === undefined
+      videoSize === undefined ||
+      scanRegionSize === undefined
     ) {
       return;
     }
@@ -68,20 +135,22 @@
       willReadFrequently: true,
     });
     context.imageSmoothingEnabled = false;
-    // TODO
+
+    const { x, y, width, height } = scanRegionSize;
+
     context?.drawImage(
       video,
-      0,
-      0,
-      canvas.width,
-      canvas.height,
+      x,
+      y,
+      width,
+      height,
       0,
       0,
       canvas.width,
       canvas.height
     );
 
-    const image = context.getImageData(0, 0, canvas!.width, canvas!.height);
+    const image = context.getImageData(0, 0, canvas.width, canvas.height);
 
     worker?.decodeQRCode({
       image,
@@ -115,26 +184,56 @@
   });
 </script>
 
+<svelte:window on:resize={initVideoDisplaySize} />
+
 <article class="container">
-  <video
-    class="video"
-    bind:this={video}
-    muted={true}
-    autoPlay={true}
-    playsInline={true}
-  />
+  <video bind:this={video} muted={true} autoPlay={true} playsInline={true} />
 
   <canvas bind:this={canvas} />
+
+  <div
+    class="region"
+    style={`--region-width: ${
+      scanRegionDisplaySize?.width ?? 0
+    }px; --region-height: ${scanRegionDisplaySize?.height ?? 0}px`}
+  />
 </article>
 
 <style lang="scss">
   .container {
     position: relative;
     width: 100%;
+
+    border-radius: var(--border-radius);
+    overflow: hidden;
   }
 
-  .video {
+  video,
+  canvas {
     width: 100%;
-    height: 100%;
+    height: auto;
+  }
+
+  canvas {
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .region {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    border: 8px solid var(--primary);
+    border-radius: var(--border-radius);
+
+    width: var(--region-width);
+    height: var(--region-height);
   }
 </style>
