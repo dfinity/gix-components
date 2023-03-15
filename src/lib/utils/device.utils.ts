@@ -48,6 +48,4 @@ export const isMobile = (): boolean => {
   return isTouchScreen && !isMouseScreen;
 };
 
-const userAgent = (): string => {
-  return navigator.userAgent || navigator.vendor || (window as any).opera;
-};
+const userAgent = (): string => navigator.userAgent;
