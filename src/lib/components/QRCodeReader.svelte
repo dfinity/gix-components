@@ -89,49 +89,45 @@
       return;
     }
 
-    try {
-      // Workaround: according test, iPhone used in portrait mode returns a video size in landscape but, effectively used portrait.
-      // e.g. returns settings 1920x1080 while it actually is 1080x1920
-      const invert = isPortrait() && isIOS();
+    // Workaround: according test, iPhone used in portrait mode returns a video size in landscape but, effectively used portrait.
+    // e.g. returns settings 1920x1080 while it actually is 1080x1920
+    const invert = isPortrait() && isIOS();
 
-      stream = await navigator.mediaDevices.getUserMedia({
-        audio: false,
-        video: {
-          width: { ideal: invert ? 1080 : 1920 },
-          height: { ideal: invert ? 1920 : 1080 },
-          facingMode: "environment",
-        },
-      });
+    stream = await navigator.mediaDevices.getUserMedia({
+      audio: false,
+      video: {
+        width: { ideal: invert ? 1080 : 1920 },
+        height: { ideal: invert ? 1920 : 1080 },
+        facingMode: "environment",
+      },
+    });
 
-      const [track] = stream.getVideoTracks();
+    const [track] = stream.getVideoTracks();
 
-      if (track === undefined) {
-        dispatch(
-          "nnsQRCodeError",
-          new Error("The video stream contains no video tracks.")
-        );
-        return;
-      }
-
-      const settings = track.getSettings();
-
-      videoSize = {
-        width: invert
-          ? (settings.height as number)
-          : (settings.width as number),
-        height: invert
-          ? (settings.width as number)
-          : (settings.height as number),
-      };
-
-      video.srcObject = stream;
-
-      await video.play();
-
-      scan();
-    } catch (err: unknown) {
-      dispatch("nnsQRCodeError", err);
+    if (track === undefined) {
+      dispatch(
+              "nnsQRCodeError",
+              new Error("The video stream contains no video tracks.")
+      );
+      return;
     }
+
+    const settings = track.getSettings();
+
+    videoSize = {
+      width: invert
+              ? (settings.height as number)
+              : (settings.width as number),
+      height: invert
+              ? (settings.width as number)
+              : (settings.height as number),
+    };
+
+    video.srcObject = stream;
+
+    await video.play();
+
+    scan();
   };
 
   let animationFrame: number | undefined;
@@ -210,9 +206,13 @@
   let canvas: HTMLCanvasElement | undefined;
 
   onMount(async () => {
-    worker = await initQRCodeWorker(decodeCallback);
+    try {
+      worker = await initQRCodeWorker(decodeCallback);
 
-    await initStream();
+      await initStream();
+    } catch (err: unknown) {
+      dispatch("nnsQRCodeError", err);
+    }
   });
 
   const stopVideoStream = (stream: MediaStream | undefined) => {
@@ -257,7 +257,7 @@
 
   <canvas bind:this={canvas} />
 
-  {#if scanRegionDisplaySize?.width > 0 && scanRegionDisplaySize?.height > 0}
+  {#if scanRegionDisplaySize !== undefined && scanRegionDisplaySize.width > 0 && scanRegionDisplaySize.height > 0}
     <div
       class="region"
       style={`--region-width: ${

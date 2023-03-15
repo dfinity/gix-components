@@ -19,12 +19,13 @@
 
   export let msg: ToastMsg;
 
-  const iconMapper = (level: ToastLevel): typeof SvelteComponent =>
+  const iconMapper = (level: ToastLevel): typeof SvelteComponent | undefined =>
     ({
       ["success"]: IconCheckCircle,
       ["warn"]: IconWarning,
       ["error"]: IconError,
       ["info"]: IconInfo,
+      ["custom"]: undefined,
     }[level]);
 
   const close = () => toastsStore.hide(msg.id);
@@ -75,7 +76,7 @@
       <Spinner size="small" inline />
     {:else if icon !== undefined}
       <svelte:component this={icon} />
-    {:else}
+    {:else if iconMapper(level)}
       <svelte:component this={iconMapper(level)} size={DEFAULT_ICON_SIZE} />
     {/if}
   </div>

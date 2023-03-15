@@ -1,6 +1,6 @@
 import { Theme } from "$lib/types/theme";
+import { isNode } from "$lib/utils/env.utils";
 import { enumFromStringExists } from "./enum.utils";
-import {isNode} from "$lib/utils/env.utils";
 
 export const THEME_ATTRIBUTE = "theme";
 export const LOCALSTORAGE_THEME_KEY = "nnsTheme";

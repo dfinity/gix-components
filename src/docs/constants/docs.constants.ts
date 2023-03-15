@@ -171,7 +171,7 @@ export const COMPONENT_ROUTES: ComponentRoute[] = [
   {
     path: "/components/qr-code-reader",
     title: "QR Code Reader",
-    description: "Read a QR Code within your app.",
+    description: "Read a QR Code with the camera.",
   },
 
   {
