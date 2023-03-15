@@ -1,5 +1,7 @@
 <script lang="ts">
   import QRCodeReader from "$lib/components/QRCodeReader.svelte";
+
+  // TODO: to be used to render a QR code in a modal until the <Modal /> component supports a minimal height for the content and automatically pushes the toolbar actions to the bottom (to be cleared with designers)
 </script>
 
 <div class="container">

@@ -5,8 +5,17 @@
   import type { PostMessageDataResponse } from "$lib/types/post-message";
   import { isIOS, isPortrait } from "$lib/utils/device.utils";
 
-  let worker: InitQRCodeWorker | undefined;
+  /**
+   * Abstract:
+   *
+   * 1. Get video stream
+   * 2. Init video stream size, video cropped region and their display size for the UI
+   * 3. On every 60 FPS acquire a frame of the video - an image - and send it to a web worker
+   * 4. Read QR value in worker and if resolved pass it back
+   * 5. Dispatch resolved QR value
+   */
 
+  let worker: InitQRCodeWorker | undefined;
   let stream: MediaStream | undefined;
 
   type Size = { width: number; height: number };
@@ -69,7 +78,7 @@
       y: Math.round((height - size) / 2),
     };
 
-    // If scanRegionSize is used as auto-subscriber, it does not fire according test. Therefore the imperative call.
+    // When scanRegionSize was used as auto-subscriber, it did not fired `initScanRegionDisplaySize`. Therefore, the imperative call here.
     initScanRegionDisplaySize();
   };
 
@@ -78,6 +87,8 @@
       return;
     }
 
+    // Workaround: according test, iPhone used in portrait mode returns a video size in landscape but, effectively used portrait.
+    // e.g. returns settings 1920x1080 while it actually is 1080x1920
     const invert = isPortrait() && isIOS();
 
     stream = await navigator.mediaDevices.getUserMedia({
@@ -110,12 +121,9 @@
   };
 
   let animationFrame: number | undefined;
-  const scan = () => {
-    animationFrame = requestAnimationFrame(streamFeed);
-  };
+  const scan = () => (animationFrame = requestAnimationFrame(streamFeed));
 
   const dispatch = createEventDispatcher();
-
   const decodeCallback = ({ value }: PostMessageDataResponse) =>
     dispatch("nnsQRCode", value);
 
@@ -188,8 +196,6 @@
   let video: HTMLVideoElement | undefined | null;
   let canvas: HTMLCanvasElement | undefined;
 
-  let tmp;
-
   onMount(async () => {
     worker = await initQRCodeWorker(decodeCallback);
 
@@ -207,6 +213,19 @@
     }
   };
 
+  const destroyVideo = () => {
+    if (video === undefined || video === null) {
+      return;
+    }
+
+    stopVideoStream(stream);
+
+    video.pause();
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore https://html.spec.whatwg.org/multipage/media.html#best-practices-for-authors-using-media-elements
+    video.srcObject = null;
+  };
+
   onDestroy(() => {
     worker?.closeQRCode();
 
@@ -214,14 +233,7 @@
       cancelAnimationFrame(animationFrame);
     }
 
-    if (video !== undefined && video !== null) {
-      stopVideoStream(stream);
-
-      video.pause();
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore https://html.spec.whatwg.org/multipage/media.html#best-practices-for-authors-using-media-elements
-      video.srcObject = null;
-    }
+    destroyVideo();
   });
 </script>
 
