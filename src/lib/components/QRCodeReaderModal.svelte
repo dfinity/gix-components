@@ -5,7 +5,7 @@
 </script>
 
 <div class="container">
-  <QRCodeReader on:nnsQRCode />
+  <QRCodeReader on:nnsQRCode on:nnsQRCodeError />
 </div>
 
 <style lang="scss">
