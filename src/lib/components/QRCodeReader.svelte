@@ -94,6 +94,7 @@
     // e.g. returns settings 1920x1080 while it actually is 1080x1920
     const invert = isPortrait() && isIOS();
 
+    // We try to get ideally a HD (1920x1080) stream that also uses ideally the environment camera (not front facing).
     stream = await navigator.mediaDevices.getUserMedia({
       audio: false,
       video: {
@@ -103,6 +104,7 @@
       },
     });
 
+    // Use getVideoTracks().getSettings() to retrieve the effective size of the stream provided by the device.
     const [track] = stream.getVideoTracks();
 
     if (track === undefined) {
