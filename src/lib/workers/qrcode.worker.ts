@@ -30,9 +30,6 @@ onmessage = ({ data }: MessageEvent<PostMessage<PostMessageDataRequest>>) => {
     case "nnsQRCodeDecode":
       debounceDecodeQRCode(imageData);
       return;
-    case "nnsQRCodeClose":
-      self.close();
-      return;
   }
 };
 
