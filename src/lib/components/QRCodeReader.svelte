@@ -69,6 +69,7 @@
 
     const { width, height } = videoSize;
 
+    // The source being ideally 1920x1080px it results in a square of 720px if multiplied by 2/3 which fits well the use case according tests.
     const size = Math.min(width, height) * (2 / 3);
 
     scanRegionSize = {
