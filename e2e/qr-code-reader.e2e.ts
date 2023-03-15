@@ -52,8 +52,7 @@ test("Read QR throws error because camera stream fails", async () => {
   await testQRCode(page);
 });
 
-// TODO: where to host 500mb sample video?
-test.skip("Read QR code value with camera", async () => {
+test("Read QR code value with camera", async () => {
   const browser = await chromium.launch({
     args: [
       "--use-fake-ui-for-media-stream",
