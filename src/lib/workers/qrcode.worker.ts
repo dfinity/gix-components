@@ -31,7 +31,7 @@ onmessage = ({ data }: MessageEvent<PostMessage<PostMessageDataRequest>>) => {
       debounceDecodeQRCode(imageData);
       return;
     case "nnsQRCodeClose":
-      close();
+      self.close();
       return;
   }
 };
