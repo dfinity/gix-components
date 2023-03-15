@@ -106,8 +106,8 @@
 
     if (track === undefined) {
       dispatch(
-              "nnsQRCodeError",
-              new Error("The video stream contains no video tracks.")
+        "nnsQRCodeError",
+        new Error("The video stream contains no video tracks.")
       );
       return;
     }
@@ -115,12 +115,8 @@
     const settings = track.getSettings();
 
     videoSize = {
-      width: invert
-              ? (settings.height as number)
-              : (settings.width as number),
-      height: invert
-              ? (settings.width as number)
-              : (settings.height as number),
+      width: invert ? (settings.height as number) : (settings.width as number),
+      height: invert ? (settings.width as number) : (settings.height as number),
     };
 
     video.srcObject = stream;
