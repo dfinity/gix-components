@@ -1,5 +1,7 @@
+import { isNode } from "$lib/utils/env.utils";
+
 export const isPortrait = (): boolean => {
-  if (!window) {
+  if (isNode()) {
     return false;
   }
 
@@ -9,33 +11,33 @@ export const isPortrait = (): boolean => {
 };
 
 export const isIOS = (): boolean => {
-  if (!window || !navigator) {
+  if (isNode()) {
     return false;
   }
 
-  const a: string = userAgent();
+  const agent = userAgent();
 
-  return /iPhone|iPod/i.test(a) || isIPad();
+  return /iPhone|iPod/i.test(agent) || isIPad();
 };
 
 export const isIPad = (): boolean => {
-  if (!window || !navigator) {
+  if (isNode()) {
     return false;
   }
 
-  const a: string = userAgent();
+  const agent = userAgent();
 
   // iOS 12 and below
-  if (/iPad/i.test(a)) {
+  if (/iPad/i.test(agent)) {
     return true;
   }
 
   // iOS 13+
-  return /Macintosh/i.test(a) && isMobile();
+  return /Macintosh/i.test(agent) && isMobile();
 };
 
 export const isMobile = (): boolean => {
-  if (!window) {
+  if (isNode()) {
     return false;
   }
 
