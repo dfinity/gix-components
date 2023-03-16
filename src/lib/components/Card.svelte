@@ -88,14 +88,13 @@
 
     transition: color var(--animation-time-normal);
 
-    padding: calc(var(--padding-2x) - var(--border-size));
+    padding: calc(var(--padding-2x) - var(--card-border-size));
     margin: var(--padding-2x) 0;
     border-radius: var(--border-radius);
 
     box-sizing: border-box;
 
-    --border-size: 2px;
-    border: var(--border-size) solid transparent;
+    border: var(--card-border-size) solid transparent;
 
     &.selected {
       border: 2px solid var(--primary);
@@ -115,7 +114,7 @@
       background: var(--primary-gradient);
       color: rgba(var(--primary-contrast-rgb), var(--light-opacity));
 
-      margin: var(--border-size) 0;
+      margin: var(--card-border-size) 0;
       border: 0;
 
       // TODO: find a better solution (a mixin?)

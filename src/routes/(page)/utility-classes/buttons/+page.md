@@ -1,5 +1,6 @@
 <script lang="ts">
     import IconMenu from "$lib/icons/IconMenu.svelte";
+    import IconAdd from "$lib/icons/IconAdd.svelte";
 </script>
 
 # Buttons
@@ -27,6 +28,7 @@ In Figma file the `success` and `danger` are named `positive` and `negative` but
 | Styles                                          | Disabled                                                 |
 | ----------------------------------------------- | -------------------------------------------------------- |
 | <button class="icon-only"><IconMenu /></button> | <button class="icon-only" disabled><IconMenu /></button> |
+| <button class="card"><IconAdd />Card</button>   |                                                          |
 
 ### `.full-width`
 

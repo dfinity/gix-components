@@ -46,6 +46,12 @@
 
   // Buttons custom colors
   --button-secondary-color: var(--secondary);
+  --button-card-focus-color: var(--secondary);
+  --button-card-focus-background: linear-gradient(
+    80.26deg,
+    rgba(100, 38, 201, 0.1) 7.33%,
+    rgba(162, 95, 195, 0.1) 92.67%
+  );
 
   --light-opacity: 0.6;
   --very-light-opacity: 0.4;

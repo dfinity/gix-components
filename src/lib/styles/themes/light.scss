@@ -19,6 +19,12 @@
 
     // Buttons custom colors
     --button-secondary-color: var(--primary);
+    --button-card-focus-color: var(--primary);
+    --button-card-focus-background: linear-gradient(
+      80.26deg,
+      rgba(130, 102, 214, 0.1) 23.69%,
+      rgba(217, 172, 214, 0.1) 143.36%
+    );
 
     // Text color
     --value-color: #000;
