@@ -2,14 +2,18 @@ export type PostMessageRequest = "nnsQRCodeDecode";
 
 export type PostMessageResponse = "nnsQRCodeValue";
 
-export interface PostMessageDataRequest {
+export interface PostMessageDataQRCodeRequest {
   image: ImageData;
   width: number;
   height: number;
 }
 
+export interface PostMessageDataRequest {
+  qrCode?: PostMessageDataQRCodeRequest;
+}
+
 export interface PostMessageDataResponse {
-  value: string;
+  qrCode?: string;
 }
 
 export interface PostMessage<

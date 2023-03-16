@@ -132,8 +132,8 @@
   let animationFrame: number | undefined;
   const scan = () => (animationFrame = requestAnimationFrame(streamFeed));
 
-  const decodeCallback = ({ value }: PostMessageDataResponse) =>
-    dispatch("nnsQRCode", value);
+  const decodeCallback = ({ qrCode }: PostMessageDataResponse) =>
+    dispatch("nnsQRCode", qrCode);
 
   let context: CanvasRenderingContext2D | null | undefined;
 
@@ -190,7 +190,7 @@
     const image = context.getImageData(0, 0, canvas.width, canvas.height);
 
     worker?.decodeQRCode({
-      data: {
+      qrCode: {
         image,
         width: canvas.width,
         height: canvas.height,

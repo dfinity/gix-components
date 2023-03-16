@@ -1,5 +1,6 @@
 import type {
   PostMessage,
+  PostMessageDataQRCodeRequest,
   PostMessageDataRequest,
 } from "$lib/types/post-message";
 import jsQR from "jsqr";
@@ -12,7 +13,7 @@ const minimumTimeBetweenScans = 1000 / maxScansPerSecond;
 /**
  * Debounce to avoid jsQR memory overflow
  */
-const debounceDecodeQRCode = (data: PostMessageDataRequest) => {
+const debounceDecodeQRCode = (data: PostMessageDataQRCodeRequest) => {
   const timeSinceLastScan = performance.now() - lastScanTimestamp;
 
   if (timeSinceLastScan < minimumTimeBetweenScans) {
@@ -24,11 +25,11 @@ const debounceDecodeQRCode = (data: PostMessageDataRequest) => {
 };
 
 onmessage = ({ data }: MessageEvent<PostMessage<PostMessageDataRequest>>) => {
-  const { msg, data: imageData } = data;
+  const { msg, data: qrCodeData } = data;
 
   switch (msg) {
     case "nnsQRCodeDecode":
-      debounceDecodeQRCode(imageData);
+      debounceDecodeQRCode(qrCodeData.qrCode!);
       return;
   }
 };
@@ -37,7 +38,7 @@ const decodeQRCode = ({
   image: { data },
   width,
   height,
-}: PostMessageDataRequest) => {
+}: PostMessageDataQRCodeRequest) => {
   const result = jsQR(data, width, height, {
     inversionAttempts: "dontInvert",
   });
@@ -49,7 +50,7 @@ const decodeQRCode = ({
   postMessage({
     msg: "nnsQRCodeValue",
     data: {
-      value: result.data,
+      qrCode: result.data,
     },
   });
 };

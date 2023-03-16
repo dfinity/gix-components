@@ -1,6 +1,6 @@
 import type {
   PostMessage,
-  PostMessageDataRequest,
+  PostMessageDataQRCodeRequest,
   PostMessageDataResponse,
 } from "$lib/types/post-message";
 
@@ -8,7 +8,7 @@ export type QRCodeCallback = (data: PostMessageDataResponse) => void;
 
 export interface InitQRCodeWorker {
   decodeQRCode: (params: {
-    data: PostMessageDataRequest;
+    qrCode: PostMessageDataQRCodeRequest;
     options: StructuredSerializeOptions;
   }) => void;
   terminate: () => void;
@@ -34,16 +34,18 @@ export const initQRCodeWorker = async (
 
   return {
     decodeQRCode: ({
-      data,
+      qrCode,
       options,
     }: {
-      data: PostMessageDataRequest;
+      qrCode: PostMessageDataQRCodeRequest;
       options: StructuredSerializeOptions;
     }) => {
       qrCodeWorker.postMessage(
         {
           msg: "nnsQRCodeDecode",
-          data,
+          data: {
+            qrCode,
+          },
         },
         options
       );
