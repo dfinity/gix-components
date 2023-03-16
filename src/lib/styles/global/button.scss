@@ -78,12 +78,14 @@ button {
     }
   }
 
+  --primary-background: linear-gradient(
+    80.26deg,
+    var(--primary) 4.98%,
+    var(--secondary) 90.33%
+  );
+
   &.primary {
-    background: linear-gradient(
-      80.26deg,
-      var(--primary) 4.98%,
-      var(--secondary) 90.33%
-    );
+    background: var(--primary-background);
     color: var(--primary-contrast);
 
     &:not([disabled]):hover,
@@ -130,6 +132,46 @@ button {
 
     &:not([disabled]):hover {
       filter: contrast(1.25);
+    }
+  }
+
+  &.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--padding);
+
+    height: 100%;
+    margin: 0;
+    box-sizing: border-box;
+
+    border-radius: var(--border-radius);
+    border: var(--card-border-size) dashed var(--tertiary);
+
+    transition: all var(--animation-time-normal);
+
+    &:hover,
+    &:focus {
+      color: var(--button-card-focus-color);
+      background: var(--button-card-focus-background);
+      border: var(--card-border-size) dashed var(--secondary);
+    }
+
+    &:active {
+      filter: contrast(1.25);
+    }
+
+    :global(svg) {
+      height: var(--padding-4x);
+      width: var(--padding-4x);
+
+      padding: var(--padding);
+      box-sizing: border-box;
+
+      border-radius: 50%;
+
+      background: var(--primary-background);
+      color: var(--primary-contrast);
     }
   }
 }

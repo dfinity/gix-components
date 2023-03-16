@@ -4,7 +4,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--padding-2x);
-  grid-auto-rows: minmax(0, max-content);
+  grid-auto-rows: 1fr;
 
   @include media.min-width(medium) {
     grid-template-columns: 1fr 1fr;
