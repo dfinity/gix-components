@@ -22,7 +22,7 @@
     const toggle = () => value = value === NNS ? II : NNS; 
 </script>
 
-# QR Code
+# QR Code Generator
 
 Generates a [QR Code](https://www.qrcode.com/).
 

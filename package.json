@@ -11,7 +11,8 @@
     "lint": "prettier --check --plugin-search-dir=. . && eslint .",
     "format": "prettier --write --plugin-search-dir=. .",
     "test": "TZ=UTC jest",
-    "e2e": "playwright test",
+    "download:samples": "./scripts/download-samples.sh",
+    "e2e": "npm run download:samples && playwright test",
     "i18n": "node scripts/i18n.types.mjs"
   },
   "exports": {
@@ -62,6 +63,7 @@
   },
   "dependencies": {
     "dompurify": "^3.0.1",
+    "jsqr": "^1.4.0",
     "qr-creator": "^1.0.0"
   },
   "keywords": [

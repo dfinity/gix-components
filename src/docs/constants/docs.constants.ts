@@ -163,9 +163,15 @@ export const COMPONENT_ROUTES: ComponentRoute[] = [
   },
 
   {
-    path: "/components/qr-code",
-    title: "QR Code",
+    path: "/components/qr-code-generator",
+    title: "QR Code Generator",
     description: "Generates a QR Code.",
+  },
+
+  {
+    path: "/components/qr-code-reader",
+    title: "QR Code Reader",
+    description: "Read a QR Code with the camera.",
   },
 
   {

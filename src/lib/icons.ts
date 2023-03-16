@@ -25,6 +25,7 @@ export { default as IconMeter } from "./icons/IconMeter.svelte";
 export { default as IconNeurons } from "./icons/IconNeurons.svelte";
 export { default as IconNorthEast } from "./icons/IconNorthEast.svelte";
 export { default as IconPassword } from "./icons/IconPassword.svelte";
+export { default as IconQRCodeScanner } from "./icons/IconQRCodeScanner.svelte";
 export { default as IconRocketLaunch } from "./icons/IconRocketLaunch.svelte";
 export { default as IconSouth } from "./icons/IconSouth.svelte";
 export { default as IconStackedLineChart } from "./icons/IconStackedLineChart.svelte";

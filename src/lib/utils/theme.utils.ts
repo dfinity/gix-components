@@ -1,10 +1,6 @@
 import { Theme } from "$lib/types/theme";
+import { isNode } from "$lib/utils/env.utils";
 import { enumFromStringExists } from "./enum.utils";
-
-const isNode = (): boolean =>
-  typeof process !== "undefined" &&
-  process.versions != null &&
-  process.versions.node != null;
 
 export const THEME_ATTRIBUTE = "theme";
 export const LOCALSTORAGE_THEME_KEY = "nnsTheme";

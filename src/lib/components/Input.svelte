@@ -137,6 +137,9 @@
     inputType !== "number" && inputType !== "icp"
       ? autocomplete ?? "off"
       : undefined;
+
+  let displayInnerEnd: boolean;
+  $: displayInnerEnd = $$slots["inner-end"] !== undefined;
 </script>
 
 <div class="input-block" class:disabled>
@@ -147,26 +150,34 @@
       <slot name="end" />
     </div>
   {/if}
-  <input
-    bind:this={inputElement}
-    data-tid={testId}
-    type={inputType === "icp" ? "text" : inputType}
-    {required}
-    {spellcheck}
-    {name}
-    id={name}
-    {step}
-    {disabled}
-    value={inputType === "icp" ? icpValue : value}
-    minlength={minLength}
-    {placeholder}
-    {max}
-    {autocomplete}
-    on:blur
-    on:focus
-    on:input={handleInput}
-    on:keydown={handleKeyDown}
-  />
+  <div class="input-field">
+    <input
+      bind:this={inputElement}
+      data-tid={testId}
+      type={inputType === "icp" ? "text" : inputType}
+      {required}
+      {spellcheck}
+      {name}
+      id={name}
+      {step}
+      {disabled}
+      value={inputType === "icp" ? icpValue : value}
+      minlength={minLength}
+      {placeholder}
+      {max}
+      {autocomplete}
+      on:blur
+      on:focus
+      on:input={handleInput}
+      on:keydown={handleKeyDown}
+      class:inner-end={displayInnerEnd}
+    />
+    {#if displayInnerEnd}
+      <div class="inner-end-slot">
+        <slot name="inner-end" />
+      </div>
+    {/if}
+  </div>
 </div>
 
 <style lang="scss">
@@ -223,5 +234,21 @@
 
   input[disabled] {
     cursor: text;
+  }
+
+  .input-field {
+    position: relative;
+  }
+
+  .inner-end {
+    padding-right: var(--input-padding-inner-end, 64px);
+  }
+
+  .inner-end-slot {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(0, -50%);
+    padding: var(--padding) var(--padding-2x);
   }
 </style>

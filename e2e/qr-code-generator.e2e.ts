@@ -1,10 +1,10 @@
 import { expect, test } from "@playwright/test";
 
-const testUrl = "/components/qr-code";
+const testUrl = "/components/qr-code-generator";
 
 test("QR code page has expected h1", async ({ page }) => {
   await page.goto(testUrl);
-  await expect(page.locator("h1")).toHaveText("QR Code");
+  await expect(page.locator("h1")).toHaveText("QR Code Generator");
 });
 
 test("QR code renders https://nns.ic0.app", async ({ page }) => {
