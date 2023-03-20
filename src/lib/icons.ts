@@ -28,6 +28,7 @@ export { default as IconNorthEast } from "./icons/IconNorthEast.svelte";
 export { default as IconPassword } from "./icons/IconPassword.svelte";
 export { default as IconQRCodeScanner } from "./icons/IconQRCodeScanner.svelte";
 export { default as IconRocketLaunch } from "./icons/IconRocketLaunch.svelte";
+export { default as IconSettings } from "./icons/IconSettings.svelte";
 export { default as IconSouth } from "./icons/IconSouth.svelte";
 export { default as IconStackedLineChart } from "./icons/IconStackedLineChart.svelte";
 export { default as IconSubdirectory } from "./icons/IconSubdirectory.svelte";
