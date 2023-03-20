@@ -62,6 +62,10 @@ Open modal
 
 {#if renderQRCodeReader}
 <QRCodeReaderModal on:nnsQRCode={({detail: value}) => {
+const urlParams = new URLSearchParams(window.location.search);
+if (urlParams.has("skip")) {
+return;
+}
 close();
 qrCode = value;
 }} on:nnsQRCodeError={error} />

@@ -3,7 +3,7 @@
   import type { InitQRCodeWorker } from "$lib/services/qrcode.services";
   import { initQRCodeWorker } from "$lib/services/qrcode.services";
   import type { PostMessageDataResponse } from "$lib/types/post-message";
-  import { isIOS, isPortrait } from "$lib/utils/device.utils";
+  import { isIOS, isMobile, isPortrait } from "$lib/utils/device.utils";
 
   /**
    * Abstract:
@@ -23,7 +23,18 @@
   let videoDisplaySize: Size | undefined;
   let scanRegionDisplaySize: Size | undefined;
 
-  let videoSize: Size | undefined;
+  // The effective size and facing mode of the video stream that has been created
+  let videoStream:
+    | (Size & {
+        facingMode:
+          | "user"
+          | "environment"
+          | "left"
+          | "right"
+          | string
+          | undefined;
+      })
+    | undefined;
   let scanRegionSize: (Size & { x: number; y: number }) | undefined;
 
   const initVideoDisplaySize = () => {
@@ -45,7 +56,7 @@
   const initScanRegionDisplaySize = () => {
     if (
       videoDisplaySize === undefined ||
-      videoSize === undefined ||
+      videoStream === undefined ||
       scanRegionSize === undefined
     ) {
       scanRegionDisplaySize = undefined;
@@ -53,21 +64,22 @@
     }
 
     scanRegionDisplaySize = {
-      width: (scanRegionSize.width * videoDisplaySize.width) / videoSize.width,
+      width:
+        (scanRegionSize.width * videoDisplaySize.width) / videoStream.width,
       height:
-        (scanRegionSize.height * videoDisplaySize.height) / videoSize.height,
+        (scanRegionSize.height * videoDisplaySize.height) / videoStream.height,
     };
   };
 
-  $: videoDisplaySize, videoSize, initScanRegionDisplaySize();
+  $: videoDisplaySize, videoStream, initScanRegionDisplaySize();
 
   const initScanSize = () => {
-    if (videoSize === undefined) {
+    if (videoStream === undefined) {
       scanRegionSize = undefined;
       return;
     }
 
-    const { width, height } = videoSize;
+    const { width, height } = videoStream;
 
     // The source being ideally 1920x1080px it results in a square of 720px if multiplied by 2/3 which fits well the use case according tests.
     const size = Math.min(width, height) * (2 / 3);
@@ -117,9 +129,16 @@
 
     const settings = track.getSettings();
 
-    videoSize = {
+    videoStream = {
       width: invert ? (settings.height as number) : (settings.width as number),
       height: invert ? (settings.width as number) : (settings.height as number),
+      facingMode:
+        settings.facingMode !== undefined
+          ? settings.facingMode
+          : // e.g. MacOS does not provide effective facingMode information therefore, fallback with an optimistic guess. If desktop, user facing camera mode.
+          !isMobile()
+          ? "user"
+          : undefined,
     };
 
     video.srcObject = stream;
@@ -138,12 +157,12 @@
   let context: CanvasRenderingContext2D | null | undefined;
 
   const initCanvas = () => {
-    if (videoSize === undefined || canvas === undefined) {
+    if (videoStream === undefined || canvas === undefined) {
       return;
     }
 
-    canvas.width = videoSize.width;
-    canvas.height = videoSize.height;
+    canvas.width = videoStream.width;
+    canvas.height = videoStream.height;
 
     context = canvas.getContext("2d", {
       alpha: false,
@@ -159,7 +178,7 @@
     initScanSize();
   };
 
-  $: videoSize, initCanvas();
+  $: videoStream, initCanvas();
 
   const streamFeed = () => {
     if (
@@ -252,7 +271,13 @@
 <svelte:window on:resize={initVideoDisplaySize} />
 
 <article class="container">
-  <video bind:this={video} muted={true} autoPlay={true} playsInline={true} />
+  <video
+    bind:this={video}
+    muted={true}
+    autoPlay={true}
+    playsInline={true}
+    class:mirror={videoStream?.facingMode === "user"}
+  />
 
   <canvas bind:this={canvas} />
 
@@ -283,6 +308,10 @@
     top: 50%;
 
     transform: translate(-50%, -50%);
+
+    &.mirror {
+      transform: translate(-50%, -50%) scaleX(-1);
+    }
 
     width: auto;
     height: 100%;
