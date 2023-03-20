@@ -43,14 +43,14 @@ const decodeQRCode = ({
     inversionAttempts: "dontInvert",
   });
 
-  if (result === undefined || result == null || result.data === "") {
+  if (result === undefined || result == null || result.data.trim() === "") {
     return;
   }
 
   postMessage({
     msg: "nnsQRCodeValue",
     data: {
-      qrCode: result.data,
+      qrCode: result.data.trim(),
     },
   });
 };
