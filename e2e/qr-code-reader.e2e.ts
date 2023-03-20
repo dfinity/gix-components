@@ -7,8 +7,14 @@ test("QR code page has expected h1", async ({ page }) => {
   await expect(page.locator("h1")).toHaveText("QR Code Reader");
 });
 
-const testQRCode = async (page: Page) => {
-  await page.goto(testUrl);
+const testQRCode = async ({
+  page,
+  skipRead = false,
+}: {
+  page: Page;
+  skipRead?: boolean;
+}) => {
+  await page.goto(`${testUrl}${skipRead ? "?skip" : ""}`);
 
   const showcase = page.getByTestId("showcase");
   await showcase.scrollIntoViewIfNeeded();
@@ -31,7 +37,7 @@ test("Read QR throws error because user block camera", async () => {
 
   const page = await context.newPage();
 
-  await testQRCode(page);
+  await testQRCode({ page });
 });
 
 test("Read QR throws error because camera stream fails", async () => {
@@ -49,7 +55,7 @@ test("Read QR throws error because camera stream fails", async () => {
 
   const page = await context.newPage();
 
-  await testQRCode(page);
+  await testQRCode({ page });
 });
 
 test("Read QR code value with camera", async () => {
@@ -66,5 +72,22 @@ test("Read QR code value with camera", async () => {
   });
 
   const page = await context.newPage();
-  await testQRCode(page);
+  await testQRCode({ page });
+});
+
+test("Read QR code display a mirrored video", async () => {
+  const browser = await chromium.launch({
+    args: [
+      "--use-fake-ui-for-media-stream",
+      "--use-fake-device-for-media-stream",
+      "--use-file-for-fake-video-capture=./samples/qrcode.y4m",
+    ],
+  });
+
+  const context = await browser.newContext({
+    permissions: ["camera"],
+  });
+
+  const page = await context.newPage();
+  await testQRCode({ page, skipRead: true });
 });

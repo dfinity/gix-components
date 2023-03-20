@@ -135,8 +135,8 @@
       facingMode:
         settings.facingMode !== undefined
           ? settings.facingMode
-          // e.g. MacOS does not provide effective facingMode information therefore, fallback with an optimistic guess. If desktop, user facing camera mode.
-          : !isMobile()
+          : // e.g. MacOS does not provide effective facingMode information therefore, fallback with an optimistic guess. If desktop, user facing camera mode.
+          !isMobile()
           ? "user"
           : undefined,
     };
