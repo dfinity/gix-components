@@ -74,5 +74,13 @@
     &.mirror {
       transform: scaleX(-1);
     }
+
+    :global(#qr-shaded-region) {
+      border-color: rgba(var(--primary-rgb), 0.4) !important;
+    }
+
+    :global(#qr-shaded-region > div) {
+      background: white !important;
+    }
   }
 </style>
