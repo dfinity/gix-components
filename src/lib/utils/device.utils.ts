@@ -36,6 +36,26 @@ export const isIPad = (): boolean => {
   return /Macintosh/i.test(agent) && isMobile();
 };
 
+export const isAndroid = (): boolean => {
+  if (isNode()) {
+    return false;
+  }
+
+  const a = userAgent();
+
+  return /android|sink/i.test(a);
+};
+
+export const isAndroidTablet = (): boolean => {
+  if (isNode()) {
+    return false;
+  }
+
+  const a = userAgent();
+
+  return isAndroid() && !/mobile/i.test(a);
+};
+
 export const isMobile = (): boolean => {
   if (isNode()) {
     return false;

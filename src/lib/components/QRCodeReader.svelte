@@ -1,342 +1,86 @@
 <script lang="ts">
   import { createEventDispatcher, onDestroy, onMount } from "svelte";
-  import type { InitQRCodeWorker } from "$lib/services/qrcode.services";
-  import { initQRCodeWorker } from "$lib/services/qrcode.services";
-  import type { PostMessageDataResponse } from "$lib/types/post-message";
-  import { isIOS, isMobile, isPortrait } from "$lib/utils/device.utils";
-
-  /**
-   * Abstract:
-   *
-   * 1. Get video stream
-   * 2. Init video stream size, video cropped region and their display size for the UI
-   * 3. On every 60 FPS acquire a frame of the video - an image - and send it to a web worker
-   * 4. Read QR value in worker and if resolved pass it back
-   * 5. Dispatch resolved QR value
-   */
-
-  let worker: InitQRCodeWorker | undefined;
-  let stream: MediaStream | undefined;
-
-  type Size = { width: number; height: number };
-
-  let videoDisplaySize: Size | undefined;
-  let scanRegionDisplaySize: Size | undefined;
-
-  // The effective size and facing mode of the video stream that has been created
-  let videoStream:
-    | (Size & {
-        facingMode:
-          | "user"
-          | "environment"
-          | "left"
-          | "right"
-          | string
-          | undefined;
-      })
-    | undefined;
-  let scanRegionSize: (Size & { x: number; y: number }) | undefined;
-
-  const initVideoDisplaySize = () => {
-    if (video === undefined || video === null) {
-      videoDisplaySize = undefined;
-      return;
-    }
-
-    const { width, height } = video.getBoundingClientRect();
-
-    videoDisplaySize = {
-      width,
-      height,
-    };
-  };
-
-  $: video, initVideoDisplaySize();
-
-  const initScanRegionDisplaySize = () => {
-    if (
-      videoDisplaySize === undefined ||
-      videoStream === undefined ||
-      scanRegionSize === undefined
-    ) {
-      scanRegionDisplaySize = undefined;
-      return;
-    }
-
-    scanRegionDisplaySize = {
-      width:
-        (scanRegionSize.width * videoDisplaySize.width) / videoStream.width,
-      height:
-        (scanRegionSize.height * videoDisplaySize.height) / videoStream.height,
-    };
-  };
-
-  $: videoDisplaySize, videoStream, initScanRegionDisplaySize();
-
-  const initScanSize = () => {
-    if (videoStream === undefined) {
-      scanRegionSize = undefined;
-      return;
-    }
-
-    const { width, height } = videoStream;
-
-    // The source being ideally 1920x1080px it results in a square of 720px if multiplied by 2/3 which fits well the use case according tests.
-    const size = Math.min(width, height) * (2 / 3);
-
-    scanRegionSize = {
-      width: size,
-      height: size,
-      x: Math.round((width - size) / 2),
-      y: Math.round((height - size) / 2),
-    };
-
-    // When scanRegionSize was used as auto-subscriber, it did not fired `initScanRegionDisplaySize`. Therefore, the imperative call here.
-    initScanRegionDisplaySize();
-  };
+  import { Html5Qrcode } from "html5-qrcode";
+  import { isAndroidTablet, isIPad, isMobile } from "$lib/utils/device.utils";
 
   const dispatch = createEventDispatcher();
 
-  const initStream = async () => {
-    if (video === undefined || video === null) {
-      return;
-    }
-
-    // Workaround: according test, iPhone used in portrait mode returns a video size in landscape but, effectively used portrait.
-    // e.g. returns settings 1920x1080 while it actually is 1080x1920
-    const invert = isPortrait() && isIOS();
-
-    // We try to get ideally a HD (1920x1080) stream that also uses ideally the environment camera (not front facing).
-    stream = await navigator.mediaDevices.getUserMedia({
-      audio: false,
-      video: {
-        width: { ideal: invert ? 1080 : 1920 },
-        height: { ideal: invert ? 1920 : 1080 },
-        facingMode: "environment",
-      },
-    });
-
-    // Use getVideoTracks().getSettings() to retrieve the effective size of the stream provided by the device.
-    const [track] = stream.getVideoTracks();
-
-    if (track === undefined) {
-      dispatch(
-        "nnsQRCodeError",
-        new Error("The video stream contains no video tracks.")
-      );
-      return;
-    }
-
-    const settings = track.getSettings();
-
-    videoStream = {
-      width: invert ? (settings.height as number) : (settings.width as number),
-      height: invert ? (settings.width as number) : (settings.height as number),
-      facingMode:
-        settings.facingMode !== undefined
-          ? settings.facingMode
-          : // e.g. MacOS does not provide effective facingMode information therefore, fallback with an optimistic guess. If desktop, user facing camera mode.
-          !isMobile()
-          ? "user"
-          : undefined,
-    };
-
-    video.srcObject = stream;
-
-    await video.play();
-
-    scan();
-  };
-
-  let animationFrame: number | undefined;
-  const scan = () => (animationFrame = requestAnimationFrame(streamFeed));
-
-  const decodeCallback = ({ qrCode }: PostMessageDataResponse) =>
-    dispatch("nnsQRCode", qrCode);
-
-  let context: CanvasRenderingContext2D | null | undefined;
-
-  const initCanvas = () => {
-    if (videoStream === undefined || canvas === undefined) {
-      return;
-    }
-
-    canvas.width = videoStream.width;
-    canvas.height = videoStream.height;
-
-    context = canvas.getContext("2d", {
-      alpha: false,
-      willReadFrequently: true,
-    });
-
-    if (context === null) {
-      return;
-    }
-
-    context.imageSmoothingEnabled = false;
-
-    initScanSize();
-  };
-
-  $: videoStream, initCanvas();
-
-  const streamFeed = () => {
-    if (
-      video === undefined ||
-      video === null ||
-      canvas === undefined ||
-      context === undefined ||
-      context === null ||
-      scanRegionSize === undefined
-    ) {
-      return;
-    }
-
-    const { x, y, width, height } = scanRegionSize;
-
-    context.drawImage(
-      video,
-      x,
-      y,
-      width,
-      height,
-      0,
-      0,
-      canvas.width,
-      canvas.height
-    );
-
-    const image = context.getImageData(0, 0, canvas.width, canvas.height);
-
-    worker?.decodeQRCode({
-      qrCode: {
-        image,
-        width: canvas.width,
-        height: canvas.height,
-      },
-      options: { transfer: [image.data.buffer] },
-    });
-
-    scan();
-  };
-
-  let video: HTMLVideoElement | undefined | null;
-  let canvas: HTMLCanvasElement | undefined;
+  let html5QrCode: Html5Qrcode | undefined;
 
   onMount(async () => {
+    const qrCodeSuccessCallback = (decodedText: string) =>
+      dispatch("nnsQRCode", decodedText);
+
+    // Source documentation: https://scanapp.org/blog/2022/01/09/setting-dynamic-qr-box-size-in-html5-qrcode.html
+    const qrboxFunction = (viewfinderWidth, viewfinderHeight) => {
+      let minEdgePercentage = 0.7; // 70%
+      let minEdgeSize = Math.min(viewfinderWidth, viewfinderHeight);
+      let qrboxSize = Math.floor(minEdgeSize * minEdgePercentage);
+      return {
+        width: qrboxSize,
+        height: qrboxSize,
+      };
+    };
+
+    html5QrCode = new Html5Qrcode("reader");
+    await html5QrCode
+      .start(
+        { facingMode: "environment" },
+        {
+          fps: 10, // Optional, frame per seconds for qr code scanning
+          qrbox: qrboxFunction,
+        },
+        qrCodeSuccessCallback,
+        (_errorMessage: string) => {
+          // Do nothing. This error message is throw when the QR code cannot be read.
+          // Examples of error:
+          // QR code parse error, error = NotFoundException: No MultiFormat Readers were able to detect the code.
+          // QR code parse error, error = No barcode or QR code detected.
+          // QR code parse error, error = NotFoundException: No MultiFormat Readers were able to detect the code.
+        }
+      )
+      .catch((err: unknown) => {
+        dispatch("nnsQRCodeError", err);
+      });
+  });
+
+  onDestroy(async () => {
     try {
-      worker = await initQRCodeWorker(decodeCallback);
-
-      await initStream();
+      await html5QrCode?.stop();
     } catch (err: unknown) {
-      dispatch("nnsQRCodeError", err);
+      console.error(err);
+      dispatch(
+        "nnsQRCodeError",
+        new Error("There was an error while destroying the QR code reader.")
+      );
     }
   });
 
-  const stopVideoStream = (stream: MediaStream | undefined) => {
-    if (stream === undefined) {
-      return;
-    }
-
-    for (const track of stream.getTracks()) {
-      track.stop(); //  note that this will also automatically turn the flashlight off
-      stream.removeTrack(track);
-    }
-  };
-
-  const destroyVideo = () => {
-    if (video === undefined || video === null) {
-      return;
-    }
-
-    stopVideoStream(stream);
-
-    video.pause();
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore https://html.spec.whatwg.org/multipage/media.html#best-practices-for-authors-using-media-elements
-    video.srcObject = null;
-  };
-
-  onDestroy(() => {
-    worker?.terminate();
-
-    if (animationFrame !== undefined) {
-      cancelAnimationFrame(animationFrame);
-    }
-
-    destroyVideo();
-  });
+  // We optimistically assume that if the QR code reader is used on desktop, it has most probably only a single "user" facing camera and that we can invert the displayed video
+  let mirror = !isMobile() && !isIPad() && !isAndroidTablet();
 </script>
 
-<svelte:window on:resize={initVideoDisplaySize} />
-
-<article class="container">
-  <video
-    bind:this={video}
-    muted={true}
-    autoPlay={true}
-    playsInline={true}
-    class:mirror={videoStream?.facingMode === "user"}
-  />
-
-  <canvas bind:this={canvas} />
-
-  {#if scanRegionDisplaySize !== undefined && scanRegionDisplaySize.width > 0 && scanRegionDisplaySize.height > 0}
-    <div
-      class="region"
-      style={`--region-width: ${
-        scanRegionDisplaySize?.width ?? 0
-      }px; --region-height: ${scanRegionDisplaySize?.height ?? 0}px`}
-    />
-  {/if}
-</article>
+<article class="reader" id="reader" class:mirror />
 
 <style lang="scss">
-  .container {
+  .reader {
     position: relative;
     width: 100%;
     height: 100%;
 
     border-radius: var(--border-radius);
     overflow: hidden;
-  }
-
-  video,
-  canvas {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-
-    transform: translate(-50%, -50%);
 
     &.mirror {
-      transform: translate(-50%, -50%) scaleX(-1);
+      transform: scaleX(-1);
     }
 
-    width: auto;
-    height: 100%;
-  }
+    :global(#qr-shaded-region) {
+      border-color: rgba(var(--primary-rgb), 0.4) !important;
+    }
 
-  canvas {
-    visibility: hidden;
-    opacity: 0;
-  }
-
-  .region {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-
-    transform: translate(-50%, -50%);
-
-    border: var(--padding) solid var(--primary);
-    box-shadow: 0 0 0 9999px rgba(var(--primary-rgb), 0.4);
-    border-radius: var(--border-radius);
-
-    width: var(--region-width);
-    height: var(--region-height);
-    max-width: 100%;
-
-    box-sizing: border-box;
+    :global(#qr-shaded-region > div) {
+      background: white !important;
+    }
   }
 </style>
