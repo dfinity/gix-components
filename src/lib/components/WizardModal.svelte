@@ -6,6 +6,7 @@
 
   export let steps: WizardSteps;
   export let disablePointerEvents = false;
+  export let testId: string | undefined = undefined;
 
   let stepState: WizardStepsState;
   $: stepState = new WizardStepsState(steps);
@@ -26,6 +27,7 @@
 <Modal
   on:nnsClose
   on:introend={() => (presented = true)}
+  {testId}
   {disablePointerEvents}
 >
   <slot name="title" slot="title" />
