@@ -107,6 +107,33 @@ describe("Modal", () => {
     backdrop && fireEvent.click(backdrop);
   });
 
+  it("should not have a data-tid attribute", () => {
+    const { container } = render(Modal, {
+      props: {
+        ...props,
+      },
+    });
+
+    const modal = container.querySelector("div.modal");
+    expect(modal?.getAttribute("data-tid")).toBeNull();
+  });
+
+  it("should have a single root with data-tid attribute", () => {
+    const testId = "my-test-id";
+    const { container } = render(Modal, {
+      props: {
+        ...props,
+        testId,
+      },
+    });
+
+    // Make sure the data-tid encloses everything in the component.
+    expect(container.firstElementChild?.children.length).toBe(1);
+    const modal = container.firstElementChild?.firstElementChild;
+    expect(modal?.classList).toContain("modal");
+    expect(modal?.getAttribute("data-tid")).toBe(testId);
+  });
+
   it("should trigger close modal on click on close button", (done) => {
     const { getByTestId, component } = render(ModalTest, {
       props,
