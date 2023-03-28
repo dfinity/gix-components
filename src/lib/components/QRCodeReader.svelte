@@ -1,6 +1,6 @@
 <script lang="ts">
   import { createEventDispatcher, onDestroy, onMount } from "svelte";
-  import { Html5Qrcode } from "html5-qrcode";
+  import type { Html5Qrcode } from "html5-qrcode";
   import { isAndroidTablet, isIPad, isMobile } from "$lib/utils/device.utils";
 
   const dispatch = createEventDispatcher();
@@ -21,6 +21,8 @@
         height: qrboxSize,
       };
     };
+
+    const {Html5Qrcode} = await import("html5-qrcode");
 
     html5QrCode = new Html5Qrcode("reader");
     await html5QrCode
