@@ -25,6 +25,7 @@
     const { Html5Qrcode } = await import("html5-qrcode");
 
     html5QrCode = new Html5Qrcode("reader");
+
     await html5QrCode
       .start(
         { facingMode: "environment" },
