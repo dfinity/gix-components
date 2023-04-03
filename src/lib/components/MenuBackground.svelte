@@ -35,7 +35,7 @@
       loading="lazy"
     />
 
-    <img
+    <img data-tid="menu-background"
       class="background"
       src={background}
       role="presentation"
