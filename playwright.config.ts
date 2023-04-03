@@ -9,6 +9,7 @@ const config: PlaywrightTestConfig = {
   testMatch: ["**/*.e2e.ts"],
   use: {
     testIdAttribute: "data-tid",
+    trace: "on",
   },
 };
 
