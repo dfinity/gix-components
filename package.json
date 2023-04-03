@@ -14,8 +14,8 @@
     "download:samples": "./scripts/download-samples.sh",
     "i18n": "node scripts/i18n.types.mjs",
     "e2e": "npm run download:samples && playwright test --reporter=html",
-    "e2e:show": "npx playwright show-report",
-    "e2e:snapshots": "npx playwright test --update-snapshots --reporter=list"
+    "e2e:snapshots": "npm run download:samples && npx playwright test --update-snapshots --reporter=list",
+    "e2e:report": "npx playwright show-report"
   },
   "exports": {
     ".": {
