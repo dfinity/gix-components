@@ -90,8 +90,6 @@ jobs:
             ${{ runner.os }}-samples-
       - name: Install dependencies
         run: npm ci
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps chromium
       - name: Run Playwright tests
         run: npm run e2e
       - uses: actions/upload-artifact@v3
