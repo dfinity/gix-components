@@ -85,7 +85,7 @@ jobs:
         id: samples
         with:
           path: ./samples/
-          key: ${{ runner.os }}-samples-${{ hashFiles('**/samples/*.y4m') }}
+          key: ${{ runner.os }}-samples-${{ hashFiles('**/scripts/download-samples.sh') }}
           restore-keys: |
             ${{ runner.os }}-samples-
       - name: Install dependencies
