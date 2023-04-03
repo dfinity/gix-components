@@ -91,7 +91,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Run Playwright tests
-        run: npm run e2e
+        run: npm run e2e:ci
       - uses: actions/upload-artifact@v3
         if: failure()
         with:

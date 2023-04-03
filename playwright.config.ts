@@ -1,4 +1,5 @@
 import type { PlaywrightTestConfig } from "@playwright/test";
+import { devices } from "@playwright/test";
 
 const config: PlaywrightTestConfig = {
   webServer: {
@@ -11,6 +12,12 @@ const config: PlaywrightTestConfig = {
     testIdAttribute: "data-tid",
     trace: "on",
   },
+  projects: [
+    {
+      name: "Google Chrome",
+      use: { ...devices["Desktop Chrome"], channel: "chrome" },
+    },
+  ],
 };
 
 export default config;

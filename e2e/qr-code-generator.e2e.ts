@@ -13,6 +13,8 @@ test("QR code renders https://nns.ic0.app", async ({ page }) => {
   const showcase = page.getByTestId("showcase");
   await showcase.scrollIntoViewIfNeeded();
 
+  await page.waitForTimeout(250);
+
   await expect(page).toHaveScreenshot();
 });
 
