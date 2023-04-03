@@ -1,0 +1,17 @@
+name: Update Snapshots
+
+on:
+  workflow_dispatch:
+
+jobs:
+  update_snapshots:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Fail if branch is main
+        if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
+        run: |
+          echo "This workflow should not be triggered with workflow_dispatch on main"
+          exit 1
+
+      - name: Print hello world
+        run: echo "Hello world!"
