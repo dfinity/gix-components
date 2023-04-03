@@ -5,10 +5,10 @@ import { enumFromStringExists } from "./enum.utils";
 export const THEME_ATTRIBUTE = "theme";
 export const LOCALSTORAGE_THEME_KEY = "nnsTheme";
 
-export const initTheme = (): Theme => {
-  // Jest NodeJS environment has no document
+export const initTheme = (): Theme | undefined => {
+  // No DOM therefore cannot guess the theme
   if (isNode()) {
-    return Theme.DARK;
+    return undefined;
   }
 
   const theme: string | null =

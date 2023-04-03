@@ -26,21 +26,23 @@
     loading="lazy"
   />
 
-  <img
-    class="on-chain"
-    src={logoOnChain}
-    role="presentation"
-    alt="100% on-chain Internet Computer logo"
-    loading="lazy"
-  />
+  {#if $themeStore !== undefined}
+    <img
+      class="on-chain"
+      src={logoOnChain}
+      role="presentation"
+      alt="100% on-chain Internet Computer logo"
+      loading="lazy"
+    />
 
-  <img
-    class="background"
-    src={background}
-    role="presentation"
-    alt=""
-    loading="lazy"
-  />
+    <img
+      class="background"
+      src={background}
+      role="presentation"
+      alt=""
+      loading="lazy"
+    />
+  {/if}
 </div>
 
 <style lang="scss">
