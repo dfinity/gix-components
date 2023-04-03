@@ -2,7 +2,6 @@ name: Update Snapshots
 
 on:
   workflow_dispatch:
-  push:
 
 jobs:
   update_snapshots:
