@@ -13,7 +13,8 @@
     "test": "TZ=UTC jest",
     "download:samples": "./scripts/download-samples.sh",
     "e2e": "npm run download:samples && playwright test --reporter=html",
-    "i18n": "node scripts/i18n.types.mjs"
+    "i18n": "node scripts/i18n.types.mjs",
+    "e2e:show": "npx playwright show-report"
   },
   "exports": {
     ".": {
