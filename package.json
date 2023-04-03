@@ -12,7 +12,7 @@
     "format": "prettier --write --plugin-search-dir=. .",
     "test": "TZ=UTC jest",
     "download:samples": "./scripts/download-samples.sh",
-    "e2e": "npm run download:samples && playwright test",
+    "e2e": "npm run download:samples && playwright test --reporter=html",
     "i18n": "node scripts/i18n.types.mjs"
   },
   "exports": {
