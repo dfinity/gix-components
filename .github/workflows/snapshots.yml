@@ -21,7 +21,6 @@ jobs:
         run: npm run e2e:snapshots
       - name: Commit Playwright updated snapshots
         uses: EndBug/add-and-commit@v9
-        # We don't want to commit formatting changes to main
         if: ${{ github.ref != 'refs/heads/main' }}
         with:
           add: e2e
