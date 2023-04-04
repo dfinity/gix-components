@@ -10,9 +10,11 @@ test("QR code page has expected h1", async ({ page }) => {
 const testQRCode = async ({
   page,
   skipRead = false,
+  screenshotName,
 }: {
   page: Page;
   skipRead?: boolean;
+  screenshotName?: string;
 }) => {
   await page.goto(`${testUrl}${skipRead ? "?skip" : ""}`);
 
@@ -25,7 +27,9 @@ const testQRCode = async ({
   // Wait for video
   await page.waitForTimeout(2000);
 
-  await expect(page).toHaveScreenshot();
+  screenshotName !== undefined
+    ? await expect(page).toHaveScreenshot(screenshotName)
+    : await expect(page).toHaveScreenshot();
 };
 
 test("Read QR throws error because user block camera", async () => {
@@ -37,7 +41,10 @@ test("Read QR throws error because user block camera", async () => {
 
   const page = await context.newPage();
 
-  await testQRCode({ page });
+  await testQRCode({
+    page,
+    screenshotName: "Read-QR-throws-error.png",
+  });
 });
 
 test("Read QR throws error because camera stream fails", async () => {
@@ -55,7 +62,10 @@ test("Read QR throws error because camera stream fails", async () => {
 
   const page = await context.newPage();
 
-  await testQRCode({ page });
+  await testQRCode({
+    page,
+    screenshotName: "Read-QR-throws-error.png",
+  });
 });
 
 test("Read QR code value with camera", async () => {
