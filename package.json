@@ -35,7 +35,7 @@
   "devDependencies": {
     "@playwright/test": "^1.31.2",
     "@sveltejs/adapter-static": "^2.0.1",
-    "@sveltejs/kit": "^1.9.3",
+    "@sveltejs/kit": "^1.15.1",
     "@sveltejs/package": "^2.0.2",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/svelte": "^3.2.2",
