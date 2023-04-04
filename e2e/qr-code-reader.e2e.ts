@@ -27,7 +27,7 @@ const testQRCode = async ({
   // Wait for video
   await page.waitForTimeout(2000);
 
-  screenshotName !== undefined && screenshotName !== ""
+  screenshotName !== undefined
     ? await expect(page).toHaveScreenshot(screenshotName)
     : await expect(page).toHaveScreenshot();
 };
