@@ -10,7 +10,7 @@
     themeStore.select(detail ? Theme.DARK : Theme.LIGHT);
 
   let checked: boolean;
-  $: checked = $themeStore === Theme.DARK;
+  $: checked = $themeStore !== Theme.LIGHT;
 </script>
 
 <div class="theme-toggle" data-tid="theme-toggle">

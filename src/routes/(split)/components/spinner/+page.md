@@ -16,10 +16,10 @@ The component has a `absolute` positioning. If you would like to include it with
 
 ## Properties
 
-| Property | Description                                         | Type                | Default  |
-| -------- | --------------------------------------------------- | ------------------- | -------- |
-| `inline` | Display the spinner as block or optionnaly inlined. | `boolean`           | `false`  |
-| `size`   | The size of the spinner.                            | `small` or `medium` | `medium` |
+| Property | Description                                         | Type                        | Default  |
+| -------- | --------------------------------------------------- | --------------------------- | -------- |
+| `inline` | Display the spinner as block or optionnaly inlined. | `boolean`                   | `false`  |
+| `size`   | The size of the spinner.                            | `tiny`, `small` or `medium` | `medium` |
 
 ## Showcase
 
@@ -32,6 +32,11 @@ The component has a `absolute` positioning. If you would like to include it with
     <div>
         <div><Spinner size="small" /></div>
         <label class="description">Small size</label>
+    </div>
+
+    <div>
+        <div><Spinner size="tiny" /></div>
+        <label class="description">Tiny size</label>
     </div>
 
 </div>

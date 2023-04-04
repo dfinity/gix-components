@@ -35,3 +35,9 @@
     stroke-linejoin="round"
   />
 </svg>
+
+<style lang="scss">
+  svg {
+    vertical-align: middle;
+  }
+</style>
