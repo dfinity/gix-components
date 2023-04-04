@@ -32,13 +32,13 @@
   // Json colors
   --json-bracket-color: inherit;
   --json-value-color: var(--description-color);
-  --json-string-color: var(--primary);
-  --json-number-color: var(--primary);
+  --json-string-color: var(--value-color);
+  --json-number-color: var(--value-color);
   --json-null-color: var(--description-color);
-  --json-principal-color: var(--primary);
-  --json-hash-color: var(--primary);
-  --json-bigint-color: var(--primary);
-  --json-boolean-color: var(--primary);
+  --json-principal-color: var(--value-color);
+  --json-hash-color: var(--value-color);
+  --json-bigint-color: var(--value-color);
+  --json-boolean-color: var(--value-color);
 
   // Inputs
   --input-border-color: var(--focus-background);
