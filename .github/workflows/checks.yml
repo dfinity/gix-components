@@ -73,8 +73,34 @@ jobs:
       - name: Test
         run: npm run test
 
+  e2e:
+    runs-on: ubuntu-20.04
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Cache and restore samples
+        uses: actions/cache@v2
+        id: samples
+        with:
+          path: ./samples/
+          key: ${{ runner.os }}-samples-${{ hashFiles('**/scripts/download-samples.sh') }}
+          restore-keys: |
+            ${{ runner.os }}-samples-
+      - name: Install dependencies
+        run: npm ci
+      - name: Run Playwright tests
+        run: npm run e2e:ci
+      - uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
+
   may-merge:
-    needs: ["formatting", "build", "lint", "test"]
+    needs: ["formatting", "build", "lint", "test", "e2e"]
     runs-on: ubuntu-20.04
     steps:
       - name: Cleared for merging

@@ -15,5 +15,6 @@ node_modules
 .dfx
 
 test-results
+playwright-report
 
 samples

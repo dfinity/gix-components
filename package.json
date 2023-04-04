@@ -12,8 +12,11 @@
     "format": "prettier --write --plugin-search-dir=. .",
     "test": "TZ=UTC jest",
     "download:samples": "./scripts/download-samples.sh",
+    "i18n": "node scripts/i18n.types.mjs",
     "e2e": "npm run download:samples && playwright test",
-    "i18n": "node scripts/i18n.types.mjs"
+    "e2e:ci": "npm run download:samples && playwright test --reporter=html",
+    "e2e:snapshots": "npm run download:samples && npx playwright test --update-snapshots --reporter=list",
+    "e2e:report": "npx playwright show-report"
   },
   "exports": {
     ".": {
