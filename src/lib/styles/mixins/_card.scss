@@ -8,10 +8,6 @@
 
   margin: 0 0 var(--padding);
   max-width: 100%;
-
-  &:global(~ div) {
-    margin: 0 0 var(--padding);
-  }
 }
 
 @mixin list {
