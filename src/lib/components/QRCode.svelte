@@ -108,7 +108,6 @@
   {#if size !== undefined}
     <canvas
       bind:this={canvas}
-      role="img"
       aria-label={label}
       style={`width: ${size.width > 0 ? `${size.width}px` : "100%"}; height: ${
         size.width > 0 ? `${size.width}px` : "100%"

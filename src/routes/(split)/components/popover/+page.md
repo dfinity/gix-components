@@ -69,22 +69,8 @@ next to an anchor — commonly a button — which initiates its display.
     .account_icon {
         margin-right: 1rem;
     }
-    .mode {
-        display: flex;
-        height: 2rem;
-        padding: 1rem 0;
-        align-items: center;
-        justify-content: space-evenly;
-        border-radius: 15px;
-    }
-    .mode:hover {
-        cursor: pointer;
-    }
     button {
         margin-right: 2rem;
-    }
-    .selected {
-        background-color: grey;
     }
 </style>
 <br />
