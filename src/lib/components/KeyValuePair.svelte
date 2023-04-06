@@ -16,7 +16,7 @@
 <style lang="scss">
   dl {
     display: flex;
-    justify-content: space-between;
+    justify-content: var(--key-value-pair-justify-content, space-between);
     align-items: baseline;
     gap: var(--padding-2x);
 
