@@ -1,9 +1,18 @@
-<!-- source: https://fonts.google.com/icons?selected=Material%20Symbols%20Outlined%3Asouth%3AFILL%400%3Bwght%40400%3BGRAD%400%3Bopsz%4048 -->
+<!-- source: DFINITY foundation -->
+<script lang="ts">
+  import { DEFAULT_ICON_SIZE } from "$lib/constants/constants";
+  export let size = `${DEFAULT_ICON_SIZE}px`;
+</script>
+
 <svg
+  width={size}
+  height={size}
+  viewBox="0 0 16 16"
+  fill="none"
   xmlns="http://www.w3.org/2000/svg"
-  height="48"
-  width="48"
-  viewBox="0 0 48 48"
-  fill="currentColor"
-  ><path d="M24 44 10 30l2.1-2.1 10.4 10.4V4h3v34.3l10.4-10.4L38 30Z" /></svg
 >
+  <path
+    d="M7.00008 0H9.00008V12L14.5001 6.5L15.9201 7.92L8.00008 15.84L0.0800781 7.92L1.50008 6.5L7.00008 12V0Z"
+    fill="currentColor"
+  />
+</svg>
