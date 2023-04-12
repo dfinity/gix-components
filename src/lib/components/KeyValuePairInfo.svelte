@@ -20,7 +20,10 @@
     <svelte:fragment slot="value"><slot name="value" /></svelte:fragment>
   </KeyValuePair>
 
-  <p class="description" data-tid={`${testId}-description`}>
+  <p
+    class="description"
+    data-tid={testId !== undefined ? `${testId}-description` : undefined}
+  >
     <slot name="info" />
   </p>
 </Collapsible>
