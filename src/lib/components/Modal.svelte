@@ -199,7 +199,7 @@
   }
 
   .content {
-    overflow-y: auto;
+    overflow-y: var(--modal-content-overflow-y, auto);
     overflow-x: hidden;
   }
 
