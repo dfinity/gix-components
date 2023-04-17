@@ -12,7 +12,10 @@
       dispatch("nnsQRCode", decodedText);
 
     // Source documentation: https://scanapp.org/blog/2022/01/09/setting-dynamic-qr-box-size-in-html5-qrcode.html
-    const qrboxFunction = (viewfinderWidth, viewfinderHeight) => {
+    const qrboxFunction = (
+      viewfinderWidth: number,
+      viewfinderHeight: number
+    ) => {
       let minEdgePercentage = 0.7; // 70%
       let minEdgeSize = Math.min(viewfinderWidth, viewfinderHeight);
       let qrboxSize = Math.floor(minEdgeSize * minEdgePercentage);
