@@ -1,6 +1,5 @@
 <script lang="ts">
-  import { fade, scale } from "svelte/transition";
-  import { quintOut } from "svelte/easing";
+  import { fade } from "svelte/transition";
   import { createEventDispatcher } from "svelte";
   import { i18n } from "$lib/stores/i18n";
   import IconClose from "$lib/icons/IconClose.svelte";
@@ -22,22 +21,27 @@
 
   const dispatch = createEventDispatcher();
   const close = () => dispatch("nnsClose");
+
+  // A bit faster fade in that backdrop IN, a bit slower on OUT
+  const FADE_IN_DURATION = 125 as const;
+  const FADE_OUT_DURATION = 200 as const;
 </script>
 
 {#if visible}
   <div
     class="modal"
-    transition:fade={{ duration: 125 }}
+    transition:fade={{ duration: 25 }}
+    on:introend
     {role}
     data-tid={testId}
     aria-labelledby={showHeader ? "modalTitle" : undefined}
     aria-describedby="modalContent"
     on:click|stopPropagation
-    on:introend
   >
     <Backdrop {disablePointerEvents} on:nnsClose />
     <div
-      transition:scale={{ delay: 25, duration: 150, easing: quintOut }}
+      in:fade={{ duration: FADE_IN_DURATION }}
+      out:fade={{ duration: FADE_OUT_DURATION }}
       class={`wrapper ${role}`}
     >
       {#if showHeader}
