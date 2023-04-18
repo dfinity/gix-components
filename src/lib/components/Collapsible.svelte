@@ -6,7 +6,7 @@
   export let id: string | undefined = undefined;
   export let initiallyExpanded = false;
   export let maxContentHeight: number | undefined = undefined;
-  export let testId: string | undefined = undefined;
+  export let testId: string = "collapsible-header";
 
   export let iconSize: "small" | "medium" = "small";
   export let expandButton = true;
@@ -60,7 +60,7 @@
 </script>
 
 <div
-  data-tid={ testId ?? "collapsible-header"}
+  data-tid={testId}
   id={id !== undefined ? `heading${id}` : undefined}
   role="term"
   class={`header ${externalToggle ? "external" : ""}`}
