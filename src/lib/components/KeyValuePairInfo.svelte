@@ -8,8 +8,8 @@
   let toggleContent: () => void;
 </script>
 
-<Collapsible expandButton={false} externalToggle={true} bind:toggleContent>
-  <KeyValuePair {testId} slot="header">
+<Collapsible {testId} expandButton={false} externalToggle={true} bind:toggleContent>
+  <KeyValuePair slot="header">
     <div class="wrapper" slot="key">
       <slot name="key" />
       <button class="icon" on:click|stopPropagation={toggleContent}>
