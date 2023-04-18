@@ -2,11 +2,12 @@
   import { afterUpdate, createEventDispatcher } from "svelte";
   import IconExpandMore from "$lib/icons/IconExpandMore.svelte";
   import { i18n } from "$lib/stores/i18n";
+  import TestIdWrapper from "./TestIdWrapper.svelte";
 
   export let id: string | undefined = undefined;
   export let initiallyExpanded = false;
   export let maxContentHeight: number | undefined = undefined;
-  export let testId: string = "collapsible-header";
+  export let testId: string | undefined = undefined;
 
   export let iconSize: "small" | "medium" = "small";
   export let expandButton = true;
@@ -59,51 +60,57 @@
   afterUpdate(updateMaxHeight);
 </script>
 
-<div
-  data-tid={testId}
-  id={id !== undefined ? `heading${id}` : undefined}
-  role="term"
-  class={`header ${externalToggle ? "external" : ""}`}
-  on:click={() => (externalToggle ? undefined : toggleContent())}
->
-  <div class="header-content">
-    <slot name="header" />
-  </div>
-  {#if expandButton}
-    <button
-      class="collapsible-expand-icon"
-      class:size-medium={iconSize === "medium"}
-      class:expanded
-      data-tid="collapsible-expand-button"
-      aria-expanded={expanded}
-      aria-controls={id}
-      title={expanded ? $i18n.core.collapse : $i18n.core.expand}
-    >
-      <IconExpandMore />
-    </button>
-  {/if}
-</div>
-<div
-  data-tid="collapsible-content"
-  role="definition"
-  class="wrapper"
-  class:expanded
-  style={`${maxHeightStyle(maxHeight)}${overflyYStyle(maxHeight)}`}
->
+<TestIdWrapper {testId}>
   <div
-    {id}
-    aria-labelledby={id !== undefined ? `heading${id}` : undefined}
-    class="content"
-    class:wrapHeight
-    bind:this={container}
+    data-tid="collapsible-header"
+    id={id !== undefined ? `heading${id}` : undefined}
+    role="term"
+    class={`header ${externalToggle ? "external" : ""}`}
+    on:click={() => (externalToggle ? undefined : toggleContent())}
   >
-    <slot />
+    <div class="header-content">
+      <slot name="header" />
+    </div>
+    {#if expandButton}
+      <button
+        class="collapsible-expand-icon"
+        class:size-medium={iconSize === "medium"}
+        class:expanded
+        data-tid="collapsible-expand-button"
+        aria-expanded={expanded}
+        aria-controls={id}
+        title={expanded ? $i18n.core.collapse : $i18n.core.expand}
+      >
+        <IconExpandMore />
+      </button>
+    {/if}
   </div>
-</div>
+  <div
+    data-tid="collapsible-content"
+    role="definition"
+    class="wrapper"
+    class:expanded
+    style={`${maxHeightStyle(maxHeight)}${overflyYStyle(maxHeight)}`}
+  >
+    <div
+      {id}
+      aria-labelledby={id !== undefined ? `heading${id}` : undefined}
+      class="content"
+      class:wrapHeight
+      bind:this={container}
+    >
+      <slot />
+    </div>
+  </div>
+</TestIdWrapper>
 
 <style lang="scss">
   @use "../styles/mixins/interaction";
   @use "../styles/mixins/media";
+
+  .contents {
+    display: contents;
+  }
 
   .header {
     &:not(.external) {
