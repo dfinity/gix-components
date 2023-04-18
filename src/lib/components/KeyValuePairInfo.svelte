@@ -8,7 +8,12 @@
   let toggleContent: () => void;
 </script>
 
-<Collapsible {testId} expandButton={false} externalToggle={true} bind:toggleContent>
+<Collapsible
+  {testId}
+  expandButton={false}
+  externalToggle={true}
+  bind:toggleContent
+>
   <KeyValuePair slot="header">
     <div class="wrapper" slot="key">
       <slot name="key" />
