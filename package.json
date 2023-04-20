@@ -1,6 +1,7 @@
 {
   "name": "@dfinity/gix-components",
   "version": "2.6.0",
+  "license": "Apache-2.0",
   "scripts": {
     "dev": "npm run i18n && vite dev",
     "build": "npm run i18n && vite build",
@@ -79,5 +80,12 @@
   ],
   "peerDependencies": {
     "svelte": "^3.55.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dfinity/gix-components.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dfinity/gix-components"
   }
 }
