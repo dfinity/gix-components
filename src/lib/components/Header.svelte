@@ -6,7 +6,7 @@
   export let back = false;
 </script>
 
-<header>
+<header data-tid="header-component">
   <Toolbar>
     <svelte:fragment slot="start">
       {#if back}
