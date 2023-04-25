@@ -2,7 +2,10 @@
 /* eslint-disable-next-line @typescript-eslint/ban-types */
 import { nonNullish } from "@dfinity/utils";
 
-export const debounce = (func: Function, timeout?: number) => {
+export const debounce = (
+  func: (...args: unknown[]) => unknown,
+  timeout?: number
+) => {
   let timer: NodeJS.Timer | undefined;
 
   return (...args: unknown[]) => {
