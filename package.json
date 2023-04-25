@@ -79,7 +79,7 @@
     "svelte"
   ],
   "peerDependencies": {
-    "@dfinity/utils": "^0.0.14",
+    "@dfinity/utils": "0.*",
     "svelte": "^3.55.1"
   },
   "repository": {
