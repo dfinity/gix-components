@@ -30,7 +30,6 @@ div.modal {
     }
 
     @include media.min-width(medium) {
-      flex-wrap: wrap;
       justify-content: flex-end;
     }
   }
