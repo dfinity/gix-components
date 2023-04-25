@@ -4,6 +4,7 @@
   import { i18n } from "$lib/stores/i18n";
   import IconClose from "$lib/icons/IconClose.svelte";
   import Backdrop from "$lib/components/Backdrop.svelte";
+  import { nonNullish } from "@dfinity/utils";
 
   export let visible = true;
   export let role: "dialog" | "alert" = "dialog";
@@ -11,13 +12,13 @@
   export let disablePointerEvents = false;
 
   let showHeader: boolean;
-  $: showHeader = $$slots.title !== undefined;
+  $: showHeader = nonNullish($$slots.title);
 
   /**
    * @deprecated according new design there should be no sticky footer
    */
   let showFooterAlert: boolean;
-  $: showFooterAlert = $$slots.footer !== undefined && role === "alert";
+  $: showFooterAlert = nonNullish($$slots.footer) && role === "alert";
 
   const dispatch = createEventDispatcher();
   const close = () => dispatch("nnsClose");

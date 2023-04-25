@@ -8,6 +8,7 @@
   import { afterUpdate, createEventDispatcher, onMount } from "svelte";
   import { debounce } from "$lib/utils/debounce.utils";
   import type { QrCreateClass } from "$lib/types/qr-creator";
+  import { isNullish, nonNullish } from "@dfinity/utils";
 
   export let ariaLabel: string | undefined = undefined;
   export let value: string;
@@ -22,15 +23,14 @@
   export let ecLevel: "L" | "M" | "Q" | "H" = "H";
 
   let label: string;
-  $: label =
-    ariaLabel !== undefined && ariaLabel.length > 0 ? ariaLabel : value;
+  $: label = nonNullish(ariaLabel) && ariaLabel.length > 0 ? ariaLabel : value;
 
   let container: HTMLDivElement | undefined;
   let size: { width: number } | undefined = undefined;
 
   // Add a small debounce in case the screen is resized
   const initSize = debounce(() => {
-    if (container === undefined || container === null) {
+    if (isNullish(container)) {
       size = undefined;
       return;
     }
@@ -75,7 +75,7 @@
   const dispatch = createEventDispatcher();
 
   const renderCanvas = () => {
-    if (canvas === undefined || size === undefined) {
+    if (isNullish(canvas) || isNullish(size)) {
       return;
     }
 
@@ -99,13 +99,13 @@
   $: QrCreator, value, canvas, (() => renderCanvas())();
 
   let showLogo: boolean;
-  $: showLogo = $$slots.logo !== undefined;
+  $: showLogo = nonNullish($$slots.logo);
 </script>
 
 <svelte:window on:resize={initSize} />
 
 <div class="container" bind:this={container} data-tid="qr-code">
-  {#if size !== undefined}
+  {#if nonNullish(size)}
     <canvas
       bind:this={canvas}
       aria-label={label}
