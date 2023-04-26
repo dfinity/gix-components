@@ -72,7 +72,7 @@
   .reader {
     position: relative;
     width: 100%;
-    height: 100%;
+    height: auto;
 
     border-radius: var(--border-radius);
     overflow: hidden;
