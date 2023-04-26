@@ -1,8 +1,11 @@
 <script lang="ts">
   import MenuBackground from "./MenuBackground.svelte";
   import { layoutMenuOpen } from "$lib/stores/layout.store";
+  import { onEnter } from "$lib/utils/keyboard.utils";
 
   export let sticky = true;
+
+  const close = () => layoutMenuOpen.set(false);
 </script>
 
 <div role="menu">
@@ -13,7 +16,10 @@
     class:sticky
     data-tid="menu-inner"
     class:open={$layoutMenuOpen}
-    on:click={() => layoutMenuOpen.set(false)}
+    role="button"
+    tabindex="-1"
+    on:click={close}
+    on:keypress={($event) => onEnter({ $event, callback: close })}
   >
     <slot />
   </div>

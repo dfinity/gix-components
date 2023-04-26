@@ -5,6 +5,7 @@
   import { i18n } from "$lib/stores/i18n";
   import Backdrop from "./Backdrop.svelte";
   import IconClose from "$lib/icons/IconClose.svelte";
+  import { onEnter } from "$lib/utils/keyboard.utils";
 
   export let anchor: HTMLElement | undefined = undefined;
   export let visible = false;
@@ -35,6 +36,7 @@
       window.innerWidth - right
     }px`}"
     on:click|stopPropagation
+    on:keypress|stopPropagation
   >
     <Backdrop on:nnsClose={() => (visible = false)} />
     <div

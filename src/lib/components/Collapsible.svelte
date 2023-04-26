@@ -3,6 +3,7 @@
   import IconExpandMore from "$lib/icons/IconExpandMore.svelte";
   import { i18n } from "$lib/stores/i18n";
   import TestIdWrapper from "./TestIdWrapper.svelte";
+  import { onEnter } from "$lib/utils/keyboard.utils";
 
   export let id: string | undefined = undefined;
   export let initiallyExpanded = false;
@@ -58,15 +59,19 @@
 
   // recalculate max-height after DOM update
   afterUpdate(updateMaxHeight);
+
+  const toggle = () => (externalToggle ? undefined : toggleContent());
 </script>
 
 <TestIdWrapper {testId}>
   <div
     data-tid="collapsible-header"
     id={id !== undefined ? `heading${id}` : undefined}
-    role="term"
+    role="button"
     class={`header ${externalToggle ? "external" : ""}`}
-    on:click={() => (externalToggle ? undefined : toggleContent())}
+    on:click={toggle}
+    on:keypress={($event) => onEnter({ $event, callback: toggle })}
+    tabindex={externalToggle ? -1 : 0}
   >
     <div class="header-content">
       <slot name="header" />
@@ -80,6 +85,7 @@
         aria-expanded={expanded}
         aria-controls={id}
         title={expanded ? $i18n.core.collapse : $i18n.core.expand}
+        tabindex="-1"
       >
         <IconExpandMore />
       </button>
@@ -108,16 +114,11 @@
   @use "../styles/mixins/interaction";
   @use "../styles/mixins/media";
 
-  .contents {
-    display: contents;
-  }
-
   .header {
     &:not(.external) {
       @include interaction.tappable;
       user-select: none;
     }
-
     position: relative;
 
     display: flex;
@@ -128,6 +129,12 @@
       display: flex;
       align-items: center;
       justify-content: flex-start;
+    }
+
+    outline: none;
+
+    &:focus {
+      filter: contrast(1.25);
     }
   }
 
