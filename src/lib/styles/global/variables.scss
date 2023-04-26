@@ -76,13 +76,13 @@
   @include media.min-width(medium) {
     --alert-width: 500px;
 
-    --dialog-width: 888px;
+    --dialog-width: 600px;
     --dialog-max-width: var(--alert-max-width);
     --dialog-min-height: calc(100vh - var(--padding-8x));
     --dialog-height: initial;
     --dialog-max-height: var(--alert-max-height);
     --dialog-border-radius: var(--alert-border-radius);
-    --dialog-padding-x: var(--padding-6x);
+    --dialog-padding-x: var(--padding-4x);
   }
 
   @media (min-width: 768px) and (min-height: 560px) {
