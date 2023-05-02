@@ -34,12 +34,19 @@
   let level: ToastLevel;
   let spinner: boolean | undefined;
   let title: string | undefined;
-  let truncate: boolean | undefined;
+  let overflow: "scroll" | "truncate" | "clamp" | undefined;
   let position: ToastPosition | undefined;
   let icon: typeof SvelteComponent | undefined;
   let theme: ToastTheme | undefined;
 
-  $: ({ text, level, spinner, title, truncate, position, icon, theme } = msg);
+  $: ({ text, level, spinner, title, overflow, position, icon, theme } = msg);
+
+  let scroll: boolean;
+  $: scroll = overflow === undefined || overflow === "scroll";
+  let truncate: boolean;
+  $: truncate = overflow === "truncate";
+  let clamp: boolean;
+  $: clamp = overflow === "clamp";
 
   let timeoutId: NodeJS.Timeout | undefined = undefined;
 
@@ -81,7 +88,7 @@
     {/if}
   </div>
 
-  <p class="msg" class:truncate={truncate === true}>
+  <p class="msg" class:truncate class:clamp class:scroll>
     {#if title !== undefined}
       <span class="title">{title}</span>
     {/if}
@@ -142,7 +149,7 @@
       margin: 0;
       word-break: break-word;
 
-      &:not(.truncate) {
+      &.scroll {
         // (>=3 lines x 1rem) + top/bottom paddings
         max-height: calc(8.5 * var(--padding));
         overflow-y: auto;
@@ -153,6 +160,14 @@
 
         .title {
           @include text.truncate;
+        }
+      }
+
+      &.clamp {
+        @include text.clamp(3);
+
+        .title {
+          @include text.clamp(2);
         }
       }
     }
