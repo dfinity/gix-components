@@ -2,6 +2,7 @@
   import IconInfo from "$lib/icons/IconInfo.svelte";
   import Collapsible from "./Collapsible.svelte";
   import KeyValuePair from "./KeyValuePair.svelte";
+  import { nonNullish } from "@dfinity/utils";
 
   export let testId: string | undefined = undefined;
 
@@ -27,7 +28,7 @@
 
   <p
     class="description"
-    data-tid={testId !== undefined ? `${testId}-description` : undefined}
+    data-tid={nonNullish(testId) ? `${testId}-description` : undefined}
   >
     <slot name="info" />
   </p>

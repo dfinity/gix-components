@@ -2,13 +2,14 @@
   import { fade } from "svelte/transition";
   import { busy, busyMessage } from "$lib/stores/busy.store";
   import Spinner from "$lib/components/Spinner.svelte";
+  import { nonNullish } from "@dfinity/utils";
 </script>
 
 <!-- Display spinner and lock UI if busyStore is not empty -->
 {#if $busy}
   <div data-tid="busy" transition:fade>
     <div class="content">
-      {#if $busyMessage !== undefined}
+      {#if nonNullish($busyMessage)}
         <p>{$busyMessage}</p>
       {/if}
       <span>

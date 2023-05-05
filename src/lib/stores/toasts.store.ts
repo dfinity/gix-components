@@ -1,4 +1,5 @@
 import type { ToastLevel, ToastMsg } from "$lib/types/toast";
+import { nonNullish } from "@dfinity/utils";
 import { writable, type Readable } from "svelte/store";
 
 export interface ToastsStore extends Readable<ToastMsg[]> {
@@ -66,7 +67,7 @@ const initToastsStore = (): ToastsStore => {
     },
 
     reset(levels?: ToastLevel[]) {
-      if (levels !== undefined && levels.length > 0) {
+      if (nonNullish(levels) && levels.length > 0) {
         update((messages: ToastMsg[]) =>
           messages.filter(({ level }) => !levels.includes(level))
         );

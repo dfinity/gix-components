@@ -1,3 +1,4 @@
+import { isNullish } from "@dfinity/utils";
 import DOMPurify from "dompurify";
 
 let domPurify: typeof DOMPurify | undefined = undefined;
@@ -47,7 +48,7 @@ const flagTargetAttributeHook = (node: Element) => {
 export const sanitize = (text: string): string => {
   try {
     // DOMPurify initialization
-    if (domPurify === undefined) {
+    if (isNullish(domPurify)) {
       if (typeof DOMPurify.sanitize === "function") {
         domPurify = DOMPurify;
       } else if (typeof global.DOMPurify.sanitize === "function") {

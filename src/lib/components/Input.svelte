@@ -1,5 +1,6 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
+  import { isNullish, nonNullish } from "@dfinity/utils";
 
   export let name: string;
   export let inputType: "icp" | "number" | "text" = "number";
@@ -44,7 +45,7 @@
       : value;
   // To show undefined as "" (because of the type="text")
   const fixUndefinedValue = (value: string | number | undefined): string =>
-    value === undefined ? "" : `${value}`;
+    isNullish(value) ? "" : `${value}`;
 
   let icpValue: string = exponentToPlainNumberString(fixUndefinedValue(value));
   let lastValidICPValue: string | number | undefined = value;
@@ -61,7 +62,7 @@
     })();
 
   const restoreFromValidValue = (noValue = false) => {
-    if (inputElement === undefined || inputType !== "icp") {
+    if (isNullish(inputElement) || inputType !== "icp") {
       return;
     }
 
@@ -70,12 +71,11 @@
     }
 
     internalValueChange = true;
-    value =
-      lastValidICPValue === undefined
-        ? undefined
-        : typeof lastValidICPValue === "number"
-        ? lastValidICPValue.toFixed(8)
-        : +lastValidICPValue;
+    value = isNullish(lastValidICPValue)
+      ? undefined
+      : typeof lastValidICPValue === "number"
+      ? lastValidICPValue.toFixed(8)
+      : +lastValidICPValue;
     icpValue = fixUndefinedValue(lastValidICPValue);
 
     // force dom update (because no active triggers)
@@ -124,7 +124,7 @@
   };
 
   const handleKeyDown = () => {
-    if (inputElement === undefined) {
+    if (isNullish(inputElement)) {
       return;
     }
 
@@ -139,7 +139,7 @@
       : undefined;
 
   let displayInnerEnd: boolean;
-  $: displayInnerEnd = $$slots["inner-end"] !== undefined;
+  $: displayInnerEnd = nonNullish($$slots["inner-end"]);
 </script>
 
 <div class="input-block" class:disabled>

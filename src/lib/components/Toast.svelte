@@ -16,6 +16,7 @@
   import IconCheckCircle from "$lib/icons/IconCheckCircle.svelte";
   import IconError from "$lib/icons/IconError.svelte";
   import { DEFAULT_ICON_SIZE } from "$lib/constants/constants";
+  import { isNullish, nonNullish } from "@dfinity/utils";
 
   export let msg: ToastMsg;
 
@@ -34,19 +35,26 @@
   let level: ToastLevel;
   let spinner: boolean | undefined;
   let title: string | undefined;
-  let truncate: boolean | undefined;
+  let overflow: "scroll" | "truncate" | "clamp" | undefined;
   let position: ToastPosition | undefined;
   let icon: typeof SvelteComponent | undefined;
   let theme: ToastTheme | undefined;
 
-  $: ({ text, level, spinner, title, truncate, position, icon, theme } = msg);
+  $: ({ text, level, spinner, title, overflow, position, icon, theme } = msg);
+
+  let scroll: boolean;
+  $: scroll = overflow === undefined || overflow === "scroll";
+  let truncate: boolean;
+  $: truncate = overflow === "truncate";
+  let clamp: boolean;
+  $: clamp = overflow === "clamp";
 
   let timeoutId: NodeJS.Timeout | undefined = undefined;
 
   const autoHide = () => {
     const { duration } = msg;
 
-    if (duration === undefined) {
+    if (isNullish(duration)) {
       return;
     }
 
@@ -54,7 +62,7 @@
   };
 
   const cleanUpAutoHide = () => {
-    if (timeoutId === undefined) {
+    if (isNullish(timeoutId)) {
       return;
     }
 
@@ -74,15 +82,15 @@
   <div class="icon {level}" aria-hidden="true">
     {#if spinner}
       <Spinner size="small" inline />
-    {:else if icon !== undefined}
+    {:else if nonNullish(icon)}
       <svelte:component this={icon} />
     {:else if iconMapper(level)}
       <svelte:component this={iconMapper(level)} size={DEFAULT_ICON_SIZE} />
     {/if}
   </div>
 
-  <p class="msg" class:truncate={truncate === true}>
-    {#if title !== undefined}
+  <p class="msg" class:truncate class:clamp class:scroll>
+    {#if nonNullish(title)}
       <span class="title">{title}</span>
     {/if}
     {text}
@@ -142,7 +150,7 @@
       margin: 0;
       word-break: break-word;
 
-      &:not(.truncate) {
+      &.scroll {
         // (>=3 lines x 1rem) + top/bottom paddings
         max-height: calc(8.5 * var(--padding));
         overflow-y: auto;
@@ -153,6 +161,14 @@
 
         .title {
           @include text.truncate;
+        }
+      }
+
+      &.clamp {
+        @include text.clamp(3);
+
+        .title {
+          @include text.clamp(2);
         }
       }
     }

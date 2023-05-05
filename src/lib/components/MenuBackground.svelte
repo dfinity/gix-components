@@ -7,6 +7,7 @@
   import { themeStore } from "$lib/stores/theme.store";
   import { Theme } from "$lib/types/theme";
   import { layoutMenuOpen } from "$lib/stores/layout.store";
+  import { nonNullish } from "@dfinity/utils";
 
   let logoOnChain: string;
   $: logoOnChain =
@@ -26,7 +27,7 @@
     loading="lazy"
   />
 
-  {#if $themeStore !== undefined}
+  {#if nonNullish($themeStore)}
     <img
       class="on-chain"
       src={logoOnChain}

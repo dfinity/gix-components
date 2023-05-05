@@ -3,6 +3,7 @@
   import IconExpandMore from "$lib/icons/IconExpandMore.svelte";
   import { i18n } from "$lib/stores/i18n";
   import TestIdWrapper from "./TestIdWrapper.svelte";
+  import { isNullish, nonNullish } from "@dfinity/utils";
   import { handleKeyPress } from "$lib/utils/keyboard.utils";
 
   export let id: string | undefined = undefined;
@@ -33,13 +34,13 @@
   };
 
   const calculateMaxContentHeight = (): number => {
-    if (maxContentHeight !== undefined) return maxContentHeight;
+    if (nonNullish(maxContentHeight)) return maxContentHeight;
     const height =
       container?.getBoundingClientRect().height ?? container?.offsetHeight ?? 0;
     return height < CONTENT_MIN_HEIGHT ? CONTENT_MIN_HEIGHT : height;
   };
   const maxHeightStyle = (height: number | undefined): string =>
-    height === undefined ? "" : `max-height: ${height}px;`;
+    isNullish(height) ? "" : `max-height: ${height}px;`;
   // In case of `initiallyExpanded=true` we should avoid calculating `max-height` from the content-height
   // because the content in the slot can be initialized w/ some delay.
   const updateMaxHeight = () => {
@@ -51,7 +52,7 @@
   };
   // Avoid to show scroll if not necessary
   const overflyYStyle = (height: number | undefined): string =>
-    height === undefined || maxContentHeight === undefined
+    isNullish(height) || isNullish(maxContentHeight)
       ? "overflow-y: hidden;"
       : height < maxContentHeight
       ? "overflow-y: hidden;"
@@ -66,7 +67,7 @@
 <TestIdWrapper {testId}>
   <div
     data-tid="collapsible-header"
-    id={id !== undefined ? `heading${id}` : undefined}
+    id={nonNullish(id) ? `heading${id}` : undefined}
     role="button"
     class={`header ${externalToggle ? "external" : ""}`}
     on:click={toggle}
@@ -100,7 +101,7 @@
   >
     <div
       {id}
-      aria-labelledby={id !== undefined ? `heading${id}` : undefined}
+      aria-labelledby={nonNullish(id) ? `heading${id}` : undefined}
       class="content"
       class:wrapHeight
       bind:this={container}

@@ -3,6 +3,7 @@
   import type { SegmentContext, SelectedSegment } from "$lib/types/segment";
   import { SEGMENT_CONTEXT_KEY } from "$lib/types/segment";
   import { setContext } from "svelte";
+  import { isNullish, nonNullish } from "@dfinity/utils";
 
   export let selectedSegmentId: symbol | undefined = undefined;
 
@@ -31,14 +32,14 @@
     $store.element ?? segment?.querySelector(".segment-button");
 
   export const initIndicator = () => {
-    if (selectedElement === undefined || selectedElement === null) {
+    if (isNullish(selectedElement)) {
       indicator = undefined;
       return;
     }
 
     const { parentElement } = selectedElement;
 
-    if (parentElement === null) {
+    if (isNullish(parentElement)) {
       indicator = undefined;
       return;
     }
@@ -67,7 +68,7 @@
   bind:this={segment}
   class="segment"
   style={`--segments: ${segmentsCount}; ${
-    indicator !== undefined
+    nonNullish(indicator)
       ? `--position: ${indicator.left}px; --width: ${indicator.width}px`
       : ""
   }`}

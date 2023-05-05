@@ -1,6 +1,11 @@
 // TODO: copied from NNS-dapp and needs to be moved to utils
 /* eslint-disable-next-line @typescript-eslint/ban-types */
-export const debounce = (func: Function, timeout?: number) => {
+import { nonNullish } from "@dfinity/utils";
+
+export const debounce = (
+  func: (...args: unknown[]) => unknown,
+  timeout?: number
+) => {
   let timer: NodeJS.Timer | undefined;
 
   return (...args: unknown[]) => {
@@ -12,7 +17,7 @@ export const debounce = (func: Function, timeout?: number) => {
 
     timer = setTimeout(
       next,
-      timeout !== undefined && timeout > 0 ? timeout : 300
+      nonNullish(timeout) && timeout > 0 ? timeout : 300
     );
   };
 };
