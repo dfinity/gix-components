@@ -14,7 +14,7 @@ export interface ToastMsg {
   spinner?: boolean;
   duration?: number;
   position?: ToastPosition;
-  truncate?: boolean;
+  overflow?: "scroll" | "truncate" | "clamp";
   icon?: typeof SvelteComponent;
   theme?: ToastTheme;
 }

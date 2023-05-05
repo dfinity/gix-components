@@ -40,7 +40,7 @@
         level: "custom",
         position: "top",
         title: "An important message",
-        truncate: true,
+        overflow: "truncate",
         icon: IconMeter,
         theme: "inverted",
     });
@@ -80,7 +80,7 @@ A toast message can be created with following properties.
 | `spinner`  | Display a spinner instead of an icon that represents the `level`. The spinner inherits the `level` color.    | `boolean`                                |           |
 | `duration` | A timeout (in milliseconds) after which the toast automatically disappear.                                   | `number`                                 |           |
 | `position` | The position of the toast. A related `<Toasts />` component should be declared in order to use the position. | `bottom` or `top`                        |           |
-| `truncate` | By default, a text content of a toast is scrollbable. This option fix and truncate the text and title.       | `boolean`                                |           |
+| `overflow` | By default, a text content of a toast is scrollbable. This option truncate or clamp the text and title.      | `scroll` or `truncate` or `clamp`        |           |
 | `icon`     | A custom icon to be displayed before the text of the toast.                                                  | `SvelteComponent`                        |           |
 
 ## Showcase
