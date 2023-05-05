@@ -2,6 +2,7 @@
   import { fade } from "svelte/transition";
   import { createEventDispatcher } from "svelte";
   import { i18n } from "$lib/stores/i18n";
+  import { handleKeyPress } from "$lib/utils/keyboard.utils";
 
   export let disablePointerEvents = false;
 
@@ -14,11 +15,13 @@
 
 <div
   role="button"
+  tabindex="-1"
   aria-label={$i18n.core.close}
   in:fade={{ duration: FADE_IN_DURATION }}
   out:fade={{ duration: FADE_OUT_DURATION }}
   class="backdrop"
   on:click|stopPropagation={close}
+  on:keypress={($event) => handleKeyPress({ $event, callback: close })}
   class:disablePointerEvents
   data-tid="backdrop"
 />

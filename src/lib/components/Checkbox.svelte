@@ -1,5 +1,6 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
+  import { handleKeyPress } from "$lib/utils/keyboard.utils";
 
   export let inputId: string;
   export let checked: boolean;
@@ -16,18 +17,24 @@
     if (preventDefault) {
       $event.preventDefault();
     }
-    dispatch("nnsChange");
+
+    change();
   };
+
+  const change = () => dispatch("nnsChange");
 </script>
 
 <div
+  tabindex="0"
   on:click|preventDefault={onClick}
+  on:keypress={($event) => handleKeyPress({ $event, callback: change })}
   class="checkbox"
   class:disabled
   role="button"
 >
   <label for={inputId} class={text}><slot /></label>
   <input
+    tabindex="-1"
     data-tid="checkbox"
     type="checkbox"
     id={inputId}
@@ -63,6 +70,13 @@
       input {
         @include form.input-focus;
       }
+    }
+
+    border: var(--input-border-size) solid transparent;
+    outline: none;
+
+    &:focus {
+      @include form.input-focus;
     }
 
     border-radius: var(--checkbox-border-radius, var(--border-radius));

@@ -35,6 +35,7 @@
       window.innerWidth - right
     }px`}"
     on:click|stopPropagation
+    on:keypress|stopPropagation
   >
     <Backdrop on:nnsClose={() => (visible = false)} />
     <div
