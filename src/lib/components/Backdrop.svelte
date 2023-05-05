@@ -2,7 +2,7 @@
   import { fade } from "svelte/transition";
   import { createEventDispatcher } from "svelte";
   import { i18n } from "$lib/stores/i18n";
-  import { onEnter } from "$lib/utils/keyboard.utils";
+  import { handleKeyPress } from "$lib/utils/keyboard.utils";
 
   export let disablePointerEvents = false;
 
@@ -21,7 +21,7 @@
   out:fade={{ duration: FADE_OUT_DURATION }}
   class="backdrop"
   on:click|stopPropagation={close}
-  on:keypress={($event) => onEnter({ $event, callback: close })}
+  on:keypress={($event) => handleKeyPress({ $event, callback: close })}
   class:disablePointerEvents
   data-tid="backdrop"
 />

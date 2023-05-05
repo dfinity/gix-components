@@ -1,6 +1,6 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
-  import { onEnter } from "$lib/utils/keyboard.utils";
+  import { handleKeyPress } from "$lib/utils/keyboard.utils";
 
   export let inputId: string;
   export let checked: boolean;
@@ -27,7 +27,7 @@
 <div
   tabindex="0"
   on:click|preventDefault={onClick}
-  on:keypress={($event) => onEnter({ $event, callback: change })}
+  on:keypress={($event) => handleKeyPress({ $event, callback: change })}
   class="checkbox"
   class:disabled
   role="button"

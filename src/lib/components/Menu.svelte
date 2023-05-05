@@ -1,7 +1,7 @@
 <script lang="ts">
   import MenuBackground from "./MenuBackground.svelte";
   import { layoutMenuOpen } from "$lib/stores/layout.store";
-  import { onEnter } from "$lib/utils/keyboard.utils";
+  import { handleKeyPress } from "$lib/utils/keyboard.utils";
 
   export let sticky = true;
 
@@ -19,7 +19,7 @@
     role="button"
     tabindex="-1"
     on:click={close}
-    on:keypress={($event) => onEnter({ $event, callback: close })}
+    on:keypress={($event) => handleKeyPress({ $event, callback: close })}
   >
     <slot />
   </div>

@@ -3,7 +3,7 @@
   import IconExpandMore from "$lib/icons/IconExpandMore.svelte";
   import { i18n } from "$lib/stores/i18n";
   import TestIdWrapper from "./TestIdWrapper.svelte";
-  import { onEnter } from "$lib/utils/keyboard.utils";
+  import { handleKeyPress } from "$lib/utils/keyboard.utils";
 
   export let id: string | undefined = undefined;
   export let initiallyExpanded = false;
@@ -70,7 +70,7 @@
     role="button"
     class={`header ${externalToggle ? "external" : ""}`}
     on:click={toggle}
-    on:keypress={($event) => onEnter({ $event, callback: toggle })}
+    on:keypress={($event) => handleKeyPress({ $event, callback: toggle })}
     tabindex={externalToggle ? -1 : 0}
   >
     <div class="header-content">
