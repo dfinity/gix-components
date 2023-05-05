@@ -5,6 +5,7 @@
     createEventDispatcher,
     onDestroy,
   } from "svelte";
+  import { isNullish } from "@dfinity/utils";
 
   export let layout: "list" | "grid" = "list";
   export let disabled = false;
@@ -28,7 +29,7 @@
       ({ isIntersecting }: IntersectionObserverEntry) => isIntersecting
     );
 
-    if (intersecting === undefined) {
+    if (isNullish(intersecting)) {
       return;
     }
 
@@ -52,17 +53,14 @@
       observer.disconnect();
     }
 
-    skipContainerNextUpdate = container === undefined;
+    skipContainerNextUpdate = isNullish(container);
   });
 
   afterUpdate(() => {
     // The DOM has been updated. We reset the observer to the current last HTML element of the infinite list.
 
     // If not children, no element to observe
-    if (
-      container?.lastElementChild === null ||
-      container?.lastElementChild === undefined
-    ) {
+    if (isNullish(container) || isNullish(container.lastElementChild)) {
       return;
     }
 

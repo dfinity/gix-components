@@ -1,4 +1,5 @@
 import type { BusyState } from "$lib/types/busy";
+import { nonNullish } from "@dfinity/utils";
 import { derived, writable, type Readable } from "svelte/store";
 
 /**
@@ -44,5 +45,5 @@ export const busy: Readable<boolean> = derived(
 export const busyMessage: Readable<string | undefined> = derived(
   busyStore,
   ($busyStore) =>
-    $busyStore.reverse().find(({ text }) => text !== undefined)?.text
+    $busyStore.reverse().find(({ text }) => nonNullish(text))?.text
 );

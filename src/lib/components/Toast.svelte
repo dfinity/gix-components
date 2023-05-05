@@ -16,6 +16,7 @@
   import IconCheckCircle from "$lib/icons/IconCheckCircle.svelte";
   import IconError from "$lib/icons/IconError.svelte";
   import { DEFAULT_ICON_SIZE } from "$lib/constants/constants";
+  import { isNullish, nonNullish } from "@dfinity/utils";
 
   export let msg: ToastMsg;
 
@@ -53,7 +54,7 @@
   const autoHide = () => {
     const { duration } = msg;
 
-    if (duration === undefined) {
+    if (isNullish(duration)) {
       return;
     }
 
@@ -61,7 +62,7 @@
   };
 
   const cleanUpAutoHide = () => {
-    if (timeoutId === undefined) {
+    if (isNullish(timeoutId)) {
       return;
     }
 
@@ -81,7 +82,7 @@
   <div class="icon {level}" aria-hidden="true">
     {#if spinner}
       <Spinner size="small" inline />
-    {:else if icon !== undefined}
+    {:else if nonNullish(icon)}
       <svelte:component this={icon} />
     {:else if iconMapper(level)}
       <svelte:component this={iconMapper(level)} size={DEFAULT_ICON_SIZE} />
@@ -89,7 +90,7 @@
   </div>
 
   <p class="msg" class:truncate class:clamp class:scroll>
-    {#if title !== undefined}
+    {#if nonNullish(title)}
       <span class="title">{title}</span>
     {/if}
     {text}

@@ -3,6 +3,7 @@
   import type { SvelteComponent } from "svelte";
   import IconExpandMore from "$lib/icons/IconExpandMore.svelte";
   import IconCheckCircle from "$lib/icons/IconCheckCircle.svelte";
+  import { nonNullish } from "@dfinity/utils";
 
   export let role: "link" | "button" | "checkbox" | "radio" | undefined =
     undefined;
@@ -16,13 +17,12 @@
 
   let clickable = false;
 
-  $: clickable =
-    role !== undefined
-      ? ["button", "link", "checkbox", "radio"].includes(role)
-      : false;
+  $: clickable = nonNullish(role)
+    ? ["button", "link", "checkbox", "radio"].includes(role)
+    : false;
 
   let showHeadline: boolean;
-  $: showHeadline = $$slots.start !== undefined || $$slots.end !== undefined;
+  $: showHeadline = nonNullish($$slots.start) || nonNullish($$slots.end);
 
   let ariaChecked: boolean | undefined = undefined;
   $: ariaChecked = role === "checkbox" ? selected : undefined;
@@ -50,14 +50,14 @@
   on:click
   class={`card ${theme ?? ""}`}
   class:clickable
-  class:icon={icon !== undefined}
+  class:icon={nonNullish(icon)}
   class:selected
   class:disabled
   aria-disabled={disabled}
   aria-checked={ariaChecked}
   aria-label={ariaLabel}
 >
-  {#if iconCmp !== undefined}
+  {#if nonNullish(iconCmp)}
     <svelte:component this={iconCmp} />
   {/if}
 

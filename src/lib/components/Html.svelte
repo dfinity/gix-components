@@ -1,6 +1,7 @@
 <script lang="ts">
   import { sanitize } from "$lib/utils/html.utils";
   import { onMount } from "svelte";
+  import { nonNullish } from "@dfinity/utils";
 
   export let text: string | undefined = undefined;
 
@@ -9,6 +10,6 @@
   onMount(async () => (mounted = true));
 </script>
 
-{#if mounted && text !== undefined}
+{#if mounted && nonNullish(text)}
   {@html sanitize(text)}
 {/if}

@@ -1,4 +1,5 @@
 import type { Slug, SlugIcon } from "$docs/types/slug";
+import { nonNullish } from "@dfinity/utils";
 import { readFileSync, readdirSync } from "fs";
 import { parse } from "path";
 
@@ -17,7 +18,7 @@ export const listIcons = (): SlugIcon[] => {
         .replace("height={DEFAULT_ICON_SIZE}", "")
         .replace("width={DEFAULT_ICON_SIZE}", ""),
     }))
-    .filter(({ svg }) => svg !== undefined) as SlugIcon[];
+    .filter(({ svg }) => nonNullish(svg)) as SlugIcon[];
 };
 
 const listIconSlugs = (): Slug[] => {

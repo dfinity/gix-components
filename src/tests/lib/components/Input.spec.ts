@@ -3,6 +3,7 @@
  */
 
 import Input from "$lib/components/Input.svelte";
+import { isNullish, nonNullish } from "@dfinity/utils";
 import { fireEvent, render } from "@testing-library/svelte";
 import InputTest from "./InputTest.svelte";
 import InputValueTest from "./InputValueTest.svelte";
@@ -55,7 +56,7 @@ describe("Input", () => {
   }) => {
     const input: HTMLInputElement | null = container.querySelector("input");
     expect(input?.hasAttribute(attribute)).toEqual(expected);
-    if (expectedValue !== undefined) {
+    if (nonNullish(expectedValue)) {
       expect(input?.getAttribute(attribute)).toEqual(expectedValue);
     }
   };
@@ -304,7 +305,7 @@ describe("Input", () => {
 
       const input: HTMLInputElement | null = container.querySelector("input");
 
-      if (input === null) {
+      if (isNullish(input)) {
         throw new Error("No input");
       }
 
@@ -328,7 +329,7 @@ describe("Input", () => {
 
       const input: HTMLInputElement | null = container.querySelector("input");
 
-      if (input === null) {
+      if (isNullish(input)) {
         throw new Error("No input");
       }
 
@@ -359,7 +360,7 @@ describe("Input", () => {
 
       const input: HTMLInputElement | null = container.querySelector("input");
 
-      if (input === null) {
+      if (isNullish(input)) {
         throw new Error("No input");
       }
 
