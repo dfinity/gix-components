@@ -4,6 +4,6 @@ Sometimes it can be beneficial to display numerical values in a unique way to im
 
 ## Usage
 
-| Type                                | CSS class |
-| ----------------------------------- | --------- |
-| enable tabular (monospaced) figures | `num`     |
+| Type                                | CSS class     |
+| ----------------------------------- | ------------- |
+| enable tabular (monospaced) figures | `tabular-num` |
