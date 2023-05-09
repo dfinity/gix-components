@@ -51,3 +51,9 @@
 .no-margin {
   margin: 0 !important;
 }
+
+// Format numbers as monospaced figures
+
+.num {
+  font-feature-settings: "tnum";
+}
