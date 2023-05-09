@@ -37,4 +37,10 @@
 
     <p>All styles that can be applied to buttons.</p>
   </Card>
+
+  <Card role="link" on:click={() => goto("/utility-classes/numbers")}>
+    <h2 class="title" slot="start">Numbers</h2>
+
+    <p>Format figures for display purpose.</p>
+  </Card>
 </div>
