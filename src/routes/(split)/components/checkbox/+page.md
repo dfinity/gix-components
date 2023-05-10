@@ -3,6 +3,7 @@
 
     let checkbox1 = false;
     let checkbox2 = true;
+    let checkbox3 = false;
 </script>
 
 # Checkbox
@@ -42,4 +43,12 @@ Checkboxes allow the selection of multiple options from a set of options. They a
         <Checkbox checked={checkbox2} on:nnsChange={() => (checkbox2 = !checkbox2)}>An option with row-reverse style</Checkbox>
     </div>
 
+    <div style="--checkbox-flex-direction: row-reverse">
+        <Checkbox
+          checked={checkbox3}
+          on:nnsChange={() => (checkbox3 = !checkbox3)}
+          text="block"
+        >An option with row-reverse style and enough text to cover
+        multiple lines. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Checkbox>
+    </div>
 </div>
