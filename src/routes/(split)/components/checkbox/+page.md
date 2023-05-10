@@ -51,4 +51,5 @@ Checkboxes allow the selection of multiple options from a set of options. They a
         >An option with row-reverse style and enough text to cover
         multiple lines. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Checkbox>
     </div>
+
 </div>
