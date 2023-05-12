@@ -396,7 +396,7 @@ describe("Input", () => {
       expect(container.querySelector("input")?.value).toBe("0.00000001");
     });
 
-    it.only("should avoid exponent formatted on change in icp mode", async () => {
+    it("should avoid exponent formatted on change in icp mode", async () => {
       const { container } = render(Input, {
         props: {
           ...props,
