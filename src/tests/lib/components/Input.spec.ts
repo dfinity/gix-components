@@ -396,6 +396,25 @@ describe("Input", () => {
       expect(container.querySelector("input")?.value).toBe("0.00000001");
     });
 
+    it.only("should avoid exponent formatted on change in icp mode", async () => {
+      const { container } = render(Input, {
+        props: {
+          ...props,
+          value: "",
+          inputType: "icp",
+        },
+      });
+
+      const input: HTMLInputElement | null = container.querySelector("input");
+
+      if (isNullish(input)) {
+        throw new Error("No input");
+      }
+
+      fireEvent.input(input, { target: { value: 0.00000001 } });
+      expect(input.value).toBe("0.00000001");
+    });
+
     it("should avoid exponent formatted initial value (>0) in icp mode", () => {
       const { container } = render(InputValueTest, {
         props: {

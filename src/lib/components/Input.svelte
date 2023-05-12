@@ -96,7 +96,7 @@
 
   const handleInput = ({ currentTarget }: InputEventHandler) => {
     if (inputType === "icp") {
-      const currentValue = currentTarget.value;
+      const currentValue = exponentToPlainNumberString(currentTarget.value);
 
       // handle invalid input
       if (isValidICPFormat(currentValue) === false) {
