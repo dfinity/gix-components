@@ -21,6 +21,7 @@ button {
     &:active,
     &:focus {
       text-decoration: underline;
+      color: var(--value-color);
     }
 
     &[disabled] {
