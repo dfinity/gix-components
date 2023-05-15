@@ -13,8 +13,8 @@
     }
   };
 
-  let height : number | undefined = undefined;
-  let innerWidth : number | undefined = undefined;
+  let height: number | undefined = undefined;
+  let innerWidth: number | undefined = undefined;
   $: height, innerWidth, updateBottomOffset();
 </script>
 
