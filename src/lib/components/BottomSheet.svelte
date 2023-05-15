@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { nonNullish } from "@dfinity/utils";
   import { layoutBottomOffset } from "$lib/stores/layout.store";
   import { onDestroy } from "svelte";
   import { BREAKPOINT_LARGE } from "../constants/constants";
@@ -6,11 +7,14 @@
   onDestroy(() => ($layoutBottomOffset = 0));
 
   // See also the CSS code of this component. On large screen the bottom sheet is not sticky.
-  const updateBottomOffset = () =>
-    ($layoutBottomOffset = innerWidth < BREAKPOINT_LARGE ? height : 0);
+  const updateBottomOffset = () => {
+    if (nonNullish(innerWidth) && nonNullish(height)) {
+      $layoutBottomOffset = innerWidth < BREAKPOINT_LARGE ? height : 0;
+    }
+  };
 
-  let height = 0;
-  let innerWidth = 0;
+  let height : number | undefined = undefined;
+  let innerWidth : number | undefined = undefined;
   $: height, innerWidth, updateBottomOffset();
 </script>
 
