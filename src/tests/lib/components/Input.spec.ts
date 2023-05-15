@@ -397,7 +397,7 @@ describe("Input", () => {
     });
 
     it("should avoid exponent formatted on change in icp mode", async () => {
-      const { container } = render(Input, {
+      const { container, component } = render(Input, {
         props: {
           ...props,
           value: "",
@@ -411,7 +411,7 @@ describe("Input", () => {
         throw new Error("No input");
       }
 
-      fireEvent.input(input, { target: { value: 0.00000001 } });
+      component.$set({ value: 0.00000001 });
       await waitFor(() => expect(input.value).toBe("0.00000001"));
     });
 
