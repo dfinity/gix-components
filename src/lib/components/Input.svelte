@@ -54,7 +54,12 @@
   $: value,
     (() => {
       if (!internalValueChange && inputType === "icp") {
-        icpValue = fixUndefinedValue(value);
+        if (typeof value === "number") {
+          icpValue = exponentToPlainNumberString(`${value}`);
+        } else {
+          icpValue = fixUndefinedValue(value);
+        }
+
         lastValidICPValue = icpValue;
       }
 
