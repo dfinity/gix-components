@@ -4,7 +4,8 @@
 
 import Input from "$lib/components/Input.svelte";
 import { isNullish, nonNullish } from "@dfinity/utils";
-import { fireEvent, render, waitFor } from "@testing-library/svelte";
+import { fireEvent, render } from "@testing-library/svelte";
+import { tick } from "svelte";
 import InputTest from "./InputTest.svelte";
 import InputValueTest from "./InputValueTest.svelte";
 
@@ -412,7 +413,13 @@ describe("Input", () => {
       }
 
       component.$set({ value: 0.00000001 });
-      await waitFor(() => expect(input.value).toBe("0.00000001"));
+
+      // svelte does not update the dom immediately
+      expect(input.value).toBe("");
+
+      await tick();
+
+      expect(input.value).toBe("0.00000001");
     });
 
     it("should avoid exponent formatted initial value (>0) in icp mode", () => {
