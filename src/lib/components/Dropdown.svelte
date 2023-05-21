@@ -13,7 +13,7 @@
   $: showStart = nonNullish($$slots.start);
 </script>
 
-<div class="select">
+<div class="select" data-tid="dropdown-component">
   {#if showStart}
     <div class="start">
       <slot name="start" />
