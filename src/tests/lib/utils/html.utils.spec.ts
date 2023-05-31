@@ -1,4 +1,4 @@
-import { sanitize } from "$lib/utils/html.utils";
+import { nextElementId, sanitize } from "$lib/utils/html.utils";
 
 describe("html-utils", () => {
   it("should sanitize HTML", () => {
@@ -47,5 +47,15 @@ describe("html-utils", () => {
         )
       ).toEqual(`<a href="/" rel="noopener" target="_blank">link</a>`);
     });
+  });
+});
+
+describe("next element", () => {
+  it("should increment per category", () => {
+    expect(nextElementId("test-")).toEqual("test-1");
+    expect(nextElementId("another-")).toEqual("another-1");
+    expect(nextElementId("test-")).toEqual("test-2");
+    expect(nextElementId("another-")).toEqual("another-2");
+    expect(nextElementId("another-")).toEqual("another-3");
   });
 });

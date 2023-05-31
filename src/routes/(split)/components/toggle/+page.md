@@ -38,4 +38,5 @@ Toggle switch gives control over a feature or option that can be turned on or of
 <Toggle
     on:nnsToggle={toggle}
     ariaLabel="Showcase toggle"
+    checked={false}
 />

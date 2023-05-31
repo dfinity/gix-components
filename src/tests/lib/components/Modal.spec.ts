@@ -41,11 +41,18 @@ describe("Modal", () => {
     const dialog: HTMLElement | null =
       container.querySelector('[role="dialog"]');
 
-    expect(dialog?.getAttribute("aria-labelledby")).toEqual("modalTitle");
-    expect(dialog?.getAttribute("aria-describedby")).toEqual("modalContent");
+    expect(
+      dialog?.getAttribute("aria-labelledby")?.includes("modal-title-")
+    ).toBeTruthy();
+    expect(
+      dialog?.getAttribute("aria-describedby")?.includes("modal-content-")
+    ).toBeTruthy();
 
-    expect(container.querySelector("#modalTitle")).not.toBeNull();
-    expect(container.querySelector("#modalContent")).not.toBeNull();
+    const modalTitleId = dialog?.getAttribute("aria-labelledby") as string;
+    const modalContentId = dialog?.getAttribute("aria-describedby") as string;
+
+    expect(container.querySelector(`#${modalTitleId}`)).not.toBeNull();
+    expect(container.querySelector(`#${modalContentId}`)).not.toBeNull();
   });
 
   it("should render a backdrop", () => {

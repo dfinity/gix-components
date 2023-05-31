@@ -2,6 +2,7 @@
   import { createEventDispatcher, onDestroy, onMount } from "svelte";
   import type { Html5Qrcode } from "html5-qrcode";
   import { isAndroidTablet, isIPad, isMobile } from "$lib/utils/device.utils";
+  import { nextElementId } from "$lib/utils/html.utils";
 
   const dispatch = createEventDispatcher();
 
@@ -64,9 +65,11 @@
 
   // We optimistically assume that if the QR code reader is used on desktop, it has most probably only a single "user" facing camera and that we can invert the displayed video
   let mirror = !isMobile() && !isIPad() && !isAndroidTablet();
+
+  const id = nextElementId("qrcode-reader-");
 </script>
 
-<article class="reader" id="reader" class:mirror />
+<article class="reader" {id} class:mirror />
 
 <style lang="scss">
   .reader {
