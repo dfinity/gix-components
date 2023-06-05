@@ -2,6 +2,9 @@
   import { createEventDispatcher, onDestroy, onMount } from "svelte";
   import type { Html5Qrcode } from "html5-qrcode";
   import { isAndroidTablet, isIPad, isMobile } from "$lib/utils/device.utils";
+  import { nextElementId } from "$lib/utils/html.utils";
+
+  const id = nextElementId("qrcode-reader-");
 
   const dispatch = createEventDispatcher();
 
@@ -27,7 +30,7 @@
 
     const { Html5Qrcode } = await import("html5-qrcode");
 
-    html5QrCode = new Html5Qrcode("reader");
+    html5QrCode = new Html5Qrcode(id);
 
     await html5QrCode
       .start(
@@ -37,6 +40,7 @@
           qrbox: qrboxFunction,
         },
         qrCodeSuccessCallback,
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         (_errorMessage: string) => {
           // Do nothing. This error message is throw when the QR code cannot be read.
           // Examples of error:
@@ -66,7 +70,7 @@
   let mirror = !isMobile() && !isIPad() && !isAndroidTablet();
 </script>
 
-<article class="reader" id="reader" class:mirror />
+<article class="reader" {id} class:mirror />
 
 <style lang="scss">
   .reader {

@@ -5,6 +5,7 @@
   import IconClose from "$lib/icons/IconClose.svelte";
   import Backdrop from "$lib/components/Backdrop.svelte";
   import { nonNullish } from "@dfinity/utils";
+  import { nextElementId } from "$lib/utils/html.utils";
 
   export let visible = true;
   export let role: "dialog" | "alert" = "dialog";
@@ -26,6 +27,9 @@
   // A bit faster fade in that backdrop IN, a bit slower on OUT
   const FADE_IN_DURATION = 125 as const;
   const FADE_OUT_DURATION = 200 as const;
+
+  const modalTitleId = nextElementId("modal-title-");
+  const modalContentId = nextElementId("modal-content-");
 </script>
 
 {#if visible}
@@ -35,8 +39,8 @@
     on:introend
     {role}
     data-tid={testId}
-    aria-labelledby={showHeader ? "modalTitle" : undefined}
-    aria-describedby="modalContent"
+    aria-labelledby={showHeader ? modalTitleId : undefined}
+    aria-describedby={modalContentId}
     on:click|stopPropagation
   >
     <Backdrop {disablePointerEvents} on:nnsClose />
@@ -47,7 +51,7 @@
     >
       {#if showHeader}
         <div class="header">
-          <h2 id="modalTitle"><slot name="title" /></h2>
+          <h2 id={modalTitleId}><slot name="title" /></h2>
           {#if !disablePointerEvents}
             <button
               data-tid="close-modal"
@@ -59,7 +63,7 @@
       {/if}
 
       <div class="container">
-        <div class="content" id="modalContent" class:alert={role === "alert"}>
+        <div class="content" id={modalContentId} class:alert={role === "alert"}>
           <slot />
         </div>
       </div>

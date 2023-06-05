@@ -2,23 +2,26 @@
   // adapted from https://www.florin-pop.com/blog/2019/05/dark-light-theme-toggle/
 
   import { createEventDispatcher } from "svelte";
+  import { nextElementId } from "$lib/utils/html.utils";
 
   export let checked: boolean;
   export let ariaLabel: string;
 
   const dispatch = createEventDispatcher();
+
+  const id = nextElementId("toggle-");
 </script>
 
 <div class="toggle">
   <input
     type="checkbox"
-    id="toggle"
+    {id}
     on:input={({ currentTarget }) =>
       dispatch("nnsToggle", currentTarget.checked)}
     {checked}
     aria-label={ariaLabel}
   />
-  <label for="toggle" />
+  <label for={id} />
 </div>
 
 <style lang="scss">
