@@ -51,7 +51,7 @@
     >
       {#if showHeader}
         <div class="header">
-          <h2 id={modalTitleId}><slot name="title" /></h2>
+          <h2 id={modalTitleId} data-tid="modal-title"><slot name="title" /></h2>
           {#if !disablePointerEvents}
             <button
               data-tid="close-modal"
