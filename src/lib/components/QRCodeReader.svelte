@@ -4,6 +4,8 @@
   import { isAndroidTablet, isIPad, isMobile } from "$lib/utils/device.utils";
   import { nextElementId } from "$lib/utils/html.utils";
 
+  const id = nextElementId("qrcode-reader-");
+
   const dispatch = createEventDispatcher();
 
   let html5QrCode: Html5Qrcode | undefined;
@@ -28,7 +30,7 @@
 
     const { Html5Qrcode } = await import("html5-qrcode");
 
-    html5QrCode = new Html5Qrcode("reader");
+    html5QrCode = new Html5Qrcode(id);
 
     await html5QrCode
       .start(
@@ -65,8 +67,6 @@
 
   // We optimistically assume that if the QR code reader is used on desktop, it has most probably only a single "user" facing camera and that we can invert the displayed video
   let mirror = !isMobile() && !isIPad() && !isAndroidTablet();
-
-  const id = nextElementId("qrcode-reader-");
 </script>
 
 <article class="reader" {id} class:mirror />
