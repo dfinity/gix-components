@@ -40,6 +40,7 @@
           qrbox: qrboxFunction,
         },
         qrCodeSuccessCallback,
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         (_errorMessage: string) => {
           // Do nothing. This error message is throw when the QR code cannot be read.
           // Examples of error:
