@@ -88,5 +88,8 @@
   },
   "bugs": {
     "url": "https://github.com/dfinity/gix-components"
+  },
+  "overrides": {
+    "semver": "^7.5.3"
   }
 }
