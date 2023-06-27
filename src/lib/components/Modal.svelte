@@ -64,9 +64,13 @@
         </div>
       {/if}
 
-      <div class="container">
-        <div class="content" id={modalContentId} class:alert={role === "alert"}>
-          <slot />
+      <div class="container-wrapper">
+        <slot name="sub-title" />
+
+        <div class="container">
+          <div class="content" id={modalContentId} class:alert={role === "alert"}>
+            <slot />
+          </div>
         </div>
       </div>
 
@@ -112,6 +116,14 @@
 
     box-shadow: var(--overlay-box-shadow);
 
+    .container-wrapper {
+      margin: var(--padding-1_5x) var(--padding-2x) auto;
+
+      display: flex;
+      flex-direction: column;
+      gap: var(--padding-1_5x);
+    }
+
     &.alert {
       width: var(--alert-width);
       max-width: var(--alert-max-width);
@@ -124,9 +136,8 @@
         padding: var(--alert-padding-y) var(--alert-padding-x) var(--padding);
       }
 
-      .container {
-        margin: var(--padding-1_5x) var(--padding-2x)
-          calc(var(--alert-padding-y) * 2 / 3);
+      .container-wrapper {
+        margin-bottom: calc(var(--alert-padding-y) * 2 / 3);
       }
 
       .content {
@@ -166,8 +177,8 @@
         padding: var(--dialog-padding-y) var(--padding-3x) var(--padding);
       }
 
-      .container {
-        margin: var(--padding-1_5x) var(--padding-2x) var(--dialog-padding-y);
+      .container-wrapper {
+        margin-bottom: var(--padding-1_5x) var(--padding-2x) var(--dialog-padding-y);
       }
 
       .content {

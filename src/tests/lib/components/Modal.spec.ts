@@ -77,6 +77,18 @@ describe("Modal", () => {
     expect(wrapper).not.toBeNull();
   });
 
+  it("should render a subtitle", () => {
+    const subTitle = "My subtitle";
+    const { getByText } = render(ModalTest, {
+      props: {
+        ...props,
+        subTitle,
+      },
+    });
+
+    expect(getByText(subTitle)).not.toBeNull();
+  });
+
   it("should render a toolbar", () => {
     const { container } = render(Modal, {
       props,

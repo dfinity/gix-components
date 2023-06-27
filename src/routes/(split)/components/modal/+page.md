@@ -42,6 +42,7 @@ A Modal is a dialog that appears on top of the app's content, and must be dismis
 | Default slot | The content of the modal.                                                                    |
 | `title`      | The title of the modal. Displayed in a toolbar with a "Close" icon button on the right side. |
 | `toolbar`    | A sticky toolbar displayed at the bottom of the modal. Available for "alert" only.           |
+| `sub-title`  | A slot below the title but outside of the content card.                                      |
 
 ## Events
 
@@ -63,6 +64,8 @@ Open modal
 
 <Modal {visible} on:nnsClose={() => (visible = false)} {role}>
 <svelte:fragment slot="title">My title</svelte:fragment>
+
+<p slot="sub-title">This is the subtitle</p>
 
 <DocsLoremIpsum length={role === "alert" ? 1 : 10} />
 
