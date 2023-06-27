@@ -126,6 +126,8 @@
       display: flex;
       flex-direction: column;
       gap: var(--padding-1_5x);
+
+      overflow: hidden;
     }
 
     &.alert {
@@ -182,8 +184,7 @@
       }
 
       .container-wrapper {
-        margin-bottom: var(--padding-1_5x) var(--padding-2x)
-          var(--dialog-padding-y);
+        margin-bottom: var(--dialog-padding-y);
       }
 
       .content {
