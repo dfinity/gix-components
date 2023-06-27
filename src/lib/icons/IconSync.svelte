@@ -1,25 +1,25 @@
-<!-- https://fonts.google.com/icons?selected=Material%20Icons%20Sharp%3Async%3A -->
-<!-- Mirrored and animated -->
+<!-- source: DFINITY foundation -->
 <svg
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
+  width="20"
+  height="20"
+  viewBox="0 0 20 20"
+  fill="none"
   xmlns="http://www.w3.org/2000/svg"
-  fill="currentColor"
 >
-  <rect
-    x="0.01"
-    y="0"
-    width="24"
-    height="24"
-    style="fill:none;fill-rule:nonzero;"
+  <path
+    d="M16.9793 11.1559V9.9918C16.9793 6.13516 13.8449 3.00782 9.9793 3.00782C8.9277 3.00652 7.88936 3.24244 6.94157 3.69801C5.99377 4.15358 5.16094 4.81706 4.50508 5.63907M3 8.84219V10.0063C3 13.8672 6.13281 16.9922 10 16.9922C11.0486 16.9907 12.0836 16.7552 13.0297 16.303C13.9758 15.8508 14.809 15.1932 15.4688 14.3781"
+    stroke="currentColor"
+    stroke-width="1.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
   />
-  <g transform="matrix(1,0,0,-1,0,24)">
-    <path
-      d="M12,4L12,1L8,5L12,9L12,6C15.31,6 18,8.69 18,12C18,13.01 17.75,13.97 17.3,14.8L18.76,16.26C19.54,15.03 20,13.57 20,12C20,7.58 16.42,4 12,4ZM12,18C8.69,18 6,15.31 6,12C6,10.99 6.25,10.03 6.7,9.2L5.24,7.74C4.46,8.97 4,10.43 4,12C4,16.42 7.58,20 12,20L12,23L16,19L12,15L12,18Z"
-      style="fill-rule:nonzero;"
-    />
-  </g>
+  <path
+    d="M1.25 10L2.96875 8.28125L4.76562 10M18.75 10L17.0312 11.7188L15.2344 10"
+    stroke="currentColor"
+    stroke-width="1.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
 </svg>
 
 <style lang="scss">
