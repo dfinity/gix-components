@@ -68,7 +68,11 @@
         <slot name="sub-title" />
 
         <div class="container">
-          <div class="content" id={modalContentId} class:alert={role === "alert"}>
+          <div
+            class="content"
+            id={modalContentId}
+            class:alert={role === "alert"}
+          >
             <slot />
           </div>
         </div>
@@ -178,7 +182,8 @@
       }
 
       .container-wrapper {
-        margin-bottom: var(--padding-1_5x) var(--padding-2x) var(--dialog-padding-y);
+        margin-bottom: var(--padding-1_5x) var(--padding-2x)
+          var(--dialog-padding-y);
       }
 
       .content {
