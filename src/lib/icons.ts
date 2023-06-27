@@ -34,7 +34,6 @@ export { default as IconSettings } from "./icons/IconSettings.svelte";
 export { default as IconSouth } from "./icons/IconSouth.svelte";
 export { default as IconStackedLineChart } from "./icons/IconStackedLineChart.svelte";
 export { default as IconSubdirectory } from "./icons/IconSubdirectory.svelte";
-export { default as IconSync } from "./icons/IconSync.svelte";
 export { default as IconThumbDown } from "./icons/IconThumbDown.svelte";
 export { default as IconThumbUp } from "./icons/IconThumbUp.svelte";
 export { default as IconTokens } from "./icons/IconTokens.svelte";
