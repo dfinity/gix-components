@@ -2,7 +2,33 @@
 
 <p>Useful resources and links.</p>
 
-<h2>Figma</h2>
+<h2>UI/UX</h2>
+
+<h3>Next iteration:</h3>
+
+<ul>
+  <li>
+    <a
+      href="https://www.figma.com/file/2eKasltxJjiXz1C9TSoKKM/NNS-Concept?type=design&node-id=116%3A4951&t=TM2JDFKHpIA0xqJG-1"
+      rel="external noopener noreferrer"
+      target="_blank"
+    >
+      Overall concept</a
+    >
+  </li>
+
+  <li>
+    <a
+      href="https://www.figma.com/file/2eKasltxJjiXz1C9TSoKKM/NNS-Concept?type=design&node-id=506%3A16191&t=TM2JDFKHpIA0xqJG-1"
+      rel="external noopener noreferrer"
+      target="_blank"
+    >
+      MVP pre-design</a
+    >
+  </li>
+</ul>
+
+<h3>Previous iteration:</h3>
 
 <ul>
   <li>
