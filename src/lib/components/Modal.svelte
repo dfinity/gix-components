@@ -126,6 +126,7 @@
       display: flex;
       flex-direction: column;
       gap: var(--padding-1_5x);
+      flex: 1;
 
       overflow: hidden;
     }
