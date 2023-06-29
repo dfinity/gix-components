@@ -4,6 +4,11 @@
 
 <h2>UI/UX</h2>
 
+<p>
+  Here is a list of resources that are used to develop the GIX Components.
+  Please note that access might be required for some of the Figma files:
+</p>
+
 <h3>Next iteration:</h3>
 
 <ul>
