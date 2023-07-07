@@ -143,6 +143,13 @@ export const COMPONENT_ROUTES: ComponentRoute[] = [
   },
 
   {
+    path: "/components/page-header",
+    title: "Page Header",
+    description:
+      "A component to use in details or settings pages to display the main details.",
+  },
+
+  {
     path: "/components/popover",
     title: "Popover",
     description:
