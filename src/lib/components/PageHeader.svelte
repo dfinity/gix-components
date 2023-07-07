@@ -2,20 +2,19 @@
   export let testId: string | undefined = undefined;
 
   let hasHeader: boolean;
-  $: hasHeader =
-    $$slots.topLeft !== undefined || $$slots.topRight !== undefined;
+  $: hasHeader = $$slots.start !== undefined || $$slots.end !== undefined;
 </script>
 
 <div class="container" data-tid={testId}>
   {#if hasHeader}
     <div class="header">
-      <slot name="topLeft" />
-      <slot name="topRight" />
+      <slot name="start" />
+      <slot name="end" />
     </div>
   {/if}
   <div class="content">
     <slot name="title" />
-    <slot name="subTitle" />
+    <slot name="subtitle" />
   </div>
 </div>
 
