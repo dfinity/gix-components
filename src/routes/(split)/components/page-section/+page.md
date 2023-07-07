@@ -3,12 +3,13 @@
   import KeyValuePair from "$lib/components/KeyValuePair.svelte";
 </script>
 
-# PageSection
+# Page Section
 
 An opinionated container to render sections in a page with a title, value and description.
 
 ```html
-<PageSection title="Section Title">
+<PageSection>
+  <h3 slot="title">Section Title</h3>
   <p slot="end">123</p>
   <p slot="description">This is the section description.</p>
   <ul>
@@ -21,13 +22,13 @@ An opinionated container to render sections in a page with a title, value and de
 
 | Property | Description                                                     | Type                    | Default     |
 | -------- | --------------------------------------------------------------- | ----------------------- | ----------- |
-| `title`  | Title of the section.                                           | `string`                |             |
 | `testId` | Add a `data-tid` attribute to the DOM, useful for test purpose. | `string` or `undefined` | `undefined` |
 
 ## Slots
 
 | Slot name     | Description                                                                                      |
 | ------------- | ------------------------------------------------------------------------------------------------ |
+| `title`       | Title of the section.                                                                            |
 | `end`         | Set in line with the title in the other side. Used in case the title refers to a value.          |
 | `description` | Slot below the title and value but above the content. It should introduce or explain the content |
 | Default slot  | The content inside the section                                                                   |
@@ -41,7 +42,8 @@ The component is within a `div` with a background to highlight the component exa
 ### Simple example
 
 <div class="wrapper">
-  <PageSection title="Title">
+  <PageSection>
+    <h3 slot="title">Title</h3>
     <h5 slot="end">123</h5>
     <p slot="description">This is a description</p>
     <p>Here would go any content that we want.</p>
@@ -53,7 +55,8 @@ The component is within a `div` with a background to highlight the component exa
 ### Real production example
 
 <div class="wrapper">
-  <PageSection title="Advanced details & settings">
+  <PageSection>
+    <h3 slot="title">Advanced details & settings</h3>
     <p slot="description" class="description">Advanced preferences for managing your neuron</p>
     <div class="attributes">
       <KeyValuePair>
@@ -68,8 +71,8 @@ The component is within a `div` with a background to highlight the component exa
         <span slot="key" class="label">Age</span>
         <span slot="value" class="value">0 years</span>
       </KeyValuePair>
+      <button class="secondary">Split Neuron</button>
     </div>
-    <button class="secondary">Split Neuron</button>
   </PageSection>
 </div>
 
@@ -79,7 +82,8 @@ Below is the code for the real production example:
 
 ```html
 <div class="wrapper">
-  <PageSection title="Advanced details & settings">
+  <PageSection>
+    <h3 slot="title">Advanced details & settings</h3>
     <p slot="description" class="description">
       Advanced preferences for managing your neuron
     </p>
@@ -96,8 +100,8 @@ Below is the code for the real production example:
         <span slot="key" class="label">Age</span>
         <span slot="value" class="value">0 years</span>
       </KeyValuePair>
+      <button class="secondary">Split Neuron</button>
     </div>
-    <button class="secondary">Split Neuron</button>
   </PageSection>
 </div>
 
@@ -105,7 +109,8 @@ Below is the code for the real production example:
   .wrapper {
     background-color: var(--card-background);
     margin: var(--padding-2x) 0;
-    & p {
+    & p,
+    h3 {
       margin: 0;
     }
   }
@@ -113,9 +118,8 @@ Below is the code for the real production example:
   .attributes {
     display: flex;
     flex-direction: column;
+    align-items: start;
     gap: var(--padding-2x);
-
-    margin-bottom: var(--padding-2x);
   }
 </style>
 ```
@@ -124,7 +128,7 @@ Below is the code for the real production example:
   .wrapper {
     background-color: var(--card-background);
     margin: var(--padding-2x) 0;
-    & p {
+    & p, h3 {
       margin: 0;
     }
   }
@@ -132,6 +136,7 @@ Below is the code for the real production example:
   .attributes {
     display: flex;
     flex-direction: column;
+    align-items: start;
     gap: var(--padding-2x);
 
     margin-bottom: var(--padding-2x);

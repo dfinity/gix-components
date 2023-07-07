@@ -1,14 +1,14 @@
 <script lang="ts">
-  export let title: string;
   export let testId: string | undefined = undefined;
 </script>
 
 <div class="container" data-tid={testId}>
   <div class="title-wrapper">
-    <h3 class="title">{title}</h3>
+    <slot name="title" />
     <slot name="end" />
   </div>
   <slot name="description" />
+  <!-- We add the extra div to make sure that the `gap` applied in this parent doesn't apply to all the slot children. -->
   <div><slot /></div>
 </div>
 
@@ -26,9 +26,5 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    & h3 {
-      margin: 0;
-    }
   }
 </style>

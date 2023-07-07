@@ -151,7 +151,7 @@ export const COMPONENT_ROUTES: ComponentRoute[] = [
 
   {
     path: "/components/page-section",
-    title: "PageSection",
+    title: "Page Section",
     description:
       "A component to render a section of a page with a title, value and description.",
   },
