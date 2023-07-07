@@ -1,6 +1,6 @@
 <script lang="ts">
     import PageHeader from "$lib/components/PageHeader.svelte";
-    import icpLogo from "$lib/assets/icp-rounded.svg";
+    import icpLogo from "$docs/assets/icp-rounded.svg";
 
 </script>
 
