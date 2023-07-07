@@ -1,6 +1,5 @@
 <script lang="ts">
     import PageHeader from "$lib/components/PageHeader.svelte";
-    import Card from "$lib/components/Card.svelte";
     import icpLogo from "$lib/assets/icp-rounded.svg";
 
 </script>
@@ -35,9 +34,9 @@ Used for settings and detail pages to have a first overview of the entity.
 
 ## Showcase
 
-The component is within a `div` with the background to highlight the component exactly as it is.
+The component is within a `div` with background to highlight the component exactly as it is.
 
-**IMPORTANT: The component has no internal padding. The spacing with the other components is responsibility of the parent using this component.**
+**IMPORTANT: The component has no internal padding nor external margin. The spacing with the other components is responsibility of the parent using this component.**
 
 ### Simple example:
 
