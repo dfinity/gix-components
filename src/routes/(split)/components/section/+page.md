@@ -1,14 +1,15 @@
 <script lang="ts">
-  import PageSection from "$lib/components/PageSection.svelte";
+  import Section from "$lib/components/Section.svelte";
   import KeyValuePair from "$lib/components/KeyValuePair.svelte";
 </script>
 
-# Page Section
+# Section
 
-An opinionated container to render sections in a page with a title, value and description.
+An opinionated container to render sections with a title, value, description and content.
 
 ```html
-<PageSection>
+<!-- prettier-ignore -->
+<Section>
   <h3 slot="title">Section Title</h3>
   <p slot="end">123</p>
   <p slot="description">This is the section description.</p>
@@ -17,7 +18,7 @@ An opinionated container to render sections in a page with a title, value and de
     <li>Of items inside</li>
     <li>The section</li>
   </ul>
-</PageSection>
+</Section>
 ```
 
 | Property | Description                                                     | Type                    | Default     |
@@ -42,20 +43,20 @@ The component is within a `div` with a background to highlight the component exa
 ### Simple example
 
 <div class="wrapper">
-  <PageSection>
+  <Section>
     <h3 slot="title">Title</h3>
     <h5 slot="end">123</h5>
     <p slot="description">This is a description</p>
     <p>Here would go any content that we want.</p>
     <p>It can be more than one element.</p>
     <p>They would all go here.</p>
-  </PageSection>
+  </Section>
 </div>
 
 ### Real production example
 
 <div class="wrapper">
-  <PageSection>
+  <Section>
     <h3 slot="title">Advanced details & settings</h3>
     <p slot="description" class="description">Advanced preferences for managing your neuron</p>
     <div class="attributes">
@@ -73,7 +74,7 @@ The component is within a `div` with a background to highlight the component exa
       </KeyValuePair>
       <button class="secondary">Split Neuron</button>
     </div>
-  </PageSection>
+  </Section>
 </div>
 
 #### Real production code
@@ -82,7 +83,8 @@ Below is the code for the real production example:
 
 ```html
 <div class="wrapper">
-  <PageSection>
+  <!-- prettier-ignore -->
+  <Section>
     <h3 slot="title">Advanced details & settings</h3>
     <p slot="description" class="description">
       Advanced preferences for managing your neuron
@@ -102,7 +104,8 @@ Below is the code for the real production example:
       </KeyValuePair>
       <button class="secondary">Split Neuron</button>
     </div>
-  </PageSection>
+  <!-- prettier-ignore -->
+  </Section>
 </div>
 
 <style>

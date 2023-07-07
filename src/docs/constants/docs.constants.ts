@@ -150,13 +150,6 @@ export const COMPONENT_ROUTES: ComponentRoute[] = [
   },
 
   {
-    path: "/components/page-section",
-    title: "Page Section",
-    description:
-      "A component to render a section of a page with a title, value and description.",
-  },
-
-  {
     path: "/components/popover",
     title: "Popover",
     description:
@@ -186,6 +179,13 @@ export const COMPONENT_ROUTES: ComponentRoute[] = [
     path: "/components/qr-code-reader",
     title: "QR Code Reader",
     description: "Read a QR Code with the camera.",
+  },
+
+  {
+    path: "/components/section",
+    title: "Section",
+    description:
+      "A component to render a section with a title, value and description.",
   },
 
   {
