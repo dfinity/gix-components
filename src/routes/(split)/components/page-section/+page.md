@@ -9,7 +9,7 @@ An opinionated container to render sections in a page with a title, value and de
 
 ```html
 <PageSection title="Section Title">
-  <p slot="value">123</p>
+  <p slot="end">123</p>
   <p slot="description">This is the section description.</p>
   <ul>
     <li>Maybe render a list</li>
@@ -21,14 +21,14 @@ An opinionated container to render sections in a page with a title, value and de
 
 | Property | Description                                                     | Type                    | Default     |
 | -------- | --------------------------------------------------------------- | ----------------------- | ----------- |
-| `title`  | Title of the section                                            | `string`                |             |
+| `title`  | Title of the section.                                           | `string`                |             |
 | `testId` | Add a `data-tid` attribute to the DOM, useful for test purpose. | `string` or `undefined` | `undefined` |
 
 ## Slots
 
 | Slot name     | Description                                                                                      |
 | ------------- | ------------------------------------------------------------------------------------------------ |
-| `value`       | Set in line with the title in the other side. Used in case the title refers to a value           |
+| `end`         | Set in line with the title in the other side. Used in case the title refers to a value.          |
 | `description` | Slot below the title and value but above the content. It should introduce or explain the content |
 | Default slot  | The content inside the section                                                                   |
 
@@ -42,7 +42,7 @@ The component is within a `div` with a background to highlight the component exa
 
 <div class="wrapper">
   <PageSection title="Title">
-    <h5 slot="value">123</h5>
+    <h5 slot="end">123</h5>
     <p slot="description">This is a description</p>
     <p>Here would go any content that we want.</p>
     <p>It can be more than one element.</p>

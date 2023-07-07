@@ -6,7 +6,7 @@
 <div class="container" data-tid={testId}>
   <div class="title-wrapper">
     <h3 class="title">{title}</h3>
-    <slot name="value" />
+    <slot name="end" />
   </div>
   <slot name="description" />
   <div><slot /></div>
@@ -24,7 +24,6 @@
 
   .title-wrapper {
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: space-between;
 
