@@ -150,6 +150,13 @@ export const COMPONENT_ROUTES: ComponentRoute[] = [
   },
 
   {
+    path: "/components/page-section",
+    title: "PageSection",
+    description:
+      "A component to render a section of a page with a title, value and description.",
+  },
+
+  {
     path: "/components/popover",
     title: "Popover",
     description:
