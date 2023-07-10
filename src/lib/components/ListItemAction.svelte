@@ -1,4 +1,9 @@
-<div class="container">
+<script lang="ts">
+  export let tagName: "div" | "li" = "li";
+  export let testId: string | undefined = undefined;
+</script>
+
+<svelte:element this={tagName} class="container" data-tid={testId}>
   <div class="start-wrapper">
     <div class="icon-wrapper">
       <slot name="icon" />
@@ -8,7 +13,7 @@
   <div class="actions">
     <slot name="actions" />
   </div>
-</div>
+</svelte:element>
 
 <style lang="scss">
   @use "../styles/mixins/media";
@@ -38,7 +43,7 @@
     }
 
     .icon-wrapper {
-      width: var(--item-height);
+      aspect-ratio: 1 / 1;
       height: 100%;
 
       display: flex;

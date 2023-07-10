@@ -23,9 +23,10 @@ Mainly used in settings pages to render the properties and the actions alongside
 
 ## Properties
 
-| Property | Description                                                     | Type                    | Default     |
-| -------- | --------------------------------------------------------------- | ----------------------- | ----------- |
-| `testId` | Add a `data-tid` attribute to the DOM, useful for test purpose. | `string` or `undefined` | `undefined` |
+| Property  | Description                                                     | Type                    | Default     |
+| --------- | --------------------------------------------------------------- | ----------------------- | ----------- |
+| `tagName` | The tagName of the parent element.                              | `"li"` or `"div"`       | `"li"`      |
+| `testId`  | Add a `data-tid` attribute to the DOM, useful for test purpose. | `string` or `undefined` | `undefined` |
 
 ## Slots
 
@@ -57,10 +58,10 @@ The component is within a `div` with background to highlight the component exact
 
 **IMPORTANT: The component has no internal padding nor external margin. The spacing with the other components is responsibility of the parent using this component.**
 
-### Showcase Logo
+### Showcase Logo as Div
 
 <div class="wrapper">
-  <ListItemAction>
+  <ListItemAction tagName="div">
     <img slot="icon" src={icpLogo} class="start" />
     <div class="content">
       <p>Unlocking</p>
@@ -70,9 +71,9 @@ The component is within a `div` with background to highlight the component exact
   </ListItemAction>
 </div>
 
-### Showcase Icon
+### Showcase Icon Inside UL
 
-<div class="wrapper">
+<ul class="wrapper">
   <ListItemAction>
     <div slot="icon" class="start icon">
       <IconLockOpen size="24px" />
@@ -83,9 +84,13 @@ The component is within a `div` with background to highlight the component exact
     </div>
     <button slot="actions" class="secondary">One action</button>
   </ListItemAction>
-</div>
+</ul>
 
 <style>
+  ul {
+    padding: 0;
+  }
+
   .wrapper {
     background-color: var(--card-background);
     margin: var(--padding-3x) 0;
