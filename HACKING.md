@@ -16,6 +16,13 @@ To implement a test proceed as following:
    b. Commonly a `data-tid="showcase"` is used to wrap the showcase section of the page that is tested and is used within the test to scroll to the particular section
 3. Run a first time locally `npm run e2e` to generate the screenshots
 4. Run a second time locally `npm run e2e` to validate the test
+5. Add the screenshots to Git
+6. Create a PR
+7. Open the GitHub Actions: [Update snapshots](https://github.com/dfinity/gix-components/actions/workflows/snapshots.yml)
+8. Trigger the generation of the screenshots for the CI by manually running the workflow
+   a. Use your PR / branch to run the workflow from
+
+This particular last step will generate the screenshots for the CI and will add those to your PR. This job can be triggered again any time you make changes, regardless if the test changes or not.
 
 ## Deployment
 
