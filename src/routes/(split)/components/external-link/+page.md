@@ -27,6 +27,6 @@ A component that renders an external link with the appropriate `rel` attribute o
 
 ## Showcase
 
-<div style="padding: var(--padding-2x) 0">
+<div style="padding: var(--padding-2x) 0" data-tid="showcase">
 <ExternalLink href="https://internetcomputer.org">internetcomputer.org</ExternalLink>
 </div>
