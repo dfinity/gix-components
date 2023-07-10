@@ -8,21 +8,20 @@ From Playwright [documentation](https://playwright.dev/docs/test-snapshots):
 
 > Playwright Test includes the ability to produce and visually compare screenshots using `await expect(page).toHaveScreenshot()`. On first execution, Playwright test will generate reference screenshots. Subsequent runs will compare against the reference.
 
-To implement a test proceed as following:
+To implement a test, follow these steps:
 
-1. Add an e2e test in `./e2e`
-2. Implement the test by automating an action browsing the documentation website
-   a. Use `await expect(page).toHaveScreenshot()` within the test
-   b. Commonly a `data-tid="showcase"` is used to wrap the showcase section of the page that is tested and is used within the test to scroll to the particular section
-3. Run a first time locally `npm run e2e` to generate the screenshots
-4. Run a second time locally `npm run e2e` to validate the test
-5. Add the screenshots to Git
-6. Create a PR
-7. Open the GitHub Actions: [Update snapshots](https://github.com/dfinity/gix-components/actions/workflows/snapshots.yml)
-8. Trigger the generation of the screenshots for the CI by manually running the workflow
-   a. Use your PR / branch to run the workflow from
+1. Add an e2e test in the `./e2e` directory.
+2. Implement the test by automating an action on the documentation website:
+   - Use `await expect(page).toHaveScreenshot()` within the test
+   - Commonly, a `data-tid="showcase"` is used to wrap the showcase section of the page being tested and is used within the test to scroll to the particular location
+3. Run the e2e test locally using `npm run e2e` to generate the screenshots
+4. Run the e2e test locally again using `npm run e2e` to validate the test
+5. Add the generated screenshots to Git
+6. Create a PR for your changes
+7. Open the GitHub Actions page and navigate to [Update snapshots](https://github.com/dfinity/gix-components/actions/workflows/snapshots.yml)
+8. Manually trigger the generation of screenshots for the CI by running the workflow using your PR or branch
 
-This particular last step will generate the screenshots for the CI and will add those to your PR. This job can be triggered again any time you make changes, regardless if the test changes or not.
+This last step will generate the screenshots for the CI and add them to your PR. You can trigger this job again at any time you make changes, regardless of whether the test itself changes or not.
 
 ## Deployment
 
