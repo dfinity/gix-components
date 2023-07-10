@@ -128,6 +128,13 @@ export const COMPONENT_ROUTES: ComponentRoute[] = [
   },
 
   {
+    path: "/components/list-item-action",
+    title: "List Item Action",
+    description:
+      "Opinionated compoment to render list items with icon and buttons.",
+  },
+
+  {
     path: "/components/modal",
     title: "Modal",
 

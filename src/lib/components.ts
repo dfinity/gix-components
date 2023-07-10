@@ -20,6 +20,7 @@ export { default as Island } from "./components/Island.svelte";
 export { default as KeyValuePair } from "./components/KeyValuePair.svelte";
 export { default as KeyValuePairInfo } from "./components/KeyValuePairInfo.svelte";
 export { default as Layout } from "./components/Layout.svelte";
+export { default as ListItemAction } from "./components/ListItemAction.svelte";
 export { default as Menu } from "./components/Menu.svelte";
 export { default as MenuButton } from "./components/MenuButton.svelte";
 export { default as MenuItem } from "./components/MenuItem.svelte";
