@@ -5,7 +5,6 @@
   import { i18n } from "$lib/stores/i18n";
   import Backdrop from "./Backdrop.svelte";
   import IconClose from "$lib/icons/IconClose.svelte";
-  import { isTest } from "$lib/utils/env.utils";
 
   export let anchor: HTMLElement | undefined = undefined;
   export let visible = false;
@@ -29,7 +28,7 @@
   <div
     role="menu"
     aria-orientation="vertical"
-    transition:fade={{ ...(isTest() && { duration: 0 }) }}
+    transition:fade
     class="popover"
     tabindex="-1"
     style="--popover-top: {`${bottom}px`}; --popover-left: {`${left}px`}; --popover-right: {`${

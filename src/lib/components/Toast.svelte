@@ -17,7 +17,6 @@
   import IconError from "$lib/icons/IconError.svelte";
   import { DEFAULT_ICON_SIZE } from "$lib/constants/constants";
   import { isNullish, nonNullish } from "@dfinity/utils";
-  import { isTest } from "$lib/utils/env.utils";
 
   export let msg: ToastMsg;
 
@@ -78,7 +77,7 @@
   role="dialog"
   class={`toast ${theme ?? "themed"}`}
   in:fly={{ y: (position === "top" ? -1 : 1) * 100, duration: 200 }}
-  out:fade={{ delay: isTest() ? 0 : 100, ...(isTest() && { duration: 0 }) }}
+  out:fade={{ delay: 100 }}
 >
   <div class="icon {level}" aria-hidden="true">
     {#if spinner}
