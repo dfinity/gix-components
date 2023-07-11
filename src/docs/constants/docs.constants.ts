@@ -109,6 +109,12 @@ export const COMPONENT_ROUTES: ComponentRoute[] = [
   },
 
   {
+    path: "/components/item-action",
+    title: "Item Action",
+    description: "Opinionated compoment to render items with icon and buttons.",
+  },
+
+  {
     path: "/components/key-value",
     title: "Key Value",
     description: "Render a label and its value.",

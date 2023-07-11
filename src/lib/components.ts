@@ -17,6 +17,7 @@ export { default as InfiniteScroll } from "./components/InfiniteScroll.svelte";
 export { default as Input } from "./components/Input.svelte";
 export { default as InputRange } from "./components/InputRange.svelte";
 export { default as Island } from "./components/Island.svelte";
+export { default as ItemAction } from "./components/ItemAction.svelte";
 export { default as KeyValuePair } from "./components/KeyValuePair.svelte";
 export { default as KeyValuePairInfo } from "./components/KeyValuePairInfo.svelte";
 export { default as Layout } from "./components/Layout.svelte";
