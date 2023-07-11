@@ -21,17 +21,18 @@ describe("Card", () => {
     expect(article?.getAttribute("aria-label")).toBe(ariaLabel);
   });
 
-  it("should forward the click event", (done) => {
-    const { container, component } = render(Card);
+  it("should forward the click event", () =>
+    new Promise<void>((done) => {
+      const { container, component } = render(Card);
 
-    component.$on("click", () => {
-      done();
-    });
+      component.$on("click", () => {
+        done();
+      });
 
-    const article = container.querySelector("article");
-    expect(article).not.toBeNull();
-    article && fireEvent.click(article);
-  });
+      const article = container.querySelector("article");
+      expect(article).not.toBeNull();
+      article && fireEvent.click(article);
+    }));
 
   it("should render an icon", () => {
     const { container } = render(Card, {
