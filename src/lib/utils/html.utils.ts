@@ -43,7 +43,7 @@ const flagTargetAttributeHook = (node: Element) => {
  * Sanitize a text with DOMPurify.
  *
  * Note: this library needs a workaround to work in the NodeJS context - i.e. for our jest test suite.
- * See the jest-setup.ts for details.
+ * See the vitest.setup.ts for details.
  */
 export const sanitize = (text: string): string => {
   try {
