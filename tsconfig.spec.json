@@ -15,6 +15,6 @@
     "./tests/**/*.ts",
     "./tests/**/*.svelte",
     "./vitest.config.ts",
-    "./jest-setup.ts"
+    "./vitest.setup.ts"
   ]
 }
