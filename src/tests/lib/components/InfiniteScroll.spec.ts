@@ -7,12 +7,14 @@ import {
 import InfiniteScrollTest from "./InfiniteScrollTest.svelte";
 
 describe("InfiniteScroll", () => {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore: test file
-  beforeAll(() => (global.IntersectionObserver = IntersectionObserverActive));
+  beforeAll(() => {
+    Object.defineProperty(window, "IntersectionObserver", {
+      writable: true,
+      configurable: true,
+      value: IntersectionObserverActive,
+    });
+  });
 
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore: test file
   afterAll(() => (global.IntersectionObserver = IntersectionObserverPassive));
 
   it("should render a container", () => {
