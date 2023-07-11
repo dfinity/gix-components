@@ -67,26 +67,29 @@ describe("Toasts", () => {
     );
   });
 
-  it("should display multiple toasts and user is able to close one", async () => {
-    const { container } = render(ToastsTest);
+  it(
+    "should display multiple toasts and user is able to close one",
+    async () => {
+      const { container } = render(ToastsTest);
 
-    toastsStore.show({ text: "Test", level: "error" });
-    toastsStore.show({ text: "Test", level: "error" });
-    toastsStore.show({ text: "Test", level: "error" });
+      toastsStore.show({ text: "Test", level: "error" });
+      toastsStore.show({ text: "Test", level: "error" });
+      toastsStore.show({ text: "Test", level: "error" });
 
-    await waitFor(() =>
-      expect(container.querySelectorAll("div.toast").length).toEqual(3)
-    );
+      await waitFor(() =>
+        expect(container.querySelectorAll("div.toast").length).toEqual(3)
+      );
 
-    const button: HTMLButtonElement | null =
-      container.querySelector("button.close");
-    button && (await fireEvent.click(button));
+      const button: HTMLButtonElement | null =
+        container.querySelector("button.close");
+      button && (await fireEvent.click(button));
 
-    await waitFor(
-      () => expect(container.querySelectorAll("div.toast").length).toEqual(2),
-      { timeout: 50000 }
-    );
-  });
+      await waitFor(() =>
+        expect(container.querySelectorAll("div.toast").length).toEqual(2)
+      );
+    },
+    { timeout: 50000 }
+  );
 
   it("should close toast", async () => {
     const { container } = render(ToastsTest);
@@ -112,18 +115,21 @@ describe("Toasts", () => {
     expect(id.description).toBe("toast");
   });
 
-  it("should display multiple toasts for the bottom position", async () => {
-    const { container } = render(ToastsTest);
+  it(
+    "should display multiple toasts for the bottom position",
+    async () => {
+      const { container } = render(ToastsTest);
 
-    toastsStore.show({ text: "Test", level: "error", position: "bottom" });
-    toastsStore.show({ text: "Test", level: "error" });
-    toastsStore.show({ text: "Test", level: "error", position: "top" });
+      toastsStore.show({ text: "Test", level: "error", position: "bottom" });
+      toastsStore.show({ text: "Test", level: "error" });
+      toastsStore.show({ text: "Test", level: "error", position: "top" });
 
-    await waitFor(
-      () => expect(container.querySelectorAll("div.toast").length).toEqual(2),
-      { timeout: 50000 }
-    );
-  });
+      await waitFor(() =>
+        expect(container.querySelectorAll("div.toast").length).toEqual(2)
+      );
+    },
+    { timeout: 50000 }
+  );
 
   it("should display multiple toasts for the top position", async () => {
     const { container } = render(ToastsTest, {
