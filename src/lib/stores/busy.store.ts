@@ -7,7 +7,9 @@ import { derived, writable, type Readable } from "svelte/store";
  * Is used to show the busy-screen that locks the UI.
  */
 const initBusyStore = () => {
-  const { subscribe, update } = writable<Array<BusyState>>([]);
+  const DEFAULT_STATE: Array<BusyState> = [];
+
+  const { subscribe, update, set } = writable<Array<BusyState>>(DEFAULT_STATE);
 
   return {
     subscribe,
@@ -29,6 +31,11 @@ const initBusyStore = () => {
         state.filter(({ initiator }) => initiator !== initiatorToRemove)
       );
     },
+
+    // For test purpose
+    reset() {
+      set(DEFAULT_STATE);
+    }
   };
 };
 
