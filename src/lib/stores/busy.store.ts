@@ -35,7 +35,7 @@ const initBusyStore = () => {
     // For test purpose
     reset() {
       set(DEFAULT_STATE);
-    }
+    },
   };
 };
 
