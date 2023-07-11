@@ -29,7 +29,7 @@
   <div
     role="menu"
     aria-orientation="vertical"
-
+    transition:fade={{ ...(isTest() && { duration: 0 }) }}
     class="popover"
     tabindex="-1"
     style="--popover-top: {`${bottom}px`}; --popover-left: {`${left}px`}; --popover-right: {`${
