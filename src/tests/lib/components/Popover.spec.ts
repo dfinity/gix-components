@@ -46,30 +46,24 @@ describe("Popover", () => {
     expect(getByTestId("Popover-slot")).not.toBeNull();
   });
 
-  it(
-    "should render close button",
-    async () => {
-      const { container, queryByRole } = render(Popover, {
-        props: {
-          visible: true,
-          closeButton: true,
-        },
-      });
+  it("should render close button", async () => {
+    const { container, queryByRole } = render(Popover, {
+      props: {
+        visible: true,
+        closeButton: true,
+      },
+    });
 
-      const close: HTMLButtonElement = container.querySelector(
-        "button.close"
-      ) as HTMLButtonElement;
+    const close: HTMLButtonElement = container.querySelector(
+      "button.close"
+    ) as HTMLButtonElement;
 
-      expect(close).not.toBeNull();
+    expect(close).not.toBeNull();
 
-      await fireEvent.click(close);
+    await fireEvent.click(close);
 
-      await waitFor(() => expect(queryByRole("menu")).toBeNull(), {
-        timeout: 50000,
-      });
-    },
-    { timeout: 50000 }
-  );
+    await waitFor(() => expect(queryByRole("menu")).toBeNull());
+  });
 
   it("should render direction classes", async () => {
     const { container } = render(Popover, {
