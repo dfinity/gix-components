@@ -1,24 +1,24 @@
 <script lang="ts">
-    import ListItemAction from "$lib/components/ListItemAction.svelte";
+    import ItemAction from "$lib/components/ItemAction.svelte";
     import IconLockOpen from "$lib/icons/IconLockOpen.svelte";
     import icpLogo from "$docs/assets/icp-rounded.svg";
 </script>
 
-# List Item Action
+# Item Action
 
 Used to render multiple items with some information, an icon and actions for each of them.
 
 Mainly used in settings pages to render the properties and the actions alongside.
 
 ```html
-<ListItemAction>
+<ItemAction>
   <img slot="icon" src="{icpLogo}" class="start" />
   <div class="content">
     <p>Unlocking</p>
     <p class="description">No age bonus</p>
   </div>
   <button slot="actions" class="secondary">One action</button>
-</ListItemAction>
+</ItemAction>
 ```
 
 ## Properties
@@ -61,20 +61,20 @@ The component is within a `div` with background to highlight the component exact
 ### Showcase Logo as Div
 
 <div class="wrapper">
-  <ListItemAction tagName="div">
+  <ItemAction tagName="div">
     <img slot="icon" src={icpLogo} class="start" />
     <div class="content">
       <p>Unlocking</p>
       <p class="description">No age bonus</p>
     </div>
     <button slot="actions" class="secondary">One action</button>
-  </ListItemAction>
+  </ItemAction>
 </div>
 
 ### Showcase Icon Inside UL
 
 <ul class="wrapper">
-  <ListItemAction>
+  <ItemAction>
     <div slot="icon" class="start icon">
       <IconLockOpen size="24px" />
     </div>
@@ -82,8 +82,11 @@ The component is within a `div` with background to highlight the component exact
       <p>Unlocking</p>
       <p class="description">No age bonus</p>
     </div>
-    <button slot="actions" class="secondary">One action</button>
-  </ListItemAction>
+    <div slot="actions" class="actions">
+      <button class="secondary">One action</button>
+      <button class="secondary">Another action</button>
+    </div>
+  </ItemAction>
 </ul>
 
 <style>
@@ -117,6 +120,20 @@ The component is within a `div` with background to highlight the component exact
       display: flex;
       flex-direction: column;
       gap: var(--padding);
+    }
+
+    & .actions {
+      display: flex;
+      gap: var(--padding);
+
+      & button {
+        width: 100%;
+
+        @media (min-width: 768px) {
+          width: auto;
+        }
+      }
+
     }
   }
 </style>

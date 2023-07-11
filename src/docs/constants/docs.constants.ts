@@ -109,6 +109,12 @@ export const COMPONENT_ROUTES: ComponentRoute[] = [
   },
 
   {
+    path: "/components/item-action",
+    title: "Item Action",
+    description: "Opinionated compoment to render items with icon and buttons.",
+  },
+
+  {
     path: "/components/key-value",
     title: "Key Value",
     description: "Render a label and its value.",
@@ -125,13 +131,6 @@ export const COMPONENT_ROUTES: ComponentRoute[] = [
     title: "Layout",
 
     description: "Header, menu and content. The structure of your dapp.",
-  },
-
-  {
-    path: "/components/list-item-action",
-    title: "List Item Action",
-    description:
-      "Opinionated compoment to render list items with icon and buttons.",
   },
 
   {

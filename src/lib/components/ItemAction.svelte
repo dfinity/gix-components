@@ -22,7 +22,7 @@
     display: flex;
     flex-direction: column;
     justify-content: stretch;
-    gap: var(--padding);
+    gap: var(--padding-2x);
 
     @include media.min-width(medium) {
       justify-content: space-between;
