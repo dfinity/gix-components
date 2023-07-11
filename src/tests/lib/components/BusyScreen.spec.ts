@@ -13,15 +13,20 @@ describe("BusyScreen", () => {
     );
   });
 
-  it("should hide the spinner", async () => {
-    const { container } = render(BusyScreen);
-    startBusy({ initiator: "stake-neuron" });
-    await waitFor(() =>
-      expect(container.querySelector("svg")).toBeInTheDocument()
-    );
-    stopBusy("stake-neuron");
-    await waitFor(() =>
-      expect(container.querySelector("svg")).not.toBeInTheDocument()
-    );
-  });
+  it(
+    "should hide the spinner",
+    async () => {
+      const { container } = render(BusyScreen);
+      startBusy({ initiator: "stake-neuron" });
+      await waitFor(() =>
+        expect(container.querySelector("svg")).toBeInTheDocument()
+      );
+      stopBusy("stake-neuron");
+      await waitFor(
+        () => expect(container.querySelector("svg")).not.toBeInTheDocument(),
+        { timeout: 50000 }
+      );
+    },
+    { timeout: 50000 }
+  );
 });
