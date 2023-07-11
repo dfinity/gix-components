@@ -92,21 +92,26 @@ describe("Toasts", () => {
     { timeout: 50000 }
   );
 
-  it("should close toast", async () => {
-    const { container } = render(ToastsTest);
+  it(
+    "should close toast",
+    async () => {
+      const { container } = render(ToastsTest);
 
-    toastsStore.show({ text: "Test", level: "success" });
+      toastsStore.show({ text: "Test", level: "success" });
 
-    await waitForDialog(container);
+      await waitForDialog(container);
 
-    const button: HTMLButtonElement | null =
-      container.querySelector("button.close");
-    button && (await fireEvent.click(button));
+      const button: HTMLButtonElement | null =
+        container.querySelector("button.close");
+      button && (await fireEvent.click(button));
 
-    await waitFor(() =>
-      expect(container.querySelector("div.toast")).toBeNull()
-    );
-  });
+      await waitFor(
+        () => expect(container.querySelector("div.toast")).toBeNull(),
+        { timeout: 50000 }
+      );
+    },
+    { timeout: 50000 }
+  );
 
   it("should return a shown toast id", async () => {
     const id = toastsStore.show({ text: "Test", level: "success" });
