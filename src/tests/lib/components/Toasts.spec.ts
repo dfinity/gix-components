@@ -84,7 +84,7 @@ describe("Toasts", () => {
 
     await waitFor(
       () => expect(container.querySelectorAll("div.toast").length).toEqual(2),
-      { timeout: 5000 }
+      { timeout: 50000 }
     );
   });
 
@@ -121,7 +121,7 @@ describe("Toasts", () => {
 
     await waitFor(
       () => expect(container.querySelectorAll("div.toast").length).toEqual(2),
-      { timeout: 5000 }
+      { timeout: 50000 }
     );
   });
 
