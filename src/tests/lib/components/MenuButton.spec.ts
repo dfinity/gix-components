@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 import MenuButton from "$lib/components/MenuButton.svelte";
 import { layoutMenuOpen } from "$lib/stores/layout.store";
 import { fireEvent, render, type RenderResult } from "@testing-library/svelte";

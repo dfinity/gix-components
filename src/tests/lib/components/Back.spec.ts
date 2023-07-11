@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 import Back from "$lib/components/Back.svelte";
 import { fireEvent, render } from "@testing-library/svelte";
 

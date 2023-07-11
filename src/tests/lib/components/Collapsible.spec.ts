@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 import { fireEvent } from "@testing-library/dom";
 import { render } from "@testing-library/svelte";
 import { tick } from "svelte";
@@ -120,7 +116,7 @@ describe("Collapsible", () => {
       props({ externalToggle: true })
     );
 
-    const spyToggle = jest.fn();
+    const spyToggle = vi.fn();
     component.$on("nnsToggle", spyToggle);
 
     fireEvent.click(getByTestId("collapsible-header"));

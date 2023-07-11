@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 import ContentBackdrop from "$lib/components/ContentBackdrop.svelte";
 import { layoutMenuOpen } from "$lib/stores/layout.store";
 import { render } from "@testing-library/svelte";

@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 import { toastsStore } from "$lib/stores/toasts.store";
 import { fireEvent, render, waitFor } from "@testing-library/svelte";
 import ToastsTest from "./ToastsTest.svelte";

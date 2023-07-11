@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 import Popover from "$lib/components/Popover.svelte";
 import {
   fireEvent,

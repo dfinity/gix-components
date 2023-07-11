@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 import BottomSheet from "$lib/components/BottomSheet.svelte";
 import { render } from "@testing-library/svelte";
 import ComponentTest from "./ComponentTest.svelte";

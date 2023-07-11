@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 import WizardModal from "$lib/components/WizardModal.svelte";
 import type { WizardStep } from "$lib/types/wizard";
 import { render } from "@testing-library/svelte";

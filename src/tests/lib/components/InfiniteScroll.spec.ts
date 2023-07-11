@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 import InfiniteScroll from "$lib/components/InfiniteScroll.svelte";
 import { render } from "@testing-library/svelte";
 import {
@@ -26,7 +22,7 @@ describe("InfiniteScroll", () => {
   });
 
   it("should trigger an intersect event", () => {
-    const spyIntersect = jest.fn();
+    const spyIntersect = vi.fn();
 
     render(InfiniteScrollTest, {
       props: {
@@ -39,7 +35,7 @@ describe("InfiniteScroll", () => {
   });
 
   it("should not trigger an intersect event", () => {
-    const spyIntersect = jest.fn();
+    const spyIntersect = vi.fn();
 
     render(InfiniteScrollTest, {
       props: {

@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 import Menu from "$lib/components/Menu.svelte";
 import { layoutMenuOpen } from "$lib/stores/layout.store";
 import { render } from "@testing-library/svelte";

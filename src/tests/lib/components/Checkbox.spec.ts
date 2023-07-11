@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 import Checkbox from "$lib/components/Checkbox.svelte";
 import { fireEvent, render } from "@testing-library/svelte";
 

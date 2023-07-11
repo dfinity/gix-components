@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 import Input from "$lib/components/Input.svelte";
 import { isNullish, nonNullish } from "@dfinity/utils";
 import { fireEvent, render } from "@testing-library/svelte";

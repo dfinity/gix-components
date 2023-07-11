@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 import Card from "$lib/components/Card.svelte";
 import { fireEvent, render } from "@testing-library/svelte";
 

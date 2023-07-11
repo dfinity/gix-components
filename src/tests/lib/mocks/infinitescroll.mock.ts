@@ -1,4 +1,4 @@
-export const IntersectionObserverPassive = jest.fn();
+export const IntersectionObserverPassive = vi.fn();
 IntersectionObserverPassive.mockReturnValue({
   observe: () => null,
   unobserve: () => null,
