@@ -1,6 +1,7 @@
 import BusyScreen from "$lib/components/BusyScreen.svelte";
 import { busyStore, startBusy, stopBusy } from "$lib/stores/busy.store";
 import { render, waitFor } from "@testing-library/svelte";
+import { WAIT_FOR_USER_EVENT } from "../mocks/user.mock";
 
 describe("BusyScreen", () => {
   beforeEach(() => busyStore.reset());
@@ -20,8 +21,9 @@ describe("BusyScreen", () => {
       expect(container.querySelector("svg")).toBeInTheDocument()
     );
     stopBusy("stake-neuron");
-    await waitFor(() =>
-      expect(container.querySelector("svg")).not.toBeInTheDocument()
+    await waitFor(
+      () => expect(container.querySelector("svg")).not.toBeInTheDocument(),
+      WAIT_FOR_USER_EVENT
     );
   });
 });
