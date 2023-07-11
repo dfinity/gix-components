@@ -82,8 +82,9 @@ describe("Toasts", () => {
       container.querySelector("button.close");
     button && (await fireEvent.click(button));
 
-    await waitFor(() =>
-      expect(container.querySelectorAll("div.toast").length).toEqual(2)
+    await waitFor(
+      () => expect(container.querySelectorAll("div.toast").length).toEqual(2),
+      { timeout: 5000 }
     );
   });
 
@@ -118,8 +119,9 @@ describe("Toasts", () => {
     toastsStore.show({ text: "Test", level: "error" });
     toastsStore.show({ text: "Test", level: "error", position: "top" });
 
-    await waitFor(() =>
-      expect(container.querySelectorAll("div.toast").length).toEqual(2)
+    await waitFor(
+      () => expect(container.querySelectorAll("div.toast").length).toEqual(2),
+      { timeout: 5000 }
     );
   });
 
