@@ -35,6 +35,7 @@
     align-items: center;
 
     @include media.min-width(medium) {
+      flex-direction: row;
       justify-content: space-between;
     }
   }
