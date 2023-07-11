@@ -89,7 +89,9 @@ The component is within a `div` with background to highlight the component exact
   </ItemAction>
 </ul>
 
-<style>
+<style lang="scss">
+  @use "../../../../lib/styles/mixins/media";
+
   ul {
     padding: 0;
   }
@@ -98,16 +100,16 @@ The component is within a `div` with background to highlight the component exact
     background-color: var(--card-background);
     margin: var(--padding-3x) 0;
 
-    & p {
+    p {
       margin: 0;
     }
 
-    & .start {
+    .start {
       width: 100%;
       height: 100%;
     }
 
-    & .icon {
+    .icon {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -116,20 +118,20 @@ The component is within a `div` with background to highlight the component exact
       background: var(--content-background);
     }
 
-    & .content {
+    .content {
       display: flex;
       flex-direction: column;
       gap: var(--padding);
     }
 
-    & .actions {
+    .actions {
       display: flex;
       gap: var(--padding);
 
-      & button {
+      button {
         width: 100%;
 
-        @media (min-width: 768px) {
+        @include media.min-width(large) {
           width: auto;
         }
       }
