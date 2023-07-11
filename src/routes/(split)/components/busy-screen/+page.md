@@ -14,7 +14,7 @@
     const click = (e) => {
         e.preventDefault();
         startBusy();
-        setTimeout(() => stopBusy(), 3000);
+        setTimeout(() => stopBusy(), 1000);
     }
     
 </script>
@@ -51,5 +51,7 @@ The `startBusy` method will take in an object with properties `initiator` and `t
 
 ## Showcase
 
-<button class="primary" id="start" on:click={click}>Click to start Busy Screen</button>
+<div data-tid="showcase">
+<button data-tid="busy-display" class="primary" id="start" on:click={click}>Click to start Busy Screen</button>
 <BusyScreen />
+</div>
