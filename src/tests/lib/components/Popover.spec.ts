@@ -5,7 +5,6 @@ import {
   waitFor,
   type RenderResult,
 } from "@testing-library/svelte";
-import { waitForAnimation } from "../mocks/animation.mock";
 import PopoverTest from "./PopoverTest.svelte";
 
 describe("Popover", () => {
@@ -62,8 +61,6 @@ describe("Popover", () => {
     expect(close).not.toBeNull();
 
     await fireEvent.click(close);
-
-    await waitForAnimation();
 
     await waitFor(() => expect(queryByRole("menu")).toBeNull());
   });
