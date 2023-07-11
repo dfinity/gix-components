@@ -35,7 +35,7 @@ describe("WizardModal", () => {
     // Make sure the data-tid encloses everything in the component.
     expect(container.firstElementChild?.children.length).toBe(1);
     const modal = container.firstElementChild?.firstElementChild;
-    expect(modal?.classList).toContain("modal");
+    expect(modal?.className).toContain("modal");
     expect(modal?.getAttribute("data-tid")).toBe(testId);
   });
 });
