@@ -68,45 +68,53 @@ describe("Toasts", () => {
     );
   });
 
-  it("should display multiple toasts and user is able to close one", async () => {
-    const { container } = render(ToastsTest);
+  it(
+    "should display multiple toasts and user is able to close one",
+    async () => {
+      const { container } = render(ToastsTest);
 
-    toastsStore.show({ text: "Test", level: "error" });
-    toastsStore.show({ text: "Test", level: "error" });
-    toastsStore.show({ text: "Test", level: "error" });
+      toastsStore.show({ text: "Test", level: "error" });
+      toastsStore.show({ text: "Test", level: "error" });
+      toastsStore.show({ text: "Test", level: "error" });
 
-    await waitFor(() =>
-      expect(container.querySelectorAll("div.toast").length).toEqual(3)
-    );
+      await waitFor(() =>
+        expect(container.querySelectorAll("div.toast").length).toEqual(3)
+      );
 
-    const button: HTMLButtonElement | null =
-      container.querySelector("button.close");
-    button && (await fireEvent.click(button));
+      const button: HTMLButtonElement | null =
+        container.querySelector("button.close");
+      button && (await fireEvent.click(button));
 
-    await waitForAnimation();
+      await waitForAnimation();
 
-    await waitFor(() =>
-      expect(container.querySelectorAll("div.toast").length).toEqual(2)
-    );
-  }, { retry: 3 });
+      await waitFor(() =>
+        expect(container.querySelectorAll("div.toast").length).toEqual(2)
+      );
+    },
+    { retry: 3 }
+  );
 
-  it("should close toast", async () => {
-    const { container } = render(ToastsTest);
+  it(
+    "should close toast",
+    async () => {
+      const { container } = render(ToastsTest);
 
-    toastsStore.show({ text: "Test", level: "success" });
+      toastsStore.show({ text: "Test", level: "success" });
 
-    await waitForDialog(container);
+      await waitForDialog(container);
 
-    const button: HTMLButtonElement | null =
-      container.querySelector("button.close");
-    button && (await fireEvent.click(button));
+      const button: HTMLButtonElement | null =
+        container.querySelector("button.close");
+      button && (await fireEvent.click(button));
 
-    await waitForAnimation();
+      await waitForAnimation();
 
-    await waitFor(() =>
-      expect(container.querySelector("div.toast")).toBeNull()
-    );
-  }, { retry: 3 });
+      await waitFor(() =>
+        expect(container.querySelector("div.toast")).toBeNull()
+      );
+    },
+    { retry: 3 }
+  );
 
   it("should return a shown toast id", async () => {
     const id = toastsStore.show({ text: "Test", level: "success" });
