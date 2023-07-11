@@ -1,10 +1,5 @@
 import Popover from "$lib/components/Popover.svelte";
-import {
-  fireEvent,
-  render,
-  waitFor,
-  type RenderResult,
-} from "@testing-library/svelte";
+import { render, waitFor, type RenderResult } from "@testing-library/svelte";
 import PopoverTest from "./PopoverTest.svelte";
 
 describe("Popover", () => {
