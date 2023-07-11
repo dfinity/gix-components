@@ -14,13 +14,13 @@ button {
     width: fit-content;
 
     @include fonts.standard;
+    text-decoration: underline;
 
     color: inherit;
 
     &:hover,
     &:active,
     &:focus {
-      text-decoration: underline;
       color: var(--value-color);
     }
 
