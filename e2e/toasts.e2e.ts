@@ -40,6 +40,26 @@ test("Toast warn", async ({ page }) =>
 test("Toast message", async ({ page }) =>
   testToast({ page, toast: "toast-message" }));
 
+test("Should close toast", async ({ page }) => {
+  await page.goto(testUrl);
+
+  const showcase = page.getByTestId("showcase");
+  await showcase.scrollIntoViewIfNeeded();
+
+  await openToast({ page, toast: "toast-success" });
+
+  // Hide spinner to avoid test failing if not exact same timing
+  await page.evaluate(() =>
+    (
+      document.querySelector(".toast button.close") as HTMLButtonElement | null
+    )?.click()
+  );
+
+  await page.waitForTimeout(250);
+
+  await expect(page).toHaveScreenshot();
+});
+
 test("Should display multiple toasts and user is able to close one", async ({
   page,
 }) => {

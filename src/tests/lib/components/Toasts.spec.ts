@@ -1,5 +1,5 @@
 import { toastsStore } from "$lib/stores/toasts.store";
-import { fireEvent, render, waitFor } from "@testing-library/svelte";
+import { render, waitFor } from "@testing-library/svelte";
 import ToastsTest from "./ToastsTest.svelte";
 
 describe("Toasts", () => {
@@ -64,22 +64,6 @@ describe("Toasts", () => {
 
     await waitFor(() =>
       expect(container.querySelectorAll("div.toast").length).toEqual(3)
-    );
-  });
-
-  it("should close toast", async () => {
-    const { container } = render(ToastsTest);
-
-    toastsStore.show({ text: "Test", level: "success" });
-
-    await waitForDialog(container);
-
-    const button: HTMLButtonElement | null =
-      container.querySelector("button.close");
-    button && (await fireEvent.click(button));
-
-    await waitFor(() =>
-      expect(container.querySelector("div.toast")).toBeNull()
     );
   });
 
