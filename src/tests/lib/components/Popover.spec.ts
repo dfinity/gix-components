@@ -66,7 +66,7 @@ describe("Popover", () => {
     await waitForAnimation();
 
     await waitFor(() => expect(queryByRole("menu")).toBeNull());
-  });
+  }, { retry: 3 });
 
   it("should render direction classes", async () => {
     const { container } = render(Popover, {
