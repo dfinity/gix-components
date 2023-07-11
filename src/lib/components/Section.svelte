@@ -3,13 +3,12 @@
 </script>
 
 <div class="container" data-tid={testId}>
-  <div class="title-wrapper">
+  <div class="section-title">
     <slot name="title" />
     <slot name="end" />
   </div>
   <slot name="description" />
-  <!-- We add the extra div to make sure that the `gap` applied in this parent doesn't apply to all the slot children. -->
-  <div><slot /></div>
+  <div class="content-wrapper"><slot /></div>
 </div>
 
 <style lang="scss">
@@ -19,12 +18,17 @@
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    gap: var(--padding-3x);
   }
 
-  .title-wrapper {
+  .section-title {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    margin-bottom: var(--padding);
+  }
+
+  .content-wrapper {
+    margin-top: var(--padding-3x);
   }
 </style>
