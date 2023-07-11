@@ -29,7 +29,6 @@
   <div
     role="menu"
     aria-orientation="vertical"
-
     class="popover"
     tabindex="-1"
     style="--popover-top: {`${bottom}px`}; --popover-left: {`${left}px`}; --popover-right: {`${
