@@ -1,6 +1,6 @@
 import { toastsStore } from "$lib/stores/toasts.store";
 import { fireEvent, render, waitFor } from "@testing-library/svelte";
-import { WAIT_FOR_USER_EVENT } from "../mocks/user.mock";
+import { waitForAnimation } from "../mocks/animation.mock";
 import ToastsTest from "./ToastsTest.svelte";
 
 describe("Toasts", () => {
@@ -83,9 +83,10 @@ describe("Toasts", () => {
       container.querySelector("button.close");
     button && (await fireEvent.click(button));
 
-    await waitFor(
-      () => expect(container.querySelectorAll("div.toast").length).toEqual(2),
-      WAIT_FOR_USER_EVENT
+    await waitForAnimation();
+
+    await waitFor(() =>
+      expect(container.querySelectorAll("div.toast").length).toEqual(2)
     );
   });
 
@@ -100,9 +101,10 @@ describe("Toasts", () => {
       container.querySelector("button.close");
     button && (await fireEvent.click(button));
 
-    await waitFor(
-      () => expect(container.querySelector("div.toast")).toBeNull(),
-      WAIT_FOR_USER_EVENT
+    await waitForAnimation();
+
+    await waitFor(() =>
+      expect(container.querySelector("div.toast")).toBeNull()
     );
   });
 

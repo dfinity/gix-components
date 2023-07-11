@@ -5,7 +5,7 @@ import {
   waitFor,
   type RenderResult,
 } from "@testing-library/svelte";
-import { WAIT_FOR_USER_EVENT } from "../mocks/user.mock";
+import { waitForAnimation } from "../mocks/animation.mock";
 import PopoverTest from "./PopoverTest.svelte";
 
 describe("Popover", () => {
@@ -63,10 +63,9 @@ describe("Popover", () => {
 
     await fireEvent.click(close);
 
-    await waitFor(
-      () => expect(queryByRole("menu")).toBeNull(),
-      WAIT_FOR_USER_EVENT
-    );
+    await waitForAnimation();
+
+    await waitFor(() => expect(queryByRole("menu")).toBeNull());
   });
 
   it("should render direction classes", async () => {
