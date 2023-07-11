@@ -1,5 +1,6 @@
 import { toastsStore } from "$lib/stores/toasts.store";
 import { fireEvent, render, waitFor } from "@testing-library/svelte";
+import { WAIT_FOR_USER_EVENT } from "../mocks/user.mock";
 import ToastsTest from "./ToastsTest.svelte";
 
 describe("Toasts", () => {
@@ -70,9 +71,9 @@ describe("Toasts", () => {
   it("should display multiple toasts and user is able to close one", async () => {
     const { container } = render(ToastsTest);
 
-    toastsStore.show({ text: "Test", level: "error" });
-    toastsStore.show({ text: "Test", level: "error" });
-    toastsStore.show({ text: "Test", level: "error" });
+    toastsStore.show({ text: "Test1", level: "error" });
+    toastsStore.show({ text: "Test2", level: "error" });
+    toastsStore.show({ text: "Test3", level: "error" });
 
     await waitFor(() =>
       expect(container.querySelectorAll("div.toast").length).toEqual(3)
@@ -82,8 +83,9 @@ describe("Toasts", () => {
       container.querySelector("button.close");
     button && (await fireEvent.click(button));
 
-    await waitFor(() =>
-      expect(container.querySelectorAll("div.toast").length).toEqual(2)
+    await waitFor(
+      () => expect(container.querySelectorAll("div.toast").length).toEqual(2),
+      WAIT_FOR_USER_EVENT
     );
   });
 
@@ -98,8 +100,9 @@ describe("Toasts", () => {
       container.querySelector("button.close");
     button && (await fireEvent.click(button));
 
-    await waitFor(() =>
-      expect(container.querySelector("div.toast")).toBeNull()
+    await waitFor(
+      () => expect(container.querySelector("div.toast")).toBeNull(),
+      WAIT_FOR_USER_EVENT
     );
   });
 
