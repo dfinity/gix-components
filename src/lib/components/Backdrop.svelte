@@ -3,7 +3,7 @@
   import { createEventDispatcher } from "svelte";
   import { i18n } from "$lib/stores/i18n";
   import { handleKeyPress } from "$lib/utils/keyboard.utils";
-  import {isTest} from "$lib/utils/env.utils";
+  import { isTest } from "$lib/utils/env.utils";
 
   export let disablePointerEvents = false;
 

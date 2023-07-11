@@ -62,7 +62,9 @@ describe("Popover", () => {
 
     await fireEvent.click(close);
 
-    await waitFor(() => expect(queryByRole("menu")).toBeNull(), {timeout: 5000});
+    await waitFor(() => expect(queryByRole("menu")).toBeNull(), {
+      timeout: 5000,
+    });
   });
 
   it("should render direction classes", async () => {
