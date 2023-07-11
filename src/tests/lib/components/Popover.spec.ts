@@ -63,7 +63,7 @@ describe("Popover", () => {
     await fireEvent.click(close);
 
     await waitFor(() => expect(queryByRole("menu")).toBeNull(), {
-      timeout: 20000,
+      timeout: 5000,
     });
   });
 
