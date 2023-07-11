@@ -1,6 +1,6 @@
 <script lang="ts">
   import Toasts from "$lib/components/Toasts.svelte";
-  import { ToastPosition } from "../../../lib/types/toast";
+  import { ToastPosition } from "$lib/types/toast";
 
   export let position: ToastPosition = "bottom";
 </script>

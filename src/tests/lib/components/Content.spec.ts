@@ -1,5 +1,5 @@
+import { layoutMenuOpen } from "$lib/stores/layout.store";
 import { render } from "@testing-library/svelte";
-import { layoutMenuOpen } from "../../../lib/stores/layout.store";
 import ContentTest from "./ContentTest.svelte";
 
 describe("Content", () => {
