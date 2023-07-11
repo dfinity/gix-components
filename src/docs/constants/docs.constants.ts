@@ -182,6 +182,13 @@ export const COMPONENT_ROUTES: ComponentRoute[] = [
   },
 
   {
+    path: "/components/section",
+    title: "Section",
+    description:
+      "A component to render a section with a title, value and description.",
+  },
+
+  {
     path: "/components/segment",
     title: "Segment",
 
