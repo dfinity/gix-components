@@ -19,6 +19,8 @@
 </div>
 
 <style lang="scss">
+  @use "../styles/mixins/media";
+
   .container {
     display: flex;
     flex-direction: column;
@@ -27,8 +29,15 @@
 
   .header {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: var(--padding);
+    justify-content: center;
     align-items: center;
+
+    @include media.min-width(medium) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
   }
 
   .content {
