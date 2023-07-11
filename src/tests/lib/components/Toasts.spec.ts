@@ -71,9 +71,9 @@ describe("Toasts", () => {
   it("should display multiple toasts and user is able to close one", async () => {
     const { container } = render(ToastsTest);
 
-    toastsStore.show({ text: "Test1", level: "error" });
-    toastsStore.show({ text: "Test2", level: "error" });
-    toastsStore.show({ text: "Test3", level: "error" });
+    toastsStore.show({ text: "Test", level: "error" });
+    toastsStore.show({ text: "Test", level: "error" });
+    toastsStore.show({ text: "Test", level: "error" });
 
     await waitFor(() =>
       expect(container.querySelectorAll("div.toast").length).toEqual(3)
