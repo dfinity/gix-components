@@ -3,9 +3,7 @@ import { render, waitFor } from "@testing-library/svelte";
 import ToastsTest from "./ToastsTest.svelte";
 
 describe("Toasts", () => {
-  afterEach(() => {
-    toastsStore.reset();
-  });
+  afterEach(() => toastsStore.reset())
 
   it("should not display any toast per default", () => {
     const { container } = render(ToastsTest);
