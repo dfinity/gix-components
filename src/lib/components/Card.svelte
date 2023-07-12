@@ -1,6 +1,6 @@
 <script lang="ts">
   import IconArrowRight from "$lib/icons/IconArrowRight.svelte";
-  import type { SvelteComponent } from "svelte";
+  import type { ComponentType } from "svelte";
   import IconExpandMore from "$lib/icons/IconExpandMore.svelte";
   import IconCheckCircle from "$lib/icons/IconCheckCircle.svelte";
   import { nonNullish } from "@dfinity/utils";
@@ -17,9 +17,10 @@
 
   let clickable = false;
 
-  $: clickable = nonNullish(role)
-    ? ["button", "link", "checkbox", "radio"].includes(role)
-    : false;
+  $: clickable =
+    role !== undefined
+      ? ["button", "link", "checkbox", "radio"].includes(role)
+      : false;
 
   let showHeadline: boolean;
   $: showHeadline = nonNullish($$slots.start) || nonNullish($$slots.end);
@@ -27,7 +28,7 @@
   let ariaChecked: boolean | undefined = undefined;
   $: ariaChecked = role === "checkbox" ? selected : undefined;
 
-  let iconCmp: typeof SvelteComponent | undefined = undefined;
+  let iconCmp: ComponentType | undefined = undefined;
 
   $: (() => {
     switch (icon) {
