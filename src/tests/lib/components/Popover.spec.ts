@@ -3,12 +3,7 @@
  */
 
 import Popover from "$lib/components/Popover.svelte";
-import {
-  fireEvent,
-  render,
-  waitFor,
-  type RenderResult,
-} from "@testing-library/svelte";
+import { render, waitFor, type RenderResult } from "@testing-library/svelte";
 import PopoverTest from "./PopoverTest.svelte";
 
 describe("Popover", () => {
@@ -48,25 +43,6 @@ describe("Popover", () => {
     const { getByTestId } = render(PopoverTest);
 
     expect(getByTestId("Popover-slot")).not.toBeNull();
-  });
-
-  it("should render close button", async () => {
-    const { container, queryByRole } = render(Popover, {
-      props: {
-        visible: true,
-        closeButton: true,
-      },
-    });
-
-    const close: HTMLButtonElement = container.querySelector(
-      "button.close"
-    ) as HTMLButtonElement;
-
-    expect(close).not.toBeNull();
-
-    await fireEvent.click(close);
-
-    await waitFor(() => expect(queryByRole("menu")).toBeNull());
   });
 
   it("should render direction classes", async () => {

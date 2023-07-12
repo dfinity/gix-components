@@ -13,6 +13,12 @@
         level: "error"
     });
 
+    const errorTop = () => toastsStore.show({
+        text: "An error",
+        level: "error",
+        position: "top",
+    });
+
     const warn = () => toastsStore.show({
         text: "A warning",
         level: "warn"
@@ -100,6 +106,8 @@ A toast message can be created with following properties.
     <button class="success small" on:click={success} data-tid="toast-success">Success</button>
 
     <button class="danger small" on:click={error} data-tid="toast-error">Error</button>
+
+    <button class="danger small" on:click={errorTop} data-tid="toast-error-top">Error (Top)</button>
 
     <button class="secondary small" on:click={warn} data-tid="toast-warn">Warn</button>
 
