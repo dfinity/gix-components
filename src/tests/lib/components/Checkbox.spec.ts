@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 import Checkbox from "$lib/components/Checkbox.svelte";
 import { fireEvent, render } from "@testing-library/svelte";
 
@@ -67,33 +63,36 @@ describe("Checkbox", () => {
     expect(input?.checked).toBeFalsy();
   });
 
-  it("should trigger select on container", (done) => {
-    const { container, component } = render(Checkbox, {
-      props,
-    });
+  it("should trigger select on container", () =>
+    new Promise<void>((done) => {
+      const { container, component } = render(Checkbox, {
+        props,
+      });
 
-    component.$on("nnsChange", () => {
-      done();
-    });
+      component.$on("nnsChange", () => {
+        done();
+      });
 
-    const div: HTMLDivElement | null = container.querySelector("div.checkbox");
-    expect(div).not.toBeNull();
-    div && fireEvent.click(div);
-  });
+      const div: HTMLDivElement | null =
+        container.querySelector("div.checkbox");
+      expect(div).not.toBeNull();
+      div && fireEvent.click(div);
+    }));
 
-  it("should trigger select on input", (done) => {
-    const { container, component } = render(Checkbox, {
-      props,
-    });
+  it("should trigger select on input", () =>
+    new Promise<void>((done) => {
+      const { container, component } = render(Checkbox, {
+        props,
+      });
 
-    component.$on("nnsChange", () => {
-      done();
-    });
+      component.$on("nnsChange", () => {
+        done();
+      });
 
-    const input: HTMLInputElement | null = container.querySelector("input");
-    expect(input).not.toBeNull();
-    input && fireEvent.click(input);
-  });
+      const input: HTMLInputElement | null = container.querySelector("input");
+      expect(input).not.toBeNull();
+      input && fireEvent.click(input);
+    }));
 
   it("should render default class", () => {
     const { container } = render(Checkbox, {

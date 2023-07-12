@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 import { fireEvent } from "@testing-library/dom";
 import { render, waitFor } from "@testing-library/svelte";
 import KeyValuePairInfoTest from "./KeyValuePairInfoTest.svelte";
@@ -33,11 +29,14 @@ describe("KeyValuePairInfo", () => {
   });
 
   it("should be initially collapsed", () => {
-    const { queryByText } = render(KeyValuePairInfoTest, {
+    const { getByTestId } = render(KeyValuePairInfoTest, {
       props: { key, value, info },
     });
 
-    expect(queryByText(info)).not.toBeVisible();
+    const content = getByTestId("collapsible-content");
+
+    expect(content?.classList.contains("expanded")).toBeFalsy();
+    expect(content?.style.maxHeight).toEqual("0px");
   });
 
   it("should toggle to display more information", async () => {

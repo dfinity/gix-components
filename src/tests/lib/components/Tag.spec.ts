@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 import Tag from "$lib/components/Tag.svelte";
 import { render } from "@testing-library/svelte";
 import TagTest from "./TagTest.svelte";

@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 import Layout from "$lib/components/Layout.svelte";
 import { render } from "@testing-library/svelte";
 

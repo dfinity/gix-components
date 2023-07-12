@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 import HeaderTitle from "$lib/components/HeaderTitle.svelte";
 import { render } from "@testing-library/svelte";
 import ComponentTest from "./ComponentTest.svelte";

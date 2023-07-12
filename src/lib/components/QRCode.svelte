@@ -50,6 +50,7 @@
       return;
     }
 
+    // TODO: is it still the case with vitest?
     // The library leads to issues (es modules import error, segmentation fault, blocking tests etc.) in jest tests of NNS-dapp when use explicitly or imported implicitly.
     // Therefore, the simplest way to avoid these problems is to skip it globally in jest tests.
     // It remains tested in e2e tests.

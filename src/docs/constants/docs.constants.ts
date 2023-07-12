@@ -109,6 +109,12 @@ export const COMPONENT_ROUTES: ComponentRoute[] = [
   },
 
   {
+    path: "/components/item-action",
+    title: "Item Action",
+    description: "Opinionated compoment to render items with icon and buttons.",
+  },
+
+  {
     path: "/components/key-value",
     title: "Key Value",
     description: "Render a label and its value.",
@@ -179,6 +185,13 @@ export const COMPONENT_ROUTES: ComponentRoute[] = [
     path: "/components/qr-code-reader",
     title: "QR Code Reader",
     description: "Read a QR Code with the camera.",
+  },
+
+  {
+    path: "/components/section",
+    title: "Section",
+    description:
+      "A component to render a section with a title, value and description.",
   },
 
   {

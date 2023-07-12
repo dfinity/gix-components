@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 import InfiniteScroll from "$lib/components/InfiniteScroll.svelte";
 import { render } from "@testing-library/svelte";
 import {
@@ -11,12 +7,14 @@ import {
 import InfiniteScrollTest from "./InfiniteScrollTest.svelte";
 
 describe("InfiniteScroll", () => {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore: test file
-  beforeAll(() => (global.IntersectionObserver = IntersectionObserverActive));
+  beforeAll(() => {
+    Object.defineProperty(window, "IntersectionObserver", {
+      writable: true,
+      configurable: true,
+      value: IntersectionObserverActive,
+    });
+  });
 
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore: test file
   afterAll(() => (global.IntersectionObserver = IntersectionObserverPassive));
 
   it("should render a container", () => {
@@ -26,7 +24,7 @@ describe("InfiniteScroll", () => {
   });
 
   it("should trigger an intersect event", () => {
-    const spyIntersect = jest.fn();
+    const spyIntersect = vi.fn();
 
     render(InfiniteScrollTest, {
       props: {
@@ -39,7 +37,7 @@ describe("InfiniteScroll", () => {
   });
 
   it("should not trigger an intersect event", () => {
-    const spyIntersect = jest.fn();
+    const spyIntersect = vi.fn();
 
     render(InfiniteScrollTest, {
       props: {

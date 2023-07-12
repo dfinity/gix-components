@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 import Toggle from "$lib/components/Toggle.svelte";
 import { fireEvent, render } from "@testing-library/svelte";
 
@@ -31,7 +27,7 @@ describe("Toggle", () => {
 
     const input = container.querySelector("input") as HTMLInputElement;
 
-    const onToggle = jest.fn();
+    const onToggle = vi.fn();
     component.$on("nnsToggle", onToggle);
 
     fireEvent.click(input);

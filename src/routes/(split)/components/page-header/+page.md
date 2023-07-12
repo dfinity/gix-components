@@ -40,7 +40,7 @@ The component is within a `div` with background to highlight the component exact
 
 ### Simple example:
 
-<div class="wrapper">
+<div class="wrapper" data-tid="showcase">
   <PageHeader>
     <span slot="start">Top left</span>
     <span slot="end">Top right</span>

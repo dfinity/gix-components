@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 import ThemeToggle from "$lib/components/ThemeToggle.svelte";
 import { themeStore } from "$lib/stores/theme.store";
 import { Theme } from "$lib/types/theme";

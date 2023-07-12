@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 import Input from "$lib/components/Input.svelte";
 import { isNullish, nonNullish } from "@dfinity/utils";
 import { fireEvent, render } from "@testing-library/svelte";
@@ -296,28 +292,29 @@ describe("Input", () => {
       testGetAttribute({ container, attribute: "type", expected: "text" });
     });
 
-    it("should bind value", (done) => {
-      const { container, component } = render(InputValueTest, {
-        props: {
-          ...props,
-          inputType: "icp",
-        },
-      });
+    it("should bind value", () =>
+      new Promise<void>((done) => {
+        const { container, component } = render(InputValueTest, {
+          props: {
+            ...props,
+            inputType: "icp",
+          },
+        });
 
-      const input: HTMLInputElement | null = container.querySelector("input");
+        const input: HTMLInputElement | null = container.querySelector("input");
 
-      if (isNullish(input)) {
-        throw new Error("No input");
-      }
+        if (isNullish(input)) {
+          throw new Error("No input");
+        }
 
-      fireEvent.input(input, { target: { value: "100" } });
-      expect(input.value).toBe("100");
+        fireEvent.input(input, { target: { value: "100" } });
+        expect(input.value).toBe("100");
 
-      component.$on("testAmount", ({ detail }) => {
-        expect(detail.amount).toBe(100);
-        done();
-      });
-    });
+        component.$on("testAmount", ({ detail }) => {
+          expect(detail.amount).toBe(100);
+          done();
+        });
+      }));
 
     it("should not accept not icp formatted changed", async () => {
       const { container } = render(Input, {
@@ -350,29 +347,30 @@ describe("Input", () => {
       expect(input.value).toBe(".0000001");
     });
 
-    it('should replace "" with undefined', (done) => {
-      const { container, component } = render(InputValueTest, {
-        props: {
-          ...props,
-          value: "0",
-          inputType: "icp",
-        },
-      });
+    it('should replace "" with undefined', () =>
+      new Promise<void>((done) => {
+        const { container, component } = render(InputValueTest, {
+          props: {
+            ...props,
+            value: "0",
+            inputType: "icp",
+          },
+        });
 
-      const input: HTMLInputElement | null = container.querySelector("input");
+        const input: HTMLInputElement | null = container.querySelector("input");
 
-      if (isNullish(input)) {
-        throw new Error("No input");
-      }
+        if (isNullish(input)) {
+          throw new Error("No input");
+        }
 
-      fireEvent.input(input, { target: { value: "" } });
-      expect(input.value).toBe("");
+        fireEvent.input(input, { target: { value: "" } });
+        expect(input.value).toBe("");
 
-      component.$on("testAmount", ({ detail }) => {
-        expect(detail.amount).toBe(undefined);
-        done();
-      });
-    });
+        component.$on("testAmount", ({ detail }) => {
+          expect(detail.amount).toBe(undefined);
+          done();
+        });
+      }));
 
     it("should avoid exponent formatted initial zero in icp mode", () => {
       const { container } = render(InputValueTest, {

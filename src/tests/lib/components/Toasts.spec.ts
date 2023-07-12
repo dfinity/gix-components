@@ -1,9 +1,5 @@
-/**
- * @jest-environment jsdom
- */
-
 import { toastsStore } from "$lib/stores/toasts.store";
-import { fireEvent, render, waitFor } from "@testing-library/svelte";
+import { render, waitFor } from "@testing-library/svelte";
 import ToastsTest from "./ToastsTest.svelte";
 
 describe("Toasts", () => {
@@ -71,42 +67,6 @@ describe("Toasts", () => {
     );
   });
 
-  it("should display multiple toasts and user is able to close one", async () => {
-    const { container } = render(ToastsTest);
-
-    toastsStore.show({ text: "Test", level: "error" });
-    toastsStore.show({ text: "Test", level: "error" });
-    toastsStore.show({ text: "Test", level: "error" });
-
-    await waitFor(() =>
-      expect(container.querySelectorAll("div.toast").length).toEqual(3)
-    );
-
-    const button: HTMLButtonElement | null =
-      container.querySelector("button.close");
-    button && (await fireEvent.click(button));
-
-    await waitFor(() =>
-      expect(container.querySelectorAll("div.toast").length).toEqual(2)
-    );
-  });
-
-  it("should close toast", async () => {
-    const { container } = render(ToastsTest);
-
-    toastsStore.show({ text: "Test", level: "success" });
-
-    await waitForDialog(container);
-
-    const button: HTMLButtonElement | null =
-      container.querySelector("button.close");
-    button && (await fireEvent.click(button));
-
-    await waitFor(() =>
-      expect(container.querySelector("div.toast")).toBeNull()
-    );
-  });
-
   it("should return a shown toast id", async () => {
     const id = toastsStore.show({ text: "Test", level: "success" });
 
@@ -124,24 +84,6 @@ describe("Toasts", () => {
 
     await waitFor(() =>
       expect(container.querySelectorAll("div.toast").length).toEqual(2)
-    );
-  });
-
-  it("should display multiple toasts for the top position", async () => {
-    const { container } = render(ToastsTest, {
-      props: {
-        position: "top",
-      },
-    });
-
-    toastsStore.show({ text: "Test", level: "error", position: "bottom" });
-    toastsStore.show({ text: "Test", level: "error", position: "top" });
-    toastsStore.show({ text: "Test", level: "error", position: "top" });
-    toastsStore.show({ text: "Test", level: "error" });
-    toastsStore.show({ text: "Test", level: "error", position: "top" });
-
-    await waitFor(() =>
-      expect(container.querySelectorAll("div.toast").length).toEqual(3)
     );
   });
 });

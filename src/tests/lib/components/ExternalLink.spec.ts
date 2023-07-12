@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 import ExternalLink from "$lib/components/ExternalLink.svelte";
 import { render } from "@testing-library/svelte";
 

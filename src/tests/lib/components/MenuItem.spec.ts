@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 import MenuItem from "$lib/components/MenuItem.svelte";
 import { render } from "@testing-library/svelte";
 import MenuItemTest from "./MenuItemTest.svelte";

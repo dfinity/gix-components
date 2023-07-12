@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 import Copy from "$lib/components/Copy.svelte";
 import { fireEvent, render } from "@testing-library/svelte";
 
@@ -28,7 +24,7 @@ describe("Copy", () => {
 
     Object.assign(window.navigator, {
       clipboard: {
-        writeText: jest.fn().mockImplementation(() => Promise.resolve()),
+        writeText: vi.fn().mockImplementation(() => Promise.resolve()),
       },
     });
 

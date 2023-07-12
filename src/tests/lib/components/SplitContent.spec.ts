@@ -1,9 +1,5 @@
-/**
- * @jest-environment jsdom
- */
-
+import { layoutMenuOpen } from "$lib/stores/layout.store";
 import { render } from "@testing-library/svelte";
-import { layoutMenuOpen } from "../../../lib/stores/layout.store";
 import SplitContentTest from "./SplitContentTest.svelte";
 
 describe("SplitContent", () => {
