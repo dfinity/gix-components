@@ -19,7 +19,7 @@
 {#key transition}
   <div
     bind:clientWidth={absolutOffset}
-    in:fly={{ x: slideOffset, duration: ANIMATION_DURATION }}
+    in:fly|local={{ x: slideOffset, duration: ANIMATION_DURATION }}
   >
     <slot />
   </div>
