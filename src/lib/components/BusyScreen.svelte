@@ -7,7 +7,7 @@
 
 <!-- Display spinner and lock UI if busyStore is not empty -->
 {#if $busy}
-  <div data-tid="busy" transition:fade>
+  <div data-tid="busy" transition:fade|local>
     <div class="content">
       {#if nonNullish($busyMessage)}
         <p>{$busyMessage}</p>
