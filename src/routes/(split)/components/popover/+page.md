@@ -27,7 +27,7 @@ next to an anchor — commonly a button — which initiates its display.
         This is a popover!
     </Popover>
     <button
-        data-tid="account-menu"
+        data-tid="popover-menu-display"
         class="icon-only toggle"
         bind:this={button}
         on:click={() => (visible = !visible)}
