@@ -8,7 +8,7 @@ export interface BusyStore extends Readable<BusyStoreData> {
   startBusy: (params: BusyState) => void;
   stopBusy: (initiatorToRemove: BusyState["initiator"]) => void;
   // For test purpose
-  reset: () => void;
+  resetForTesting: () => void;
 }
 
 /**
@@ -41,7 +41,7 @@ const initBusyStore = (): BusyStore => {
       );
     },
 
-    reset() {
+    resetForTesting() {
       set(DEFAULT_STATE);
     },
   };

@@ -7,7 +7,7 @@ import { busyStore, startBusy, stopBusy } from "$lib/stores/busy.store";
 import { render, waitFor } from "@testing-library/svelte";
 
 describe("BusyScreen", () => {
-  beforeEach(() => busyStore.reset());
+  beforeEach(() => busyStore.resetForTesting());
 
   it("should show the spinner", async () => {
     const { container } = render(BusyScreen);
