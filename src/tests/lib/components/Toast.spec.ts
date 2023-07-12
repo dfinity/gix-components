@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 import Toast from "$lib/components/Toast.svelte";
 import type { ToastMsg } from "$lib/types/toast";
 import { render } from "@testing-library/svelte";

@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 import Popover from "$lib/components/Popover.svelte";
 import { render, waitFor, type RenderResult } from "@testing-library/svelte";
 import PopoverTest from "./PopoverTest.svelte";

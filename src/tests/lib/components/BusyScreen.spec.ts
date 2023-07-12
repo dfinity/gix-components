@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 import BusyScreen from "$lib/components/BusyScreen.svelte";
 import { busyStore, startBusy } from "$lib/stores/busy.store";
 import { render, waitFor } from "@testing-library/svelte";

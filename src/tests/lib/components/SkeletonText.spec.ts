@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 import SkeletonText from "$lib/components/SkeletonText.svelte";
 import { render } from "@testing-library/svelte";
 

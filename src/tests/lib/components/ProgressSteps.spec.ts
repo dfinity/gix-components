@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 import ProgressSteps from "$lib/components/ProgressSteps.svelte";
 import { render } from "@testing-library/svelte";
 

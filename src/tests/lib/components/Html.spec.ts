@@ -1,21 +1,18 @@
-/**
- * @jest-environment jsdom
- */
-
 import Html from "$lib/components/Html.svelte";
 import { sanitize } from "$lib/utils/html.utils";
 import { render } from "@testing-library/svelte";
+import type { MockedFunction } from "vitest";
 
-jest.mock("$lib/utils/html.utils", () => {
+vi.mock("$lib/utils/html.utils", () => {
   return {
-    sanitize: jest.fn().mockImplementation((text: string) => text),
+    sanitize: vi.fn().mockImplementation((text: string) => text),
   };
 });
 
 describe("Html", () => {
-  beforeEach((sanitize as jest.MockedFn<typeof sanitize>).mockClear);
+  beforeEach((sanitize as MockedFunction<typeof sanitize>).mockClear);
 
-  afterAll(jest.clearAllMocks);
+  afterAll(vi.clearAllMocks);
 
   it("should render plane text", () => {
     const { getByText } = render(Html, {

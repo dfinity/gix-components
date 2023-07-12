@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 import Modal from "$lib/components/Modal.svelte";
 import { fireEvent, render } from "@testing-library/svelte";
 import ModalTest from "./ModalTest.svelte";
@@ -112,19 +108,20 @@ describe("Modal", () => {
     expect(content).not.toBeNull();
   });
 
-  it("should trigger close modal on click on backdrop", (done) => {
-    const { container, component } = render(Modal, {
-      props,
-    });
+  it("should trigger close modal on click on backdrop", () =>
+    new Promise<void>((done) => {
+      const { container, component } = render(Modal, {
+        props,
+      });
 
-    component.$on("nnsClose", () => {
-      done();
-    });
+      component.$on("nnsClose", () => {
+        done();
+      });
 
-    const backdrop: HTMLDivElement | null =
-      container.querySelector("div.backdrop");
-    backdrop && fireEvent.click(backdrop);
-  });
+      const backdrop: HTMLDivElement | null =
+        container.querySelector("div.backdrop");
+      backdrop && fireEvent.click(backdrop);
+    }));
 
   it("should not have a data-tid attribute", () => {
     const { container } = render(Modal, {
@@ -149,23 +146,24 @@ describe("Modal", () => {
     // Make sure the data-tid encloses everything in the component.
     expect(container.firstElementChild?.children.length).toBe(1);
     const modal = container.firstElementChild?.firstElementChild;
-    expect(modal?.classList).toContain("modal");
+    expect(modal?.className).toContain("modal");
     expect(modal?.getAttribute("data-tid")).toBe(testId);
   });
 
-  it("should trigger close modal on click on close button", (done) => {
-    const { getByTestId, component } = render(ModalTest, {
-      props,
-    });
+  it("should trigger close modal on click on close button", () =>
+    new Promise<void>((done) => {
+      const { getByTestId, component } = render(ModalTest, {
+        props,
+      });
 
-    component.$on("nnsClose", () => {
-      done();
-    });
+      component.$on("nnsClose", () => {
+        done();
+      });
 
-    const button: HTMLElement | null = getByTestId("close-modal");
+      const button: HTMLElement | null = getByTestId("close-modal");
 
-    button && fireEvent.click(button);
-  });
+      button && fireEvent.click(button);
+    }));
 
   it("should not trigger close modal on click on backdrop", () => {
     const { getByTestId } = render(ModalTest, {

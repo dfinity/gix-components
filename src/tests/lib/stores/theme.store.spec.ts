@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 import { Theme } from "$lib/types/theme";
 import { applyTheme, THEME_ATTRIBUTE } from "$lib/utils/theme.utils";
 

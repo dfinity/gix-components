@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 import MenuBackground from "$lib/components/MenuBackground.svelte";
 import { themeStore } from "$lib/stores/theme.store";
 import { Theme } from "$lib/types/theme";
