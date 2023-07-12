@@ -2,12 +2,23 @@ import type { BusyState } from "$lib/types/busy";
 import { nonNullish } from "@dfinity/utils";
 import { derived, writable, type Readable } from "svelte/store";
 
+export type BusyStoreData = Array<BusyState>;
+
+export interface BusyStore extends Readable<BusyStoreData> {
+  startBusy: (params: BusyState) => void;
+  stopBusy: (initiatorToRemove: BusyState["initiator"]) => void;
+  // For test purpose
+  resetForTesting: () => void;
+}
+
 /**
  * Store that reflects the app busy state.
  * Is used to show the busy-screen that locks the UI.
  */
-const initBusyStore = () => {
-  const { subscribe, update } = writable<Array<BusyState>>([]);
+const initBusyStore = (): BusyStore => {
+  const DEFAULT_STATE: BusyStoreData = [];
+
+  const { subscribe, update, set } = writable<BusyStoreData>(DEFAULT_STATE);
 
   return {
     subscribe,
@@ -28,6 +39,10 @@ const initBusyStore = () => {
       update((state) =>
         state.filter(({ initiator }) => initiator !== initiatorToRemove)
       );
+    },
+
+    resetForTesting() {
+      set(DEFAULT_STATE);
     },
   };
 };

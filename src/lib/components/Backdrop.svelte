@@ -17,8 +17,8 @@
   role="button"
   tabindex="-1"
   aria-label={$i18n.core.close}
-  in:fade={{ duration: FADE_IN_DURATION }}
-  out:fade={{ duration: FADE_OUT_DURATION }}
+  in:fade|local={{ duration: FADE_IN_DURATION }}
+  out:fade|local={{ duration: FADE_OUT_DURATION }}
   class="backdrop"
   on:click|stopPropagation={close}
   on:keypress={($event) => handleKeyPress({ $event, callback: close })}

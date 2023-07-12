@@ -1,5 +1,5 @@
+import { toastsStore } from "$lib/stores/toasts.store";
 import { get } from "svelte/store";
-import { toastsStore } from "../../../lib";
 
 describe("toasts-store", () => {
   it("should reset selected toast", () => {

@@ -3,10 +3,12 @@
  */
 
 import BusyScreen from "$lib/components/BusyScreen.svelte";
-import { startBusy } from "$lib/stores/busy.store";
+import { busyStore, startBusy } from "$lib/stores/busy.store";
 import { render, waitFor } from "@testing-library/svelte";
 
 describe("BusyScreen", () => {
+  beforeEach(() => busyStore.resetForTesting());
+
   it("should show the spinner", async () => {
     const { container } = render(BusyScreen);
     startBusy({ initiator: "stake-neuron" });
