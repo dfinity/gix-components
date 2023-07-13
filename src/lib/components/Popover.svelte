@@ -28,7 +28,7 @@
   <div
     role="menu"
     aria-orientation="vertical"
-    transition:fade|local
+    transition:fade|global
     class="popover"
     tabindex="-1"
     style="--popover-top: {`${bottom}px`}; --popover-left: {`${left}px`}; --popover-right: {`${
@@ -39,7 +39,7 @@
   >
     <Backdrop on:nnsClose={() => (visible = false)} />
     <div
-      transition:scale|local={{ delay: 25, duration: 150, easing: quintOut }}
+      transition:scale|global={{ delay: 25, duration: 150, easing: quintOut }}
       class="wrapper"
       class:rtl={direction === "rtl"}
     >

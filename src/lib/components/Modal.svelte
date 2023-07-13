@@ -35,7 +35,7 @@
 {#if visible}
   <div
     class="modal"
-    transition:fade|local={{ duration: 25 }}
+    transition:fade|global={{ duration: 25 }}
     on:introend
     {role}
     data-tid={testId}
@@ -45,8 +45,8 @@
   >
     <Backdrop {disablePointerEvents} on:nnsClose />
     <div
-      in:fade|local={{ duration: FADE_IN_DURATION }}
-      out:fade|local={{ duration: FADE_OUT_DURATION }}
+      in:fade|global={{ duration: FADE_IN_DURATION }}
+      out:fade|global={{ duration: FADE_OUT_DURATION }}
       class={`wrapper ${role}`}
     >
       {#if showHeader}
