@@ -76,8 +76,8 @@
 <div
   role="dialog"
   class={`toast ${theme ?? "themed"}`}
-  in:fly|local={{ y: (position === "top" ? -1 : 1) * 100, duration: 200 }}
-  out:fade|local={{ delay: 100 }}
+  in:fly|global={{ y: (position === "top" ? -1 : 1) * 100, duration: 200 }}
+  out:fade|global={{ delay: 100 }}
 >
   <div class="icon {level}" aria-hidden="true">
     {#if spinner}
