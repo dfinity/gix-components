@@ -1,10 +1,16 @@
 <!-- source: https://fonts.google.com/icons?selected=Material%20Icons%20Outlined%3Ahistory_toggle_off%3A -->
+<script lang="ts">
+  import { DEFAULT_ICON_SIZE } from "$lib/constants/constants";
+
+  export let size = `${DEFAULT_ICON_SIZE}px`;
+</script>
+
 <svg
   xmlns="http://www.w3.org/2000/svg"
   enable-background="new 0 0 24 24"
-  height="18"
+  height={size}
   viewBox="0 0 24 24"
-  width="18"
+  width={size}
   fill="currentColor"
   ><g
     ><rect fill="none" height="18" width="18" /><path
