@@ -1,4 +1,4 @@
-<!-- source: https://fonts.google.com/icons?selected=Material%20Icons%20Outlined%3Alock_open%3A -->
+<!-- Source DFINITY Foundation -->
 <script lang="ts">
   import { DEFAULT_ICON_SIZE } from "$lib/constants/constants";
 
@@ -18,7 +18,7 @@
     stroke-width="1.5"
   />
   <path
-    d="M13 3V3C13 1.89543 12.1046 1 11 1H9C7.89543 1 7 1.89543 7 3V7"
+    d="M13 7V3C13 1.89543 12.1046 1 11 1H9C7.89543 1 7 1.89543 7 3V7"
     stroke="#D9D3E5"
     stroke-width="1.5"
   />
