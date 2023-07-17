@@ -14,12 +14,15 @@
   xmlns="http://www.w3.org/2000/svg"
 >
   <path
-    d="M2.75 9C2.75 7.75736 3.75736 6.75 5 6.75H15C16.2426 6.75 17.25 7.75736 17.25 9V15C17.25 16.2426 16.2426 17.25 15 17.25H5C3.75736 17.25 2.75 16.2426 2.75 15V9Z"
+    d="M10 18C14.4183 18 18 14.4183 18 10C18 5.58172 14.4183 2 10 2C5.58172 2 2 5.58172 2 10C2 14.4183 5.58172 18 10 18Z"
     stroke-width="1.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
   />
   <path
-    d="M13 3V3C13 1.89543 12.1046 1 11 1H9C7.89543 1 7 1.89543 7 3V7"
+    d="M10 5V10.25L13 12"
     stroke-width="1.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
   />
-  <circle cx="10" cy="12" r="1" fill="currentColor" />
 </svg>
