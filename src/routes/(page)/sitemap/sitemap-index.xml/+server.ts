@@ -1,4 +1,4 @@
-const url = "https://ipi2f-uqaaa-aaaad-aabza-cai.ic0.app";
+const url = "https://gix.design";
 
 const staticPages = Object.keys(
   import.meta.glob("/src/routes/**/+page.(svelte|md)")
