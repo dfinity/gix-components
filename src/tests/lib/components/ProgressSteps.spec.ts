@@ -45,7 +45,7 @@ describe("Progress Steps", () => {
     const elements = container.querySelectorAll(".step");
 
     steps.forEach((step, i) =>
-      expect(elements[i].classList.contains(step.state)).toBeTruthy()
+      expect(elements[i].classList.contains(step.state)).toBeTruthy(),
     );
   });
 });

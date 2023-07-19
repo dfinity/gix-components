@@ -15,7 +15,7 @@ Checkboxes allow the selection of multiple options from a set of options. They a
   let checked = false;
 </script>
 
-<Checkbox on:nnsChange={() => (checked = !checked)} />
+<Checkbox on:nnsChange="{()" =""> (checked = !checked)} /></Checkbox>
 ```
 
 ## Properties

@@ -13,7 +13,7 @@ describe("Copy", () => {
     const button = queryByRole("button");
 
     expect(button?.getAttribute("aria-label")).toEqual(
-      `Copy to clipboard: ${value}`
+      `Copy to clipboard: ${value}`,
     );
   });
 

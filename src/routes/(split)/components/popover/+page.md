@@ -82,18 +82,13 @@ or from right to left.
 
 ```html
 <script lang="ts">
-    let visible = false;
-    let button: HTMLButtonElement | undefined;
+  let visible = false;
+  let button: HTMLButtonElement | undefined;
 </script>
-<button class="primary"
-    bind:this={button}
-    on:click={() => (visible = !visible)}
->
-    Open Popover
+<button class="primary" bind:this="{button}" on:click="{()" ="">
+  (visible = !visible)} > Open Popover
 </button>
-<Popover bind:visible anchor={button}>
-    This is a popover!
-</Popover>
+<Popover bind:visible anchor="{button}"> This is a popover! </Popover>
 ```
 
 # Properties

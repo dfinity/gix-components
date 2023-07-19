@@ -29,16 +29,17 @@ Collapsible is an accordion element that expands when clicked on. They allow you
   let toggleContent: Function;
 </script>
 
-<button class="secondary toggleButton"
-  on:click={() => toggleContent()}
->
-  Press to toggle
+<button class="secondary toggleButton" on:click="{()" ="">
+  toggleContent()} > Press to toggle
 </button>
 
-<Collapsible iconSize="medium" expandButton={false} externalToggle={true} bind:toggleContent={toggleContent}>
-  <div slot="header" class="header_div">
-    Collapsible with external button
-  </div>
+<Collapsible
+  iconSize="medium"
+  expandButton="{false}"
+  externalToggle="{true}"
+  bind:toggleContent="{toggleContent}"
+>
+  <div slot="header" class="header_div">Collapsible with external button</div>
   <div class="content_text">
     This collapsible uses an external button element to toggle open its content.
   </div>

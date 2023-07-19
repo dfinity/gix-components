@@ -4,7 +4,8 @@
   border: var(--input-border-size) solid
     var(--input-error-color, var(--input-border-color));
 
-  transition: color var(--animation-time-short) ease-out,
+  transition:
+    color var(--animation-time-short) ease-out,
     background var(--animation-time-short) ease-out,
     border var(--animation-time-short) ease-in;
 

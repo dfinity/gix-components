@@ -33,7 +33,7 @@ const updateVersion = async () => {
   }
 
   const { version: currentVersion, ...rest } = JSON.parse(
-    readFileSync(packagePath, "utf-8")
+    readFileSync(packagePath, "utf-8"),
   );
 
   // Build wip version number
@@ -50,9 +50,9 @@ const updateVersion = async () => {
         version,
       },
       null,
-      2
+      2,
     ),
-    "utf-8"
+    "utf-8",
   );
 };
 

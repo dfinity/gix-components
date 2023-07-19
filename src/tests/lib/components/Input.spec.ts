@@ -23,7 +23,7 @@ describe("Input", () => {
     });
 
     expect(container.querySelector("input")?.getAttribute("placeholder")).toBe(
-      "test.placeholder"
+      "test.placeholder",
     );
   });
 

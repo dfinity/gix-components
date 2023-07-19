@@ -5,7 +5,7 @@ Two themes - `dark` and `light` - are provided, `dark` being the default theme.
 A particular mode can be defined by setting a corresponding attribute `theme` on the root `html` element.
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" theme="dark"></html>
 ```
 
@@ -18,7 +18,7 @@ To init the theme as fast as possible, and therefore to avoid FOUC, we advise to
 <script>
   try {
     const isDarkPreferred = window.matchMedia(
-      "(prefers-color-scheme: dark)"
+      "(prefers-color-scheme: dark)",
     ).matches;
 
     const currentTheme =
@@ -30,7 +30,7 @@ To init the theme as fast as possible, and therefore to avoid FOUC, we advise to
 
     document.documentElement.setAttribute(
       "theme",
-      currentTheme ?? (isDarkPreferred ? "dark" : "light")
+      currentTheme ?? (isDarkPreferred ? "dark" : "light"),
     );
   } catch (error) {
     console.error("Error initializing theme", error);

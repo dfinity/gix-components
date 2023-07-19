@@ -12,14 +12,13 @@ A Modal is a dialog that appears on top of the app's content, and must be dismis
 
 ```html
 <script lang="ts">
-    let visible = false;
+  let visible = false;
 </script>
 
-<button on:click={() => (visible = true)}>
-  Open modal
-</button>
+<button on:click="{()" ="">(visible = true)}> Open modal</button>
 
-<Modal {visible} on:nnsClose={() => (visible = false)}>
+<Modal {visible} on:nnsClose="{()" ="">
+  (visible = false)}>
   <svelte:fragment slot="title">My title</svelte:fragment>
 
   <p>My content</p>

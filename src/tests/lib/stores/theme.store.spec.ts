@@ -9,7 +9,7 @@ describe("theme-utils", () => {
 
     expect(documentElement).toHaveAttribute(THEME_ATTRIBUTE);
     expect(documentElement.getAttribute(THEME_ATTRIBUTE)).toContain(
-      `${Theme.DARK}`
+      `${Theme.DARK}`,
     );
   });
 
@@ -17,7 +17,7 @@ describe("theme-utils", () => {
     // Theme color tag should be defined statically by app owner first
     document.head.insertAdjacentHTML(
       "beforeend",
-      '<meta name="theme-color" />'
+      '<meta name="theme-color" />',
     );
 
     applyTheme({ theme: Theme.DARK });

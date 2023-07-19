@@ -7,7 +7,7 @@ describe("enum-utils", () => {
       enumFromStringExists<typeof Theme>({
         obj: Theme,
         value: "dark",
-      })
+      }),
     ).toBeTruthy();
   });
 
@@ -16,14 +16,14 @@ describe("enum-utils", () => {
       enumFromStringExists<typeof Theme>({
         obj: Theme,
         value: "yellow",
-      })
+      }),
     ).toBeFalsy();
 
     expect(
       enumFromStringExists<typeof Theme>({
         obj: Theme,
         value: null,
-      })
+      }),
     ).toBeFalsy();
   });
 });

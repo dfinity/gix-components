@@ -29,7 +29,7 @@ describe("Collapsible", () => {
   it("should not render button", () => {
     const { getByText, queryByTestId } = render(
       CollapsibleTest,
-      props({ expandButton: false })
+      props({ expandButton: false }),
     );
     expect(getByText("Jack")).toBeInTheDocument();
     expect(getByText("Sparrow")).toBeInTheDocument();
@@ -42,10 +42,10 @@ describe("Collapsible", () => {
       props({
         id: "Captain",
         initiallyExpanded: true,
-      })
+      }),
     );
     expect(
-      container.querySelector('[id="headingCaptain"]')
+      container.querySelector('[id="headingCaptain"]'),
     ).toBeInTheDocument();
     expect(container.querySelector('[id="Captain"]')).toBeInTheDocument();
   });
@@ -55,42 +55,42 @@ describe("Collapsible", () => {
       CollapsibleTest,
       props({
         id: "_",
-      })
+      }),
     );
     expect(container.querySelector('[aria-controls="_"]')).toBeInTheDocument();
     expect(
-      container.querySelector('[aria-labelledby="heading_"]')
+      container.querySelector('[aria-labelledby="heading_"]'),
     ).toBeInTheDocument();
   });
 
   it("should update aria-expanded value", async () => {
     const { container, getByTestId } = render(CollapsibleTest);
     expect(
-      container.querySelector('[aria-expanded="false"]')
+      container.querySelector('[aria-expanded="false"]'),
     ).toBeInTheDocument();
 
     fireEvent.click(getByTestId("collapsible-header"));
     await tick();
 
     expect(
-      container.querySelector('[aria-expanded="true"]')
+      container.querySelector('[aria-expanded="true"]'),
     ).toBeInTheDocument();
   });
 
   it("should be initially collapsed", () => {
     const { container } = render(CollapsibleTest);
     expect(
-      container.querySelector('[aria-expanded="false"]')
+      container.querySelector('[aria-expanded="false"]'),
     ).toBeInTheDocument();
   });
 
   it("should support initiallyExpanded param", () => {
     const { container } = render(
       CollapsibleTest,
-      props({ initiallyExpanded: true })
+      props({ initiallyExpanded: true }),
     );
     expect(
-      container.querySelector('[aria-expanded="true"]')
+      container.querySelector('[aria-expanded="true"]'),
     ).toBeInTheDocument();
   });
 
@@ -100,20 +100,20 @@ describe("Collapsible", () => {
     fireEvent.click(getByTestId("collapsible-header"));
     await tick();
     expect(
-      container.querySelector('[aria-expanded="true"]')
+      container.querySelector('[aria-expanded="true"]'),
     ).toBeInTheDocument();
 
     fireEvent.click(getByTestId("collapsible-header"));
     await tick();
     expect(
-      container.querySelector('[aria-expanded="false"]')
+      container.querySelector('[aria-expanded="false"]'),
     ).toBeInTheDocument();
   });
 
   it("should not toggle if external toggle", async () => {
     const { getByTestId, container, component } = render(
       CollapsibleTest,
-      props({ externalToggle: true })
+      props({ externalToggle: true }),
     );
 
     const spyToggle = vi.fn();
@@ -122,7 +122,7 @@ describe("Collapsible", () => {
     fireEvent.click(getByTestId("collapsible-header"));
     await tick();
     expect(
-      container.querySelector('[aria-expanded="false"]')
+      container.querySelector('[aria-expanded="false"]'),
     ).toBeInTheDocument();
 
     expect(spyToggle).not.toHaveBeenCalled();
