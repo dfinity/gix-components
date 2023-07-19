@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://ipi2f-uqaaa-aaaad-aabza-cai.ic0.app/sitemap/sitemap-index.xml
-Host: https://ipi2f-uqaaa-aaaad-aabza-cai.ic0.app
+Sitemap: https://gix.design/sitemap/sitemap-index.xml
+Host: https://gix.design

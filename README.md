@@ -6,7 +6,7 @@ GIX Components is a UI kit developed with [SvelteKit](https://kit.svelte.dev) by
 
 The component library has been originally implemented for the frontend [dapp](https://nns.ic0.app/) of the Network Nervous System (NNS).
 
-It is constantly improved and its documentation is deployed on the IC: [https://ipi2f-uqaaa-aaaad-aabza-cai.ic0.app/](https://ipi2f-uqaaa-aaaad-aabza-cai.ic0.app/).
+It undergoes continuous improvements, and its showcase and documentation are deployed on the IC: [https://gix.design/](https://gix.design/).
 
 ## Installation
 
