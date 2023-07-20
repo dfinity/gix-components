@@ -31,6 +31,7 @@
   class="checkbox"
   class:disabled
   role="button"
+  data-tid="checkbox-component"
 >
   <label for={inputId} class={text}><slot /></label>
   <input
