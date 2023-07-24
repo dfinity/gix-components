@@ -13,12 +13,12 @@ A particular mode can be defined by setting a corresponding attribute `theme` on
 
 To init the theme as fast as possible, and therefore to avoid FOUC, we advise to add the following code snippet in your HTML pages.
 
-```html
+```javascript
 <!-- Init theme as fast as possible -->
 <script>
   try {
     const isDarkPreferred = window.matchMedia(
-      "(prefers-color-scheme: dark)",
+      "(prefers-color-scheme: dark)"
     ).matches;
 
     const currentTheme =
@@ -30,7 +30,7 @@ To init the theme as fast as possible, and therefore to avoid FOUC, we advise to
 
     document.documentElement.setAttribute(
       "theme",
-      currentTheme ?? (isDarkPreferred ? "dark" : "light"),
+      currentTheme ?? (isDarkPreferred ? "dark" : "light")
     );
   } catch (error) {
     console.error("Error initializing theme", error);

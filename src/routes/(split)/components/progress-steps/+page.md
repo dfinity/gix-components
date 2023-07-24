@@ -71,7 +71,7 @@
 
 Display the progression of a long-lasting task with various steps
 
-```html
+```javascript
 <ProgressSteps {steps} />
 ```
 

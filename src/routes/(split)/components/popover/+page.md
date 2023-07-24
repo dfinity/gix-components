@@ -80,15 +80,20 @@ next to an anchor — commonly a button — which initiates its display.
 The popover placement will be below the anchor element, either from left to right (default)
 or from right to left.
 
-```html
+```javascript
 <script lang="ts">
-  let visible = false;
-  let button: HTMLButtonElement | undefined;
+    let visible = false;
+    let button: HTMLButtonElement | undefined;
 </script>
-<button class="primary" bind:this="{button}" on:click="{()" ="">
-  (visible = !visible)} > Open Popover
+<button class="primary"
+    bind:this={button}
+    on:click={() => (visible = !visible)}
+>
+    Open Popover
 </button>
-<Popover bind:visible anchor="{button}"> This is a popover! </Popover>
+<Popover bind:visible anchor={button}>
+    This is a popover!
+</Popover>
 ```
 
 # Properties

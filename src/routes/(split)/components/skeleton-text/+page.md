@@ -6,7 +6,7 @@
 
 Skeleton Text is a component for rendering placeholder content. The element will render a gray block with an optional background animation.
 
-```html
+```javascript
 <SkeletonText />
 <SkeletonText animated="{false}" />
 <SkeletonText tagName="h1" />

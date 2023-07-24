@@ -10,12 +10,12 @@
 
 Checkboxes allow the selection of multiple options from a set of options. They appear as checked (ticked) when activated. Clicking on a checkbox will trigger an event. They are bind with a checked property.
 
-```html
+```javascript
 <script lang="ts">
   let checked = false;
 </script>
 
-<Checkbox on:nnsChange="{()" =""> (checked = !checked)} /></Checkbox>
+<Checkbox on:nnsChange={() => (checked = !checked)} />
 ```
 
 ## Properties

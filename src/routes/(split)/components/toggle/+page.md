@@ -12,7 +12,7 @@
 
 Toggle switch gives control over a feature or option that can be turned on or off. If a physical switch would work for the action, a toggle is probably the best component to use.
 
-```html
+```javascript
 <script lang="ts">
   let checked: boolean;
 </script>

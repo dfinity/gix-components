@@ -56,7 +56,7 @@
 
 A Toast is a subtle notification commonly used in modern applications. It can be used to provide feedback about an operation or to display a system message. The toast appears on bottom of the dapp's content, and can be dismissed.
 
-```html
+```javascript
 <Toasts />
 ```
 

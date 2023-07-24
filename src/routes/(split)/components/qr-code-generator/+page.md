@@ -26,7 +26,7 @@
 
 Generates a [QR Code](https://www.qrcode.com/).
 
-```html
+```javascript
 <QRCode value="https://nns.ic0.app/" ariaLabel="Network Nervous System">
   <img
     src="./img/logo.svg"

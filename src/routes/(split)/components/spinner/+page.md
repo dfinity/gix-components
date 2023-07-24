@@ -6,7 +6,7 @@
 
 Spinners are visual indicators that the app is loading content or performing another process that the user needs to wait on.
 
-```html
+```javascript
 <Spinner />
 ```
 

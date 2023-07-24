@@ -6,10 +6,14 @@
 
 Often a value needs to be displayed with a predecessor related label.
 
-```html
+```javascript
 <KeyValuePair>
-  <span slot="key" class="label">How many apples?</span>
-  <span slot="value" class="value">8</span>
+  <span slot="key" class="label">
+    How many apples?
+  </span>
+  <span slot="value" class="value">
+    8
+  </span>
 </KeyValuePair>
 ```
 

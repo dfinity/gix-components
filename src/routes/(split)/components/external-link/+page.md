@@ -6,10 +6,10 @@
 
 A component that renders an external link with the appropriate `rel` attribute option and an icon.
 
-```html
-<ExternalLink href="https://internetcomputer.org"
-  >internetcomputer.org</ExternalLink
->
+```javascript
+<ExternalLink href="https://internetcomputer.org">
+  internetcomputer.org
+</ExternalLink>
 ```
 
 ## Properties

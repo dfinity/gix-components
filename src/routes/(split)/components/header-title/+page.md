@@ -2,7 +2,7 @@
 
 An opinionated container to display a title in the nav header of the dapp.
 
-```html
+```javascript
 <HeaderTitle>Hello World 👋</HeaderTitle>
 ```
 

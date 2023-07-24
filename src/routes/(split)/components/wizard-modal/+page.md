@@ -23,44 +23,46 @@
 
 A wizard that finds place within a modal to guide the user through miscellaneous options and information to execute a final action.
 
-```html
+```javascript
 <script lang="ts">
-  let visible = false;
+    let visible = false;
 
-  const steps: WizardSteps = [
-    {
-      name: "EnterController",
-      title: "Enter a controller",
-    },
-    {
-      name: "ConfirmController",
-      title: "Confirm the controller",
-    },
-  ];
+    const steps: WizardSteps = [
+        {
+            name: "EnterController",
+            title: "Enter a controller",
+        },
+        {
+            name: "ConfirmController",
+            title: "Confirm the controller",
+        },
+    ];
 
-  let currentStep: WizardStep | undefined;
-  let modal: WizardModal;
+    let currentStep: WizardStep | undefined;
+    let modal: WizardModal;
 
-  const next = () => modal.next();
+    const next = () => modal.next();
 </script>
 
-<button on:click="{()" ="">
-  (visible = true)} class="primary"> Open modal
+<button on:click={() => (visible = true)} class="primary">
+  Open modal
 </button>
 
 {#if visible}
-<WizardModal {steps} bind:currentStep bind:this="{modal}" on:nnsClose="{()" ="">
-  (visible = false)}>
-  <svelte:fragment slot="title">My title</svelte:fragment>
+    <WizardModal {steps} bind:currentStep bind:this={modal} on:nnsClose={() => (visible = false)}>
+      <svelte:fragment slot="title">My title</svelte:fragment>
 
-  {#if currentStep?.name === "EnterController"}
-  <p>Step to enter the controller</p>
+      {#if currentStep?.name === "EnterController"}
+        <p>Step to enter the controller</p>
 
-  <button class="primary" on:click="{modal.next}">Next</button>
-  {/if} {#if currentStep?.name === "ConfirmController"}
-  <p>Step to confirm the controller</p>
-  {/if}
-</WizardModal>
+        <button class="primary" on:click={modal.next}>
+            Next
+        </button>
+      {/if}
+      {#if currentStep?.name === "ConfirmController"}
+        <p>Step to confirm the controller</p>
+      {/if}
+    </WizardModal>
 {/if}
 ```
 
