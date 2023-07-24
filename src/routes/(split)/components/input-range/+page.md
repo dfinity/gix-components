@@ -6,7 +6,7 @@
 
 The input range component is a wrapper to the HTML input of `type="range"`.
 
-```html
+```javascript
 <InputRange min="{0}" max="{50}" value="{10}" />
 ```
 

@@ -62,7 +62,7 @@ export const isMobile = (): boolean => {
   }
 
   const isTouchScreen: boolean = window.matchMedia(
-    "(any-pointer:coarse)"
+    "(any-pointer:coarse)",
   ).matches;
   const isMouseScreen: boolean =
     window.matchMedia("(any-pointer:fine)").matches;

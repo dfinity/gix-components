@@ -21,7 +21,7 @@ describe("KeyValuePairInfo", () => {
     });
 
     const button = getByTestId("key-value-pair-info-test")?.querySelector(
-      "div.wrapper > button"
+      "div.wrapper > button",
     ) as HTMLButtonElement | null;
     expect(button).not.toBeNull();
 
@@ -45,15 +45,15 @@ describe("KeyValuePairInfo", () => {
     });
 
     const button = getByTestId("key-value-pair-info-test")?.querySelector(
-      "div.wrapper > button"
+      "div.wrapper > button",
     ) as HTMLButtonElement;
 
     fireEvent.click(button);
 
     await waitFor(() =>
       expect(
-        getByTestId("collapsible-content")?.classList.contains("expanded")
-      ).toBeTruthy()
+        getByTestId("collapsible-content")?.classList.contains("expanded"),
+      ).toBeTruthy(),
     );
 
     await waitFor(() => expect(queryByText(info)).toBeVisible());
@@ -61,8 +61,8 @@ describe("KeyValuePairInfo", () => {
     fireEvent.click(button);
     await waitFor(() =>
       expect(
-        getByTestId("collapsible-content")?.classList.contains("expanded")
-      ).toBeFalsy()
+        getByTestId("collapsible-content")?.classList.contains("expanded"),
+      ).toBeFalsy(),
     );
   });
 });

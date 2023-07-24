@@ -14,9 +14,9 @@ export class IntersectionObserverActive implements IntersectionObserver {
   constructor(
     private callback: (
       entries: IntersectionObserverEntry[],
-      observer: IntersectionObserver
+      observer: IntersectionObserver,
     ) => void,
-    private options?: IntersectionObserverInit
+    private options?: IntersectionObserverInit,
   ) {}
 
   observe(element: HTMLElement) {
@@ -27,7 +27,7 @@ export class IntersectionObserverActive implements IntersectionObserver {
           target: element,
         } as unknown as IntersectionObserverEntry,
       ],
-      this
+      this,
     );
   }
   disconnect = () => null;

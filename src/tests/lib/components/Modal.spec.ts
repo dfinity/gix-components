@@ -38,10 +38,10 @@ describe("Modal", () => {
       container.querySelector('[role="dialog"]');
 
     expect(
-      dialog?.getAttribute("aria-labelledby")?.includes("modal-title-")
+      dialog?.getAttribute("aria-labelledby")?.includes("modal-title-"),
     ).toBeTruthy();
     expect(
-      dialog?.getAttribute("aria-describedby")?.includes("modal-content-")
+      dialog?.getAttribute("aria-describedby")?.includes("modal-content-"),
     ).toBeTruthy();
 
     const modalTitleId = dialog?.getAttribute("aria-labelledby") as string;

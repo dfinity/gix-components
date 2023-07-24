@@ -6,7 +6,7 @@
 
 Cards are surfaces that display content and optionally actions on a single topic. They often serve as an entry point to more detailed information.
 
-```html
+```javascript
 <Card>
   <h2 slot="start">Everything</h2>
   <h3 slot="end">on-chain</h3>

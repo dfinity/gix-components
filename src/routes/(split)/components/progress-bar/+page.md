@@ -6,7 +6,7 @@
 
 This component renders a native `progress HTML element to display an indicator showing the completion progress of a task.
 
-```html
+```javascript
 <ProgressBar max="{10}" value="{2}" />
 ```
 

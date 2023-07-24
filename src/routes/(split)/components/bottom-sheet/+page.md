@@ -9,7 +9,7 @@ Bottom sheets are surfaces containing supplementary content that are anchored to
 
 In GIX components, such dialogs are displayed with a `fixed` position on **mobile** devices only. On wider devices, their position is reverted to `relative` to integrate the content flow.
 
-```html
+```javascript
 <BottomSheet>
   <div>Some content</div>
 </BottomSheet>

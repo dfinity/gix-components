@@ -39,5 +39,5 @@ export default defineConfig(
       // Vitest issue: https://github.com/vitest-dev/vitest/issues/2834#issuecomment-1439576110
       alias: [{ find: /^svelte$/, replacement: "svelte/internal" }],
     },
-  })
+  }),
 );

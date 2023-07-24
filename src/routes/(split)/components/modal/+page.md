@@ -10,7 +10,7 @@
 
 A Modal is a dialog that appears on top of the app's content, and must be dismissed by the app before interaction can resume. It is useful as a select component when there are a lot of options to choose from, or when filtering items in a list, as well as many other use cases.
 
-```html
+```javascript
 <script lang="ts">
     let visible = false;
 </script>

@@ -10,14 +10,16 @@ Used to render multiple items with some information, an icon and actions for eac
 
 Mainly used in settings pages to render the properties and the actions alongside.
 
-```html
+```javascript
 <ItemAction>
   <img slot="icon" src="{icpLogo}" class="start" />
   <div class="content">
     <p>Unlocking</p>
     <p class="description">No age bonus</p>
   </div>
-  <button slot="actions" class="secondary">One action</button>
+  <button slot="actions" class="secondary">
+    One action
+  </button>
 </ItemAction>
 ```
 

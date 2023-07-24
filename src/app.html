@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -106,7 +106,7 @@
     <script>
       try {
         const isDarkPreferred = window.matchMedia(
-          "(prefers-color-scheme: dark)"
+          "(prefers-color-scheme: dark)",
         ).matches;
 
         const currentTheme =
@@ -118,7 +118,7 @@
 
         document.documentElement.setAttribute(
           "theme",
-          currentTheme ?? (isDarkPreferred ? "dark" : "light")
+          currentTheme ?? (isDarkPreferred ? "dark" : "light"),
         );
       } catch (error) {
         console.error("Error initializing theme", error);

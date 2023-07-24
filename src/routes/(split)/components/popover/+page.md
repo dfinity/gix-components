@@ -80,7 +80,7 @@ next to an anchor — commonly a button — which initiates its display.
 The popover placement will be below the anchor element, either from left to right (default)
 or from right to left.
 
-```html
+```javascript
 <script lang="ts">
     let visible = false;
     let button: HTMLButtonElement | undefined;

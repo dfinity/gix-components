@@ -7,7 +7,7 @@
 
 An opinionated container to render sections with a title, value, description and content.
 
-```html
+```javascript
 <!-- prettier-ignore -->
 <Section>
   <h3 slot="title">Section Title</h3>
@@ -81,7 +81,7 @@ The component is within a `div` with a background to highlight the component exa
 
 Below is the code for the real production example:
 
-```html
+```javascript
 <div class="wrapper">
   <!-- prettier-ignore -->
   <Section>

@@ -48,7 +48,7 @@ Likewise, if you wish to display some footer action, it is also recommended to u
 
 Example 1:
 
-```html
+```javascript
 <!-- Your dapp _layout.svelte -->
 <Layout>
   <content>
@@ -65,7 +65,7 @@ Example 1:
 
 Example 2:
 
-```html
+```javascript
 <!-- Your dapp _layout.svelte -->
 <Layout>
   <content>

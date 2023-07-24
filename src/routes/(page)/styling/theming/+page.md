@@ -5,7 +5,7 @@ Two themes - `dark` and `light` - are provided, `dark` being the default theme.
 A particular mode can be defined by setting a corresponding attribute `theme` on the root `html` element.
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" theme="dark"></html>
 ```
 
@@ -13,7 +13,7 @@ A particular mode can be defined by setting a corresponding attribute `theme` on
 
 To init the theme as fast as possible, and therefore to avoid FOUC, we advise to add the following code snippet in your HTML pages.
 
-```html
+```javascript
 <!-- Init theme as fast as possible -->
 <script>
   try {

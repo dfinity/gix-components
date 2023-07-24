@@ -12,7 +12,7 @@ describe("SkeletonText", () => {
     const { getByTestId } = render(SkeletonText, { props: { animated: true } });
 
     expect(
-      getByTestId("skeleton-text").classList.contains("animated")
+      getByTestId("skeleton-text").classList.contains("animated"),
     ).toBeTruthy();
   });
 

@@ -4,7 +4,7 @@ import { nonNullish } from "@dfinity/utils";
 
 export const debounce = (
   func: (...args: unknown[]) => unknown,
-  timeout?: number
+  timeout?: number,
 ) => {
   let timer: NodeJS.Timer | undefined;
 
@@ -17,7 +17,7 @@ export const debounce = (
 
     timer = setTimeout(
       next,
-      nonNullish(timeout) && timeout > 0 ? timeout : 300
+      nonNullish(timeout) && timeout > 0 ? timeout : 300,
     );
   };
 };

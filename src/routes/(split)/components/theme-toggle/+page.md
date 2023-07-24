@@ -6,7 +6,7 @@
 
 In addition to [theming](/styling/theming) we also provide an opinionated toggle to integrate easily a theme switcher in your dapp.
 
-```html
+```javascript
 <ThemeToggle />
 ```
 

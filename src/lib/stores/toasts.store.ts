@@ -41,7 +41,7 @@ const initToastsStore = (): ToastsStore => {
 
     hide(idToHide: symbol) {
       update((messages: ToastMsg[]) =>
-        messages.filter(({ id }) => id !== idToHide)
+        messages.filter(({ id }) => id !== idToHide),
       );
     },
 
@@ -62,14 +62,14 @@ const initToastsStore = (): ToastsStore => {
             ...message,
             ...content,
           };
-        })
+        }),
       );
     },
 
     reset(levels?: ToastLevel[]) {
       if (nonNullish(levels) && levels.length > 0) {
         update((messages: ToastMsg[]) =>
-          messages.filter(({ level }) => !levels.includes(level))
+          messages.filter(({ level }) => !levels.includes(level)),
         );
         return;
       }

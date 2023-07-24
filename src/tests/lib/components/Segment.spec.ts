@@ -28,7 +28,7 @@ describe("Segment", () => {
     const { container } = renderSegment();
 
     const button = container.querySelector(
-      '[data-tid="segment-button"]:first-of-type'
+      '[data-tid="segment-button"]:first-of-type',
     );
     expect(button).not.toBeNull();
     expect(button?.classList.contains("selected")).toBeTruthy();
@@ -38,14 +38,14 @@ describe("Segment", () => {
     const { container } = renderSegment();
 
     const button = container.querySelector(
-      "div.segment-button:nth-of-type(3) button"
+      "div.segment-button:nth-of-type(3) button",
     ) as HTMLButtonElement;
     expect(button).not.toBeNull();
 
     await fireEvent.click(button);
 
     await waitFor(() =>
-      expect(button?.classList.contains("selected")).toBeTruthy()
+      expect(button?.classList.contains("selected")).toBeTruthy(),
     );
   });
 });
