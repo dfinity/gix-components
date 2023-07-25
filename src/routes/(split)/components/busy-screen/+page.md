@@ -23,7 +23,7 @@
 
 A BusyScreen is a screen that displays a spinning loader and corresponding message (if available), while an application is loading content or performing another process. The component has an absolute centered positioning with a faded overlay.
 
-```html
+```javascript
 <BusyScreen />
 ```
 

@@ -1,0 +1,30 @@
+name: Deploy to Juno
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy to Juno
+        uses: buildwithjuno/juno-action@main
+        with:
+          args: deploy
+        env:
+          JUNO_TOKEN: ${{ secrets.JUNO_TOKEN }}

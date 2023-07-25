@@ -15,7 +15,7 @@ describe("Toasts", () => {
 
   const waitForDialog = async (container: HTMLElement) =>
     await waitFor(() =>
-      expect(container.querySelector("div.toast")).not.toBeNull()
+      expect(container.querySelector("div.toast")).not.toBeNull(),
     );
 
   it("should display a toast", async () => {
@@ -63,7 +63,7 @@ describe("Toasts", () => {
     toastsStore.show({ text: "Test", level: "error" });
 
     await waitFor(() =>
-      expect(container.querySelectorAll("div.toast").length).toEqual(3)
+      expect(container.querySelectorAll("div.toast").length).toEqual(3),
     );
   });
 
@@ -83,7 +83,7 @@ describe("Toasts", () => {
     toastsStore.show({ text: "Test", level: "error", position: "top" });
 
     await waitFor(() =>
-      expect(container.querySelectorAll("div.toast").length).toEqual(2)
+      expect(container.querySelectorAll("div.toast").length).toEqual(2),
     );
   });
 });

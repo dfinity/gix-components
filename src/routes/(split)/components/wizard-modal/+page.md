@@ -23,7 +23,7 @@
 
 A wizard that finds place within a modal to guide the user through miscellaneous options and information to execute a final action.
 
-```html
+```javascript
 <script lang="ts">
     let visible = false;
 

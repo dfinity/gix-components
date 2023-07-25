@@ -7,7 +7,7 @@
 
 The input component is a wrapper to the HTML input element with custom styling and additional functionality.
 
-```html
+```javascript
 <input placeholder="An input" />
 <input placeholder="An text" inputType="text" value="Hello World" />
 ```

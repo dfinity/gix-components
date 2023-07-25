@@ -8,7 +8,7 @@
 
 The copy component will copy a given text value using the native asynchronous [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText).
 
-```html
+```javascript
 <Copy value="{copyString}" />
 ```
 

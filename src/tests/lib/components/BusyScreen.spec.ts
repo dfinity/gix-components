@@ -9,7 +9,7 @@ describe("BusyScreen", () => {
     const { container } = render(BusyScreen);
     startBusy({ initiator: "stake-neuron" });
     await waitFor(() =>
-      expect(container.querySelector("svg")).toBeInTheDocument()
+      expect(container.querySelector("svg")).toBeInTheDocument(),
     );
   });
 });

@@ -7,6 +7,7 @@
   export let preventDefault = false;
   export let disabled = false;
   export let text: "block" | "inline" = "inline";
+  export let testId: string | undefined = undefined;
 
   const dispatch = createEventDispatcher();
 
@@ -31,6 +32,7 @@
   class="checkbox"
   class:disabled
   role="button"
+  data-tid={testId}
 >
   <label for={inputId} class={text}><slot /></label>
   <input

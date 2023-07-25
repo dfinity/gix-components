@@ -1,17 +1,17 @@
-const url = "https://ipi2f-uqaaa-aaaad-aabza-cai.ic0.app";
+const url = "https://gix.design";
 
 const staticPages = Object.keys(
-  import.meta.glob("/src/routes/**/+page.(svelte|md)")
+  import.meta.glob("/src/routes/**/+page.(svelte|md)"),
 )
   .filter(
     (page) =>
-      !["/src/routes/+page.svelte"].find((filter) => page.includes(filter))
+      !["/src/routes/+page.svelte"].find((filter) => page.includes(filter)),
   )
   .map((page) =>
     page
       .replace("/src/routes", url)
       .replace("/+page.svelte", ".html")
-      .replace("/+page.md", ".html")
+      .replace("/+page.md", ".html"),
   );
 
 export const prerender = true;
@@ -44,10 +44,10 @@ export const GET = async (): Promise<Response> => {
         <changefreq>daily</changefreq>
         <priority>0.7</priority>
         <lastmod>${`${process.env.VITE_BUILD_TIME}`}</lastmod>
-      </url>`
+      </url>`,
         )
         .join("")}
     </urlset>`,
-    { headers: headers }
+    { headers: headers },
   );
 };

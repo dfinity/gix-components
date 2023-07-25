@@ -18,7 +18,7 @@
     stroke-width="1.5"
   />
   <path
-    d="M13 3V3C13 1.89543 12.1046 1 11 1H9C7.89543 1 7 1.89543 7 3V7"
+    d="M13 7V3C13 1.89543 12.1046 1 11 1H9C7.89543 1 7 1.89543 7 3V7"
     stroke-width="1.5"
   />
   <circle cx="10" cy="12" r="1" fill="currentColor" />

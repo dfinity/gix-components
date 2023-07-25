@@ -12,7 +12,7 @@ Collapsible is an accordion element that expands when clicked on. They allow you
 
 # Usage
 
-```html
+```javascript
 <Collapsible iconSize="medium">
   <div slot="header">About smart contracts</div>
   <p>
@@ -24,7 +24,7 @@ Collapsible is an accordion element that expands when clicked on. They allow you
 
 #### With an external button
 
-```html
+```javascript
 <script>
   let toggleContent: Function;
 </script>

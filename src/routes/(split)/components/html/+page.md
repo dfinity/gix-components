@@ -6,7 +6,7 @@
 
 Html component sanitizes the provided text and renders HTML directly into a component using `{@html ...}` tag.
 
-```html
+```javascript
 <Html text="Valid HTML: <a target="_blank" href="/">A link</a>." />
 
 <html text="Dangerous HTML: <img src=x onerror=alert('HTML')//>." />

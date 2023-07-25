@@ -6,14 +6,16 @@
 
 As [KeyValuePair](/components/key-value), this component renders a value and a label but, in addition, also displays a related information that is per default hidden and can be displayed by a click on an information icon.
 
-```html
+```javascript
 <KeyValuePairInfo>
   <svelte:fragment slot="key">How many apples?</svelte:fragment>
-  <span slot="value" class="value">8</span>
-  <svelte:fragment slot="info"
-    >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lacinia
-    turpis mi, a facilisis risus elementum eu.</svelte:fragment
-  >
+  <span slot="value" class="value">
+    8
+  </span>
+  <svelte:fragment slot="info">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lacinia
+    turpis mi, a facilisis risus elementum eu.
+  </svelte:fragment>
 </KeyValuePairInfo>
 ```
 

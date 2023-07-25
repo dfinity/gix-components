@@ -14,8 +14,9 @@ test("Second step is in progress", async ({ page }) => {
   await showcase.scrollIntoViewIfNeeded();
 
   // Hide spinner to avoid test failing if not exact same timing
-  await page.evaluate(() =>
-    document.querySelector(".spinner")?.setAttribute("style", "opacity: 0;")
+  await page.evaluate(
+    () =>
+      document.querySelector(".spinner")?.setAttribute("style", "opacity: 0;"),
   );
 
   await expect(page).toHaveScreenshot();

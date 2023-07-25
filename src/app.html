@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -15,7 +15,7 @@
     <meta http-equiv="Expires" content="0" />
 
     <title>GIX Components</title>
-    <link href="https://ipi2f-uqaaa-aaaad-aabza-cai.ic0.app" rel="canonical" />
+    <link href="https://gix.design" rel="canonical" />
     <meta content="A UI kit developed by the GIX team" name="description" />
     <meta content="GIX Components" property="og:title" />
     <meta
@@ -23,12 +23,9 @@
       property="og:description"
     />
     <meta content="website" property="og:type" />
+    <meta content="https://gix.design" property="og:url" />
     <meta
-      content="https://ipi2f-uqaaa-aaaad-aabza-cai.ic0.app"
-      property="og:url"
-    />
-    <meta
-      content="https://ipi2f-uqaaa-aaaad-aabza-cai.ic0.app/assets/images/social-image.jpg"
+      content="https://gix.design/assets/images/social-image.jpg"
       property="og:image"
     />
     <meta content="summary_large_image" name="twitter:card" />
@@ -38,7 +35,7 @@
       name="twitter:description"
     />
     <meta
-      content="https://ipi2f-uqaaa-aaaad-aabza-cai.ic0.app/assets/images/social-image.jpg"
+      content="https://gix.design/assets/images/social-image.jpg"
       name="twitter:image"
     />
     <meta content="@dfinity" name="twitter:creator" />
@@ -109,7 +106,7 @@
     <script>
       try {
         const isDarkPreferred = window.matchMedia(
-          "(prefers-color-scheme: dark)"
+          "(prefers-color-scheme: dark)",
         ).matches;
 
         const currentTheme =
@@ -121,7 +118,7 @@
 
         document.documentElement.setAttribute(
           "theme",
-          currentTheme ?? (isDarkPreferred ? "dark" : "light")
+          currentTheme ?? (isDarkPreferred ? "dark" : "light"),
         );
       } catch (error) {
         console.error("Error initializing theme", error);

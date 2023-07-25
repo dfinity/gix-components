@@ -8,7 +8,7 @@
 
 Dropdown are form controls to select an option, or options, from a set of options. It renders a native `<select>` element. When a user taps the select, a native dialog appears with all of the options.
 
-```html
+```javascript
 <Dropdown name="demo" bind:selectedValue="{demoValue}">
   <DropdownItem value="1">Option 1</DropdownItem>
   <DropdownItem value="2">Option 2</DropdownItem>
