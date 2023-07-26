@@ -10,7 +10,7 @@
     </div>
     <slot />
   </div>
-  <div class="actions">
+  <div>
     <slot name="actions" />
   </div>
 </svelte:element>
@@ -49,12 +49,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-    }
-
-    .actions {
-      display: flex;
-      flex-direction: column;
-      align-items: stretch;
     }
   }
 </style>
