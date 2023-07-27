@@ -9,6 +9,7 @@ export { default as IconClockNoFill } from "./icons/IconClockNoFill.svelte";
 export { default as IconClose } from "./icons/IconClose.svelte";
 export { default as IconCopy } from "./icons/IconCopy.svelte";
 export { default as IconDarkMode } from "./icons/IconDarkMode.svelte";
+export { default as IconDissolving } from "./icons/IconDissolving.svelte";
 export { default as IconEast } from "./icons/IconEast.svelte";
 export { default as IconError } from "./icons/IconError.svelte";
 export { default as IconExpandCircleDown } from "./icons/IconExpandCircleDown.svelte";
