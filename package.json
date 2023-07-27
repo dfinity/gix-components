@@ -34,7 +34,7 @@
     "LICENSE"
   ],
   "devDependencies": {
-    "@playwright/test": "^1.36.1",
+    "@playwright/test": "^1.37.0-alpha-jul-27-2023",
     "@sveltejs/adapter-static": "^2.0.2",
     "@sveltejs/kit": "^1.18.0",
     "@sveltejs/package": "^2.0.2",
