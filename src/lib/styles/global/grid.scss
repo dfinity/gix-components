@@ -7,11 +7,11 @@
   grid-auto-rows: 1fr;
 
   @include media.min-width(medium) {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, calc((100% - var(--padding-2x)) / 2));
   }
 
-  @include media.min-width(large) {
-    grid-template-columns: 1fr 1fr 1fr;
+  @include media.min-width(xlarge) {
+    grid-template-columns: repeat(3, calc((100% - var(--padding-4x)) / 3));
   }
 
   :global(.card) {
