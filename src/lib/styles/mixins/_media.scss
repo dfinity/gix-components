@@ -1,8 +1,8 @@
 $breakpoint-xsmall: 320px;
 $breakpoint-small: 576px;
 $breakpoint-medium: 768px;
-$breakpoint-large: 1024px;
-$breakpoint-extra-large: 1300px;
+$breakpoint-large: 992px;
+$breakpoint-extra-large: 1200px;
 
 @mixin min-width($breakpoint) {
   @if ($breakpoint == xsmall) {
