@@ -5,8 +5,6 @@
   import IconCheckCircle from "$lib/icons/IconCheckCircle.svelte";
   import { nonNullish } from "@dfinity/utils";
 
-  export let role: "link" | "button" | "checkbox" | "radio" | undefined =
-    undefined;
   export let ariaLabel: string | undefined = undefined;
   export let selected = false;
   export let disabled: boolean | undefined = undefined;
@@ -14,18 +12,17 @@
   export let icon: "arrow" | "expand" | "check" | undefined = undefined;
   export let theme: "transparent" | "framed" | "highlighted" | undefined =
     undefined;
+  export let readonly = false;
+  export let href: string | undefined;
+
+  let container: "article" | "a" = "article";
+  $: container = nonNullish(href) ? "a" : "article";
 
   let clickable = false;
-
-  $: clickable = nonNullish(role)
-    ? ["button", "link", "checkbox", "radio"].includes(role)
-    : false;
+  $: clickable = !readonly;
 
   let showHeadline: boolean;
   $: showHeadline = nonNullish($$slots.start) || nonNullish($$slots.end);
-
-  let ariaChecked: boolean | undefined = undefined;
-  $: ariaChecked = role === "checkbox" ? selected : undefined;
 
   let iconCmp: typeof SvelteComponent | undefined = undefined;
 
@@ -44,9 +41,10 @@
   })();
 </script>
 
-<article
+<svelte:element
+  this={container}
+  {href}
   data-tid={testId}
-  {role}
   on:click
   class={`card ${theme ?? ""}`}
   class:clickable
@@ -54,7 +52,6 @@
   class:selected
   class:disabled
   aria-disabled={disabled}
-  aria-checked={ariaChecked}
   aria-label={ariaLabel}
 >
   {#if nonNullish(iconCmp)}
@@ -69,7 +66,7 @@
   {/if}
 
   <slot />
-</article>
+</svelte:element>
 
 <style lang="scss">
   @use "../styles/mixins/interaction";
@@ -77,7 +74,7 @@
   @use "../styles/mixins/display";
   @use "../styles/mixins/card";
 
-  article {
+  .card {
     display: flex;
     flex-direction: column;
 
