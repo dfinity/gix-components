@@ -20,15 +20,15 @@ Cards are surfaces that display content and optionally actions on a single topic
 
 ## Properties
 
-| Property    | Description                                                                                    | Type                                                        | Default     |
-| ----------- | ---------------------------------------------------------------------------------------------- |-------------------------------------------------------------| ----------- |
-| `role`      | The semantic role of the `article` that will be rendered in the DOM when using this component. | `link` or `button` or `checkbox` or `radio` or `undefined`  | `undefined` |
-| `ariaLabel` | An accessible label for the card.                                                              | `string` or `undefined`                                     | `undefined` |
-| `selected`  | Display the surface as `selected`. Useful if used as a on/off call to action.                  | `boolean`                                                   | `false`     |
-| `disabled`  | Disable clickable events.                                                                      | `boolean` or `undefined`                                    | `undefined` |
-| `testId`    | Add a `data-tid` attribute to the DOM, useful for test purpose.                                | `string`                                                    | `card`      |
-| `theme`     | Display a particular theme for surface of the card.                                            | `highlighted` or `transparent` or `framed` or `undefined`   | `undefined` |
-| `icon`      | Render an icon / call to action next within the card on the right side.                        | `expand` or `check` or `undefined`                          | `undefined` |
+| Property    | Description                                                                                    | Type                                                       | Default     |
+| ----------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------- |
+| `role`      | The semantic role of the `article` that will be rendered in the DOM when using this component. | `link` or `button` or `checkbox` or `radio` or `undefined` | `undefined` |
+| `ariaLabel` | An accessible label for the card.                                                              | `string` or `undefined`                                    | `undefined` |
+| `selected`  | Display the surface as `selected`. Useful if used as a on/off call to action.                  | `boolean`                                                  | `false`     |
+| `disabled`  | Disable clickable events.                                                                      | `boolean` or `undefined`                                   | `undefined` |
+| `testId`    | Add a `data-tid` attribute to the DOM, useful for test purpose.                                | `string`                                                   | `card`      |
+| `theme`     | Display a particular theme for surface of the card.                                            | `highlighted` or `transparent` or `framed` or `undefined`  | `undefined` |
+| `icon`      | Render an icon / call to action next within the card on the right side.                        | `expand` or `check` or `undefined`                         | `undefined` |
 
 ## Slots
 
