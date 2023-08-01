@@ -8,7 +8,7 @@
     margin: 0;
     color: var(--body-color);
 
-    @include media.min-width(xlarge) {
+    @include media.min-width(large) {
       color: var(--content-color);
     }
 

@@ -43,8 +43,8 @@
       var(--menu-logo-height) + var(--padding-4x) + var(--header-offset, 0px)
     );
 
-    // Shift the menu on xlarge screen e.g. if a banner is displayed
-    @include media.min-width(xlarge) {
+    // Shift the menu on large screen e.g. if a banner is displayed
+    @include media.min-width(large) {
       padding-top: calc(
         var(--menu-logo-height) + var(--padding-3x) + var(--header-offset, 0px)
       );
@@ -66,8 +66,8 @@
     margin-left: -100%;
 
     &.sticky {
-      // On xlarge screen the menu can be always open
-      @include media.min-width(xlarge) {
+      // On large screen the menu can be always open
+      @include media.min-width(large) {
         width: var(--menu-width);
         margin-left: 0;
       }
@@ -83,10 +83,10 @@
         var(--menu-animation-timing-function),
       width var(--animation-time-normal) var(--menu-animation-timing-function);
 
-    // On xlarge screen the header is not sticky but within the content that's why we align the inner menu start
+    // On large screen the header is not sticky but within the content that's why we align the inner menu start
     box-sizing: border-box;
 
-    @include media.min-width(xlarge) {
+    @include media.min-width(large) {
       padding-top: var(--padding-4x);
     }
   }

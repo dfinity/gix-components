@@ -147,35 +147,6 @@ List of the mixins:
 
 </div>
 
-<p style="padding: var(--padding-4x) 0 var(--padding);">Icons:</p>
-
-<div class="card-grid" style="margin-top: var(--padding)">
-    <Card icon="arrow">
-        <h3>Arrow</h3>
-
-        <p>Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>
-    </Card>
-
-    <Card icon="check">
-        <h3>Checkmark</h3>
-
-        <p>Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>
-    </Card>
-
-    <Card icon="check" selected>
-        <h3>Checkmark and selected</h3>
-
-        <p>Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>
-    </Card>
-
-    <Card icon="expand">
-        <h3>Expand</h3>
-
-        <p>Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>
-    </Card>
-
-</div>
-
 <style lang="scss">
   @use "../../../../lib/styles/mixins/card";
 

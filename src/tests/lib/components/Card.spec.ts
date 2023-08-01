@@ -34,15 +34,6 @@ describe("Card", () => {
       article && fireEvent.click(article);
     }));
 
-  it("should render an icon", () => {
-    const { container } = render(Card, {
-      props: { icon: "arrow" },
-    });
-
-    const arrow = container.querySelector("svg");
-    expect(arrow).not.toBeNull();
-  });
-
   it("should has a clickable style", () => {
     const { container } = render(Card, {
       props: { role: "radio" },

@@ -3,14 +3,14 @@
 
   let innerWidth = 0;
 
-  // Close menu if it was opened and the viewport width becomes larger than xlarge screen (where the menu becomes sticky)
+  // Close menu if it was opened and the viewport width becomes larger than large screen (where the menu becomes sticky)
   const onWindowSizeChange = (innerWidth: number) => {
     if (!$layoutMenuOpen) {
       return;
     }
 
-    // The media query breakpoint to stick the menu is media xlarge 1300px
-    layoutMenuOpen.set(innerWidth > 1300 ? false : $layoutMenuOpen);
+    // The media query breakpoint to stick the menu is media large 1024px
+    layoutMenuOpen.set(innerWidth > 1024 ? false : $layoutMenuOpen);
   };
 
   $: onWindowSizeChange(innerWidth);
@@ -48,7 +48,7 @@
       z-index: var(--menu-z-index);
     }
 
-    @include media.min-width(xlarge) {
+    @include media.min-width(large) {
       padding-top: var(--header-offset, 0px);
 
       :global(header) {

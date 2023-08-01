@@ -7,11 +7,11 @@
   grid-auto-rows: 1fr;
 
   @include media.min-width(medium) {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, calc((100% - var(--padding-2x)) / 2));
   }
 
   @include media.min-width(xlarge) {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, calc((100% - var(--padding-4x)) / 3));
   }
 
   :global(.card) {
@@ -40,7 +40,7 @@
       "content-c content-c content-c content-c content-c content-c content-d content-d content-d content-d content-d content-d";
   }
 
-  @include media.min-width(xlarge) {
+  @include media.min-width(large) {
     grid-template-areas:
       "content-a content-a content-a content-a content-a content-a content-b content-b content-b content-b content-b content-b"
       "content-c content-c content-c content-c content-c content-c content-d content-d content-d content-d content-d content-d";

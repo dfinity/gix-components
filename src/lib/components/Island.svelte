@@ -41,7 +41,8 @@
 
       border-radius: var(--border-radius-2x);
 
-      width: var(--island-max-width);
+      width: var(--island-width);
+      max-width: var(--island-max-width);
       height: calc(100% - var(--header-height) - var(--padding-2x));
 
       margin-top: var(--padding-2x);

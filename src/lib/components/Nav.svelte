@@ -19,7 +19,7 @@
       --nav-padding-top: var(--padding-4x);
     }
 
-    @include media.min-width(xlarge) {
+    @include media.min-width(large) {
       --nav-padding-top: var(--padding-2x);
     }
   }
