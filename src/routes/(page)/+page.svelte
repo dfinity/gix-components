@@ -1,6 +1,5 @@
 <script>
   import Card from "$lib/components/Card.svelte";
-  import { goto } from "$app/navigation";
 </script>
 
 <h1>GIX Components</h1>
@@ -8,7 +7,7 @@
 <p>A UI kit developed by the GIX team.</p>
 
 <div class="card-grid">
-  <Card role="link" on:click={() => goto("/start")}>
+  <Card href="/start">
     <h2 class="title" slot="start">Getting Started</h2>
 
     <p>
@@ -18,7 +17,7 @@
     </p>
   </Card>
 
-  <Card role="link" on:click={() => goto("/components")}>
+  <Card href="/components">
     <h2 class="title" slot="start">Components</h2>
 
     <p>
@@ -26,7 +25,7 @@
     </p>
   </Card>
 
-  <Card role="link" on:click={() => goto("/utility-classes")}>
+  <Card href="/utility-classes">
     <h2 class="title" slot="start">Utility Classes</h2>
 
     <p>
@@ -34,13 +33,13 @@
     </p>
   </Card>
 
-  <Card role="link" on:click={() => goto("/styling")}>
+  <Card href="/styling">
     <h2 class="title" slot="start">Styling</h2>
 
     <p>Information and guidelines regarding global styling.</p>
   </Card>
 
-  <Card role="link" on:click={() => goto("/icons")}>
+  <Card href="/icons">
     <h2 class="title" slot="start">Icons</h2>
 
     <p>
@@ -49,7 +48,7 @@
     </p>
   </Card>
 
-  <Card role="link" on:click={() => goto("/resources")}>
+  <Card href="/resources">
     <h2 class="title" slot="start">Resources</h2>
 
     <p>Useful resources and links.</p>
