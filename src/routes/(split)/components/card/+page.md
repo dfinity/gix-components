@@ -28,7 +28,7 @@ Cards are surfaces that display content and optionally actions on a single topic
 | `disabled`  | Disable clickable events.                                                                         | `boolean` or `undefined`                                  | `undefined` |
 | `testId`    | Add a `data-tid` attribute to the DOM, useful for test purpose.                                   | `string`                                                  | `card`      |
 | `theme`     | Display a particular theme for surface of the card.                                               | `highlighted` or `transparent` or `framed` or `undefined` | `undefined` |
-| `icon`      | Render an icon / call to action next within the card on the right side.                           | `expand` or `check` or `undefined`             | `undefined` |
+| `icon`      | Render an icon / call to action next within the card on the right side.                           | `expand` or `check` or `undefined`                        | `undefined` |
 | `href`      | If the card should behave as a link, use this property to specify the URL of the linked resource. | `string` or `undefined`                                   | `undefined` |
 
 ### Notes
