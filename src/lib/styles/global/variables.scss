@@ -37,7 +37,8 @@
   --bottom-sheet-z-index: calc(var(--overlay-z-index) + 2);
 
   --section-max-width: 800px;
-  --island-max-width: 768px;
+  --island-width: 768px;
+  --island-max-width: calc(100% - var(--padding-6x));
   --footer-height: calc(12vh + var(--padding));
 
   --animation-time-normal: 0.2s;

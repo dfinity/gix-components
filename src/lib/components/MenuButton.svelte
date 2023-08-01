@@ -25,7 +25,7 @@
 
   button.icon-only {
     // On large screen the menu is sticky therefore it cannot be opened or closed
-    @include media.min-width(xlarge) {
+    @include media.min-width(large) {
       display: none;
     }
 
