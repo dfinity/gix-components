@@ -9,6 +9,17 @@ describe("Card", () => {
     expect(article).not.toBeNull();
   });
 
+  it("should render a link", () => {
+    const { container } = render(Card, {
+      props: {
+        href: "https://nns.internetcomputer.org",
+      },
+    });
+
+    const link = container.querySelector("a");
+    expect(link).not.toBeNull();
+  });
+
   it("should article with role and aria-label", () => {
     const role = "button";
     const ariaLabel = "go away";
@@ -45,11 +56,20 @@ describe("Card", () => {
 
   it("should has a clickable style", () => {
     const { container } = render(Card, {
-      props: { role: "radio" },
+      props: { role: "button" },
     });
 
     const article = container.querySelector(".clickable");
     expect(article).not.toBeNull();
+  });
+
+  it("should has a clickable style for link too", () => {
+    const { container } = render(Card, {
+      props: { href: "https://nns.internetcomputer.org" },
+    });
+
+    const a = container.querySelector(".clickable");
+    expect(a).not.toBeNull();
   });
 
   it("should apply a theme style", () => {

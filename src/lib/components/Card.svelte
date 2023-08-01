@@ -3,7 +3,7 @@
   import type { SvelteComponent } from "svelte";
   import IconExpandMore from "$lib/icons/IconExpandMore.svelte";
   import IconCheckCircle from "$lib/icons/IconCheckCircle.svelte";
-  import { isNullish, nonNullish } from "@dfinity/utils";
+  import { nonNullish } from "@dfinity/utils";
   import { createEventDispatcher } from "svelte";
 
   export let role: "button" | "checkbox" | undefined = undefined;
@@ -19,8 +19,8 @@
   let container: "article" | "a" = "article";
   $: container = nonNullish(href) ? "a" : "article";
 
-  let interactive = false;
-  $: interactive = nonNullish(href) || nonNullish(role);
+  let clickable = false;
+  $: clickable = nonNullish(href) || nonNullish(role);
 
   let showHeadline: boolean;
   $: showHeadline = nonNullish($$slots.start) || nonNullish($$slots.end);
@@ -47,7 +47,7 @@
   const dispatch = createEventDispatcher();
 
   const onClick = ({ detail }: CustomEvent<unknown>) => {
-    if (interactive && nonNullish(href)) {
+    if (clickable && nonNullish(href)) {
       return;
     }
 
@@ -62,7 +62,7 @@
   data-tid={testId}
   on:click={onClick}
   class={`card ${theme ?? ""}`}
-  class:interactive
+  class:clickable
   class:icon={nonNullish(icon)}
   class:selected
   class:disabled
@@ -169,7 +169,7 @@
     }
   }
 
-  .interactive {
+  .clickable {
     @include interaction.tappable;
 
     &.disabled {
@@ -185,7 +185,7 @@
       background: var(--card-background);
     }
 
-    &.interactive {
+    &.clickable {
       &:not([disabled]):hover,
       &:not([disabled]):focus {
         background: var(--card-background-shade);
@@ -208,7 +208,7 @@
       border: 2px solid var(--primary);
     }
 
-    &.interactive {
+    &.clickable {
       &:not([disabled]):hover,
       &:not([disabled]):focus {
         background: var(--input-background);
