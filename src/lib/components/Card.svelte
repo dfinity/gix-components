@@ -46,12 +46,12 @@
 
   const dispatch = createEventDispatcher();
 
-  const onClick = ({ detail }: CustomEvent<unknown>) => {
+  const onClick = ($event: MouseEvent | KeyboardEvent) => {
     if (clickable && nonNullish(href)) {
       return;
     }
 
-    dispatch("click", detail);
+    dispatch("click", $event?.detail);
   };
 </script>
 
