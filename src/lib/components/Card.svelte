@@ -47,7 +47,7 @@
   const dispatch = createEventDispatcher();
 
   const onClick = ({ detail }: CustomEvent<unknown>) => {
-    if (interactive && isNullish(href)) {
+    if (interactive && nonNullish(href)) {
       return;
     }
 
