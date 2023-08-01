@@ -3,7 +3,8 @@
   import type { SvelteComponent } from "svelte";
   import IconExpandMore from "$lib/icons/IconExpandMore.svelte";
   import IconCheckCircle from "$lib/icons/IconCheckCircle.svelte";
-  import { nonNullish } from "@dfinity/utils";
+  import { isNullish, nonNullish } from "@dfinity/utils";
+  import { createEventDispatcher } from "svelte";
 
   export let ariaLabel: string | undefined = undefined;
   export let selected = false;
@@ -12,8 +13,8 @@
   export let icon: "arrow" | "expand" | "check" | undefined = undefined;
   export let theme: "transparent" | "framed" | "highlighted" | undefined =
     undefined;
-  export let clickable = true;
-  export let href: string | undefined;
+  export let interactive = true;
+  export let href: string | undefined = undefined;
 
   let container: "article" | "a" = "article";
   $: container = nonNullish(href) ? "a" : "article";
@@ -36,15 +37,29 @@
         break;
     }
   })();
+
+  const dispatch = createEventDispatcher();
+
+  const onClick = ({ detail }: CustomEvent<unknown>) => {
+    if (!button) {
+      return;
+    }
+
+    dispatch("click", detail);
+  };
+
+  let button = true;
+  $: button = interactive && isNullish(href);
 </script>
 
 <svelte:element
   this={container}
   {href}
+  role={button ? "button" : undefined}
   data-tid={testId}
-  on:click
+  on:click={onClick}
   class={`card ${theme ?? ""}`}
-  class:clickable
+  class:interactive
   class:icon={nonNullish(icon)}
   class:selected
   class:disabled
@@ -150,7 +165,7 @@
     }
   }
 
-  .clickable {
+  .interactive {
     @include interaction.tappable;
 
     &.disabled {
@@ -166,7 +181,7 @@
       background: var(--card-background);
     }
 
-    &.clickable {
+    &.interactive {
       &:not([disabled]):hover,
       &:not([disabled]):focus {
         background: var(--card-background-shade);
@@ -189,7 +204,7 @@
       border: 2px solid var(--primary);
     }
 
-    &.clickable {
+    &.interactive {
       &:not([disabled]):hover,
       &:not([disabled]):focus {
         background: var(--input-background);
