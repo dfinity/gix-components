@@ -12,14 +12,11 @@
   export let icon: "arrow" | "expand" | "check" | undefined = undefined;
   export let theme: "transparent" | "framed" | "highlighted" | undefined =
     undefined;
-  export let readonly = false;
+  export let clickable = true;
   export let href: string | undefined;
 
   let container: "article" | "a" = "article";
   $: container = nonNullish(href) ? "a" : "article";
-
-  let clickable = false;
-  $: clickable = !readonly;
 
   let showHeadline: boolean;
   $: showHeadline = nonNullish($$slots.start) || nonNullish($$slots.end);
