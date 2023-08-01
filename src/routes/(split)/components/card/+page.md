@@ -28,7 +28,7 @@ Cards are surfaces that display content and optionally actions on a single topic
 | `disabled`  | Disable clickable events.                                                                         | `boolean` or `undefined`                                  | `undefined` |
 | `testId`    | Add a `data-tid` attribute to the DOM, useful for test purpose.                                   | `string`                                                  | `card`      |
 | `theme`     | Display a particular theme for surface of the card.                                               | `highlighted` or `transparent` or `framed` or `undefined` | `undefined` |
-| `icon`      | Render an icon / call to action next within the card on the right side.                           | `arrow` or `expand` or `check` or `undefined`             | `undefined` |
+| `icon`      | Render an icon / call to action next within the card on the right side.                           | `expand` or `check` or `undefined`             | `undefined` |
 | `href`      | If the card should behave as a link, use this property to specify the URL of the linked resource. | `string` or `undefined`                                   | `undefined` |
 
 ### Notes
@@ -146,6 +146,29 @@ List of the mixins:
 
     <Card theme="framed">
         <h3>Button</h3>
+
+        <p>Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>
+    </Card>
+
+</div>
+
+<p style="padding: var(--padding-4x) 0 var(--padding);">Icons:</p>
+
+<div class="card-grid" style="margin-top: var(--padding)">
+    <Card icon="check">
+        <h3>Checkmark</h3>
+
+        <p>Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>
+    </Card>
+
+    <Card icon="check" selected>
+        <h3>Checkmark and selected</h3>
+
+        <p>Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>
+    </Card>
+
+    <Card icon="expand">
+        <h3>Expand</h3>
 
         <p>Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>
     </Card>

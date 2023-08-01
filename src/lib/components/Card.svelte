@@ -1,4 +1,7 @@
 <script lang="ts">
+  import type { SvelteComponent } from "svelte";
+  import IconExpandMore from "$lib/icons/IconExpandMore.svelte";
+  import IconCheckCircle from "$lib/icons/IconCheckCircle.svelte";
   import { nonNullish } from "@dfinity/utils";
   import { createEventDispatcher } from "svelte";
 
@@ -7,6 +10,7 @@
   export let selected = false;
   export let disabled: boolean | undefined = undefined;
   export let testId = "card";
+  export let icon: "expand" | "check" | undefined = undefined;
   export let theme: "transparent" | "framed" | "highlighted" | undefined =
     undefined;
   export let href: string | undefined = undefined;
@@ -32,6 +36,19 @@
 
     dispatch("click", $event?.detail);
   };
+
+  let iconCmp: typeof SvelteComponent | undefined = undefined;
+
+  $: (() => {
+    switch (icon) {
+      case "expand":
+        iconCmp = IconExpandMore;
+        break;
+      case "check":
+        iconCmp = IconCheckCircle;
+        break;
+    }
+  })();
 </script>
 
 <svelte:element
@@ -42,12 +59,17 @@
   on:click={onClick}
   class={`card ${theme ?? ""}`}
   class:clickable
+  class:icon={nonNullish(icon)}
   class:selected
   class:disabled
   aria-disabled={disabled}
   aria-checked={ariaChecked}
   aria-label={ariaLabel}
 >
+  {#if nonNullish(iconCmp)}
+    <svelte:component this={iconCmp} />
+  {/if}
+
   {#if showHeadline}
     <div class="meta">
       <slot name="start" />
@@ -116,6 +138,29 @@
       }
       :global(.description) {
         color: rgba(var(--primary-contrast-rgb), var(--very-light-opacity));
+      }
+    }
+
+    &.icon {
+      position: relative;
+      padding-right: var(--padding-6x);
+
+      > :global(svg:first-child) {
+        position: absolute;
+
+        height: var(--padding-3x);
+        width: auto;
+
+        right: var(--padding-2x);
+        top: 50%;
+        margin-top: calc(-1 * var(--padding-1_5x));
+
+        color: var(--tertiary);
+      }
+
+      &.selected {
+        --icon-check-circle-background: var(--primary);
+        --icon-check-circle-color: var(--primary-contrast);
       }
     }
   }
