@@ -6,6 +6,7 @@
   import { isNullish, nonNullish } from "@dfinity/utils";
   import { createEventDispatcher } from "svelte";
 
+  export let role: "button" | "checkbox" | undefined = undefined;
   export let ariaLabel: string | undefined = undefined;
   export let selected = false;
   export let disabled: boolean | undefined = undefined;
@@ -13,14 +14,19 @@
   export let icon: "arrow" | "expand" | "check" | undefined = undefined;
   export let theme: "transparent" | "framed" | "highlighted" | undefined =
     undefined;
-  export let interactive = true;
   export let href: string | undefined = undefined;
 
   let container: "article" | "a" = "article";
   $: container = nonNullish(href) ? "a" : "article";
 
+  let interactive = false;
+  $: interactive = nonNullish(href) || nonNullish(role);
+
   let showHeadline: boolean;
   $: showHeadline = nonNullish($$slots.start) || nonNullish($$slots.end);
+
+  let ariaChecked: boolean | undefined = undefined;
+  $: ariaChecked = role === "checkbox" ? selected : undefined;
 
   let iconCmp: typeof SvelteComponent | undefined = undefined;
 
@@ -41,21 +47,18 @@
   const dispatch = createEventDispatcher();
 
   const onClick = ({ detail }: CustomEvent<unknown>) => {
-    if (!button) {
+    if (interactive && isNullish(href)) {
       return;
     }
 
     dispatch("click", detail);
   };
-
-  let button = true;
-  $: button = interactive && isNullish(href);
 </script>
 
 <svelte:element
   this={container}
   {href}
-  role={button ? "button" : undefined}
+  {role}
   data-tid={testId}
   on:click={onClick}
   class={`card ${theme ?? ""}`}
@@ -64,6 +67,7 @@
   class:selected
   class:disabled
   aria-disabled={disabled}
+  aria-checked={ariaChecked}
   aria-label={ariaLabel}
 >
   {#if nonNullish(iconCmp)}
