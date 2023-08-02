@@ -165,6 +165,10 @@
     }
   }
 
+  a.card {
+    margin: var(--card-border-size) 0;
+  }
+
   .clickable {
     @include interaction.tappable;
 
