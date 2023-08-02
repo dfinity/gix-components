@@ -86,7 +86,7 @@
   @use "../styles/mixins/display";
   @use "../styles/mixins/card";
 
-  .card {
+  article, a {
     display: flex;
     flex-direction: column;
 
