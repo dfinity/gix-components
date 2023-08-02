@@ -3,9 +3,9 @@
   import IconExpandMore from "$lib/icons/IconExpandMore.svelte";
   import IconCheckCircle from "$lib/icons/IconCheckCircle.svelte";
   import { nonNullish } from "@dfinity/utils";
+  import { createEventDispatcher } from "svelte";
 
-  export let role: "link" | "button" | "checkbox" | "radio" | undefined =
-    undefined;
+  export let role: "button" | "checkbox" | undefined = undefined;
   export let ariaLabel: string | undefined = undefined;
   export let selected = false;
   export let disabled: boolean | undefined = undefined;
@@ -13,18 +13,29 @@
   export let icon: "expand" | "check" | undefined = undefined;
   export let theme: "transparent" | "framed" | "highlighted" | undefined =
     undefined;
+  export let href: string | undefined = undefined;
+
+  let container: "article" | "a" = "article";
+  $: container = nonNullish(href) ? "a" : "article";
 
   let clickable = false;
-
-  $: clickable = nonNullish(role)
-    ? ["button", "link", "checkbox", "radio"].includes(role)
-    : false;
+  $: clickable = nonNullish(href) || nonNullish(role);
 
   let showHeadline: boolean;
   $: showHeadline = nonNullish($$slots.start) || nonNullish($$slots.end);
 
   let ariaChecked: boolean | undefined = undefined;
   $: ariaChecked = role === "checkbox" ? selected : undefined;
+
+  const dispatch = createEventDispatcher();
+
+  const onClick = ($event: MouseEvent | KeyboardEvent) => {
+    if (clickable && nonNullish(href)) {
+      return;
+    }
+
+    dispatch("click", $event?.detail);
+  };
 
   let iconCmp: typeof SvelteComponent | undefined = undefined;
 
@@ -40,10 +51,12 @@
   })();
 </script>
 
-<article
-  data-tid={testId}
+<svelte:element
+  this={container}
+  {href}
   {role}
-  on:click
+  data-tid={testId}
+  on:click={onClick}
   class={`card ${theme ?? ""}`}
   class:clickable
   class:icon={nonNullish(icon)}
@@ -65,7 +78,7 @@
   {/if}
 
   <slot />
-</article>
+</svelte:element>
 
 <style lang="scss">
   @use "../styles/mixins/interaction";
@@ -73,7 +86,7 @@
   @use "../styles/mixins/display";
   @use "../styles/mixins/card";
 
-  article {
+  .card {
     display: flex;
     flex-direction: column;
 
