@@ -123,7 +123,6 @@
       background: var(--primary-gradient);
       color: rgba(var(--primary-contrast-rgb), var(--light-opacity));
 
-      margin: var(--card-border-size) 0;
       border: 0;
 
       // TODO: find a better solution (a mixin?)
@@ -166,7 +165,7 @@
   }
 
   a.card {
-    margin: var(--card-border-size) 0;
+    margin: 0;
   }
 
   .clickable {
