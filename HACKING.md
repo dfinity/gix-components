@@ -14,7 +14,7 @@ To implement a test, follow these steps:
 2. Implement the test by automating an action on the documentation website:
    - Use `await expect(page).toHaveScreenshot()` within the test.
    - Commonly, a `data-tid="showcase"` is used to wrap the showcase section of the page being tested and is used within the test to scroll to the particular location.
-3. Run the e2e test locally using `npm run e2e` to generate the screenshots.
+3. Run the e2e test locally using `npm run e2e:snapshots` to generate the screenshots.
 4. Run the e2e test locally again using `npm run e2e` to validate the test.
 5. Add the generated screenshots to Git.
 6. Create a PR for your changes.
