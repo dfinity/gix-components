@@ -23,6 +23,10 @@ To implement a test, follow these steps:
 
 This last step will generate the screenshots for the CI and add them to your PR. You can trigger this job again at any time you make changes, regardless of whether the test itself changes or not.
 
+### Updating screenshots
+
+Run `npm run e2e:snapshots` locally and use step 7 from before to trigger it in CI also.
+
 ## Deployment
 
 Once your principal added to the controllers of the wallet, deploy the documentation to `mainnet` with the following command:
