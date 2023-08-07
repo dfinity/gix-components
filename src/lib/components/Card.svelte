@@ -166,6 +166,10 @@
 
   a.card {
     margin: 0;
+
+    &:hover {
+      color: inherit;
+    }
   }
 
   .clickable {
