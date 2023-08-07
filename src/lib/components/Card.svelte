@@ -86,7 +86,8 @@
   @use "../styles/mixins/display";
   @use "../styles/mixins/card";
 
-  article, a {
+  article,
+  a {
     display: flex;
     flex-direction: column;
 
@@ -166,6 +167,10 @@
 
   a.card {
     margin: 0;
+
+    &:not(.disabled):hover {
+      color: inherit;
+    }
   }
 
   .clickable {
