@@ -89,7 +89,7 @@ List of the mixins:
         <p>Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>
     </Card>
 
-    <Card disabled>
+    <Card disabled href="https://gix.design">
         <h3>Disabled</h3>
 
         <p>Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>
