@@ -1,6 +1,6 @@
 ::-webkit-scrollbar {
   background: var(--scrollbar-thumb-background);
-  width: var(--padding);
+  width: calc(var(--padding) * 3 / 4);
 }
 
 ::-webkit-scrollbar-thumb {

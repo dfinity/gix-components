@@ -27,6 +27,9 @@
 
     height: 100%;
 
+    padding: var(--padding);
+    box-sizing: border-box;
+
     ::-webkit-scrollbar {
       @include content.island;
     }

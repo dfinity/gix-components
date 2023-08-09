@@ -32,8 +32,10 @@
 }
 
 @mixin content-offset {
+  padding: var(--padding);
+
   @include media.min-width(large) {
-    padding-top: var(--split-pane-content-top-offset);
+    padding: var(--split-pane-content-top-offset) var(--padding) var(--padding);
   }
 }
 
