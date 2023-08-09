@@ -125,7 +125,7 @@ Below is the code for the real production example:
     background-color: var(--card-background);
     margin: var(--padding-2x) 0;
     & p,
-    h3 {
+    h3, h5 {
       margin: 0;
     }
   }
@@ -143,7 +143,7 @@ Below is the code for the real production example:
   .wrapper {
     background-color: var(--card-background);
     margin: var(--padding-2x) 0;
-    & p, h3 {
+    & p, h3, h5 {
       margin: 0;
     }
   }
