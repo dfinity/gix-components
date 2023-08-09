@@ -53,6 +53,18 @@ The component is within a `div` with a background to highlight the component exa
   </Section>
 </div>
 
+#### No description example
+
+<div class="wrapper">
+  <Section>
+    <h3 slot="title">Title</h3>
+    <h5 slot="end">123</h5>
+    <p>Here would go any content that we want.</p>
+    <p>It can be more than one element.</p>
+    <p>They would all go here.</p>
+  </Section>
+</div>
+
 ### Real production example
 
 <div class="wrapper">
