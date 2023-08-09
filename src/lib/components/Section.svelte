@@ -28,10 +28,8 @@
     align-items: center;
     justify-content: space-between;
 
-    margin-bottom: var(--padding);
-
-    &.noDescription {
-      margin-bottom: 0;
+    &:not(.noDescription) {
+      margin-bottom: var(--padding);
     }
   }
 
