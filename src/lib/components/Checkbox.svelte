@@ -54,7 +54,7 @@
   .checkbox {
     display: flex;
     justify-content: space-between;
-    flex-direction: var(--checkbox-flex-direction);
+    align-items: var(--checkbox-align-items, center);
     gap: var(--padding);
 
     padding: var(--checkbox-padding, var(--padding-2x));
