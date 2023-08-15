@@ -65,6 +65,8 @@
 
     font-size: var(--checkbox-font-size, inherit);
 
+    --input-custom-border-color: var(--disable-contrast);
+
     &:hover {
       input {
         @include form.input-focus;
