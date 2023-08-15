@@ -74,10 +74,6 @@
     border: var(--input-border-size) solid transparent;
     outline: none;
 
-    &:focus {
-      @include form.input-focus;
-    }
-
     border-radius: var(--checkbox-border-radius, var(--border-radius));
 
     --checkbox-input-size: 20px;
