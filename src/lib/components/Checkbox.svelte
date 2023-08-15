@@ -66,8 +66,6 @@
     font-size: var(--checkbox-font-size, inherit);
 
     &:hover {
-      background: rgba(var(--primary-rgb), 0.2);
-
       input {
         @include form.input-focus;
       }
@@ -123,7 +121,6 @@
 
     &[disabled],
     &[disabled]:hover {
-      background: var(--disable);
       cursor: default;
 
       &:checked:after {
