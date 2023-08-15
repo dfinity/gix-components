@@ -57,6 +57,8 @@
     align-items: var(--checkbox-align-items, center);
     gap: var(--padding);
 
+    height: fit-content;
+
     padding: var(--checkbox-padding, var(--padding-2x));
 
     color: var(--checkbox-color);
