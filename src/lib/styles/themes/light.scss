@@ -94,18 +94,12 @@
 
     /* Design: Extracted from Light/7969C0 (8%)-light */
     --input-background: #e1dcef;
-    --input-background-rgb: 225, 220, 239;
     --input-background-contrast: var(--text-color);
-    --input-background-contrast-rgb: var(--text-color-rgb);
-    --input-background-shade: #c6c2d2;
-    --input-background-tint: #e4e0f1;
 
     /* Design: Light/Bg/Background */
     --focus-background: #f4f1fa;
     --focus-background-rgb: 244, 241, 250;
     --focus-background-contrast: var(--text-color);
-    --focus-background-contrast-rgb: var(--text-color-rgb);
-    --focus-background-shade: #d7d4dc;
     --focus-background-tint: #f5f2fb;
 
     /* Design: Dark/Bg/Background-04 */
@@ -118,19 +112,14 @@
 
     /* Design: Light/Bg/Background-01 */
     --background: #ebe5f4;
-    --background-rgb: 235, 229, 244;
     --background-contrast: var(--text-color);
     --background-contrast-rgb: var(--text-color-rgb);
     --background-shade: #cfcad7;
-    --background-tint: #ede8f5;
 
     /* Design: Light/Bg/Background-03 */
     --background-disable: #e7dff2;
     --background-disable-rgb: 231, 223, 242;
     --background-disable-contrast: var(--disable-contrast);
-    --background-disable-contrast-rgb: var(--disable-contrastrgb);
-    --background-disable-shade: #cbc4d5;
-    --background-disable-tint: #e9e2f3;
 
     --primary: #8266d6;
     --primary-rgb: 130, 102, 214;
@@ -142,15 +131,10 @@
     --secondary: #dd87c2;
     --secondary-rgb: 221, 135, 194;
     --secondary-contrast: #000000;
-    --secondary-contrast-rgb: 0, 0, 0;
     --secondary-shade: #c277ab;
-    --secondary-tint: #e093c8;
 
     --warning-emphasis: #fabc2a;
-    --warning-emphasis-rgb: 250, 188, 42;
     --warning-emphasis-contrast: #000000;
-    --warning-emphasis-contrast-rgb: 0, 0, 0;
     --warning-emphasis-shade: #dca525;
-    --warning-emphasis-tint: #fbc33f;
   }
 }
