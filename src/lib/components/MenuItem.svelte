@@ -1,6 +1,4 @@
 <script lang="ts">
-  import {layoutMenuCollapsed, layoutMenuOpen} from "$lib/stores/layout.store";
-
   export let href: string;
   export let selected = false;
   export let testId: string | undefined = undefined;
@@ -14,7 +12,6 @@
   {rel}
   {target}
   class:selected
-  class:icon-only={!$layoutMenuOpen && $layoutMenuCollapsed}
   data-tid={testId}
   on:click
 >
@@ -81,18 +78,5 @@
     text-overflow: ellipsis;
 
     margin: 0 var(--padding) 0 var(--padding-2x);
-  }
-
-  span, div {
-    opacity: 1;
-    visibility: visible;
-    transition: opacity var(--animation-time-normal);
-  }
-
-  .icon-only {
-    span, div {
-      opacity: 0;
-      visibility: hidden;
-    }
   }
 </style>

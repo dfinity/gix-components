@@ -1,18 +1,17 @@
 <script lang="ts">
   import MenuBackground from "./MenuBackground.svelte";
-  import {
-    layoutMenuCollapsed,
-    layoutMenuOpen,
-  } from "$lib/stores/layout.store";
+  import { layoutMenuOpen } from "$lib/stores/layout.store";
   import { handleKeyPress } from "$lib/utils/keyboard.utils";
   import IconEast from "$lib/icons/IconEast.svelte";
+  import { applyMenu } from "$lib/utils/menu.utils";
+  import { Menu } from "$lib/types/menu";
 
   export let sticky = true;
 
   const close = () => layoutMenuOpen.set(false);
 </script>
 
-<div role="menu" class:collapsed={!$layoutMenuOpen && $layoutMenuCollapsed}>
+<div role="menu" class:open={$layoutMenuOpen}>
   <MenuBackground />
 
   <div
@@ -27,17 +26,15 @@
   >
     <slot />
 
-    <div class="expand">
-      <button on:click={() => layoutMenuCollapsed.set(false)} class:visible={$layoutMenuCollapsed}
-        ><IconEast /></button
-      >
-    </div>
+    <button
+      class="menu-expand"
+      on:click={() => applyMenu({ menu: Menu.EXPANDED })}><IconEast /></button
+    >
   </div>
 
   <button
-    class="bottom"
-    on:click={() => layoutMenuCollapsed.set(true)}
-    class:visible={!$layoutMenuCollapsed}><IconEast /></button
+    class="menu-collapse"
+    on:click={() => applyMenu({ menu: Menu.COLLAPSED })}><IconEast /></button
   >
 </div>
 
@@ -67,16 +64,6 @@
     }
 
     position: relative;
-
-    --menu-width: var(--menu-expanded-width);
-
-    &.collapsed {
-      --menu-width: var(--menu-collapsed-width);
-
-      .inner {
-        overflow-x: hidden;
-      }
-    }
   }
 
   .inner {
@@ -115,31 +102,5 @@
     @include media.min-width(large) {
       padding-top: var(--padding-4x);
     }
-  }
-
-  .bottom {
-    position: absolute;
-    right: 0;
-    bottom: 64px;
-    transform: rotate(-180deg);
-  }
-
-  button {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity var(--animation-time-long);
-
-    padding: var(--padding-1_5x);
-
-    @include media.min-width(large) {
-      &.visible {
-        opacity: 1;
-        visibility: visible;
-      }
-    }
-  }
-
-  .expand {
-    display: flex;
   }
 </style>

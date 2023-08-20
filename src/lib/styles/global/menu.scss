@@ -1,0 +1,87 @@
+@use "../mixins/media";
+
+:root {
+  div.split-pane,
+  div.stretch-pane {
+    div[role="menu"]:first-child {
+      --menu-width: var(--menu-expanded-width);
+
+      button {
+        &.menu-expand,
+        &.menu-collapse {
+          opacity: 0;
+          visibility: hidden;
+          transition: opacity var(--animation-time-long);
+
+          padding: var(--padding-1_5x);
+        }
+
+        &.menu-collapse {
+          position: absolute;
+          right: 0;
+          bottom: 64px;
+          transform: rotate(-180deg);
+        }
+      }
+
+      [role="menuitem"] {
+        span,
+        div {
+          opacity: 1;
+          transition: opacity var(--animation-time-normal);
+        }
+      }
+
+      .menu-background {
+        visibility: visible;
+        opacity: 1;
+        transition: opacity var(--animation-time-normal);
+      }
+    }
+  }
+
+  &[menu="collapsed"] {
+    div.split-pane,
+    div.stretch-pane {
+      div[role="menu"]:first-child:not(.open) {
+        --menu-width: var(--menu-collapsed-width);
+
+        .inner {
+          overflow-x: hidden;
+        }
+
+        @include media.min-width(large) {
+          button.menu-expand {
+            opacity: 1;
+            visibility: visible;
+          }
+        }
+
+        [role="menuitem"] {
+          span,
+          div {
+            opacity: 0;
+          }
+        }
+
+        .menu-background *:not(.background) {
+          opacity: 0;
+        }
+      }
+    }
+  }
+
+  &:not([menu="collapsed"]) {
+    div.split-pane,
+    div.stretch-pane {
+      div[role="menu"]:first-child {
+        @include media.min-width(large) {
+          button.menu-collapse {
+            opacity: 1;
+            visibility: visible;
+          }
+        }
+      }
+    }
+  }
+}
