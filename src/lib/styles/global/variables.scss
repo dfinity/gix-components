@@ -2,7 +2,8 @@
 
 :root {
   --header-height: 40px;
-  --menu-width: 240px;
+  --menu-expanded-width: 240px;
+  --menu-collapsed-width: 48px;
   --max-main-content-width: calc(1600px + (2 * var(--padding-4x)));
   --content-start-width: 280px;
   --content-start-height: calc(140px + var(--padding-2x));
@@ -41,6 +42,7 @@
   --island-max-width: calc(100% - var(--padding-6x));
   --footer-height: calc(12vh + var(--padding));
 
+  --animation-time-long: 0.5s;
   --animation-time-normal: 0.2s;
   --animation-time-short: 0.125s;
 

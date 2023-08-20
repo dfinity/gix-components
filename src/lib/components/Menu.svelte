@@ -1,14 +1,18 @@
 <script lang="ts">
   import MenuBackground from "./MenuBackground.svelte";
-  import { layoutMenuOpen } from "$lib/stores/layout.store";
+  import {
+    layoutMenuCollapsed,
+    layoutMenuOpen,
+  } from "$lib/stores/layout.store";
   import { handleKeyPress } from "$lib/utils/keyboard.utils";
+  import IconEast from "$lib/icons/IconEast.svelte";
 
   export let sticky = true;
 
   const close = () => layoutMenuOpen.set(false);
 </script>
 
-<div role="menu">
+<div role="menu" class:collapsed={!$layoutMenuOpen && $layoutMenuCollapsed}>
   <MenuBackground />
 
   <div
@@ -22,7 +26,19 @@
     on:keypress={($event) => handleKeyPress({ $event, callback: close })}
   >
     <slot />
+
+    <div class="expand">
+      <button on:click={() => layoutMenuCollapsed.set(false)} class:visible={$layoutMenuCollapsed}
+        ><IconEast /></button
+      >
+    </div>
   </div>
+
+  <button
+    class="bottom"
+    on:click={() => layoutMenuCollapsed.set(true)}
+    class:visible={!$layoutMenuCollapsed}><IconEast /></button
+  >
 </div>
 
 <style lang="scss">
@@ -51,6 +67,16 @@
     }
 
     position: relative;
+
+    --menu-width: var(--menu-expanded-width);
+
+    &.collapsed {
+      --menu-width: var(--menu-collapsed-width);
+
+      .inner {
+        overflow-x: hidden;
+      }
+    }
   }
 
   .inner {
@@ -89,5 +115,31 @@
     @include media.min-width(large) {
       padding-top: var(--padding-4x);
     }
+  }
+
+  .bottom {
+    position: absolute;
+    right: 0;
+    bottom: 64px;
+    transform: rotate(-180deg);
+  }
+
+  button {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--animation-time-long);
+
+    padding: var(--padding-1_5x);
+
+    @include media.min-width(large) {
+      &.visible {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+
+  .expand {
+    display: flex;
   }
 </style>
