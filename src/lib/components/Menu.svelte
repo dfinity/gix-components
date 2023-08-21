@@ -2,9 +2,10 @@
   import MenuBackground from "./MenuBackground.svelte";
   import { layoutMenuOpen } from "$lib/stores/layout.store";
   import { handleKeyPress } from "$lib/utils/keyboard.utils";
-  import IconEast from "$lib/icons/IconEast.svelte";
   import { applyMenu } from "$lib/utils/menu.utils";
   import { Menu } from "$lib/types/menu";
+  import IconBack from "$lib/icons/IconBack.svelte";
+  import {menuStore} from "$lib/stores/menu.store";
 
   export let sticky = true;
 
@@ -25,16 +26,11 @@
     on:keypress={($event) => handleKeyPress({ $event, callback: close })}
   >
     <slot />
-
-    <button
-      class="menu-expand"
-      on:click={() => applyMenu({ menu: Menu.EXPANDED })}><IconEast /></button
-    >
   </div>
 
   <button
-    class="menu-collapse"
-    on:click={() => applyMenu({ menu: Menu.COLLAPSED })}><IconEast /></button
+    class="menu-collapse icon-only"
+    on:click={menuStore.toggle}><IconBack /></button
   >
 </div>
 

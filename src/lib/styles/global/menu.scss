@@ -7,20 +7,36 @@
       --menu-width: var(--menu-expanded-width);
 
       button {
-        &.menu-expand,
         &.menu-collapse {
           opacity: 0;
           visibility: hidden;
-          transition: opacity var(--animation-time-long);
+          transition:
+            opacity var(--animation-time-long),
+            transform var(--animation-time-normal);
 
-          padding: var(--padding-1_5x);
+          padding: var(--padding-0_5x);
+          margin: 0 auto;
+
+          background: var(--input-background);
+          color: var(--input-background-contrast);
+
+          width: var(--padding-4x);
+          height: var(--padding-4x);
+          min-height: var(--padding-4x);
+
+          transform: rotate(0deg);
+
+          display: none;
+
+          @media (min-height: 654px) {
+            display: flex;
+          }
         }
 
         &.menu-collapse {
           position: absolute;
-          right: 0;
-          bottom: 64px;
-          transform: rotate(-180deg);
+          right: calc(-1 * var(--padding-3x));
+          bottom: var(--padding-8x);
         }
       }
 
@@ -50,8 +66,10 @@
           overflow-x: hidden;
         }
 
-        @include media.min-width(large) {
-          button.menu-expand {
+        button.menu-collapse {
+          transform: rotate(180deg);
+
+          @include media.min-width(large) {
             opacity: 1;
             visibility: visible;
           }
