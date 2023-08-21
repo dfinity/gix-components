@@ -1,6 +1,6 @@
 import { Menu } from "$lib/types/menu";
 import { applyMenu, initMenu } from "$lib/utils/menu.utils";
-import { writable, type Readable } from "svelte/store";
+import { derived, writable, type Readable } from "svelte/store";
 
 const initialMenu: Menu | undefined = initMenu();
 
@@ -26,3 +26,8 @@ export const initMenuStore = (): MenuStore => {
 };
 
 export const menuStore = initMenuStore();
+
+export const menuCollapsed = derived(
+  menuStore,
+  ($menuStore) => $menuStore === Menu.COLLAPSED,
+);
