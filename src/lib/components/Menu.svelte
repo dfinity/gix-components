@@ -2,10 +2,9 @@
   import MenuBackground from "./MenuBackground.svelte";
   import { layoutMenuOpen } from "$lib/stores/layout.store";
   import { handleKeyPress } from "$lib/utils/keyboard.utils";
-  import { applyMenu } from "$lib/utils/menu.utils";
-  import { Menu } from "$lib/types/menu";
   import IconBack from "$lib/icons/IconBack.svelte";
-  import {menuStore} from "$lib/stores/menu.store";
+  import { menuCollapsed, menuStore } from "$lib/stores/menu.store";
+  import { i18n } from "$lib/stores/i18n";
 
   export let sticky = true;
 
@@ -30,6 +29,7 @@
 
   <button
     class="menu-collapse icon-only"
+    title={$menuCollapsed ? $i18n.core.expand : $i18n.core.collapse}
     on:click={menuStore.toggle}><IconBack /></button
   >
 </div>
