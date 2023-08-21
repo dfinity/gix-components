@@ -9,6 +9,8 @@
   --content-start-height: calc(140px + var(--padding-2x));
 
   --icon-width: 24px;
+  --page-banner-image-width-desktop: 144px;
+  --page-banner-image-width-mobile: 86px;
 
   --padding: 8px;
 
@@ -18,6 +20,7 @@
   --padding-2x: calc(2 * var(--padding));
   --padding-3x: calc(3 * var(--padding));
   --padding-4x: calc(4 * var(--padding));
+  --padding-5x: calc(5 * var(--padding));
   --padding-6x: calc(6 * var(--padding));
   --padding-8x: calc(8 * var(--padding));
 

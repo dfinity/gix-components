@@ -1,0 +1,88 @@
+<script lang="ts">
+  export let testId: string | undefined = undefined;
+</script>
+
+<div class="container" data-tid={testId}>
+  <div class="image-wrapper">
+    <slot name="image" />
+  </div>
+  <div class="content-wrapper">
+    <div class="banner-content">
+      <h1><slot name="title" /></h1>
+      <slot name="description" />
+    </div>
+    <div class="banner-actions">
+      <slot name="actions" />
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  @use "../styles/mixins/media";
+
+  h1 {
+    margin: 0;
+    line-height: var(--line-height-standard);
+  }
+
+  .container {
+    padding: var(--padding-3x) var(--padding-2x);
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-2x);
+    align-items: center;
+
+    background: var(--card-background);
+    border-radius: var(--border-radius);
+
+    @include media.min-width(medium) {
+      padding: var(--padding-5x);
+
+      gap: var(--padding-3x);
+      flex-direction: row;
+    }
+  }
+
+  .image-wrapper {
+    width: var(--page-banner-image-width-mobile);
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include media.min-width(medium) {
+      width: var(--page-banner-image-width-desktop);
+    }
+  }
+
+  .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--padding-2x);
+  }
+
+  .banner-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--padding);
+
+    text-align: center;
+
+    @include media.min-width(medium) {
+      text-align: left;
+
+      align-items: flex-start;
+    }
+  }
+
+  .banner-actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--padding);
+  }
+</style>

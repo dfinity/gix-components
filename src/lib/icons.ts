@@ -1,6 +1,8 @@
 export { default as IconAccountBalance } from "./icons/IconAccountBalance.svelte";
+export { default as IconAccounts } from "./icons/IconAccounts.svelte";
 export { default as IconAdd } from "./icons/IconAdd.svelte";
 export { default as IconBack } from "./icons/IconBack.svelte";
+export { default as IconCanisters } from "./icons/IconCanisters.svelte";
 export { default as IconCheck } from "./icons/IconCheck.svelte";
 export { default as IconCheckCircle } from "./icons/IconCheckCircle.svelte";
 export { default as IconClock } from "./icons/IconClock.svelte";
@@ -27,6 +29,7 @@ export { default as IconLogin } from "./icons/IconLogin.svelte";
 export { default as IconLogout } from "./icons/IconLogout.svelte";
 export { default as IconMenu } from "./icons/IconMenu.svelte";
 export { default as IconMeter } from "./icons/IconMeter.svelte";
+export { default as IconNeuron } from "./icons/IconNeuron.svelte";
 export { default as IconNeurons } from "./icons/IconNeurons.svelte";
 export { default as IconNorthEast } from "./icons/IconNorthEast.svelte";
 export { default as IconPace } from "./icons/IconPace.svelte";
