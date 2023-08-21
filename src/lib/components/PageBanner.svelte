@@ -62,6 +62,10 @@
     justify-content: center;
     align-items: center;
     gap: var(--padding-2x);
+
+    @include media.min-width(medium) {
+      align-items: flex-start;
+    }
   }
 
   .banner-content {
