@@ -6,7 +6,7 @@
   import backgroundLight from "$lib/assets/menu-bg-light.png";
   import { themeStore } from "$lib/stores/theme.store";
   import { Theme } from "$lib/types/theme";
-  import {layoutMenuCollapsed, layoutMenuOpen} from "$lib/stores/layout.store";
+  import { layoutMenuOpen } from "$lib/stores/layout.store";
   import { nonNullish } from "@dfinity/utils";
 
   let logoOnChain: string;
@@ -18,7 +18,7 @@
     $themeStore === Theme.LIGHT ? backgroundLight : backgroundDark;
 </script>
 
-<div class:open={$layoutMenuOpen} class:collapsed={$layoutMenuCollapsed}>
+<div class:open={$layoutMenuOpen} class="menu-background">
   <img
     class="logo-nns"
     src={logoNNS}
@@ -103,10 +103,5 @@
     position: absolute;
     bottom: 0;
     left: 0;
-  }
-
-  .collapsed {
-    visibility: hidden;
-    opacity: 0;
   }
 </style>

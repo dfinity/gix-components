@@ -125,6 +125,24 @@
       }
     </script>
 
+    <!-- Init menu as fast as possible as well -->
+    <script>
+      try {
+        const currentMenu = ["collapsed", "expanded"].includes(
+          localStorage.nnsMenu,
+        )
+          ? JSON.parse(localStorage.nnsMenu)
+          : undefined;
+
+        document.documentElement.setAttribute(
+          "menu",
+          currentMenu ?? "expanded",
+        );
+      } catch (error) {
+        console.error("Error initializing menu", error);
+      }
+    </script>
+
     %sveltekit.head%
   </head>
   <body>
