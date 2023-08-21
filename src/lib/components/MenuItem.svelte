@@ -4,6 +4,7 @@
   export let testId: string | undefined = undefined;
   export let rel: string | undefined = undefined;
   export let target: "_blank" | undefined = undefined;
+  export let title: string | undefined = undefined;
 </script>
 
 <a
@@ -11,6 +12,7 @@
   {href}
   {rel}
   {target}
+  {title}
   class:selected
   data-tid={testId}
   on:click
