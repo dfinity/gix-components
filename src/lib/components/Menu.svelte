@@ -29,6 +29,7 @@
 
   <button
     class="menu-collapse icon-only"
+    data-tid="menu-collapse"
     title={$menuCollapsed ? $i18n.core.expand : $i18n.core.collapse}
     on:click={menuStore.toggle}><IconBack /></button
   >
