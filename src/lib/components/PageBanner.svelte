@@ -22,7 +22,6 @@
 
   h1 {
     margin: 0;
-    line-height: var(--line-height-standard);
   }
 
   .container {

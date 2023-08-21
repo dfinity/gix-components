@@ -1,4 +1,15 @@
-<svg viewBox="0 0 144 144" fill="none" xmlns="http://www.w3.org/2000/svg">
+<!-- source: DFINITY foundation -->
+<script lang="ts">
+  export let size: number | undefined = undefined;
+</script>
+
+<svg
+  width={size}
+  height={size}
+  viewBox="0 0 144 144"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
   <rect
     opacity="0.2"
     x="34.3739"
