@@ -16,7 +16,7 @@ export const initMenuStore = (): MenuStore => {
 
     toggle: () => {
       update((state) => {
-        const menu = state === Menu.COLLAPSED ? Menu.EXPANDED : Menu.COLLAPSED;
+        const menu = state === Menu.EXPANDED ? Menu.COLLAPSED : Menu.EXPANDED;
 
         applyMenu({ menu, preserve: true });
         return menu;
