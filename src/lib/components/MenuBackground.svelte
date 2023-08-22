@@ -94,6 +94,7 @@
 
     z-index: var(--menu-z-index);
 
+    // 654px is an empirical value
     @media (min-height: 654px) {
       display: block;
     }
