@@ -19,6 +19,12 @@
     <p>Dark and light themes.</p>
   </Card>
 
+  <Card href="/styling/menu">
+    <h2 class="title" slot="start">Menu</h2>
+
+    <p>Expanded and collapsed menu.</p>
+  </Card>
+
   <Card href="/styling/fonts">
     <h2 class="title" slot="start">Fonts</h2>
 

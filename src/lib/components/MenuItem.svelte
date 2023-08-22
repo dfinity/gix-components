@@ -4,6 +4,7 @@
   export let testId: string | undefined = undefined;
   export let rel: string | undefined = undefined;
   export let target: "_blank" | undefined = undefined;
+  export let title: string | undefined = undefined;
 </script>
 
 <a
@@ -11,13 +12,14 @@
   {href}
   {rel}
   {target}
+  {title}
   class:selected
   data-tid={testId}
   on:click
 >
   <slot name="icon" />
   <span><slot /></span>
-  <slot name="statusIcon" />
+  <div><slot name="statusIcon" /></div>
 </a>
 
 <style lang="scss">
@@ -67,6 +69,7 @@
 
     :global(svg) {
       width: var(--padding-3x);
+      min-width: var(--padding-3x);
       height: var(--padding-3x);
     }
   }

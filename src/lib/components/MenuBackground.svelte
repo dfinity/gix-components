@@ -18,7 +18,7 @@
     $themeStore === Theme.LIGHT ? backgroundLight : backgroundDark;
 </script>
 
-<div class:open={$layoutMenuOpen}>
+<div class:open={$layoutMenuOpen} class="menu-background">
   <img
     class="logo-nns"
     src={logoNNS}
@@ -94,6 +94,7 @@
 
     z-index: var(--menu-z-index);
 
+    // 654px is an empirical value
     @media (min-height: 654px) {
       display: block;
     }

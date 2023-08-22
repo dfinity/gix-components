@@ -2,13 +2,16 @@
   import MenuBackground from "./MenuBackground.svelte";
   import { layoutMenuOpen } from "$lib/stores/layout.store";
   import { handleKeyPress } from "$lib/utils/keyboard.utils";
+  import IconBack from "$lib/icons/IconBack.svelte";
+  import { menuCollapsed, menuStore } from "$lib/stores/menu.store";
+  import { i18n } from "$lib/stores/i18n";
 
   export let sticky = true;
 
   const close = () => layoutMenuOpen.set(false);
 </script>
 
-<div role="menu">
+<div role="menu" class:open={$layoutMenuOpen}>
   <MenuBackground />
 
   <div
@@ -23,6 +26,13 @@
   >
     <slot />
   </div>
+
+  <button
+    class="menu-collapse icon-only"
+    data-tid="menu-collapse"
+    title={$menuCollapsed ? $i18n.core.expand : $i18n.core.collapse}
+    on:click={menuStore.toggle}><IconBack /></button
+  >
 </div>
 
 <style lang="scss">
