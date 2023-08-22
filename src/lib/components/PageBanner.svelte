@@ -29,29 +29,30 @@
 
     display: flex;
     flex-direction: column;
-    gap: var(--padding-2x);
     align-items: center;
+    gap: var(--padding-2x);
 
     background: var(--card-background);
     border-radius: var(--border-radius);
 
     @include media.min-width(medium) {
-      padding: var(--padding-5x);
-
+      display: grid;
+      grid-template-columns: var(--page-banner-image-width-desktop) auto;
       gap: var(--padding-3x);
-      flex-direction: row;
+
+      padding: var(--padding-5x);
     }
   }
 
   .image-wrapper {
+    height: 100%;
     width: var(--page-banner-image-width-mobile);
-    aspect-ratio: 1 / 1;
     display: flex;
     align-items: center;
     justify-content: center;
 
     @include media.min-width(medium) {
-      width: var(--page-banner-image-width-desktop);
+      width: 100%;
     }
   }
 

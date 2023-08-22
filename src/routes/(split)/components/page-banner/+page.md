@@ -1,6 +1,6 @@
 <script lang="ts">
   import PageBanner from "$lib/components/PageBanner.svelte";
-  import IconAccounts from "$lib/icons/IconAccounts.svelte";
+  import IconAccountsPage from "$lib/icons/IconAccountsPage.svelte";
 </script>
 
 # PageBanner
@@ -27,7 +27,7 @@ The component has its own backbground color, which depends on the theme.
 ### Example
 
 <PageBanner testId="showcase">
-  <IconAccounts slot="image" />
+  <IconAccountsPage slot="image" />
   <span slot="title">Your ICP Wallet</span>
   <p slot="description" class="description">Create and link accounts (including hardware wallets), transfer ICP, participate in Internet Computer governance by staking ICP in neurons, and earn voting rewards.</p>
   <button class="primary" slot="actions">Connect with Internet Identity</button>
