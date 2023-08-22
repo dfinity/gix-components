@@ -109,9 +109,12 @@
           "(prefers-color-scheme: dark)",
         ).matches;
 
-        const currentTheme = !localStorage.nnsTheme
-          ? undefined
-          : JSON.parse(localStorage.nnsTheme);
+        const currentTheme =
+          localStorage.nnsTheme === null ||
+          localStorage.nnsTheme === undefined ||
+          localStorage.nnsTheme === ""
+            ? undefined
+            : JSON.parse(localStorage.nnsTheme);
 
         document.documentElement.setAttribute(
           "theme",
