@@ -17,12 +17,9 @@ To init the menu as fast as possible, and therefore to avoid FOUC, we advise to 
 <!-- Init menu as fast as possible as well -->
 <script>
     try {
-        const currentMenu =
-        localStorage.nnsMenu === null ||
-        localStorage.nnsMenu === undefined ||
-        localStorage.nnsMenu === ""
-        ? undefined
-        : JSON.parse(localStorage.nnsMenu);
+        const currentMenu = !localStorage.nnsMenu
+            ? undefined
+            : JSON.parse(localStorage.nnsMenu);
 
         document.documentElement.setAttribute(
         "menu",
