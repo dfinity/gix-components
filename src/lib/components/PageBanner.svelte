@@ -40,7 +40,7 @@
       grid-template-columns: var(--page-banner-image-width-desktop) auto;
       gap: var(--padding-3x);
 
-      padding: var(--padding-5x);
+      padding: var(--padding-4x);
     }
   }
 
