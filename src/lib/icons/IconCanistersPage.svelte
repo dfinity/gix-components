@@ -1,6 +1,7 @@
 <!-- source: DFINITY foundation -->
 <script lang="ts">
-  export let size: number | undefined = undefined;
+  // Default to 100% size to make sure Safari renders the SVG correctly
+  export let size = "100%";
 </script>
 
 <svg
