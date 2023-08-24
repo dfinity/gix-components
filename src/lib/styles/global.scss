@@ -1,3 +1,4 @@
+@import "./global/color-primitives.scss";
 @import "./global/variables";
 @import "./global/fonts.scss";
 @import "./global/theme.scss";
@@ -10,7 +11,6 @@
 @import "./global/blockquote.scss";
 @import "./global/scrollbar.scss";
 @import "./global/menu.scss";
-@import "./global/color-primitives.scss";
 
 @import "./themes/dark.scss";
 @import "./themes/light.scss";
