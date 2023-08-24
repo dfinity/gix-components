@@ -2,17 +2,22 @@
   export let testId: string | undefined = undefined;
 </script>
 
-<div class="container" data-tid={testId}>
-  <div class="image-wrapper">
-    <slot name="image" />
-  </div>
-  <div class="content-wrapper">
-    <div class="banner-content">
-      <h1><slot name="title" /></h1>
-      <slot name="description" />
+<!-- Safari doesn't handle well grid inside flexbox -->
+<!-- https://stackoverflow.com/questions/62075401/safari-grid-in-flexbox-produces-height-overflow -->
+<!-- Wrapping this avoids clients of gix-components having the problem -->
+<div>
+  <div class="container" data-tid={testId}>
+    <div class="image-wrapper">
+      <slot name="image" />
     </div>
-    <div class="banner-actions">
-      <slot name="actions" />
+    <div class="content-wrapper">
+      <div class="banner-content">
+        <h1><slot name="title" /></h1>
+        <slot name="description" />
+      </div>
+      <div class="banner-actions">
+        <slot name="actions" />
+      </div>
     </div>
   </div>
 </div>
