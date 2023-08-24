@@ -143,11 +143,6 @@ List of the mixins:
         <p>Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>
     </Card>
 
-    <Card theme="highlighted" href="https://gix.design">
-        <h3>Highlighted link</h3>
-        <p>Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>
-    </Card>
-
     <Card theme="transparent">
         <h3>Transparent</h3>
 
