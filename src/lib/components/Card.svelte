@@ -167,10 +167,6 @@
 
   a.card {
     margin: 0;
-
-    &:not(.disabled):hover {
-      color: inherit;
-    }
   }
 
   .clickable {

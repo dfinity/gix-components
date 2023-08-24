@@ -140,7 +140,11 @@ List of the mixins:
 <div class="card-grid" style="margin-top: var(--padding)">
     <Card theme="highlighted">
         <h3>Highlighted</h3>
+        <p>Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>
+    </Card>
 
+    <Card theme="highlighted" href="https://gix.design">
+        <h3>Highlighted link</h3>
         <p>Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>
     </Card>
 
