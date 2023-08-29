@@ -68,8 +68,8 @@ button {
 
     &[disabled],
     &[disabled]:hover {
-      background: var(--background-disable);
-      color: var(--background-disable-contrast);
+      background: var(--button-disable-background);
+      color: var(--button-disable-color);
       cursor: default;
       box-shadow: none;
     }
