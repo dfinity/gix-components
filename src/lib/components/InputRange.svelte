@@ -36,7 +36,7 @@
     background: linear-gradient(
       99.27deg,
       var(--purple-500) var(--range-progression),
-      var(--card-background) var(--range-end)
+      var(--input-background) var(--range-end)
     );
 
     box-shadow: var(--input-box-shadow);
