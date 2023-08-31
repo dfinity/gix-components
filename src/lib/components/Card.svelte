@@ -122,7 +122,7 @@
     &.highlighted {
       background: var(--primary-gradient-fallback);
       background: var(--primary-gradient);
-      color: rgba(var(--primary-contrast-rgb), var(--light-opacity));
+      color: var(--primary-contrast);
 
       border: 0;
 
@@ -134,10 +134,10 @@
         color: var(--primary-contrast);
       }
       :global(.label) {
-        color: rgba(var(--primary-contrast-rgb), var(--light-opacity));
+        color: var(--primary-contrast);
       }
       :global(.description) {
-        color: rgba(var(--primary-contrast-rgb), var(--very-light-opacity));
+        color: var(--primary-contrast);
       }
     }
 
