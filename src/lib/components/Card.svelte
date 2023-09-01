@@ -111,8 +111,8 @@
     }
 
     &.disabled {
-      background: var(--input-background);
-      color: rgba(var(--disable-contrast-rgb), 0.8);
+      background: var(--card-background-disabled);
+      color: var(--disable-contrast);
 
       :global(*) {
         color: inherit;
