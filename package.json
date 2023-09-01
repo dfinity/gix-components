@@ -1,6 +1,6 @@
 {
   "name": "@dfinity/gix-components",
-  "version": "2.6.0",
+  "version": "2.7.0",
   "license": "Apache-2.0",
   "scripts": {
     "dev": "npm run i18n && vite dev",
