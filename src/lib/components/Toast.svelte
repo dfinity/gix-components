@@ -38,7 +38,6 @@
   let overflow: "scroll" | "truncate" | "clamp" | undefined;
   let position: ToastPosition | undefined;
   let icon: typeof SvelteComponent | undefined;
-  // TODO-colors: Can we remove this?
   let theme: ToastTheme | undefined;
 
   $: ({ text, level, spinner, title, overflow, position, icon, theme } = msg);
