@@ -17,7 +17,8 @@
     "e2e": "npm run download:samples && playwright test",
     "e2e:ci": "npm run download:samples && playwright test --reporter=html",
     "e2e:snapshots": "npm run download:samples && npx playwright test --update-snapshots --reporter=list",
-    "e2e:report": "npx playwright show-report"
+    "e2e:report": "npx playwright show-report",
+    "postinstall": "node ./scripts/copy-workers.mjs"
   },
   "exports": {
     ".": {
@@ -63,6 +64,7 @@
     "vitest": "^0.33.0"
   },
   "dependencies": {
+    "@junobuild/analytics": "^0.0.4",
     "dompurify": "^3.0.4",
     "html5-qrcode": "^2.3.8",
     "qr-creator": "^1.0.0"

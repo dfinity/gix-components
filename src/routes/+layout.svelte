@@ -2,6 +2,15 @@
   import Layout from "$lib/components/Layout.svelte";
   import DocsMenu from "$docs/components/DocsMenu.svelte";
   import Toasts from "$lib/components/Toasts.svelte";
+  import { onMount } from "svelte";
+  import { initOrbiter } from "@junobuild/analytics";
+
+  onMount(async () =>
+    await initOrbiter({
+      satelliteId: "nbyi7-6aaaa-aaaal-acjtq-cai",
+      orbiterId: "3iier-sqaaa-aaaal-aczaa-cai",
+    }),
+  );
 </script>
 
 <Layout>

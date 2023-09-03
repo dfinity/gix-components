@@ -18,3 +18,5 @@ test-results
 playwright-report
 
 samples
+
+static/workers
