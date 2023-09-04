@@ -17,7 +17,8 @@
     "e2e": "npm run download:samples && playwright test",
     "e2e:ci": "npm run download:samples && playwright test --reporter=html",
     "e2e:snapshots": "npm run download:samples && npx playwright test --update-snapshots --reporter=list",
-    "e2e:report": "npx playwright show-report"
+    "e2e:report": "npx playwright show-report",
+    "postinstall": "node ./scripts/copy-workers.mjs"
   },
   "exports": {
     ".": {
@@ -34,6 +35,7 @@
     "LICENSE"
   ],
   "devDependencies": {
+    "@junobuild/analytics": "^0.0.4",
     "@playwright/test": "^1.32.2",
     "@sveltejs/adapter-static": "^2.0.2",
     "@sveltejs/kit": "^1.18.0",
