@@ -3,14 +3,9 @@
   import DocsMenu from "$docs/components/DocsMenu.svelte";
   import Toasts from "$lib/components/Toasts.svelte";
   import { onMount } from "svelte";
-  import { initOrbiter } from "@junobuild/analytics";
+  import { initAnalytics } from "$docs/services/analytics.services";
 
-  onMount(async () =>
-    await initOrbiter({
-      satelliteId: "nbyi7-6aaaa-aaaal-acjtq-cai",
-      orbiterId: "3iier-sqaaa-aaaal-aczaa-cai",
-    }),
-  );
+  onMount(initAnalytics);
 </script>
 
 <Layout>
