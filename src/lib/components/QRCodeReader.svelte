@@ -10,6 +10,9 @@
 
   let html5QrCode: Html5Qrcode | undefined;
 
+  let ScannerState: Record<string, number>;
+  let isDestroyed = false;
+
   onMount(async () => {
     const qrCodeSuccessCallback = (decodedText: string) =>
       dispatch("nnsQRCode", decodedText);
@@ -28,7 +31,8 @@
       };
     };
 
-    const { Html5Qrcode } = await import("html5-qrcode");
+    const { Html5Qrcode, Html5QrcodeScannerState } = await import("html5-qrcode");
+    ScannerState = Html5QrcodeScannerState;
 
     html5QrCode = new Html5Qrcode(id);
 
@@ -52,11 +56,19 @@
       .catch((err: unknown) => {
         dispatch("nnsQRCodeError", err);
       });
+    if (isDestroyed) {
+      // Make sure the camera is stopped if the component is destroyed before
+      // scanning is starte.
+      await html5QrCode?.stop();
+    }
   });
 
   onDestroy(async () => {
+    isDestroyed = true;
     try {
-      await html5QrCode?.stop();
+      if (html5QrCode?.getState() !== ScannerState?.NOT_STARTED) {
+        await html5QrCode?.stop();
+      }
     } catch (err: unknown) {
       console.error(err);
       dispatch(
