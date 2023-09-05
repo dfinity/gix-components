@@ -3,7 +3,7 @@ import { extname } from "node:path";
 
 await cp(
   "node_modules/@junobuild/analytics/dist/workers/",
-  "./static/workers",
+  "./build/workers",
   {
     recursive: true,
     filter: (source, destination) => extname(source) !== ".map",
