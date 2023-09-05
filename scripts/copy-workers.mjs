@@ -8,5 +8,11 @@ await cp(
     recursive: true,
     filter: (source, destination) => extname(source) !== ".map",
   },
-  (err) => console.error(err),
+  (err) => {
+    if (err === null) {
+      return;
+    }
+
+    console.error("Copy workers error:", err);
+  },
 );
