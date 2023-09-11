@@ -45,9 +45,11 @@ If a property `href` is set, the component renders a hyperlink within the DOM. I
 
 ## Events
 
-| Event   | Description                                | Detail    |
-| ------- | ------------------------------------------ | --------- |
-| `click` | Propagated click event (if not `disabled`. | Inherited |
+| Event        | Description                                 | Detail    |
+| ------------ | ------------------------------------------- | --------- |
+| `click`      | Propagated click event (if not `disabled`). | Inherited |
+| `mouseenter` | Propagated mouse enter event .              | Inherited |
+| `mouseleave` | Propagated mouse leave event.               | Inherited |
 
 ## Styling
 

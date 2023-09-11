@@ -57,6 +57,8 @@
   {role}
   data-tid={testId}
   on:click={onClick}
+  on:mouseenter
+  on:mouseleave
   class={`card ${theme ?? ""}`}
   class:clickable
   class:icon={nonNullish(icon)}
