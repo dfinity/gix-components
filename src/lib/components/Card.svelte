@@ -14,6 +14,7 @@
   export let theme: "transparent" | "framed" | "highlighted" | undefined =
     undefined;
   export let href: string | undefined = undefined;
+  export let noPadding = false;
 
   let container: "article" | "a" = "article";
   $: container = nonNullish(href) ? "a" : "article";
@@ -62,6 +63,7 @@
   class:icon={nonNullish(icon)}
   class:selected
   class:disabled
+  class:noPadding
   aria-disabled={disabled}
   aria-checked={ariaChecked}
   aria-label={ariaLabel}
@@ -105,6 +107,10 @@
     box-sizing: border-box;
 
     border: var(--card-border-size) solid transparent;
+
+    &.noPadding {
+      padding: 0;
+    }
 
     &.selected {
       border: 2px solid var(--primary);
