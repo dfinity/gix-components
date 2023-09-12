@@ -76,7 +76,7 @@
 
   // Custom backgrounds
   --body-background: var(--purple-dark-900);
-  --body-color: var(--text2-color);
+  --body-color: var(--purple-dark-100);
 
   --content-background: var(--purple-dark-600);
   --content-color: var(--text-color);
@@ -93,7 +93,7 @@
   --toast-inverted-background-contrast: var(--purple-dark-900);
 
   // Menu
-  --menu-color: var(--text2-color);
+  --menu-color: var(--purple-dark-100);
   --menu-select-color: var(--value-color);
   --menu-selected-background: var(--purple-dark-500);
 
@@ -104,9 +104,6 @@
   --theme-color: var(--card-background);
 
   // Palette
-
-  /* Light/Text/Text-02 */
-  --text2-color: var(--purple-dark-100);
 
   /* Light/Text/Text-xx? */
   --text-color: var(--purple-dark-50);
