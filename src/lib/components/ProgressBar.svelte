@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Segment } from "$lib/types/progress-bar";
+  import type { ProgressBarSegment } from "$lib/types/progress-bar";
 
   // Html default is 1 anyway
   // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress?retiredLocale=ca#attr-max
@@ -7,7 +7,7 @@
   export let value: number;
   export let color: "warning" | "primary" = "primary";
   // If `segments` is set, it will override the `value` and `color` props.
-  export let segments: Segment[] = [];
+  export let segments: ProgressBarSegment[] = [];
 
   let totalValue: number;
   $: totalValue =
@@ -17,7 +17,7 @@
 
   // Creates the list of items of the `linear-gradient` css property.
   // Ex: `red 0% 50%, blue 50% 100%`
-  const createGradients = (items: Segment[]): string => {
+  const createGradients = (items: ProgressBarSegment[]): string => {
     const total = items.reduce((acc, curr) => acc + curr.value, 0);
     let currentPercentage = 0;
     const gradients: string[] = [];

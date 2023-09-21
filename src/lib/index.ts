@@ -7,7 +7,7 @@ export * from "./stores/menu.store";
 export * from "./stores/toasts.store";
 export * from "./stores/wizard.state";
 export type { BusyState } from "./types/busy";
-export type { Segment } from "./types/progress-bar";
+export type { ProgressBarSegment } from "./types/progress-bar";
 export type { ProgressStep, ProgressStepState } from "./types/progress-step";
 export type { ToastLevel, ToastMsg } from "./types/toast";
 export type { WizardStep, WizardSteps } from "./types/wizard";

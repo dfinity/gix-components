@@ -1,1 +1,1 @@
-export type Segment = { value: number; color: string };
+export type ProgressBarSegment = { value: number; color: string };
