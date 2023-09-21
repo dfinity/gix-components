@@ -1,10 +1,11 @@
 <script lang="ts">
+  import type { Segment } from "$lib/types/progress-bar";
+
   // Html default is 1 anyway
   // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress?retiredLocale=ca#attr-max
   export let max = 1;
   export let value: number;
   export let color: "warning" | "primary" = "primary";
-  type Segment = { value: number; color: string };
   // If `segments` is set, it will override the `value` and `color` props.
   export let segments: Segment[] = [];
 
