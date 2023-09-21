@@ -32,8 +32,6 @@
     return gradients.join(", ");
   };
 
-  console.log(createGradients(segments ?? []));
-
   let inlineStyle: string;
   $: inlineStyle =
     segments.length > 0
