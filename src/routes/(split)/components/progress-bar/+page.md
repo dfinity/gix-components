@@ -37,7 +37,7 @@ Note that the color in `segment` can be anything that will work in `linear-gradi
 
 ## Showcase
 
-<div class="card-grid">
+<div class="card-grid" data-tid="showcase">
     <ProgressBar max={10} value={2} />
 
     <ProgressBar max={100} value={44} color="warning" />

@@ -1,3 +1,4 @@
+import ProgressBar from "$lib/components/ProgressBar.svelte";
 import { render } from "@testing-library/svelte";
 import ProgressBarTest from "./ProgressBarTest.svelte";
 
@@ -23,6 +24,23 @@ describe("ProgressBar", () => {
     const progressElement = container.querySelector("progress");
     expect(progressElement).not.toBeNull();
     progressElement && expect(progressElement.max).toBe(max);
+  });
+
+  it("should use segment prop to calculate the prop", () => {
+    const value = 85;
+    const max = 100;
+    const segments = [
+      { value: 10, color: "red" },
+      { value: 30, color: "red" },
+    ];
+    const { container } = render(ProgressBar, {
+      props: { value, max, segments },
+    });
+
+    const progressElement = container.querySelector("progress");
+    expect(progressElement).not.toBeNull();
+    // 40 is the sum of the segments
+    progressElement && expect(progressElement.value).toBe(40);
   });
 
   it("should render top and bottom slots", () => {
