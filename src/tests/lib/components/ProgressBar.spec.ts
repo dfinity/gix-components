@@ -31,7 +31,7 @@ describe("ProgressBar", () => {
     const max = 100;
     const segments = [
       { value: 10, color: "red" },
-      { value: 30, color: "red" },
+      { value: 30, color: "green" },
     ];
     const { container } = render(ProgressBar, {
       props: { value, max, segments },
