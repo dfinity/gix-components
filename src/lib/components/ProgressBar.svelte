@@ -4,16 +4,56 @@
   export let max = 1;
   export let value: number;
   export let color: "warning" | "primary" = "primary";
+  type Segment = { value: number; color: string };
+  // If `segments` is set, it will override the `value` and `color` props.
+  export let segments: Segment[] = [];
+
+  let totalValue: number;
+  $: totalValue =
+    segments.length > 0
+      ? segments.reduce((acc, curr) => acc + curr.value, 0)
+      : value;
+
+  // Creates the list of items of the `linear-gradient` css property.
+  // Ex: `red 0% 50%, blue 50% 100%`
+  const createGradients = (items: Segment[]): string => {
+    const total = items.reduce((acc, curr) => acc + curr.value, 0);
+    let currentPercentage = 0;
+    const gradients: string[] = [];
+    for (const item of items) {
+      const percentage = (item.value / total) * 100;
+      gradients.push(
+        `${item.color} ${currentPercentage}% ${
+          currentPercentage + percentage
+        }%`,
+      );
+      currentPercentage += percentage;
+    }
+    return gradients.join(", ");
+  };
+
+  console.log(createGradients(segments ?? []));
+
+  let inlineStyle: string;
+  $: inlineStyle =
+    segments.length > 0
+      ? `--progress-bar-background: linear-gradient(to right, ${createGradients(
+          segments,
+        )});`
+      : color === "warning"
+      ? `--progress-bar-background: var(--warning-emphasis);`
+      : `--progress-bar-background: var(--primary-gradient);`;
 </script>
 
 <div class="wrapper">
   <slot name="top" />
   <progress
     {max}
-    {value}
+    value={totalValue}
     class={color}
     aria-valuemax={max}
-    aria-valuenow={value}
+    aria-valuenow={totalValue}
+    style={inlineStyle}
   />
   <slot name="bottom" />
 </div>
@@ -46,14 +86,13 @@
 
       &.warning {
         &::-moz-progress-bar {
-          background: var(--warning-emphasis);
+          background: var(--progress-bar-background);
         }
       }
 
       &.primary {
         &::-moz-progress-bar {
-          background: var(--primary-gradient-fallback);
-          background: var(--primary-gradient);
+          background: var(--progress-bar-background);
         }
       }
     }
@@ -82,14 +121,13 @@
 
     &.warning {
       &::-webkit-progress-value {
-        background: var(--warning-emphasis);
+        background: var(--progress-bar-background);
       }
     }
 
     &.primary {
       &::-webkit-progress-value {
-        background: var(--primary-gradient-fallback);
-        background: var(--primary-gradient);
+        background: var(--progress-bar-background);
       }
     }
   }
