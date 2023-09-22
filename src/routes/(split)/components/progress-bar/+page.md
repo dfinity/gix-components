@@ -31,7 +31,7 @@ Note that the color in `segment` can be anything that will work in `linear-gradi
 | Property   | Description                                                                  | Type                                                | Default     |
 | ---------- | ---------------------------------------------------------------------------- | --------------------------------------------------- | ----------- |
 | `max`      | The maximum value of the progress element.                                   | `number`                                            | `1`         |
-| `value`    | The current value, progression, to display.                                  | `number`                                            |             |
+| `value`    | The current value, progression, to display.                                  | `number`                                            | `0`         |
 | `color`    | A style for the bar.                                                         | `primary` or `warning`                              | `primary`   |
 | `segments` | A list of progress segments. Each with a value and color. The order matters. | `{ value: number, color: string}[]` or `undefined`` | `undefined` |
 
