@@ -4,7 +4,8 @@
   // Html default is 1 anyway
   // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress?retiredLocale=ca#attr-max
   export let max = 1;
-  export let value: number;
+  export let value = 0;
+  export let testId: string | undefined = undefined;
   export let color: "warning" | "primary" = "primary";
   // If `segments` is set, it will override the `value` and `color` props.
   export let segments: ProgressBarSegment[] = [];
@@ -44,7 +45,7 @@
       : `--progress-bar-background: var(--primary-gradient);`;
 </script>
 
-<div class="wrapper">
+<div class="wrapper" data-tid={testId}>
   <slot name="top" />
   <progress
     {max}
