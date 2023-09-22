@@ -6,6 +6,7 @@
   export let max = 1;
   // `value` becomes now optional
   export let value = 0;
+  export let testId: string | undefined = undefined;
   export let color: "warning" | "primary" = "primary";
   // If `segments` is set, it will override the `value` and `color` props.
   export let segments: ProgressBarSegment[] = [];
@@ -45,7 +46,7 @@
       : `--progress-bar-background: var(--primary-gradient);`;
 </script>
 
-<div class="wrapper">
+<div class="wrapper" data-tid={testId}>
   <slot name="top" />
   <progress
     {max}
