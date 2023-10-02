@@ -1,6 +1,3 @@
-<script lang="ts">
-</script>
-
 <div class="split-block">
   <div class="start">
     <slot name="start" />
@@ -16,7 +13,6 @@
   .split-block {
     @include media.min-width(large) {
       display: flex;
-      flex-direction: row;
       gap: var(--padding-4x);
     }
   }
