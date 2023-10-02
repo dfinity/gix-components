@@ -2,10 +2,11 @@
 
 :root {
   // Shadows
+  // TODO-colors: Remove along the dark shadows.
   --box-shadow-color: #281f3f;
   --box-shadow-color-rgb: 40, 31, 63;
 
-  --box-shadow: 0px 1px 0px var(--box-shadow-color);
+  --box-shadow: 0px 0px 6px var(--box-shadow-color);
   --interaction-box-shadow: 0px 4px 4px rgba(var(--box-shadow-color-rgb), 0.25),
     1px 1px 2px rgba(var(--box-shadow-color-rgb), 0.3);
   --bottom-sheet-box-shadow: -1px -1px 10px rgba(var(--box-shadow-color-rgb), 0.25);
@@ -14,20 +15,11 @@
   --overlay-box-shadow: 0px 0px 8px rgba(var(--box-shadow-color-rgb), 0.2);
 
   // Footer
-  --footer-background: linear-gradient(
-    0deg,
-    rgba(var(--card-background-rgb), 0.4) 10%,
-    rgba(var(--card-background-rgb), 0) 100%
-  );
+  --footer-background: transparent;
 
   // Gradient
-  --primary-gradient: linear-gradient(
-    99.27deg,
-    var(--primary) -0.11%,
-    #4e48d2 100.63%
-  );
-  --primary-gradient-fallback: var(--primary);
-  --primary-gradient-contrast: var(--primary-contrast);
+  --primary-gradient: var(--purple-dark-accent);
+  --primary-gradient-fallback: var(--purple-dark-accent);
 
   // Json colors
   --json-bracket-color: inherit;
@@ -41,42 +33,41 @@
   --json-boolean-color: var(--value-color);
 
   // Inputs
-  --input-border-color: var(--disable-contrast);
+  --input-border-color: var(--purple-dark-400);
   --input-border-size: 1.5px;
 
   // Buttons custom colors
   --button-secondary-color: var(--secondary);
   --button-card-focus-color: var(--secondary);
-  --button-card-focus-background: linear-gradient(
-    80.26deg,
-    rgba(100, 38, 201, 0.1) 7.33%,
-    rgba(162, 95, 195, 0.1) 92.67%
-  );
+  --button-card-focus-background: var(--purple-dark-650);
+  --button-disable-background: var(--purple-dark-400);
+  --button-disable-color: var(--purple-dark-200);
 
   --light-opacity: 0.6;
   --very-light-opacity: 0.4;
 
   // Text color
-  --value-color: #fff;
+  --value-color: var(--purple-dark-50);
   --label-color: var(--text-color);
-  --description-color: #9791b6;
+  --description-color: var(--purple-dark-200);
 
   // Overlays - based on dark card background rgb color
-  --backdrop: rgba(28, 16, 48, 0.65);
+  --backdrop: var(--fade-dark);
   --backdrop-contrast: var(--text-color);
   --backdrop-filter: blur(6px);
 
   // Disable
   --disable: var(--card-background);
-  --disable-contrast: #8170a6;
-  --disable-contrast-rgb: 129, 112, 166;
+  --disable-contrast: var(--purple-dark-200);
+  // TODO-colors: Remove application of rgbs
+  --disable-contrast-rgb: 184, 161, 222;
 
   // Line
-  --line: #4b3870;
+  --line: var(--purple-dark-400);
 
   // Scrollbar
   --scrollbar-thumb-background: transparent;
-  --scrollbar-thumb-color: var(--content-color);
+  --scrollbar-thumb-color: var(--purple-dark-200);
 
   // Progress
   --progress-color: var(--secondary);
@@ -84,22 +75,12 @@
   --progress-color-rgb: var(--secondary-rgb);
 
   // Custom backgrounds
-  --body-background: linear-gradient(
-      275.08deg,
-      rgba(255, 255, 255, 0.05) 0%,
-      rgba(0, 0, 0, 0) 54.36%
-    ),
-    linear-gradient(167.22deg, #12022e 7.72%, #1e1033 41.87%, #2b0a40 84.98%);
-  --body-color: var(--text2-color);
+  --body-background: var(--purple-dark-900);
+  --body-color: var(--purple-dark-100);
 
-  --content-background: linear-gradient(
-    113.27deg,
-    #24133c 0%,
-    #291641 49.25%,
-    #29103c 100%
-  );
+  --content-background: var(--purple-dark-600);
   --content-color: var(--text-color);
-  --content-start-background: rgba(61, 45, 92, 0.4);
+  --content-start-background: var(--purple-dark-550);
   --content-start-color: var(--text-color);
 
   --overlay-background: var(--background);
@@ -108,17 +89,13 @@
   --overlay-content-background-contrast: var(--focus-background-contrast);
 
   // Overlay inverted colors - i.e. light mode colors
-  --toast-inverted-background: #ebe5f4;
-  --toast-inverted-background-contrast: #3e374c;
+  --toast-inverted-background: var(--purple-dark-75);
+  --toast-inverted-background-contrast: var(--purple-dark-900);
 
   // Menu
-  --menu-color: var(--text2-color);
+  --menu-color: var(--purple-dark-100);
   --menu-select-color: var(--value-color);
-  --menu-selected-background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0.1) 0%,
-    rgba(255, 255, 255, 0) 85%
-  );
+  --menu-selected-background: var(--purple-dark-500);
 
   // Tab and segment
   --segment-selected-background: var(--overlay-content-background);
@@ -128,70 +105,60 @@
 
   // Palette
 
-  /* Light/Text/Text-02 */
-  --text2-color: #9a91b6;
-
   /* Light/Text/Text-xx? */
-  --text-color: #d1cee2;
-  --text-color-rgb: 209, 206, 226;
+  --text-color: var(--purple-dark-50);
+  --text-color-rgb: 240, 237, 245;
 
   /* Design: Dark/Bg/Background-03 */
-  --input-background: #382a54;
+  --input-background: var(--purple-dark-500);
   --input-background-contrast: var(--text-color);
 
   /* Design: Dark/Bg/Background */
-  --focus-background: #41325e;
-  --focus-background-rgb: 65, 50, 94;
+  --focus-background: var(--purple-dark-450);
+  --focus-background-rgb: 61, 42, 92;
   --focus-background-contrast: var(--text-color);
-  --focus-background-tint: #54476e;
+  --focus-background-tint: var(--purple-dark-400);
 
   /* Design: Dark/Bg/Background-01 */
-  --card-background: #352652;
-  --card-background-rgb: 53, 38, 82;
+  --card-background: var(--purple-dark-450);
+  --card-background-rgb: 61, 42, 92;
   --card-background-contrast: var(--text-color);
   --card-background-contrast-rgb: var(--text-color-rgb);
-  --card-background-shade: #33274d;
-  --card-background-tint: #493c63;
+  --card-background-shade: var(--purple-dark-450);
+  --card-background-tint: var(--purple-dark-400);
+  --card-background-disabled: var(--purple-dark-550);
 
   /* Design: Dark/Bg/Background-02 */
-  --background: #3a2c57;
+  --background: var(--purple-dark-550);
   --background-contrast: var(--text-color);
   --background-contrast-rgb: var(--text-color-rgb);
-  --background-shade: #33274d;
+  --background-shade: var(--purple-dark-600);
 
   /* Design: Dark/Bg/Background-01 */
-  --background-disable: #3d2d5c;
-  --background-disable-rgb: 61, 45, 92;
+  --background-disable: var(--purple-dark-500);
+  --background-disable-rgb: 55, 38, 82;
   --background-disable-contrast: var(--disable-contrast);
 
-  --primary: #6426c9;
-  --primary-rgb: 100, 38, 201;
+  --primary: var(--purple-dark-accent);
+  --primary-rgb: 163, 106, 255;
   --primary-contrast: var(--text-color);
-  --primary-contrast-rgb: var(--text-color-rgb);
-  --primary-shade: #5821b1;
-  --primary-tint: #743cce;
+  --primary-shade: var(--purple-dark-350);
+  --primary-tint: var(--purple-dark-250);
 
-  --secondary: #a25fc3;
-  --secondary-rgb: 162, 95, 195;
+  --secondary: var(--purple-dark-accent);
+  --secondary-rgb: 163, 106, 255;
   --secondary-contrast: var(--text-color);
-  --secondary-shade: #8f54ac;
 
-  --tertiary: #9078a4;
+  --tertiary: var(--purple-dark-200);
 
-  --warning-emphasis: #fdc087;
-  --warning-emphasis-contrast: #000000;
-  --warning-emphasis-shade: #dfa977;
+  --warning-emphasis: var(--orange-mid);
+  --warning-emphasis-contrast: var(--purple-dark-75);
+  --warning-emphasis-shade: var(--orange);
 
-  // NO LIGHT MODE
-  --positive-emphasis: #30af91;
-  // NO LIGHT MODE
+  --positive-emphasis: var(--green);
   --positive-emphasis-rgb: 48, 175, 145;
-  // NO LIGHT MODE
-  --positive-emphasis-contrast: #000000;
-  // NO LIGHT MODE
-  --positive-emphasis-light: #ceebe9;
-  // NO LIGHT MODE
-  --negative-emphasis: #ea6c99;
-  // NO LIGHT MODE
-  --negative-emphasis-contrast: #000000;
+  --positive-emphasis-contrast: var(--purple-50);
+  --positive-emphasis-light: var(--green-tint);
+  --negative-emphasis: var(--pink);
+  --negative-emphasis-contrast: var(--purple-50);
 }

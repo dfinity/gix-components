@@ -2,6 +2,10 @@
   import Layout from "$lib/components/Layout.svelte";
   import DocsMenu from "$docs/components/DocsMenu.svelte";
   import Toasts from "$lib/components/Toasts.svelte";
+  import { onMount } from "svelte";
+  import { initAnalytics } from "$docs/services/analytics.services";
+
+  onMount(initAnalytics);
 </script>
 
 <Layout>
