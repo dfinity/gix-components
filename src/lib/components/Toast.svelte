@@ -27,7 +27,7 @@
       ["error"]: IconError,
       ["info"]: IconInfo,
       ["custom"]: undefined,
-    }[level]);
+    })[level];
 
   const close = () => toastsStore.hide(msg.id);
 

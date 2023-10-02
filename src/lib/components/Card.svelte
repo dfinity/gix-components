@@ -14,6 +14,7 @@
   export let theme: "transparent" | "framed" | "highlighted" | undefined =
     undefined;
   export let href: string | undefined = undefined;
+  export let noPadding = false;
 
   let container: "article" | "a" = "article";
   $: container = nonNullish(href) ? "a" : "article";
@@ -62,6 +63,7 @@
   class:icon={nonNullish(icon)}
   class:selected
   class:disabled
+  class:noPadding
   aria-disabled={disabled}
   aria-checked={ariaChecked}
   aria-label={ariaLabel}
@@ -106,13 +108,17 @@
 
     border: var(--card-border-size) solid transparent;
 
+    &.noPadding {
+      padding: 0;
+    }
+
     &.selected {
       border: 2px solid var(--primary);
     }
 
     &.disabled {
-      background: var(--input-background);
-      color: rgba(var(--disable-contrast-rgb), 0.8);
+      background: var(--card-background-disabled);
+      color: var(--disable-contrast);
 
       :global(*) {
         color: inherit;
@@ -122,7 +128,7 @@
     &.highlighted {
       background: var(--primary-gradient-fallback);
       background: var(--primary-gradient);
-      color: rgba(var(--primary-contrast-rgb), var(--light-opacity));
+      color: var(--primary-contrast);
 
       border: 0;
 
@@ -134,10 +140,10 @@
         color: var(--primary-contrast);
       }
       :global(.label) {
-        color: rgba(var(--primary-contrast-rgb), var(--light-opacity));
+        color: var(--primary-contrast);
       }
       :global(.description) {
-        color: rgba(var(--primary-contrast-rgb), var(--very-light-opacity));
+        color: var(--primary-contrast);
       }
     }
 
