@@ -1,10 +1,11 @@
 {
   "name": "@dfinity/gix-components",
-  "version": "2.6.0",
+  "version": "2.7.0",
   "license": "Apache-2.0",
   "scripts": {
     "dev": "npm run i18n && vite dev",
-    "build": "npm run i18n && vite build",
+    "build": "npm run i18n && vite build && npm run copy:workers",
+    "staging": "npm run i18n && vite build --mode staging && npm run copy:workers",
     "package": "svelte-kit sync && svelte-package",
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
@@ -17,7 +18,8 @@
     "e2e": "npm run download:samples && playwright test",
     "e2e:ci": "npm run download:samples && playwright test --reporter=html",
     "e2e:snapshots": "npm run download:samples && npx playwright test --update-snapshots --reporter=list",
-    "e2e:report": "npx playwright show-report"
+    "e2e:report": "npx playwright show-report",
+    "copy:workers": "node ./scripts/copy-workers.mjs"
   },
   "exports": {
     ".": {
@@ -34,10 +36,12 @@
     "LICENSE"
   ],
   "devDependencies": {
+    "@junobuild/analytics": "^0.0.9",
     "@playwright/test": "^1.32.2",
     "@sveltejs/adapter-static": "^2.0.2",
     "@sveltejs/kit": "^1.18.0",
     "@sveltejs/package": "^2.0.2",
+    "@sveltejs/vite-plugin-svelte": "^2.4.6",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/svelte": "^3.2.2",
     "@types/dompurify": "^3.0.2",
@@ -60,7 +64,7 @@
     "svelte2tsx": "^0.6.19",
     "typescript": "^5.1.6",
     "vite": "^4.4.2",
-    "vitest": "^0.33.0"
+    "vitest": "^0.34.6"
   },
   "dependencies": {
     "dompurify": "^3.0.4",

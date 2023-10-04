@@ -30,6 +30,7 @@ Cards are surfaces that display content and optionally actions on a single topic
 | `theme`     | Display a particular theme for surface of the card.                                                                 | `highlighted` or `transparent` or `framed` or `undefined` | `undefined` |
 | `icon`      | Render an icon / call to action next within the card on the right side.                                             | `expand` or `check` or `undefined`                        | `undefined` |
 | `href`      | If the card is intended to function as a link, you can use this property to specify the URL of the linked resource. | `string` or `undefined`                                   | `undefined` |
+| `noPadding` | Remove the default padding inside the card. Useful to catch onhover event with CSS from the content.                | `boolean`                                                 | `false`     |
 
 ### Notes
 
@@ -45,9 +46,11 @@ If a property `href` is set, the component renders a hyperlink within the DOM. I
 
 ## Events
 
-| Event   | Description                                | Detail    |
-| ------- | ------------------------------------------ | --------- |
-| `click` | Propagated click event (if not `disabled`. | Inherited |
+| Event        | Description                                 | Detail    |
+| ------------ | ------------------------------------------- | --------- |
+| `click`      | Propagated click event (if not `disabled`). | Inherited |
+| `mouseenter` | Propagated mouse enter event .              | Inherited |
+| `mouseleave` | Propagated mouse leave event.               | Inherited |
 
 ## Styling
 
@@ -131,6 +134,12 @@ List of the mixins:
         </div>
 
         <p class="description">A description - Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>
+    </Card>
+
+    <Card noPadding>
+        <h3>No padding</h3>
+
+        <p class="description">Example with no padding.</p>
     </Card>
 
 </div>
