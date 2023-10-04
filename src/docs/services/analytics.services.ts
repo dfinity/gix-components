@@ -2,8 +2,9 @@ import { initOrbiter } from "@junobuild/analytics";
 
 export const initAnalytics = async () => {
   const DEV = import.meta.env.DEV;
+  const STAGING = import.meta.env.MODE === "staging";
 
-  if (DEV) {
+  if (DEV || STAGING) {
     return;
   }
 
