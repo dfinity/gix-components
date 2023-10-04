@@ -225,6 +225,14 @@ export const COMPONENT_ROUTES: ComponentRoute[] = [
   },
 
   {
+    path: "/components/split-block",
+    title: "Split Block",
+
+    description:
+      "Displays content in a column on mobile devices and in a row on desktops.",
+  },
+
+  {
     path: "/components/tag",
     title: "Tag",
     description:
