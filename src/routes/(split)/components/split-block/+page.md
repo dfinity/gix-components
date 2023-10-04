@@ -30,8 +30,8 @@ No properties
 
 <div class="container">
   <SplitBlock>
-    <div slot="start" class="item">Content A</div>
-    <div slot="end" class="item">Content B</div>
+    <div slot="start" class="item" data-tid="start">Start slot content</div>
+    <div slot="end" class="item" data-tid="end">End slot content</div>
   </SplitBlock>
 </div>
 
