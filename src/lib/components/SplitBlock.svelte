@@ -2,6 +2,7 @@
   <div class="start">
     <slot name="start" />
   </div>
+  <hr />
   <div class="end">
     <slot name="end" />
   </div>
@@ -11,36 +12,27 @@
   @use "../styles/mixins/media";
 
   .split-block {
+    display: grid;
+    grid-template-rows: auto 1px auto;
+    grid-template-columns: auto;
+    grid-row-gap: var(--padding-2x);
+
     @include media.min-width(large) {
-      display: flex;
-      gap: var(--padding-4x);
+      grid-template-columns: 1fr 1px 1fr;
+      grid-template-rows: auto;
+      grid-row-gap: 0;
+      grid-column-gap: var(--padding-2x);
     }
   }
 
-  .start,
-  .end {
-    flex: 1;
-  }
+  hr {
+    margin: 0;
+    height: 1px;
+    background: var(--line);
 
-  // line separator
-  .start {
-    position: relative;
-
-    &::after {
-      content: "";
-      display: block;
-      height: 1px;
-      background: var(--line);
-      margin: var(--padding-2x) 0;
-
-      @include media.min-width(large) {
-        position: absolute;
-        top: 0;
-        right: calc(-1 * var(--padding-2x));
-        height: 100%;
-        width: 1px;
-        margin: 0;
-      }
+    @include media.min-width(large) {
+      width: 1px;
+      height: auto;
     }
   }
 </style>
