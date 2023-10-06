@@ -22,7 +22,7 @@ Some pre-defined utilities to set spaces for grid's cells.
 ## Usage
 
 | Type                                                 | CSS class                      |
-|------------------------------------------------------|--------------------------------|
+| ---------------------------------------------------- | ------------------------------ |
 | header, title, first information, etc.               | `content-cell-title`           |
 | related content or details                           | `content-cell-details`         |
 | display as cell as an "Island"                       | `content-cell-island`          |
