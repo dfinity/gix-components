@@ -46,6 +46,13 @@
   border-radius: var(--border-radius);
 }
 
+.content-cell-disabled-island {
+  @include content.disabled-island;
+
+  padding: var(--padding-2x);
+  border-radius: var(--border-radius);
+}
+
 // Spacing
 
 .no-margin {

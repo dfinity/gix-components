@@ -2,3 +2,8 @@
   background: var(--card-background);
   color: var(--background-contrast);
 }
+
+@mixin disabled-island {
+  background: var(--card-background-disabled);
+  color: var(--description-color);
+}
