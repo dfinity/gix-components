@@ -21,12 +21,12 @@ Some pre-defined utilities to set spaces for grid's cells.
 
 ## Usage
 
-| Type                                              | CSS class                      |
-|---------------------------------------------------|--------------------------------|
-| header, title, first information, etc.            | `content-cell-title`           |
-| related content or details                        | `content-cell-details`         |
-| display as cell as an "Island"                    | `content-cell-island`          |
-| display as cell as an "Island" inside an "Island" | `content-cell-disabled-island` |
+| Type                                                 | CSS class                      |
+|------------------------------------------------------|--------------------------------|
+| header, title, first information, etc.               | `content-cell-title`           |
+| related content or details                           | `content-cell-details`         |
+| display as cell as an "Island"                       | `content-cell-island`          |
+| display as cell as an "Island" using disabled colors | `content-cell-disabled-island` |
 
 > Unlike the [Island](/components/island) component, displaying a cell as an "Island" has no effect on the scroll - i.e. it does not produce any inner scrolling and is only cosmetic.
 
@@ -46,6 +46,10 @@ Some pre-defined utilities to set spaces for grid's cells.
 
         <div class="content-cell-details">
             <DocsLoremIpsum length={2} />
+        </div>
+
+        <div class="content-cell-disabled-island">
+            <DocsLoremIpsum length={1} />
         </div>
     </div>
 
