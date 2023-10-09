@@ -31,7 +31,7 @@ Tags are block elements that usually appear near another element. They are used 
 
     <Tag intent="error">Error</Tag>
 
-    <Tag><IconLockClosed /><span>With icon</span></Tag>
+    <Tag><IconLockClosed size="14px" /><span>With icon</span></Tag>
 
 </div>
 <div class="grid">

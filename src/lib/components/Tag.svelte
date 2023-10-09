@@ -10,6 +10,8 @@
 >
 
 <style lang="scss">
+  @use "../styles/mixins/fonts";
+
   .tag {
     border-radius: var(--border-radius-0_5x);
 
@@ -21,17 +23,16 @@
     width: fit-content;
     padding: var(--padding-0_5x) var(--padding);
 
+    // "info" intent is the default
+    background-color: var(--elements-divider);
+    color: var(--text-description);
+
     &.large {
-      font-size: var(--font-size-standard);
+      @include fonts.standard;
     }
 
     &.medium {
-      font-size: var(--font-size-small);
-    }
-
-    &.info {
-      background-color: var(--elements-divider);
-      color: var(--text-description);
+      @include fonts.small;
     }
 
     &.success {
