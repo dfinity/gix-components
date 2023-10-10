@@ -3,6 +3,8 @@
   import { layoutContentScrollY } from "../stores/layout.store";
   import { BREAKPOINT_LARGE } from "../constants/constants";
 
+  export let testId: string | undefined = undefined;
+
   let innerWidth = 0;
   $: innerWidth,
     layoutContentScrollY.set(innerWidth < BREAKPOINT_LARGE ? "auto" : "hidden");
@@ -12,7 +14,7 @@
 
 <svelte:window bind:innerWidth />
 
-<div class="island">
+<div class="island" data-tid={testId}>
   <div class="scrollable-island">
     <slot />
   </div>
