@@ -29,6 +29,7 @@
     margin: 0;
     height: 1px;
     background: var(--line);
+    border: none;
 
     @include media.min-width(large) {
       width: 1px;
