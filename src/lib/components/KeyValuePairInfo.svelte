@@ -5,7 +5,7 @@
   import { nonNullish } from "@dfinity/utils";
 
   export let testId: string | undefined = undefined;
-  export let alignIconRight = false;
+  export let alignIconRight: boolean | undefined = false;
 
   let toggleContent: () => void;
 </script>
@@ -16,7 +16,7 @@
   externalToggle={true}
   bind:toggleContent
 >
-  <KeyValuePair slot="header" {alignIconRight}>
+  <KeyValuePair slot="header">
     <div class="wrapper" slot="key">
       <slot name="key" />
       {#if !alignIconRight}
@@ -29,7 +29,10 @@
     <svelte:fragment slot="value">
       <slot name="value" />
       {#if alignIconRight}
-        <button class="icon alignIconRight" on:click|stopPropagation={toggleContent}>
+        <button
+          class="icon alignIconRight"
+          on:click|stopPropagation={toggleContent}
+        >
           <IconInfo />
         </button>
       {/if}
