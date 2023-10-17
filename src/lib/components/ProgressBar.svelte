@@ -72,15 +72,13 @@
   // Target only FF
   @supports (-moz-appearance: none) {
     progress {
-      background-color: var(--background);
-
       height: var(--current-height);
       border-radius: var(--current-height);
       box-shadow: var(--input-box-shadow);
       border: 0;
-
+      
       &::-moz-progress-bar {
-        border-radius: var(--current-height);
+        background-color: #fff;
         box-shadow: var(--input-box-shadow);
       }
 
@@ -104,13 +102,16 @@
     appearance: none;
 
     height: var(--current-height);
+    overflow: hidden;
+
+    // Keep here to have a better UI with low values
+    // Referenece: https://stackoverflow.com/questions/76606203/html-progress-bar-with-custom-background-color-has-design-problem-if-it-has-low
+    border-radius: var(--current-height);
+    box-shadow: var(--input-box-shadow);
 
     // Progress bar styles
     &::-webkit-progress-bar {
       background-color: #fff;
-
-      height: var(--current-height);
-      border-radius: var(--current-height);
       box-shadow: var(--input-box-shadow);
     }
 

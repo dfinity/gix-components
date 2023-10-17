@@ -43,6 +43,8 @@ Note that the color in `segment` can be anything that will work in `linear-gradi
 
     <ProgressBar max={100} value={44} color="warning" />
 
+    <ProgressBar max={10000} value={44} color="warning" />
+
     <ProgressBar max={100} segments={[{ value: 10, color: "salmon" }, { value: 25, color: "cornflowerblue" }, { value: 50, color: "orchid" }]} />
 
 </div>
