@@ -10,30 +10,10 @@
 >
 
 <style lang="scss">
-  @use "../styles/mixins/fonts";
-
   .tag {
-    border-radius: var(--border-radius-0_5x);
-
-    display: flex;
-    align-items: center;
-    gap: var(--padding-0_5x);
-    
-    // Force fit-content for `li` tags.
-    width: fit-content;
-    padding: var(--padding-0_5x) var(--padding);
-
     // "info" intent is the default
     background-color: var(--elements-divider);
     color: var(--text-description);
-
-    &.large {
-      @include fonts.standard;
-    }
-
-    &.medium {
-      @include fonts.small;
-    }
 
     &.success {
       background-color: var(--positive-emphasis);
@@ -49,9 +29,5 @@
       background-color: var(--negative-emphasis);
       color: var(--text-light);
     }
-  }
-
-  li.tag {
-    display: list-item;
   }
 </style>
