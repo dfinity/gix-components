@@ -16,7 +16,7 @@
   background-color: var(--content-background);
   color: var(--text-color);
 
-  &.large {
+  &.tag--large {
     @include fonts.standard;
   }
 }

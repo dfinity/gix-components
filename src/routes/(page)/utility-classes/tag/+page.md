@@ -3,18 +3,20 @@
 
 # Tag
 
-Apply tag styles to any element.
+Apply tag styles to any element. Used in the [Tag component](/components/tag).
 
-## Note
+## Usage
 
-Used in the [Tag](/components/tag) component.
+| Type       | CSS class    |
+|------------|--------------|
+| Size large | `tag--large` |
 
 ## Showcase
 
 | Styles                                        | Disabled                                    |
-| --------------------------------------------- | ------------------------------------------- |
+|-----------------------------------------------|---------------------------------------------|
 | `<div class="tag">Default</div>`              | <div class="tag">Default</div>              |
-| `<div class="tag large">Default</div>`        | <div class="tag large">Large</div>          |
+| `<div class="tag tag--large">Default</div>`   | <div class="tag tag--large">Large</div>     |
 | `<div class="tag custom-color">Default</div>` | <div class="tag custom-color">Default</div> |
 
 <style lang="scss">
