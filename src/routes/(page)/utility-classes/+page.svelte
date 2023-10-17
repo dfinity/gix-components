@@ -42,4 +42,10 @@
 
     <p>Format figures for display purpose.</p>
   </Card>
+
+  <Card href="/utility-classes/tag">
+    <h2 class="title" slot="start">Tag</h2>
+
+    <p>Tag styles.</p>
+  </Card>
 </div>
