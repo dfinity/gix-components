@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { createEventDispatcher } from "svelte/internal";
+  import { createEventDispatcher } from "svelte";
 
   import Input from "$lib/components/Input.svelte";
 
