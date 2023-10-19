@@ -38,7 +38,7 @@
     dispatch("click", $event?.detail);
   };
 
-  let iconCmp: typeof ComponentType | undefined = undefined;
+  let iconCmp: ComponentType | undefined = undefined;
 
   $: (() => {
     switch (icon) {
