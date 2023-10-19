@@ -39,4 +39,7 @@ module.exports = {
     ],
     "no-underscore-dangle": "off",
   },
+  globals: {
+    NodeJS: true,
+  },
 };
