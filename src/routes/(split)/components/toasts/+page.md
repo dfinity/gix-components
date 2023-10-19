@@ -78,7 +78,7 @@ toastsStore.show({
 A toast message can be created with following properties.
 
 | Property   | Description                                                                                                  | Type                                     | Mandatory |
-| ---------- | ------------------------------------------------------------------------------------------------------------ |------------------------------------------| --------- |
+| ---------- | ------------------------------------------------------------------------------------------------------------ | ---------------------------------------- | --------- |
 | `id`       | A unique ID to identify the toast.                                                                           | `symbol`                                 |           |
 | `title`    | A title that can be displayed before the text.                                                               | `string`                                 |           |
 | `text`     | The text to display.                                                                                         | `string`                                 | ✅        |
