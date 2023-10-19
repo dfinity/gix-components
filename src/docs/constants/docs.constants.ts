@@ -149,6 +149,13 @@ export const COMPONENT_ROUTES: ComponentRoute[] = [
   },
 
   {
+    path: "/components/page-banner",
+    title: "Page Banner",
+
+    description: "A main banner for landing pages.",
+  },
+
+  {
     path: "/components/popover",
     title: "Popover",
     description:
@@ -215,6 +222,14 @@ export const COMPONENT_ROUTES: ComponentRoute[] = [
 
     description:
       "The detail of the layout where the content finds place in two columns.",
+  },
+
+  {
+    path: "/components/split-block",
+    title: "Split Block",
+
+    description:
+      "Displays content in a column on mobile devices and in a row on desktops.",
   },
 
   {

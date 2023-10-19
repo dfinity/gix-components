@@ -2,13 +2,16 @@
   import MenuBackground from "./MenuBackground.svelte";
   import { layoutMenuOpen } from "$lib/stores/layout.store";
   import { handleKeyPress } from "$lib/utils/keyboard.utils";
+  import IconBack from "$lib/icons/IconBack.svelte";
+  import { menuCollapsed, menuStore } from "$lib/stores/menu.store";
+  import { i18n } from "$lib/stores/i18n";
 
   export let sticky = true;
 
   const close = () => layoutMenuOpen.set(false);
 </script>
 
-<div role="menu">
+<div role="menu" class:open={$layoutMenuOpen}>
   <MenuBackground />
 
   <div
@@ -23,6 +26,13 @@
   >
     <slot />
   </div>
+
+  <button
+    class="menu-collapse icon-only"
+    data-tid="menu-collapse"
+    title={$menuCollapsed ? $i18n.core.expand : $i18n.core.collapse}
+    on:click={menuStore.toggle}><IconBack /></button
+  >
 </div>
 
 <style lang="scss">
@@ -43,8 +53,8 @@
       var(--menu-logo-height) + var(--padding-4x) + var(--header-offset, 0px)
     );
 
-    // Shift the menu on xlarge screen e.g. if a banner is displayed
-    @include media.min-width(xlarge) {
+    // Shift the menu on large screen e.g. if a banner is displayed
+    @include media.min-width(large) {
       padding-top: calc(
         var(--menu-logo-height) + var(--padding-3x) + var(--header-offset, 0px)
       );
@@ -66,8 +76,8 @@
     margin-left: -100%;
 
     &.sticky {
-      // On xlarge screen the menu can be always open
-      @include media.min-width(xlarge) {
+      // On large screen the menu can be always open
+      @include media.min-width(large) {
         width: var(--menu-width);
         margin-left: 0;
       }
@@ -83,10 +93,10 @@
         var(--menu-animation-timing-function),
       width var(--animation-time-normal) var(--menu-animation-timing-function);
 
-    // On xlarge screen the header is not sticky but within the content that's why we align the inner menu start
+    // On large screen the header is not sticky but within the content that's why we align the inner menu start
     box-sizing: border-box;
 
-    @include media.min-width(xlarge) {
+    @include media.min-width(large) {
       padding-top: var(--padding-4x);
     }
   }

@@ -1,14 +1,17 @@
 <script lang="ts">
   export let testId: string | undefined = undefined;
+
+  let noDescription = false;
+  $: noDescription = $$slots.description === undefined;
 </script>
 
 <div class="container" data-tid={testId}>
-  <div class="section-title">
+  <div class="section-title" class:noDescription>
     <slot name="title" />
     <slot name="end" />
   </div>
   <slot name="description" />
-  <div class="content-wrapper"><slot /></div>
+  <div class="content-wrapper" class:noDescription><slot /></div>
 </div>
 
 <style lang="scss">
@@ -25,10 +28,16 @@
     align-items: center;
     justify-content: space-between;
 
-    margin-bottom: var(--padding);
+    &:not(.noDescription) {
+      margin-bottom: var(--padding);
+    }
   }
 
   .content-wrapper {
     margin-top: var(--padding-3x);
+
+    &.noDescription {
+      margin-top: var(--padding-2x);
+    }
   }
 </style>

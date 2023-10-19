@@ -1,26 +1,26 @@
 <script lang="ts">
-  import IconArrowRight from "$lib/icons/IconArrowRight.svelte";
-  import type { ComponentType } from "svelte";
+  import type { SvelteComponent } from "svelte";
   import IconExpandMore from "$lib/icons/IconExpandMore.svelte";
   import IconCheckCircle from "$lib/icons/IconCheckCircle.svelte";
   import { nonNullish } from "@dfinity/utils";
+  import { createEventDispatcher } from "svelte";
 
-  export let role: "link" | "button" | "checkbox" | "radio" | undefined =
-    undefined;
+  export let role: "button" | "checkbox" | undefined = undefined;
   export let ariaLabel: string | undefined = undefined;
   export let selected = false;
   export let disabled: boolean | undefined = undefined;
   export let testId = "card";
-  export let icon: "arrow" | "expand" | "check" | undefined = undefined;
+  export let icon: "expand" | "check" | undefined = undefined;
   export let theme: "transparent" | "framed" | "highlighted" | undefined =
     undefined;
+  export let href: string | undefined = undefined;
+  export let noPadding = false;
+
+  let container: "article" | "a" = "article";
+  $: container = nonNullish(href) ? "a" : "article";
 
   let clickable = false;
-
-  $: clickable =
-    role !== undefined
-      ? ["button", "link", "checkbox", "radio"].includes(role)
-      : false;
+  $: clickable = nonNullish(href) || nonNullish(role);
 
   let showHeadline: boolean;
   $: showHeadline = nonNullish($$slots.start) || nonNullish($$slots.end);
@@ -28,13 +28,20 @@
   let ariaChecked: boolean | undefined = undefined;
   $: ariaChecked = role === "checkbox" ? selected : undefined;
 
-  let iconCmp: ComponentType | undefined = undefined;
+  const dispatch = createEventDispatcher();
+
+  const onClick = ($event: MouseEvent | KeyboardEvent) => {
+    if (clickable && nonNullish(href)) {
+      return;
+    }
+
+    dispatch("click", $event?.detail);
+  };
+
+  let iconCmp: typeof SvelteComponent | undefined = undefined;
 
   $: (() => {
     switch (icon) {
-      case "arrow":
-        iconCmp = IconArrowRight;
-        break;
       case "expand":
         iconCmp = IconExpandMore;
         break;
@@ -45,15 +52,18 @@
   })();
 </script>
 
-<article
-  data-tid={testId}
+<svelte:element
+  this={container}
+  {href}
   {role}
-  on:click
+  data-tid={testId}
+  on:click={onClick}
   class={`card ${theme ?? ""}`}
   class:clickable
   class:icon={nonNullish(icon)}
   class:selected
   class:disabled
+  class:noPadding
   aria-disabled={disabled}
   aria-checked={ariaChecked}
   aria-label={ariaLabel}
@@ -70,7 +80,7 @@
   {/if}
 
   <slot />
-</article>
+</svelte:element>
 
 <style lang="scss">
   @use "../styles/mixins/interaction";
@@ -78,7 +88,8 @@
   @use "../styles/mixins/display";
   @use "../styles/mixins/card";
 
-  article {
+  article,
+  a {
     display: flex;
     flex-direction: column;
 
@@ -97,13 +108,17 @@
 
     border: var(--card-border-size) solid transparent;
 
+    &.noPadding {
+      padding: 0;
+    }
+
     &.selected {
       border: 2px solid var(--primary);
     }
 
     &.disabled {
-      background: var(--input-background);
-      color: rgba(var(--disable-contrast-rgb), 0.8);
+      background: var(--card-background-disabled);
+      color: var(--disable-contrast);
 
       :global(*) {
         color: inherit;
@@ -113,9 +128,8 @@
     &.highlighted {
       background: var(--primary-gradient-fallback);
       background: var(--primary-gradient);
-      color: rgba(var(--primary-contrast-rgb), var(--light-opacity));
+      color: var(--primary-contrast);
 
-      margin: var(--card-border-size) 0;
       border: 0;
 
       // TODO: find a better solution (a mixin?)
@@ -126,10 +140,10 @@
         color: var(--primary-contrast);
       }
       :global(.label) {
-        color: rgba(var(--primary-contrast-rgb), var(--light-opacity));
+        color: var(--primary-contrast);
       }
       :global(.description) {
-        color: rgba(var(--primary-contrast-rgb), var(--very-light-opacity));
+        color: var(--primary-contrast);
       }
     }
 
@@ -155,6 +169,10 @@
         --icon-check-circle-color: var(--primary-contrast);
       }
     }
+  }
+
+  a.card {
+    margin: 0;
   }
 
   .clickable {

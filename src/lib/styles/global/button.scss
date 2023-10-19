@@ -68,8 +68,8 @@ button {
 
     &[disabled],
     &[disabled]:hover {
-      background: var(--background-disable);
-      color: var(--background-disable-contrast);
+      background: var(--button-disable-background);
+      color: var(--button-disable-color);
       cursor: default;
       box-shadow: none;
     }
@@ -79,42 +79,28 @@ button {
     }
   }
 
-  --primary-background: linear-gradient(
-    80.26deg,
-    var(--primary) 4.98%,
-    var(--secondary) 90.33%
-  );
-
   &.primary {
-    background: var(--primary-background);
+    background: var(--primary);
     color: var(--primary-contrast);
 
     &:not([disabled]):hover,
     &:not([disabled]):focus {
-      background: var(--primary-tint);
+      background: var(--primary-shade);
     }
   }
 
   &.secondary {
-    background: var(--button-secondary-background, var(--background));
+    background: transparent;
     color: var(--button-secondary-color);
-    border: solid 2px transparent;
-    background-image: linear-gradient(
-        var(--button-secondary-background, var(--background)),
-        var(--button-secondary-background, var(--background))
-      ),
-      linear-gradient(to right, var(--primary), var(--secondary));
-    background-origin: border-box;
-    background-clip: padding-box, border-box;
+    border: solid 2px var(--primary);
+
+    &[disabled] {
+      border: solid 2px transparent;
+    }
 
     &:not([disabled]):hover,
     &:not([disabled]):focus {
-      background-image: linear-gradient(
-          var(--button-secondary-background, var(--background)),
-          var(--button-secondary-background, var(--background))
-        ),
-        linear-gradient(to right, var(--primary-shade), var(--secondary-shade));
-      filter: contrast(1.05);
+      background: var(--button-card-focus-background);
     }
   }
 
@@ -175,7 +161,7 @@ button {
 
       border-radius: 50%;
 
-      background: var(--primary-background);
+      background: var(--primary);
       color: var(--primary-contrast);
     }
   }

@@ -53,6 +53,18 @@ The component is within a `div` with a background to highlight the component exa
   </Section>
 </div>
 
+#### No description example
+
+<div class="wrapper">
+  <Section>
+    <h3 slot="title">Title</h3>
+    <h5 slot="end">123</h5>
+    <p>Here would go any content that we want.</p>
+    <p>It can be more than one element.</p>
+    <p>They would all go here.</p>
+  </Section>
+</div>
+
 ### Real production example
 
 <div class="wrapper">
@@ -113,7 +125,7 @@ Below is the code for the real production example:
     background-color: var(--card-background);
     margin: var(--padding-2x) 0;
     & p,
-    h3 {
+    h3, h5 {
       margin: 0;
     }
   }
@@ -131,7 +143,7 @@ Below is the code for the real production example:
   .wrapper {
     background-color: var(--card-background);
     margin: var(--padding-2x) 0;
-    & p, h3 {
+    & p, h3, h5 {
       margin: 0;
     }
   }

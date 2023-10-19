@@ -54,8 +54,10 @@
   .checkbox {
     display: flex;
     justify-content: space-between;
-    flex-direction: var(--checkbox-flex-direction);
+    align-items: var(--checkbox-align-items, center);
     gap: var(--padding);
+
+    height: fit-content;
 
     padding: var(--checkbox-padding, var(--padding-2x));
 
@@ -65,9 +67,9 @@
 
     font-size: var(--checkbox-font-size, inherit);
 
-    &:hover {
-      background: rgba(var(--primary-rgb), 0.2);
+    --input-custom-border-color: var(--disable-contrast);
 
+    &:hover {
       input {
         @include form.input-focus;
       }
@@ -75,10 +77,6 @@
 
     border: var(--input-border-size) solid transparent;
     outline: none;
-
-    &:focus {
-      @include form.input-focus;
-    }
 
     border-radius: var(--checkbox-border-radius, var(--border-radius));
 
@@ -123,7 +121,6 @@
 
     &[disabled],
     &[disabled]:hover {
-      background: var(--disable);
       cursor: default;
 
       &:checked:after {

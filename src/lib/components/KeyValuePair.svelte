@@ -35,5 +35,6 @@
     display: flex;
     align-items: center;
     margin-inline-start: 0;
+    text-align: right;
   }
 </style>

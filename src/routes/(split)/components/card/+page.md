@@ -20,15 +20,21 @@ Cards are surfaces that display content and optionally actions on a single topic
 
 ## Properties
 
-| Property    | Description                                                                                    | Type                                                       | Default     |
-| ----------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------- |
-| `role`      | The semantic role of the `article` that will be rendered in the DOM when using this component. | `link` or `button` or `checkbox` or `radio` or `undefined` | `undefined` |
-| `ariaLabel` | An accessible label for the card.                                                              | `string` or `undefined`                                    | `undefined` |
-| `selected`  | Display the surface as `selected`. Useful if used as a on/off call to action.                  | `boolean`                                                  | `false`     |
-| `disabled`  | Disable clickable events.                                                                      | `boolean` or `undefined`                                   | `undefined` |
-| `testId`    | Add a `data-tid` attribute to the DOM, useful for test purpose.                                | `string`                                                   | `card`      |
-| `theme`     | Display a particular theme for surface of the card.                                            | `highlighted` or `transparent` or `framed` or `undefined`  | `undefined` |
-| `icon`      | Render an icon / call to action next within the card on the right side.                        | `arrow` or `expand` or `check` or `undefined`              | `undefined` |
+| Property    | Description                                                                                                         | Type                                                      | Default     |
+| ----------- | ------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- | ----------- |
+| `role`      | The semantic role that will be rendered in the DOM when using this component.                                       | `button` or `checkbox` `undefined`                        | `undefined` |
+| `ariaLabel` | An accessible label for the card.                                                                                   | `string` or `undefined`                                   | `undefined` |
+| `selected`  | Display the surface as `selected`. Useful if used as a on/off call to action.                                       | `boolean`                                                 | `false`     |
+| `disabled`  | Disable clickable events.                                                                                           | `boolean` or `undefined`                                  | `undefined` |
+| `testId`    | Add a `data-tid` attribute to the DOM, useful for test purpose.                                                     | `string`                                                  | `card`      |
+| `theme`     | Display a particular theme for surface of the card.                                                                 | `highlighted` or `transparent` or `framed` or `undefined` | `undefined` |
+| `icon`      | Render an icon / call to action next within the card on the right side.                                             | `expand` or `check` or `undefined`                        | `undefined` |
+| `href`      | If the card is intended to function as a link, you can use this property to specify the URL of the linked resource. | `string` or `undefined`                                   | `undefined` |
+| `noPadding` | Remove the default padding inside the card. Useful to catch onhover event with CSS from the content.                | `boolean`                                                 | `false`     |
+
+### Notes
+
+If a property `href` is set, the component renders a hyperlink within the DOM. If no such property is set, it renders an `article` which can be made interactive by using the `role` option.
 
 ## Slots
 
@@ -40,9 +46,11 @@ Cards are surfaces that display content and optionally actions on a single topic
 
 ## Events
 
-| Event   | Description                                | Detail    |
-| ------- | ------------------------------------------ | --------- |
-| `click` | Propagated click event (if not `disabled`. | Inherited |
+| Event        | Description                                 | Detail    |
+| ------------ | ------------------------------------------- | --------- |
+| `click`      | Propagated click event (if not `disabled`). | Inherited |
+| `mouseenter` | Propagated mouse enter event .              | Inherited |
+| `mouseleave` | Propagated mouse leave event.               | Inherited |
 
 ## Styling
 
@@ -72,13 +80,19 @@ List of the mixins:
         <p>Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>
     </Card>
 
+    <Card href="https://gix.design">
+        <h3 slot="start">A link</h3>
+
+        <p>Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>
+    </Card>
+
     <Card selected>
         <h3>Selected</h3>
 
         <p>Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>
     </Card>
 
-    <Card disabled>
+    <Card disabled href="https://gix.design">
         <h3>Disabled</h3>
 
         <p>Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>
@@ -122,6 +136,12 @@ List of the mixins:
         <p class="description">A description - Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>
     </Card>
 
+    <Card noPadding>
+        <h3>No padding</h3>
+
+        <p class="description">Example with no padding.</p>
+    </Card>
+
 </div>
 
 <p style="padding: var(--padding-4x) 0 var(--padding);">Themes:</p>
@@ -129,7 +149,6 @@ List of the mixins:
 <div class="card-grid" style="margin-top: var(--padding)">
     <Card theme="highlighted">
         <h3>Highlighted</h3>
-
         <p>Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>
     </Card>
 
@@ -150,12 +169,6 @@ List of the mixins:
 <p style="padding: var(--padding-4x) 0 var(--padding);">Icons:</p>
 
 <div class="card-grid" style="margin-top: var(--padding)">
-    <Card icon="arrow">
-        <h3>Arrow</h3>
-
-        <p>Advanced smart contracts process HTTP requests, control other chains, and scale infinitely</p>
-    </Card>
-
     <Card icon="check">
         <h3>Checkmark</h3>
 

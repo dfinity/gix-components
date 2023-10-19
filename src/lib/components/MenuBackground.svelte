@@ -18,7 +18,7 @@
     $themeStore === Theme.LIGHT ? backgroundLight : backgroundDark;
 </script>
 
-<div class:open={$layoutMenuOpen}>
+<div class:open={$layoutMenuOpen} class="menu-background">
   <img
     class="logo-nns"
     src={logoNNS}
@@ -66,8 +66,8 @@
 
     transform: translate(-100%, 0);
 
-    // On xlarge screen the menu is always open
-    @include media.min-width(xlarge) {
+    // On large screen the menu is always open
+    @include media.min-width(large) {
       transform: translate(0, 0);
     }
 
@@ -82,7 +82,7 @@
   .logo-nns {
     height: var(--menu-logo-height);
 
-    @include media.min-width(xlarge) {
+    @include media.min-width(large) {
       padding-top: var(--padding);
     }
   }
@@ -94,6 +94,7 @@
 
     z-index: var(--menu-z-index);
 
+    // 654px is an empirical value
     @media (min-height: 654px) {
       display: block;
     }

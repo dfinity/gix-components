@@ -1,6 +1,5 @@
 <script lang="ts">
   import Card from "$lib/components/Card.svelte";
-  import { goto } from "$app/navigation";
   import { COMPONENT_ROUTES } from "$docs/constants/docs.constants";
 </script>
 
@@ -13,7 +12,7 @@
 
 <div class="card-grid">
   {#each COMPONENT_ROUTES as { path, title, description }}
-    <Card role="link" on:click={() => goto(path)}>
+    <Card href={path}>
       <h2 class="title" slot="start">{title}</h2>
 
       <p>
