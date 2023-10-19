@@ -7,7 +7,7 @@
 </script>
 
 <InfiniteScroll on:nnsIntersect={spy} {disabled}>
-  {#each elements as element, i}
+  {#each elements as _element, i}
     <div>Test {i}</div>
   {/each}
 </InfiniteScroll>

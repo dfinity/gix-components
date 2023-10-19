@@ -19,6 +19,7 @@
   };
 </script>
 
+<!-- eslint-disable svelte/valid-compile -->
 <span on:click={changeValue} id="test" />
 
 <Input bind:value={amount} {inputType} {name} {placeholder} />

@@ -11,5 +11,6 @@
 </script>
 
 {#if mounted && nonNullish(text)}
+  <!-- eslint-disable svelte/no-at-html-tags -->
   {@html sanitize(text)}
 {/if}

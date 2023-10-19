@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { SlugIcon } from "../types/slug";
+  import Html from "$lib/components/Html.svelte";
 
   export let icon: SlugIcon;
 
@@ -9,7 +10,7 @@
 </script>
 
 <article>
-  {@html svg}
+  <Html text={svg} />
   <span>{name}</span>
 </article>
 
