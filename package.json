@@ -39,7 +39,7 @@
     "@junobuild/analytics": "^0.0.9",
     "@playwright/test": "^1.32.2",
     "@sveltejs/adapter-static": "^2.0.2",
-    "@sveltejs/kit": "^1.18.0",
+    "@sveltejs/kit": "^1.26.0",
     "@sveltejs/package": "^2.0.2",
     "@sveltejs/vite-plugin-svelte": "^2.4.6",
     "@testing-library/jest-dom": "^5.16.5",
