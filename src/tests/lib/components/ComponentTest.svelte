@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { SvelteComponent } from "svelte";
+  import type { ComponentType } from "svelte";
 
-  export let cmp: typeof SvelteComponent;
+  export let cmp: ComponentType;
   export let testId: string;
 </script>
 

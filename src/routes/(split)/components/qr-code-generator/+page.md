@@ -1,10 +1,10 @@
 <script lang="ts">
     import { browser } from "$app/environment";
-    import type { SvelteComponent } from "svelte";
+    import type { ComponentType } from "svelte";
     import { onMount } from "svelte";
     import logoOnChainDark from "$lib/assets/logo-onchain-dark.svg";
 
-    let QRCode: typeof SvelteComponent | undefined = undefined;
+    let QRCode: ComponentType | undefined = undefined;
 
     onMount(async () => {
         if (!browser) {
