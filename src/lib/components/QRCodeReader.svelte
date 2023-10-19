@@ -3,6 +3,7 @@
   import type { Html5Qrcode } from "html5-qrcode";
   import { isAndroidTablet, isIPad, isMobile } from "$lib/utils/device.utils";
   import { nextElementId } from "$lib/utils/html.utils";
+  import type { Html5QrcodeScannerState } from "html5-qrcode";
 
   const id = nextElementId("qrcode-reader-");
 
@@ -10,7 +11,7 @@
 
   let html5QrCode: Html5Qrcode | undefined;
 
-  let ScannerState: Record<string, number>;
+  let ScannerState: typeof Html5QrcodeScannerState;
   let isDestroyed = false;
 
   onMount(async () => {
@@ -20,7 +21,7 @@
     // Source documentation: https://scanapp.org/blog/2022/01/09/setting-dynamic-qr-box-size-in-html5-qrcode.html
     const qrboxFunction = (
       viewfinderWidth: number,
-      viewfinderHeight: number
+      viewfinderHeight: number,
     ) => {
       let minEdgePercentage = 0.7; // 70%
       let minEdgeSize = Math.min(viewfinderWidth, viewfinderHeight);
@@ -31,7 +32,9 @@
       };
     };
 
-    const { Html5Qrcode, Html5QrcodeScannerState } = await import("html5-qrcode");
+    const { Html5Qrcode, Html5QrcodeScannerState } = await import(
+      "html5-qrcode"
+    );
     ScannerState = Html5QrcodeScannerState;
 
     html5QrCode = new Html5Qrcode(id);
@@ -51,7 +54,7 @@
           // QR code parse error, error = NotFoundException: No MultiFormat Readers were able to detect the code.
           // QR code parse error, error = No barcode or QR code detected.
           // QR code parse error, error = NotFoundException: No MultiFormat Readers were able to detect the code.
-        }
+        },
       )
       .catch((err: unknown) => {
         dispatch("nnsQRCodeError", err);
@@ -73,7 +76,7 @@
       console.error(err);
       dispatch(
         "nnsQRCodeError",
-        new Error("There was an error while destroying the QR code reader.")
+        new Error("There was an error while destroying the QR code reader."),
       );
     }
   });

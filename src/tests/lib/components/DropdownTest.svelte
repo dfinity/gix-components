@@ -10,6 +10,7 @@
   };
 </script>
 
+<!-- eslint-disable svelte/valid-compile -->
 <span on:click={changeValue} data-tid="test" />
 
 <Dropdown selectedValue={value} name="test">

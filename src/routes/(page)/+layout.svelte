@@ -3,11 +3,11 @@
   import { afterNavigate } from "$app/navigation";
   import HeaderTitle from "$lib/components/HeaderTitle.svelte";
   import DocsAccountMenu from "$docs/components/DocsAccountMenu.svelte";
-  import type { Navigation } from "@sveltejs/kit";
+  import type { AfterNavigate } from "@sveltejs/kit";
   import Content from "$lib/components/Content.svelte";
   import { canGoBack, goBack } from "$docs/utils/docs.utils";
 
-  let navHistory: Navigation[] = [];
+  let navHistory: AfterNavigate[] = [];
   let back = false;
 
   afterNavigate((navigation) => (navHistory = [navigation, ...navHistory]));
