@@ -9,7 +9,7 @@ test("Should render close button", async ({ page }) => {
   await button.click();
 
   // Wait for animation
-  await page.waitForTimeout(500);
+  await page.waitForTimeout(750);
 
   await expect(page).toHaveScreenshot();
 });

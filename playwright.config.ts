@@ -3,7 +3,7 @@ import { devices } from "@playwright/test";
 
 const config: PlaywrightTestConfig = {
   webServer: {
-    command: "npm run build && npm run preview",
+    command: "npm run staging && npm run preview",
     port: 4173,
   },
   testDir: "e2e",

@@ -36,14 +36,14 @@ Checkboxes allow the selection of multiple options from a set of options. They a
 
 ## Showcase
 
-<div class="card-grid">
+<div class="card-grid" data-tid="showcase">
     <Checkbox checked={checkbox1} on:nnsChange={() => (checkbox1 = !checkbox1)}>An option</Checkbox>
 
-    <div style="--checkbox-flex-direction: row-reverse">
+    <div style="--checkbox-label-order: 1">
         <Checkbox checked={checkbox2} on:nnsChange={() => (checkbox2 = !checkbox2)}>An option with row-reverse style</Checkbox>
     </div>
 
-    <div style="--checkbox-flex-direction: row-reverse">
+    <div style="--checkbox-label-order: 1; --checkbox-align-items: flex-start">
         <Checkbox
           checked={checkbox3}
           on:nnsChange={() => (checkbox3 = !checkbox3)}

@@ -28,7 +28,7 @@
   header {
     --toolbar-padding: 0 var(--padding-2x);
 
-    @include media.min-width(xlarge) {
+    @include media.min-width(large) {
       --toolbar-padding: 0;
     }
   }

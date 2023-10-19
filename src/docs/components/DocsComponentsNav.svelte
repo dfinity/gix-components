@@ -22,7 +22,7 @@
   }
 
   div {
-    :global(article:not(.selected)) {
+    :global(.card:not(.selected)) {
       display: none;
 
       @include media.min-width(large) {

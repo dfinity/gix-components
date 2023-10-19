@@ -1,21 +1,33 @@
 <script lang="ts">
-  export let tagName: "span" | "h3" | "li" = "span";
+  export let tagName: "span" | "li" = "span";
+  export let intent: "warning" | "success" | "error" | "info" = "info";
+  export let size: "medium" | "large" = "medium";
+  export let testId = "tag";
 </script>
 
-<svelte:element this={tagName} data-tid="tag" class="tag"
+<svelte:element this={tagName} data-tid={testId} class={`tag ${size === "large" ? "tag--large" : ""} ${intent}`}
   ><slot /></svelte:element
 >
 
 <style lang="scss">
   .tag {
-    padding: calc(var(--padding-0_5x) / 2) var(--padding);
+    // "info" intent is the default
+    background-color: var(--elements-divider);
+    color: var(--text-description);
 
-    --tag-default-color: var(--value-color);
+    &.success {
+      background-color: var(--positive-emphasis);
+      color: var(--text-light);
+    }
 
-    color: var(--tag-color, var(--tag-default-color));
-    border: 1px solid var(--tag-color, var(--tag-default-color));
-    border-radius: var(--border-radius-5x);
+    &.warning {
+      background-color: var(--warning-emphasis);
+      color: var(--text-text);
+    }
 
-    height: fit-content;
+    &.error {
+      background-color: var(--negative-emphasis);
+      color: var(--text-light);
+    }
   }
 </style>

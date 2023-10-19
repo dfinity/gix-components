@@ -26,13 +26,13 @@
   // On small screen the menu pushes the content
   min-width: calc(100vw - var(--padding-2x));
 
-  @include media.min-width(xlarge) {
+  @include media.min-width(large) {
     min-width: auto;
   }
 }
 
 @mixin content-offset {
-  @include media.min-width(xlarge) {
+  @include media.min-width(large) {
     padding-top: var(--split-pane-content-top-offset);
   }
 }

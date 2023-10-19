@@ -2,51 +2,60 @@
 
 :root {
   &[theme="light"] {
+    // -------- NEW CSS VARIABLES ----------------
+    // We want to migrate to a new set of CSS variables for colors more adapted to our Figma.
+    --elements-divider: var(--purple-150);
+    --text-description: var(--purple-600);
+    --text-light: var(--purple-50);
+    --text-text: var(--purple-900);
+
+    // -------- OLD CSS VARIABLES ----------------
     // Shadows
+    // TODO-colors: Remove along the dark shadows.
     --box-shadow-color: #d6c3db;
     --box-shadow-color-rgb: 111, 89, 133;
 
     // Footer
-    --footer-background: linear-gradient(
-      0deg,
-      rgba(var(--background-contrast-rgb), 0.05) 10%,
-      rgba(var(--background-contrast-rgb), 0) 100%
-    );
+    // TODO-colors: Remove
+    --footer-background: transparent;
+
+    // Gradient
+    --primary-gradient: var(--purple-accent);
+    --primary-gradient-fallback: var(--purple-accent);
 
     // Inputs
     /* Design Light/7969C0 (8%)-light */
-    --input-border-color: #d9d2ea;
+    --input-border-color: var(--purple-150);
 
     // Buttons custom colors
     --button-secondary-color: var(--primary);
     --button-card-focus-color: var(--primary);
-    --button-card-focus-background: linear-gradient(
-      80.26deg,
-      rgba(130, 102, 214, 0.1) 23.69%,
-      rgba(217, 172, 214, 0.1) 143.36%
-    );
+    --button-card-focus-background: var(--purple-100);
+    --button-disable-background: var(--purple-125);
+    --button-disable-color: var(--disable-contrast);
 
     // Text color
-    --value-color: #000;
+    --value-color: var(--purple-900);
     --label-color: var(--text-color);
-    --description-color: #8c7e9e;
+    --description-color: var(--purple-600);
 
     // Overlays - based on dark card background rgb color
-    --backdrop: rgba(185, 181, 204, 0.6);
-    --backdrop-contrast: var(--text-color);
+    --backdrop: var(--fade);
+    --backdrop-contrast: var(--purple-100);
     --backdrop-filter: blur(4px);
 
     // Disable
     /* Light/Bg/Background-03 */
-    --disable: #e5ddf0;
-    --disable-contrast: #a28db4;
-    --disable-contrast-rgb: 162, 141, 180;
+    --disable: var(--purple-200);
+    --disable-contrast: var(--purple-250);
+    // TODO-colors: Remove application of rgbs
+    --disable-contrast-rgb: 171, 153, 209;
 
     // Line
-    --line: #ddd4ec;
+    --line: var(--purple-150);
 
     // Scrollbar
-    --scrollbar-thumb-color: #9f9ba5;
+    --scrollbar-thumb-color: var(--purple-250);
 
     // Progress
     --progress-color: var(--primary);
@@ -54,103 +63,87 @@
     --progress-color-rgb: var(--primary-rgb);
 
     // Custom backgrounds
-    --body-background: linear-gradient(
-        245.71deg,
-        rgba(200, 173, 203, 0.3) 15.55%,
-        rgba(220, 173, 202, 0.12) 35.61%,
-        rgba(220, 173, 202, 0) 59.06%
-      ),
-      linear-gradient(182.9deg, #5b4bb8 4.82%, #c18cc1 52.19%, #edada5 98.81%);
-    --body-color: var(--text5-color);
+    --body-background: var(--purple-500);
+    --body-color: var(--purple-50);
 
-    --content-background: linear-gradient(113.27deg, #d5c7eb 0%, #eddcea 100%);
+    --content-background: var(--purple-200);
     --content-color: var(--text-color);
-    --content-start-background: rgba(235, 230, 245, 0.4);
+    --content-start-background: var(--purple-125);
     --content-start-color: var(--text-color);
 
     // Overlay inverted colors - i.e. light mode colors
-    --toast-inverted-background: #3a2c57;
-    --toast-inverted-background-contrast: #d1cee2;
+    --toast-inverted-background: var(--purple-900);
+    --toast-inverted-background-contrast: var(--purple-50);
 
     // Menu
-    --menu-color: var(--text5-color);
-    --menu-select-color: #fff;
+    --menu-color: var(--purple-50);
+    --menu-select-color: var(--purple-50);
+    --menu-selected-background: var(--purple-400);
 
     // Tab and segment
     --segment-selected-background: var(--focus-background);
 
     // Theme color
-    --theme-color: #8266d6;
+    --theme-color: var(--purple-accent);
 
     // Palette
 
-    /* Light/Text/Text-05 */
-    --text5-color: #efedf8;
-    --text5-color-rgb: 239, 237, 248;
-
     /* Light/Text/Text */
-    --text-color: #3e374c;
-    --text-color-rgb: 62, 55, 76;
+    --text-color: var(--purple-900);
+    // TODO-colors: Remove application of rgbs
+    --text-color-rgb: 56, 45, 80;
 
     /* Design: Extracted from Light/7969C0 (8%)-light */
-    --input-background: #e1dcef;
-    --input-background-rgb: 225, 220, 239;
+    --input-background: var(--purple-100);
     --input-background-contrast: var(--text-color);
-    --input-background-contrast-rgb: var(--text-color-rgb);
-    --input-background-shade: #c6c2d2;
-    --input-background-tint: #e4e0f1;
 
     /* Design: Light/Bg/Background */
-    --focus-background: #f4f1fa;
-    --focus-background-rgb: 244, 241, 250;
+    --focus-background: var(--purple-75);
+    // TODO-colors: Remove application of rgbs
+    --focus-background-rgb: 248, 246, 252;
     --focus-background-contrast: var(--text-color);
-    --focus-background-contrast-rgb: var(--text-color-rgb);
-    --focus-background-shade: #d7d4dc;
-    --focus-background-tint: #f5f2fb;
+    --focus-background-tint: var(--purple-50);
 
     /* Design: Dark/Bg/Background-04 */
-    --card-background: #edeaf7;
-    --card-background-rgb: 237, 234, 247;
+    --card-background: var(--purple-75);
+    // TODO-colors: Remove application of rgbs
+    --card-background-rgb: 248, 246, 252;
     --card-background-contrast: var(--text-color);
     --card-background-contrast-rgb: var(--text-color-rgb);
-    --card-background-shade: #d7cde6;
-    --card-background-tint: #efecf8;
+    --card-background-shade: var(--purple-100);
+    --card-background-tint: var(--purple-50);
+    --card-background-disabled: var(--purple-125);
 
     /* Design: Light/Bg/Background-01 */
-    --background: #ebe5f4;
-    --background-rgb: 235, 229, 244;
+    --background: var(--purple-100);
     --background-contrast: var(--text-color);
     --background-contrast-rgb: var(--text-color-rgb);
-    --background-shade: #cfcad7;
-    --background-tint: #ede8f5;
+    --background-shade: var(--purple-125);
 
     /* Design: Light/Bg/Background-03 */
-    --background-disable: #e7dff2;
-    --background-disable-rgb: 231, 223, 242;
+    --background-disable: var(--purple-125);
+    --background-disable-rgb: 225, 217, 243;
     --background-disable-contrast: var(--disable-contrast);
-    --background-disable-contrast-rgb: var(--disable-contrastrgb);
-    --background-disable-shade: #cbc4d5;
-    --background-disable-tint: #e9e2f3;
 
-    --primary: #8266d6;
-    --primary-rgb: 130, 102, 214;
-    --primary-contrast: #ffffff;
-    --primary-contrast-rgb: 255, 255, 255;
-    --primary-shade: #725abc;
-    --primary-tint: #8f75da;
+    --primary: var(--purple-accent);
+    // TODO-colors: Remove application of rgbs, then remove x-rgb.
+    --primary-rgb: 121, 78, 231;
+    --primary-contrast: var(--purple-50);
+    --primary-tint: var(--purple-500);
 
-    --secondary: #dd87c2;
-    --secondary-rgb: 221, 135, 194;
-    --secondary-contrast: #000000;
-    --secondary-contrast-rgb: 0, 0, 0;
-    --secondary-shade: #c277ab;
-    --secondary-tint: #e093c8;
+    --secondary: var(--purple-500);
+    --secondary-rgb: 124, 92, 194;
+    --secondary-contrast: var(--purple-900);
 
-    --warning-emphasis: #fabc2a;
-    --warning-emphasis-rgb: 250, 188, 42;
-    --warning-emphasis-contrast: #000000;
-    --warning-emphasis-contrast-rgb: 0, 0, 0;
-    --warning-emphasis-shade: #dca525;
-    --warning-emphasis-tint: #fbc33f;
+    --warning-emphasis: var(--orange-mid);
+    --warning-emphasis-contrast: var(--purple-900);
+    --warning-emphasis-shade: var(--orange);
+
+    --positive-emphasis: var(--green);
+    --positive-emphasis-rgb: 48, 175, 145;
+    --positive-emphasis-contrast: var(--purple-50);
+    --positive-emphasis-light: var(--green-tint);
+    --negative-emphasis: var(--pink);
+    --negative-emphasis-contrast: var(--purple-50);
   }
 }

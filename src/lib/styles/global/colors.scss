@@ -1,11 +1,53 @@
-// Colors not related to themes
-
+// Source: NNS Frontned dapp Figma
 :root {
-  // BRAND COLORS
-  --brand-picton-blue: #29abe2;
-  --brand-black: #000000;
-  --brand-flamingo: #f15a24;
-  --brand-sea-buckthorn: #fbb03b;
-  --brand-razzmatazz: #ed1e79;
-  --brand-meteorite: #522785;
+  // Purple
+  --purple-accent: #794ee7;
+  --purple-50: #fbfafc;
+  --purple-75: #f8f6fc;
+  --purple-100: #f1ecf8;
+  --purple-125: #e1d9f3;
+  --purple-150: #ddd4ec;
+  --purple-200: #d0c3ec;
+  --purple-250: #ab99d1;
+  --purple-400: #876ac8;
+  --purple-500: #7c5cc2;
+  --purple-600: #6f589e;
+  --purple-900: #382d50;
+
+  // Purple dark
+  --purple-dark-accent: #a36aff;
+  --purple-dark-50: #f0edf5;
+  --purple-dark-75: #e8e1f2;
+  --purple-dark-100: #c7badb;
+  --purple-dark-200: #b8a1de;
+  --purple-dark-250: #b080ff;
+  --purple-dark-350: #9452ff;
+  --purple-dark-400: #483666;
+  --purple-dark-450: #3d2a5c;
+  --purple-dark-500: #372652;
+  --purple-dark-550: #31204c;
+  --purple-dark-600: #2d1a4a;
+  --purple-dark-650: #291942;
+  --purple-dark-900: #24143d;
+
+  // Accessory
+  --fade: rgba(36, 20, 61, 0.6); // #24143d 60%
+  --fade-dark: rgba(36, 20, 61, 0.8); // #24143d 80%
+  --orchid-tint: #b871d9;
+  --orchid: #af63db;
+  --indigo: #553b75;
+  --indigo-tint: #e1cfef;
+  --deep-violet: #603a68;
+  --deep-violet-tint: #634a65;
+  --blue-dark: #3d4c7a;
+  --blue: #198ae3;
+  --blue-tint: #c1d4f1;
+  --orange: #e38b1b;
+  --orange-mid: #fdc087;
+  --orange-tint: #f3dd8b;
+  --green-dark: #3c586d;
+  --green: #30af91;
+  --green-tint: #c7e3e1;
+  --pink: #ea6c99;
+  --pink-tint: #ebd4e7;
 }

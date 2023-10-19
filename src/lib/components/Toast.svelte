@@ -27,7 +27,7 @@
       ["error"]: IconError,
       ["info"]: IconInfo,
       ["custom"]: undefined,
-    }[level]);
+    })[level];
 
   const close = () => toastsStore.hide(msg.id);
 
@@ -69,6 +69,9 @@
     clearTimeout(timeoutId);
   };
 
+  // To avoid having the scroll visible even when not needed.
+  const minHeightMessage = `min-height: ${DEFAULT_ICON_SIZE}px;`;
+
   onMount(autoHide);
   onDestroy(cleanUpAutoHide);
 </script>
@@ -89,7 +92,13 @@
     {/if}
   </div>
 
-  <p class="msg" class:truncate class:clamp class:scroll>
+  <p
+    class="msg"
+    class:truncate
+    class:clamp
+    class:scroll
+    style={minHeightMessage}
+  >
     {#if nonNullish(title)}
       <span class="title">{title}</span>
     {/if}
