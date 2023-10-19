@@ -7,6 +7,7 @@ module.exports = {
     "prettier",
   ],
   parser: "@typescript-eslint/parser",
+  ignorePatterns: ["static/workers/**/*"],
   plugins: ["@typescript-eslint"],
   parserOptions: {
     sourceType: "module",
