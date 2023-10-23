@@ -1,6 +1,8 @@
 @use "./media";
 
 @mixin content {
+  --content-margin: var(--padding);
+
   position: relative;
   width: 100%;
 
@@ -15,7 +17,7 @@
   border-radius: var(--border-radius-2x);
 
   box-sizing: border-box;
-  margin: var(--padding);
+  margin: var(--content-margin);
   padding-top: 0;
 
   // If a bottom sheet is displayed the content pane height should be updated accordingly

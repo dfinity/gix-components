@@ -16,7 +16,7 @@
 
 <div
   class="content"
-  style={`--layout-bottom-offset: ${$layoutBottomOffset}px; --content-overflow-y: ${$layoutContentScrollY}`}
+  style={`--layout-bottom-offset: calc(${$layoutBottomOffset}px - var(--content-margin)); --content-overflow-y: ${$layoutContentScrollY}`}
 >
   <Header {back} on:nnsBack>
     <slot name="title" slot="title" />
