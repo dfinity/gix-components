@@ -18,6 +18,7 @@
 <Toasts position="top" />
 
 <style lang="scss" global>
+  @import "the-new-css-reset/css/reset.css";
   @import "../lib/styles/global";
   @import "../../node_modules/prismjs/themes/prism-tomorrow.css";
   @import "../docs/styles/docs-global";
