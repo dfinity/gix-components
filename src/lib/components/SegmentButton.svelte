@@ -2,6 +2,7 @@
   import { getContext } from "svelte";
   import { SEGMENT_CONTEXT_KEY, type SegmentContext } from "$lib/types/segment";
 
+  export let testId: string | undefined = undefined;
   export let segmentId: symbol;
 
   const { store } = getContext<SegmentContext>(SEGMENT_CONTEXT_KEY);
@@ -18,7 +19,7 @@
   $: selected = $store.id === segmentId;
 </script>
 
-<div bind:this={element} class="segment-button">
+<div bind:this={element} class="segment-button" data-tid={testId}>
   <button
     on:click={onClick}
     role="tab"
