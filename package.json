@@ -11,7 +11,7 @@
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "lint": "prettier --check . && eslint .",
-    "format": "prettier --write './**/*.{ts,js,mjs,json,scss,svelte,html}'",
+    "format": "prettier --write './**/*.{ts,js,mjs,json,scss,css,svelte,html,md}'",
     "test": "vitest --config ./vitest.config.ts",
     "download:samples": "./scripts/download-samples.sh",
     "i18n": "node scripts/i18n.types.mjs && prettier --write ./src/lib/types/i18n.d.ts",
