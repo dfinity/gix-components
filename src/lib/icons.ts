@@ -13,6 +13,7 @@ export { default as IconDarkMode } from "./icons/IconDarkMode.svelte";
 export { default as IconDissolving } from "./icons/IconDissolving.svelte";
 export { default as IconEast } from "./icons/IconEast.svelte";
 export { default as IconError } from "./icons/IconError.svelte";
+export { default as IconExpandAll } from "./icons/IconExpandAll.svelte";
 export { default as IconExpandCircleDown } from "./icons/IconExpandCircleDown.svelte";
 export { default as IconExpandMore } from "./icons/IconExpandMore.svelte";
 export { default as IconExplore } from "./icons/IconExplore.svelte";
