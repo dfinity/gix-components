@@ -23,10 +23,10 @@
 
   const onIntersection = (
     entries: IntersectionObserverEntry[],
-    observer: IntersectionObserver
+    observer: IntersectionObserver,
   ) => {
     const intersecting: IntersectionObserverEntry | undefined = entries.find(
-      ({ isIntersecting }: IntersectionObserverEntry) => isIntersecting
+      ({ isIntersecting }: IntersectionObserverEntry) => isIntersecting,
     );
 
     if (isNullish(intersecting)) {
@@ -41,7 +41,7 @@
 
   const observer: IntersectionObserver = new IntersectionObserver(
     onIntersection,
-    options
+    options,
   );
 
   // Svelte workaround: beforeUpdate is called twice when bindings are used -> https://github.com/sveltejs/svelte/issues/6016

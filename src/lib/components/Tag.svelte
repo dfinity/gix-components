@@ -5,7 +5,10 @@
   export let testId = "tag";
 </script>
 
-<svelte:element this={tagName} data-tid={testId} class={`tag ${size === "large" ? "tag--large" : ""} ${intent}`}
+<svelte:element
+  this={tagName}
+  data-tid={testId}
+  class={`tag ${size === "large" ? "tag--large" : ""} ${intent}`}
   ><slot /></svelte:element
 >
 
