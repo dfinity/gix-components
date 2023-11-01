@@ -8,7 +8,7 @@
 
   let toasts: ToastMsg[] = [];
   $: toasts = $toastsStore.filter(
-    ({ position: pos }) => (pos ?? "bottom") === position
+    ({ position: pos }) => (pos ?? "bottom") === position,
   );
 
   let hasErrors: boolean;

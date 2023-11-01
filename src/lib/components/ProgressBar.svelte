@@ -76,7 +76,7 @@
       border-radius: var(--current-height);
       box-shadow: var(--input-box-shadow);
       border: 0;
-      
+
       &::-moz-progress-bar {
         background-color: #fff;
         box-shadow: var(--input-box-shadow);

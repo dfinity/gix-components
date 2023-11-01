@@ -90,7 +90,7 @@
         // We draw the canvas larger and scale its container down to avoid blurring on high-density displays
         size: size.width * 2,
       },
-      canvas
+      canvas,
     );
 
     dispatch("nnsQRCodeRendered");

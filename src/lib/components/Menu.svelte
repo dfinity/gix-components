@@ -89,7 +89,8 @@
       margin-left: 0;
     }
 
-    transition: margin-left var(--animation-time-normal)
+    transition:
+      margin-left var(--animation-time-normal)
         var(--menu-animation-timing-function),
       width var(--animation-time-normal) var(--menu-animation-timing-function);
 
