@@ -6,7 +6,7 @@ A few utilities that comes handy to style texts.
 
 The opacity is used to emphasize the importance of text blocks on the page.
 
-## Usage
+### Usage
 
 | Text Type   | Opacity                | CSS variable          | CSS class     | Svelte Component |
 | ----------- | ---------------------- | --------------------- | ------------- | ---------------- |
@@ -14,7 +14,7 @@ The opacity is used to emphasize the importance of text blocks on the page.
 | label       | `--light-opacity`      | `--label-color`       | `label`       | n/a              |
 | description | `--very-light-opacity` | `--description-color` | `description` | n/a              |
 
-## Note
+### Note
 
 _This is not a strict rule. For example the descriptional text can be displayed in `label` style if there is no `label` styled block next to the main block._
 
