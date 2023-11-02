@@ -4,7 +4,7 @@
 
 # Value
 
-Text blocks are highlighted with various [text opacity](/utility-classes/text-opacity). As the `value` is a common use case, this simplistic component wrapper is provided to render types of text.
+Text blocks are highlighted with various [text opacity](/utility-classes/text). As the `value` is a common use case, this simplistic component wrapper is provided to render types of text.
 
 ```javascript
 <Value>Hello World</Value>
