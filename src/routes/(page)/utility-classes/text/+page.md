@@ -1,4 +1,8 @@
-# Text Opacity
+# Text
+
+A few utilities that comes handy to style texts.
+
+## Text Opacity
 
 The opacity is used to emphasize the importance of text blocks on the page.
 
@@ -13,3 +17,7 @@ The opacity is used to emphasize the importance of text blocks on the page.
 ## Note
 
 _This is not a strict rule. For example the descriptional text can be displayed in `label` style if there is no `label` styled block next to the main block._
+
+## Visually hidden
+
+`.visually-hidden` can be used to hide content visually while keeping it screen reader-accessible.

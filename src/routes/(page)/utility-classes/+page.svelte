@@ -11,8 +11,8 @@
 </p>
 
 <div class="card-grid">
-  <Card href="/utility-classes/text-opacity">
-    <h2 class="title" slot="start">Text Opacity</h2>
+  <Card href="/utility-classes/text">
+    <h2 class="title" slot="start">Text</h2>
 
     <p>Emphasize the importance of text blocks.</p>
   </Card>
