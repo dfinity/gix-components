@@ -11,26 +11,14 @@
   height={size}
   viewBox="0 0 20 20"
   fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
 >
   <path
-    stroke="currentColor"
-    stroke-width="1.5"
-    stroke-linecap="round"
-    stroke-linejoin="round"
     d="M10 2C5.58172 2 2 5.58172 2 10C2 14.4183 5.58172 18 10 18C14.4183 18 18 14.4183 18 10C18 5.58172 14.4183 2 10 2Z"
   />
-  <path
-    stroke="currentColor"
-    stroke-width="1.5"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    d="M10 6L10 11"
-  />
-  <path
-    stroke="currentColor"
-    d="M10 14L9.99 14"
-    stroke-width="1.5"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  />
+  <path d="M10 6L10 11" />
+  <path d="M10 14L9.99 14" />
 </svg>
