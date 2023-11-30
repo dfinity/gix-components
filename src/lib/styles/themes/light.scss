@@ -16,6 +16,12 @@
     --table-row-background: var(--purple-75);
     --table-row-background-hover: var(--purple-100);
 
+    --check: var(--green);
+    --check-tint: var(--green-tint);
+    --pending-color: var(--orange);
+    --pending-background: var(--orange-tint);
+    --island-card-background: var(--purple-125);
+
     // -------- OLD CSS VARIABLES ----------------
     // Shadows
     // TODO-colors: Remove along the dark shadows.
@@ -152,8 +158,5 @@
     --positive-emphasis-light: var(--green-tint);
     --negative-emphasis: var(--pink);
     --negative-emphasis-contrast: var(--purple-50);
-
-    --pending-color: var(--orange);
-    --pending-background: var(--orange-tint);
   }
 }
