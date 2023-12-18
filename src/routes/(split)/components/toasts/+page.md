@@ -54,7 +54,14 @@
     const multiline = () => toastsStore.show({
         text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
         level: "info",
-        duration: 300000
+        duration: 3000
+    });
+
+    const title = () => toastsStore.show({
+        title: "A title",
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        level: "info",
+        duration: 3000
     });
 </script>
 
@@ -122,7 +129,8 @@ A toast message can be created with following properties.
     <button class="primary small" on:click={duration}>Info and auto fade after 3s</button>
 
     <button class="primary small" on:click={multiline}>Multi-line message</button>
-
+    
+    <button class="primary small" on:click={title}>With a title</button>
 </div>
 
 <p>Top end toasts:</p>

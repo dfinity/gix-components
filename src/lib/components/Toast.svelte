@@ -186,7 +186,8 @@
 
     .title {
       display: block;
-      @include fonts.h4(true);
+      @include fonts.standard(true);
+      line-height: normal;
     }
 
     button.close {
