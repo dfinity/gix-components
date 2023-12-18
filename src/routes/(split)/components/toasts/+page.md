@@ -49,6 +49,12 @@
         overflow: "truncate",
         icon: IconMeter,
         theme: "inverted",
+    });    
+
+    const multiline = () => toastsStore.show({
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        level: "info",
+        duration: 300000
     });
 </script>
 
@@ -114,6 +120,8 @@ A toast message can be created with following properties.
     <button class="primary small" on:click={spinner}>Info and spinner</button>
 
     <button class="primary small" on:click={duration}>Info and auto fade after 3s</button>
+
+    <button class="primary small" on:click={multiline}>Multi-line message</button>
 
 </div>
 
