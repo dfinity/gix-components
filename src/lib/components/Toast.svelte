@@ -161,7 +161,7 @@
 
       &.scroll {
         overflow-y: auto;
-        // >=3 lines x font-size x (line-height-normal=1.2 + extra-safety-space=0.1 (needs for FF))
+        // >=3 lines x font-size x (line-height-normal=1.2 + extra-space=0.1 (needs for FF))
         max-height: calc(var(--font-size-standard) * 3 * 1.3);
         // Workaround to get rid of the redundant scrollbar (even when there is enough space).
         line-height: normal;
@@ -187,6 +187,7 @@
     .title {
       display: block;
       @include fonts.standard(true);
+      // Workaround to get rid of the redundant scrollbar (even when there is enough space).
       line-height: normal;
     }
 
