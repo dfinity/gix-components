@@ -4,6 +4,9 @@
   import Toasts from "$lib/components/Toasts.svelte";
   import { onMount } from "svelte";
   import { initAnalytics } from "$docs/services/analytics.services";
+  import "$lib/styles/global.scss";
+  import "$docs/styles/docs-global.scss";
+  import "../../node_modules/prismjs/themes/prism-tomorrow.css";
 
   onMount(initAnalytics);
 </script>
@@ -16,9 +19,3 @@
 
 <Toasts />
 <Toasts position="top" />
-
-<style lang="scss" global>
-  @import "../lib/styles/global";
-  @import "../../node_modules/prismjs/themes/prism-tomorrow.css";
-  @import "../docs/styles/docs-global";
-</style>
