@@ -40,6 +40,9 @@ test("Toast warn", async ({ page }) =>
 test("Toast message", async ({ page }) =>
   testToast({ page, toast: "toast-message" }));
 
+test("Toast multiline message", async ({ page }) =>
+  testToast({ page, toast: "toast-multiline" }));
+
 test("Should close toast", async ({ page }) => {
   await page.goto(testUrl);
 
