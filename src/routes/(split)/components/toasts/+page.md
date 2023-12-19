@@ -128,7 +128,7 @@ A toast message can be created with following properties.
 
     <button class="primary small" on:click={duration}>Info and auto fade after 3s</button>
 
-    <button class="primary small" on:click={multiline}>Multi-line message</button>
+    <button class="primary small" on:click={multiline} data-tid="toast-multiline">Multi-line message</button>
 
     <button class="primary small" on:click={title}>With a title</button>
 
