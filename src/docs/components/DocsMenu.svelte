@@ -1,7 +1,7 @@
 <script lang="ts">
   import { page } from "$app/stores";
   import MenuItem from "$lib/components/MenuItem.svelte";
-  import IconLaunchpad from "$lib/icons/IconLaunchpad.svelte";
+  import DocsIconMenu from "$docs/components/DocsIconMenu.svelte";
 
   let pathname: string;
   $: ({
@@ -10,11 +10,11 @@
 </script>
 
 <MenuItem href="/" selected={pathname === "/"} on:click>
-  <IconLaunchpad slot="icon" />
+  <DocsIconMenu text="H" slot="icon" />
   Home</MenuItem
 >
 <MenuItem href="/start" selected={pathname === "/start"} on:click>
-  <IconLaunchpad slot="icon" />
+  <DocsIconMenu text="G" slot="icon" />
   Getting Started
 </MenuItem>
 <MenuItem
@@ -22,7 +22,7 @@
   selected={pathname.startsWith("/components")}
   on:click
 >
-  <IconLaunchpad slot="icon" />
+  <DocsIconMenu text="C" slot="icon" />
   Components
 </MenuItem>
 <MenuItem
@@ -30,18 +30,18 @@
   selected={pathname.startsWith("/utility-classes")}
   on:click
 >
-  <IconLaunchpad slot="icon" />
+  <DocsIconMenu text="U" slot="icon" />
   Utility Classes
 </MenuItem>
 <MenuItem href="/styling" selected={pathname.startsWith("/styling")} on:click>
-  <IconLaunchpad slot="icon" />
+  <DocsIconMenu text="S" slot="icon" />
   Styling
 </MenuItem>
 <MenuItem href="/icons" selected={pathname.startsWith("/icons")} on:click>
-  <IconLaunchpad slot="icon" />
+  <DocsIconMenu text="I" slot="icon" />
   Icons
 </MenuItem>
 <MenuItem href="/resources" selected={pathname === "/resources"} on:click>
-  <IconLaunchpad slot="icon" />
+  <DocsIconMenu text="R" slot="icon" />
   Resources
 </MenuItem>
