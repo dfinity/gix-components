@@ -41,10 +41,21 @@ Some pre-defined utilities to set spaces for grid's cells.
     </div>
 
     <div class="content-b content-cell-island">
+        <code>class="content-cell-island"</code>
         <h2 class="content-cell-title">Lorem ipsum</h2>
 
         <div class="content-cell-details">
             <DocsLoremIpsum length={2} />
+        </div>
+
+        <div class="content-cell-details">
+            <DocsLoremIpsum length={1} />
+
+            <div class="content-cell-island content-cell-island--highlighted">
+                <code>class="content-cell-island content-cell-island--highlighted"</code>
+                <DocsLoremIpsum length={1} />
+            </div>
+
         </div>
     </div>
 

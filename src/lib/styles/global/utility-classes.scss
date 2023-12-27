@@ -44,6 +44,11 @@
 
   padding: var(--padding-2x);
   border-radius: var(--border-radius);
+
+  &--highlighted {
+    background: var(--card-background-disabled);
+    color: var(--description-color);
+  }
 }
 
 // Spacing
