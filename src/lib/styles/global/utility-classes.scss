@@ -44,11 +44,13 @@
 
   padding: var(--padding-2x);
   border-radius: var(--border-radius);
+}
 
-  &--highlighted {
-    background: var(--card-background-disabled);
-    color: var(--description-color);
-  }
+.content-cell-island__card {
+  @extend .content-cell-island;
+
+  background: var(--island-card-background);
+  color: var(--description-color);
 }
 
 // Spacing
