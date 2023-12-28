@@ -82,7 +82,7 @@
           var(--cp-light-gradient-2), var(--cp-light-gradient-1));
     --body-color: var(--cp-light-50);
 
-    --content-background: var(--cp-light-200);
+    --content-background: var(--cp-light-opaque);
     --content-color: var(--text-color);
     --content-start-background: var(--cp-light-124);
     --content-start-color: var(--text-color);
@@ -92,9 +92,9 @@
     --toast-inverted-background-contrast: var(--cp-light-50);
 
     // Menu
-    --menu-color: var(--cp-light-50);
-    --menu-select-color: var(--cp-light-50);
-    --menu-selected-background: var(--cp-light-400);
+    --menu-color: var(--cp-light-900);
+    --menu-select-color: var(--cp-light-900);
+    --menu-selected-background: var(--cp-light-opaque);
 
     // Tab and segment
     --segment-selected-background: var(--focus-background);
