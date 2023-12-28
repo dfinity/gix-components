@@ -30,6 +30,45 @@
   --purple-dark-650: #291942;
   --purple-dark-900: #24143d;
 
+  // color primitives
+  // naming structure: --cp-[themename]-[primitivename]
+  
+  // light theme
+  --cp-light-accent: #794ee7;
+  --cp-light-50: #fff;
+  --cp-light-75: #f9f7ff;
+  --cp-light-100: var(--cp-light-50);
+  --cp-light-125: #dadef2;
+  --cp-light-150: #ebedf9;
+  --cp-light-200: #eef1fe;
+  --cp-light-250: #6f7fcd;
+  --cp-light-400: #34407c;
+  --cp-light-500: #32449e;
+  --cp-light-600: #3d4d99;
+  --cp-light-900: #151a33;
+  --cp-light-opaque: rgb(from var(--cp-light-50) r g b / 40%);
+  --cp-light-gradient-1: #d4e7fa;
+  --cp-light-gradient-2: #f2dae2;
+
+  // dark theme
+  --cp-dark-accent: #906bff;
+  --cp-dark-50: #fff;
+  --cp-dark-75: var(--cp-dark-50);
+  --cp-dark-100: #D7CDF6;
+  --cp-dark-200: #B0A3D9;
+  --cp-dark-250: #A688FF;
+  --cp-dark-350: #4B3BF8;
+  --cp-dark-400: #3D3061;
+  --cp-dark-450: #2B1B4D;
+  --cp-dark-500: #342759;
+  --cp-dark-550: #3C2E66;
+  --cp-dark-600: #170C36;
+  --cp-dark-650: #150C31;
+  --cp-dark-900: #130A2C;
+  --cp-dark-opaque: rgb(from #000 r g b / 20%);
+  --cp-dark-gradient-1: #0F0F4D;
+  --cp-dark-gradient-2: #4D1259;
+
   // Accessory
   --fade: rgba(36, 20, 61, 0.6); // #24143d 60%
   --fade-dark: rgba(36, 20, 61, 0.8); // #24143d 80%
