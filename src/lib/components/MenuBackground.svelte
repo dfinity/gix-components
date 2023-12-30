@@ -5,6 +5,7 @@
   import { Theme } from "$lib/types/theme";
   import { layoutMenuOpen } from "$lib/stores/layout.store";
   import { nonNullish } from "@dfinity/utils";
+  import { fade } from "svelte/transition";
 
   let background: string;
   $: background =
@@ -12,10 +13,14 @@
 </script>
 
 <div class:open={$layoutMenuOpen} class="menu-background">
-  <slot name="logo" />
+  <div class="logo">
+    <slot name="logo" />
+  </div>
 
   {#if nonNullish($themeStore)}
-    <slot name="oneliner" />
+    <div in:fade class="on-chain">
+      <slot name="oneliner" />
+    </div>
 
     <img
       data-tid="menu-background"
@@ -32,7 +37,7 @@
   @use "../styles/mixins/media";
   @use "../styles/mixins/display";
 
-  div {
+  .menu-background {
     position: absolute;
     @include display.inset;
 
@@ -64,5 +69,24 @@
     position: absolute;
     bottom: 0;
     left: 0;
+  }
+
+  .logo {
+    @include media.min-width(large) {
+      padding-top: var(--padding);
+    }
+  }
+
+  .on-chain {
+    // We do not want to display the logo "on chain" behind the menu items
+    display: none;
+    padding: 0 0 var(--padding-3x);
+
+    z-index: var(--menu-z-index);
+
+    // 654px is an empirical value
+    @media (min-height: 654px) {
+      display: block;
+    }
   }
 </style>

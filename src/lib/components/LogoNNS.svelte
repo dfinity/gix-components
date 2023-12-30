@@ -11,13 +11,7 @@
 />
 
 <style lang="scss">
-  @use "../styles/mixins/media";
-
   .logo-nns {
     height: var(--menu-logo-height);
-
-    @include media.min-width(large) {
-      padding-top: var(--padding);
-    }
   }
 </style>

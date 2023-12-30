@@ -32,7 +32,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     gap: var(--padding-0_5x);
 
     padding: var(--padding-2x) 0 0;
