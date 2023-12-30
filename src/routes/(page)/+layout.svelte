@@ -16,8 +16,6 @@
 </script>
 
 <Content {back} on:nnsBack={async () => await goBack({ navHistory })}>
-  <HeaderTitle slot="title">GIX Components</HeaderTitle>
-
   <DocsAccountMenu slot="toolbar-end" />
 
   <main>

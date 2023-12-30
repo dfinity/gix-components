@@ -10,8 +10,6 @@
 
   let component: ComponentType;
   $: component = layout === "stretch" ? StretchPane : SplitPane;
-
-  $: console.log($$slots["menu-logo"]);
 </script>
 
 <svelte:component this={component}>

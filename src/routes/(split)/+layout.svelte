@@ -8,8 +8,6 @@
 <SplitContent>
   <DocsComponentsNav slot="start" />
 
-  <HeaderTitle slot="title">GIX Components</HeaderTitle>
-
   <DocsAccountMenu slot="toolbar-end" />
 
   <main slot="end">
