@@ -38,6 +38,6 @@
     padding: var(--padding-2x) 0 0;
 
     // Avoid text glitch on menu close|open
-    min-width: 125px
+    min-width: 125px;
   }
 </style>
