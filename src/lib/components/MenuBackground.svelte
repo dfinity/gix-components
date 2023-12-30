@@ -1,7 +1,4 @@
 <script lang="ts">
-  import logoNNS from "$lib/assets/logo-nns.svg";
-  import logoOnChainDark from "$lib/assets/logo-onchain-dark.svg";
-  import logoOnChainLight from "$lib/assets/logo-onchain-light.svg";
   import backgroundDark from "$lib/assets/menu-bg-dark.png";
   import backgroundLight from "$lib/assets/menu-bg-light.png";
   import { themeStore } from "$lib/stores/theme.store";
@@ -9,32 +6,16 @@
   import { layoutMenuOpen } from "$lib/stores/layout.store";
   import { nonNullish } from "@dfinity/utils";
 
-  let logoOnChain: string;
-  $: logoOnChain =
-    $themeStore === Theme.LIGHT ? logoOnChainLight : logoOnChainDark;
-
   let background: string;
   $: background =
     $themeStore === Theme.LIGHT ? backgroundLight : backgroundDark;
 </script>
 
 <div class:open={$layoutMenuOpen} class="menu-background">
-  <img
-    class="logo-nns"
-    src={logoNNS}
-    role="presentation"
-    alt="Network Nervous System logo"
-    loading="lazy"
-  />
+  <slot name="logo" />
 
   {#if nonNullish($themeStore)}
-    <img
-      class="on-chain"
-      src={logoOnChain}
-      role="presentation"
-      alt="100% on-chain Internet Computer logo"
-      loading="lazy"
-    />
+    <slot name="oneliner" />
 
     <img
       data-tid="menu-background"
@@ -77,27 +58,6 @@
     }
 
     transition: transform var(--animation-time-normal) ease-out;
-  }
-
-  .logo-nns {
-    height: var(--menu-logo-height);
-
-    @include media.min-width(large) {
-      padding-top: var(--padding);
-    }
-  }
-
-  .on-chain {
-    // We do not want to display the logo "on chain" behind the menu items
-    display: none;
-    padding: 0 0 var(--padding-3x);
-
-    z-index: var(--menu-z-index);
-
-    // 654px is an empirical value
-    @media (min-height: 654px) {
-      display: block;
-    }
   }
 
   .background {
