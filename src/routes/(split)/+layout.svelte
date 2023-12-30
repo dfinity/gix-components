@@ -1,6 +1,5 @@
 <script lang="ts">
   import SplitContent from "$lib/components/SplitContent.svelte";
-  import HeaderTitle from "$lib/components/HeaderTitle.svelte";
   import DocsAccountMenu from "$docs/components/DocsAccountMenu.svelte";
   import DocsComponentsNav from "$docs/components/DocsComponentsNav.svelte";
 </script>
