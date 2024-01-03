@@ -1,17 +1,11 @@
 <script lang="ts">
-  import logoNNS from "$lib/assets/logo-nns.svg";
-  import logoOnChainDark from "$lib/assets/logo-onchain-dark.svg";
-  import logoOnChainLight from "$lib/assets/logo-onchain-light.svg";
   import backgroundDark from "$lib/assets/menu-bg-dark.png";
   import backgroundLight from "$lib/assets/menu-bg-light.png";
   import { themeStore } from "$lib/stores/theme.store";
   import { Theme } from "$lib/types/theme";
   import { layoutMenuOpen } from "$lib/stores/layout.store";
   import { nonNullish } from "@dfinity/utils";
-
-  let logoOnChain: string;
-  $: logoOnChain =
-    $themeStore === Theme.LIGHT ? logoOnChainLight : logoOnChainDark;
+  import { fade } from "svelte/transition";
 
   let background: string;
   $: background =
@@ -19,22 +13,14 @@
 </script>
 
 <div class:open={$layoutMenuOpen} class="menu-background">
-  <img
-    class="logo-nns"
-    src={logoNNS}
-    role="presentation"
-    alt="Network Nervous System logo"
-    loading="lazy"
-  />
+  <div class="logo">
+    <slot name="logo" />
+  </div>
 
   {#if nonNullish($themeStore)}
-    <img
-      class="on-chain"
-      src={logoOnChain}
-      role="presentation"
-      alt="100% on-chain Internet Computer logo"
-      loading="lazy"
-    />
+    <div in:fade class="on-chain">
+      <slot name="oneliner" />
+    </div>
 
     <img
       data-tid="menu-background"
@@ -51,7 +37,7 @@
   @use "../styles/mixins/media";
   @use "../styles/mixins/display";
 
-  div {
+  .menu-background {
     position: absolute;
     @include display.inset;
 
@@ -79,9 +65,13 @@
     transition: transform var(--animation-time-normal) ease-out;
   }
 
-  .logo-nns {
-    height: var(--menu-logo-height);
+  .background {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
 
+  .logo {
     @include media.min-width(large) {
       padding-top: var(--padding);
     }
@@ -98,11 +88,5 @@
     @media (min-height: 654px) {
       display: block;
     }
-  }
-
-  .background {
-    position: absolute;
-    bottom: 0;
-    left: 0;
   }
 </style>

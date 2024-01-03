@@ -3,6 +3,8 @@
   import Menu from "$lib/components/Menu.svelte";
   import type { ComponentType } from "svelte";
   import StretchPane from "$lib/components/StretchPane.svelte";
+  import LogoNNS from "$lib/components/LogoNNS.svelte";
+  import LogoOnChain from "$lib/components/LogoOnChain.svelte";
 
   export let layout: "split" | "stretch" = "split";
 
@@ -12,6 +14,12 @@
 
 <svelte:component this={component}>
   <Menu slot="menu" sticky={layout === "split"}>
+    <slot name="menu-logo" slot="logo">
+      <LogoNNS />
+    </slot>
+    <slot name="menu-oneliner" slot="oneliner">
+      <LogoOnChain />
+    </slot>
     <slot name="menu-items" />
   </Menu>
 

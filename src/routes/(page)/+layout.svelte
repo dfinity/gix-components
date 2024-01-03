@@ -1,7 +1,6 @@
 <script lang="ts">
   import { page } from "$app/stores";
   import { afterNavigate } from "$app/navigation";
-  import HeaderTitle from "$lib/components/HeaderTitle.svelte";
   import DocsAccountMenu from "$docs/components/DocsAccountMenu.svelte";
   import type { AfterNavigate } from "@sveltejs/kit";
   import Content from "$lib/components/Content.svelte";
@@ -16,8 +15,6 @@
 </script>
 
 <Content {back} on:nnsBack={async () => await goBack({ navHistory })}>
-  <HeaderTitle slot="title">GIX Components</HeaderTitle>
-
   <DocsAccountMenu slot="toolbar-end" />
 
   <main>

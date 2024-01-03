@@ -35,10 +35,12 @@ On the contrary, with a `stretch`, the inner part uses the entire space regardle
 
 ## Slots
 
-| Slot name    | Description                                         |
-| ------------ | --------------------------------------------------- |
-| Default slot | The content. See note about composition here under. |
-| `menu-items` | The items of the menu - i.e. the links of the menu. |
+| Slot name       | Description                                                                                                                          |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| Default slot    | The content. See note about composition here under.                                                                                  |
+| `menu-items`    | The items of the menu - i.e. the links of the menu.                                                                                  |
+| `menu-logo`     | The logo of your dapp. If not provided, a default NNS logo will be displayed.                                                        |
+| `menu-oneliner` | A oneliner or other custom logo displayed as footer of the menu. If not provided, a default "100% chain" oneliner will be displayed. |
 
 ### Composition
 
