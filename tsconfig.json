@@ -8,13 +8,7 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "sourceMap": true,
-    "strict": true,
-    "paths": {
-      "$lib": ["./src/lib"],
-      "$lib/*": ["./src/lib/*"],
-      "$docs": ["./src/docs"],
-      "$docs/*": ["./src/docs/*"]
-    }
+    "strict": true
   },
   "exclude": [
     "src/stories/**/*",
