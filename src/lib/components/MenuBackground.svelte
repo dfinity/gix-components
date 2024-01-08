@@ -1,15 +1,8 @@
 <script lang="ts">
-  import backgroundDark from "$lib/assets/menu-bg-dark.png";
-  import backgroundLight from "$lib/assets/menu-bg-light.png";
   import { themeStore } from "$lib/stores/theme.store";
-  import { Theme } from "$lib/types/theme";
   import { layoutMenuOpen } from "$lib/stores/layout.store";
   import { nonNullish } from "@dfinity/utils";
   import { fade } from "svelte/transition";
-
-  let background: string;
-  $: background =
-    $themeStore === Theme.LIGHT ? backgroundLight : backgroundDark;
 </script>
 
 <div class:open={$layoutMenuOpen} class="menu-background">
