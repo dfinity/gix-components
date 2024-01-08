@@ -39,7 +39,6 @@
   button {
     width: 100%;
 
-    color: rgba(var(--disable-contrast-rgb), 0.8);
     transition: color var(--animation-time-normal);
 
     &.selected {
