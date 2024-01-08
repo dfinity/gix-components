@@ -100,8 +100,9 @@
   // Custom backgrounds
   --body-background: radial-gradient(
     farthest-corner circle at 0% 100%,
-      var(--cp-dark-gradient-2), var(--cp-dark-gradient-1)
-    );
+    var(--cp-dark-gradient-2),
+    var(--cp-dark-gradient-1)
+  );
   --body-color: var(--cp-dark-100);
 
   --content-background: var(--cp-dark-opaque);
