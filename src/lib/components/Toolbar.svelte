@@ -15,6 +15,8 @@
     position: absolute;
     @include display.inset;
 
+    color: var(--toolbar-color, var(--body-color));
+
     --actions-width: 15%;
     --main-width: calc(100% - (2 * var(--actions-width)));
 
@@ -22,6 +24,7 @@
     grid-template-columns: var(--actions-width) var(--main-width) var(
         --actions-width
       );
+
 
     justify-content: center;
     align-items: center;

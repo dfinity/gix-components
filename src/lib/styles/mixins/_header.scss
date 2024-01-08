@@ -10,8 +10,6 @@
   padding: var(--padding-0_5x);
   margin: 0 var(--padding-0_5x);
 
-  color: var(--body-color);
-
   @include media.min-width(large) {
     color: var(--content-color);
   }
