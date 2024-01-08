@@ -15,6 +15,9 @@ const config = {
 
   kit: {
     adapter: adapter(),
+    alias: {
+      $docs: "./src/docs",
+    },
     serviceWorker: {
       register: false,
     },

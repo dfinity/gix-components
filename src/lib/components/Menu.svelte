@@ -12,7 +12,10 @@
 </script>
 
 <div role="menu" class:open={$layoutMenuOpen}>
-  <MenuBackground />
+  <MenuBackground>
+    <slot name="logo" slot="logo" />
+    <slot name="oneliner" slot="oneliner" />
+  </MenuBackground>
 
   <div
     class="inner"

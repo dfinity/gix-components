@@ -160,9 +160,11 @@
       word-break: break-word;
 
       &.scroll {
-        // (>=3 lines x 1rem) + top/bottom paddings
-        max-height: calc(8.5 * var(--padding));
         overflow-y: auto;
+        // >=3 lines x font-size x (line-height-normal=1.2 + extra-space=0.1 (needs for FF))
+        max-height: calc(var(--font-size-standard) * 3 * 1.3);
+        // Workaround to get rid of the redundant scrollbar (even when there is enough space).
+        line-height: normal;
       }
 
       &.truncate {
@@ -184,7 +186,9 @@
 
     .title {
       display: block;
-      @include fonts.h4(true);
+      @include fonts.standard(true);
+      // Workaround to get rid of the redundant scrollbar (even when there is enough space).
+      line-height: normal;
     }
 
     button.close {

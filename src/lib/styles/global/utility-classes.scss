@@ -46,6 +46,13 @@
   border-radius: var(--border-radius);
 }
 
+.content-cell-island__card {
+  @extend .content-cell-island;
+
+  background: var(--island-card-background);
+  color: var(--description-color);
+}
+
 // Spacing
 
 .no-margin {
