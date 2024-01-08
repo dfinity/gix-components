@@ -32,7 +32,7 @@
 
   // color primitives
   // naming structure: --cp-[themename]-[primitivename]
-  
+
   // light theme
   --cp-light-accent: #4d79ff;
   --cp-light-50: #fff;
@@ -54,20 +54,20 @@
   --cp-dark-accent: #906bff;
   --cp-dark-50: #fff;
   --cp-dark-75: var(--cp-dark-50);
-  --cp-dark-100: #D7CDF6;
-  --cp-dark-200: #B0A3D9;
-  --cp-dark-250: #A688FF;
-  --cp-dark-350: #4B3BF8;
-  --cp-dark-400: #3D3061;
-  --cp-dark-450: #2B1B4D;
-  --cp-dark-500: #342759;  // not actually used
-  --cp-dark-550: #3C2E66;
-  --cp-dark-600: #170C36;
-  --cp-dark-650: #150C31;
-  --cp-dark-900: #130A2C;
+  --cp-dark-100: #d7cdf6;
+  --cp-dark-200: #b0a3d9;
+  --cp-dark-250: #a688ff;
+  --cp-dark-350: #4b3bf8;
+  --cp-dark-400: #3d3061;
+  --cp-dark-450: #2b1b4d;
+  --cp-dark-500: #342759; // not actually used
+  --cp-dark-550: #3c2e66;
+  --cp-dark-600: #170c36;
+  --cp-dark-650: #150c31;
+  --cp-dark-900: #130a2c;
   --cp-dark-opaque: rgb(from #000 r g b / 20%);
-  --cp-dark-gradient-1: #0F0F4D;
-  --cp-dark-gradient-2: #4D1259;
+  --cp-dark-gradient-1: #0f0f4d;
+  --cp-dark-gradient-2: #4d1259;
 
   // Accessory
   --fade: rgba(36, 20, 61, 0.6); // #24143d 60%
