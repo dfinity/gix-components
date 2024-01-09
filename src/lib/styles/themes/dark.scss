@@ -124,8 +124,8 @@
   --menu-select-color: var(--value-color);
   --menu-selected-background: var(--cp-dark-500);
 
-  --toolbar-color: var(--body-color) // Tab and segment
-    --segment-selected-background: var(--overlay-content-background);
+  --toolbar-color: var(--body-color); // Tab and segment
+  --segment-selected-background: var(--overlay-content-background);
 
   // Theme color
   --theme-color: var(--card-background);
