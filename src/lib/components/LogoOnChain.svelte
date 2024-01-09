@@ -1,13 +1,9 @@
-<script>
-  
-</script>
 <svg
   class="on-chain"
   viewBox="0 0 117 20"
   fill="none"
   xmlns="http://www.w3.org/2000/svg"
   role="presentation"
-  {...$$props}
 >
   <path
     fill-rule="evenodd"
