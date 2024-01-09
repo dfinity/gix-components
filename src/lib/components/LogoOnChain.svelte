@@ -1,6 +1,6 @@
 <script>
-  
 </script>
+
 <svg
   class="on-chain"
   viewBox="0 0 117 20"
