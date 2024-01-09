@@ -3,12 +3,11 @@
   import { layoutMenuOpen } from "$lib/stores/layout.store";
   import { nonNullish } from "@dfinity/utils";
   import { fade } from "svelte/transition";
-  import LogoNns from "./LogoNNS.svelte";
 </script>
 
 <div class:open={$layoutMenuOpen} class="menu-background">
   <div class="logo-nns">
-    <LogoNns />
+    <slot name="logo" />
   </div>
 
   {#if nonNullish($themeStore)}
