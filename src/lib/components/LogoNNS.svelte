@@ -2,7 +2,6 @@
   viewBox="0 0 160 34"
   fill="none"
   xmlns="http://www.w3.org/2000/svg"
-  class="logo-nns"
   role="presentation"
 >
   <g class="logo-nns__symbol">
