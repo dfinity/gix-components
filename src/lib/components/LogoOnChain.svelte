@@ -1,5 +1,4 @@
 <svg
-  class="on-chain"
   viewBox="0 0 117 20"
   fill="none"
   xmlns="http://www.w3.org/2000/svg"
@@ -16,3 +15,10 @@
     fill="currentColor"
   />
 </svg>
+
+<style lang="scss">
+  svg {
+    width: 60%;
+    opacity: 0.8;
+  }
+</style>

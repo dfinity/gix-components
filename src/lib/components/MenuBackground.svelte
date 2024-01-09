@@ -11,7 +11,7 @@
   </div>
 
   {#if nonNullish($themeStore)}
-    <div in:fade class="on-chain">
+    <div in:fade class="bottom-logo">
       <slot name="oneliner" />
     </div>
   {/if}
@@ -58,15 +58,14 @@
     }
   }
 
-  .on-chain {
+  .bottom-logo {
     // We do not want to display the logo "on chain" behind the menu items
     display: none;
     margin-bottom: var(--padding-3x);
-    width: 60%;
-    opacity: 0.8;
 
     color: var(--menu-color);
     z-index: var(--menu-z-index);
+    text-align: center;
 
     // 654px is an empirical value
     @media (min-height: 654px) {
