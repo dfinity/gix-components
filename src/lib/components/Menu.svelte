@@ -51,6 +51,7 @@
     z-index: var(--menu-z-index);
 
     --menu-logo-height: 65px;
+    --menu-stack: 1em;
 
     padding-top: calc(
       var(--menu-logo-height) + var(--padding-4x) + var(--header-offset, 0px)
@@ -75,9 +76,7 @@
     height: 100%;
 
     overflow-y: auto;
-
     margin-left: -100%;
-
     &.sticky {
       // On large screen the menu can be always open
       @include media.min-width(large) {

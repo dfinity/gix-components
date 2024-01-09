@@ -2,7 +2,7 @@
     import { browser } from "$app/environment";
     import type { ComponentType } from "svelte";
     import { onMount } from "svelte";
-    import logoOnChainDark from "$lib/assets/logo-onchain-dark.svg";
+    import icpRounded from "$docs/assets/icp-rounded.svg";
 
     let QRCode: ComponentType | undefined = undefined;
 
@@ -72,7 +72,7 @@ The component fits the available space where it is used. Therefore, the parents 
 {#if QRCode !== undefined}
 <svelte:component this={QRCode} {value} ariaLabel="Network Nervous System" >
 <img
-        src={logoOnChainDark}
+        src={icpRounded}
         role="presentation"
         alt="Test logo"
         loading="lazy"

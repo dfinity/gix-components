@@ -35,7 +35,7 @@
     /** Declaring this value as a CSS variable in dark.scss and light.scss was not interpreted correctly, therefore we implement these here */
     background: linear-gradient(
       99.27deg,
-      var(--purple-500) var(--range-progression),
+      var(--cp-light-500) var(--range-progression),
       var(--input-background) var(--range-end)
     );
 

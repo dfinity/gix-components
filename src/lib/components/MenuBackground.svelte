@@ -1,35 +1,19 @@
 <script lang="ts">
-  import backgroundDark from "$lib/assets/menu-bg-dark.png";
-  import backgroundLight from "$lib/assets/menu-bg-light.png";
   import { themeStore } from "$lib/stores/theme.store";
-  import { Theme } from "$lib/types/theme";
   import { layoutMenuOpen } from "$lib/stores/layout.store";
   import { nonNullish } from "@dfinity/utils";
   import { fade } from "svelte/transition";
-
-  let background: string;
-  $: background =
-    $themeStore === Theme.LIGHT ? backgroundLight : backgroundDark;
 </script>
 
 <div class:open={$layoutMenuOpen} class="menu-background">
-  <div class="logo">
+  <div class="logo-nns">
     <slot name="logo" />
   </div>
 
   {#if nonNullish($themeStore)}
-    <div in:fade class="on-chain">
+    <div in:fade class="bottom-logo">
       <slot name="oneliner" />
     </div>
-
-    <img
-      data-tid="menu-background"
-      class="background"
-      src={background}
-      role="presentation"
-      alt=""
-      loading="lazy"
-    />
   {/if}
 </div>
 
@@ -65,24 +49,23 @@
     transition: transform var(--animation-time-normal) ease-out;
   }
 
-  .background {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-  }
-
-  .logo {
+  .logo-nns {
+    color: var(--menu-color);
+    margin-top: var(--menu-stack);
+    width: 100%;
     @include media.min-width(large) {
       padding-top: var(--padding);
     }
   }
 
-  .on-chain {
+  .bottom-logo {
     // We do not want to display the logo "on chain" behind the menu items
     display: none;
-    padding: 0 0 var(--padding-3x);
+    margin-bottom: var(--padding-3x);
 
+    color: var(--menu-color);
     z-index: var(--menu-z-index);
+    text-align: center;
 
     // 654px is an empirical value
     @media (min-height: 654px) {

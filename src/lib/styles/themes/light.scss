@@ -4,17 +4,17 @@
   &[theme="light"] {
     // -------- NEW CSS VARIABLES ----------------
     // We want to migrate to a new set of CSS variables for colors more adapted to our Figma.
-    --elements-divider: var(--purple-150);
-    --elements-icons: var(--purple-600);
-    --text-description: var(--purple-600);
-    --text-light: var(--purple-50);
-    --text-text: var(--purple-900);
-    --input-focus-background: var(--purple-75);
-    --button-primary: var(--purple-accent);
-    --table-background: var(--purple-75);
-    --table-header-background: var(--purple-125);
-    --table-row-background: var(--purple-75);
-    --table-row-background-hover: var(--purple-100);
+    --elements-divider: var(--cp-light-150);
+    --elements-icons: var(--cp-light-600);
+    --text-description: var(--cp-light-600);
+    --text-light: var(--cp-light-50);
+    --text-text: var(--cp-light-900);
+    --input-focus-background: var(--cp-light-75);
+    --button-primary: var(--cp-light-accent);
+    --table-background: var(--cp-light-75);
+    --table-header-background: var(--cp-light-124);
+    --table-row-background: var(--cp-light-75);
+    --table-row-background-hover: var(--cp-light-100);
 
     --alert: var(--pink);
     --alert-tint: var(--pink-tint);
@@ -22,7 +22,7 @@
     --check-tint: var(--green-tint);
     --pending-color: var(--orange);
     --pending-background: var(--orange-tint);
-    --island-card-background: var(--purple-125);
+    --island-card-background: var(--cp-light-124);
 
     // -------- OLD CSS VARIABLES ----------------
     // Shadows
@@ -35,42 +35,42 @@
     --footer-background: transparent;
 
     // Gradient
-    --primary-gradient: var(--purple-accent);
-    --primary-gradient-fallback: var(--purple-accent);
+    --primary-gradient: var(--cp-light-accent);
+    --primary-gradient-fallback: var(--cp-light-accent);
 
     // Inputs
     /* Design Light/7969C0 (8%)-light */
-    --input-border-color: var(--purple-150);
+    --input-border-color: var(--cp-light-150);
 
     // Buttons custom colors
     --button-secondary-color: var(--primary);
     --button-card-focus-color: var(--primary);
-    --button-card-focus-background: var(--purple-100);
-    --button-disable-background: var(--purple-125);
+    --button-card-focus-background: var(--cp-light-100);
+    --button-disable-background: var(--cp-light-124);
     --button-disable-color: var(--disable-contrast);
 
     // Text color
-    --value-color: var(--purple-900);
+    --value-color: var(--cp-light-900);
     --label-color: var(--text-color);
-    --description-color: var(--purple-600);
+    --description-color: var(--cp-light-600);
 
     // Overlays - based on dark card background rgb color
     --backdrop: var(--fade);
-    --backdrop-contrast: var(--purple-100);
+    --backdrop-contrast: var(--cp-light-100);
     --backdrop-filter: blur(4px);
 
     // Disable
     /* Light/Bg/Background-03 */
-    --disable: var(--purple-200);
-    --disable-contrast: var(--purple-250);
+    --disable: var(--cp-light-200);
+    --disable-contrast: var(--cp-light-250);
     // TODO-colors: Remove application of rgbs
     --disable-contrast-rgb: 171, 153, 209;
 
     // Line
-    --line: var(--purple-150);
+    --line: var(--cp-light-150);
 
     // Scrollbar
-    --scrollbar-thumb-color: var(--purple-250);
+    --scrollbar-thumb-color: var(--cp-light-250);
 
     // Progress
     --progress-color: var(--primary);
@@ -78,87 +78,93 @@
     --progress-color-rgb: var(--primary-rgb);
 
     // Custom backgrounds
-    --body-background: var(--purple-500);
-    --body-color: var(--purple-50);
+    --body-background: radial-gradient(
+      farthest-corner circle at 0% 100%,
+      var(--cp-light-gradient-2),
+      var(--cp-light-gradient-1)
+    );
+    --body-color: var(--cp-light-50);
 
-    --content-background: var(--purple-200);
+    --content-background: var(--cp-light-opaque);
     --content-color: var(--text-color);
-    --content-start-background: var(--purple-125);
+    --content-start-background: var(--cp-light-75);
     --content-start-color: var(--text-color);
 
     // Overlay inverted colors - i.e. light mode colors
-    --toast-inverted-background: var(--purple-900);
-    --toast-inverted-background-contrast: var(--purple-50);
+    --toast-inverted-background: var(--cp-light-900);
+    --toast-inverted-background-contrast: var(--cp-light-50);
 
     // Menu
-    --menu-color: var(--purple-50);
-    --menu-select-color: var(--purple-50);
-    --menu-selected-background: var(--purple-400);
+    --menu-color: var(--cp-light-900);
+    --menu-select-color: var(--cp-light-900);
+    --menu-selected-background: var(--cp-light-opaque);
+
+    --toolbar-color: var(--menu-color);
 
     // Tab and segment
     --segment-selected-background: var(--focus-background);
 
     // Theme color
-    --theme-color: var(--purple-accent);
+    --theme-color: var(--cp-light-accent);
 
     // Palette
 
     /* Light/Text/Text */
-    --text-color: var(--purple-900);
+    --text-color: var(--cp-light-900);
     // TODO-colors: Remove application of rgbs
     --text-color-rgb: 56, 45, 80;
 
     /* Design: Extracted from Light/7969C0 (8%)-light */
-    --input-background: var(--purple-100);
+    --input-background: var(--cp-light-100);
     --input-background-contrast: var(--text-color);
 
     /* Design: Light/Bg/Background */
-    --focus-background: var(--purple-75);
+    --focus-background: var(--cp-light-75);
     // TODO-colors: Remove application of rgbs
     --focus-background-rgb: 248, 246, 252;
     --focus-background-contrast: var(--text-color);
-    --focus-background-tint: var(--purple-50);
+    --focus-background-tint: var(--cp-light-50);
 
     /* Design: Dark/Bg/Background-04 */
-    --card-background: var(--purple-75);
+    --card-background: var(--cp-light-75);
     // TODO-colors: Remove application of rgbs
     --card-background-rgb: 248, 246, 252;
     --card-background-contrast: var(--text-color);
     --card-background-contrast-rgb: var(--text-color-rgb);
-    --card-background-shade: var(--purple-100);
-    --card-background-tint: var(--purple-50);
-    --card-background-disabled: var(--purple-125);
+    --card-background-shade: var(--cp-light-100);
+    --card-background-tint: var(--cp-light-50);
+    --card-background-disabled: var(--cp-light-124);
 
     /* Design: Light/Bg/Background-01 */
-    --background: var(--purple-100);
+    --background: var(--cp-light-100);
     --background-contrast: var(--text-color);
     --background-contrast-rgb: var(--text-color-rgb);
-    --background-shade: var(--purple-125);
+    --background-shade: var(--cp-light-124);
 
     /* Design: Light/Bg/Background-03 */
-    --background-disable: var(--purple-125);
+    --background-disable: var(--cp-light-124);
     --background-disable-rgb: 225, 217, 243;
     --background-disable-contrast: var(--disable-contrast);
 
-    --primary: var(--purple-accent);
+    --primary: var(--cp-light-accent);
     // TODO-colors: Remove application of rgbs, then remove x-rgb.
     --primary-rgb: 121, 78, 231;
-    --primary-contrast: var(--purple-50);
-    --primary-tint: var(--purple-500);
+    --primary-contrast: var(--cp-light-50);
+    --primary-tint: var(--cp-light-500);
 
-    --secondary: var(--purple-500);
+    --secondary: var(--cp-light-500);
     --secondary-rgb: 124, 92, 194;
-    --secondary-contrast: var(--purple-900);
+    --secondary-contrast: var(--cp-light-900);
 
     --warning-emphasis: var(--orange-mid);
-    --warning-emphasis-contrast: var(--purple-900);
+    --warning-emphasis-contrast: var(--cp-light-900);
     --warning-emphasis-shade: var(--orange);
 
     --positive-emphasis: var(--green);
     --positive-emphasis-rgb: 48, 175, 145;
-    --positive-emphasis-contrast: var(--purple-50);
+    --positive-emphasis-contrast: var(--cp-light-50);
     --positive-emphasis-light: var(--green-tint);
     --negative-emphasis: var(--pink);
-    --negative-emphasis-contrast: var(--purple-50);
+    --negative-emphasis-contrast: var(--cp-light-50);
   }
 }
