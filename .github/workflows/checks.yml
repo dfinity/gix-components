@@ -36,6 +36,8 @@ jobs:
           default_author: github_actions
           message: "Updating formatting"
           # does not pull by default
+          push: origin HEAD:${{ github.head_ref }}
+
 
   build:
     runs-on: ubuntu-20.04
