@@ -10,6 +10,5 @@ export type { BusyState } from "./types/busy";
 export type { ProgressBarSegment } from "./types/progress-bar";
 export type { ProgressStep, ProgressStepState } from "./types/progress-step";
 export type { ToastLevel, ToastMsg } from "./types/toast";
-export type { WizardStep, WizardSteps 
-            } from "./types/wizard";
+export type { WizardStep, WizardSteps } from "./types/wizard";
 export * from "./utils/wizard.utils";
