@@ -33,8 +33,8 @@ jobs:
         if: ${{ github.event_name == 'pull_request' }}
         with:
           add: .
-          author_name: Formatting Committer
-          author_email: "<nobody@example.com>"
+          author_name: sa-github-api
+          author_email: "sa-github-api@dfinity.org"
           message: "Updating formatting"
           # do not pull: if this branch is behind, then we might as well let
           # the pushing fail
