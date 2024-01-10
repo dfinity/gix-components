@@ -41,6 +41,7 @@ export { default as IconNorthEast } from "./icons/IconNorthEast.svelte";
 export { default as IconPace } from "./icons/IconPace.svelte";
 export { default as IconPassword } from "./icons/IconPassword.svelte";
 export { default as IconQRCodeScanner } from "./icons/IconQRCodeScanner.svelte";
+export { default as IconQRCode } from "./icons/IconQRCode.svelte";
 export { default as IconReimbursed } from "./icons/IconReimbursed.svelte";
 export { default as IconRight } from "./icons/IconRight.svelte";
 export { default as IconRocketLaunch } from "./icons/IconRocketLaunch.svelte";
