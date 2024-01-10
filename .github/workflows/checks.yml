@@ -21,6 +21,7 @@ jobs:
           GIX_CREATE_PR_PAT: ${{ secrets.GIX_CREATE_PR_PAT }}
         run: |
           git remote set-url origin https://$GIX_CREATE_PR_PAT@github.com/dfinity/gix-components.git
+          git config --global user.name "sa-github-api"
           git remote show origin
 
       - name: Install shfmt
