@@ -35,9 +35,7 @@ jobs:
           add: .
           default_author: github_actions
           message: "Updating formatting"
-          # do not pull: if this branch is behind, then we might as well let
-          # the pushing fail
-          pull_strategy: "NO-PULL"
+          # does not pull by default
 
   build:
     runs-on: ubuntu-20.04
