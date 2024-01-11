@@ -28,7 +28,7 @@ jobs:
       - name: Format
         run: npm run format
 
-      - name: Commit Formatting changes - will not trigger rebuild
+      - name: Commit Formatting changes
         uses: EndBug/add-and-commit@v7.2.0
         if: ${{ github.event_name == 'pull_request' }}
         with:
