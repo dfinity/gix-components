@@ -7,6 +7,13 @@ button {
     cursor: default;
   }
 
+  &.with-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--padding-0_5x);
+  }
+
   &.ghost,
   &.text {
     width: fit-content;

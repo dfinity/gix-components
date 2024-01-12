@@ -13,4 +13,44 @@ a {
   &:hover {
     color: var(--value-color);
   }
+
+  &.button {
+    // Default is `inline` and buttons are `inline-block` but
+    display: inline-block;
+
+    box-sizing: border-box;
+
+    padding: var(--padding) var(--padding-2x);
+
+    border-radius: var(--border-radius);
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+
+    position: relative;
+    min-height: var(--button-min-height);
+
+    font-weight: var(--font-weight-bold);
+    text-decoration: none;
+
+    &.primary {
+      background: var(--primary);
+      color: var(--primary-contrast);
+
+      &:hover,
+      &:focus {
+        background: var(--primary-shade);
+      }
+    }
+
+    &.full-width {
+      width: 100%;
+    }
+
+    &.with-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--padding-0_5x);
+    }
+  }
 }
