@@ -9,8 +9,6 @@ button {
 
   &.ghost,
   &.text {
-    z-index: var(--z-index);
-
     width: fit-content;
 
     @include fonts.standard;
