@@ -6,11 +6,6 @@
 
   h4 {
     margin: 0;
-    color: var(--body-color);
-
-    @include media.min-width(large) {
-      color: var(--content-color);
-    }
 
     @include text.truncate;
 

@@ -12,7 +12,7 @@
     --input-focus-background: var(--cp-light-75);
     --button-primary: var(--cp-light-accent);
     --table-background: var(--cp-light-75);
-    --table-header-background: var(--cp-light-124);
+    --table-header-background: var(--cp-light-100);
     --table-row-background: var(--cp-light-75);
     --table-row-background-hover: var(--cp-light-100);
 
@@ -22,7 +22,7 @@
     --check-tint: var(--green-tint);
     --pending-color: var(--orange);
     --pending-background: var(--orange-tint);
-    --island-card-background: var(--cp-light-124);
+    --island-card-background: var(--cp-light-125);
 
     // -------- OLD CSS VARIABLES ----------------
     // Shadows
@@ -46,7 +46,7 @@
     --button-secondary-color: var(--primary);
     --button-card-focus-color: var(--primary);
     --button-card-focus-background: var(--cp-light-100);
-    --button-disable-background: var(--cp-light-124);
+    --button-disable-background: var(--cp-light-125);
     --button-disable-color: var(--disable-contrast);
 
     // Text color
@@ -133,16 +133,16 @@
     --card-background-contrast-rgb: var(--text-color-rgb);
     --card-background-shade: var(--cp-light-100);
     --card-background-tint: var(--cp-light-50);
-    --card-background-disabled: var(--cp-light-124);
+    --card-background-disabled: var(--cp-light-125);
 
     /* Design: Light/Bg/Background-01 */
     --background: var(--cp-light-100);
     --background-contrast: var(--text-color);
     --background-contrast-rgb: var(--text-color-rgb);
-    --background-shade: var(--cp-light-124);
+    --background-shade: var(--cp-light-125);
 
     /* Design: Light/Bg/Background-03 */
-    --background-disable: var(--cp-light-124);
+    --background-disable: var(--cp-light-125);
     --background-disable-rgb: 225, 217, 243;
     --background-disable-contrast: var(--disable-contrast);
 
