@@ -9,6 +9,7 @@
   export let name: string;
   export let value: string | undefined = undefined;
   export let placeholder = "test.placeholder";
+  export let icpDecimals = 8;
 
   let amount: string | undefined = value;
   $: amount, (() => dispatch("testAmount", { amount }))();
@@ -22,4 +23,4 @@
 <!-- eslint-disable svelte/valid-compile -->
 <span on:click={changeValue} id="test" />
 
-<Input bind:value={amount} {inputType} {name} {placeholder} />
+<Input bind:value={amount} {inputType} {name} {placeholder} {icpDecimals} />

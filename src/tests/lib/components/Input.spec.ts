@@ -1,5 +1,5 @@
 import Input from "$lib/components/Input.svelte";
-import { isNullish, nonNullish } from "@dfinity/utils";
+import { assertNonNullish, isNullish, nonNullish } from "@dfinity/utils";
 import { fireEvent, render } from "@testing-library/svelte";
 import { tick } from "svelte";
 import InputTest from "./InputTest.svelte";
@@ -429,6 +429,23 @@ describe("Input", () => {
         },
       });
       expect(container.querySelector("input")?.value).toBe("11111111.11111111");
+    });
+
+    it("should accept custom decimals in icp mode", () => {
+      const { container } = render(InputValueTest, {
+        props: {
+          ...props,
+          value: "1",
+          inputType: "icp",
+          icpDecimals: 12,
+        },
+      });
+
+      const input: HTMLInputElement | null = container.querySelector("input");
+      assertNonNullish(input);
+
+      fireEvent.input(input, { target: { value: "111.1234567891" } });
+      expect(input.value).toBe("111.1234567891");
     });
   });
 });
