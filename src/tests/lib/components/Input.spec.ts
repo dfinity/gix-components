@@ -316,6 +316,30 @@ describe("Input", () => {
         });
       }));
 
+    it("should bind value as string", () =>
+      new Promise<void>((done) => {
+        const { container, component } = render(InputValueTest, {
+          props: {
+            ...props,
+            inputType: "icp",
+            icpDecimals: 18,
+          },
+        });
+
+        const input: HTMLInputElement | null = container.querySelector("input");
+        assertNonNullish(input);
+
+        const ethValue = "0.00000009482900424";
+
+        fireEvent.input(input, { target: { value: ethValue } });
+        expect(input.value).toBe(ethValue);
+
+        component.$on("testAmount", ({ detail }) => {
+          expect(detail.amount).toBe(ethValue);
+          done();
+        });
+      }));
+
     it("should not accept not icp formatted changed", async () => {
       const { container } = render(Input, {
         props: {

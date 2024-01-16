@@ -121,7 +121,10 @@
         internalValueChange = true;
         // for inputType="icp" value is a number
         // TODO: do we need to fix lost precision for too big for number inputs?
-        value = +currentValue;
+        const valueAsNumber = +currentValue;
+        value = `${valueAsNumber}`.includes("e")
+          ? exponentToPlainNumberString(`${valueAsNumber}`)
+          : valueAsNumber;
       }
     } else {
       internalValueChange = true;
