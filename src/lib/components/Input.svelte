@@ -13,7 +13,7 @@
   export let value: string | number | undefined = undefined;
   export let placeholder: string;
   export let testId: string | undefined = undefined;
-  export let icpDecimals = 8;
+  export let decimals = 8;
 
   const dispatch = createEventDispatcher();
 
@@ -42,7 +42,7 @@
     value.includes("e")
       ? Number(value).toLocaleString("en", {
           useGrouping: false,
-          maximumFractionDigits: icpDecimals,
+          maximumFractionDigits: decimals,
         })
       : value;
   // To show undefined as "" (because of the type="text")
@@ -81,7 +81,7 @@
     value = isNullish(lastValidICPValue)
       ? undefined
       : typeof lastValidICPValue === "number"
-      ? lastValidICPValue.toFixed(icpDecimals)
+      ? lastValidICPValue.toFixed(decimals)
       : +lastValidICPValue;
     icpValue = fixUndefinedValue(lastValidICPValue);
 
@@ -99,7 +99,7 @@
   };
 
   const isValidICPFormat = (text: string): boolean => {
-    const regex = new RegExp(`^\\d*(\\.\\d{0,${icpDecimals}})?$`);
+    const regex = new RegExp(`^\\d*(\\.\\d{0,${decimals}})?$`);
     return regex.test(text);
   };
 

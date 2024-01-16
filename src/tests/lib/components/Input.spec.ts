@@ -322,7 +322,7 @@ describe("Input", () => {
           props: {
             ...props,
             inputType: "icp",
-            icpDecimals: 18,
+            decimals: 18,
           },
         });
 
@@ -461,7 +461,7 @@ describe("Input", () => {
           ...props,
           value: "1",
           inputType: "icp",
-          icpDecimals: 12,
+          decimals: 12,
         },
       });
 
