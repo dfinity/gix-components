@@ -5,7 +5,7 @@
 
   const dispatch = createEventDispatcher();
 
-  export let inputType: "text" | "icp" = "text";
+  export let inputType: "text" | "icp" | "currency" = "text";
   export let name: string;
   export let value: string | undefined = undefined;
   export let placeholder = "test.placeholder";

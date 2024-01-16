@@ -321,7 +321,7 @@ describe("Input", () => {
         const { container, component } = render(InputValueTest, {
           props: {
             ...props,
-            inputType: "icp",
+            inputType: "currency",
             decimals: 18,
           },
         });
@@ -329,7 +329,7 @@ describe("Input", () => {
         const input: HTMLInputElement | null = container.querySelector("input");
         assertNonNullish(input);
 
-        const ethValue = "0.00000009482900424";
+        const ethValue = "0.000000094829004242";
 
         fireEvent.input(input, { target: { value: ethValue } });
         expect(input.value).toBe(ethValue);
@@ -460,7 +460,7 @@ describe("Input", () => {
         props: {
           ...props,
           value: "1",
-          inputType: "icp",
+          inputType: "currency",
           decimals: 12,
         },
       });
