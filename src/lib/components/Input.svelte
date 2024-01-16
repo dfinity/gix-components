@@ -13,6 +13,8 @@
   export let value: string | number | undefined = undefined;
   export let placeholder: string;
   export let testId: string | undefined = undefined;
+  export let icpDecimals = 8;
+
   const dispatch = createEventDispatcher();
 
   // https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete
@@ -40,7 +42,7 @@
     value.includes("e")
       ? Number(value).toLocaleString("en", {
           useGrouping: false,
-          maximumFractionDigits: 8,
+          maximumFractionDigits: icpDecimals,
         })
       : value;
   // To show undefined as "" (because of the type="text")
@@ -79,7 +81,7 @@
     value = isNullish(lastValidICPValue)
       ? undefined
       : typeof lastValidICPValue === "number"
-      ? lastValidICPValue.toFixed(8)
+      ? lastValidICPValue.toFixed(icpDecimals)
       : +lastValidICPValue;
     icpValue = fixUndefinedValue(lastValidICPValue);
 
@@ -96,8 +98,10 @@
     currentTarget: EventTarget & HTMLInputElement;
   };
 
-  const isValidICPFormat = (text: string): boolean =>
-    /^[\d]*(\.[\d]{0,8})?$/.test(text);
+  const isValidICPFormat = (text: string): boolean => {
+    const regex = new RegExp(`^[\\d]*(\\.[\\d]{0,${icpDecimals})?$`);
+    return regex.test(text);
+  };
 
   const handleInput = ({ currentTarget }: InputEventHandler) => {
     if (inputType === "icp") {

@@ -341,6 +341,9 @@ describe("Input", () => {
       expect(input.value).toBe("123");
 
       fireEvent.input(input, { target: { value: ".0000001" } });
+
+      console.log(input.value)
+
       expect(input.value).toBe(".0000001");
 
       fireEvent.input(input, { target: { value: ".000000001" } });
@@ -376,7 +379,7 @@ describe("Input", () => {
       const { container } = render(InputValueTest, {
         props: {
           ...props,
-          value: 0,
+          value: `0`,
           inputType: "icp",
         },
       });
@@ -388,7 +391,7 @@ describe("Input", () => {
       const { container } = render(InputValueTest, {
         props: {
           ...props,
-          value: 0.00000001,
+          value: `0.00000001`,
           inputType: "icp",
         },
       });
@@ -424,7 +427,7 @@ describe("Input", () => {
       const { container } = render(InputValueTest, {
         props: {
           ...props,
-          value: 11111111.11111111,
+          value: `11111111.11111111`,
           inputType: "icp",
         },
       });
