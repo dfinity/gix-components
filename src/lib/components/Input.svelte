@@ -158,9 +158,7 @@
 
   $: step = inputType === "number" ? step ?? "any" : undefined;
   $: autocomplete =
-    inputType !== "number" && !isCurrency()
-      ? autocomplete ?? "off"
-      : undefined;
+    inputType !== "number" && !isCurrency() ? autocomplete ?? "off" : undefined;
 
   let displayInnerEnd: boolean;
   $: displayInnerEnd = nonNullish($$slots["inner-end"]);
