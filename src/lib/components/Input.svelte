@@ -99,7 +99,7 @@
   };
 
   const isValidICPFormat = (text: string): boolean => {
-    const regex = new RegExp(`^[\\d]*(\\.[\\d]{0,${icpDecimals})?$`);
+    const regex = new RegExp(`^\\d*(\\.\\d{0,${icpDecimals}})?$`);
     return regex.test(text);
   };
 

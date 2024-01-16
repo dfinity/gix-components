@@ -341,9 +341,6 @@ describe("Input", () => {
       expect(input.value).toBe("123");
 
       fireEvent.input(input, { target: { value: ".0000001" } });
-
-      console.log(input.value)
-
       expect(input.value).toBe(".0000001");
 
       fireEvent.input(input, { target: { value: ".000000001" } });
