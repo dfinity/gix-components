@@ -59,16 +59,12 @@
   let lastValidCurrencyValue: string | number | undefined = value;
   let internalValueChange = true;
 
-  // Used for render purpose only
   let currency = false;
   $: currency = ["icp", "currency"].includes(inputType);
 
-  // Used for imperative logic
-  const isCurrency = (): boolean => ["icp", "currency"].includes(inputType);
-
   $: value,
     (() => {
-      if (!internalValueChange && isCurrency()) {
+      if (!internalValueChange && currency) {
         if (typeof value === "number") {
           currencyValue = exponentToPlainNumberString(`${value}`);
         } else {
@@ -82,7 +78,7 @@
     })();
 
   const restoreFromValidValue = (noValue = false) => {
-    if (isNullish(inputElement) || !isCurrency()) {
+    if (isNullish(inputElement) || !currency) {
       return;
     }
 
@@ -117,7 +113,7 @@
   };
 
   const handleInput = ({ currentTarget }: InputEventHandler) => {
-    if (isCurrency()) {
+    if (currency) {
       const currentValue = exponentToPlainNumberString(currentTarget.value);
 
       // handle invalid input
@@ -158,7 +154,7 @@
 
   $: step = inputType === "number" ? step ?? "any" : undefined;
   $: autocomplete =
-    inputType !== "number" && !isCurrency() ? autocomplete ?? "off" : undefined;
+    inputType !== "number" && !currency ? autocomplete ?? "off" : undefined;
 
   let displayInnerEnd: boolean;
   $: displayInnerEnd = nonNullish($$slots["inner-end"]);
