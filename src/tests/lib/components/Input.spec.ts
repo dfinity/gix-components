@@ -1,5 +1,5 @@
 import Input from "$lib/components/Input.svelte";
-import { isNullish, nonNullish } from "@dfinity/utils";
+import { assertNonNullish, isNullish, nonNullish } from "@dfinity/utils";
 import { fireEvent, render } from "@testing-library/svelte";
 import { tick } from "svelte";
 import InputTest from "./InputTest.svelte";
@@ -316,6 +316,30 @@ describe("Input", () => {
         });
       }));
 
+    it("should bind value as string", () =>
+      new Promise<void>((done) => {
+        const { container, component } = render(InputValueTest, {
+          props: {
+            ...props,
+            inputType: "currency",
+            decimals: 18,
+          },
+        });
+
+        const input: HTMLInputElement | null = container.querySelector("input");
+        assertNonNullish(input);
+
+        const ethValue = "0.000000094829004242";
+
+        fireEvent.input(input, { target: { value: ethValue } });
+        expect(input.value).toBe(ethValue);
+
+        component.$on("testAmount", ({ detail }) => {
+          expect(detail.amount).toBe(ethValue);
+          done();
+        });
+      }));
+
     it("should not accept not icp formatted changed", async () => {
       const { container } = render(Input, {
         props: {
@@ -376,7 +400,7 @@ describe("Input", () => {
       const { container } = render(InputValueTest, {
         props: {
           ...props,
-          value: 0,
+          value: `0`,
           inputType: "icp",
         },
       });
@@ -388,7 +412,7 @@ describe("Input", () => {
       const { container } = render(InputValueTest, {
         props: {
           ...props,
-          value: 0.00000001,
+          value: `0.00000001`,
           inputType: "icp",
         },
       });
@@ -424,11 +448,28 @@ describe("Input", () => {
       const { container } = render(InputValueTest, {
         props: {
           ...props,
-          value: 11111111.11111111,
+          value: `11111111.11111111`,
           inputType: "icp",
         },
       });
       expect(container.querySelector("input")?.value).toBe("11111111.11111111");
+    });
+
+    it("should accept custom decimals in icp mode", () => {
+      const { container } = render(InputValueTest, {
+        props: {
+          ...props,
+          value: "1",
+          inputType: "currency",
+          decimals: 12,
+        },
+      });
+
+      const input: HTMLInputElement | null = container.querySelector("input");
+      assertNonNullish(input);
+
+      fireEvent.input(input, { target: { value: "111.1234567891" } });
+      expect(input.value).toBe("111.1234567891");
     });
   });
 });
