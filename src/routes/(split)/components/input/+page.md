@@ -55,7 +55,7 @@ Both slots are displayed `flex` with `space-between`.
 
     <Input placeholder="Enter ICP" inputType="icp" value="" />
 
-    <Input placeholder="Enter ETH" inputType="currency" value="" icpDecimals={18} />
+    <Input placeholder="Enter ETH" inputType="currency" value="" decimals={18} />
 
     <Input placeholder="Disabled" disabled value="This is a disabled value" inputType="text" />
 

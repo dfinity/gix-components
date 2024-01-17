@@ -91,7 +91,9 @@
       ? undefined
       : typeof lastValidCurrencyValue === "number"
       ? lastValidCurrencyValue.toFixed(wrapDecimals)
-      : +lastValidCurrencyValue;
+      : inputType === "icp"
+      ? +lastValidCurrencyValue
+      : lastValidCurrencyValue;
     currencyValue = fixUndefinedValue(lastValidCurrencyValue);
 
     // force dom update (because no active triggers)
