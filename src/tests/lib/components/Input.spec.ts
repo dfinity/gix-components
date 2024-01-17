@@ -455,7 +455,7 @@ describe("Input", () => {
       expect(container.querySelector("input")?.value).toBe("11111111.11111111");
     });
 
-    it("should accept custom decimals in icp mode", () => {
+    it("should accept custom decimals in currency mode", () => {
       const { container } = render(InputValueTest, {
         props: {
           ...props,
@@ -470,6 +470,23 @@ describe("Input", () => {
 
       fireEvent.input(input, { target: { value: "111.1234567891" } });
       expect(input.value).toBe("111.1234567891");
+    });
+
+    it("should trim once custom decimals length is reached", () => {
+      const { container } = render(InputValueTest, {
+        props: {
+          ...props,
+          value: "0.000000011231232121",
+          inputType: "currency",
+          decimals: 18,
+        },
+      });
+
+      const input: HTMLInputElement | null = container.querySelector("input");
+      assertNonNullish(input);
+
+      fireEvent.input(input, { target: { value: "0.0000000112312321219" } });
+      expect(input.value).toBe("0.000000011231232121");
     });
   });
 });
