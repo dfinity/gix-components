@@ -62,7 +62,7 @@
   // Buttons custom colors
   --button-secondary-color: var(--secondary);
   --button-card-focus-color: var(--secondary);
-  --button-card-focus-background: var(--purple-dark-650);
+  --button-card-focus-background: var(--cp-dark-650);
   --button-disable-background: var(--cp-dark-400);
   --button-disable-color: var(--cp-dark-200);
 
@@ -90,7 +90,7 @@
 
   // Scrollbar
   --scrollbar-thumb-background: transparent;
-  --scrollbar-thumb-color: var(--cp-dark-200);
+  --scrollbar-thumb-color: var(--cp-dark-400);
 
   // Progress
   --progress-color: var(--secondary);
@@ -153,7 +153,7 @@
   --card-background-contrast-rgb: var(--text-color-rgb);
   --card-background-shade: var(--cp-dark-450);
   --card-background-tint: var(--cp-dark-400);
-  --card-background-disabled: var(--cp-dark-550);
+  --card-background-disabled: var(--cp-dark-opaque);
 
   /* Design: Dark/Bg/Background-02 */
   --background: var(--cp-dark-550);

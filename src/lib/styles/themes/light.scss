@@ -70,7 +70,7 @@
     --line: var(--cp-light-150);
 
     // Scrollbar
-    --scrollbar-thumb-color: var(--cp-light-250);
+    --scrollbar-thumb-color: var(--cp-light-125);
 
     // Progress
     --progress-color: var(--primary);
@@ -119,7 +119,7 @@
     --input-background-contrast: var(--text-color);
 
     /* Design: Light/Bg/Background */
-    --focus-background: var(--cp-light-75);
+    --focus-background: var(--cp-light-50);
     // TODO-colors: Remove application of rgbs
     --focus-background-rgb: 248, 246, 252;
     --focus-background-contrast: var(--text-color);
@@ -133,10 +133,10 @@
     --card-background-contrast-rgb: var(--text-color-rgb);
     --card-background-shade: var(--cp-light-100);
     --card-background-tint: var(--cp-light-50);
-    --card-background-disabled: var(--cp-light-125);
+    --card-background-disabled: var(--cp-light-opaque);
 
     /* Design: Light/Bg/Background-01 */
-    --background: var(--cp-light-100);
+    --background: var(--cp-light-125);
     --background-contrast: var(--text-color);
     --background-contrast-rgb: var(--text-color-rgb);
     --background-shade: var(--cp-light-125);
