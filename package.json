@@ -63,7 +63,7 @@
     "svelte-preprocess": "^5.0.4",
     "svelte2tsx": "^0.6.23",
     "typescript": "^5.2.2",
-    "vite": "^5.0.10",
+    "vite": "^5.0.12",
     "vitest": "^1.0.4"
   },
   "dependencies": {
