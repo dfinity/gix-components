@@ -9,6 +9,7 @@
 </script>
 
 <button
+  data-tid="copy-component"
   on:click|preventDefault|stopPropagation={copyToClipboard}
   aria-label={`${$i18n.core.copy}: ${value}`}
   class="icon-only"
