@@ -40,15 +40,16 @@
   let selectionStart: number | null = 0;
   let selectionEnd: number | null = 0;
 
+  const toStringWrapDecimals = (value: string): string =>
+    Number(value).toLocaleString("en", {
+      useGrouping: false,
+      maximumFractionDigits: wrapDecimals,
+    });
+
   // replace exponent format (1e-4) w/ plain (0.0001)
   const exponentToPlainNumberString = (value: string): string =>
     // number to toLocaleString doesn't support decimals for values >= ~1e16
-    value.includes("e")
-      ? Number(value).toLocaleString("en", {
-          useGrouping: false,
-          maximumFractionDigits: wrapDecimals,
-        })
-      : value;
+    value.includes("e") ? toStringWrapDecimals(value) : value;
   // To show undefined as "" (because of the type="text")
   const fixUndefinedValue = (value: string | number | undefined): string =>
     isNullish(value) ? "" : `${value}`;
@@ -134,7 +135,7 @@
         value =
           inputType === "icp"
             ? +currentValue
-            : (+currentValue).toFixed(wrapDecimals);
+            : toStringWrapDecimals(currentValue);
       }
     } else {
       internalValueChange = true;
