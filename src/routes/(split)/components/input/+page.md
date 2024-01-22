@@ -1,6 +1,8 @@
 <script lang="ts">
     import Input from "$lib/components/Input.svelte";
     import IconQRCodeScanner from "$lib/icons/IconQRCodeScanner.svelte";
+
+    let amountWithDecimals: number | undefined = undefined;
 </script>
 
 # Input
@@ -55,7 +57,10 @@ Both slots are displayed `flex` with `space-between`.
 
     <Input placeholder="Enter ICP" inputType="icp" value="" />
 
-    <Input placeholder="Enter ETH" inputType="currency" value="" decimals={18} />
+    <div>
+        <Input testId="amount-decimals" placeholder="Enter ETH" inputType="currency" decimals={18} bind:value={amountWithDecimals} />
+        <p>Amount: <output data-tid="amount-decimals-output">{amountWithDecimals ?? ""}</output></p>
+    </div>
 
     <Input placeholder="Disabled" disabled value="This is a disabled value" inputType="text" />
 
