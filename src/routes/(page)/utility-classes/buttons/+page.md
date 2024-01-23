@@ -39,3 +39,13 @@ In Figma file the `success` and `danger` are named `positive` and `negative` but
 | <button class="ghost full-width">Ghost Button</button>         | <button class="ghost full-width" disabled>Ghost Disabled</button>         |
 | <button class="success full-width">Success Button</button>     | <button class="success full-width" disabled>Success Disabled</button>     |
 | <button class="danger full-width">Danger Button</button>       | <button class="danger full-width" disabled>Danger Disabled</button>       |
+
+### `.with-icon`
+
+| Styles                                                                    | Disabled                                                                             |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| <button class="primary with-icon"><IconAdd /> Primary Button</button>     | <button class="primary with-icon" disabled><IconAdd /> Primary Disabled</button>     |
+| <button class="secondary with-icon"><IconAdd /> Secondary Button</button> | <button class="secondary with-icon" disabled><IconAdd /> Secondary Disabled</button> |
+| <button class="ghost with-icon"><IconAdd /> Ghost Button</button>         | <button class="ghost with-icon" disabled><IconAdd /> Ghost Disabled</button>         |
+| <button class="success with-icon"><IconAdd /> Success Button</button>     | <button class="success with-icon" disabled><IconAdd /> Success Disabled</button>     |
+| <button class="danger with-icon"><IconAdd /> Danger Button</button>       | <button class="danger with-icon" disabled><IconAdd /> Danger Disabled</button>       |
