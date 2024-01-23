@@ -16,7 +16,7 @@
   --cp-light-500: #32449e;
   --cp-light-600: #3d4d99; // never actually used
   --cp-light-900: #151a33;
-  --cp-light-opaque: rgb(from var(--cp-light-50) r g b / 40%);
+  --cp-light-opaque: rgb(255 255 255 / 40%); // --cp-light-50 with 40% opacity
   --cp-light-gradient-1: #d4e7fa;
   --cp-light-gradient-2: #f2dae2;
 
@@ -35,7 +35,7 @@
   --cp-dark-600: #170c36;
   --cp-dark-650: #150c31;
   --cp-dark-900: #130a2c;
-  --cp-dark-opaque: rgb(from #000 r g b / 20%);
+  --cp-dark-opaque: rgb(0 0 0 / 20%);
   --cp-dark-gradient-1: #0f0f4d;
   --cp-dark-gradient-2: #4d1259;
 
