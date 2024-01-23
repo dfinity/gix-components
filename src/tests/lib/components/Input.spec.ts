@@ -488,5 +488,29 @@ describe("Input", () => {
       fireEvent.input(input, { target: { value: "0.0000000112312321219" } });
       expect(input.value).toBe("0.000000011231232121");
     });
+
+    it("should not round custom decimals with JS imprecision", () =>
+      new Promise<void>((done) => {
+        const { container, component } = render(InputValueTest, {
+          props: {
+            ...props,
+            value: "0.12",
+            inputType: "currency",
+            decimals: 18,
+          },
+        });
+
+        const input: HTMLInputElement | null = container.querySelector("input");
+        assertNonNullish(input);
+
+        fireEvent.input(input, { target: { value: "0.122" } });
+
+        component.$on("testAmount", ({ detail }) => {
+          // Example if the input would be rounded with Number(value).toFixed(18)
+          expect(detail.amount).not.toBe("0.121999999999999997");
+          expect(detail.amount).toBe("0.122");
+          done();
+        });
+      }));
   });
 });
