@@ -16,7 +16,7 @@
   --cp-light-500: #32449e;
   --cp-light-600: #3d4d99; // never actually used
   --cp-light-900: #151a33;
-  --cp-light-opaque: rgb(from var(--cp-light-50) r g b / 40%);
+  --cp-light-opaque: #ffffff40; // --cp-light-50 with 40% opacity
   --cp-light-gradient-1: #d4e7fa;
   --cp-light-gradient-2: #f2dae2;
 
@@ -35,13 +35,13 @@
   --cp-dark-600: #170c36;
   --cp-dark-650: #150c31;
   --cp-dark-900: #130a2c;
-  --cp-dark-opaque: rgb(from #000 r g b / 20%);
+  --cp-dark-opaque: #00000020;
   --cp-dark-gradient-1: #0f0f4d;
   --cp-dark-gradient-2: #4d1259;
 
   // Accessory
-  --fade: rgba(36, 20, 61, 0.6); // #24143d 60%
-  --fade-dark: rgba(36, 20, 61, 0.8); // #24143d 80%
+  --fade: #24143d60;
+  --fade-dark: #24143d80;
   --orchid-tint: #b871d9;
   --orchid: #af63db;
   --indigo: #553b75;

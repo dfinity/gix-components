@@ -37,6 +37,12 @@
     <p>All styles that can be applied to buttons.</p>
   </Card>
 
+  <Card href="/utility-classes/links">
+    <h2 class="title" slot="start">Links</h2>
+
+    <p>Styles that can be applied to the anchor tag.</p>
+  </Card>
+
   <Card href="/utility-classes/numbers">
     <h2 class="title" slot="start">Numbers</h2>
 
