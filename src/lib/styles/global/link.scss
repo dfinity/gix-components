@@ -1,4 +1,5 @@
 /** Similar behavior as button.text */
+@use "../mixins/button";
 
 a {
   font-size: inherit;
@@ -15,6 +16,8 @@ a {
   }
 
   &.button {
+    @include button.base;
+
     // Default is `inline` and buttons are `inline-block` but they have a hidden flex implemented in the browser.
     // https://stackoverflow.com/questions/15764600/what-makes-the-text-on-a-button-element-vertically-centered/34612505#34612505
     // Therefore, to make sure the a.button behaves the same, we set it to `inline-flex`.
@@ -24,37 +27,22 @@ a {
 
     box-sizing: border-box;
 
-    padding: var(--padding) var(--padding-2x);
-
-    border-radius: var(--border-radius);
-    border-top: 1px solid transparent;
-    border-bottom: 1px solid transparent;
-
-    position: relative;
-    min-height: var(--button-min-height);
-
-    font-weight: var(--font-weight-bold);
     text-decoration: none;
 
     &.primary {
-      background: var(--primary);
-      color: var(--primary-contrast);
+      @include button.primary;
+    }
 
-      &:hover,
-      &:focus {
-        background: var(--primary-shade);
-      }
+    &.secondary {
+      @include button.secondary;
     }
 
     &.full-width {
-      width: 100%;
+      @include button.full-width;
     }
 
     &.with-icon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: var(--padding-0_5x);
+      @include button.with-icon;
     }
   }
 }

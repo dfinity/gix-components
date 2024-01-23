@@ -17,6 +17,7 @@ All styles that can be applied to anchor tags.
 | --------------------------------------------------------------------------------- |
 | <a href="#">Default Link</a>                                                      |
 | <a href="#" class="button primary">Button Primary link</a>                        |
+| <a href="#" class="button secondary">Button Secondary link</a>                    |
 | <a href="#" class="button primary full-width">Button full-width link</a>          |
 | <a href="#" class="button primary with-icon"><IconAdd />Button with-icon link</a> |
 
