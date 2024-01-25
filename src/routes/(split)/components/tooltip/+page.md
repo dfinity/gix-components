@@ -39,7 +39,7 @@ hover or tap over the target element.
 
 The tooltips will appear when the buttons are hovered or tapped.
 
-<div class="tooltip-target-container">
+<div class="tooltip-target-container" data-tid="showcase">
   <div class="row">
     <Tooltip
       id="example-button"
