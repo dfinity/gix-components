@@ -254,6 +254,12 @@ export const COMPONENT_ROUTES: ComponentRoute[] = [
   },
 
   {
+    path: "/components/tooltip",
+    title: "Tooltip",
+    description: "Tooltips provide extra information on hover or tap.",
+  },
+
+  {
     path: "/components/toggle",
     title: "Toggle",
     description:
