@@ -1,7 +1,10 @@
 <script lang="ts">
   import { onDestroy } from "svelte";
   import { debounce } from "@dfinity/utils";
-  import { translateTooltip } from "$lib/utils/tooltip.utils";
+  import {
+    translateTooltip,
+    getOverflowContainer,
+  } from "$lib/utils/tooltip.utils";
 
   export let id: string;
   export let testId = "tooltip-component";
@@ -18,20 +21,6 @@
   let tooltipStyle: string | undefined = undefined;
 
   $: tooltipStyle = `--tooltip-transform-x: ${tooltipTransformX}px; --tooltip-transform-y: ${tooltipTransformY}px;`;
-
-  // Finds the first ancestor with hidden horizontal overflow.
-  const getOverflowContainer = (element: HTMLElement): HTMLElement => {
-    let container = element;
-
-    while (container.parentElement !== null) {
-      const style = window.getComputedStyle(container);
-      if (style.overflow === "hidden" || style.overflowX === "hidden") {
-        return container;
-      }
-      container = container.parentElement;
-    }
-    return container;
-  };
 
   const setPosition = debounce(async () => {
     // The debounce might effectively happen after the component has been destroyed, this is particularly the case in unit tests.

@@ -79,8 +79,10 @@ describe("translateTooltip", () => {
   });
 
   describe("when the target is close to the left edge", () => {
+    const leftEdgeDistance = 10;
+
     const { targetRect, tooltipRect } = createTargetAndTooltipRects({
-      x: containerRect.x + 10,
+      x: containerRect.x + leftEdgeDistance,
       y: containerRect.y + 200,
     });
     const scrollbarWidth = 0;
@@ -94,7 +96,7 @@ describe("translateTooltip", () => {
           scrollbarWidth,
         }),
       ).toEqual({
-        x: -10,
+        x: -leftEdgeDistance,
         y: targetRect.height,
       });
     });
@@ -116,8 +118,10 @@ describe("translateTooltip", () => {
   });
 
   describe("when the target is close to the right edge", () => {
+    const rightEdgeOverflow = 100;
+
     const { targetRect, tooltipRect } = createTargetAndTooltipRects({
-      x: containerRect.right - tooltipWidth + 100,
+      x: containerRect.right - tooltipWidth + rightEdgeOverflow,
       y: containerRect.y + 200,
     });
 
@@ -131,7 +135,7 @@ describe("translateTooltip", () => {
           scrollbarWidth,
         }),
       ).toEqual({
-        x: -100,
+        x: -rightEdgeOverflow,
         y: targetRect.height,
       });
     });
@@ -162,7 +166,7 @@ describe("translateTooltip", () => {
           scrollbarWidth,
         }),
       ).toEqual({
-        x: -100 - scrollbarWidth,
+        x: -rightEdgeOverflow - scrollbarWidth,
         y: targetRect.height,
       });
     });
