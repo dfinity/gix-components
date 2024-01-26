@@ -42,7 +42,6 @@ hover or tap over the target element.
 | `noWrap`            | Whether to prevent the tooltip text from taking mulitple lines. | `boolean` | `false`               |
 | `top`               | Whether to prevent the tooltip text from taking mulitple lines. | `boolean` | `false`               |
 | `center`            | Whether to ignore overflow logic an just center align instead.  | `boolean` | `false`               |
-| `containerSelector` | Used to query for the container used to determine overflow.     | `string`  | `"main"`              |
 
 ## Slots
 
@@ -66,21 +65,18 @@ The tooltips will appear when the buttons are hovered or tapped.
     <div class="row">
       <Tooltip
         id="example-button"
-        containerSelector=".tooltip-target-container"
         text={"This button is disabled because of a long and complicated explanation that doesn't fit in the margin of this webpage."}
       >
         <button class="secondary" disabled>Disabled</button>
       </Tooltip>
       <Tooltip
         id="example-button"
-        containerSelector=".tooltip-target-container"
         text={"This button is disabled because of a long and complicated explanation that doesn't fit in the margin of this webpage."}
       >
         <button class="secondary" disabled>Disabled</button>
       </Tooltip>
       <Tooltip
         id="example-button"
-        containerSelector=".tooltip-target-container"
         text={"This button is disabled because of a long and complicated explanation that doesn't fit in the margin of this webpage."}
       >
         <button class="secondary" disabled>Disabled</button>
@@ -90,7 +86,6 @@ The tooltips will appear when the buttons are hovered or tapped.
       <Tooltip
         id="example-button"
         top={true}
-        containerSelector=".tooltip-target-container"
         text={"This button is disabled because of a long and complicated explanation that doesn't fit in the margin of this webpage."}
       >
         <button class="secondary" disabled>Disabled</button>
@@ -98,7 +93,6 @@ The tooltips will appear when the buttons are hovered or tapped.
       <Tooltip
         id="example-button"
         top={true}
-        containerSelector=".tooltip-target-container"
         text={"This button is disabled because of a long and complicated explanation that doesn't fit in the margin of this webpage."}
       >
         <button class="secondary" disabled>Disabled</button>
@@ -106,7 +100,6 @@ The tooltips will appear when the buttons are hovered or tapped.
       <Tooltip
         id="example-button"
         top={true}
-        containerSelector=".tooltip-target-container"
         text={"This button is disabled because of a long and complicated explanation that doesn't fit in the margin of this webpage."}
       >
         <button class="secondary" disabled>Disabled</button>

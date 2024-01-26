@@ -33,7 +33,7 @@
     return container;
   };
 
-  const setPosition = debounce(() => {
+  const setPosition = debounce(async () => {
     // The debounce might effectively happen after the component has been destroyed, this is particularly the case in unit tests.
     // That is why we are using a guard to avoid to perform any logic in case the Tooltip does not exist anymore.
     if (destroyed) {
@@ -50,14 +50,19 @@
     const { clientWidth, offsetWidth } = container;
     const scrollbarWidth = offsetWidth - clientWidth;
 
-    ({ x: tooltipTransformX, y: tooltipTransformY } = translateTooltip({
+    const {x, y} = translateTooltip({
       containerRect: container.getBoundingClientRect(),
       targetRect: target.getBoundingClientRect(),
       tooltipRect: tooltipComponent.getBoundingClientRect(),
       scrollbarWidth,
       top,
       center,
-    }));
+    });
+
+    // The calculation is based on the current position so the returned
+    // transform should be added to the existing one.
+    tooltipTransformX += x;
+    tooltipTransformY += y;
   });
 
   $: innerWidth, tooltipComponent, target, setPosition();
