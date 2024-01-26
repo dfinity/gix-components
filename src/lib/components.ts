@@ -46,5 +46,6 @@ export { default as ThemeToggle } from "./components/ThemeToggle.svelte";
 export { default as Toasts } from "./components/Toasts.svelte";
 export { default as Toggle } from "./components/Toggle.svelte";
 export { default as Toolbar } from "./components/Toolbar.svelte";
+export { default as Tooltip } from "./components/Tooltip.svelte";
 export { default as Value } from "./components/Value.svelte";
 export { default as WizardModal } from "./components/WizardModal.svelte";
