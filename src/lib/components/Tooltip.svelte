@@ -16,8 +16,8 @@
   let tooltipComponent: HTMLDivElement | undefined = undefined;
   let target: HTMLDivElement | undefined = undefined;
   let innerWidth: number | undefined = undefined;
-  let tooltipTransformX: number = 0;
-  let tooltipTransformY: number = 0;
+  let tooltipTransformX = 0;
+  let tooltipTransformY = 0;
   let tooltipStyle: string | undefined = undefined;
 
   $: tooltipStyle = `--tooltip-transform-x: ${tooltipTransformX}px; --tooltip-transform-y: ${tooltipTransformY}px;`;
@@ -34,7 +34,7 @@
       return;
     }
 
-    let container = getOverflowContainer(tooltipComponent);
+    const container = getOverflowContainer(tooltipComponent);
 
     const { clientWidth, offsetWidth } = container;
     const scrollbarWidth = offsetWidth - clientWidth;
