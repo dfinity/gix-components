@@ -50,7 +50,7 @@
     const { clientWidth, offsetWidth } = container;
     const scrollbarWidth = offsetWidth - clientWidth;
 
-    const {x, y} = translateTooltip({
+    const { x, y } = translateTooltip({
       containerRect: container.getBoundingClientRect(),
       targetRect: target.getBoundingClientRect(),
       tooltipRect: tooltipComponent.getBoundingClientRect(),
