@@ -1,5 +1,20 @@
 <script lang="ts">
-    import Tooltip from "$lib/components/Tooltip.svelte";
+  import Tooltip from "$lib/components/Tooltip.svelte";
+  import Checkbox from "$lib/components/Checkbox.svelte";
+
+  let overflowHidden = true;
+  let showShowcase = true;
+
+  const toggleOverflowHidden = async () => {
+    overflowHidden = !overflowHidden;
+
+    // We need to rerender the showcase for the tooltip to rediscover its
+    // overflow:hidden ancestor.
+    showShowcase = false;
+    await new Promise((resolve) => setTimeout(() => {
+      showShowcase = true;
+    }, 0));
+  };
 </script>
 
 # Tooltip
@@ -19,15 +34,14 @@ hover or tap over the target element.
 
 ## Properties
 
-| Property            | Description                                                     | Type      | Default               |
-| ------------------- | --------------------------------------------------------------- | --------- | --------------------- |
-| `id`                | Used to link the target to the tooltip via `aria-describedby`   | `string`  |                       |
-| `testId`            | Add a `data-tid` attribute to the DOM, useful for test purpose. | `string`  | `"tooltip-component"` |
-| `text`              | The text displayed in the tooltip.                              | `string`  | `""`                  |
-| `noWrap`            | Whether to prevent the tooltip text from taking mulitple lines. | `boolean` | `false`               |
-| `top`               | Whether to prevent the tooltip text from taking mulitple lines. | `boolean` | `false`               |
-| `center`            | Whether to ignore overflow logic an just center align instead.  | `boolean` | `false`               |
-| `containerSelector` | Used to query for the container used to determine overflow.     | `string`  | `"main"`              |
+| Property | Description                                                     | Type      | Default               |
+| -------- | --------------------------------------------------------------- | --------- | --------------------- |
+| `id`     | Used to link the target to the tooltip via `aria-describedby`   | `string`  |                       |
+| `testId` | Add a `data-tid` attribute to the DOM, useful for test purpose. | `string`  | `"tooltip-component"` |
+| `text`   | The text displayed in the tooltip.                              | `string`  | `""`                  |
+| `noWrap` | Whether to prevent the tooltip text from taking mulitple lines. | `boolean` | `false`               |
+| `top`    | Whether to prevent the tooltip text from taking mulitple lines. | `boolean` | `false`               |
+| `center` | Whether to ignore overflow logic an just center align instead.  | `boolean` | `false`               |
 
 ## Slots
 
@@ -39,60 +53,67 @@ hover or tap over the target element.
 
 The tooltips will appear when the buttons are hovered or tapped.
 
-<div class="tooltip-target-container" data-tid="showcase">
-  <div class="row">
-    <Tooltip
-      id="example-button"
-      containerSelector=".tooltip-target-container"
-      text={"This button is disabled because of a long and complicated explanation that doesn't fit in the margin of this webpage."}
-    >
-      <button class="secondary" disabled>Disabled</button>
-    </Tooltip>
-    <Tooltip
-      id="example-button"
-      containerSelector=".tooltip-target-container"
-      text={"This button is disabled because of a long and complicated explanation that doesn't fit in the margin of this webpage."}
-    >
-      <button class="secondary" disabled>Disabled</button>
-    </Tooltip>
-    <Tooltip
-      id="example-button"
-      containerSelector=".tooltip-target-container"
-      text={"This button is disabled because of a long and complicated explanation that doesn't fit in the margin of this webpage."}
-    >
-      <button class="secondary" disabled>Disabled</button>
-    </Tooltip>
-  </div>
-  <div class="row">
-    <Tooltip
-      id="example-button"
-      top={true}
-      containerSelector=".tooltip-target-container"
-      text={"This button is disabled because of a long and complicated explanation that doesn't fit in the margin of this webpage."}
-    >
-      <button class="secondary" disabled>Disabled</button>
-    </Tooltip>
-    <Tooltip
-      id="example-button"
-      top={true}
-      containerSelector=".tooltip-target-container"
-      text={"This button is disabled because of a long and complicated explanation that doesn't fit in the margin of this webpage."}
-    >
-      <button class="secondary" disabled>Disabled</button>
-    </Tooltip>
-    <Tooltip
-      id="example-button"
-      top={true}
-      containerSelector=".tooltip-target-container"
-      text={"This button is disabled because of a long and complicated explanation that doesn't fit in the margin of this webpage."}
-    >
-      <button class="secondary" disabled>Disabled</button>
-    </Tooltip>
-  </div>
+<div class="checkbox">
+  <Checkbox checked={overflowHidden} on:nnsChange={toggleOverflowHidden}>
+    Apply <code>overflow: hidden</code> to the block below
+  </Checkbox>
 </div>
+
+{#if showShowcase}
+
+  <div class="tooltip-target-container" class:overflowHidden data-tid="showcase">
+    <div class="row">
+      <Tooltip
+        id="example-button"
+        text={"This button is disabled because of a long and complicated explanation that doesn't fit in the margin of this webpage."}
+      >
+        <button class="secondary" disabled>Disabled</button>
+      </Tooltip>
+      <Tooltip
+        id="example-button"
+        text={"This button is disabled because of a long and complicated explanation that doesn't fit in the margin of this webpage."}
+      >
+        <button class="secondary" disabled>Disabled</button>
+      </Tooltip>
+      <Tooltip
+        id="example-button"
+        text={"This button is disabled because of a long and complicated explanation that doesn't fit in the margin of this webpage."}
+      >
+        <button class="secondary" disabled>Disabled</button>
+      </Tooltip>
+    </div>
+    <div class="row">
+      <Tooltip
+        id="example-button"
+        top={true}
+        text={"This button is disabled because of a long and complicated explanation that doesn't fit in the margin of this webpage."}
+      >
+        <button class="secondary" disabled>Disabled</button>
+      </Tooltip>
+      <Tooltip
+        id="example-button"
+        top={true}
+        text={"This button is disabled because of a long and complicated explanation that doesn't fit in the margin of this webpage."}
+      >
+        <button class="secondary" disabled>Disabled</button>
+      </Tooltip>
+      <Tooltip
+        id="example-button"
+        top={true}
+        text={"This button is disabled because of a long and complicated explanation that doesn't fit in the margin of this webpage."}
+      >
+        <button class="secondary" disabled>Disabled</button>
+      </Tooltip>
+    </div>
+  </div>
+{/if}
 
 <style lang="scss">
   @use "../../../../lib/styles/mixins/media";
+
+  .checkbox {
+    --checkbox-label-order: 1;
+  }
 
   .tooltip-target-container {
     background-color: var(--card-background);
@@ -100,6 +121,9 @@ The tooltips will appear when the buttons are hovered or tapped.
     display: flex;
     flex-direction: column;
     gap: 100px;
+  }
+
+  .overflowHidden {
     overflow: hidden;
   }
 
