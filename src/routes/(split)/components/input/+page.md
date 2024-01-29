@@ -10,8 +10,9 @@
 The input component is a wrapper to the HTML input element with custom styling and additional functionality.
 
 ```javascript
-<input placeholder="An input" />
-<input placeholder="An text" inputType="text" value="Hello World" />
+<Input placeholder="An input" inputType="text" value="" />
+<Input placeholder="Enter ICP amount" inputType="icp" value={12.09878976} />
+<Input placeholder="Enter ETH" inputType="currency" decimals={18} bind:value={myAmount} />
 ```
 
 ## Properties
