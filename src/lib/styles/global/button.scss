@@ -14,23 +14,7 @@ button {
 
   &.ghost,
   &.text {
-    width: fit-content;
-
-    @include fonts.standard;
-
-    color: inherit;
-
-    &:hover,
-    &:active,
-    &:focus {
-      text-decoration: underline;
-      color: var(--value-color);
-    }
-
-    &[disabled] {
-      color: var(--disable-contrast);
-      text-decoration: none;
-    }
+    @include button.text;
   }
 
   &.full-width {
