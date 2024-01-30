@@ -38,6 +38,7 @@ export { default as IconMeter } from "./icons/IconMeter.svelte";
 export { default as IconNeurons } from "./icons/IconNeurons.svelte";
 export { default as IconNeuronsPage } from "./icons/IconNeuronsPage.svelte";
 export { default as IconNorthEast } from "./icons/IconNorthEast.svelte";
+export { default as IconOpenInNew } from "./icons/IconOpenInNew.svelte";
 export { default as IconPace } from "./icons/IconPace.svelte";
 export { default as IconPassword } from "./icons/IconPassword.svelte";
 export { default as IconQRCode } from "./icons/IconQRCode.svelte";
