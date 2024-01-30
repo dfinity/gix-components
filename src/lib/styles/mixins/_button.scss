@@ -1,3 +1,5 @@
+@use "./fonts";
+
 @mixin base {
   padding: var(--padding) var(--padding-2x);
 
@@ -30,6 +32,27 @@
   &:not([disabled]):hover,
   &:not([disabled]):focus {
     background: var(--primary-shade);
+  }
+}
+
+@mixin text {
+  width: fit-content;
+
+  @include fonts.standard;
+
+  text-decoration: none;
+  color: inherit;
+
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: underline;
+    color: var(--value-color);
+  }
+
+  &[disabled] {
+    color: var(--disable-contrast);
+    text-decoration: none;
   }
 }
 
