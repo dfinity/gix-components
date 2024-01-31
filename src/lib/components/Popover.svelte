@@ -83,7 +83,8 @@
     --size: min(calc(20 * var(--padding)), calc(100vw - var(--padding)));
 
     min-width: var(--size);
-    max-width: var(--size);
+    // limited by `100vw - right padding`
+    max-width: calc(100vw - var(--padding));
 
     width: fit-content;
     height: auto;
