@@ -10,7 +10,6 @@
   export let visible = false;
   export let direction: "ltr" | "rtl" = "ltr";
   export let closeButton = false;
-  export let noMaxWidth = false;
 
   let bottom: number;
   let left: number;
@@ -31,7 +30,6 @@
     aria-orientation="vertical"
     transition:fade|global
     class="popover"
-    class:noMaxWidth
     tabindex="-1"
     style="--popover-top: {`${bottom}px`}; --popover-left: {`${left}px`}; --popover-right: {`${
       window.innerWidth - right
@@ -85,7 +83,8 @@
     --size: min(calc(20 * var(--padding)), calc(100vw - var(--padding)));
 
     min-width: var(--size);
-    max-width: var(--size);
+    // limited by `100vw - right padding`
+    max-width: calc(100vw - var(--padding));
 
     width: fit-content;
     height: auto;
@@ -100,11 +99,6 @@
     border-radius: var(--border-radius);
 
     box-shadow: var(--overlay-box-shadow);
-
-    &.noMaxWidth {
-      // 100vw - right padding
-      max-width: calc(100vw - var(--padding));
-    }
   }
 
   .close {
