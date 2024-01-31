@@ -16,7 +16,6 @@ div.modal {
   .toolbar {
     padding: var(--padding-2x) 0 0;
 
-
     @include media.min-width(medium) {
       justify-content: flex-end;
     }
