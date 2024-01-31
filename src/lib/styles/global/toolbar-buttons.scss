@@ -1,0 +1,25 @@
+@use "../mixins/media";
+
+.toolbar-buttons {
+  display: flex;
+  gap: var(--padding-2x);
+
+  :global(button), :global(.tooltip-wrapper) {
+    // use 50% to avoid non even button sizes (a single button would be 100%)
+    flex: 1 1 50%;
+  }
+
+  :global(.tooltip-target) {
+    display: flex;
+  }
+
+  @include media.min-width(small) {
+    :global(button), :global(.tooltip-wrapper) {
+      flex: none;
+    }
+  }
+
+  @include media.min-width(medium) {
+    justify-content: flex-end;
+  }
+}
