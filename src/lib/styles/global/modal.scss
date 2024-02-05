@@ -14,8 +14,20 @@ div.modal {
   }
 
   .toolbar {
+    display: flex;
+    gap: var(--padding-2x);
+
     padding: var(--padding-2x) 0 0;
 
+    :global(button) {
+      flex: 1;
+    }
+
+    @include media.min-width(small) {
+      :global(button) {
+        flex: none;
+      }
+    }
 
     @include media.min-width(medium) {
       justify-content: flex-end;
