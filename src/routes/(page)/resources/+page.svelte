@@ -65,6 +65,9 @@
 
 <ul>
   <li>
+    <a href="/browser">Browser detection</a>
+  </li>
+  <li>
     Source code on <a
       href="https://github.com/dfinity/gix-components"
       rel="external noopener noreferrer"
