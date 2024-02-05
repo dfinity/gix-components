@@ -43,7 +43,7 @@
   </tr>
 
   <tr>
-    <td class="description">isAndroidTable</td>
+    <td class="description">isAndroidTablet</td>
     <td
       ><Value>
         {isAndroidTablet()}
