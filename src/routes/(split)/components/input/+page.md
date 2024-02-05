@@ -17,22 +17,23 @@ The input component is a wrapper to the HTML input element with custom styling a
 
 ## Properties
 
-| Property       | Description                                                                                                                              | Type                                      | Default     |
-| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------- | ----------- |
-| `name`         | HTML input `name` field.                                                                                                                 | `string`                                  |             |
-| `inputType`    | HTML input `type` field extended with a custom `icp` type.                                                                               | `text` or `number` or `icp` or `currency` | `number`    |
-| `required`     | HTML input `required` field.                                                                                                             | `boolean`                                 | `true`      |
-| `spellcheck`   | HTML input `spellcheck` field.                                                                                                           | `boolean` or `undefined`                  | `undefined` |
-| `step`         | HTML input `step` field.                                                                                                                 | `number` or `any` or `undefined`          | `undefined` |
-| `disabled`     | HTML input `disabled` field.                                                                                                             | `boolean`                                 | `false`     |
-| `minLength`    | HTML input `minlength` field.                                                                                                            | `number` or `undefined`                   | `undefined` |
-| `max`          | HTML input `max` field.                                                                                                                  | `number` or `undefined`                   | `undefined` |
-| `value`        | HTML input `value` field.                                                                                                                | `string` or `number` or `undefined`       | `undefined` |
-| `placeholder`  | HTML input `placeholder` field.                                                                                                          | `string`                                  |             |
-| `autocomplete` | HTML input `autocomplete` field.                                                                                                         | `off` or `on` or `undefined`              | `undefined` |
-| `decimals`     | Can be used together with the `inputType` set as `currency` type to define a particular number of decimals supported by the input field. | `number`                                  | `8`         |
-| `showInfo`     | Display additional information related to the input. Should be used in addition to slots.                                                | `boolean`                                 | `false`     |
-| `testId`       | Add a `data-tid` attribute to the DOM, useful for test purpose.                                                                          | `string` or `undefined`                   | `undefined` |
+| Property          | Description                                                                                                                                           | Type                                      | Default     |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------- | ----------- |
+| `name`            | HTML input `name` field.                                                                                                                              | `string`                                  |             |
+| `inputType`       | HTML input `type` field extended with a custom `icp` type.                                                                                            | `text` or `number` or `icp` or `currency` | `number`    |
+| `required`        | HTML input `required` field.                                                                                                                          | `boolean`                                 | `true`      |
+| `spellcheck`      | HTML input `spellcheck` field.                                                                                                                        | `boolean` or `undefined`                  | `undefined` |
+| `step`            | HTML input `step` field.                                                                                                                              | `number` or `any` or `undefined`          | `undefined` |
+| `disabled`        | HTML input `disabled` field.                                                                                                                          | `boolean`                                 | `false`     |
+| `minLength`       | HTML input `minlength` field.                                                                                                                         | `number` or `undefined`                   | `undefined` |
+| `max`             | HTML input `max` field.                                                                                                                               | `number` or `undefined`                   | `undefined` |
+| `value`           | HTML input `value` field.                                                                                                                             | `string` or `number` or `undefined`       | `undefined` |
+| `placeholder`     | HTML input `placeholder` field.                                                                                                                       | `string`                                  |             |
+| `autocomplete`    | HTML input `autocomplete` field.                                                                                                                      | `off` or `on` or `undefined`              | `undefined` |
+| `decimals`        | Can be used together with the `inputType` set as `currency` type to define a particular number of decimals supported by the input field.              | `number`                                  | `8`         |
+| `showInfo`        | Display additional information related to the input. Should be used in addition to slots.                                                             | `boolean`                                 | `false`     |
+| `testId`          | Add a `data-tid` attribute to the DOM, useful for test purpose.                                                                                       | `string` or `undefined`                   | `undefined` |
+| `ignore1Password` | Tell 1Password it should ignore the field (Reference: 1Password [documentation](https://developer.1password.com/docs/web/compatible-website-design/)) | `boolean`                                 | `true`      |
 
 ### Notes
 
