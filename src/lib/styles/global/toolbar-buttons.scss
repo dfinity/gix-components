@@ -1,8 +1,5 @@
 @use "../mixins/media";
 
-// Uses all available space to aligns the buttons on mobile. Don't resize/alight buttons on desktop.
-// Resolves the alighmennt issue when a button is wrapped with a tooltip.
-// This CSS class should be added to the buttons container.
 .toolbar-buttons {
   display: flex;
   gap: var(--padding-2x);
