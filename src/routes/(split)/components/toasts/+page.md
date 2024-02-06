@@ -63,6 +63,11 @@
         level: "info",
         duration: 3000
     });
+
+    const withHtml = () => toastsStore.show({
+        text: "Lorem ipsum. More info <a href='https://loremipsum.io/' rel=\"noopener noreferrer\">here</a>.",
+        level: "info",
+    })
 </script>
 
 # Toasts
@@ -131,6 +136,8 @@ A toast message can be created with following properties.
     <button class="primary small" on:click={multiline} data-tid="toast-multiline">Multi-line message</button>
 
     <button class="primary small" on:click={title}>With a title</button>
+
+    <button class="primary small" on:click={withHtml}>With html string</button>
 
 </div>
 

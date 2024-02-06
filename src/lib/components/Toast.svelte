@@ -17,6 +17,7 @@
   import IconError from "$lib/icons/IconError.svelte";
   import { DEFAULT_ICON_SIZE } from "$lib/constants/constants";
   import { isNullish, nonNullish } from "@dfinity/utils";
+  import Html from "./Html.svelte";
 
   export let msg: ToastMsg;
 
@@ -102,7 +103,7 @@
     {#if nonNullish(title)}
       <span class="title">{title}</span>
     {/if}
-    {text}
+    <Html {text} />
   </p>
 
   <button class="close" on:click={close} aria-label={$i18n.core.close}
