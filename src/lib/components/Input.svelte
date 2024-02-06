@@ -14,6 +14,7 @@
   export let placeholder: string;
   export let testId: string | undefined = undefined;
   export let decimals = 8;
+  export let ignore1Password = true;
 
   const dispatch = createEventDispatcher();
 
@@ -192,6 +193,7 @@
       on:input={handleInput}
       on:keydown={handleKeyDown}
       class:inner-end={displayInnerEnd}
+      data-1p-ignore={ignore1Password}
     />
     {#if displayInnerEnd}
       <div class="inner-end-slot">

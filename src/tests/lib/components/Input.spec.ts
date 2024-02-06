@@ -49,7 +49,7 @@ describe("Input", () => {
     attribute: string;
     expected: boolean;
     container: HTMLElement;
-    expectedValue?: boolean;
+    expectedValue?: string;
   }) => {
     const input: HTMLInputElement | null = container.querySelector("input");
     expect(input?.hasAttribute(attribute)).toEqual(expected);
@@ -262,6 +262,33 @@ describe("Input", () => {
     });
 
     testHasAttribute({ container, attribute: "disabled", expected: true });
+  });
+
+  it("should render an attribute to ignore 1Password", () => {
+    const { container } = render(Input, {
+      props,
+    });
+
+    testHasAttribute({
+      container,
+      attribute: "data-1p-ignore",
+      expected: true,
+    });
+  });
+
+  it("should render an attribute that do not ignore 1Password", () => {
+    const { container } = render(Input, {
+      props: { ...props, ignore1Password: false },
+    });
+
+    console.log(container.outerHTML);
+
+    testHasAttribute({
+      container,
+      attribute: "data-1p-ignore",
+      expected: true,
+      expectedValue: "false",
+    });
   });
 
   it("should bind value", async () => {
