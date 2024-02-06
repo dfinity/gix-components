@@ -37,8 +37,6 @@
 @mixin in-bottom-sheet {
   @include base;
 
-  background: fuchsia;
-
   @include media.min-width(small) {
     justify-content: center;
 
