@@ -1,7 +1,7 @@
 @use "./media";
 
 // A mixin to align buttons (also wrapped).
-// Uses all available space to aligns the buttons on mobile. Don't resize/alight buttons on desktop.
+// The buttons align using all available space on mobile. They should not be resized or aligned on desktop.
 // Resolves the alignment issue when a button is wrapped with a tooltip.
 @mixin base {
   display: flex;
