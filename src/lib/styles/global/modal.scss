@@ -1,4 +1,5 @@
 @use "../mixins/media";
+@use "../mixins/toolbar";
 
 /**
  * Styles that are shared in components used within modal
@@ -14,23 +15,8 @@ div.modal {
   }
 
   .toolbar {
-    display: flex;
-    gap: var(--padding-2x);
+    @include toolbar.base;
 
     padding: var(--padding-2x) 0 0;
-
-    :global(button) {
-      flex: 1;
-    }
-
-    @include media.min-width(small) {
-      :global(button) {
-        flex: none;
-      }
-    }
-
-    @include media.min-width(medium) {
-      justify-content: flex-end;
-    }
   }
 }
