@@ -17,6 +17,6 @@ div.modal {
   .toolbar {
     padding: var(--padding-2x) 0 0;
 
-    @include toolbar.in-modal;
+    @include toolbar.base;
   }
 }

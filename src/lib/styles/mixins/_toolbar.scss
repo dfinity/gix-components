@@ -18,19 +18,15 @@
     display: flex;
   }
 
-  @include media.min-width(medium) {
-    justify-content: flex-end;
-  }
-}
-
-@mixin in-modal {
-  @include base;
-
   @include media.min-width(small) {
     :global(button),
     :global(.tooltip-wrapper) {
       flex: none;
     }
+  }
+
+  @include media.min-width(medium) {
+    justify-content: flex-end;
   }
 }
 
@@ -39,11 +35,6 @@
 
   @include media.min-width(small) {
     justify-content: center;
-
-    :global(button),
-    :global(.tooltip-wrapper) {
-      flex: none;
-    }
   }
 }
 
