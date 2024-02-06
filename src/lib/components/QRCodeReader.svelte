@@ -1,14 +1,7 @@
 <script lang="ts">
   import { createEventDispatcher, onDestroy, onMount } from "svelte";
   import type { Html5Qrcode } from "html5-qrcode";
-  import {
-    isAndroid,
-    isAndroidTablet,
-    isDesktop,
-    isIOS,
-    isIPad,
-    isMobile,
-  } from "$lib/utils/device.utils";
+  import { isDesktop } from "$lib/utils/device.utils";
   import { nextElementId } from "$lib/utils/html.utils";
   import type { Html5QrcodeScannerState } from "html5-qrcode";
 
