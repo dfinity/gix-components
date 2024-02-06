@@ -1,7 +1,5 @@
 @use "./media";
 
-
-
 // Uses all available space to aligns the buttons on mobile. Don't resize/alight buttons on desktop.
 // Resolves the alignment issue when a button is wrapped with a tooltip.
 @mixin base {
@@ -46,4 +44,3 @@
     }
   }
 }
-
