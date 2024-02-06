@@ -1,4 +1,5 @@
 import { isNode } from "$lib/utils/env.utils";
+import { nonNullish } from "@dfinity/utils";
 
 export const isPortrait = (): boolean => {
   if (isNode()) {
@@ -56,18 +57,27 @@ export const isAndroidTablet = (): boolean => {
   return isAndroid() && !/mobile/i.test(a);
 };
 
+/**
+ * Current loophole (Feb 2024):
+ * - Firefox used on a desktop with touch screen will be identified as a mobile device.
+ */
 export const isMobile = (): boolean => {
   if (isNode()) {
     return false;
   }
 
-  const isTouchScreen: boolean = window.matchMedia(
-    "(any-pointer:coarse)",
-  ).matches;
-  const isMouseScreen: boolean =
-    window.matchMedia("(any-pointer:fine)").matches;
+  // Available in Chrome on any devices (Feb 2024)
+  // https://caniuse.com/mdn-api_navigator_useragentdata
+  if ("userAgentData" in navigator && nonNullish(navigator.userAgentData)) {
+    return navigator.userAgentData.mobile;
+  }
 
-  return isTouchScreen && !isMouseScreen;
+  // Legacy
+  const isTouchScreen = window.matchMedia("(any-pointer:coarse)").matches;
+
+  return isTouchScreen;
 };
+
+export const isDesktop = (): boolean => !isMobile();
 
 const userAgent = (): string => navigator.userAgent;
