@@ -1,37 +1,28 @@
 @use "./media";
 
+// A mixin to align buttons (also wrapped).
 // Uses all available space to aligns the buttons on mobile. Don't resize/alight buttons on desktop.
 // Resolves the alignment issue when a button is wrapped with a tooltip.
 @mixin base {
   display: flex;
   gap: var(--padding-2x);
 
-  :global(button),
-  :global(.tooltip-wrapper) {
+  & >:global(*) {
     // use 50% to avoid non even button sizes (a single button would be 100%)
     flex: 1 1 50%;
-  }
 
-  :global(.tooltip-target) {
-    display: flex;
+    :global(*) {
+      width: 100%;
+    }
   }
 
   @include media.min-width(small) {
-    :global(button),
-    :global(.tooltip-wrapper) {
+    & > :global(*) {
       flex: none;
     }
   }
 
   @include media.min-width(medium) {
     justify-content: flex-end;
-  }
-}
-
-@mixin in-bottom-sheet {
-  @include base;
-
-  @include media.min-width(small) {
-    justify-content: center;
   }
 }
