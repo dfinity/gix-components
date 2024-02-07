@@ -64,11 +64,16 @@
         duration: 3000
     });
 
-    const withHtml = () => toastsStore.show({
+    const renderedAsHtml = () => toastsStore.show({
         text: "Lorem ipsum. More info <a href='https://loremipsum.io/' rel=\"noopener noreferrer\">here</a>.",
         level: "info",
         renderAsHtml: true,
-    })
+    });
+
+    const htmlAsText = () => toastsStore.show({
+        text: "Lorem ipsum. More info <a href='https://loremipsum.io/' rel=\"noopener noreferrer\">here</a>.",
+        level: "info",
+    });
 </script>
 
 # Toasts
@@ -96,17 +101,18 @@ toastsStore.show({
 
 A toast message can be created with following properties.
 
-| Property   | Description                                                                                                  | Type                                     | Mandatory |
-| ---------- | ------------------------------------------------------------------------------------------------------------ | ---------------------------------------- | --------- |
-| `id`       | A unique ID to identify the toast.                                                                           | `symbol`                                 |           |
-| `title`    | A title that can be displayed before the text.                                                               | `string`                                 |           |
-| `text`     | The text to display.                                                                                         | `string`                                 | ✅        |
-| `level`    | How important the toast is?                                                                                  | `info` or `success` or `warn` or `error` | ✅        |
-| `spinner`  | Display a spinner instead of an icon that represents the `level`. The spinner inherits the `level` color.    | `boolean`                                |           |
-| `duration` | A timeout (in milliseconds) after which the toast automatically disappear.                                   | `number`                                 |           |
-| `position` | The position of the toast. A related `<Toasts />` component should be declared in order to use the position. | `bottom` or `top`                        |           |
-| `overflow` | By default, a text content of a toast is scrollbable. This option truncate or clamp the text and title.      | `scroll` or `truncate` or `clamp`        |           |
-| `icon`     | A custom icon to be displayed before the text of the toast.                                                  | `ComponentType`                          |           |
+| Property       | Description                                                                                                  | Type                                     | Mandatory |
+| -------------- | ------------------------------------------------------------------------------------------------------------ | ---------------------------------------- | --------- |
+| `id`           | A unique ID to identify the toast.                                                                           | `symbol`                                 |           |
+| `title`        | A title that can be displayed before the text.                                                               | `string`                                 |           |
+| `text`         | The text to display.                                                                                         | `string`                                 | ✅        |
+| `level`        | How important the toast is?                                                                                  | `info` or `success` or `warn` or `error` | ✅        |
+| `spinner`      | Display a spinner instead of an icon that represents the `level`. The spinner inherits the `level` color.    | `boolean`                                |           |
+| `duration`     | A timeout (in milliseconds) after which the toast automatically disappear.                                   | `number`                                 |           |
+| `position`     | The position of the toast. A related `<Toasts />` component should be declared in order to use the position. | `bottom` or `top`                        |           |
+| `overflow`     | By default, a text content of a toast is scrollbable. This option truncate or clamp the text and title.      | `scroll` or `truncate` or `clamp`        |           |
+| `icon`         | A custom icon to be displayed before the text of the toast.                                                  | `ComponentType`                          |           |
+| `renderAsHtml` | Whether the `text` should be rendered as HTML.                                                               | `boolean`                                |           |
 
 ## Showcase
 
@@ -138,7 +144,9 @@ A toast message can be created with following properties.
 
     <button class="primary small" on:click={title}>With a title</button>
 
-    <button class="primary small" on:click={withHtml}>With html string</button>
+    <button class="primary small" on:click={renderedAsHtml}>Rendered as html</button>
+
+    <button class="primary small" on:click={htmlAsText}>Html as text</button>
 
 </div>
 

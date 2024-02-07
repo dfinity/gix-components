@@ -43,4 +43,45 @@ describe("Toast", () => {
 
     expect(span?.textContent).toContain(title);
   });
+
+  it("should render a text as html", async () => {
+    const linkText = "here";
+    const { container } = render(Toast, {
+      props: {
+        msg: {
+          ...props.msg,
+          text: `<a href='#' id='test-anchor'>${linkText}</a>`,
+          renderAsHtml: true,
+        },
+      },
+    });
+
+    const link: HTMLAnchorElement | null =
+      container.querySelector("#test-anchor");
+
+    expect(link).toBeInTheDocument();
+    expect(link?.textContent).toBe(linkText);
+  });
+
+  it("should not render a text as html", async () => {
+    const linkText = "here";
+    const text = `<a href='#' id='test-anchor'>${linkText}</a>`;
+    const { container } = render(Toast, {
+      props: {
+        msg: {
+          ...props.msg,
+          text,
+        },
+      },
+    });
+
+    const link: HTMLAnchorElement | null =
+      container.querySelector("#test-anchor");
+
+    expect(link).not.toBeInTheDocument();
+
+    const p: HTMLParagraphElement | null = container.querySelector("p");
+
+    expect(p?.textContent).toContain(text);
+  });
 });
