@@ -113,15 +113,3 @@
     </clipPath>
   </defs>
 </svg>
-
-<style lang="scss">
-  @use "../styles/mixins/media";
-
-  svg {
-    padding: 0 var(--padding-6x) 0;
-
-    @include media.min-width(large) {
-      padding-top: var(--padding-2x);
-    }
-  }
-</style>
