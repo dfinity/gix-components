@@ -67,6 +67,7 @@
     const withHtml = () => toastsStore.show({
         text: "Lorem ipsum. More info <a href='https://loremipsum.io/' rel=\"noopener noreferrer\">here</a>.",
         level: "info",
+        renderAsHtml: true,
     })
 </script>
 
