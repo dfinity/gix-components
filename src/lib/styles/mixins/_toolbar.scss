@@ -7,18 +7,25 @@
   display: flex;
   gap: var(--padding-2x);
 
-  & > :global(*) {
-    // use 50% to avoid non even button sizes (a single button would be 100%)
-    flex: 1 1 50%;
+  :global(button) {
+    // all buttons inside the toolbar should be full width on mobile and be aligned by flex parameters.
+    width: 100%;
+  }
 
-    :global(*) {
-      width: 100%;
-    }
+  & > :global(*) {
+    // 50% to make sure the button is not smaller in the tooltip, because of the wrong width calculation.
+    flex: 1 1 50%;
   }
 
   @include media.min-width(small) {
+    // stop using full width on anything wider than mobile
     & > :global(*) {
       flex: none;
+    }
+
+    :global(button) {
+      // reset 100%
+      width: auto;
     }
   }
 
