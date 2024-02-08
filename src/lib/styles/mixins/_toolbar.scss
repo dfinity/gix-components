@@ -7,17 +7,21 @@
   display: flex;
   gap: var(--padding-2x);
 
-  & > :global(*) {
+  & > :global(button),
+  & > :global(.tooltip-wrapper) {
     // use 50% to avoid non even button sizes (a single button would be 100%)
     flex: 1 1 50%;
+  }
 
+  & > :global(.tooltip-wrapper) {
     :global(*) {
       width: 100%;
     }
   }
 
   @include media.min-width(small) {
-    & > :global(*) {
+    & > :global(button),
+    & > :global(.tooltip-wrapper) {
       flex: none;
     }
   }
