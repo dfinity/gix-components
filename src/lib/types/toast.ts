@@ -17,4 +17,5 @@ export interface ToastMsg {
   overflow?: "scroll" | "truncate" | "clamp";
   icon?: ComponentType;
   theme?: ToastTheme;
+  renderAsHtml?: boolean;
 }

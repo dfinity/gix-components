@@ -17,6 +17,7 @@
   import IconError from "$lib/icons/IconError.svelte";
   import { DEFAULT_ICON_SIZE } from "$lib/constants/constants";
   import { isNullish, nonNullish } from "@dfinity/utils";
+  import Html from "./Html.svelte";
 
   export let msg: ToastMsg;
 
@@ -39,8 +40,19 @@
   let position: ToastPosition | undefined;
   let icon: ComponentType | undefined;
   let theme: ToastTheme | undefined;
+  let renderAsHtml: boolean | undefined;
 
-  $: ({ text, level, spinner, title, overflow, position, icon, theme } = msg);
+  $: ({
+    text,
+    level,
+    spinner,
+    title,
+    overflow,
+    position,
+    icon,
+    theme,
+    renderAsHtml,
+  } = msg);
 
   let scroll: boolean;
   $: scroll = overflow === undefined || overflow === "scroll";
@@ -102,7 +114,11 @@
     {#if nonNullish(title)}
       <span class="title">{title}</span>
     {/if}
-    {text}
+    {#if renderAsHtml}
+      <Html {text} />
+    {:else}
+      {text}
+    {/if}
   </p>
 
   <button class="close" on:click={close} aria-label={$i18n.core.close}
