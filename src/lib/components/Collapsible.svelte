@@ -55,8 +55,8 @@
     isNullish(height) || isNullish(maxContentHeight)
       ? "overflow-y: hidden;"
       : height < maxContentHeight
-      ? "overflow-y: hidden;"
-      : "overflow-y: auto;";
+        ? "overflow-y: hidden;"
+        : "overflow-y: auto;";
 
   // recalculate max-height after DOM update
   afterUpdate(updateMaxHeight);
