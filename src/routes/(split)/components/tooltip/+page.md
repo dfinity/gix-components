@@ -5,7 +5,7 @@
 
   let overflowHidden = true;
   let showShowcase = true;
-  let tooltipText = "This button is disabled because of a long and complicated explanation.";
+  let tooltipText = "This button is disabled because of a long and complicated explanation that doesn't fit in the margin of this webpage.";
 
   const rerender = async () => {
     showShowcase = false;
