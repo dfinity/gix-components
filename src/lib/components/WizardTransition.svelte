@@ -12,8 +12,8 @@
     transition.diff === 0
       ? 0
       : transition.diff > 0
-        ? absolutOffset
-        : -absolutOffset;
+      ? absolutOffset
+      : -absolutOffset;
 </script>
 
 {#key transition}

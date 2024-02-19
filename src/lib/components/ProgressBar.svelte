@@ -41,8 +41,8 @@
           segments,
         )});`
       : color === "warning"
-        ? `--progress-bar-background: var(--warning-emphasis);`
-        : `--progress-bar-background: var(--primary-gradient);`;
+      ? `--progress-bar-background: var(--warning-emphasis);`
+      : `--progress-bar-background: var(--primary-gradient);`;
 </script>
 
 <div class="wrapper" data-tid={testId}>

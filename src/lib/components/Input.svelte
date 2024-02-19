@@ -92,10 +92,10 @@
     value = isNullish(lastValidCurrencyValue)
       ? undefined
       : typeof lastValidCurrencyValue === "number"
-        ? lastValidCurrencyValue.toFixed(wrapDecimals)
-        : inputType === "icp"
-          ? +lastValidCurrencyValue
-          : lastValidCurrencyValue;
+      ? lastValidCurrencyValue.toFixed(wrapDecimals)
+      : inputType === "icp"
+      ? +lastValidCurrencyValue
+      : lastValidCurrencyValue;
     currencyValue = fixUndefinedValue(lastValidCurrencyValue);
 
     // force dom update (because no active triggers)
