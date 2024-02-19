@@ -1,19 +1,25 @@
 <script lang="ts">
   import Tooltip from "$lib/components/Tooltip.svelte";
   import Checkbox from "$lib/components/Checkbox.svelte";
+  import Input from "$lib/components/Input.svelte";
 
   let overflowHidden = true;
   let showShowcase = true;
+  let tooltipText = "This button is disabled because of a long and complicated explanation.";
+
+  const rerender = async () => {
+    showShowcase = false;
+    await new Promise((resolve) => setTimeout(() => {
+      showShowcase = true;
+    }, 0));
+  };
 
   const toggleOverflowHidden = async () => {
     overflowHidden = !overflowHidden;
 
     // We need to rerender the showcase for the tooltip to rediscover its
     // overflow:hidden ancestor.
-    showShowcase = false;
-    await new Promise((resolve) => setTimeout(() => {
-      showShowcase = true;
-    }, 0));
+    rerender();
   };
 </script>
 
@@ -59,25 +65,30 @@ The tooltips will appear when the buttons are hovered or tapped.
   </Checkbox>
 </div>
 
+<div class="text-input">
+  <div>Tooltip text:</div>
+  <Input inputType="text" bind:value={tooltipText} on:blur={rerender} />
+</div>
+
 {#if showShowcase}
 
   <div class="tooltip-target-container" class:overflowHidden data-tid="showcase">
     <div class="row">
       <Tooltip
         id="example-button"
-        text={"This button is disabled because of a long and complicated explanation that doesn't fit in the margin of this webpage."}
+        text={tooltipText}
       >
         <button class="secondary" disabled>Disabled</button>
       </Tooltip>
       <Tooltip
         id="example-button"
-        text={"This button is disabled because of a long and complicated explanation that doesn't fit in the margin of this webpage."}
+        text={tooltipText}
       >
         <button class="secondary" disabled>Disabled</button>
       </Tooltip>
       <Tooltip
         id="example-button"
-        text={"This button is disabled because of a long and complicated explanation that doesn't fit in the margin of this webpage."}
+        text={tooltipText}
       >
         <button class="secondary" disabled>Disabled</button>
       </Tooltip>
@@ -86,21 +97,21 @@ The tooltips will appear when the buttons are hovered or tapped.
       <Tooltip
         id="example-button"
         top={true}
-        text={"This button is disabled because of a long and complicated explanation that doesn't fit in the margin of this webpage."}
+        text={tooltipText}
       >
         <button class="secondary" disabled>Disabled</button>
       </Tooltip>
       <Tooltip
         id="example-button"
         top={true}
-        text={"This button is disabled because of a long and complicated explanation that doesn't fit in the margin of this webpage."}
+        text={tooltipText}
       >
         <button class="secondary" disabled>Disabled</button>
       </Tooltip>
       <Tooltip
         id="example-button"
         top={true}
-        text={"This button is disabled because of a long and complicated explanation that doesn't fit in the margin of this webpage."}
+        text={tooltipText}
       >
         <button class="secondary" disabled>Disabled</button>
       </Tooltip>
@@ -113,6 +124,10 @@ The tooltips will appear when the buttons are hovered or tapped.
 
   .checkbox {
     --checkbox-label-order: 1;
+  }
+
+  .text-input {
+    margin-bottom: var(--padding);
   }
 
   .tooltip-target-container {

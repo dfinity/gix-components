@@ -9,6 +9,9 @@ describe("Tooltip", () => {
 
     expect(element).toBeInTheDocument();
     expect(element?.innerHTML).toBe("content");
+
+    const tooltipElement = container.querySelector(".tooltip");
+    expect(tooltipElement).toBeInTheDocument();
   });
 
   it("should render aria-describedby and relevant id", () => {
@@ -17,5 +20,18 @@ describe("Tooltip", () => {
       container.querySelector("[aria-describedby='tid']"),
     ).toBeInTheDocument();
     expect(container.querySelector("[id='tid']")).toBeInTheDocument();
+  });
+
+  it("should hide without text", () => {
+    const { container } = render(TooltipTest, { text: "" });
+
+    // Content should still be rendered.
+    const element: HTMLParagraphElement | null = container.querySelector("p");
+    expect(element).toBeInTheDocument();
+    expect(element?.innerHTML).toBe("content");
+
+    // But no tooltip should be rendered.
+    const tooltipElement = container.querySelector(".tooltip");
+    expect(tooltipElement).not.toBeInTheDocument();
   });
 });

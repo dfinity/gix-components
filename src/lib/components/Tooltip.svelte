@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onDestroy } from "svelte";
-  import { debounce } from "@dfinity/utils";
+  import { debounce, nonNullish, isNullish } from "@dfinity/utils";
   import {
     translateTooltip,
     getOverflowContainer,
@@ -8,7 +8,7 @@
 
   export let id: string;
   export let testId = "tooltip-component";
-  export let text = "";
+  export let text: string | undefined = undefined;
   export let noWrap = false;
   export let top = false;
   export let center = false;
@@ -26,6 +26,10 @@
     // The debounce might effectively happen after the component has been destroyed, this is particularly the case in unit tests.
     // That is why we are using a guard to avoid to perform any logic in case the Tooltip does not exist anymore.
     if (destroyed) {
+      return;
+    }
+
+    if (isNullish(text) || text.length === 0) {
       return;
     }
 
@@ -54,7 +58,7 @@
     tooltipTransformY += y;
   });
 
-  $: innerWidth, tooltipComponent, target, setPosition();
+  $: innerWidth, tooltipComponent, target, text, setPosition();
 
   let destroyed = false;
   onDestroy(() => (destroyed = true));
@@ -63,20 +67,24 @@
 <svelte:window bind:innerWidth />
 
 <div class="tooltip-wrapper" data-tid={testId}>
-  <div class="tooltip-target" aria-describedby={id} bind:this={target}>
+  {#if nonNullish(text) && text.length > 0}
+    <div class="tooltip-target" aria-describedby={id} bind:this={target}>
+      <slot />
+    </div>
+    <div
+      class="tooltip"
+      role="tooltip"
+      {id}
+      class:noWrap
+      class:top
+      bind:this={tooltipComponent}
+      style={tooltipStyle}
+    >
+      {text}
+    </div>
+  {:else}
     <slot />
-  </div>
-  <div
-    class="tooltip"
-    role="tooltip"
-    {id}
-    class:noWrap
-    class:top
-    bind:this={tooltipComponent}
-    style={tooltipStyle}
-  >
-    {text}
-  </div>
+  {/if}
 </div>
 
 <style lang="scss">
