@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onDestroy } from "svelte";
-  import { debounce, nonNullish, isNullish } from "@dfinity/utils";
+  import { debounce, notEmptyString } from "@dfinity/utils";
   import {
     translateTooltip,
     getOverflowContainer,
@@ -29,7 +29,7 @@
       return;
     }
 
-    if (isNullish(text) || text.length === 0) {
+    if (!notEmptyString(text)) {
       return;
     }
 
@@ -67,7 +67,7 @@
 <svelte:window bind:innerWidth />
 
 <div class="tooltip-wrapper" data-tid={testId}>
-  {#if nonNullish(text) && text.length > 0}
+  {#if notEmptyString(text)}
     <div class="tooltip-target" aria-describedby={id} bind:this={target}>
       <slot />
     </div>
