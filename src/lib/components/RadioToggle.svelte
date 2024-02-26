@@ -2,7 +2,7 @@
   import { createEventDispatcher } from "svelte";
   import { nextElementId } from "../utils/html.utils";
 
-  export let name = nextElementId("labeled-toggle-group-");
+  export let name = nextElementId("radio-toggle-group-");
   export let labels: string[];
   export let values: string[];
   /// Initial selection
@@ -20,7 +20,7 @@
   $: options = Array.from(Array(count)).map((_, index) => ({
     label: labels[index],
     value: values[index],
-    id: nextElementId("labeled-toggle-"),
+    id: nextElementId("radio-toggle-"),
     checked: values[index] === value,
   }));
 
@@ -30,7 +30,7 @@
   };
 </script>
 
-<fieldset class="labeled-toggle" style={`--option-count: ${count};`}>
+<fieldset class="radio-toggle" style={`--option-count: ${count};`}>
   {#each options as { label, value: optionValue, id, checked } (id)}
     <div class="option">
       <input
