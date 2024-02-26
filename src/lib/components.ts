@@ -33,6 +33,7 @@ export { default as ProgressSteps } from "./components/ProgressSteps.svelte";
 export { default as QRCode } from "./components/QRCode.svelte";
 export { default as QRCodeReader } from "./components/QRCodeReader.svelte";
 export { default as QRCodeReaderModal } from "./components/QRCodeReaderModal.svelte";
+export { default as RadioToggle } from "./components/RadioToggle.svelte";
 export { default as Section } from "./components/Section.svelte";
 export { default as Segment } from "./components/Segment.svelte";
 export { default as SegmentButton } from "./components/SegmentButton.svelte";

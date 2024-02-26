@@ -267,6 +267,12 @@ export const COMPONENT_ROUTES: ComponentRoute[] = [
   },
 
   {
+    path: "/components/radio-toggle",
+    title: "RadioToggle",
+    description: "Radio button group that looks like a toggle.",
+  },
+
+  {
     path: "/components/value",
     title: "Value",
     description: "Shorthand to render a value.",
