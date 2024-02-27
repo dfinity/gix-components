@@ -38,7 +38,7 @@
 >
   <div class="indicator" />
   {#each options as { label, value: optionValue, id, checked } (id)}
-    <div class="option button">
+    <div class="option">
       <input
         type="radio"
         {name}
