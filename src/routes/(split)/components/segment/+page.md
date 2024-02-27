@@ -6,6 +6,7 @@
     let secondSegmentId = Symbol();
     let thirdSegmentId = Symbol();
     let selectedSegmentId = firstSegmentId;
+    let selectedSegmentId2 = thirdSegmentId;
 </script>
 
 # Segment
@@ -45,8 +46,16 @@ To implement a segment both `Segment` and `SegmentButton` components are require
 
 <div data-tid="showcase">
 <Segment bind:selectedSegmentId>
-    <SegmentButton segmentId={firstSegmentId}>Default</SegmentButton>
-    <SegmentButton segmentId={secondSegmentId}>Segment</SegmentButton>
-    <SegmentButton segmentId={thirdSegmentId}>Other</SegmentButton>
+    <SegmentButton segmentId={firstSegmentId}>Actionable Proposals</SegmentButton>
+    <SegmentButton segmentId={secondSegmentId}>All Proposals</SegmentButton>
+</Segment>
+
+<div style="margin-top: 200px;"></div>
+
+<Segment bind:selectedSegmentId2>
+    <SegmentButton segmentId={firstSegmentId}>Actionable Proposals</SegmentButton>
+    <SegmentButton segmentId={secondSegmentId}>All Proposals</SegmentButton>
+    <SegmentButton segmentId={thirdSegmentId}>More Proposals</SegmentButton>
 </Segment>
 </div>
+<div style="margin-top: 200px;"></div>
