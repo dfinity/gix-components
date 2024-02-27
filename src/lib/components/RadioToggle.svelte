@@ -67,6 +67,19 @@
     // to get optional width from parent
     --max-width: var(--max-radio-toggle-width, calc(var(--padding) * 48));
 
+    display: flex;
+    position: relative;
+    gap: var(--option-gap);
+    padding: var(--container-padding);
+    width: 100%;
+
+    @include media.min-width(medium) {
+      max-width: var(--max-width);
+    }
+
+    border-radius: var(--border-radius);
+    background: var(--input-background);
+
     .indicator {
       position: absolute;
       top: var(--container-padding);
@@ -86,19 +99,6 @@
         left var(--animation-time-normal) ease-out,
         opacity var(--animation-time-normal);
     }
-
-    display: flex;
-    position: relative;
-    gap: var(--option-gap);
-    padding: var(--container-padding);
-    width: 100%;
-
-    @include media.min-width(medium) {
-      max-width: var(--max-width);
-    }
-
-    border-radius: var(--border-radius);
-    background: var(--input-background);
   }
 
   .option {
