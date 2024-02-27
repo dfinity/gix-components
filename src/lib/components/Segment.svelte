@@ -19,17 +19,17 @@
   $: $store, (() => (selectedSegmentId = $store.id))();
 
   let indicator:
-          | {
-    left: number;
-    width: number;
-  }
-          | undefined = undefined;
+    | {
+        left: number;
+        width: number;
+      }
+    | undefined = undefined;
 
   let segment: HTMLElement | undefined | null;
 
   let selectedElement: HTMLElement | undefined | null;
   $: selectedElement =
-          $store.element ?? segment?.querySelector(".segment-button");
+    $store.element ?? segment?.querySelector(".segment-button");
 
   export const initIndicator = () => {
     if (isNullish(selectedElement)) {
@@ -46,7 +46,7 @@
 
     const { left: parentClientLeft } = parentElement.getBoundingClientRect();
     const { left: currentClientLeft, width: currentClientWidth } =
-            selectedElement.getBoundingClientRect();
+      selectedElement.getBoundingClientRect();
 
     indicator = {
       left: currentClientLeft - parentClientLeft,
@@ -59,10 +59,9 @@
   // TODO: support adding segmebt buttons dynamically
   let segmentsCount = 0;
   $: segment,
-          (() =>
-                  (segmentsCount =
-                          segment?.querySelectorAll(".segment-button").length ?? 0))();
-
+    (() =>
+      (segmentsCount =
+        segment?.querySelectorAll(".segment-button").length ?? 0))();
 
   const onResize = () => initIndicator();
 </script>
@@ -70,9 +69,9 @@
 <svelte:window on:resize={onResize} />
 
 <div
-        bind:this={segment}
-        class="segment"
-        style={`--segments: ${segmentsCount}; ${
+  bind:this={segment}
+  class="segment"
+  style={`--segments: ${segmentsCount}; ${
     nonNullish(indicator)
       ? `--position: ${indicator.left}px; --width: ${indicator.width}px`
       : ""
@@ -124,11 +123,16 @@
     will-change: transform, opacity;
     pointer-events: none;
     transform: translate3d(
-                    calc(var(--position, 0) - var(--padding-0_5x)),
-                    -1px,
-                    0
+      calc(var(--position, 0) - var(--padding-0_5x)),
+      -1px,
+      0
     );
-    width: calc(((100% - (2 * var(--padding-0_5x) + var(--padding-0_5x))) / var(--segments)));
+    width: calc(
+      (
+        (100% - (2 * var(--padding-0_5x) + var(--padding-0_5x))) /
+          var(--segments)
+      )
+    );
     //padding: var(--padding-2x);
     height: calc(100% - var(--padding-0_5x) * 2);
     border-radius: var(--border-radius);
