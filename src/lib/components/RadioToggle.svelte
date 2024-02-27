@@ -5,10 +5,12 @@
   export let name = nextElementId("radio-toggle-group-");
   export let labels: string[];
   export let values: string[];
-  /// Initial selection
   export let value: string;
 
   const dispatch = createEventDispatcher();
+
+  let selectedIndex: number;
+  $: selectedIndex = values.indexOf(value);
 
   let count: number;
   $: count = labels.length;
@@ -21,18 +23,18 @@
     label: labels[index],
     value: values[index],
     id: nextElementId("radio-toggle-"),
-    checked: values[index] === value,
+    checked: index === selectedIndex,
   }));
 
-  const onChange = ({ currentTarget, target }) => {
-    console.log("currentTarget:", currentTarget.value, target, values);
-    dispatch("nnsChange", currentTarget.value);
+  const onChange = ({ currentTarget }) => {
+    value = currentTarget.value;
+    dispatch("nnsChange", value);
   };
 </script>
 
-<fieldset class="radio-toggle" style={`--option-count: ${count};`}>
+<div class="radio-toggle" style={`--option-count: ${count};`}>
   {#each options as { label, value: optionValue, id, checked } (id)}
-    <div class="option">
+    <div class="option button">
       <input
         type="radio"
         name={name}
@@ -41,38 +43,39 @@
         {checked}
         on:input={onChange}
       />
-      <label for={id}>{label}</label>
+      <label class="button" for={id}>{label}</label>
     </div>
   {/each}
-</fieldset>
+</div>
 
 <style lang="scss">
+  @use "../styles/mixins/media";
+  @use "../styles/mixins/button";
   @use "../styles/mixins/fonts";
+  @use "../styles/mixins/text";
 
-  fieldset {
+  .radio-toggle {
     --option-width: calc(var(--padding) * 18);
     --option-gap: var(--padding-0_5x);
     --container-padding: var(--padding-0_5x);
 
     display: flex;
-    flex-wrap: wrap;
     gap: var(--option-gap);
     padding: var(--container-padding);
+    width: 100%;
 
-    max-width: calc(
-      (var(--option-count) * var(--option-width)) +
-        (var(--container-padding) + var(--container-padding)) +
-        (var(--option-gap) * (var(--option-count) - 1))
-    );
+    @include media.min-width(medium) {
+      // maximum 392 px on tablet+
+      max-width: calc(var(--padding) * 48);
+    }
 
-    border: none;
     border-radius: var(--border-radius);
     background: var(--input-background);
   }
 
   .option {
-    flex: 1 1 0;
-    min-width: var(--option-width);
+    flex: 1 1;
+    overflow: hidden;
   }
 
   input {
@@ -80,14 +83,13 @@
   }
 
   label {
+    @include button.base;
+    // reset button height
+    min-height: 0;
+
     display: block;
-    padding: var(--padding-0_5x) var(--padding-1_5x);
-    border-radius: var(--border-radius);
-
     text-align: center;
-    @include fonts.small;
-
-    cursor: pointer;
+    @include text.truncate;
     background-color: var(--input-background);
     color: var(--input-color);
 

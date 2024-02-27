@@ -7,6 +7,8 @@
         level: "info",
         duration: 500,
     });
+
+    let selectedValue = "all";
 </script>
 
 # RadioToggle
@@ -22,24 +24,34 @@ Collections of buttons describing a set of related options. Only one button in a
         duration: 1000,
       });
     }
-</script>
 
+    let selectedValue = "all";
+</script>
+    
+// Listen `on:nnsChange` event to get the selection
 <RadioToggle
     on:nnsChange={toggle}
     labels={["Actionable Proposals", "All Proposal"]}
     values={["actionable", "all"]}
     value="all"
 />
+        
+// Binding `value` property
+<RadioToggle
+    bind:value={selectedValue}
+    labels={["Actionable Proposals", "All Proposal"]}
+    values={["actionable", "all"]}
+/>
 ```
 
 ## Properties
 
-| Property | Description                                                                                       | Type           | Default           |
-|----------|---------------------------------------------------------------------------------------------------|----------------|-------------------|
+| Property | Description                                                                                        | Type           | Default           |
+|----------|----------------------------------------------------------------------------------------------------|----------------|-------------------|
 | `name`   | Bind the `checked` attribute of the HTML input of type `checkbox` that is rendered by the component | `string`       | auto-generated id |
-| `labels` | A list of labels that will be used for text rendering in provided order                           | `Array<string>`             |                   |
-| `values` | A list of values for entries. Will be provided in `detail` property of `nnsChange` event          | `Array<string>` |                   |
-| `value`  | A value from `values` list that will be used for initial selection                                | `string`       |                   |
+| `labels` | A list of labels that will be used for text rendering in provided order                            | `Array<string>`             |                   |
+| `values` | A list of values for entries. Will be provided in `detail` property of `nnsChange` event           | `Array<string>` |                   |
+| `value`  | A value from `values` list that will be used to provide selected value                             | `string`       |                   |
 
 ## Events
 
@@ -49,21 +61,22 @@ Collections of buttons describing a set of related options. Only one button in a
 
 ## Showcase
 
-### Two options
+### Two options ({selectedValue} selected)
 
 <RadioToggle
     on:nnsChange={toggle}
+    bind:value={selectedValue}
     labels={["Actionable Proposals", "All Proposal"]}
     values={["actionable", "all"]}
-    value="all"
 />
 
 ### Three options
 
 <RadioToggle
     on:nnsChange={toggle}
-    labels={["Actionable Proposals", "All Proposal", "More Proposal"]}
-    values={["actionable", "all", "more"]}
-    value="all"
+    labels={["Yes", "No", "Maybe"]}
+    values={["yes", "no", "maybe"]}
 />
 
+<!-- placeholder for the showcase) -->
+<div style="height: 160px;"></div>
