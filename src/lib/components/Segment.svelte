@@ -19,17 +19,17 @@
   $: $store, (() => (selectedSegmentId = $store.id))();
 
   let indicator:
-    | {
-        left: number;
-        width: number;
-      }
-    | undefined = undefined;
+          | {
+    left: number;
+    width: number;
+  }
+          | undefined = undefined;
 
   let segment: HTMLElement | undefined | null;
 
   let selectedElement: HTMLElement | undefined | null;
   $: selectedElement =
-    $store.element ?? segment?.querySelector(".segment-button");
+          $store.element ?? segment?.querySelector(".segment-button");
 
   export const initIndicator = () => {
     if (isNullish(selectedElement)) {
@@ -46,7 +46,7 @@
 
     const { left: parentClientLeft } = parentElement.getBoundingClientRect();
     const { left: currentClientLeft, width: currentClientWidth } =
-      selectedElement.getBoundingClientRect();
+            selectedElement.getBoundingClientRect();
 
     indicator = {
       left: currentClientLeft - parentClientLeft,
@@ -59,15 +59,20 @@
   // TODO: support adding segmebt buttons dynamically
   let segmentsCount = 0;
   $: segment,
-    (() =>
-      (segmentsCount =
-        segment?.querySelectorAll(".segment-button").length ?? 0))();
+          (() =>
+                  (segmentsCount =
+                          segment?.querySelectorAll(".segment-button").length ?? 0))();
+
+
+  const onResize = () => initIndicator();
 </script>
 
+<svelte:window on:resize={onResize} />
+
 <div
-  bind:this={segment}
-  class="segment"
-  style={`--segments: ${segmentsCount}; ${
+        bind:this={segment}
+        class="segment"
+        style={`--segments: ${segmentsCount}; ${
     nonNullish(indicator)
       ? `--position: ${indicator.left}px; --width: ${indicator.width}px`
       : ""
@@ -81,28 +86,37 @@
 </div>
 
 <style lang="scss">
+  @use "../styles/mixins/media";
+  @use "../styles/mixins/text";
+
   .segment {
     display: grid;
     grid-auto-columns: minmax(0, 1fr);
     grid-auto-flow: column;
     align-items: center;
 
-    background: var(--overlay-background);
-    color: var(--overlay-background-contrast);
+    background: var(--input-background);
+    color: var(--input-background-contrast);
 
-    padding: var(--padding) var(--padding-2x);
-    gap: var(--padding-2x);
+    padding: var(--padding-0_5x);
+    gap: var(--padding-0_5x);
 
     border-radius: var(--border-radius);
     overflow: hidden;
 
-    width: var(--segment-min-width, var(--segment-width, fit-content));
-    --segment-min-width: calc(var(--segment-button-width) * var(--segments));
+    width: 100%;
+
+    @include media.min-width(medium) {
+      width: var(--segment-min-width, var(--segment-width, fit-content));
+      --segment-min-width: calc(var(--segment-button-width) * var(--segments));
+    }
 
     position: relative;
   }
 
   .indicator {
+    top: calc(var(--padding-0_5x) + 1px);
+    left: var(--padding-0_5x);
     transition: transform 260ms cubic-bezier(0.4, 0, 0.2, 1);
     transform-origin: left center;
     position: absolute;
@@ -110,14 +124,23 @@
     will-change: transform, opacity;
     pointer-events: none;
     transform: translate3d(
-      calc(var(--position, 0) - var(--padding-0_5x)),
-      -1px,
-      0
+                    calc(var(--position, 0) - var(--padding-0_5x)),
+                    -1px,
+                    0
     );
-    width: calc((100% - (var(--segments) * var(--padding))) / var(--segments));
-    padding: var(--padding-2x) 0 var(--padding);
+    width: calc(((100% - (2 * var(--padding-0_5x) + var(--padding-0_5x))) / var(--segments)));
+    //padding: var(--padding-2x);
+    height: calc(100% - var(--padding-0_5x) * 2);
     border-radius: var(--border-radius);
-    box-shadow: var(--interaction-box-shadow);
-    background: var(--segment-selected-background);
+    background: var(--button-primary);
+  }
+
+  // ++
+  :global(div.segment-button button) {
+    padding: var(--padding-0_5x) var(--padding-1_5x);
+    @include text.truncate;
+  }
+  :global(div.segment-button button.selected) {
+    color: var(--primary-contrast);
   }
 </style>
