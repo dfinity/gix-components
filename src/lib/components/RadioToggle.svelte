@@ -37,7 +37,7 @@
     <div class="option button">
       <input
         type="radio"
-        name={name}
+        {name}
         {id}
         value={optionValue}
         {checked}
