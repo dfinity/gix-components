@@ -55,7 +55,6 @@
 <style lang="scss">
   @use "../styles/mixins/media";
   @use "../styles/mixins/button";
-  @use "../styles/mixins/fonts";
   @use "../styles/mixins/text";
 
   .radio-toggle {
