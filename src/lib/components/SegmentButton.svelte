@@ -40,6 +40,8 @@
 </div>
 
 <style lang="scss">
+  @use "../styles/mixins/text";
+
   .segment-button {
     padding: var(--padding-0_25x);
     transform: translate3d(0, 0, 0);
@@ -47,11 +49,13 @@
 
   button {
     width: 100%;
+    padding: var(--padding-0_5x) var(--padding-1_5x);
 
+    @include text.truncate;
     transition: color var(--animation-time-normal);
 
     &.selected {
-      color: inherit;
+      color: var(--primary-contrast);
     }
   }
 </style>
