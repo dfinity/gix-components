@@ -1,6 +1,7 @@
 <script lang="ts">
   import { getContext } from "svelte";
   import { SEGMENT_CONTEXT_KEY, type SegmentContext } from "$lib/types/segment";
+  import { nonNullish } from "@dfinity/utils";
 
   export let testId: string | undefined = undefined;
   export let segmentId: symbol;
@@ -17,6 +18,14 @@
 
   let selected = false;
   $: selected = $store.id === segmentId;
+
+  // Update the store with initially selected element as soon as it is available
+  $: if (selected && $store.element !== element && nonNullish(element)) {
+    store.set({
+      id: segmentId,
+      element,
+    });
+  }
 </script>
 
 <div bind:this={element} class="segment-button" data-tid={testId}>
