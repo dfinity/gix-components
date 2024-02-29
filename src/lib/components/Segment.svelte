@@ -90,6 +90,9 @@
   @use "../styles/mixins/media";
 
   .segment {
+    --segment-gap: var(--padding-0_5x);
+    --segment-padding: var(--padding-0_5x);
+
     display: grid;
     grid-auto-columns: minmax(0, 1fr);
     grid-auto-flow: column;
@@ -98,8 +101,8 @@
     background: var(--input-background);
     color: var(--input-background-contrast);
 
-    padding: var(--padding-0_5x);
-    gap: var(--padding-0_5x);
+    padding: var(--segment-padding);
+    gap: var(--segment-gap);
 
     border-radius: var(--border-radius);
     overflow: hidden;
@@ -115,8 +118,8 @@
   }
 
   .indicator {
-    top: calc(var(--padding-0_5x) + 1px);
-    left: var(--padding-0_5x);
+    top: calc(var(--segment-padding) + 1px); // 1px to compensate translate3d -1px
+    left: var(--segment-padding);
     transition: transform 260ms cubic-bezier(0.4, 0, 0.2, 1);
     transform-origin: left center;
     position: absolute;
@@ -130,11 +133,11 @@
     );
     width: calc(
       (
-        (100% - (2 * var(--padding-0_5x) + var(--padding-0_5x))) /
-          var(--segments)
+      (100% - (2 * var(--segment-padding) + (var(--segment-gap) * (var(--segments) - 1))))
+      / var(--segments)
       )
     );
-    height: calc(100% - var(--padding-0_5x) * 2);
+    height: calc(100% - var(--segment-padding) * 2);
     border-radius: var(--border-radius);
     background: var(--button-primary);
   }
