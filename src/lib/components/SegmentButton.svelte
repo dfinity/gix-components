@@ -33,6 +33,7 @@
     on:click={onClick}
     role="tab"
     class:selected
+    disabled={selected}
     data-tid="segment-button"
   >
     <slot />
