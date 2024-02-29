@@ -62,13 +62,9 @@
     (() =>
       (segmentsCount =
         segment?.querySelectorAll(".segment-button").length ?? 0))();
-
-  const onResize = () => {
-    initIndicator();
-  };
 </script>
 
-<svelte:window on:resize={onResize} />
+<svelte:window on:resize={initIndicator} />
 
 <div
   bind:this={segment}
