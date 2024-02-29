@@ -114,7 +114,9 @@
   }
 
   .indicator {
-    top: calc(var(--segment-padding) + 1px); // 1px to compensate translate3d -1px
+    top: calc(
+      var(--segment-padding) + 1px
+    ); // 1px to compensate translate3d -1px
     left: var(--segment-padding);
     transition: transform 260ms cubic-bezier(0.4, 0, 0.2, 1);
     transform-origin: left center;
@@ -129,8 +131,13 @@
     );
     width: calc(
       (
-      (100% - (2 * var(--segment-padding) + (var(--segment-gap) * (var(--segments) - 1))))
-      / var(--segments)
+        (
+            100% -
+              (
+                2 * var(--segment-padding) +
+                  (var(--segment-gap) * (var(--segments) - 1))
+              )
+          ) / var(--segments)
       )
     );
     height: calc(100% - var(--segment-padding) * 2);
