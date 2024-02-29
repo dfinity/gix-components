@@ -62,7 +62,13 @@
     (() =>
       (segmentsCount =
         segment?.querySelectorAll(".segment-button").length ?? 0))();
+
+  const onResize = () => {
+    initIndicator();
+  };
 </script>
+
+<svelte:window on:resize={onResize} />
 
 <div
   bind:this={segment}
@@ -82,7 +88,6 @@
 
 <style lang="scss">
   @use "../styles/mixins/media";
-
 
   .segment {
     display: grid;
@@ -129,7 +134,6 @@
           var(--segments)
       )
     );
-    //padding: var(--padding-2x);
     height: calc(100% - var(--padding-0_5x) * 2);
     border-radius: var(--border-radius);
     background: var(--button-primary);
