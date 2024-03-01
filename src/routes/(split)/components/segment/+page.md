@@ -8,7 +8,7 @@
     let fourthSegmentId = Symbol();
     let fifthSegmentId = Symbol();
     let selected1 = secondSegmentId;
-    let selected2 = secondSegmentId;
+    let selected2 = firstSegmentId;
     let selected3 = fifthSegmentId;
 </script>
 
@@ -48,18 +48,18 @@ To implement a segment both `Segment` and `SegmentButton` components are require
 ## Showcase
 
 <div data-tid="showcase">
-
-<h4>Two entries</h4>
-<Segment bind:selectedSegmentId={selected1}>
-    <SegmentButton segmentId={firstSegmentId}>Actionable Proposals</SegmentButton>
-    <SegmentButton segmentId={secondSegmentId}>All Proposals</SegmentButton>
-</Segment>
-
-<h4>More entries</h4>
-<Segment bind:selectedSegmentId={selected2}>
+  <h4>Three entries</h4>
+  <Segment bind:selectedSegmentId={selected1}>
     <SegmentButton segmentId={firstSegmentId}>Default</SegmentButton>
     <SegmentButton segmentId={secondSegmentId}>Segment</SegmentButton>
     <SegmentButton segmentId={thirdSegmentId}>Other</SegmentButton>
+  </Segment>
+</div>
+
+<h4>Two entries</h4>
+<Segment bind:selectedSegmentId={selected2}>
+    <SegmentButton segmentId={firstSegmentId}>Actionable Proposals</SegmentButton>
+    <SegmentButton segmentId={secondSegmentId}>All Proposals</SegmentButton>
 </Segment>
 
 <h4>Even more entries</h4>
@@ -70,12 +70,8 @@ To implement a segment both `Segment` and `SegmentButton` components are require
     <SegmentButton segmentId={fourthSegmentId}>Sit amet</SegmentButton>
     <SegmentButton segmentId={fifthSegmentId}>Consectetur</SegmentButton>
 </Segment>
-</div>
 
 <style>
-  div {
-    margin-bottom: 4rem;
-  }
   h4 {
     margin-top: 4rem;
   }
