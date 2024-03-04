@@ -129,16 +129,17 @@
       -1px,
       0
     );
+
+    // Calculate the width of the indicator:
+    // (100% - [left and right segment paddings] + [all gaps between buttons]) / [number of segments]
     width: calc(
       (
-        (
-            100% -
-              (
-                2 * var(--segment-padding) +
-                  (var(--segment-gap) * (var(--segments) - 1))
-              )
-          ) / var(--segments)
-      )
+          100% -
+            (
+              2 * var(--segment-padding) + var(--segment-gap) *
+                (var(--segments) - 1)
+            )
+        ) / var(--segments)
     );
     height: calc(100% - var(--segment-padding) * 2);
     border-radius: var(--border-radius);
