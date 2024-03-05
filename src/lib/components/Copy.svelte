@@ -24,7 +24,7 @@
     min-width: var(--padding-4x);
 
     &.icon-only {
-      color: var(--tertiary);
+      color: var(--primary);
     }
   }
 </style>
