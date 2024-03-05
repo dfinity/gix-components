@@ -64,6 +64,8 @@
         segment?.querySelectorAll(".segment-button").length ?? 0))();
 </script>
 
+<svelte:window on:resize={initIndicator} />
+
 <div
   bind:this={segment}
   class="segment"
@@ -81,28 +83,41 @@
 </div>
 
 <style lang="scss">
+  @use "../styles/mixins/media";
+
   .segment {
+    --segment-gap: var(--padding-0_5x);
+    --segment-padding: var(--padding-0_5x);
+
     display: grid;
     grid-auto-columns: minmax(0, 1fr);
     grid-auto-flow: column;
     align-items: center;
 
-    background: var(--overlay-background);
-    color: var(--overlay-background-contrast);
+    background: var(--input-background);
+    color: var(--input-background-contrast);
 
-    padding: var(--padding) var(--padding-2x);
-    gap: var(--padding-2x);
+    padding: var(--segment-padding);
+    gap: var(--segment-gap);
 
     border-radius: var(--border-radius);
     overflow: hidden;
 
-    width: var(--segment-min-width, var(--segment-width, fit-content));
-    --segment-min-width: calc(var(--segment-button-width) * var(--segments));
+    width: 100%;
+
+    @include media.min-width(medium) {
+      width: var(--segment-min-width, var(--segment-width, fit-content));
+      --segment-min-width: calc(var(--segment-button-width) * var(--segments));
+    }
 
     position: relative;
   }
 
   .indicator {
+    top: calc(
+      var(--segment-padding) + 1px
+    ); // 1px to compensate translate3d -1px
+    left: var(--segment-padding);
     transition: transform 260ms cubic-bezier(0.4, 0, 0.2, 1);
     transform-origin: left center;
     position: absolute;
@@ -114,10 +129,20 @@
       -1px,
       0
     );
-    width: calc((100% - (var(--segments) * var(--padding))) / var(--segments));
-    padding: var(--padding-2x) 0 var(--padding);
+
+    // Calculate the width of the indicator:
+    // (100% - [left and right segment paddings] + [all gaps between buttons]) / [number of segments]
+    width: calc(
+      (
+          100% -
+            (
+              2 * var(--segment-padding) + var(--segment-gap) *
+                (var(--segments) - 1)
+            )
+        ) / var(--segments)
+    );
+    height: calc(100% - var(--segment-padding) * 2);
     border-radius: var(--border-radius);
-    box-shadow: var(--interaction-box-shadow);
-    background: var(--segment-selected-background);
+    background: var(--button-primary);
   }
 </style>
