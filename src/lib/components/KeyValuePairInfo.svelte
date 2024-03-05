@@ -55,7 +55,7 @@
   }
 
   .icon {
-    color: var(--primary-tint);
+    color: var(--tertiary);
     display: flex;
     align-items: center;
     justify-content: center;
