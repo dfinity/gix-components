@@ -10,6 +10,7 @@
   export let visible = false;
   export let direction: "ltr" | "rtl" = "ltr";
   export let closeButton = false;
+  export let invisibleBackdrop = false;
 
   let bottom: number;
   let left: number;
@@ -37,10 +38,14 @@
     on:click|stopPropagation
     on:keypress|stopPropagation
   >
-    <Backdrop on:nnsClose={() => (visible = false)} />
+    <Backdrop
+      on:nnsClose={() => (visible = false)}
+      invisible={invisibleBackdrop}
+    />
     <div
       transition:scale|global={{ delay: 25, duration: 150, easing: quintOut }}
       class="wrapper"
+      class:with-border={invisibleBackdrop}
       class:rtl={direction === "rtl"}
     >
       {#if closeButton}
@@ -99,6 +104,10 @@
     border-radius: var(--border-radius);
 
     box-shadow: var(--overlay-box-shadow);
+
+    &.with-border {
+      border: var(--tooltip-border-size) solid var(--tooltip-border-color);
+    }
   }
 
   .close {

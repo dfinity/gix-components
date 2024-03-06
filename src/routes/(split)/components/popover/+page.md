@@ -34,7 +34,7 @@ next to an anchor — commonly a button — which initiates its display.
     >  
         <IconMenu size={40}/>
     </button>
-    <Popover bind:visible anchor={button} closeButton direction="rtl">
+    <Popover bind:visible anchor={button} closeButton invisibleBackdrop direction="rtl">
         <div class="account">
             <span class="account_icon">
                 <IconUser size={34} />
@@ -98,9 +98,10 @@ or from right to left.
 
 # Properties
 
-| Property      | Description                                                          | Type                         | Default     |
-| ------------- | -------------------------------------------------------------------- | ---------------------------- | ----------- |
-| `visible`     | Display or hide the popover.                                         | `boolean`                    | `false`     |
-| `direction`   | Layout direction, either left-to-right `ltr` or right-to-left `rtl`. | `string`                     | `ltr`       |
-| `anchor`      | The anchor element on which the popover depends on.                  | `HTMLElement` or `undefined` | `undefined` |
-| `closeButton` | Option to add a close button on top right corner.                    | `true` or `undefined`        | `undefined` |
+| Property            | Description                                                          | Type                         | Default     |
+| ------------------- | -------------------------------------------------------------------- | ---------------------------- | ----------- |
+| `visible`           | Display or hide the popover.                                         | `boolean`                    | `false`     |
+| `direction`         | Layout direction, either left-to-right `ltr` or right-to-left `rtl`. | `string`                     | `ltr`       |
+| `anchor`            | The anchor element on which the popover depends on.                  | `HTMLElement` or `undefined` | `undefined` |
+| `closeButton`       | Option to add a close button on top right corner.                    | `true` or `undefined`        | `undefined` |
+| `invisibleBackdrop` | Don't darken and blur the background while the popup is open.        | `true` or `undefined`        | `undefined` |

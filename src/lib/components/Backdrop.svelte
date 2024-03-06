@@ -5,6 +5,7 @@
   import { handleKeyPress } from "$lib/utils/keyboard.utils";
 
   export let disablePointerEvents = false;
+  export let invisible = false;
 
   const dispatch = createEventDispatcher();
   const close = () => dispatch("nnsClose");
@@ -20,6 +21,7 @@
   in:fade|global={{ duration: FADE_IN_DURATION }}
   out:fade|global={{ duration: FADE_OUT_DURATION }}
   class="backdrop"
+  class:visible={!invisible}
   on:click|stopPropagation={close}
   on:keypress={($event) => handleKeyPress({ $event, callback: close })}
   class:disablePointerEvents
@@ -34,10 +36,12 @@
     position: absolute;
     @include display.inset;
 
-    background: var(--backdrop);
     color: var(--backdrop-contrast);
 
-    backdrop-filter: var(--backdrop-filter);
+    &.visible {
+      background: var(--backdrop);
+      backdrop-filter: var(--backdrop-filter);
+    }
 
     z-index: var(--backdrop-z-index);
 
