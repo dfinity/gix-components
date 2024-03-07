@@ -33,6 +33,22 @@ describe("Popover", () => {
       container.querySelector("div.backdrop");
 
     expect(backdrop).not.toBeNull();
+    expect(backdrop.classList).toContain("visible");
+  });
+
+  it("should render a backdrop invisible", () => {
+    const { container } = render(Popover, {
+      props: {
+        visible: true,
+        invisibleBackdrop: true,
+      },
+    });
+
+    const backdrop: HTMLDivElement | null =
+      container.querySelector("div.backdrop");
+
+    expect(backdrop).not.toBeNull();
+    expect(backdrop.classList).not.toContain("visible");
   });
 
   it("should render slotted content", () => {
