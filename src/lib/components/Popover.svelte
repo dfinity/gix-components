@@ -98,7 +98,7 @@
     display: flex;
     flex-direction: column;
 
-    background-color: var(--background);
+    background-color: var(--tooltip-background);
     color: var(--background-contrast);
 
     border-radius: var(--border-radius);
