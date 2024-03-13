@@ -59,9 +59,11 @@
 
     // Shift the menu on large screen e.g. if a banner is displayed
     @include media.min-width(large) {
-      padding-top: calc(
-        var(--menu-logo-height) + var(--padding-3x) + var(--header-offset, 0px)
-      );
+      padding: calc(
+          var(--menu-logo-height) + var(--padding-3x) +
+            var(--header-offset, 0px)
+        )
+        var(--padding-2x) 0;
     }
 
     position: relative;
@@ -70,6 +72,7 @@
   .inner {
     display: flex;
     flex-direction: column;
+    gap: var(--padding-0_5x);
 
     width: 0;
     max-width: 100vw;
@@ -88,7 +91,7 @@
     // On smaller screen the menu is open on demand
     &.open {
       width: var(--menu-width);
-      margin-left: 0;
+      margin-left: var(--padding);
     }
 
     transition:
