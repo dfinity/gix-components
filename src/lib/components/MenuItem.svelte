@@ -41,20 +41,18 @@
     text-decoration: none;
     outline: none;
 
-    --menuitem-border-color: transparent;
-    border-left: var(--padding-0_25x) solid var(--menuitem-border-color);
-
     &:focus,
     &:hover {
       text-decoration: none;
     }
 
-    padding: var(--padding-1_5x);
+    padding: var(--padding);
 
     &.selected {
-      --menuitem-border-color: white;
       background: var(--menu-selected-background);
       color: var(--menu-select-color);
+
+      border-radius: var(--padding);
     }
 
     &:not(.selected):focus,
