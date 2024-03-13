@@ -125,9 +125,9 @@
   --toast-inverted-background-contrast: var(--purple-dark-900);
 
   // Menu
-  --menu-color: var(--cp-dark-100);
-  --menu-select-color: var(--value-color);
-  --menu-selected-background: var(--cp-dark-500);
+  --menu-color: var(--cp-light-100);
+  --menu-select-color: var(--cp-light-100);
+  --menu-selected-background: var(--cp-dark-dense);
 
   --toolbar-color: var(--body-color); // Tab and segment
   --segment-selected-background: var(--overlay-content-background);
