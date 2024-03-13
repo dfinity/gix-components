@@ -60,8 +60,10 @@
     // Shift the menu on large screen e.g. if a banner is displayed
     @include media.min-width(large) {
       padding: calc(
-              var(--menu-logo-height) + var(--padding-3x) + var(--header-offset, 0px)
-      ) var(--padding-2x) 0;
+          var(--menu-logo-height) + var(--padding-3x) +
+            var(--header-offset, 0px)
+        )
+        var(--padding-2x) 0;
     }
 
     position: relative;
