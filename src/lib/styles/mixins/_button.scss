@@ -59,10 +59,10 @@
 @mixin secondary {
   background: transparent;
   color: var(--button-secondary-color);
-  border: solid 2px var(--primary);
+  border: solid var(--button-border-size) var(--primary);
 
   &[disabled] {
-    border: solid 2px transparent;
+    border: solid var(--button-border-size) transparent;
   }
 
   &:not([disabled]):hover,
