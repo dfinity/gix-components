@@ -82,7 +82,7 @@ button {
     box-sizing: border-box;
 
     border-radius: var(--border-radius);
-    border: var(--standard-border-size) dashed var(--tertiary);
+    border: var(--card-border-size) dashed var(--tertiary);
 
     transition: all var(--animation-time-normal);
 
@@ -90,7 +90,7 @@ button {
     &:not([disabled]):focus {
       color: var(--button-card-focus-color);
       background: var(--button-card-focus-background);
-      border: var(--standard-border-size) dashed var(--secondary);
+      border: var(--card-border-size) dashed var(--secondary);
     }
 
     &:active {
