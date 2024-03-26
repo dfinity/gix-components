@@ -29,7 +29,7 @@
 
   // Avoid selection w/o indicator
   let mounted = false;
-  onMount(() => mounted = true);
+  onMount(() => (mounted = true));
 </script>
 
 <div bind:this={element} class="segment-button" data-tid={testId}>
@@ -58,7 +58,9 @@
     padding: var(--padding-0_5x) var(--padding-1_5x);
 
     @include text.truncate;
-    transition: color var(--animation-time-normal), opacity var(--animation-time-short);
+    transition:
+      color var(--animation-time-normal),
+      opacity var(--animation-time-short);
     opacity: 0;
 
     &.mounted {
