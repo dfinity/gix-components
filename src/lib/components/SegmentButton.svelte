@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { getContext, onMount } from "svelte";
+  import { getContext } from "svelte";
   import { SEGMENT_CONTEXT_KEY, type SegmentContext } from "$lib/types/segment";
   import { nonNullish } from "@dfinity/utils";
 
@@ -26,10 +26,6 @@
       element,
     });
   }
-
-  // Avoid selection w/o indicator
-  let mounted = false;
-  onMount(() => (mounted = true));
 </script>
 
 <div bind:this={element} class="segment-button" data-tid={testId}>
@@ -37,7 +33,7 @@
     on:click={onClick}
     role="tab"
     class:selected
-    class:mounted
+    class:initialised={nonNullish($store.element)}
     disabled={selected}
     data-tid="segment-button"
   >
@@ -63,7 +59,7 @@
       opacity var(--animation-time-short);
     opacity: 0;
 
-    &.mounted {
+    &.initialised {
       opacity: 1;
     }
 
