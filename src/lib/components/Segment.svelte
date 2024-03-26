@@ -2,7 +2,7 @@
   import { writable } from "svelte/store";
   import type { SegmentContext, SelectedSegment } from "$lib/types/segment";
   import { SEGMENT_CONTEXT_KEY } from "$lib/types/segment";
-  import {onMount, setContext} from "svelte";
+  import { onMount, setContext } from "svelte";
   import { isNullish, nonNullish } from "@dfinity/utils";
 
   export let selectedSegmentId: symbol | undefined = undefined;
@@ -33,7 +33,7 @@
 
   // To hide indicator before DOM is ready
   let mounted = false;
-  onMount(() => mounted = true);
+  onMount(() => (mounted = true));
 
   export const initIndicator = () => {
     if (isNullish(selectedElement)) {

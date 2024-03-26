@@ -103,8 +103,6 @@
 
     border-radius: var(--border-radius);
 
-    box-shadow: var(--overlay-box-shadow);
-
     &.with-border {
       border: var(--tooltip-border-size) solid var(--tooltip-border-color);
     }

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {getContext, onMount} from "svelte";
+  import { getContext, onMount } from "svelte";
   import { SEGMENT_CONTEXT_KEY, type SegmentContext } from "$lib/types/segment";
   import { nonNullish } from "@dfinity/utils";
 
