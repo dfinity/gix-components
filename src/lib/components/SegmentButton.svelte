@@ -28,8 +28,8 @@
   }
 
   // Avoid selection w/o indicator
-  let notMounted = true;
-  onMount(() => notMounted = false);
+  let mounted = false;
+  onMount(() => mounted = true);
 </script>
 
 <div bind:this={element} class="segment-button" data-tid={testId}>
@@ -37,7 +37,7 @@
     on:click={onClick}
     role="tab"
     class:selected
-    class:notMounted
+    class:mounted
     disabled={selected}
     data-tid="segment-button"
   >
@@ -59,10 +59,10 @@
 
     @include text.truncate;
     transition: color var(--animation-time-normal), opacity var(--animation-time-short);
-    opacity: 1;
+    opacity: 0;
 
-    &.notMounted {
-      opacity: 0;
+    &.mounted {
+      opacity: 1;
     }
 
     &.selected {
