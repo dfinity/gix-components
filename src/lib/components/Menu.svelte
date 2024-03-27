@@ -80,6 +80,9 @@
 
     overflow-y: auto;
     margin-left: -100%;
+    // Extra padding to not overlap the bottom background logo
+    padding-bottom: calc(10 * var(--padding));
+
     &.sticky {
       // On large screen the menu can be always open
       @include media.min-width(large) {
