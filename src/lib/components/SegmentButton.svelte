@@ -54,16 +54,9 @@
     padding: var(--padding-0_5x) var(--padding-1_5x);
 
     @include text.truncate;
-    transition:
-      color var(--animation-time-normal),
-      opacity var(--animation-time-short);
-    opacity: 0;
+    transition: color var(--animation-time-normal);
 
-    &.initialised {
-      opacity: 1;
-    }
-
-    &.selected {
+    &.selected.initialised {
       color: var(--primary-contrast);
     }
   }
