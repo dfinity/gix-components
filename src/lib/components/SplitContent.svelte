@@ -61,9 +61,6 @@
     box-sizing: border-box;
   }
 
-  .content.isPerceived .start {
-    background: var(--content-start-background);
-  }
   .start {
     min-height: var(--content-start-height);
     color: var(--content-start-color);
