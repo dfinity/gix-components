@@ -15,7 +15,6 @@
     undefined;
   export let href: string | undefined = undefined;
   export let noPadding = false;
-  export let noMarginBottom = false;
 
   let container: "article" | "a" = "article";
   $: container = nonNullish(href) ? "a" : "article";
@@ -65,7 +64,6 @@
   class:selected
   class:disabled
   class:noPadding
-  class:noMarginBottom
   aria-disabled={disabled}
   aria-checked={ariaChecked}
   aria-label={ariaLabel}
@@ -112,10 +110,6 @@
 
     &.noPadding {
       padding: 0;
-    }
-
-    &.noMarginBottom {
-      margin-bottom: 0;
     }
 
     &.selected {
