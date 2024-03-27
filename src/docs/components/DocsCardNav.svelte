@@ -8,10 +8,18 @@
   $: routeId = ($page.route.id ?? "").replace("/(split)", "");
 </script>
 
-<Card
-  href={url}
-  selected={routeId === url}
-  theme={routeId !== url ? "transparent" : undefined}
->
-  <span class="title"><slot /></span>
-</Card>
+<div>
+  <Card
+    href={url}
+    selected={routeId === url}
+    theme={routeId !== url ? "transparent" : undefined}
+  >
+    <span class="title"><slot /></span>
+  </Card>
+</div>
+
+<style lang="scss">
+  div {
+    margin-top: var(--padding-2x);
+  }
+</style>
