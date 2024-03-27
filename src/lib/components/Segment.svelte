@@ -75,9 +75,11 @@
       : ""
   }`}
 >
-  <div class="indicator">
-    <div class="indicator-background" />
-  </div>
+  {#if nonNullish(indicator)}
+    <div class="indicator">
+      <div class="indicator-background" />
+    </div>
+  {/if}
 
   <slot />
 </div>
