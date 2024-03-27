@@ -9,17 +9,18 @@
   @use "../styles/mixins/media";
 
   div {
-    // title is hidden on small devices
-    display: none;
-
+    padding: var(--padding-2x) var(--padding-2x) 0;
     margin: 0;
-    // Observed aligned value in NNS-dapp
-    padding: var(--nav-padding-top) var(--padding-4x)
-      calc(var(--padding-2x) - 3px);
-    --nav-padding-top: var(--padding-2x);
 
     @include media.min-width(large) {
-      display: block;
+      // Observed aligned value in NNS-dapp
+      padding: var(--nav-padding-top) var(--padding-4x)
+        calc(var(--padding-2x) - 3px);
+      --nav-padding-top: var(--padding-4x);
+    }
+
+    @include media.min-width(large) {
+      --nav-padding-top: var(--padding-2x);
     }
   }
 
