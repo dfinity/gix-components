@@ -9,6 +9,7 @@
   @use "../styles/mixins/media";
 
   div {
+    // title is hidden on small devices
     display: none;
 
     margin: 0;
