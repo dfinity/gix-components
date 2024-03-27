@@ -1,4 +1,8 @@
-<div><slot name="title" /></div>
+<script lang="ts">
+  export let hideTitle = false;
+</script>
+
+<div class:hideTitle><slot name="title" /></div>
 
 <nav>
   <slot />
@@ -9,6 +13,10 @@
   @use "../styles/mixins/media";
 
   div {
+    &.hideTitle {
+      display: none;
+    }
+
     padding: var(--padding-2x) var(--padding-2x) 0;
     margin: 0;
 
