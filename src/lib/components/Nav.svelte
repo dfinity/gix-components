@@ -1,4 +1,4 @@
-<div><slot name="title" /></div>
+<div class="nav-title"><slot name="title" /></div>
 
 <nav>
   <slot />
