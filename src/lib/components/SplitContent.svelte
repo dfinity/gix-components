@@ -68,7 +68,7 @@
     }
 
     &:not(.isPerceived) {
-      --content-start-height: calc(75px + var(--padding-2x));
+      --content-start-height: calc(80px + var(--padding-2x));
     }
   }
 
