@@ -1,8 +1,4 @@
-<script lang="ts">
-  export let hideTitle = false;
-</script>
-
-<div class:hideTitle><slot name="title" /></div>
+<div><slot name="title" /></div>
 
 <nav>
   <slot />
@@ -13,22 +9,16 @@
   @use "../styles/mixins/media";
 
   div {
-    &.hideTitle {
-      display: none;
-    }
+    display: none;
 
-    padding: var(--padding-2x) var(--padding-2x) 0;
     margin: 0;
+    // Observed aligned value in NNS-dapp
+    padding: var(--nav-padding-top) var(--padding-4x)
+      calc(var(--padding-2x) - 3px);
+    --nav-padding-top: var(--padding-2x);
 
     @include media.min-width(large) {
-      // Observed aligned value in NNS-dapp
-      padding: var(--nav-padding-top) var(--padding-4x)
-        calc(var(--padding-2x) - 3px);
-      --nav-padding-top: var(--padding-4x);
-    }
-
-    @include media.min-width(large) {
-      --nav-padding-top: var(--padding-2x);
+      display: block;
     }
   }
 
