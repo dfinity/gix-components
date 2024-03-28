@@ -33,6 +33,7 @@
     on:click={onClick}
     role="tab"
     class:selected
+    class:initialised={nonNullish($store.element)}
     disabled={selected}
     data-tid="segment-button"
   >
@@ -55,7 +56,7 @@
     @include text.truncate;
     transition: color var(--animation-time-normal);
 
-    &.selected {
+    &.selected.initialised {
       color: var(--primary-contrast);
     }
   }
