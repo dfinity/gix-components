@@ -20,7 +20,6 @@
   <div class="start">
     <div class="scrollable-content-start">
       <ContentBackdrop />
-
       <slot name="start" />
     </div>
   </div>
@@ -64,13 +63,12 @@
 
   .start {
     min-height: var(--content-start-height);
-
-    background: var(--content-start-background);
     color: var(--content-start-color);
 
     @include media.min-width(large) {
       display: block;
       width: var(--content-start-width);
+      background: var(--content-start-background);
     }
   }
 
