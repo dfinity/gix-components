@@ -1,4 +1,4 @@
-<div class="nav-title"><slot name="title" /></div>
+<div><slot name="title" /></div>
 
 <nav>
   <slot />
@@ -9,6 +9,7 @@
   @use "../styles/mixins/media";
 
   div {
+    display: var(--nav-component-title-display);
     padding: var(--padding-2x) var(--padding-2x) 0;
     margin: 0;
 
