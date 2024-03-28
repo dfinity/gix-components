@@ -105,12 +105,9 @@
     border-radius: var(--border-radius);
     overflow: hidden;
 
-    width: 100%;
-
-    @include media.min-width(medium) {
-      width: var(--segment-min-width, var(--segment-width, fit-content));
-      --segment-min-width: calc(var(--segment-button-width) * var(--segments));
-    }
+    box-sizing: border-box;
+    width: var(--segment-min-width, var(--segment-width, fit-content));
+    --segment-min-width: calc(var(--segment-button-width) * var(--segments));
 
     position: relative;
   }
