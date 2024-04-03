@@ -1,10 +1,7 @@
 <script lang="ts">
-  import { onDestroy } from "svelte";
-  import { debounce, notEmptyString } from "@dfinity/utils";
-  import {
-    translateTooltip,
-    getOverflowContainer,
-  } from "$lib/utils/tooltip.utils";
+  import { onMount, onDestroy } from "svelte";
+  import { notEmptyString } from "@dfinity/utils";
+  import { translateTooltip } from "$lib/utils/tooltip.utils";
 
   export let id: string;
   export let testId = "tooltip-component";
@@ -15,14 +12,14 @@
 
   let tooltipComponent: HTMLDivElement | undefined = undefined;
   let target: HTMLDivElement | undefined = undefined;
-  let innerWidth: number | undefined = undefined;
+  let targetIsHovered = false;
   let tooltipTransformX = 0;
   let tooltipTransformY = 0;
   let tooltipStyle: string | undefined = undefined;
 
   $: tooltipStyle = `--tooltip-transform-x: ${tooltipTransformX}px; --tooltip-transform-y: ${tooltipTransformY}px;`;
 
-  const setPosition = debounce(async () => {
+  const setPosition = () => {
     // The debounce might effectively happen after the component has been destroyed, this is particularly the case in unit tests.
     // That is why we are using a guard to avoid to perform any logic in case the Tooltip does not exist anymore.
     if (destroyed) {
@@ -38,7 +35,7 @@
       return;
     }
 
-    const container = getOverflowContainer(tooltipComponent);
+    const container = document.body;
 
     const { clientWidth, offsetWidth } = container;
     const scrollbarWidth = offsetWidth - clientWidth;
@@ -56,35 +53,55 @@
     // transform should be added to the existing one.
     tooltipTransformX += x;
     tooltipTransformY += y;
+  };
+
+  const onMouseEnter = () => {
+    setPosition();
+    targetIsHovered = true;
+  };
+
+  const onMouseLeave = () => {
+    targetIsHovered = false;
+  };
+
+  onMount(async () => {
+    // Move tooltip to the body to avoid it being cut off by overflow: hidden.
+    document.body.appendChild(tooltipComponent);
   });
 
-  $: innerWidth, tooltipComponent, target, text, setPosition();
-
   let destroyed = false;
-  onDestroy(() => (destroyed = true));
+  onDestroy(() => {
+    destroyed = true;
+    // Remove tooltip from the document body where it was placed in onMount.
+    tooltipComponent?.remove();
+  });
 </script>
 
-<svelte:window bind:innerWidth />
-
 <div class="tooltip-wrapper" data-tid={testId}>
-  {#if notEmptyString(text)}
-    <div class="tooltip-target" aria-describedby={id} bind:this={target}>
-      <slot />
-    </div>
-    <div
-      class="tooltip"
-      role="tooltip"
-      {id}
-      class:noWrap
-      class:top
-      bind:this={tooltipComponent}
-      style={tooltipStyle}
-    >
-      {text}
-    </div>
-  {:else}
+  <!-- The relevant element passed as the slot should have the appropriate role.  -->
+  <!-- svelte-ignore a11y-no-static-element-interactions -->
+  <div
+    class="tooltip-target"
+    aria-describedby={id}
+    bind:this={target}
+    on:mouseenter={onMouseEnter}
+    on:mouseleave={onMouseLeave}
+  >
     <slot />
-  {/if}
+  </div>
+  <div
+    class="tooltip"
+    role="tooltip"
+    {id}
+    class:noWrap
+    class:top
+    class:not-rendered={!notEmptyString(text)}
+    class:visible={targetIsHovered}
+    bind:this={tooltipComponent}
+    style={tooltipStyle}
+  >
+    {text}
+  </div>
 </div>
 
 <style lang="scss">
@@ -95,7 +112,7 @@
   }
 
   .tooltip {
-    z-index: calc(var(--overlay-z-index) + 1);
+    z-index: var(--tooltip-z-index);
 
     position: absolute;
     display: inline-block;
@@ -130,14 +147,18 @@
     }
 
     pointer-events: none;
+
+    &.not-rendered {
+      display: none;
+    }
+
+    &.visible {
+      opacity: 1;
+      visibility: initial;
+    }
   }
 
   .tooltip-target {
     height: 100%;
-
-    &:hover + .tooltip {
-      opacity: 1;
-      visibility: initial;
-    }
   }
 </style>

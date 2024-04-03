@@ -38,6 +38,7 @@
   --toast-error-z-index: calc(var(--overlay-z-index) + 4);
   --modal-z-index: calc(var(--overlay-z-index) + 3);
   --bottom-sheet-z-index: calc(var(--overlay-z-index) + 2);
+  --tooltip-z-index: calc(var(--overlay-z-index) + 5);
 
   --section-max-width: 800px;
   --island-width: 768px;

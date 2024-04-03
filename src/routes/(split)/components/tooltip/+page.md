@@ -7,19 +7,8 @@
   let showShowcase = true;
   let tooltipText = "This button is disabled because of a long and complicated explanation that doesn't fit in the margin of this webpage.";
 
-  const rerender = async () => {
-    showShowcase = false;
-    await new Promise((resolve) => setTimeout(() => {
-      showShowcase = true;
-    }, 0));
-  };
-
   const toggleOverflowHidden = async () => {
     overflowHidden = !overflowHidden;
-
-    // We need to rerender the showcase for the tooltip to rediscover its
-    // overflow:hidden ancestor.
-    rerender();
   };
 </script>
 
@@ -67,7 +56,7 @@ The tooltips will appear when the buttons are hovered or tapped.
 
 <div class="text-input">
   <div>Tooltip text:</div>
-  <Input inputType="text" bind:value={tooltipText} on:blur={rerender} />
+  <Input inputType="text" bind:value={tooltipText} />
 </div>
 
 {#if showShowcase}
