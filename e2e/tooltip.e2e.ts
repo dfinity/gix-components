@@ -10,14 +10,12 @@ test("Should render tooltip", async ({ page }) => {
   await showcase.scrollIntoViewIfNeeded();
 
   await expect(
-    showcase.getByTestId("tooltip-component").nth(1).locator(".tooltip"),
+    showcase.getByTestId("tooltip-component").nth(2).locator(".tooltip"),
   ).not.toBeVisible();
 
-  showcase.locator("button.secondary").nth(1).hover();
+  showcase.locator("button.secondary").nth(2).hover();
 
-  await expect(
-    showcase.getByTestId("tooltip-component").nth(1).locator(".tooltip"),
-  ).toBeVisible();
+  await expect(page.locator(".tooltip").nth(2)).toBeVisible();
 
   await expect(page).toHaveScreenshot();
 });
