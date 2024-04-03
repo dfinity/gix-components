@@ -78,14 +78,13 @@
 </script>
 
 <div class="tooltip-wrapper" data-tid={testId}>
-  <!-- The relevant element passed as the slot should have an appropriate role if necessary.  -->
-  <!-- svelte-ignore a11y-no-static-element-interactions -->
   <div
     class="tooltip-target"
     aria-describedby={id}
     bind:this={target}
     on:mouseenter={onMouseEnter}
     on:mouseleave={onMouseLeave}
+    role="presentation"
   >
     <slot />
   </div>
