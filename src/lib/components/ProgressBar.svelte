@@ -116,7 +116,6 @@
     }
 
     &::-webkit-progress-value {
-      border-radius: var(--current-height);
       box-shadow: var(--input-box-shadow);
     }
 
