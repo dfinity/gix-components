@@ -2,7 +2,7 @@
   import { writable } from "svelte/store";
   import type { SegmentContext, SelectedSegment } from "$lib/types/segment";
   import { SEGMENT_CONTEXT_KEY } from "$lib/types/segment";
-  import { setContext } from "svelte";
+  import { setContext, tick } from "svelte";
   import { isNullish, nonNullish } from "@dfinity/utils";
 
   export let selectedSegmentId: symbol | undefined = undefined;
@@ -31,7 +31,7 @@
   $: selectedElement =
     $store.element ?? segment?.querySelector(".segment-button");
 
-  export const initIndicator = () => {
+  export const initIndicator = async () => {
     if (isNullish(selectedElement)) {
       indicator = undefined;
       return;
@@ -42,6 +42,11 @@
     if (isNullish(parentElement)) {
       indicator = undefined;
       return;
+    }
+
+    // wait for segment buttons take their place
+    if (isNullish(indicator)) {
+      await tick();
     }
 
     const { left: parentClientLeft } = parentElement.getBoundingClientRect();

@@ -12,6 +12,7 @@ describe("Tooltip", () => {
 
     const tooltipElement = container.querySelector(".tooltip");
     expect(tooltipElement).toBeInTheDocument();
+    expect(tooltipElement.classList).not.toContain("not-rendered");
   });
 
   it("should render aria-describedby and relevant id", () => {
@@ -32,7 +33,7 @@ describe("Tooltip", () => {
 
     // But no tooltip should be rendered.
     const tooltipElement = container.querySelector(".tooltip");
-    expect(tooltipElement).not.toBeInTheDocument();
+    expect(tooltipElement.classList).toContain("not-rendered");
   });
 
   it("should hide with undefined text", () => {
@@ -45,6 +46,13 @@ describe("Tooltip", () => {
 
     // But no tooltip should be rendered.
     const tooltipElement = container.querySelector(".tooltip");
-    expect(tooltipElement).not.toBeInTheDocument();
+    expect(tooltipElement.classList).toContain("not-rendered");
+  });
+
+  it("should place tooltip directly in body element to evade overflow:hidden", () => {
+    const { container } = render(TooltipTest, { text: undefined });
+
+    const tooltipElement = container.querySelector(".tooltip");
+    expect(tooltipElement.parentElement).toBe(document.body);
   });
 });
