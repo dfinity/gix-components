@@ -60,17 +60,3 @@ const getNewTooltipPosition = ({
     y: newTooltipY,
   };
 };
-
-// Finds the first ancestor with hidden horizontal overflow.
-export const getOverflowContainer = (element: HTMLElement): HTMLElement => {
-  let container = element;
-
-  while (container.parentElement) {
-    const style = window.getComputedStyle(container);
-    if (style.overflow === "hidden" || style.overflowX === "hidden") {
-      return container;
-    }
-    container = container.parentElement;
-  }
-  return container;
-};
