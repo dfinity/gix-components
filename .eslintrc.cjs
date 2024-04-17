@@ -38,6 +38,7 @@ module.exports = {
       },
     ],
     "no-underscore-dangle": "off",
+    'no-console': ['error', { allow: ['error', 'warn'] }],
   },
   globals: {
     NodeJS: true,
