@@ -6,13 +6,14 @@
 
   export let checked: boolean;
   export let ariaLabel: string;
+  export let disabled = false;
 
   const dispatch = createEventDispatcher();
 
   const id = nextElementId("toggle-");
 </script>
 
-<div class="toggle">
+<div class="toggle" class:disabled>
   <input
     type="checkbox"
     {id}
@@ -20,6 +21,7 @@
       dispatch("nnsToggle", currentTarget.checked)}
     {checked}
     aria-label={ariaLabel}
+    {disabled}
   />
   <label for={id} />
 </div>
@@ -30,10 +32,14 @@
   }
 
   .toggle {
-    display: flex;
+    display: inline-flex;
     // justify-content: center;
     align-items: center;
     margin-top: 1px;
+
+    &.disabled {
+      opacity: var(--toggle-disabled-opacity, 0.25);
+    }
   }
 
   .toggle label {
