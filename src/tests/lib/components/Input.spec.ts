@@ -281,8 +281,6 @@ describe("Input", () => {
       props: { ...props, ignore1Password: false },
     });
 
-    console.log(container.outerHTML);
-
     testHasAttribute({
       container,
       attribute: "data-1p-ignore",
