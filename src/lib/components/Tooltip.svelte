@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount, onDestroy } from "svelte";
-  import { notEmptyString } from "@dfinity/utils";
+  import { nonNullish, notEmptyString } from "@dfinity/utils";
   import { translateTooltip } from "$lib/utils/tooltip.utils";
 
   export let id: string;
@@ -66,7 +66,7 @@
 
   onMount(async () => {
     // Move tooltip to the body to avoid it being cut off by overflow: hidden.
-    document.body.appendChild(tooltipComponent);
+    nonNullish(tooltipComponent) && document.body.appendChild(tooltipComponent);
   });
 
   let destroyed = false;
