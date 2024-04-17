@@ -25,6 +25,7 @@ Toggle switch gives control over a feature or option that can be turned on or of
 | Property    | Description                                                                                         | Type      | Default |
 | ----------- | --------------------------------------------------------------------------------------------------- | --------- | ------- |
 | `checked`   | Bind the `checked` attribute of the HTML input of type `checkbox` that is rendered by the component | `boolean` |         |
+| `disabled`  | Disallow changes on the checkbox                                                                    | `boolean` | `false` |
 | `ariaLabel` | An accessible label for the toggler                                                                 | `string`  |         |
 
 ## Events
@@ -35,8 +36,19 @@ Toggle switch gives control over a feature or option that can be turned on or of
 
 ## Showcase
 
+<div class="card-grid">
+
 <Toggle
-    on:nnsToggle={toggle}
-    ariaLabel="Showcase toggle"
-    checked={false}
+on:nnsToggle={toggle}
+ariaLabel="Showcase toggle"
+checked={false}
 />
+
+<Toggle
+on:nnsToggle={toggle}
+ariaLabel="Showcase toggle disabled"
+checked={true}
+disabled
+/>
+
+</div>
