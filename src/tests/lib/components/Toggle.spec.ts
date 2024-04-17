@@ -15,6 +15,25 @@ describe("Toggle", () => {
     expect(input.getAttribute("type")).toEqual("checkbox");
   });
 
+  it("should render a checkbox enabled", () => {
+    const { container } = render(Toggle, { props });
+
+    const input = container.querySelector("input") as HTMLInputElement;
+    expect(input?.hasAttribute("disabled")).toBeFalsy();
+  });
+
+  it("should render a checkbox disabled", () => {
+    const { container } = render(Toggle, {
+      props: {
+        ...props,
+        disabled: true,
+      },
+    });
+
+    const input = container.querySelector("input") as HTMLInputElement;
+    expect(input?.hasAttribute("disabled")).toBeTruthy();
+  });
+
   it("should render an aria label", () => {
     const { container } = render(Toggle, { props });
 
