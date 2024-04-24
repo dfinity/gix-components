@@ -51,16 +51,17 @@
     display: flex;
     flex-flow: column;
 
-    // remove extra space because of menu selection touches the edge
-    margin-left: 0;
-
     @include media.min-width(large) {
       flex-flow: row nowrap;
+      // remove extra space because of menu selection touches the edge
+      margin-left: 0;
     }
 
     // Mobile visual border to match the menu selection
     &.open {
       box-shadow: var(--menu-selection-content-box-shadow);
+      // remove extra space because of menu selection touches the edge (when open)
+      margin-left: 0;
     }
   }
 
