@@ -53,7 +53,7 @@
       background: var(--menu-selected-background);
       color: var(--menu-select-color);
 
-      border-radius: var(--border-radius);
+      border-radius: var(--border-radius) 0 0 var(--border-radius);
 
       // Fancy corners for selection touches the edge
       &::before {
