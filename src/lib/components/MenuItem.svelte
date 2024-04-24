@@ -28,6 +28,7 @@
 
   a {
     display: flex;
+    position: relative;
     justify-content: flex-start;
     align-items: center;
 
@@ -52,7 +53,34 @@
       background: var(--menu-selected-background);
       color: var(--menu-select-color);
 
-      border-radius: var(--padding);
+      border-radius: var(--border-radius);
+
+      // Fancy corners for selection touches the edge
+      &::before {
+        content: "";
+        position: absolute;
+
+        background-color: transparent;
+        right: 0;
+        bottom: calc(-2 * var(--border-radius));
+        height: calc(2 * var(--border-radius));
+        width: var(--border-radius);
+        border-top-right-radius: var(--border-radius);
+        box-shadow: 0 calc(-1 * var(--border-radius)) 0 0
+          var(--menu-selected-background);
+      }
+      &::after {
+        content: "";
+        position: absolute;
+
+        background-color: transparent;
+        right: 0;
+        top: calc(-2 * var(--border-radius));
+        height: calc(2 * var(--border-radius));
+        width: var(--border-radius);
+        border-bottom-right-radius: var(--border-radius);
+        box-shadow: 0 var(--border-radius) 0 0 var(--menu-selected-background);
+      }
     }
 
     &:not(.selected):focus,
