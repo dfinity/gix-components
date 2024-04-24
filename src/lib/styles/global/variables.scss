@@ -100,5 +100,6 @@
   --nav-component-title-display: block;
 
   // Menu selection
-  --menu-selection-content-box-shadow: inset var(--padding-0_5x) 0px 0px 0px var(--menu-selected-background);
+  --menu-selection-content-box-shadow: inset var(--padding-0_5x) 0px 0px 0px
+    var(--menu-selected-background);
 }
