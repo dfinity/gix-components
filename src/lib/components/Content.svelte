@@ -16,6 +16,7 @@
 
 <div
   class="content"
+  class:open={$layoutMenuOpen}
   style={`--layout-bottom-offset: calc(${$layoutBottomOffset}px - var(--content-margin)); --content-overflow-y: ${$layoutContentScrollY}`}
 >
   <Header {back} on:nnsBack>
@@ -39,11 +40,17 @@
     @include layout.content;
     @include layout.content-offset;
 
-    // remove extra space because of menu selection touches the edge
+    // Remove extra space because of menu selection touches the edge
     margin-left: 0;
+    @include media.min-width(large) {
+      box-shadow: inset var(--padding-0_5x) 0px 0px 0px
+        var(--menu-selected-background);
+    }
 
-    box-shadow: inset var(--padding-0_5x) 0px 0px 0px
-      var(--menu-selected-background);
+    // Mobile visual border to match the menu selection
+    &.open {
+      box-shadow: var(--menu-selection-content-box-shadow);
+    }
   }
 
   .scrollable-content {
