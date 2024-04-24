@@ -41,6 +41,9 @@
 
     // remove extra space because of menu selection touches the edge
     margin-left: 0;
+
+    box-shadow: inset var(--padding-0_5x) 0px 0px 0px
+      var(--menu-selected-background);
   }
 
   .scrollable-content {
