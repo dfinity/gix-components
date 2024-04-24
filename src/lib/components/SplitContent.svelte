@@ -49,6 +49,9 @@
     display: flex;
     flex-flow: column;
 
+    // remove extra space because of menu selection touches the edge
+    margin-left: 0;
+
     @include media.min-width(large) {
       flex-flow: row nowrap;
     }

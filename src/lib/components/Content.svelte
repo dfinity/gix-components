@@ -38,6 +38,9 @@
   .content {
     @include layout.content;
     @include layout.content-offset;
+
+    // remove extra space because of menu selection touches the edge
+    margin-left: 0;
   }
 
   .scrollable-content {

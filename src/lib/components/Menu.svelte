@@ -64,6 +64,8 @@
             var(--header-offset, 0px)
         )
         var(--padding-2x) 0;
+      // remove extra space because of menu selection touches the edge
+      padding-right: 0;
     }
 
     position: relative;
