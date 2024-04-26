@@ -61,9 +61,11 @@
     @include media.min-width(large) {
       padding: calc(
           var(--menu-logo-height) + var(--padding-3x) +
-            var(--header-offset, 0px)
+            var(--header-offset, 0px) - var(--menu-selection-outer-radius)
         )
         var(--padding-2x) 0;
+      // remove extra space because of menu selection touches the edge
+      padding-right: 0;
     }
 
     position: relative;
@@ -73,6 +75,10 @@
     display: flex;
     flex-direction: column;
     gap: var(--padding-0_5x);
+
+    // More space for menu selection touches the edge;
+    // otherwise the first selected menu entry would be cut off in mobile view.
+    padding-top: var(--menu-selection-outer-radius);
 
     width: 0;
     max-width: 100vw;

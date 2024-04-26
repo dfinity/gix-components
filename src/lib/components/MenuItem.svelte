@@ -28,6 +28,7 @@
 
   a {
     display: flex;
+    position: relative;
     justify-content: flex-start;
     align-items: center;
 
@@ -52,7 +53,35 @@
       background: var(--menu-selected-background);
       color: var(--menu-select-color);
 
-      border-radius: var(--padding);
+      border-radius: var(--border-radius) 0 0 var(--border-radius);
+
+      // Fancy corners for selection touches the edge
+      &::before {
+        content: "";
+        position: absolute;
+
+        background-color: transparent;
+        right: 0;
+        bottom: calc(-2 * var(--menu-selection-outer-radius));
+        height: calc(2 * var(--menu-selection-outer-radius));
+        width: var(--menu-selection-outer-radius);
+        border-top-right-radius: var(--menu-selection-outer-radius);
+        box-shadow: 0 calc(-1 * var(--menu-selection-outer-radius)) 0 0
+          var(--menu-selected-background);
+      }
+      &::after {
+        content: "";
+        position: absolute;
+
+        background-color: transparent;
+        right: 0;
+        top: calc(-2 * var(--menu-selection-outer-radius));
+        height: calc(2 * var(--menu-selection-outer-radius));
+        width: var(--menu-selection-outer-radius);
+        border-bottom-right-radius: var(--menu-selection-outer-radius);
+        box-shadow: 0 var(--menu-selection-outer-radius) 0 0
+          var(--menu-selected-background);
+      }
     }
 
     &:not(.selected):focus,

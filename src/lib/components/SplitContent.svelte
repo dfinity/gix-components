@@ -3,6 +3,7 @@
   import {
     layoutBottomOffset,
     layoutContentScrollY,
+    layoutMenuOpen,
   } from "$lib/stores/layout.store";
   import Header from "$lib/components/Header.svelte";
   import ContentBackdrop from "$lib/components/ContentBackdrop.svelte";
@@ -15,6 +16,7 @@
 
 <div
   class="content"
+  class:open={$layoutMenuOpen}
   style={`--layout-bottom-offset: ${$layoutBottomOffset}px; --content-overflow-y: ${$layoutContentScrollY}`}
 >
   <div class="start">
@@ -51,6 +53,15 @@
 
     @include media.min-width(large) {
       flex-flow: row nowrap;
+      // remove extra space because of menu selection touches the edge
+      margin-left: 0;
+    }
+
+    // Mobile visual border to match the menu selection
+    &.open {
+      box-shadow: var(--menu-selection-content-box-shadow);
+      // remove extra space because of menu selection touches the edge (when open)
+      margin-left: 0;
     }
   }
 
