@@ -44,7 +44,6 @@
   @use "../styles/mixins/media";
 
   div[role="menu"] {
-    --menu-selection-border-edge: var(--border-radius);
     @include interaction.initial;
 
     box-sizing: border-box;
@@ -62,7 +61,7 @@
     @include media.min-width(large) {
       padding: calc(
           var(--menu-logo-height) + var(--padding-3x) +
-            var(--header-offset, 0px) - var(--menu-selection-border-edge)
+            var(--header-offset, 0px) - var(--menu-selection-outer-radius)
         )
         var(--padding-2x) 0;
       // remove extra space because of menu selection touches the edge
@@ -77,8 +76,9 @@
     flex-direction: column;
     gap: var(--padding-0_5x);
 
-    // More space for menu selection touches the edge
-    padding-top: var(--menu-selection-border-edge);
+    // More space for menu selection touches the edge;
+    // otherwise the first selected menu entry would be cut off in mobile view.
+    padding-top: var(--menu-selection-outer-radius);
 
     width: 0;
     max-width: 100vw;

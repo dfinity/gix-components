@@ -100,6 +100,7 @@
   --nav-component-title-display: block;
 
   // Menu selection
+  --menu-selection-outer-radius: var(--border-radius-2x);
   --menu-selection-content-box-shadow: inset 2px 0 0 0
     var(--menu-selected-background);
 }
