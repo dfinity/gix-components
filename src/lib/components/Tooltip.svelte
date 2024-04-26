@@ -85,6 +85,7 @@
     on:mouseenter={onMouseEnter}
     on:mouseleave={onMouseLeave}
     role="presentation"
+    title=""
   >
     <slot />
   </div>
