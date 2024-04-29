@@ -1,5 +1,5 @@
 import Toggle from "$lib/components/Toggle.svelte";
-import { fireEvent, render } from "@testing-library/svelte";
+import { fireEvent, render, waitFor } from "@testing-library/svelte";
 
 describe("Toggle", () => {
   const props = {
@@ -52,5 +52,41 @@ describe("Toggle", () => {
     fireEvent.click(input);
 
     expect(onToggle).toBeCalled();
+  });
+
+  it("should toggle checked with keyboard", () => {
+    const { component, container } = render(Toggle, { props });
+
+    const toggle = container.querySelector("div.toggle") as HTMLDivElement;
+
+    const onToggle = vi.fn();
+    component.$on("nnsToggle", onToggle);
+
+    fireEvent.keyDown(toggle, { code: "Space" });
+
+    expect(onToggle).toBeCalled();
+  });
+
+  it("should reflect toggle state on aria pressed", async () => {
+    const { container } = render(Toggle, { props });
+
+    const toggle = container.querySelector("div.toggle") as HTMLDivElement;
+
+    expect(toggle.getAttribute("aria-pressed")).toEqual("false");
+
+    fireEvent.keyDown(toggle, { code: "Space" });
+
+    await waitFor(() =>
+      expect(toggle.getAttribute("aria-pressed")).toEqual("true"),
+    );
+  });
+
+  it("should have an accessible toggle", () => {
+    const { container } = render(Toggle, { props });
+
+    const toggle = container.querySelector("div.toggle") as HTMLDivElement;
+
+    expect(toggle.getAttribute("role")).toEqual("button");
+    expect(toggle.getAttribute("tabindex")).toEqual("0");
   });
 });

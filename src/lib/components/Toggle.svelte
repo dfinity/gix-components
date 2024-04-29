@@ -11,14 +11,38 @@
   const dispatch = createEventDispatcher();
 
   const id = nextElementId("toggle-");
+
+  let input: HTMLInputElement | undefined;
+
+  const onKeyDown = ({ code }: KeyboardEvent) => {
+    if (code !== "Space") {
+      return;
+    }
+
+    input?.click();
+  };
+
+  let toggle = checked;
+
+  const onInput = (checked: boolean) => {
+    dispatch("nnsToggle", checked);
+    toggle = checked;
+  };
 </script>
 
-<div class="toggle" class:disabled>
+<div
+  class="toggle"
+  class:disabled
+  tabindex="0"
+  role="button"
+  on:keydown={onKeyDown}
+  aria-pressed={toggle}
+>
   <input
+    bind:this={input}
     type="checkbox"
     {id}
-    on:input={({ currentTarget }) =>
-      dispatch("nnsToggle", currentTarget.checked)}
+    on:input={({ currentTarget }) => onInput(currentTarget.checked)}
     {checked}
     aria-label={ariaLabel}
     {disabled}
@@ -36,6 +60,8 @@
     // justify-content: center;
     align-items: center;
     margin-top: 1px;
+
+    width: fit-content;
 
     &.disabled {
       opacity: var(--toggle-disabled-opacity, 0.25);
