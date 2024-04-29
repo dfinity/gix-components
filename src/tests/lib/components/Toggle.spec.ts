@@ -67,6 +67,20 @@ describe("Toggle", () => {
     expect(onToggle).toBeCalled();
   });
 
+  it("should not toggle checked with another keyboard event than Space", () => {
+    const { component, container } = render(Toggle, { props });
+
+    const toggle = container.querySelector("div.toggle") as HTMLDivElement;
+
+    const onToggle = vi.fn();
+    component.$on("nnsToggle", onToggle);
+
+    fireEvent.keyDown(toggle, { code: "a" });
+
+    expect(onToggle).not.toBeCalled();
+    expect(toggle.getAttribute("aria-pressed")).toEqual("false");
+  });
+
   it("should reflect toggle state on aria pressed", async () => {
     const { container } = render(Toggle, { props });
 
