@@ -30,7 +30,15 @@
 
   const modalTitleId = nextElementId("modal-title-");
   const modalContentId = nextElementId("modal-content-");
+
+  const handleKeyDown = ({ key }) => {
+    if (visible && !disablePointerEvents && key === "Escape") {
+      close();
+    }
+  };
 </script>
+
+<svelte:window on:keydown={handleKeyDown} />
 
 {#if visible}
   <div
