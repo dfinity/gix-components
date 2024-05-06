@@ -6,7 +6,7 @@
   import Backdrop from "$lib/components/Backdrop.svelte";
   import { nonNullish } from "@dfinity/utils";
   import { nextElementId } from "$lib/utils/html.utils";
-  import {busy} from "$lib/stores/busy.store";
+  import { busy } from "$lib/stores/busy.store";
 
   export let visible = true;
   export let role: "dialog" | "alert" = "dialog";
@@ -32,7 +32,7 @@
   const modalTitleId = nextElementId("modal-title-");
   const modalContentId = nextElementId("modal-content-");
 
-  const handleKeyDown = ({key}) => {
+  const handleKeyDown = ({ key }) => {
     // Check for $busy to mock the same behavior as the close button being covered by the busy overlay
     if (visible && !disablePointerEvents && !$busy && key === "Escape") {
       close();
