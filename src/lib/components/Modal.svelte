@@ -31,8 +31,8 @@
   const modalTitleId = nextElementId("modal-title-");
   const modalContentId = nextElementId("modal-content-");
 
-  const handleKeyDown = (event: KeyboardEvent) => {
-    if (visible && !disablePointerEvents && event.key === "Escape") {
+  const handleKeyDown = ({key}) => {
+    if (visible && !disablePointerEvents && key === "Escape") {
       close();
     }
   };
