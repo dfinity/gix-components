@@ -20,6 +20,7 @@
   <div
     bind:clientWidth={absolutOffset}
     in:fly|global={{ x: slideOffset, duration: ANIMATION_DURATION }}
+    class="transition"
   >
     <slot />
   </div>
