@@ -123,6 +123,19 @@ describe("Modal", () => {
       backdrop && fireEvent.click(backdrop);
     }));
 
+  it("should trigger close modal on Esc", () =>
+    new Promise<void>((done) => {
+      const { container, component } = render(Modal, {
+        props,
+      });
+
+      component.$on("nnsClose", () => {
+        done();
+      });
+
+      fireEvent.keyDown(container, { key: "Escape" });
+    }));
+
   it("should not have a data-tid attribute", () => {
     const { container } = render(Modal, {
       props: {
