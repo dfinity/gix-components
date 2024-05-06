@@ -1,3 +1,4 @@
+import { startBusy } from "$lib";
 import Modal from "$lib/components/Modal.svelte";
 import { fireEvent, render } from "@testing-library/svelte";
 import ModalTest from "./ModalTest.svelte";
@@ -147,6 +148,20 @@ describe("Modal", () => {
 
     fireEvent.keyDown(container, { key: "Enter" });
     fireEvent.keyDown(container, { key: "Backspace" });
+  });
+
+  it("should not close modal on Esc when busy = true", () => {
+    const { container, component } = render(Modal, {
+      props,
+    });
+
+    startBusy({ initiator: "stake-neuron" });
+
+    component.$on("nnsClose", () => {
+      throw new Error("Should not close modal");
+    });
+
+    fireEvent.keyDown(container, { key: "Escape" });
   });
 
   it("should not have a data-tid attribute", () => {
