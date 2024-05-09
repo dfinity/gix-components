@@ -8,8 +8,8 @@ export const initAnalytics = async () => {
     return;
   }
 
-  const SATELLITE_ID = import.meta.env.VITE_JUNO_SATELLITE_ID;
-  const ORBITER_ID = import.meta.env.VITE_JUNO_ORBITER_ID;
+  const SATELLITE_ID = import.meta.env.VITE_SATELLITE_ID;
+  const ORBITER_ID = import.meta.env.VITE_ORBITER_ID;
 
   await initOrbiter({
     satelliteId: SATELLITE_ID,
