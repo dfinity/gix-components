@@ -32,7 +32,7 @@
   const modalTitleId = nextElementId("modal-title-");
   const modalContentId = nextElementId("modal-content-");
 
-  const handleKeyDown = ({ key }) => {
+  const handleKeyDown = ({ key }: KeyboardEvent) => {
     // Check for $busy to mock the same behavior as the close button being covered by the busy overlay
     if (visible && !disablePointerEvents && !$busy && key === "Escape") {
       close();
