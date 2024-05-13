@@ -36,7 +36,8 @@
     "LICENSE"
   ],
   "devDependencies": {
-    "@junobuild/analytics": "^0.0.18",
+    "@junobuild/config": "^0.0.6",
+    "@junobuild/vite-plugin": "^0.0.12",
     "@playwright/test": "^1.41.2",
     "@sveltejs/adapter-static": "^3.0.1",
     "@sveltejs/kit": "^2.5.0",
@@ -68,6 +69,7 @@
     "vitest": "^1.2.2"
   },
   "dependencies": {
+    "@junobuild/analytics": "^0.0.22",
     "dompurify": "^3.0.8",
     "html5-qrcode": "^2.3.8",
     "qr-creator": "^1.0.0"

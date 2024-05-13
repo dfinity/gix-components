@@ -1,9 +1,10 @@
+import juno from "@junobuild/vite-plugin";
 import { sveltekit } from "@sveltejs/kit/vite";
 import { resolve } from "path";
 
 /** @type {import('vite').UserConfig} */
 const config = {
-  plugins: [sveltekit()],
+  plugins: [sveltekit(), juno()],
   resolve: {
     alias: {
       $docs: resolve("./src/docs"),
