@@ -35,7 +35,7 @@
 
   const handleKeyDown = ({ key }: KeyboardEvent) => {
     // Check for $busy to mock the same behavior as the close button being covered by the busy overlay
-    if (visible && !disablePointerEvents && get(busy) && key === "Escape") {
+    if (visible && !disablePointerEvents && !get(busy) && key === "Escape") {
       close();
     }
   };
