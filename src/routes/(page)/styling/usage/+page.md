@@ -6,7 +6,7 @@ Within a `script` tag in your layout or app, import the `global.scss` of the lib
 
 ```html
 <_style lang="scss" global>
-  @import "@dfinity/gix-components/styles/global.scss";
+  @import "@dfinity/gix-components/dist/styles/global.scss";
 </_style>
 ```
 
