@@ -7,6 +7,7 @@
   import { nonNullish } from "@dfinity/utils";
   import { nextElementId } from "$lib/utils/html.utils";
   import { busy } from "$lib/stores/busy.store";
+  import { get } from "svelte/store";
 
   export let visible = true;
   export let role: "dialog" | "alert" = "dialog";
@@ -34,7 +35,7 @@
 
   const handleKeyDown = ({ key }: KeyboardEvent) => {
     // Check for $busy to mock the same behavior as the close button being covered by the busy overlay
-    if (visible && !disablePointerEvents && !$busy && key === "Escape") {
+    if (visible && !disablePointerEvents && !get(busy) && key === "Escape") {
       close();
     }
   };
