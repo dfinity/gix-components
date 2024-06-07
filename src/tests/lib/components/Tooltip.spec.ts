@@ -44,9 +44,9 @@ describe("Tooltip", () => {
     ).toBeInTheDocument();
   });
 
-  it("should render different ID per tooltip when not specifying any ID", () => {
-    render(TooltipTest, { text: "text", idPrefix });
-    const { container } = render(TooltipTest, { text: "text", idPrefix });
+  it("should render different ID per tooltip when not specifying any id or idPrefix", () => {
+    render(TooltipTest, { text: "text" });
+    const { container } = render(TooltipTest, { text: "text" });
     const tooltipTargets = container.querySelectorAll(".tooltip-target");
     expect(tooltipTargets).toHaveLength(2);
     const describedBy1 = tooltipTargets[0].getAttribute("aria-describedby");
