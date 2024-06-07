@@ -1,9 +1,14 @@
+<script lang="ts" context="module">
+  let nextTooltipIdSuffix = 0;
+</script>
+
 <script lang="ts">
   import { onMount, onDestroy } from "svelte";
   import { nonNullish, notEmptyString } from "@dfinity/utils";
   import { translateTooltip } from "$lib/utils/tooltip.utils";
 
-  export let id: string;
+  export let id: string | undefined = undefined;
+  export let idPrefix = "tooltip";
   export let testId = "tooltip-component";
   export let text: string | undefined = undefined;
   export let noWrap = false;
@@ -16,6 +21,8 @@
   let tooltipTransformX = 0;
   let tooltipTransformY = 0;
   let tooltipStyle: string | undefined = undefined;
+
+  let idToUse = nonNullish(id) ? id : `${idPrefix}-${nextTooltipIdSuffix++}`;
 
   $: tooltipStyle = `--tooltip-transform-x: ${tooltipTransformX}px; --tooltip-transform-y: ${tooltipTransformY}px;`;
 
@@ -80,7 +87,7 @@
 <div class="tooltip-wrapper" data-tid={testId}>
   <div
     class="tooltip-target"
-    aria-describedby={id}
+    aria-describedby={idToUse}
     bind:this={target}
     on:mouseenter={onMouseEnter}
     on:mouseleave={onMouseLeave}
@@ -92,7 +99,7 @@
   <div
     class="tooltip"
     role="tooltip"
-    {id}
+    id={idToUse}
     class:noWrap
     class:top
     class:not-rendered={!notEmptyString(text)}
