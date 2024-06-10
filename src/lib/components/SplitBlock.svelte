@@ -28,7 +28,7 @@
   hr {
     margin: 0;
     height: 1px;
-    background: var(--line);
+    background: var(--elements-divider);
     border: none;
 
     @include media.min-width(large) {
