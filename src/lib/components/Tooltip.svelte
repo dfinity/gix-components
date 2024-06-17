@@ -3,8 +3,8 @@
 </script>
 
 <script lang="ts">
+  import { isNullish, nonNullish, notEmptyString } from "@dfinity/utils";
   import { onMount, onDestroy } from "svelte";
-  import { nonNullish, notEmptyString } from "@dfinity/utils";
   import { translateTooltip } from "$lib/utils/tooltip.utils";
 
   export let id: string | undefined = undefined;
@@ -24,6 +24,9 @@
 
   let idToUse = nonNullish(id) ? id : `${idPrefix}-${nextTooltipIdSuffix++}`;
 
+  let isAbsent: boolean;
+  $: isAbsent = isNullish($$slots["tooltip-content"]) && !notEmptyString(text);
+
   $: tooltipStyle = `--tooltip-transform-x: ${tooltipTransformX}px; --tooltip-transform-y: ${tooltipTransformY}px;`;
 
   const setPosition = () => {
@@ -33,7 +36,7 @@
       return;
     }
 
-    if (!notEmptyString(text)) {
+    if (isAbsent) {
       return;
     }
 
@@ -102,12 +105,12 @@
     id={idToUse}
     class:noWrap
     class:top
-    class:not-rendered={!notEmptyString(text)}
+    class:not-rendered={isAbsent}
     class:visible={targetIsHovered}
     bind:this={tooltipComponent}
     style={tooltipStyle}
   >
-    {text}
+    {#if nonNullish(text)}{text}{/if}<slot name="tooltip-content" />
   </div>
 </div>
 

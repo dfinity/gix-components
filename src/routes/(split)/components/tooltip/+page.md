@@ -100,9 +100,11 @@ The tooltips will appear when the buttons are hovered or tapped.
       <Tooltip
         id="example-button"
         top={true}
-        text={tooltipText}
       >
         <button class="secondary" disabled>Disabled</button>
+        <div slot="tooltip-content">
+          This is tooltip has <b><i>rich</i></b> content.
+        </div>
       </Tooltip>
     </div>
   </div>
