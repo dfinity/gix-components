@@ -19,7 +19,7 @@
   let target: HTMLDivElement | undefined = undefined;
   let targetIsHovered = false;
   let tooltipTransformX = 0;
-  let tooltipTransformY = 0;
+      let tooltipTransformY = 0;
   let tooltipStyle: string | undefined = undefined;
 
   let idToUse = nonNullish(id) ? id : `${idPrefix}-${nextTooltipIdSuffix++}`;
