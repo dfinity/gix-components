@@ -37,7 +37,7 @@
     }
 
     if (isAbsent) {
-      return;
+return;
     }
 
     if (tooltipComponent === undefined || target === undefined) {
