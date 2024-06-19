@@ -5,7 +5,8 @@ On large+ screen, the menu can either be displayed as "collapsed" or "expanded".
 A particular mode can be defined by setting a corresponding attribute `menu` on the root `html` element.
 
 ```html
-<!doctype html> <html lang="en" menu="expanded"></html>
+<!doctype html>
+<html lang="en" menu="expanded"></html>
 ```
 
 ## Usage
