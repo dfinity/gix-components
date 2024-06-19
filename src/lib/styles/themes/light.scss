@@ -43,6 +43,13 @@
     /* Design Light/7969C0 (8%)-light */
     --input-border-color: var(--cp-light-150);
 
+    //Tooltip
+    --tooltip-background: var(--cp-dark-900);
+    --tooltip-border-color: var(--cp-dark-hover-overlay);
+    --tooltip-divider: var(--cp-dark-400);
+    --tooltip-description-color: var(--cp-dark-200);
+    --tooltip-text-color: var(--cp-dark-75);
+
     // Dropdown (used for Popover)
     --dropdown-background: var(--cp-light-100);
     --dropdown-focus-background: var(--cp-light-75);

@@ -19,6 +19,7 @@
   --cp-light-opaque: #ffffff40; // --cp-light-50 with 40% opacity
   --cp-light-gradient-1: #d4e7fa;
   --cp-light-gradient-2: #f2dae2;
+  --cp-light-hover-overlay: rgba(255, 255, 255, 0.45);
 
   // dark theme
   --cp-dark-accent: #906bff;
@@ -38,6 +39,7 @@
   --cp-dark-opaque: #00000020;
   --cp-dark-gradient-1: #0f0f4d;
   --cp-dark-gradient-2: #4d1259;
+  --cp-dark-hover-overlay: rgba(0, 0, 0, 0.2);
 
   // Accessory
   --fade: #24143d60;

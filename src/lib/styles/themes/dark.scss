@@ -60,6 +60,14 @@
   --input-border-color: var(--cp-dark-400);
   --input-border-size: 1.5px;
 
+  //Tooltip
+  --tooltip-background: var(--cp-light-75);
+  --tooltip-border-color: var(--cp-light-hover-overlay);
+  --tooltip-divider: var(--cp-light-150);
+  --tooltip-description-color: var(--cp-light-600);
+  --tooltip-text-color: var(--cp-light-900);
+  --tooltip-border-size: 1.5px;
+
   // Dropdown (used for Popover)
   --dropdown-background: var(--cp-dark-500);
   --dropdown-focus-background: var(--cp-dark-450);
