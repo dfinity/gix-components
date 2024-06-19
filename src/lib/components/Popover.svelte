@@ -98,13 +98,13 @@
     display: flex;
     flex-direction: column;
 
-    background-color: var(--tooltip-background);
+    background-color: var(--dropdown-background);
     color: var(--background-contrast);
 
     border-radius: var(--border-radius);
 
     &.with-border {
-      border: var(--tooltip-border-size) solid var(--tooltip-border-color);
+      border: var(--dropdown-border-size) solid var(--dropdown-border-color);
     }
   }
 
