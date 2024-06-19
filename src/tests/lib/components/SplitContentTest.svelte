@@ -1,8 +1,9 @@
-<svelte:options accessors/>
+<svelte:options accessors />
+
 <script lang="ts">
   import SplitContent from "$lib/components/SplitContent.svelte";
 
-export let originalComponent: SplitContent;
+  export let originalComponent: SplitContent;
 </script>
 
 <SplitContent bind:this={originalComponent}>

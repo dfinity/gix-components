@@ -26,8 +26,10 @@ describe("SplitContent", () => {
 
   it("should reset content scroll position", () => {
     const { container, component } = render(SplitContentTest);
-    
-    const scrollableContent = container.querySelector(".scrollable-content-end") as HTMLElement;
+
+    const scrollableContent = container.querySelector(
+      ".scrollable-content-end",
+    ) as HTMLElement;
     scrollableContent.scrollTop = 100;
     expect(scrollableContent.scrollTop).toEqual(100);
 
