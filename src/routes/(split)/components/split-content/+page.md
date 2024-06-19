@@ -18,9 +18,10 @@ A component that renders a header, a column and your content.
 
 ## Properties
 
-| Property | Description                                                     | Type      | Default |
-| -------- | --------------------------------------------------------------- | --------- | ------- |
-| `back`   | Display an arrowed `back` button instead of the hamburger menu. | `boolean` | `false` |
+| Property              | Description                                                     | Type       | Default    |
+| --------------------- | --------------------------------------------------------------- | ---------- | ---------- |
+| `back`                | Display an arrowed `back` button instead of the hamburger menu. | `boolean`  | `false`    |
+| `resetScrollPosition` | A function to reset the scrollable content scroll position.     | `function` | `function` |
 
 ## Slots
 
