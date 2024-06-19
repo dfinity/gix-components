@@ -5,8 +5,7 @@ Two themes - `dark` and `light` - are provided, `dark` being the default theme.
 A particular mode can be defined by setting a corresponding attribute `theme` on the root `html` element.
 
 ```html
-<!doctype html>
-<html lang="en" theme="dark"></html>
+<!doctype html> <html lang="en" theme="dark"></html>
 ```
 
 ## Usage

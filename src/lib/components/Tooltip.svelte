@@ -95,11 +95,8 @@
     on:mouseenter={onMouseEnter}
     on:mouseleave={onMouseLeave}
     role="presentation"
-    title=""
-  >
-    <slot />
-  </div>
-  <div
+    title=""><slot /></div
+  ><div
     class="tooltip"
     role="tooltip"
     id={idToUse}
@@ -109,10 +106,9 @@
     class:visible={targetIsHovered}
     bind:this={tooltipComponent}
     style={tooltipStyle}
-  >
-    {#if nonNullish(text)}{text}{/if}<slot name="tooltip-content" />
-  </div>
-</div>
+    >{#if nonNullish(text)}{text}{/if}<slot name="tooltip-content" /></div
+  ></div
+>
 
 <style lang="scss">
   .tooltip-wrapper {
