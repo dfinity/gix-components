@@ -9,6 +9,13 @@
   import ContentBackdrop from "$lib/components/ContentBackdrop.svelte";
 
   export let back = false;
+  export const resetScrollPosition = () => {
+    if (scrollableElement) {
+      scrollableElement.scrollTop = 0;
+    }
+  };
+
+  let scrollableElement: HTMLElement | undefined;
 
   // Same as in <Content />
   onDestroy(() => ($layoutBottomOffset = 0));
@@ -33,7 +40,7 @@
       <slot name="toolbar-end" slot="toolbar-end" />
     </Header>
 
-    <div class="scrollable-content-end">
+    <div class="scrollable-content-end" bind:this={scrollableElement}>
       <ContentBackdrop />
 
       <slot name="end" />
