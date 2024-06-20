@@ -14,6 +14,17 @@ describe("Tooltip", () => {
     expect(element?.innerHTML).toBe("content");
   });
 
+  it("should render target content without extra whitespace", () => {
+    const { container } = render(TooltipTest, { text: "text", id });
+
+    const element: HTMLParagraphElement | null = container.querySelector(
+      "[data-tid='tooltip-component']",
+    );
+
+    expect(element).toBeInTheDocument();
+    expect(`'${element?.textContent}'`).toBe("'content'");
+  });
+
   it("should render tooltip text content", () => {
     const { container } = render(TooltipTest, { text: "text", id });
 
