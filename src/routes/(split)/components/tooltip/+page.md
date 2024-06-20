@@ -65,18 +65,18 @@ The tooltips will appear when the buttons are hovered or tapped.
     <div class="row">
       <Tooltip
         id="example-button"
+        text="text"
+      >
+        <button class="secondary" disabled>Disabled</button>
+      </Tooltip>
+      <Tooltip
+        id="example-button-1"
         text={tooltipText}
       >
         <button class="secondary" disabled>Disabled</button>
       </Tooltip>
       <Tooltip
-        id="example-button"
-        text={tooltipText}
-      >
-        <button class="secondary" disabled>Disabled</button>
-      </Tooltip>
-      <Tooltip
-        id="example-button"
+        id="example-button-2"
         text={tooltipText}
       >
         <button class="secondary" disabled>Disabled</button>
@@ -84,21 +84,21 @@ The tooltips will appear when the buttons are hovered or tapped.
     </div>
     <div class="row">
       <Tooltip
-        id="example-button"
+        id="example-button-3"
         top={true}
         text={tooltipText}
       >
         <button class="secondary" disabled>Disabled</button>
       </Tooltip>
       <Tooltip
-        id="example-button"
+        id="example-button-4"
         top={true}
         text={tooltipText}
       >
         <button class="secondary" disabled>Disabled</button>
       </Tooltip>
       <Tooltip
-        id="example-button"
+        id="example-button-5"
         top={true}
       >
         <button class="secondary" disabled>Disabled</button>
