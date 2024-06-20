@@ -65,7 +65,7 @@ The tooltips will appear when the buttons are hovered or tapped.
     <div class="row">
       <Tooltip
         id="example-button"
-        text="text"
+        text={tooltipText}
       >
         <button class="secondary" disabled>Disabled</button>
       </Tooltip>
