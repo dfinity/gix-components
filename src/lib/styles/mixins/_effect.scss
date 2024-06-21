@@ -1,10 +1,16 @@
-@mixin ripple-effect($color) {
+@mixin ripple-effect($background, $color: null) {
   &:focus {
-    background: var($color)
-      radial-gradient(circle, transparent 1%, var($color) 1%) center/15000%;
+    @if $color != null {
+      color: $color;
+    }
+    background: var($background)
+      radial-gradient(circle, transparent 1%, var($background) 1%) center/15000%;
   }
 
   &:active {
+    @if $color != null {
+      color: $color;
+    }
     background-color: var(--tertiary);
     background-size: 100%;
     transition: background 0s;
