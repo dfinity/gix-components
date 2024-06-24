@@ -13,7 +13,7 @@ test("Should render tooltip", async ({ page }) => {
     showcase.getByTestId("tooltip-component").nth(2).locator(".tooltip"),
   ).not.toBeVisible();
 
-  const secondTarget = showcase.locator(".tooltip-target").nth(2)
+  const secondTarget = showcase.locator(".tooltip-target").nth(2);
   const secondButton = await secondTarget.locator("button");
   await secondButton.hover();
 
