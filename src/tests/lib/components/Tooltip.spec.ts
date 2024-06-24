@@ -1,4 +1,6 @@
 import { render } from "@testing-library/svelte";
+import { tick } from "svelte";
+import TooltipListTest from "./TooltipListTest.svelte";
 import TooltipTest from "./TooltipTest.svelte";
 
 describe("Tooltip", () => {
@@ -128,5 +130,32 @@ describe("Tooltip", () => {
 
     const tooltipElement = container.querySelector(".tooltip");
     expect(tooltipElement.parentElement).toBe(document.body);
+  });
+
+  it("should keep tooltips directly in body when rearranged", async () => {
+    const tooltip1 = { text: "tooltip1", id: "id1" };
+    const tooltip2 = { text: "tooltip2", id: "id2" };
+    const { container, component } = render(TooltipListTest, {
+      list: [tooltip1, tooltip2],
+    });
+
+    {
+      const tooltipElements = container.querySelectorAll(".tooltip");
+      expect(tooltipElements).toHaveLength(2);
+      expect(tooltipElements[0].parentElement).toBe(document.body);
+      expect(tooltipElements[1].parentElement).toBe(document.body);
+    }
+
+    // After rearranging the components, the tooltips should still be direct
+    // children of the body.
+    component.$set({ list: [tooltip2, tooltip1] });
+    await tick();
+
+    {
+      const tooltipElements = container.querySelectorAll(".tooltip");
+      expect(tooltipElements).toHaveLength(2);
+      expect(tooltipElements[0].parentElement).toBe(document.body);
+      expect(tooltipElements[1].parentElement).toBe(document.body);
+    }
   });
 });
