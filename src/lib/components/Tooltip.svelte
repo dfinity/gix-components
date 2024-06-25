@@ -4,7 +4,7 @@
 
 <script lang="ts">
   import { isNullish, nonNullish, notEmptyString } from "@dfinity/utils";
-  import { onMount, onDestroy } from "svelte";
+  import { afterUpdate, onMount, onDestroy } from "svelte";
   import { translateTooltip } from "$lib/utils/tooltip.utils";
 
   export let id: string | undefined = undefined;
@@ -74,10 +74,14 @@
     targetIsHovered = false;
   };
 
-  onMount(async () => {
+  const moveTooltipToBody = () => {
     // Move tooltip to the body to avoid it being cut off by overflow: hidden.
     nonNullish(tooltipComponent) && document.body.appendChild(tooltipComponent);
-  });
+  };
+
+  onMount(moveTooltipToBody);
+
+  afterUpdate(moveTooltipToBody);
 
   let destroyed = false;
   onDestroy(() => {
