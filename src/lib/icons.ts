@@ -50,6 +50,7 @@ export { default as IconRight } from "./icons/IconRight.svelte";
 export { default as IconRocketLaunch } from "./icons/IconRocketLaunch.svelte";
 export { default as IconSettings } from "./icons/IconSettings.svelte";
 export { default as IconSettingsPage } from "./icons/IconSettingsPage.svelte";
+export { default as IconSort } from "./icons/IconSort.svelte";
 export { default as IconSouth } from "./icons/IconSouth.svelte";
 export { default as IconStackedLineChart } from "./icons/IconStackedLineChart.svelte";
 export { default as IconStakedMaturity } from "./icons/IconStakedMaturity.svelte";
