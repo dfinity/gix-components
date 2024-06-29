@@ -5,11 +5,12 @@
   import type { ToastMsg, ToastPosition } from "$lib/types/toast";
 
   export let position: ToastPosition = "bottom";
+  export let maxVisible: number | undefined = undefined;
 
   let toasts: ToastMsg[] = [];
-  $: toasts = $toastsStore.filter(
-    ({ position: pos }) => (pos ?? "bottom") === position,
-  );
+  $: toasts = $toastsStore
+    .filter(({ position: pos }) => (pos ?? "bottom") === position)
+    .slice(0, maxVisible);
 
   let hasErrors: boolean;
   $: hasErrors =
