@@ -55,7 +55,7 @@ describe("Checkbox", () => {
     let input: HTMLInputElement | null = container.querySelector("input");
     expect(input?.checked).toBeTruthy();
 
-    await rerender( { ...props, checked: false });
+    await rerender({ ...props, checked: false });
 
     input = container.querySelector("input");
     expect(input?.checked).toBeFalsy();
