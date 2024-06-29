@@ -6,16 +6,14 @@ import ModalTest from "./ModalTest.svelte";
 describe("Modal", () => {
   const props: { visible: boolean } = { visible: true };
 
-  it("should display modal", () => {
+  it("should display modal", async () => {
     const { container, rerender } = render(Modal, {
       props: { visible: false },
     });
 
     expect(container.querySelector("div.modal")).toBeNull();
 
-    rerender({
-      props: { visible: true },
-    });
+    await rerender({ visible: true });
 
     expect(container.querySelector("div.modal")).not.toBeNull();
   });
@@ -177,7 +175,7 @@ describe("Modal", () => {
 
   it("should have a single root with data-tid attribute", () => {
     const testId = "my-test-id";
-    const { container } = render(Modal, {
+    const { baseElement } = render(Modal, {
       props: {
         ...props,
         testId,
@@ -185,8 +183,8 @@ describe("Modal", () => {
     });
 
     // Make sure the data-tid encloses everything in the component.
-    expect(container.firstElementChild?.children.length).toBe(1);
-    const modal = container.firstElementChild?.firstElementChild;
+    expect(baseElement.firstElementChild?.children.length).toBe(1);
+    const modal = baseElement.firstElementChild?.firstElementChild;
     expect(modal?.className).toContain("modal");
     expect(modal?.getAttribute("data-tid")).toBe(testId);
   });

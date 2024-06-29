@@ -45,7 +45,7 @@
     "@sveltejs/package": "^2.2.6",
     "@sveltejs/vite-plugin-svelte": "^3.0.2",
     "@testing-library/jest-dom": "^6.4.2",
-    "@testing-library/svelte": "^4.1.0",
+    "@testing-library/svelte": "^5.2.0",
     "@types/dompurify": "^3.0.5",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
