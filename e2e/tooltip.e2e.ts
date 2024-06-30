@@ -13,9 +13,13 @@ test("Should render tooltip", async ({ page }) => {
     showcase.getByTestId("tooltip-component").nth(2).locator(".tooltip"),
   ).not.toBeVisible();
 
-  showcase.locator("button.secondary").nth(2).hover();
+  const secondTarget = showcase.locator(".tooltip-target").nth(2);
+  const secondButton = await secondTarget.locator("button");
+  await secondButton.hover();
 
-  await expect(page.locator(".tooltip").nth(2)).toBeVisible();
+  const tooltipId = await secondTarget.getAttribute("aria-describedby");
+  const tooltip = await page.locator(`[id="${tooltipId}"]`);
+  await expect(tooltip).toBeVisible();
 
   await expect(page).toHaveScreenshot();
 });
