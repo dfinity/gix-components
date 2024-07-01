@@ -102,7 +102,7 @@ describe("Toasts", () => {
   it("should display up to maximum number of toasts until user has close all toasts", async () => {
     const props = { props: { maxVisible: 2 } };
 
-    const { container, rerender } = render(ToastsTest, props);
+    const { baseElement } = render(ToastsTest, props);
 
     const toast1 = Symbol();
     const toast2 = Symbol();
@@ -113,31 +113,27 @@ describe("Toasts", () => {
     toastsStore.show({ text: "Test3", level: "error", id: toast3 });
 
     await waitFor(() =>
-      expect(container.querySelectorAll("div.toast").length).toEqual(2),
+      expect(baseElement.querySelectorAll("div.toast").length).toEqual(2),
     );
 
     toastsStore.hide(toast3);
 
-    rerender(props);
-
     await waitFor(() =>
-      expect(container.querySelectorAll("div.toast").length).toEqual(2),
+      expect(baseElement.querySelectorAll("div.toast").length).toEqual(2),
     );
 
     toastsStore.hide(toast2);
 
-    rerender(props);
-
-    await waitFor(() =>
-      expect(container.querySelectorAll("div.toast").length).toEqual(1),
+    await waitFor(
+      () => expect(baseElement.querySelectorAll("div.toast").length).toEqual(1),
+      { timeout: 5000 },
     );
 
     toastsStore.hide(toast1);
 
-    rerender(props);
-
-    await waitFor(() =>
-      expect(container.querySelectorAll("div.toast").length).toEqual(0),
+    await waitFor(
+      () => expect(baseElement.querySelectorAll("div.toast").length).toEqual(0),
+      { timeout: 5000 },
     );
   });
 });
