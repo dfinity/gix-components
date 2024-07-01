@@ -47,7 +47,7 @@ describe("Checkbox", () => {
     expect(input?.hasAttribute("disabled")).toBeTruthy();
   });
 
-  it("should react to checked", () => {
+  it("should react to checked", async () => {
     const { container, rerender } = render(Checkbox, {
       props,
     });
@@ -55,9 +55,7 @@ describe("Checkbox", () => {
     let input: HTMLInputElement | null = container.querySelector("input");
     expect(input?.checked).toBeTruthy();
 
-    rerender({
-      props: { ...props, checked: false },
-    });
+    await rerender({ ...props, checked: false });
 
     input = container.querySelector("input");
     expect(input?.checked).toBeFalsy();
