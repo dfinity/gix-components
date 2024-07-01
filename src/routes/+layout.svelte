@@ -23,7 +23,7 @@
   <slot />
 </Layout>
 
-<Toasts />
+<Toasts maxVisible={3} />
 <Toasts position="top" />
 
 <style lang="scss">
