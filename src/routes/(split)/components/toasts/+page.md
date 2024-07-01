@@ -88,6 +88,12 @@ A Toast is a subtle notification commonly used in modern applications. It can be
 
 The `<Toasts />` component should be provided once - per `position` for your dapp. Commonly added to your root layout.
 
+```html
+<!-- Default position is bottom -->
+<Toasts />
+<Toasts position="top" />
+```
+
 Showing or hiding messages happen through the use of a `toastsStore`:
 
 ```typescript
@@ -95,6 +101,12 @@ toastsStore.show({
   text: "Hello World",
   level: "info",
 });
+```
+
+The `Toasts` component can optionally limit the maximum number of toasts displayed on the screen. This can be configured using the `maxVisible` property.
+
+```html
+<Toasts maxVisible={3} />
 ```
 
 ## Properties
