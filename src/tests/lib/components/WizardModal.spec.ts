@@ -28,7 +28,7 @@ describe("WizardModal", () => {
 
   it("should have a single root with data-tid attribute", () => {
     const testId = "my-test-id";
-    const { container } = render(WizardModal, {
+    const { baseElement } = render(WizardModal, {
       props: {
         ...props,
         testId,
@@ -36,8 +36,8 @@ describe("WizardModal", () => {
     });
 
     // Make sure the data-tid encloses everything in the component.
-    expect(container.firstElementChild?.children.length).toBe(1);
-    const modal = container.firstElementChild?.firstElementChild;
+    expect(baseElement.firstElementChild?.children.length).toBe(1);
+    const modal = baseElement.firstElementChild?.firstElementChild;
     expect(modal?.className).toContain("modal");
     expect(modal?.getAttribute("data-tid")).toBe(testId);
   });
