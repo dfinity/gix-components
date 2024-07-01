@@ -5,22 +5,18 @@
 
 <svg
   xmlns="http://www.w3.org/2000/svg"
+  width={DEFAULT_ICON_SIZE}
   height={DEFAULT_ICON_SIZE}
   viewBox="0 0 20 20"
-  width={DEFAULT_ICON_SIZE}
   fill="currentColor"
 >
-  <g clip-path="url(#a)">
-    <circle cx="10" cy="10" r="10" />
-    <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
-      d="M9.17578 10.6794v3.18h1.50002v-3.18h3.1836v-1.5h-3.1836V6H9.17578v3.1794H6v1.5h3.17578Z"
-    />
+  <g clip-path="url(#clip0_3869_15891)">
+    <circle cx="10" cy="10" r="10"/>
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.17578 10.6794V13.8594H10.6758V10.6794H13.8594V9.1794H10.6758V6H9.17578V9.1794H6V10.6794H9.17578Z" fill="white"/>
   </g>
   <defs>
-    <clipPath id="a">
-      <path d="M0 0h20v20H0z" />
+    <clipPath id="clip0_3869_15891">
+      <rect width="20" height="20" fill="white"/>
     </clipPath>
   </defs>
 </svg>
