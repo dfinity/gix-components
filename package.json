@@ -45,7 +45,7 @@
     "@sveltejs/package": "^2.3.2",
     "@sveltejs/vite-plugin-svelte": "^3.1.1",
     "@testing-library/jest-dom": "^6.4.6",
-    "@testing-library/svelte": "^4.1.0",
+    "@testing-library/svelte": "^5.2.0",
     "@types/dompurify": "^3.0.5",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
@@ -70,7 +70,7 @@
     "vitest": "^1.6.0"
   },
   "dependencies": {
-    "dompurify": "^3.0.8",
+    "dompurify": "^3.1.5",
     "html5-qrcode": "^2.3.8",
     "qr-creator": "^1.0.0"
   },
