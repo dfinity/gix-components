@@ -1,7 +1,7 @@
 <script lang="ts">
   import Tooltip from "$lib/components/Tooltip.svelte";
 
-  export let list: Array<{ text: string; id: number }>;
+  export let list: Array<{ text: string; id: string }>;
 </script>
 
 <ul>
