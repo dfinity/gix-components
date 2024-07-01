@@ -42,6 +42,7 @@ export { default as IconNotificationPage } from "./icons/IconNotificationPage.sv
 export { default as IconOpenInNew } from "./icons/IconOpenInNew.svelte";
 export { default as IconPace } from "./icons/IconPace.svelte";
 export { default as IconPassword } from "./icons/IconPassword.svelte";
+export { default as IconPlus } from "./icons/IconPlus.svelte";
 export { default as IconProposalsPage } from "./icons/IconProposalsPage.svelte";
 export { default as IconQRCode } from "./icons/IconQRCode.svelte";
 export { default as IconQRCodeScanner } from "./icons/IconQRCodeScanner.svelte";
