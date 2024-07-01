@@ -53,7 +53,7 @@
       z-index: var(--toast-error-z-index);
     }
 
-    @include media.min-width(large) {
+    @include media.min-width(medium) {
       // A little narrowwer than the section to differentiate notifications from content
       max-width: calc(var(--section-max-width) - var(--padding-2x));
     }
@@ -65,7 +65,7 @@
 
     width: calc(100% - var(--padding-6x));
 
-    @include media.min-width(large) {
+    @include media.min-width(medium) {
       right: var(--padding-2x);
       left: unset;
       transform: none;
