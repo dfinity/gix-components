@@ -106,7 +106,7 @@ toastsStore.show({
 The `Toasts` component can optionally limit the maximum number of toasts displayed on the screen. This can be configured using the `maxVisible` property.
 
 ```html
-<Toasts maxVisible={3} />
+<Toasts maxVisible="{3}" />
 ```
 
 ## Properties
