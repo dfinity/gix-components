@@ -17,3 +17,5 @@ playwright-report
 samples
 
 static/workers
+
+e2e/*-snapshots/*Chrome-darwin.png
