@@ -1,4 +1,4 @@
-<!-- source: https://fonts.google.com/icons?selected=Material%20Icons%20Outlined%3Aexpand_circle_down%3A -->
+<!-- source: DFINITY foundation -->
 <script lang="ts">
   import { DEFAULT_ICON_SIZE } from "$lib/constants/constants";
 
@@ -8,10 +8,15 @@
 <svg
   xmlns="http://www.w3.org/2000/svg"
   height={size}
-  viewBox="0 0 24 24"
+  viewBox="0 0 20 20"
   width={size}
-  fill="currentColor"
-  ><rect fill="none" height="24" width="24" /><path
-    d="M15.08,9.59L12,12.67L8.92,9.59L7.5,11l4.5,4.5l4.5-4.5L15.08,9.59z M12,2C6.48,2,2,6.48,2,12c0,5.52,4.48,10,10,10 s10-4.48,10-10C22,6.48,17.52,2,12,2z M12,20c-4.42,0-8-3.58-8-8s3.58-8,8-8s8,3.58,8,8S16.42,20,12,20z"
-  /></svg
+  stroke="currentColor"
+  fill="none"
 >
+  <path
+    d="M12.5 9.16667L10 11.6667L7.5 9.16667M17.5 10C17.5 5.85786 14.1421 2.5 10 2.5C5.85786 2.5 2.5 5.85786 2.5 10C2.5 14.1421 5.85786 17.5 10 17.5C14.1421 17.5 17.5 14.1421 17.5 10Z"
+    stroke-width="1.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>
