@@ -1,4 +1,4 @@
-<!-- source: https://fonts.google.com/icons?selected=Material%20Icons%3Adark_mode%3A -->
+<!-- source: DFINITY foundation -->
 <script lang="ts">
   import { DEFAULT_ICON_SIZE } from "$lib/constants/constants";
 </script>
@@ -6,10 +6,15 @@
 <svg
   xmlns="http://www.w3.org/2000/svg"
   height={DEFAULT_ICON_SIZE}
-  viewBox="0 0 24 24"
+  viewBox="0 0 21 21"
   width={DEFAULT_ICON_SIZE}
-  fill="currentColor"
-  ><rect fill="none" height="24" width="24" /><path
-    d="M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36c-0.98,1.37-2.58,2.26-4.4,2.26 c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"
-  /></svg
+  fill="none"
+  stroke="currentColor"
 >
+  <path
+    d="M8.24487 5.56246C8.24487 9.7046 11.6027 13.0625 15.7449 13.0625C16.1775 13.0625 16.6016 13.0259 17.0141 12.9557C17.408 12.8886 17.7597 13.2521 17.5969 13.6169C16.4274 16.2367 13.7994 18.0623 10.7449 18.0623C6.60274 18.0623 3.24487 14.7047 3.24487 10.5626C3.24487 7.50808 5.07084 4.88007 7.69075 3.71054C8.05554 3.5477 8.41896 3.89947 8.35183 4.29327C8.2815 4.70582 8.24487 5.12984 8.24487 5.56246Z"
+    stroke-width="1.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>

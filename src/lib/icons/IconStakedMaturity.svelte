@@ -10,38 +10,30 @@
   height={size}
   viewBox="0 0 20 20"
   fill="none"
+  stroke="currentColor"
   xmlns="http://www.w3.org/2000/svg"
 >
   <path
-    d="M6.42928 16C5.54516 15.0451 5 13.737 5 12.2941C5 9.37026 7.23858 7 10 7C12.7614 7 15 9.37026 15 12.2941C15 13.737 14.4548 15.0451 13.5707 16"
-    stroke="currentColor"
+    d="M17.5 18.25H2.5"
     stroke-width="1.5"
     stroke-linecap="round"
     stroke-linejoin="round"
   />
-  <circle cx="10" cy="12" r="1" fill="currentColor" />
   <path
-    d="M2 16L18 16"
-    stroke="currentColor"
+    d="M6.25 18.2239C5.77659 17.6875 5.41647 17.0488 5.20706 16.3452C5.07234 15.8925 5 15.413 5 14.9166C5 12.1552 7.23858 9.91663 10 9.91663C12.7614 9.91663 15 12.1552 15 14.9166C15 15.413 14.9277 15.8925 14.7929 16.3452C14.5835 17.0488 14.2234 17.6875 13.75 18.2239"
+    stroke-width="1.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M6.66675 7.41671V5.33337"
     stroke-width="1.5"
     stroke-linecap="round"
   />
   <path
-    d="M15 4L15 5"
-    stroke="currentColor"
+    d="M13.3333 7.41671V5.33337"
     stroke-width="1.5"
     stroke-linecap="round"
   />
-  <path
-    d="M5 4L5 5"
-    stroke="currentColor"
-    stroke-width="1.5"
-    stroke-linecap="round"
-  />
-  <path
-    d="M10 2L10 3"
-    stroke="currentColor"
-    stroke-width="1.5"
-    stroke-linecap="round"
-  />
+  <path d="M10 5.33333V3.25" stroke-width="1.5" stroke-linecap="round" />
 </svg>

@@ -1,4 +1,4 @@
-<!-- source: https://fonts.google.com/icons?selected=Material%20Symbols%20Outlined%3Aadd%3AFILL%400%3Bwght%40400%3BGRAD%400%3Bopsz%4048 -->
+<!-- source: DFINITY foundation -->
 <script lang="ts">
   import { DEFAULT_ICON_SIZE } from "$lib/constants/constants";
 
@@ -9,7 +9,20 @@
   xmlns="http://www.w3.org/2000/svg"
   height={size}
   width={size}
-  viewBox="0 0 48 48"
-  fill="currentColor"
-  ><path d="M22.5 38V25.5H10v-3h12.5V10h3v12.5H38v3H25.5V38Z" /></svg
+  viewBox="0 0 20 20"
+  stroke="currentColor"
+  fill="none"
 >
+  <path
+    d="M3.125 10H16.875"
+    stroke-width="1.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M10 3.125V16.875"
+    stroke-width="1.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>

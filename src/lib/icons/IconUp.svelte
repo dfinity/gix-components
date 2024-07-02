@@ -8,13 +8,27 @@
   height={size}
   width={size}
   viewBox="0 0 20 20"
-  fill="currentColor"
+  fill="none"
+  stroke="currentColor"
   xmlns="http://www.w3.org/2000/svg"
   data-tid="icon-up"
 >
   <path
-    fill-rule="evenodd"
-    clip-rule="evenodd"
-    d="M10.7604 17.0756H9.35472L9.35459 2.94363L4.09146 8.56005L2.99693 7.53437L9.51014 0.583979L10.0574 0L10.6046 0.58396L17.1027 7.51769L16.0082 8.5434L10.7603 2.94362L10.7604 17.0756ZM17.9998 18V19.5L2 19.4998V17.9998L17.9998 18Z"
+    d="M10 14.375V2.5"
+    stroke-width="1.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M4.375 8.125L10 2.5L15.625 8.125"
+    stroke-width="1.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M3.125 16.875H16.875"
+    stroke-width="1.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
   />
 </svg>
