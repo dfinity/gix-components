@@ -8,38 +8,33 @@
 <svg
   width={size}
   height={size}
-  viewBox="0 0 21 21"
+  viewBox="0 0 20 20"
   fill="none"
   xmlns="http://www.w3.org/2000/svg"
 >
-  <g clip-path="url(#clip0_32_68)">
+  <g clip-path="url(#clip0_72_145)">
     <path
-      d="M6.00732 8.00232H14.3407C15.3072 8.00232 16.0907 8.78582 16.0907 9.75232V15.5857C16.0907 16.5521 15.3072 17.3357 14.3407 17.3357H6.00732C5.04083 17.3357 4.25732 16.5521 4.25732 15.5857V9.75232C4.25732 8.78582 5.04083 8.00232 6.00732 8.00232Z"
+      d="M5.83325 7.41675H14.1666C15.1331 7.41675 15.9166 8.20025 15.9166 9.16675V15.0001C15.9166 15.9666 15.1331 16.7501 14.1666 16.7501H5.83325C4.86676 16.7501 4.08325 15.9666 4.08325 15.0001V9.16675C4.08325 8.20025 4.86676 7.41675 5.83325 7.41675Z"
       stroke="currentColor"
       stroke-width="1.5"
     />
     <path
-      d="M10.1719 12.6691H10.1769"
+      d="M9.9978 12.0833H10.0028"
       stroke="currentColor"
       stroke-width="2"
       stroke-linecap="round"
       stroke-linejoin="round"
     />
     <path
-      d="M6.84082 7.25232V5.58565C6.84082 3.7447 8.3332 2.25232 10.1742 2.25232V2.25232C12.0151 2.25232 13.5075 3.7447 13.5075 5.58565V7.66899"
+      d="M6.66675 6.66675V5.00008C6.66675 3.15913 8.15913 1.66675 10.0001 1.66675V1.66675C11.841 1.66675 13.3334 3.15913 13.3334 5.00008V7.08341"
       stroke="currentColor"
       stroke-width="1.5"
       stroke-linecap="round"
     />
   </g>
   <defs>
-    <clipPath id="clip0_32_68">
-      <rect
-        width="20"
-        height="20"
-        fill="currentColor"
-        transform="translate(0.174072 0.585693)"
-      />
+    <clipPath id="clip0_72_145">
+      <rect width="20" height="20" fill="currentColor" />
     </clipPath>
   </defs>
 </svg>
