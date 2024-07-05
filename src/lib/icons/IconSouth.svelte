@@ -1,7 +1,8 @@
 <!-- source: DFINITY foundation -->
 <script lang="ts">
-  import { DEFAULT_ICON_SIZE } from "$lib/constants/constants";
+  import {DEFAULT_ICON_SIZE, DEFAULT_STROKE_WIDTH} from "$lib/constants/constants";
   export let size = `${DEFAULT_ICON_SIZE}px`;
+  export let strokeWidth = DEFAULT_STROKE_WIDTH;
 </script>
 
 <svg
@@ -14,13 +15,13 @@
 >
   <path
     d="M10 3.125L10 16.875"
-    stroke-width="1.5"
+    stroke-width={strokeWidth}
     stroke-linecap="round"
     stroke-linejoin="round"
   />
   <path
     d="M4.375 11.25L10 16.875L15.625 11.25"
-    stroke-width="1.5"
+    stroke-width={strokeWidth}
     stroke-linecap="round"
     stroke-linejoin="round"
   />
