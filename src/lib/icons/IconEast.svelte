@@ -8,13 +8,13 @@
   fill="none"
 >
   <path
-    d="M3.125 10H16.875"
+    d="M1 10L18 10"
     stroke-width="1.5"
     stroke-linecap="round"
     stroke-linejoin="round"
   />
   <path
-    d="M11.25 4.375L16.875 10L11.25 15.625"
+    d="M11 18L19 10L11 2"
     stroke-width="1.5"
     stroke-linecap="round"
     stroke-linejoin="round"

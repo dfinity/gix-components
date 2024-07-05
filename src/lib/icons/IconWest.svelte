@@ -8,13 +8,13 @@
   stroke="currentColor"
 >
   <path
-    d="M16.875 10H3.125"
+    d="M19 10L2 10"
     stroke-width="1.5"
     stroke-linecap="round"
     stroke-linejoin="round"
   />
   <path
-    d="M8.75 4.375L3.125 10L8.75 15.625"
+    d="M9 2L1 10L9 18"
     stroke-width="1.5"
     stroke-linecap="round"
     stroke-linejoin="round"

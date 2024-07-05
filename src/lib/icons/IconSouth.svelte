@@ -14,13 +14,13 @@
   stroke="currentColor"
 >
   <path
-    d="M10 3.125L10 16.875"
+    d="M10 1L10 18"
     stroke-width={strokeWidth}
     stroke-linecap="round"
     stroke-linejoin="round"
   />
   <path
-    d="M4.375 11.25L10 16.875L15.625 11.25"
+    d="M2 11L10 19L18 11"
     stroke-width={strokeWidth}
     stroke-linecap="round"
     stroke-linejoin="round"
