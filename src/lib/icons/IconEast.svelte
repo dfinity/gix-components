@@ -1,9 +1,22 @@
-<!-- source: https://fonts.google.com/icons?selected=Material%20Symbols%20Outlined%3Aeast%3AFILL%400%3Bwght%40400%3BGRAD%400%3Bopsz%4048 -->
+<!-- source: DFINITY foundation -->
 <svg
   xmlns="http://www.w3.org/2000/svg"
   height="24"
   width="24"
-  viewBox="0 0 48 48"
-  fill="currentColor"
-  ><path d="m30 38-2.1-2.1 10.4-10.4H4v-3h34.3L27.9 12.1 30 10l14 14Z" /></svg
+  viewBox="0 0 20 20"
+  stroke="currentColor"
+  fill="none"
 >
+  <path
+    d="M1 10L18 10"
+    stroke-width="1.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M11 18L19 10L11 2"
+    stroke-width="1.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>
