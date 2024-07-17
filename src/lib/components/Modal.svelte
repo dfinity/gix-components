@@ -225,7 +225,6 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 0;
 
       justify-self: flex-end;
 

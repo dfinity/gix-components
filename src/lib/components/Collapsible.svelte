@@ -147,7 +147,6 @@
     width: var(--padding-4x);
 
     margin: 0;
-    padding: 0;
 
     display: flex;
     align-items: center;

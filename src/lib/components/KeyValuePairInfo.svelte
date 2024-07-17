@@ -59,7 +59,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0;
 
     &.alignIconRight {
       padding-left: var(--padding-0_5x);
