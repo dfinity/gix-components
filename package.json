@@ -37,9 +37,9 @@
     "LICENSE"
   ],
   "devDependencies": {
-    "@junobuild/analytics": "^0.0.24",
-    "@junobuild/config": "^0.0.10",
-    "@junobuild/vite-plugin": "^0.0.14",
+    "@junobuild/analytics": "^0.0.25-next-2024-08-04.1",
+    "@junobuild/config": "^0.0.14-next-2024-08-04.1",
+    "@junobuild/vite-plugin": "^0.0.16",
     "@playwright/test": "^1.45.0",
     "@sveltejs/adapter-static": "^3.0.2",
     "@sveltejs/kit": "^2.5.17",
@@ -84,7 +84,7 @@
     "svelte"
   ],
   "peerDependencies": {
-    "@dfinity/utils": "*",
+    "@dfinity/utils": "^2.4.0-next-2024-08-05",
     "svelte": "^4.2.1"
   },
   "repository": {
