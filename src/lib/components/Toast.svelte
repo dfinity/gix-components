@@ -137,17 +137,17 @@
     align-items: center;
     gap: var(--padding-1_5x);
 
-    @include overlay.colors;
-
-    &.inverted {
-      @include overlay.toast-inverted;
-    }
-
     border-radius: var(--border-radius);
     box-shadow: var(--strong-shadow, 8px 8px 16px 0 rgba(0, 0, 0, 0.25));
 
     padding: var(--padding-1_5x);
     box-sizing: border-box;
+
+    @include overlay.colors;
+
+    &.inverted {
+      @include overlay.toast-inverted;
+    }
 
     .icon {
       line-height: 0;

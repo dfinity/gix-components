@@ -38,8 +38,6 @@
   @use "../styles/mixins/text";
 
   .select {
-    @include form.input;
-
     position: relative;
     box-sizing: border-box;
 
@@ -51,14 +49,14 @@
 
     width: var(--dropdown-width, auto);
 
+    overflow: hidden;
+
     // Click on <select> does not trigger "focus" on parent div.
     // https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-within
     // Matches an element if the element or any of its descendants are focused.
     &:focus-within {
       @include form.input-focus;
     }
-
-    overflow: hidden;
 
     select {
       width: 100%;
@@ -112,6 +110,8 @@
         height: 20px;
       }
     }
+
+    @include form.input;
   }
 
   .start {

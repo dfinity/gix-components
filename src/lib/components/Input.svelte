@@ -216,6 +216,9 @@
 
     width: var(--input-width);
 
+    color: var(--background-contrast);
+    background: none;
+
     &.disabled {
       --disabled-color: rgba(var(--disable-contrast-rgb), 0.8);
       color: var(--disabled-color);
@@ -225,9 +228,6 @@
         color: var(--disabled-color);
       }
     }
-
-    color: var(--background-contrast);
-    background: none;
   }
 
   .info {

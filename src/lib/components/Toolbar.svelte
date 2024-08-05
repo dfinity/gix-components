@@ -13,7 +13,6 @@
 
   .toolbar {
     position: absolute;
-    @include display.inset;
 
     color: var(--toolbar-color, var(--body-color));
 
@@ -33,13 +32,15 @@
 
     --tooltip-width: fit-content;
 
+    padding: var(--toolbar-padding);
+
+    @include display.inset;
+
     // buttons
     :global(button),
     :global(.tooltip-wrapper) {
       pointer-events: all;
     }
-
-    padding: var(--toolbar-padding);
   }
 
   .main {
