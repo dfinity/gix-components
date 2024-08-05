@@ -69,18 +69,18 @@
 
     --input-custom-border-color: var(--disable-contrast);
 
-    &:hover {
-      input {
-        @include form.input-focus;
-      }
-    }
-
     border: var(--input-border-size) solid transparent;
     outline: none;
 
     border-radius: var(--checkbox-border-radius, var(--border-radius));
 
     --checkbox-input-size: 20px;
+
+    &:hover {
+      input {
+        @include form.input-focus;
+      }
+    }
 
     &.disabled {
       pointer-events: none;
@@ -105,8 +105,6 @@
   /** accent-color not supported yet on Safari 😩 **/
 
   input[type="checkbox"] {
-    @include form.input;
-
     appearance: none;
     margin: 0;
 
@@ -118,6 +116,8 @@
     cursor: pointer;
 
     position: relative;
+
+    @include form.input;
 
     &[disabled],
     &[disabled]:hover {

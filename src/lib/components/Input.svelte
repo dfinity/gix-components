@@ -241,7 +241,6 @@
   }
 
   input {
-    @include form.input;
     width: 100%;
 
     font-size: inherit;
@@ -253,6 +252,8 @@
 
     outline: none;
     appearance: none;
+
+    @include form.input;
   }
 
   input[disabled] {

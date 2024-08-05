@@ -38,8 +38,6 @@
   @use "../styles/mixins/text";
 
   .select {
-    @include form.input;
-
     position: relative;
     box-sizing: border-box;
 
@@ -52,6 +50,8 @@
     width: var(--dropdown-width, auto);
 
     overflow: hidden;
+
+    @include form.input;
 
     // Click on <select> does not trigger "focus" on parent div.
     // https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-within
@@ -73,6 +73,13 @@
         var(--select-padding-inner-top-bottom)
         var(--select-padding-inner-start, var(--padding-2x));
 
+      appearance: none;
+
+      font-size: inherit;
+      font-weight: inherit;
+
+      @include text.truncate;
+
       &.offset {
         --select-padding-inner-start: var(
           --select-padding-start,
@@ -80,16 +87,9 @@
         );
       }
 
-      appearance: none;
-
-      font-size: inherit;
-      font-weight: inherit;
-
       &:focus {
         outline: none;
       }
-
-      @include text.truncate;
     }
 
     .icon {

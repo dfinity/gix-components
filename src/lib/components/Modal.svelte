@@ -181,6 +181,8 @@
       height: var(--dialog-height);
       max-height: var(--dialog-max-height, 100%);
 
+      border-radius: var(--dialog-border-radius);
+
       @supports (-webkit-touch-callout: none) {
         max-height: -webkit-fill-available;
 
@@ -188,8 +190,6 @@
           max-height: var(--dialog-max-height, 100%);
         }
       }
-
-      border-radius: var(--dialog-border-radius);
 
       .header {
         padding: var(--dialog-padding-y) var(--padding-3x) var(--padding);
