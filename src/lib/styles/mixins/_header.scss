@@ -10,15 +10,15 @@
   padding: var(--padding-0_5x);
   margin: 0 var(--padding-0_5x);
 
-  @include media.min-width(large) {
-    color: var(--content-color);
-  }
-
   @include effect.ripple-effect($background, var(--primary-contrast));
 
   &:focus {
     background: var(--primary-tint);
     @include effect.ripple-effect($background, var(--primary-contrast));
+  }
+
+  @include media.min-width(large) {
+    color: var(--content-color);
   }
 }
 

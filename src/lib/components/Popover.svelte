@@ -66,9 +66,9 @@
 
   .popover {
     position: fixed;
-    z-index: var(--overlay-z-index);
-
     @include display.inset;
+
+    z-index: var(--overlay-z-index);
   }
 
   .wrapper {

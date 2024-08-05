@@ -38,6 +38,8 @@
   @use "../styles/mixins/text";
 
   .select {
+    @include form.input;
+
     position: relative;
     box-sizing: border-box;
 
@@ -110,8 +112,6 @@
         height: 20px;
       }
     }
-
-    @include form.input;
   }
 
   .start {
