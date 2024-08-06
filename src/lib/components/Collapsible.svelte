@@ -116,14 +116,17 @@
   @use "../styles/mixins/media";
 
   .header {
-    &:not(.external) {
-      @include interaction.tappable;
-      user-select: none;
-    }
     position: relative;
 
     display: flex;
     justify-content: center;
+
+    outline: none;
+
+    &:not(.external) {
+      @include interaction.tappable;
+      user-select: none;
+    }
 
     .header-content {
       flex: 1;
@@ -131,8 +134,6 @@
       align-items: center;
       justify-content: flex-start;
     }
-
-    outline: none;
 
     &:focus {
       filter: contrast(1.25);

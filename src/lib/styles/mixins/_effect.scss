@@ -1,4 +1,9 @@
 @mixin ripple-effect($background, $color: null) {
+  & {
+    background-position: center;
+    transition: background 0.8s;
+  }
+
   &:focus {
     @if $color != null {
       color: $color;
@@ -15,7 +20,4 @@
     background-size: 100%;
     transition: background 0s;
   }
-
-  background-position: center;
-  transition: background 0.8s;
 }

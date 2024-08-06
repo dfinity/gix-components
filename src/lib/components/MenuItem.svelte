@@ -42,12 +42,12 @@
     text-decoration: none;
     outline: none;
 
+    padding: var(--padding);
+
     &:focus,
     &:hover {
       text-decoration: none;
     }
-
-    padding: var(--padding);
 
     &.selected {
       background: var(--menu-selected-background);

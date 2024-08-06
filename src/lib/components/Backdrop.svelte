@@ -38,14 +38,14 @@
 
     color: var(--backdrop-contrast);
 
+    z-index: var(--backdrop-z-index);
+
+    @include interaction.tappable;
+
     &.visible {
       background: var(--backdrop);
       backdrop-filter: var(--backdrop-filter);
     }
-
-    z-index: var(--backdrop-z-index);
-
-    @include interaction.tappable;
 
     &.disablePointerEvents {
       @include interaction.none;

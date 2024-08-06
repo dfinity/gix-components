@@ -217,6 +217,9 @@
 
     width: var(--input-width);
 
+    color: var(--background-contrast);
+    background: none;
+
     &.disabled {
       --disabled-color: rgba(var(--disable-contrast-rgb), 0.8);
       color: var(--disabled-color);
@@ -226,9 +229,6 @@
         color: var(--disabled-color);
       }
     }
-
-    color: var(--background-contrast);
-    background: none;
   }
 
   .info {
@@ -242,7 +242,6 @@
   }
 
   input {
-    @include form.input;
     width: 100%;
 
     font-size: inherit;
@@ -254,6 +253,8 @@
 
     outline: none;
     appearance: none;
+
+    @include form.input;
   }
 
   input[disabled] {

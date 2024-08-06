@@ -75,6 +75,14 @@
   // CSS variables used when the content needs to fit the maximum height as when a QR-Code reader is embedded in a modal
   --dialog-header-height: 74px;
 
+  // Nav
+  --nav-component-title-display: block;
+
+  // Menu selection
+  --menu-selection-outer-radius: var(--border-radius-2x);
+  --menu-selection-content-box-shadow: inset 2px 0 0 0
+    var(--menu-selected-background);
+
   @supports (-webkit-touch-callout: none) {
     --dialog-height: -webkit-fill-available;
     --alert-max-height: -webkit-fill-available;
@@ -95,12 +103,4 @@
   @media (min-width: 768px) and (min-height: 560px) {
     --dialog-min-height: 554.25px;
   }
-
-  // Nav
-  --nav-component-title-display: block;
-
-  // Menu selection
-  --menu-selection-outer-radius: var(--border-radius-2x);
-  --menu-selection-content-box-shadow: inset 2px 0 0 0
-    var(--menu-selected-background);
 }

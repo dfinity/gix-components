@@ -16,14 +16,6 @@ a {
   }
 
   &.button {
-    &.primary,
-    &.secondary,
-    &.success,
-    &.danger,
-    &.warning {
-      @include button.base;
-    }
-
     // Default is `inline` and buttons are `inline-block` but they have a hidden flex implemented in the browser.
     // https://stackoverflow.com/questions/15764600/what-makes-the-text-on-a-button-element-vertically-centered/34612505#34612505
     // Therefore, to make sure the a.button behaves the same, we set it to `inline-flex`.
@@ -34,6 +26,14 @@ a {
     box-sizing: border-box;
 
     text-decoration: none;
+
+    &.primary,
+    &.secondary,
+    &.success,
+    &.danger,
+    &.warning {
+      @include button.base;
+    }
 
     &.text {
       @include button.text;

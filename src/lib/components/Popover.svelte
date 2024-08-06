@@ -79,11 +79,6 @@
     top: calc(var(--popover-top) + var(--padding));
     left: var(--popover-left);
 
-    &.rtl {
-      left: auto;
-      right: var(--popover-right);
-    }
-
     // size
     --size: min(calc(20 * var(--padding)), calc(100vw - var(--padding)));
 
@@ -102,6 +97,11 @@
     color: var(--background-contrast);
 
     border-radius: var(--border-radius);
+
+    &.rtl {
+      left: auto;
+      right: var(--popover-right);
+    }
 
     &.with-border {
       border: var(--dropdown-border-size) solid var(--dropdown-border-color);
