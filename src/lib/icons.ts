@@ -1,7 +1,9 @@
 export { default as IconAccountBalance } from "./icons/IconAccountBalance.svelte";
 export { default as IconAccountsPage } from "./icons/IconAccountsPage.svelte";
 export { default as IconAdd } from "./icons/IconAdd.svelte";
+export { default as IconAddCircle } from "./icons/IconAddCircle.svelte";
 export { default as IconBack } from "./icons/IconBack.svelte";
+export { default as IconBin } from "./icons/IconBin.svelte";
 export { default as IconCanistersPage } from "./icons/IconCanistersPage.svelte";
 export { default as IconChat } from "./icons/IconChat.svelte";
 export { default as IconCheck } from "./icons/IconCheck.svelte";
@@ -13,6 +15,7 @@ export { default as IconCollapseAll } from "./icons/IconCollapseAll.svelte";
 export { default as IconCopy } from "./icons/IconCopy.svelte";
 export { default as IconDarkMode } from "./icons/IconDarkMode.svelte";
 export { default as IconDissolving } from "./icons/IconDissolving.svelte";
+export { default as IconDots } from "./icons/IconDots.svelte";
 export { default as IconDown } from "./icons/IconDown.svelte";
 export { default as IconEast } from "./icons/IconEast.svelte";
 export { default as IconError } from "./icons/IconError.svelte";
