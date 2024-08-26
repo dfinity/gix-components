@@ -31,8 +31,9 @@
 
   let inputElement: HTMLInputElement | undefined;
 
-  $: step = inputType === "number" ? step ?? "any" : undefined;
-  $: autocomplete = inputType !== "number" ? autocomplete ?? "off" : undefined;
+  $: step = inputType === "number" ? (step ?? "any") : undefined;
+  $: autocomplete =
+    inputType !== "number" ? (autocomplete ?? "off") : undefined;
 
   // This component was developed for ICP and 8 decimals in mind. The "currency" input type was added afterwards therefore, for backwards compatibility reason, if the input type is set to icp, the number of decimals remains 8.
   let wrapDecimals = 8;
@@ -156,9 +157,9 @@
     ({ selectionStart, selectionEnd } = inputElement);
   };
 
-  $: step = inputType === "number" ? step ?? "any" : undefined;
+  $: step = inputType === "number" ? (step ?? "any") : undefined;
   $: autocomplete =
-    inputType !== "number" && !currency ? autocomplete ?? "off" : undefined;
+    inputType !== "number" && !currency ? (autocomplete ?? "off") : undefined;
 
   let displayInnerEnd: boolean;
   $: displayInnerEnd = nonNullish($$slots["inner-end"]);
@@ -216,6 +217,9 @@
 
     width: var(--input-width);
 
+    color: var(--background-contrast);
+    background: none;
+
     &.disabled {
       --disabled-color: rgba(var(--disable-contrast-rgb), 0.8);
       color: var(--disabled-color);
@@ -225,9 +229,6 @@
         color: var(--disabled-color);
       }
     }
-
-    color: var(--background-contrast);
-    background: none;
   }
 
   .info {
@@ -241,7 +242,6 @@
   }
 
   input {
-    @include form.input;
     width: 100%;
 
     font-size: inherit;
@@ -253,6 +253,8 @@
 
     outline: none;
     appearance: none;
+
+    @include form.input;
   }
 
   input[disabled] {

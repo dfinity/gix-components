@@ -36,6 +36,8 @@
 
     transform: translate(-100%, 0);
 
+    transition: transform var(--animation-time-normal) ease-out;
+
     // On large screen the menu is always open
     @include media.min-width(large) {
       transform: translate(0, 0);
@@ -45,8 +47,6 @@
     &.open {
       transform: translate(0, 0);
     }
-
-    transition: transform var(--animation-time-normal) ease-out;
   }
 
   .logo-nns {

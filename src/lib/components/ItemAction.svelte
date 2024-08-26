@@ -24,14 +24,14 @@
     justify-content: stretch;
     gap: var(--padding-2x);
 
+    width: 100%;
+    --item-height: calc(var(--button-min-height) + var(--padding));
+
     @include media.min-width(medium) {
       justify-content: space-between;
       flex-direction: row;
       align-items: center;
     }
-
-    width: 100%;
-    --item-height: calc(var(--button-min-height) + var(--padding));
 
     .start-wrapper {
       display: flex;

@@ -53,10 +53,10 @@
   @use "../styles/mixins/media";
 
   .content {
-    @include layout.content;
-
     display: flex;
     flex-flow: column;
+
+    @include layout.content;
 
     @include media.min-width(large) {
       flex-flow: row nowrap;
@@ -74,9 +74,9 @@
 
   .start,
   .end {
-    @include layout.content-offset;
     position: relative;
     box-sizing: border-box;
+    @include layout.content-offset;
   }
 
   .start {

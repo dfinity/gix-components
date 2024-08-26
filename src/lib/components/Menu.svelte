@@ -57,6 +57,8 @@
       var(--menu-logo-height) + var(--padding-4x) + var(--header-offset, 0px)
     );
 
+    position: relative;
+
     // Shift the menu on large screen e.g. if a banner is displayed
     @include media.min-width(large) {
       padding: calc(
@@ -67,8 +69,6 @@
       // remove extra space because of menu selection touches the edge
       padding-right: 0;
     }
-
-    position: relative;
   }
 
   .inner {
@@ -86,6 +86,15 @@
 
     overflow-y: auto;
     margin-left: -100%;
+
+    transition:
+      margin-left var(--animation-time-normal)
+        var(--menu-animation-timing-function),
+      width var(--animation-time-normal) var(--menu-animation-timing-function);
+
+    // On large screen the header is not sticky but within the content that's why we align the inner menu start
+    box-sizing: border-box;
+
     &.sticky {
       // On large screen the menu can be always open
       @include media.min-width(large) {
@@ -99,14 +108,6 @@
       width: var(--menu-width);
       margin-left: var(--padding);
     }
-
-    transition:
-      margin-left var(--animation-time-normal)
-        var(--menu-animation-timing-function),
-      width var(--animation-time-normal) var(--menu-animation-timing-function);
-
-    // On large screen the header is not sticky but within the content that's why we align the inner menu start
-    box-sizing: border-box;
 
     @include media.min-width(large) {
       padding-top: var(--padding-4x);

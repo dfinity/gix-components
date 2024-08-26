@@ -33,13 +33,13 @@
 
     --tooltip-width: fit-content;
 
+    padding: var(--toolbar-padding);
+
     // buttons
     :global(button),
     :global(.tooltip-wrapper) {
       pointer-events: all;
     }
-
-    padding: var(--toolbar-padding);
   }
 
   .main {

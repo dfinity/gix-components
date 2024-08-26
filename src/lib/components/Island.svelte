@@ -29,11 +29,11 @@
 
     height: 100%;
 
+    overflow: hidden;
+
     ::-webkit-scrollbar {
       @include content.island;
     }
-
-    overflow: hidden;
 
     @include media.min-width(large) {
       position: absolute;

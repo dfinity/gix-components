@@ -155,11 +155,11 @@
     width: max-content;
     overflow-wrap: break-word;
 
+    pointer-events: none;
+
     &.noWrap {
       white-space: nowrap;
     }
-
-    pointer-events: none;
 
     &.not-rendered {
       display: none;
