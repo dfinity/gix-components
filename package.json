@@ -37,9 +37,9 @@
     "LICENSE"
   ],
   "devDependencies": {
-    "@junobuild/analytics": "^0.0.25",
+    "@junobuild/analytics": "^0.0.28",
     "@junobuild/config": "^0.0.14",
-    "@junobuild/vite-plugin": "^0.0.16",
+    "@junobuild/vite-plugin": "^0.0.17",
     "@playwright/test": "^1.45.3",
     "@sveltejs/adapter-static": "^3.0.2",
     "@sveltejs/kit": "^2.5.20",
