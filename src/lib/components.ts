@@ -21,6 +21,7 @@ export { default as ItemAction } from "./components/ItemAction.svelte";
 export { default as KeyValuePair } from "./components/KeyValuePair.svelte";
 export { default as KeyValuePairInfo } from "./components/KeyValuePairInfo.svelte";
 export { default as Layout } from "./components/Layout.svelte";
+export { default as Markdown } from "./components/Markdown.svelte";
 export { default as Menu } from "./components/Menu.svelte";
 export { default as MenuButton } from "./components/MenuButton.svelte";
 export { default as MenuItem } from "./components/MenuItem.svelte";
