@@ -134,13 +134,6 @@ export const COMPONENT_ROUTES: ComponentRoute[] = [
   },
 
   {
-    path: "/components/markdown",
-    title: "Markdown",
-    description:
-      "A component for safe (sanitized) Markdown to HTML content rendering.",
-  },
-
-  {
     path: "/components/modal",
     title: "Modal",
 

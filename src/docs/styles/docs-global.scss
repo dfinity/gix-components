@@ -91,17 +91,3 @@ blockquote {
     content: none;
   }
 }
-
-pre {
-  background: var(--input-background);
-  color: var(--input-background-contrast);
-  border-radius: var(--padding);
-  padding: var(--padding);
-  overflow-x: auto;
-  font-family: monospace;
-  font-size: var(--font-size-small);
-
-  code {
-    padding: 0;
-  }
-}
