@@ -63,6 +63,7 @@ export { default as IconSync } from "./icons/IconSync.svelte";
 export { default as IconThumbDown } from "./icons/IconThumbDown.svelte";
 export { default as IconThumbUp } from "./icons/IconThumbUp.svelte";
 export { default as IconTokens } from "./icons/IconTokens.svelte";
+export { default as IconUnknownToken } from "./icons/IconUnknownToken.svelte";
 export { default as IconUp } from "./icons/IconUp.svelte";
 export { default as IconUser } from "./icons/IconUser.svelte";
 export { default as IconUsers } from "./icons/IconUsers.svelte";
