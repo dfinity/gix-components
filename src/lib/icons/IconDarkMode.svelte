@@ -8,7 +8,7 @@
   height={DEFAULT_ICON_SIZE}
   viewBox="0 0 20 20"
   width={DEFAULT_ICON_SIZE}
-  fill="none"
+  fill="var(--icon-fill, none)"
   stroke="currentColor"
 >
   <path

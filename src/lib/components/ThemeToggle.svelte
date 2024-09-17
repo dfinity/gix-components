@@ -4,11 +4,13 @@
   import { i18n } from "$lib/stores/i18n";
   import IconLightMode from "$lib/icons/IconLightMode.svelte";
   import IconDarkMode from "$lib/icons/IconDarkMode.svelte";
+  import { fade } from "svelte/transition";
 
   const switchTheme = () => {
     themeStore.select($themeStore === Theme.LIGHT ? Theme.DARK : Theme.LIGHT);
   };
 
+  let isDarkMode: boolean;
   $: isDarkMode = $themeStore === Theme.DARK;
 </script>
 
@@ -19,9 +21,13 @@
   aria-label={$i18n.theme.switch_theme}
 >
   {#if isDarkMode}
-    <IconLightMode />
+    <span in:fade|global>
+      <IconLightMode />
+    </span>
   {:else}
-    <IconDarkMode />
+    <span in:fade|global>
+      <IconDarkMode />
+    </span>
   {/if}
 </button>
 
@@ -30,12 +36,10 @@
     color: var(--text-color);
     padding: var(--padding);
     background: var(--sidebar-button-background);
-
+    font-size: 0;
     &:hover {
       background: var(--sidebar-button-background-hover);
-      :global(svg) {
-        fill: var(--text-color);
-      }
+      --icon-fill: var(--text-color);
     }
   }
 </style>
