@@ -261,6 +261,12 @@ export const COMPONENT_ROUTES: ComponentRoute[] = [
   },
 
   {
+    path: "/components/theme-toggle-button",
+    title: "Theme Toggle Button",
+    description: "An opinionated theme toggle button.",
+  },
+
+  {
     path: "/components/tooltip",
     title: "Tooltip",
     description: "Tooltips provide extra information on hover or tap.",
