@@ -33,13 +33,17 @@
 
 <style lang="scss">
   .theme-toggle {
-    color: var(--text-color);
+    // Height and width base on icon size + padding
+    // To fix the issue of ThemeToggle being stretched by parents
+    height: calc(var(--padding-2x) + 20px);
+    width: calc(var(--padding-2x) + 20px);
+    color: var(--sidebar-icon);
     padding: var(--padding);
     background: var(--sidebar-button-background);
-    font-size: 0;
+    line-height: 0;
     &:hover {
       background: var(--sidebar-button-background-hover);
-      --icon-fill: var(--text-color);
+      --icon-fill: var(--sidebar-icon);
     }
   }
 </style>
