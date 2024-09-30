@@ -4,6 +4,7 @@
     DEFAULT_ICON_SIZE,
     DEFAULT_STROKE_WIDTH,
   } from "$lib/constants/constants";
+
   export let size = `${DEFAULT_ICON_SIZE}px`;
   export let strokeWidth = DEFAULT_STROKE_WIDTH;
 </script>

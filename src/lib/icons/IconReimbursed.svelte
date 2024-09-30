@@ -1,6 +1,7 @@
 <!-- source: DFINITY foundation -->
 <script lang="ts">
   import { DEFAULT_ICON_SIZE } from "$lib/constants/constants";
+
   export let size = `${DEFAULT_ICON_SIZE}px`;
 </script>
 
