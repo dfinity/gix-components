@@ -5,7 +5,8 @@
   // We want to migrate to a new set of CSS variables for colors more adapted to our Figma.
   --elements-divider: var(--cp-dark-550);
   --elements-icons: var(--cp-dark-200);
-  --elements-badge: var(--cp-dark-accent);
+  --elements-badges: var(--cp-dark-accent);
+  --elements-badges-inactive: var(--cp-dark-100);
   --text-description: var(--cp-dark-200);
   --text-description-tint: var(--cp-dark-100);
   --text-light: var(--cp-light-50);
