@@ -1,14 +1,16 @@
 <!-- source: DFINITY foundation -->
 <script lang="ts">
   import { DEFAULT_ICON_SIZE } from "$lib/constants/constants";
+
+  export let size = `${DEFAULT_ICON_SIZE}px`;
 </script>
 
 <svg
   xmlns="http://www.w3.org/2000/svg"
   enable-background="new 0 0 20 20"
-  height={DEFAULT_ICON_SIZE}
+  height={size}
   viewBox="0 0 20 20"
-  width={DEFAULT_ICON_SIZE}
+  width={size}
   stroke="currentColor"
   fill="none"
 >
