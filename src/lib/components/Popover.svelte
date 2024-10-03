@@ -35,8 +35,8 @@
     style="--popover-top: {`${bottom}px`}; --popover-left: {`${left}px`}; --popover-right: {`${
       window.innerWidth - right
     }px`}"
-    on:click|stopPropagation
-    on:keypress|stopPropagation
+    on:click
+    on:keypress
   >
     <Backdrop
       on:nnsClose={() => (visible = false)}
