@@ -51,21 +51,25 @@
     z-index: var(--menu-z-index);
 
     --menu-logo-height: 65px;
+    --menu-logo-height-large: 88px;
+    --menu-bottom-logo-height: 68px;
     --menu-stack: 1em;
 
     padding-top: calc(
       var(--menu-logo-height) + var(--padding-4x) + var(--header-offset, 0px)
     );
 
+    padding-bottom: var(--menu-bottom-logo-height);
+
     position: relative;
 
     // Shift the menu on large screen e.g. if a banner is displayed
     @include media.min-width(large) {
       padding: calc(
-          var(--menu-logo-height) + var(--padding-3x) +
+          var(--menu-logo-height-large) + var(--padding-3x) +
             var(--header-offset, 0px) - var(--menu-selection-outer-radius)
         )
-        var(--padding-2x) 0;
+        var(--padding-2x) var(--menu-bottom-logo-height);
       // remove extra space because of menu selection touches the edge
       padding-right: 0;
     }
@@ -110,7 +114,15 @@
     }
 
     @include media.min-width(large) {
-      padding-top: var(--padding-4x);
+      padding-top: var(--padding-8x);
     }
+
+    // Hide scrollbar for webkit
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    // Hide scrollbar for IE, Edge, and Firefox
+    -ms-overflow-style: none; // IE and Edge
+    scrollbar-width: none; // Firefox
   }
 </style>
