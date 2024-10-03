@@ -59,17 +59,11 @@
   }
 
   .bottom-logo {
-    // We do not want to display the logo "on chain" behind the menu items
-    display: none;
+    display: block;
     margin-bottom: var(--padding-3x);
 
     color: var(--menu-color);
     z-index: var(--menu-z-index);
     text-align: center;
-
-    // 654px is an empirical value
-    @media (min-height: 654px) {
-      display: block;
-    }
   }
 </style>
