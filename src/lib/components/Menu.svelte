@@ -17,17 +17,19 @@
     <slot name="oneliner" slot="oneliner" />
   </MenuBackground>
 
-  <div
-    class="inner"
-    class:sticky
-    data-tid="menu-inner"
-    class:open={$layoutMenuOpen}
-    role="button"
-    tabindex="-1"
-    on:click={close}
-    on:keypress={($event) => handleKeyPress({ $event, callback: close })}
-  >
-    <slot />
+  <div class="inner-wrapper">
+    <div
+      class="inner"
+      class:sticky
+      data-tid="menu-inner"
+      class:open={$layoutMenuOpen}
+      role="button"
+      tabindex="-1"
+      on:click={close}
+      on:keypress={($event) => handleKeyPress({ $event, callback: close })}
+    >
+      <slot />
+    </div>
   </div>
 
   <button
@@ -44,6 +46,10 @@
   @use "../styles/mixins/media";
 
   div[role="menu"] {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
     @include interaction.initial;
 
     box-sizing: border-box;
@@ -71,9 +77,17 @@
     }
   }
 
+  .inner-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow: hidden;
+  }
+
   .inner {
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
     gap: var(--padding-0_5x);
 
     // More space for menu selection touches the edge;
@@ -82,7 +96,7 @@
 
     width: 0;
     max-width: 100vw;
-    height: 100%;
+    flex-grow: 1;
 
     overflow-y: auto;
     margin-left: -100%;
@@ -91,9 +105,16 @@
       margin-left var(--animation-time-normal)
         var(--menu-animation-timing-function),
       width var(--animation-time-normal) var(--menu-animation-timing-function);
-
     // On large screen the header is not sticky but within the content that's why we align the inner menu start
     box-sizing: border-box;
+
+    // Hide scrollbar for IE, Edge, and Firefox
+    -ms-overflow-style: none; // IE and Edge
+    scrollbar-width: none; // Firefox
+    // Hide scrollbar for webkit
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     &.sticky {
       // On large screen the menu can be always open
