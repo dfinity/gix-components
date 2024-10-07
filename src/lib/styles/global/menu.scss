@@ -1,11 +1,80 @@
 @use "../mixins/media";
 
+@mixin menu-open {
+  min-width: var(--menu-expanded-width);
+  transform: translateX(0);
+  .logo {
+    transform: translateX(0);
+  }
+}
+
+@mixin menu-hidden {
+  width: 0;
+  transform: translateX(calc(var(--menu-expanded-width) * -1));
+  .logo {
+    transform: translateX(calc(var(--menu-expanded-width) * -1));
+  }
+}
+
+@mixin menu-collapsed-large {
+  width: var(--menu-collapsed-width);
+  min-width: var(--menu-collapsed-width);
+  transform: translateX(0);
+  .logo {
+    transform: translateX(calc(var(--menu-expanded-width) * -1));
+  }
+}
+
+@mixin menu-expanded-large {
+  width: var(--menu-expanded-width);
+  min-width: var(--menu-expanded-width);
+  transform: translateX(0);
+  .logo {
+    transform: translateX(0);
+  }
+}
+
+@mixin menu-open {
+  min-width: var(--menu-expanded-width);
+  transform: translateX(0);
+  .logo {
+    transform: translateX(0);
+  }
+}
+
+@mixin menu-hidden {
+  width: 0;
+  transform: translateX(calc(var(--menu-expanded-width) * -1));
+  .logo {
+    transform: translateX(calc(var(--menu-expanded-width) * -1));
+  }
+}
+
+@mixin menu-collapsed-large {
+  width: var(--menu-collapsed-width);
+  min-width: var(--menu-collapsed-width);
+  transform: translateX(0);
+  .logo {
+    transform: translateX(calc(var(--menu-expanded-width) * -1));
+  }
+}
+
+@mixin menu-expanded-large {
+  width: var(--menu-expanded-width);
+  min-width: var(--menu-expanded-width);
+  transform: translateX(0);
+  .logo {
+    transform: translateX(0);
+  }
+}
+
 :root {
   div.split-pane,
   div.stretch-pane {
     div[role="menu"] {
       max-height: 100vh;
       display: flex;
+      flex-shrink: 0;
       flex-direction: column;
       box-sizing: border-box;
 
@@ -55,15 +124,6 @@
     div.split-pane,
     div.stretch-pane {
       div[role="menu"]:not(.open) {
-        //large screen collapsed menu width
-        min-width: calc(var(--menu-collapsed-width) + var(--padding-2x));
-
-        transform: translateX(0);
-
-        .logo {
-          transform: translateX(calc(var(--menu-expanded-width) * -1));
-        }
-
         button.menu-collapse {
           transform: rotate(180deg);
 
@@ -87,15 +147,6 @@
     div.split-pane,
     div.stretch-pane {
       div[role="menu"] {
-        //small screen visible menu width
-        min-width: var(--menu-expanded-width);
-
-        transform: translateX(0);
-
-        .logo {
-          transform: translateX(0);
-        }
-
         @include media.min-width(large) {
           button.menu-collapse {
             opacity: 1;
@@ -106,32 +157,48 @@
     }
   }
 
-  &:not([menu="collapsed"]) {
+  //menu width and transitions
+
+  &[menu="collapsed"] {
     div.split-pane,
     div.stretch-pane {
+      div[role="menu"].open {
+        //small screen menu collapsed and visible
+        @include menu-open;
+      }
+
       div[role="menu"]:not(.open) {
-        //small screen hidden menu width
-        min-width: 0;
-
-        transform: translateX(calc(var(--menu-expanded-width) * -1));
-
-        .logo {
-          transform: translateX(calc(var(--menu-expanded-width) * -1));
-        }
+        //small screen menu collapsed and hidden
+        @include menu-hidden;
 
         @include media.min-width(large) {
-          //large screen expanded menu width
-          min-width: var(--menu-expanded-width);
-
-          transform: translateX(0);
-
-          .logo {
-            transform: translateX(0);
-          }
+          //large screen collapsed menu width
+          @include menu-collapsed-large;
         }
       }
     }
   }
+
+  &:not([menu="collapsed"]) {
+    div.split-pane,
+    div.stretch-pane {
+      div[role="menu"].open {
+        //small screen visible menu width
+        @include menu-open;
+      }
+
+      div[role="menu"]:not(.open) {
+        //small screen hidden menu width
+        @include menu-hidden;
+
+        @include media.min-width(large) {
+          //large screen expanded menu width
+          @include menu-expanded-large;
+        }
+      }
+    }
+  }
+
   //transitions
   &[menu="collapsed"],
   &:not([menu="collapsed"]) {
