@@ -11,6 +11,11 @@
   export let sticky = true;
 
   const close = () => layoutMenuOpen.set(false);
+
+  //there are two ways to close the menu
+  //first using menuCollapsed which is the small button with arrow on right
+  // second layoutMenuOpen which is the X button on top on small screens
+  // most of the animation and transitions happen in
 </script>
 
 <div role="menu" class:open={$layoutMenuOpen}>
@@ -60,11 +65,7 @@
     position: relative;
 
     @include media.min-width(large) {
-      padding-top: calc(
-        var(--padding-3x) + var(--header-offset, 0px) - var(
-            --menu-selection-outer-radius
-          )
-      );
+      padding-top: calc(var(--padding-3x) + var(--header-offset, 0px));
     }
   }
 
@@ -77,7 +78,7 @@
     //space for scroll
     padding-left: var(--padding-2x);
     &.menu-collapsed {
-      //small screen collapse doesn't need a padding
+      //small screen doesn't need a padding
       padding-left: 0;
     }
   }
@@ -115,18 +116,12 @@
 
   .logo-nns {
     color: var(--menu-color);
-    margin-top: 1em;
-    @include media.min-width(large) {
-      padding-top: var(--padding);
-    }
+    text-align: center;
   }
 
   .bottom-logo {
-    display: block;
     padding: var(--padding-3x) 0;
-
     color: var(--menu-color);
-    z-index: var(--menu-z-index);
     text-align: center;
   }
 </style>
