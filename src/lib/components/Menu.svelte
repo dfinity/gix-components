@@ -65,7 +65,7 @@
     position: relative;
 
     @include media.min-width(large) {
-      padding-top: calc(var(--padding-3x) + var(--header-offset, 0px));
+      padding-top: calc(var(--padding-6x) + var(--header-offset, 0px));
     }
   }
 
@@ -107,10 +107,6 @@
     // Hide scrollbar for webkit
     &::-webkit-scrollbar {
       display: none;
-    }
-
-    @include media.min-width(large) {
-      padding-top: var(--padding-4x);
     }
   }
 
