@@ -17,19 +17,17 @@
     <slot name="oneliner" slot="oneliner" />
   </MenuBackground>
 
-  <div class="inner-wrapper">
-    <div
-      class="inner"
-      class:sticky
-      data-tid="menu-inner"
-      class:open={$layoutMenuOpen}
-      role="button"
-      tabindex="-1"
-      on:click={close}
-      on:keypress={($event) => handleKeyPress({ $event, callback: close })}
-    >
-      <slot />
-    </div>
+  <div
+    class="inner"
+    class:sticky
+    data-tid="menu-inner"
+    class:open={$layoutMenuOpen}
+    role="button"
+    tabindex="-1"
+    on:click={close}
+    on:keypress={($event) => handleKeyPress({ $event, callback: close })}
+  >
+    <slot />
   </div>
 
   <button
@@ -77,18 +75,12 @@
     }
   }
 
-  .inner-wrapper {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    overflow: hidden;
-  }
-
   .inner {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
     gap: var(--padding-0_5x);
+    overflow: hidden;
 
     // More space for menu selection touches the edge;
     // otherwise the first selected menu entry would be cut off in mobile view.
