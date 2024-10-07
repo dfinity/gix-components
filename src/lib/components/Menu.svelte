@@ -12,10 +12,10 @@
 
   const close = () => layoutMenuOpen.set(false);
 
-  //there are two ways to close the menu
-  //first using menuCollapsed which is the small button with arrow on right
+  // there are two ways to close the menu
+  // first using menuCollapsed which is the small button with arrow on right
   // second layoutMenuOpen which is the X button on top on small screens
-  // most of the animation and transitions happen in
+  // most of the animation and transitions happen in menu.scss
 </script>
 
 <div role="menu" class:open={$layoutMenuOpen}>
