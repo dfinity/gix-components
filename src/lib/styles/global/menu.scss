@@ -1,7 +1,7 @@
 @use "../mixins/media";
 
 @mixin menu-open {
-  min-width: var(--menu-expanded-width);
+  width: var(--menu-expanded-width);
   transform: translateX(0);
   .logo {
     transform: translateX(0);
@@ -18,7 +18,6 @@
 
 @mixin menu-collapsed-large {
   width: var(--menu-collapsed-width);
-  min-width: var(--menu-collapsed-width);
   transform: translateX(0);
   .logo {
     transform: translateX(calc(var(--menu-expanded-width) * -1));
@@ -27,7 +26,6 @@
 
 @mixin menu-expanded-large {
   width: var(--menu-expanded-width);
-  min-width: var(--menu-expanded-width);
   transform: translateX(0);
   .logo {
     transform: translateX(0);
@@ -35,7 +33,7 @@
 }
 
 @mixin menu-open {
-  min-width: var(--menu-expanded-width);
+  width: var(--menu-expanded-width);
   transform: translateX(0);
   .logo {
     transform: translateX(0);
@@ -52,7 +50,6 @@
 
 @mixin menu-collapsed-large {
   width: var(--menu-collapsed-width);
-  min-width: var(--menu-collapsed-width);
   transform: translateX(0);
   .logo {
     transform: translateX(calc(var(--menu-expanded-width) * -1));
@@ -61,7 +58,6 @@
 
 @mixin menu-expanded-large {
   width: var(--menu-expanded-width);
-  min-width: var(--menu-expanded-width);
   transform: translateX(0);
   .logo {
     transform: translateX(0);
