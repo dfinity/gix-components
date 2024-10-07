@@ -13,7 +13,7 @@
 </script>
 
 <svelte:component this={component}>
-  <Menu slot="menu" sticky={layout === "split"}>
+  <Menu slot="menu">
     <slot name="menu-logo" slot="logo">
       <LogoNNS />
     </slot>

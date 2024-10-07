@@ -2,7 +2,7 @@
 
 `Layout` component is used to create the layout of a dapp. It encapsulates a `split` or `stretch` pane that renders a `<Menu />` and a slotted content.
 
-When the `split` layout is selected (default option), the menu becomes sticky on wide screen and a slotted content is commonly used as inner component ([Content](/components/content)).
+When the `split` layout is selected (default option), a slotted content is commonly used as inner component ([Content](/components/content)).
 
 On the contrary, with a `stretch`, the inner part uses the entire space regardless of the screen size.
 

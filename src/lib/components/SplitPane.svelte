@@ -3,7 +3,7 @@
 
   let innerWidth = 0;
 
-  // Close menu if it was opened and the viewport width becomes larger than large screen (where the menu becomes sticky)
+  // Close menu if it was opened and the viewport width becomes larger than large screen
   const onWindowSizeChange = (innerWidth: number) => {
     if (!$layoutMenuOpen) {
       return;

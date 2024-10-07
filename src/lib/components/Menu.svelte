@@ -8,8 +8,6 @@
   import { nonNullish } from "@dfinity/utils";
   import { fade } from "svelte/transition";
 
-  export let sticky = true;
-
   const close = () => layoutMenuOpen.set(false);
 
   // there are two ways to close the menu
@@ -26,7 +24,6 @@
   <div class="inner-wrapper">
     <div
       class="inner"
-      class:sticky
       data-tid="menu-inner"
       role="button"
       tabindex="-1"
@@ -98,7 +95,6 @@
 
     overflow-y: auto;
 
-    // On large screen the header is not sticky but within the content that's why we align the inner menu start
     box-sizing: border-box;
 
     // Hide scrollbar for IE, Edge, and Firefox
