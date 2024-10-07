@@ -80,7 +80,6 @@
     flex-direction: column;
     flex-grow: 1;
     gap: var(--padding-0_5x);
-    overflow: hidden;
 
     // More space for menu selection touches the edge;
     // otherwise the first selected menu entry would be cut off in mobile view.
