@@ -23,17 +23,19 @@
     <slot name="logo" />
   </div>
 
-  <div
-    class="inner"
-    class:sticky
-    data-tid="menu-inner"
-    class:open={$layoutMenuOpen}
-    role="button"
-    tabindex="-1"
-    on:click={close}
-    on:keypress={($event) => handleKeyPress({ $event, callback: close })}
-  >
-    <slot />
+  <div class="inner-wrapper">
+    <div
+      class="inner"
+      class:sticky
+      data-tid="menu-inner"
+      class:open={$layoutMenuOpen}
+      role="button"
+      tabindex="-1"
+      on:click={close}
+      on:keypress={($event) => handleKeyPress({ $event, callback: close })}
+    >
+      <slot />
+    </div>
   </div>
 
   {#if nonNullish($themeStore)}
@@ -85,29 +87,14 @@
       --inner-menu-padding-left: var(--padding-2x);
     }
 
-    .inner {
+    .inner-wrapper {
       display: flex;
       flex-direction: column;
       flex-grow: 1;
-      gap: var(--padding-0_5x);
-
-      // More space for menu selection touches the edge;
-      // otherwise the first selected menu entry would be cut off in mobile view.
-      padding-top: calc(var(--menu-selection-outer-radius) + var(--padding-4x));
-
-      width: 0;
-      max-width: 100vw;
-      flex-grow: 1;
-
       overflow-y: auto;
-      margin-left: -100%;
 
-      transition:
-        margin-left var(--animation-time-normal)
-          var(--menu-animation-timing-function),
-        width var(--animation-time-normal) var(--menu-animation-timing-function);
-      // On large screen the header is not sticky but within the content that's why we align the inner menu start
-      box-sizing: border-box;
+      padding-top: var(--padding-4x);
+      padding-bottom: var(--padding-3x);
 
       // Hide scrollbar for IE, Edge, and Firefox
       -ms-overflow-style: none; // IE and Edge
@@ -116,6 +103,34 @@
       &::-webkit-scrollbar {
         display: none;
       }
+
+      @include media.min-width(large) {
+        padding-top: var(--menu-selection-outer-radius);
+        padding-bottom: var(--padding-3x);
+      }
+    }
+    .inner {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      gap: var(--padding-0_5x);
+
+      // More space for menu selection touches the edge;
+      // otherwise the first selected menu entry would be cut off in mobile view.
+      padding-top: var(--menu-selection-outer-radius);
+
+      width: 0;
+      max-width: 100vw;
+      flex-grow: 1;
+
+      margin-left: -100%;
+
+      transition:
+        margin-left var(--animation-time-normal)
+          var(--menu-animation-timing-function),
+        width var(--animation-time-normal) var(--menu-animation-timing-function);
+      // On large screen the header is not sticky but within the content that's why we align the inner menu start
+      box-sizing: border-box;
 
       &.sticky {
         // On large screen the menu can be always open
@@ -129,10 +144,6 @@
       &.open {
         width: var(--menu-width);
         margin-left: var(--inner-menu-padding-left);
-      }
-
-      @include media.min-width(large) {
-        padding-top: var(--menu-selection-outer-radius);
       }
     }
 
@@ -149,7 +160,7 @@
 
     .bottom-logo {
       display: none;
-      padding: var(--padding-3x) 0;
+      padding-bottom: var(--padding-3x);
 
       color: var(--menu-color);
       text-align: center;
