@@ -34,6 +34,8 @@
     align-items: center;
     gap: var(--padding-0_5x);
 
+    padding-top: var(--padding-2x);
+
     // Avoid text glitch on menu close|open
     min-width: 125px;
   }

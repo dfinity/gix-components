@@ -15,7 +15,9 @@
 <svelte:component this={component}>
   <Menu slot="menu" sticky={layout === "split"}>
     <slot name="menu-logo" slot="logo">
-      <LogoNNS />
+      <div>
+        <LogoNNS />
+      </div>
     </slot>
     <slot name="menu-oneliner" slot="oneliner">
       <LogoOnChain />
@@ -25,3 +27,12 @@
 
   <slot />
 </svelte:component>
+
+<style lang="scss">
+  @use "../styles/mixins/media";
+  div {
+    @include media.min-width(large) {
+      padding-top: var(--padding-2x);
+    }
+  }
+</style>
