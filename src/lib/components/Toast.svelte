@@ -89,6 +89,7 @@
 </script>
 
 <div
+  data-tid="toast-component"
   role="dialog"
   class={`toast ${theme ?? "themed"}`}
   in:fly|global={{ y: (position === "top" ? -1 : 1) * 100, duration: 200 }}
@@ -105,6 +106,7 @@
   </div>
 
   <p
+    data-tid="toast-message"
     class="msg"
     class:truncate
     class:clamp
@@ -121,8 +123,11 @@
     {/if}
   </p>
 
-  <button class="close" on:click={close} aria-label={$i18n.core.close}
-    ><IconClose /></button
+  <button
+    data-tid="close-button"
+    class="close"
+    on:click={close}
+    aria-label={$i18n.core.close}><IconClose /></button
   >
 </div>
 
