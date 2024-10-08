@@ -1,5 +1,4 @@
 <script lang="ts">
-  import MenuBackground from "./MenuBackground.svelte";
   import { layoutMenuOpen } from "$lib/stores/layout.store";
   import { handleKeyPress } from "$lib/utils/keyboard.utils";
   import IconBack from "$lib/icons/IconBack.svelte";
