@@ -82,7 +82,7 @@
 
     // Shift the menu on large screen e.g. if a banner is displayed
     @include media.min-width(large) {
-      padding-top: calc(var(--padding-4x) + var(--header-offset, 0px));
+      padding-top: calc(var(--padding-2x) + var(--header-offset, 0px));
       --inner-menu-padding-left: var(--padding-2x);
     }
 
@@ -92,7 +92,6 @@
       flex-grow: 1;
       overflow-y: auto;
 
-      padding-top: var(--padding-4x);
       padding-bottom: var(--padding-3x);
 
       // Hide scrollbar for IE, Edge, and Firefox
@@ -104,7 +103,6 @@
       }
 
       @include media.min-width(large) {
-        padding-top: var(--menu-selection-outer-radius);
         padding-bottom: var(--padding-3x);
       }
     }
