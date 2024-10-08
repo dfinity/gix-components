@@ -158,15 +158,11 @@
     }
 
     .bottom-logo {
-      display: none;
+      display: block;
       padding-bottom: var(--padding-3x);
 
       color: var(--menu-color);
       text-align: center;
-
-      @media (min-height: 654px) {
-        display: block;
-      }
     }
 
     .logo {
