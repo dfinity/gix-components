@@ -1,5 +1,5 @@
 <script lang="ts">
-  import MenuBackground from "./MenuBackground.svelte";
+  //import MenuBackground from "./MenuBackground.svelte";
   import { layoutMenuOpen } from "$lib/stores/layout.store";
   import { handleKeyPress } from "$lib/utils/keyboard.utils";
   import IconBack from "$lib/icons/IconBack.svelte";
@@ -12,10 +12,10 @@
 </script>
 
 <div role="menu" class:open={$layoutMenuOpen}>
-  <MenuBackground>
+  <!--MenuBackground>
     <slot name="logo" slot="logo" />
     <slot name="oneliner" slot="oneliner" />
-  </MenuBackground>
+  </MenuBackground-->
 
   <div
     class="inner"
@@ -27,7 +27,23 @@
     on:click={close}
     on:keypress={($event) => handleKeyPress({ $event, callback: close })}
   >
-    <slot />
+    <div class="top-logo">
+      {#if !$menuCollapsed}
+        <slot name="logo" />
+      {/if}
+    </div>
+
+    <div class="inner2">
+      <slot />
+    </div>
+
+    <div class="bottom-logo-gap"></div>
+
+    <div class="bottom-logo">
+      {#if !$menuCollapsed}
+        <slot name="oneliner" />
+      {/if}
+    </div>
   </div>
 
   <button
@@ -52,20 +68,22 @@
 
     --menu-logo-height: 65px;
     --menu-stack: 1em;
-
-    padding-top: calc(
+    --top-logo-height: calc(
       var(--menu-logo-height) + var(--padding-4x) + var(--header-offset, 0px)
     );
+
+    //padding-top: var(--top-logo-height);
 
     position: relative;
 
     // Shift the menu on large screen e.g. if a banner is displayed
     @include media.min-width(large) {
-      padding: calc(
-          var(--menu-logo-height) + var(--padding-3x) +
-            var(--header-offset, 0px) - var(--menu-selection-outer-radius)
-        )
-        var(--padding-2x) 0;
+      --top-logo-height: calc(
+        var(--menu-logo-height) + var(--padding-3x) + var(--header-offset, 0px) - var(
+            --menu-selection-outer-radius
+          )
+      );
+      padding-left: var(--padding-2x);
       // remove extra space because of menu selection touches the edge
       padding-right: 0;
     }
@@ -74,11 +92,50 @@
   .inner {
     display: flex;
     flex-direction: column;
-    gap: var(--padding-0_5x);
 
-    // More space for menu selection touches the edge;
-    // otherwise the first selected menu entry would be cut off in mobile view.
-    padding-top: var(--menu-selection-outer-radius);
+    .top-logo {
+      flex-shrink: 0;
+      color: var(--menu-color);
+      box-sizing: border-box;
+      height: var(--top-logo-height);
+      margin-left: calc(-1 * var(--padding));
+      padding-top: var(--menu-stack);
+
+      @include media.min-width(large) {
+        margin-left: 0;
+        margin-right: 0;
+        padding-top: var(--padding);
+        margin-left: calc(-1 * var(--padding-2x));
+      }
+    }
+
+    .inner2 {
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--padding-0_5x);
+
+      // More space for menu selection touches the edge;
+      // otherwise the first selected menu entry would be cut off in mobile view.
+      padding-top: var(--menu-selection-outer-radius);
+    }
+
+    .bottom-logo-gap {
+      flex-grow: 1;
+    }
+
+    .bottom-logo {
+      flex-shrink: 0;
+      color: var(--menu-color);
+      align-self: center;
+      margin-left: calc(-1 * var(--padding));
+      padding-top: var(--padding-2x);
+      padding-bottom: var(--padding-3x);
+
+      @include media.min-width(large) {
+        margin-left: calc(-1 * var(--padding-2x));
+      }
+    }
 
     width: 0;
     max-width: 100vw;
@@ -110,7 +167,7 @@
     }
 
     @include media.min-width(large) {
-      padding-top: var(--padding-4x);
+      padding-top: calc(var(--padding-4x) - var(--menu-selection-outer-radius));
     }
   }
 </style>
