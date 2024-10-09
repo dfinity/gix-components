@@ -1,5 +1,5 @@
 <script lang="ts">
-  import MenuBackground from "./MenuBackground.svelte";
+  //import MenuBackground from "./MenuBackground.svelte";
   import { layoutMenuOpen } from "$lib/stores/layout.store";
   import { handleKeyPress } from "$lib/utils/keyboard.utils";
   import IconBack from "$lib/icons/IconBack.svelte";
@@ -68,7 +68,9 @@
 
     --menu-logo-height: 65px;
     --menu-stack: 1em;
-    --top-logo-height: calc(var(--menu-logo-height) + var(--padding-4x) + var(--header-offset, 0px));
+    --top-logo-height: calc(
+      var(--menu-logo-height) + var(--padding-4x) + var(--header-offset, 0px)
+    );
 
     //padding-top: var(--top-logo-height);
 
@@ -77,9 +79,10 @@
     // Shift the menu on large screen e.g. if a banner is displayed
     @include media.min-width(large) {
       --top-logo-height: calc(
-          var(--menu-logo-height) + var(--padding-3x) +
-            var(--header-offset, 0px) - var(--menu-selection-outer-radius)
-        );
+        var(--menu-logo-height) + var(--padding-3x) + var(--header-offset, 0px) - var(
+            --menu-selection-outer-radius
+          )
+      );
       padding-left: var(--padding-2x);
       // remove extra space because of menu selection touches the edge
       padding-right: 0;
@@ -107,14 +110,14 @@
     }
 
     .inner2 {
-    flex-shrink: 0;
-    display: flex;
-    flex-direction: column;
-    gap: var(--padding-0_5x);
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--padding-0_5x);
 
-    // More space for menu selection touches the edge;
-    // otherwise the first selected menu entry would be cut off in mobile view.
-    padding-top: var(--menu-selection-outer-radius);
+      // More space for menu selection touches the edge;
+      // otherwise the first selected menu entry would be cut off in mobile view.
+      padding-top: var(--menu-selection-outer-radius);
     }
 
     .bottom-logo-gap {
@@ -125,7 +128,7 @@
       flex-shrink: 0;
       color: var(--menu-color);
       align-self: center;
-      margin-left: calc(-1* var(--padding));
+      margin-left: calc(-1 * var(--padding));
       padding-top: var(--padding-2x);
       padding-bottom: var(--padding-3x);
 
