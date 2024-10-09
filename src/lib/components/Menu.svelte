@@ -28,14 +28,21 @@
     on:keypress={($event) => handleKeyPress({ $event, callback: close })}
   >
     <div class="top-logo">
-      <slot name="logo" />
+      {#if !$menuCollapsed}
+        <slot name="logo" />
+      {/if}
     </div>
+
     <div class="inner2">
       <slot />
     </div>
-    <div class="gap"></div>
+
+    <div class="bottom-logo-gap"></div>
+
     <div class="bottom-logo">
-      <slot name="oneliner" />
+      {#if !$menuCollapsed}
+        <slot name="oneliner" />
+      {/if}
     </div>
   </div>
 
@@ -110,7 +117,7 @@
     padding-top: var(--menu-selection-outer-radius);
     }
 
-    .gap {
+    .bottom-logo-gap {
       flex-grow: 1;
     }
 
