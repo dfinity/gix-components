@@ -54,6 +54,8 @@
 
     --menu-logo-height: 65px;
     --menu-stack: 1em;
+    --menu-large-left-padding: var(--padding-2x);
+    --menu-small-left-padding: var(--padding);
 
     padding-top: calc(
       var(--menu-logo-height) + var(--padding-4x) + var(--header-offset, 0px)
@@ -82,13 +84,14 @@
     .slot-content {
       display: flex;
       flex-direction: column;
+      flex-grow: 1;
 
       gap: var(--padding-0_5x);
 
-      padding-left: var(--padding);
+      padding-left: var(--menu-small-left-padding);
 
       @include media.min-width(large) {
-        padding-left: var(--padding-2x);
+        padding-left: var(--menu-large-left-padding);
       }
     }
 
@@ -110,14 +113,14 @@
     &.sticky {
       // On large screen the menu can be always open
       @include media.min-width(large) {
-        width: calc(var(--menu-width) + var(--padding-2x));
+        width: calc(var(--menu-width) + var(--menu-large-left-padding));
         margin-left: 0;
       }
     }
 
     // On smaller screen the menu is open on demand
     &.open {
-      width: calc(var(--menu-width) + var(--padding));
+      width: calc(var(--menu-width) + var(--menu-small-left-padding));
       margin-left: 0;
     }
 
