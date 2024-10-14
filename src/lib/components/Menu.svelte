@@ -81,6 +81,10 @@
     // otherwise the first selected menu entry would be cut off in mobile view.
     padding-top: var(--menu-selection-outer-radius);
 
+    @include media.min-width(large) {
+      padding-top: var(--padding-4x);
+    }
+
     .slot-content {
       display: flex;
       flex-direction: column;
@@ -122,10 +126,6 @@
     &.open {
       width: calc(var(--menu-width) + var(--menu-small-left-padding));
       margin-left: 0;
-    }
-
-    @include media.min-width(large) {
-      padding-top: var(--padding-4x);
     }
   }
 </style>
