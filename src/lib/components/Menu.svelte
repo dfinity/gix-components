@@ -57,13 +57,13 @@
     --menu-large-left-padding: var(--padding-2x);
     --menu-small-left-padding: var(--padding);
 
+    position: relative;
+
     padding-top: calc(
       var(--menu-logo-height) + var(--padding-4x) + var(--header-offset, 0px) - var(
           --menu-selection-outer-radius
         )
     );
-
-    position: relative;
 
     // Shift the menu on large screen e.g. if a banner is displayed
     @include media.min-width(large) {
