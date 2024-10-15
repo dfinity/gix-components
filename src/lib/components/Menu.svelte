@@ -57,18 +57,18 @@
     --menu-large-left-padding: var(--padding-2x);
     --menu-small-left-padding: var(--padding);
 
-    padding-top: calc(
-      var(--menu-logo-height) + var(--padding-4x) + var(--header-offset, 0px)
-    );
-
     position: relative;
+
+    padding-top: calc(
+      var(--menu-logo-height) + var(--padding-4x) + var(--header-offset, 0px) - var(
+          --menu-selection-outer-radius
+        )
+    );
 
     // Shift the menu on large screen e.g. if a banner is displayed
     @include media.min-width(large) {
       padding-top: calc(
-        var(--menu-logo-height) + var(--padding-3x) + var(--header-offset, 0px) - var(
-            --menu-selection-outer-radius
-          )
+        var(--menu-logo-height) + var(--padding-3x) + var(--header-offset, 0px)
       );
     }
   }
@@ -80,6 +80,10 @@
     // More space for menu selection touches the edge;
     // otherwise the first selected menu entry would be cut off in mobile view.
     padding-top: var(--menu-selection-outer-radius);
+
+    @include media.min-width(large) {
+      padding-top: var(--padding-4x);
+    }
 
     .slot-content {
       display: flex;
@@ -122,10 +126,6 @@
     &.open {
       width: calc(var(--menu-width) + var(--menu-small-left-padding));
       margin-left: 0;
-    }
-
-    @include media.min-width(large) {
-      padding-top: var(--padding-4x);
     }
   }
 </style>
