@@ -25,13 +25,6 @@
           min-height: var(--padding-4x);
 
           transform: rotate(0deg);
-
-          display: none;
-
-          // 654px is an empirical value. The same value as in <MenuBackground /> in which we hide the header and footer of the menu according screen size.
-          @media (min-height: 654px) {
-            display: flex;
-          }
         }
 
         &.menu-collapse {

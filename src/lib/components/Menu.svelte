@@ -120,7 +120,7 @@
       display: flex;
       color: var(--menu-color);
       align-self: center;
-      padding-top: var(--padding-4x);
+      padding-top: var(--padding-3x);
       padding-bottom: var(--padding-3x);
     }
 
