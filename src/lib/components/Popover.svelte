@@ -11,7 +11,7 @@
   export let direction: "ltr" | "rtl" = "ltr";
   export let closeButton = false;
   export let invisibleBackdrop = false;
-  export let testId: string | undefined = undefined;
+  export let testId = 'popover-component';
 
   let bottom: number;
   let left: number;
