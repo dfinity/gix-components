@@ -1,5 +1,4 @@
 <script lang="ts">
-  import MenuBackground from "./MenuBackground.svelte";
   import { layoutMenuOpen } from "$lib/stores/layout.store";
   import { handleKeyPress } from "$lib/utils/keyboard.utils";
   import IconBack from "$lib/icons/IconBack.svelte";
@@ -12,11 +11,6 @@
 </script>
 
 <div role="menu" class:open={$layoutMenuOpen}>
-  <MenuBackground>
-    <slot name="logo" slot="logo" />
-    <slot name="oneliner" slot="oneliner" />
-  </MenuBackground>
-
   <div
     class="inner"
     class:sticky
@@ -27,8 +21,20 @@
     on:click={close}
     on:keypress={($event) => handleKeyPress({ $event, callback: close })}
   >
+    <div class="top-logo">
+      {#if !$menuCollapsed || $layoutMenuOpen}
+        <slot name="logo" />
+      {/if}
+    </div>
+
     <div class="slot-content">
       <slot />
+    </div>
+
+    <div class="bottom-logo">
+      {#if !$menuCollapsed || $layoutMenuOpen}
+        <slot name="oneliner" />
+      {/if}
     </div>
   </div>
 
@@ -59,7 +65,7 @@
 
     position: relative;
 
-    padding-top: calc(
+    --top-logo-height: calc(
       var(--menu-logo-height) + var(--padding-4x) + var(--header-offset, 0px) - var(
           --menu-selection-outer-radius
         )
@@ -67,7 +73,7 @@
 
     // Shift the menu on large screen e.g. if a banner is displayed
     @include media.min-width(large) {
-      padding-top: calc(
+      --top-logo-height: calc(
         var(--menu-logo-height) + var(--padding-3x) + var(--header-offset, 0px)
       );
     }
@@ -76,6 +82,17 @@
   .inner {
     display: flex;
     flex-direction: column;
+
+    .top-logo {
+      color: var(--menu-color);
+      box-sizing: border-box;
+      height: var(--top-logo-height);
+      padding-top: var(--menu-stack);
+
+      @include media.min-width(large) {
+        padding-top: calc(var(--menu-stack) + var(--padding));
+      }
+    }
 
     .slot-content {
       display: flex;
@@ -97,6 +114,14 @@
       @include media.min-width(large) {
         padding-left: var(--menu-large-left-padding);
       }
+    }
+
+    .bottom-logo {
+      display: flex;
+      color: var(--menu-color);
+      align-self: center;
+      padding-top: var(--padding-4x);
+      padding-bottom: var(--padding-3x);
     }
 
     width: 0;
