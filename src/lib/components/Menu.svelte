@@ -77,20 +77,20 @@
     display: flex;
     flex-direction: column;
 
-    // More space for menu selection touches the edge;
-    // otherwise the first selected menu entry would be cut off in mobile view.
-    padding-top: var(--menu-selection-outer-radius);
-
-    @include media.min-width(large) {
-      padding-top: var(--padding-4x);
-    }
-
     .slot-content {
       display: flex;
       flex-direction: column;
       flex-grow: 1;
 
       gap: var(--padding-0_5x);
+
+      // More space for menu selection touches the edge;
+      // otherwise the first selected menu entry would be cut off in mobile view.
+      padding-top: var(--menu-selection-outer-radius);
+
+      @include media.min-width(large) {
+        padding-top: var(--padding-4x);
+      }
 
       padding-left: var(--menu-small-left-padding);
 
