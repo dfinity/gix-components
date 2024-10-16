@@ -19,6 +19,7 @@
 
 {#if toasts.length > 0}
   <div
+    data-tid="toasts-component"
     class={`wrapper ${position}`}
     class:error={hasErrors}
     style={`--layout-bottom-offset: ${$layoutBottomOffset}px`}

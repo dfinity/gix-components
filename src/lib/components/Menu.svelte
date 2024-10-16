@@ -27,7 +27,9 @@
     on:click={close}
     on:keypress={($event) => handleKeyPress({ $event, callback: close })}
   >
-    <slot />
+    <div class="slot-content">
+      <slot />
+    </div>
   </div>
 
   <button
@@ -52,33 +54,50 @@
 
     --menu-logo-height: 65px;
     --menu-stack: 1em;
-
-    padding-top: calc(
-      var(--menu-logo-height) + var(--padding-4x) + var(--header-offset, 0px)
-    );
+    --menu-large-left-padding: var(--padding-2x);
+    --menu-small-left-padding: var(--padding);
 
     position: relative;
 
+    padding-top: calc(
+      var(--menu-logo-height) + var(--padding-4x) + var(--header-offset, 0px) - var(
+          --menu-selection-outer-radius
+        )
+    );
+
     // Shift the menu on large screen e.g. if a banner is displayed
     @include media.min-width(large) {
-      padding: calc(
-          var(--menu-logo-height) + var(--padding-3x) +
-            var(--header-offset, 0px) - var(--menu-selection-outer-radius)
-        )
-        var(--padding-2x) 0;
-      // remove extra space because of menu selection touches the edge
-      padding-right: 0;
+      padding-top: calc(
+        var(--menu-logo-height) + var(--padding-3x) + var(--header-offset, 0px)
+      );
     }
   }
 
   .inner {
     display: flex;
     flex-direction: column;
-    gap: var(--padding-0_5x);
 
-    // More space for menu selection touches the edge;
-    // otherwise the first selected menu entry would be cut off in mobile view.
-    padding-top: var(--menu-selection-outer-radius);
+    .slot-content {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+
+      gap: var(--padding-0_5x);
+
+      // More space for menu selection touches the edge;
+      // otherwise the first selected menu entry would be cut off in mobile view.
+      padding-top: var(--menu-selection-outer-radius);
+
+      @include media.min-width(large) {
+        padding-top: var(--padding-4x);
+      }
+
+      padding-left: var(--menu-small-left-padding);
+
+      @include media.min-width(large) {
+        padding-left: var(--menu-large-left-padding);
+      }
+    }
 
     width: 0;
     max-width: 100vw;
@@ -98,19 +117,15 @@
     &.sticky {
       // On large screen the menu can be always open
       @include media.min-width(large) {
-        width: var(--menu-width);
+        width: calc(var(--menu-width) + var(--menu-large-left-padding));
         margin-left: 0;
       }
     }
 
     // On smaller screen the menu is open on demand
     &.open {
-      width: var(--menu-width);
-      margin-left: var(--padding);
-    }
-
-    @include media.min-width(large) {
-      padding-top: var(--padding-4x);
+      width: calc(var(--menu-width) + var(--menu-small-left-padding));
+      margin-left: 0;
     }
   }
 </style>
