@@ -69,7 +69,7 @@
 
     // 654px is an empirical value
     @media (min-height: 654px) {
-      display: block;
+      display: flex;
     }
   }
 </style>
