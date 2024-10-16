@@ -15,22 +15,22 @@
 <style lang="scss">
   .tag {
     // "info" intent is the default
-    background-color: var(--elements-divider);
-    color: var(--text-description);
+    background-color: var(--tag-background);
+    color: var(--tag-text);
 
     &.success {
       background-color: var(--positive-emphasis);
-      color: var(--text-light);
+      color: var(--tag-text-light);
     }
 
     &.warning {
       background-color: var(--warning-emphasis);
-      color: var(--text-text);
+      color: var(--tag-text-dark);
     }
 
     &.error {
       background-color: var(--negative-emphasis);
-      color: var(--text-light);
+      color: var(--tag-text-light);
     }
   }
 </style>
