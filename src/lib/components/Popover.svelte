@@ -11,6 +11,7 @@
   export let direction: "ltr" | "rtl" = "ltr";
   export let closeButton = false;
   export let invisibleBackdrop = false;
+  export let testId: string | undefined = undefined;
 
   let bottom: number;
   let left: number;
@@ -37,6 +38,7 @@
     }px`}"
     on:click|stopPropagation
     on:keypress|stopPropagation
+    data-tid={testId}
   >
     <Backdrop
       on:nnsClose={() => (visible = false)}
