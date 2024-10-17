@@ -15,11 +15,13 @@
    * Emit an event when the checkbox or container is clicked. The state should be updated by consumer.
    */
   const onClick = ($event: MouseEvent | TouchEvent) => {
-    if (preventDefault) {
-      $event.preventDefault();
-    }
+    if (!disabled) {
+      if (preventDefault) {
+        $event.preventDefault();
+      }
 
-    change();
+      change();
+    }
   };
 
   const change = () => dispatch("nnsChange");
@@ -28,7 +30,8 @@
 <div
   tabindex="0"
   on:click|preventDefault={onClick}
-  on:keypress={($event) => handleKeyPress({ $event, callback: change })}
+  on:keypress={($event) =>
+    !disabled && handleKeyPress({ $event, callback: change })}
   class="checkbox"
   class:disabled
   role="button"
