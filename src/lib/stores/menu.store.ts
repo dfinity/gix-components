@@ -9,7 +9,7 @@ export interface MenuStore extends Readable<Menu | undefined> {
 }
 
 export const initMenuStore = (): MenuStore => {
-  const { subscribe, update } = writable<Menu | undefined>(initialMenu);
+  const { subscribe, set, update } = writable<Menu | undefined>(initialMenu);
 
   return {
     subscribe,
@@ -21,6 +21,10 @@ export const initMenuStore = (): MenuStore => {
         applyMenu({ menu, preserve: true });
         return menu;
       });
+    },
+
+    resetForTesting: () => {
+      set(Menu.EXPANDED);
     },
   };
 };
