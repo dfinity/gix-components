@@ -3,12 +3,11 @@ import { Menu } from "$lib/types/menu";
 import { get } from "svelte/store";
 
 describe("menu-store", () => {
+  beforeEach(() => {
+    menuStore.resetForTesting();
+  });
+
   it("should derive collapsed", async () => {
-    const store = get(menuStore);
-    expect(store).toBeUndefined();
-
-    menuStore.toggle();
-
     const storeExpanded = get(menuStore);
     expect(storeExpanded).toBe(Menu.EXPANDED);
 
@@ -22,5 +21,17 @@ describe("menu-store", () => {
 
     const derivedCollapsed2 = get(menuCollapsed);
     expect(derivedCollapsed2).toBeTruthy();
+  });
+
+  it("should reset to EXPANDED for testing", async () => {
+    expect(get(menuStore)).toBe(Menu.EXPANDED);
+
+    menuStore.toggle();
+
+    const storeCollapsed = get(menuStore);
+    expect(storeCollapsed).toBe(Menu.COLLAPSED);
+
+    menuStore.resetForTesting();
+    expect(get(menuStore)).toBe(Menu.EXPANDED);
   });
 });
