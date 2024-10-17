@@ -6,6 +6,7 @@ const initialMenu: Menu | undefined = initMenu();
 
 export interface MenuStore extends Readable<Menu | undefined> {
   toggle: () => void;
+  resetForTesting: () => void;
 }
 
 export const initMenuStore = (): MenuStore => {
