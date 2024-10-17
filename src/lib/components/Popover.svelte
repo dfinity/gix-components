@@ -11,6 +11,7 @@
   export let direction: "ltr" | "rtl" = "ltr";
   export let closeButton = false;
   export let invisibleBackdrop = false;
+  export let testId = "popover-component";
 
   let bottom: number;
   let left: number;
@@ -37,6 +38,7 @@
     }px`}"
     on:click
     on:keypress
+    data-tid={testId}
   >
     <Backdrop
       on:nnsClose={() => (visible = false)}

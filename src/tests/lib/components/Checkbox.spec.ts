@@ -111,4 +111,36 @@ describe("Checkbox", () => {
 
     expect(label?.classList.contains("block")).toBeTruthy();
   });
+
+  it("should not trigger nnsChange event when disabled and clicked", async () => {
+    const mockChange = vi.fn();
+    const { container, component } = render(Checkbox, {
+      props: { ...props, disabled: true },
+    });
+
+    component.$on("nnsChange", mockChange);
+
+    await fireEvent.click(container.querySelector("div.checkbox") as Element);
+
+    expect(mockChange).not.toHaveBeenCalled();
+  });
+
+  it("should not trigger nnsChange event when disabled and key pressed", async () => {
+    const mockChange = vi.fn();
+    const { container, component } = render(Checkbox, {
+      props: { ...props, disabled: true },
+    });
+
+    component.$on("nnsChange", mockChange);
+
+    await fireEvent.keyPress(
+      container.querySelector("div.checkbox") as Element,
+      {
+        key: "Enter",
+        code: "Enter",
+      },
+    );
+
+    expect(mockChange).not.toHaveBeenCalled();
+  });
 });
