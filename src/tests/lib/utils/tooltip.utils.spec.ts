@@ -10,6 +10,9 @@ describe("translateTooltip", () => {
     left: 100,
     bottom: 800,
     right: 500,
+    toJSON: function () {
+      return JSON.stringify(this);
+    },
   };
 
   const targetWidth = 50;
@@ -18,7 +21,7 @@ describe("translateTooltip", () => {
   const tooltipWidth = 200;
   const tooltipHeight = 40;
 
-  const createTargetAndTooltipRects = ({ x, y }) => ({
+  const createTargetAndTooltipRects = ({ x, y }: { x: number; y: number }) => ({
     targetRect: {
       x,
       y,
@@ -28,6 +31,9 @@ describe("translateTooltip", () => {
       left: x,
       bottom: y + targetHeight,
       right: x + targetWidth,
+      toJSON: function () {
+        return JSON.stringify(this);
+      },
     },
     tooltipRect: {
       x,
@@ -38,6 +44,9 @@ describe("translateTooltip", () => {
       left: x,
       bottom: y + tooltipHeight,
       right: x + tooltipWidth,
+      toJSON: function () {
+        return JSON.stringify(this);
+      },
     },
   });
 
