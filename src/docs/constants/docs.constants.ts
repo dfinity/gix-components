@@ -161,6 +161,12 @@ export const COMPONENT_ROUTES: ComponentRoute[] = [
 
     description: "A main banner for landing pages.",
   },
+  {
+    path: "/components/banner",
+    title: "Banner",
+
+    description: "Inside page banner",
+  },
 
   {
     path: "/components/popover",
