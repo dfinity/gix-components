@@ -1,5 +1,6 @@
 export { default as Back } from "./components/Back.svelte";
 export { default as Backdrop } from "./components/Backdrop.svelte";
+export { default as Banner } from "./components/Banner.svelte";
 export { default as BottomSheet } from "./components/BottomSheet.svelte";
 export { default as BusyScreen } from "./components/BusyScreen.svelte";
 export { default as Card } from "./components/Card.svelte";
