@@ -33,7 +33,7 @@ describe("Popover", () => {
       container.querySelector("div.backdrop");
 
     expect(backdrop).not.toBeNull();
-    expect(backdrop.classList).toContain("visible");
+    expect(backdrop?.classList).toContain("visible");
   });
 
   it("should render a backdrop invisible", () => {
@@ -48,7 +48,7 @@ describe("Popover", () => {
       container.querySelector("div.backdrop");
 
     expect(backdrop).not.toBeNull();
-    expect(backdrop.classList).not.toContain("visible");
+    expect(backdrop?.classList).not.toContain("visible");
   });
 
   it("should render slotted content", () => {
