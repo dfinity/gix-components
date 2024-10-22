@@ -13,13 +13,16 @@
   --cp-light-150: #ebedf9;
   --cp-light-200: #eef1fe;
   --cp-light-250: #6f7fcd;
+  // @deprecated
   --cp-light-400: #34407c;
   --cp-light-500: #32449e;
   --cp-light-600: #3d4d99;
   --cp-light-900: #151a33;
+  // @deprecated
   --cp-light-opaque: #ffffff40; // --cp-light-50 with 40% opacity
   --cp-light-gradient-1: #d4e7fa;
   --cp-light-gradient-2: #f2dae2;
+  // @deprecated (same as  --cp-light-50-45)
   --cp-light-hover-overlay: rgba(255, 255, 255, 0.45);
   --cp-light-50-45: rgba(var(--cp-light-50-rgb), 0.45);
 
@@ -29,7 +32,9 @@
   --cp-dark-75: var(--cp-dark-50);
   --cp-dark-100: #d7cdf6;
   --cp-dark-200: #b0a3d9;
+  // @deprecated
   --cp-dark-250: #a688ff;
+  // @deprecated
   --cp-dark-350: #4b3bf8;
   --cp-dark-400: #3d3061;
   --cp-dark-450: #2b1b4d;
@@ -40,9 +45,11 @@
   --cp-dark-900: #130a2c;
   --cp-dark-1000: rgb(var(--cp-dark-1000-rgb));
   --cp-dark-1000-rgb: 0, 0, 0;
+  // @deprecated (same as  --cp-dark-1000-20)
   --cp-dark-opaque: #00000020;
   --cp-dark-gradient-1: #0f0f4d;
   --cp-dark-gradient-2: #4d1259;
+  // @deprecated (replaced with --cp-dark-50--15% ?)
   --cp-dark-hover-overlay: rgba(0, 0, 0, 0.2);
   --cp-dark-1000-20: rgba(var(--cp-dark-1000-rgb), 0.2);
 
@@ -53,14 +60,19 @@
   --orchid: #af63db;
   --indigo: #553b75;
   --indigo-tint: #e1cfef;
+  // @deprecated
   --deep-violet: #603a68;
+  // @deprecated
   --deep-violet-tint: #634a65;
+  // @deprecated
   --blue-dark: #3d4c7a;
   --blue: #198ae3;
   --blue-tint: #c1d4f1;
   --orange: #e38b1b;
+  // @deprecated
   --orange-mid: #fdc087;
   --orange-tint: #f3ddbb;
+  // @deprecated
   --green-dark: #3c586d;
   --green: #30af91;
   --green-tint: #c7e3e1;
