@@ -10,12 +10,14 @@
   --cp-light-75: #f9f7ff;
   --cp-light-100: var(--cp-light-50);
   --cp-light-125: #dadef2;
-  --cp-light-150: #ebedf9;
+  // @deprecated (same as --cp-light-125)
+  --cp-light-150: #dadef2;
   --cp-light-200: #eef1fe;
   --cp-light-250: #6f7fcd;
   // @deprecated
   --cp-light-400: #34407c;
-  --cp-light-500: #32449e;
+  // @deprecated (same as --cp-light-600)
+  --cp-light-500: #3d4d99;
   --cp-light-600: #3d4d99;
   --cp-light-900: #151a33;
   // @deprecated
@@ -39,7 +41,7 @@
   --cp-dark-400: #3d3061;
   --cp-dark-450: #2b1b4d;
   --cp-dark-500: #342759;
-  --cp-dark-550: #3c2e66;
+  --cp-dark-550: #56497a;
   --cp-dark-600: #170c36;
   --cp-dark-650: #150c31;
   --cp-dark-900: #130a2c;
@@ -49,13 +51,13 @@
   --cp-dark-opaque: #00000020;
   --cp-dark-gradient-1: #0f0f4d;
   --cp-dark-gradient-2: #4d1259;
-  // @deprecated (replaced with --cp-dark-50--15% or --cp-dark-1000-20?)
+  // @deprecated (same as --cp-dark-1000-20)
   --cp-dark-hover-overlay: rgba(0, 0, 0, 0.2);
   --cp-dark-1000-20: rgba(var(--cp-dark-1000-rgb), 0.2);
 
   // Accessory
   --fade: #0E0B2660;
-  --fade-dark: #0D082680;
+  --fade-dark: #05070a80;
   --orchid-tint: #BB5FEA25;
   --orchid: #BB5FEA;
   --indigo: #906BFF;
