@@ -10,7 +10,7 @@
   --text-description: var(--violet-50);
   --text-description-tint: var(--violet-100);
 
-  --tag-background: var(--cp-dark-400);
+  --tag-background: var(--violet-400);
   --tag-text: var(--violet-50);
   --tag-text-light: var(--cp-light-50);
   --tag-text-dark: var(--blue-900);
@@ -63,7 +63,7 @@
   --json-boolean-color: var(--value-color);
 
   // Inputs
-  --input-border-color: var(--cp-dark-400);
+  --input-border-color: var(--violet-400);
   --input-border-size: 1.5px;
 
   //Tooltip
@@ -77,7 +77,7 @@
   // Dropdown (used for Popover)
   --dropdown-background: var(--cp-dark-500);
   --dropdown-focus-background: var(--cp-dark-450);
-  --dropdown-border-color: var(--cp-dark-400);
+  --dropdown-border-color: var(--violet-400);
   --dropdown-focus-border-color: var(--cp-dark-accent);
   --dropdown-border-size: 1.5px;
 
@@ -85,7 +85,7 @@
   --button-secondary-color: var(--secondary);
   --button-card-focus-color: var(--secondary);
   --button-card-focus-background: var(--cp-dark-650);
-  --button-disable-background: var(--cp-dark-400);
+  --button-disable-background: var(--violet-400);
   --button-disable-color: var(--violet-50);
 
   --light-opacity: 0.6;
@@ -108,11 +108,11 @@
   --disable-contrast-rgb: 184, 161, 222;
 
   // Line
-  --line: var(--cp-dark-400);
+  --line: var(--violet-400);
 
   // Scrollbar
   --scrollbar-thumb-background: transparent;
-  --scrollbar-thumb-color: var(--cp-dark-400);
+  --scrollbar-thumb-color: var(--violet-400);
 
   // Progress
   --progress-color: var(--secondary);
@@ -171,7 +171,7 @@
   --focus-background: var(--cp-dark-450);
   --focus-background-rgb: 61, 42, 92;
   --focus-background-contrast: var(--text-color);
-  --focus-background-tint: var(--cp-dark-400);
+  --focus-background-tint: var(--violet-400);
 
   /* Design: Dark/Bg/Background-01 */
   --card-background: var(--cp-dark-450);
@@ -179,7 +179,7 @@
   --card-background-contrast: var(--text-color);
   --card-background-contrast-rgb: var(--text-color-rgb);
   --card-background-shade: var(--cp-dark-450);
-  --card-background-tint: var(--cp-dark-400);
+  --card-background-tint: var(--violet-400);
   --card-background-disabled: var(--cp-dark-1000-20);
 
   /* Design: Dark/Bg/Background-02 */
