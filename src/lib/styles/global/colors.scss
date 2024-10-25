@@ -15,9 +15,9 @@
   --blue-250: #6f7fcd;
   // @deprecated
   --cp-light-400: #34407c;
-  // @deprecated (same as --cp-light-600)
-  --cp-light-500: var(--cp-light-600);
-  --cp-light-600: #3d4d99;
+  // @deprecated (same as --blue-600)
+  --cp-light-500: var(--blue-600);
+  --blue-600: #3d4d99;
   --cp-light-900: #151a33;
   // @deprecated TODO: replace with Neutral-50A45
   --cp-light-opaque: #ffffff40; // --cp-light-50 with 40% opacity
