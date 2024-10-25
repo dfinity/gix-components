@@ -14,7 +14,7 @@
     --tag-background: var(--cp-light-125);
     --tag-text: var(--blue-600);
     --tag-text-light: var(--cp-light-50);
-    --tag-text-dark: var(--cp-light-900);
+    --tag-text-dark: var(--blue-900);
 
     --input-focus-background: var(--cp-light-75);
     --button-primary: var(--blue-accent);
@@ -70,7 +70,7 @@
     --button-disable-color: var(--disable-contrast);
 
     // Text color
-    --value-color: var(--cp-light-900);
+    --value-color: var(--blue-900);
     --label-color: var(--text-color);
     --description-color: var(--blue-600);
 
@@ -113,12 +113,12 @@
     --overlay-content-background: var(--cp-light-75);
 
     // Overlay inverted colors - i.e. light mode colors
-    --toast-inverted-background: var(--cp-light-900);
+    --toast-inverted-background: var(--blue-900);
     --toast-inverted-background-contrast: var(--cp-light-50);
 
     // Menu
-    --menu-color: var(--cp-light-900);
-    --menu-select-color: var(--cp-light-900);
+    --menu-color: var(--blue-900);
+    --menu-select-color: var(--blue-900);
     --menu-selected-background: var(--cp-light-75);
 
     --toolbar-color: var(--menu-color);
@@ -137,7 +137,7 @@
     // Palette
 
     /* Light/Text/Text */
-    --text-color: var(--cp-light-900);
+    --text-color: var(--blue-900);
     // TODO-colors: Remove application of rgbs
     --text-color-rgb: 56, 45, 80;
 
@@ -181,10 +181,10 @@
 
     --secondary: var(--cp-light-500);
     --secondary-rgb: 124, 92, 194;
-    --secondary-contrast: var(--cp-light-900);
+    --secondary-contrast: var(--blue-900);
 
     --warning-emphasis: var(--orange-mid);
-    --warning-emphasis-contrast: var(--cp-light-900);
+    --warning-emphasis-contrast: var(--blue-900);
     --warning-emphasis-shade: var(--orange);
 
     --positive-emphasis: var(--green);
