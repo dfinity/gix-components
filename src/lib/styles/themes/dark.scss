@@ -69,7 +69,7 @@
   //Tooltip
   --tooltip-background: var(--cp-light-75);
   --tooltip-border-color: var(--cp-light-50-45);
-  --tooltip-divider: var(--cp-light-150);
+  --tooltip-divider: var(--cp-light-125);
   --tooltip-description-color: var(--cp-light-600);
   --tooltip-text-color: var(--cp-light-900);
   --tooltip-border-size: 1.5px;
@@ -138,7 +138,7 @@
   --overlay-content-background-contrast: var(--focus-background-contrast);
 
   // Overlay inverted colors - i.e. light mode colors
-  --toast-inverted-background: var(--cp-dark-75);
+  --toast-inverted-background: var(--cp-dark-50);
   --toast-inverted-background-contrast: var(--purple-dark-900);
 
   // Menu
@@ -206,7 +206,7 @@
   --tertiary: var(--cp-dark-200);
 
   --warning-emphasis: var(--orange-mid);
-  --warning-emphasis-contrast: var(--cp-dark-75);
+  --warning-emphasis-contrast: var(--cp-dark-50);
   --warning-emphasis-shade: var(--orange);
 
   --positive-emphasis: var(--green);

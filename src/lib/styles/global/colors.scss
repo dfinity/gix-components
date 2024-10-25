@@ -11,26 +11,27 @@
   --cp-light-100: var(--cp-light-50);
   --cp-light-125: #dadef2;
   // @deprecated (same as --cp-light-125)
-  --cp-light-150: #dadef2;
+  --cp-light-150: var(--cp-light-125);
   --cp-light-200: #eef1fe;
   --cp-light-250: #6f7fcd;
   // @deprecated
   --cp-light-400: #34407c;
   // @deprecated (same as --cp-light-600)
-  --cp-light-500: #3d4d99;
+  --cp-light-500: var(--cp-light-600);
   --cp-light-600: #3d4d99;
   --cp-light-900: #151a33;
-  // @deprecated
+  // @deprecated TODO: replace with Neutral-50A45
   --cp-light-opaque: #ffffff40; // --cp-light-50 with 40% opacity
   --cp-light-gradient-1: #d4e7fa;
   --cp-light-gradient-2: #f2dae2;
   // @deprecated (same as  --cp-light-50-45)
-  --cp-light-hover-overlay: rgba(255, 255, 255, 0.45);
+  --cp-light-hover-overlay: var(--cp-light-50-45);
   --cp-light-50-45: rgba(var(--cp-light-50-rgb), 0.45);
 
   // dark theme
   --cp-dark-accent: #906bff;
   --cp-dark-50: #fff;
+  // @deprecated
   --cp-dark-75: var(--cp-dark-50);
   --cp-dark-100: #897dad;
   --cp-dark-200: #b0a3d9;
