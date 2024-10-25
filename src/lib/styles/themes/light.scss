@@ -5,14 +5,14 @@
     // -------- NEW CSS VARIABLES ----------------
     // We want to migrate to a new set of CSS variables for colors more adapted to our Figma.
     --elements-divider: var(--cp-light-125);
-    --elements-icons: var(--cp-light-600);
+    --elements-icons: var(--blue-600);
     --elements-badges: var(--blue-accent);
     --elements-badges-inactive: var(--blue-250);
-    --text-description: var(--cp-light-600);
+    --text-description: var(--blue-600);
     --text-description-tint: var(--blue-250);
 
     --tag-background: var(--cp-light-125);
-    --tag-text: var(--cp-light-600);
+    --tag-text: var(--blue-600);
     --tag-text-light: var(--cp-light-50);
     --tag-text-dark: var(--cp-light-900);
 
@@ -72,7 +72,7 @@
     // Text color
     --value-color: var(--cp-light-900);
     --label-color: var(--text-color);
-    --description-color: var(--cp-light-600);
+    --description-color: var(--blue-600);
 
     // Overlays - based on dark card background rgb color
     --backdrop: var(--fade);
