@@ -92,7 +92,7 @@
   --very-light-opacity: 0.4;
 
   // Text color
-  --value-color: var(--cp-dark-50);
+  --value-color: var(--neutral-50);
   --label-color: var(--text-color);
   --description-color: var(--violet-50);
 
@@ -138,7 +138,7 @@
   --overlay-content-background-contrast: var(--focus-background-contrast);
 
   // Overlay inverted colors - i.e. light mode colors
-  --toast-inverted-background: var(--cp-dark-50);
+  --toast-inverted-background: var(--neutral-50);
   --toast-inverted-background-contrast: var(--purple-dark-900);
 
   // Menu
@@ -160,7 +160,7 @@
   // Palette
 
   /* Light/Text/Text-xx? */
-  --text-color: var(--cp-dark-50);
+  --text-color: var(--neutral-50);
   --text-color-rgb: 240, 237, 245;
 
   /* Design: Dark/Bg/Background-03 */
@@ -206,7 +206,7 @@
   --tertiary: var(--violet-50);
 
   --warning-emphasis: var(--orange-mid);
-  --warning-emphasis-contrast: var(--cp-dark-50);
+  --warning-emphasis-contrast: var(--neutral-50);
   --warning-emphasis-shade: var(--orange);
 
   --positive-emphasis: var(--green);
