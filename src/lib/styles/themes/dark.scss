@@ -15,11 +15,11 @@
   --tag-text-light: var(--cp-light-50);
   --tag-text-dark: var(--blue-900);
 
-  --input-focus-background: var(--cp-dark-450);
+  --input-focus-background: var(--violet-500);
   --button-primary: var(--cp-dark-accent);
   --table-background: var(--cp-dark-500);
   --table-header-background: var(--cp-dark-500);
-  --table-row-background: var(--cp-dark-450);
+  --table-row-background: var(--violet-500);
   --table-row-background-hover: var(--cp-dark-500);
 
   --alert: var(--pink);
@@ -76,7 +76,7 @@
 
   // Dropdown (used for Popover)
   --dropdown-background: var(--cp-dark-500);
-  --dropdown-focus-background: var(--cp-dark-450);
+  --dropdown-focus-background: var(--violet-500);
   --dropdown-border-color: var(--violet-400);
   --dropdown-focus-border-color: var(--cp-dark-accent);
   --dropdown-border-size: 1.5px;
@@ -134,7 +134,7 @@
 
   --overlay-background: var(--background);
   --overlay-background-contrast: var(--background-contrast);
-  --overlay-content-background: var(--cp-dark-450);
+  --overlay-content-background: var(--violet-500);
   --overlay-content-background-contrast: var(--focus-background-contrast);
 
   // Overlay inverted colors - i.e. light mode colors
@@ -168,17 +168,17 @@
   --input-background-contrast: var(--text-color);
 
   /* Design: Dark/Bg/Background */
-  --focus-background: var(--cp-dark-450);
+  --focus-background: var(--violet-500);
   --focus-background-rgb: 61, 42, 92;
   --focus-background-contrast: var(--text-color);
   --focus-background-tint: var(--violet-400);
 
   /* Design: Dark/Bg/Background-01 */
-  --card-background: var(--cp-dark-450);
+  --card-background: var(--violet-500);
   --card-background-rgb: 61, 42, 92;
   --card-background-contrast: var(--text-color);
   --card-background-contrast-rgb: var(--text-color-rgb);
-  --card-background-shade: var(--cp-dark-450);
+  --card-background-shade: var(--violet-500);
   --card-background-tint: var(--violet-400);
   --card-background-disabled: var(--cp-dark-1000-20);
 
