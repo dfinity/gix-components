@@ -17,10 +17,10 @@
 
   --input-focus-background: var(--violet-500);
   --button-primary: var(--cp-dark-accent);
-  --table-background: var(--cp-dark-500);
-  --table-header-background: var(--cp-dark-500);
+  --table-background: var(--violet-450);
+  --table-header-background: var(--violet-450);
   --table-row-background: var(--violet-500);
-  --table-row-background-hover: var(--cp-dark-500);
+  --table-row-background-hover: var(--violet-450);
 
   --alert: var(--pink);
   --alert-tint: var(--deep-violet-tint);
@@ -75,7 +75,7 @@
   --tooltip-border-size: 1.5px;
 
   // Dropdown (used for Popover)
-  --dropdown-background: var(--cp-dark-500);
+  --dropdown-background: var(--violet-450);
   --dropdown-focus-background: var(--violet-500);
   --dropdown-border-color: var(--violet-400);
   --dropdown-focus-border-color: var(--cp-dark-accent);
@@ -164,7 +164,7 @@
   --text-color-rgb: 240, 237, 245;
 
   /* Design: Dark/Bg/Background-03 */
-  --input-background: var(--cp-dark-500);
+  --input-background: var(--violet-450);
   --input-background-contrast: var(--text-color);
 
   /* Design: Dark/Bg/Background */
@@ -189,7 +189,7 @@
   --background-shade: var(--cp-dark-600);
 
   /* Design: Dark/Bg/Background-01 */
-  --background-disable: var(--cp-dark-500);
+  --background-disable: var(--violet-450);
   --background-disable-rgb: 55, 38, 82;
   --background-disable-contrast: var(--disable-contrast);
 
