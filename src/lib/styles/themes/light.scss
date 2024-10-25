@@ -7,9 +7,9 @@
     --elements-divider: var(--cp-light-125);
     --elements-icons: var(--cp-light-600);
     --elements-badges: var(--blue-accent);
-    --elements-badges-inactive: var(--cp-light-250);
+    --elements-badges-inactive: var(--blue-250);
     --text-description: var(--cp-light-600);
-    --text-description-tint: var(--cp-light-250);
+    --text-description-tint: var(--blue-250);
 
     --tag-background: var(--cp-light-125);
     --tag-text: var(--cp-light-600);
@@ -82,7 +82,7 @@
     // Disable
     /* Light/Bg/Background-03 */
     --disable: var(--cp-light-200);
-    --disable-contrast: var(--cp-light-250);
+    --disable-contrast: var(--blue-250);
     // TODO-colors: Remove application of rgbs
     --disable-contrast-rgb: 171, 153, 209;
 
