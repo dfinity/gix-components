@@ -6,9 +6,9 @@
   --elements-divider: var(--cp-dark-550);
   --elements-icons: var(--cp-dark-200);
   --elements-badges: var(--cp-dark-accent);
-  --elements-badges-inactive: var(--cp-dark-100);
+  --elements-badges-inactive: var(--violet-100);
   --text-description: var(--cp-dark-200);
-  --text-description-tint: var(--cp-dark-100);
+  --text-description-tint: var(--violet-100);
 
   --tag-background: var(--cp-dark-400);
   --tag-text: var(--cp-dark-200);
@@ -125,7 +125,7 @@
     var(--cp-dark-gradient-2),
     var(--blue-800)
   );
-  --body-color: var(--cp-dark-100);
+  --body-color: var(--violet-100);
 
   --content-background: var(--cp-dark-1000-20);
   --content-color: var(--text-color);
