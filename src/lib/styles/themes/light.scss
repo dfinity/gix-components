@@ -6,7 +6,7 @@
     // We want to migrate to a new set of CSS variables for colors more adapted to our Figma.
     --elements-divider: var(--cp-light-125);
     --elements-icons: var(--cp-light-600);
-    --elements-badges: var(--blue-accent);
+    --elements-badges: var(--cp-light-accent);
     --elements-badges-inactive: var(--cp-light-250);
     --text-description: var(--cp-light-600);
     --text-description-tint: var(--cp-light-250);
@@ -17,7 +17,7 @@
     --tag-text-dark: var(--cp-light-900);
 
     --input-focus-background: var(--cp-light-75);
-    --button-primary: var(--blue-accent);
+    --button-primary: var(--cp-light-accent);
     --table-background: var(--cp-light-75);
     --table-header-background: var(--cp-light-100);
     --table-row-background: var(--cp-light-75);
@@ -42,8 +42,8 @@
     --footer-background: transparent;
 
     // Gradient
-    --primary-gradient: var(--blue-accent);
-    --primary-gradient-fallback: var(--blue-accent);
+    --primary-gradient: var(--cp-light-accent);
+    --primary-gradient-fallback: var(--cp-light-accent);
 
     // Inputs
     /* Design Light/7969C0 (8%)-light */
@@ -60,7 +60,7 @@
     --dropdown-background: var(--cp-light-100);
     --dropdown-focus-background: var(--cp-light-75);
     --dropdown-border-color: var(--cp-light-125);
-    --dropdown-focus-border-color: var(--blue-accent);
+    --dropdown-focus-border-color: var(--cp-light-accent);
 
     // Buttons custom colors
     --button-secondary-color: var(--primary);
@@ -132,7 +132,7 @@
     --sidebar-icon: var(--text-color);
 
     // Theme color
-    --theme-color: var(--blue-accent);
+    --theme-color: var(--cp-light-accent);
 
     // Palette
 
@@ -173,7 +173,7 @@
     --background-disable-rgb: 225, 217, 243;
     --background-disable-contrast: var(--disable-contrast);
 
-    --primary: var(--blue-accent);
+    --primary: var(--cp-light-accent);
     // TODO-colors: Remove application of rgbs, then remove x-rgb.
     --primary-rgb: 121, 78, 231;
     --primary-contrast: var(--cp-light-50);
