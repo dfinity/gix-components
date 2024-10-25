@@ -4,14 +4,14 @@
   // -------- NEW CSS VARIABLES ----------------
   // We want to migrate to a new set of CSS variables for colors more adapted to our Figma.
   --elements-divider: var(--cp-dark-550);
-  --elements-icons: var(--cp-dark-200);
+  --elements-icons: var(--violet-50);
   --elements-badges: var(--cp-dark-accent);
   --elements-badges-inactive: var(--violet-100);
-  --text-description: var(--cp-dark-200);
+  --text-description: var(--violet-50);
   --text-description-tint: var(--violet-100);
 
   --tag-background: var(--cp-dark-400);
-  --tag-text: var(--cp-dark-200);
+  --tag-text: var(--violet-50);
   --tag-text-light: var(--cp-light-50);
   --tag-text-dark: var(--blue-900);
 
@@ -86,7 +86,7 @@
   --button-card-focus-color: var(--secondary);
   --button-card-focus-background: var(--cp-dark-650);
   --button-disable-background: var(--cp-dark-400);
-  --button-disable-color: var(--cp-dark-200);
+  --button-disable-color: var(--violet-50);
 
   --light-opacity: 0.6;
   --very-light-opacity: 0.4;
@@ -94,7 +94,7 @@
   // Text color
   --value-color: var(--cp-dark-50);
   --label-color: var(--text-color);
-  --description-color: var(--cp-dark-200);
+  --description-color: var(--violet-50);
 
   // Overlays - based on dark card background rgb color
   --backdrop: var(--fade-dark);
@@ -103,7 +103,7 @@
 
   // Disable
   --disable: var(--card-background);
-  --disable-contrast: var(--cp-dark-200);
+  --disable-contrast: var(--violet-50);
   // TODO-colors: Remove application of rgbs
   --disable-contrast-rgb: 184, 161, 222;
 
@@ -203,7 +203,7 @@
   --secondary-rgb: 163, 106, 255;
   --secondary-contrast: var(--text-color);
 
-  --tertiary: var(--cp-dark-200);
+  --tertiary: var(--violet-50);
 
   --warning-emphasis: var(--orange-mid);
   --warning-emphasis-contrast: var(--cp-dark-50);
