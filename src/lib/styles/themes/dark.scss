@@ -3,7 +3,7 @@
 :root {
   // -------- NEW CSS VARIABLES ----------------
   // We want to migrate to a new set of CSS variables for colors more adapted to our Figma.
-  --elements-divider: var(--cp-dark-550);
+  --elements-divider: var(--violet-300);
   --elements-icons: var(--violet-50);
   --elements-badges: var(--cp-dark-accent);
   --elements-badges-inactive: var(--violet-100);
@@ -28,7 +28,7 @@
   --check-tint: var(--green-dark);
   --pending-color: var(--orange-mid);
   --pending-background: var(--deep-violet-tint);
-  --island-card-background: var(--cp-dark-550);
+  --island-card-background: var(--violet-300);
 
   // -------- OLD CSS VARIABLES ----------------
   // Shadows
@@ -183,7 +183,7 @@
   --card-background-disabled: var(--cp-dark-1000-20);
 
   /* Design: Dark/Bg/Background-02 */
-  --background: var(--cp-dark-550);
+  --background: var(--violet-300);
   --background-contrast: var(--text-color);
   --background-contrast-rgb: var(--text-color-rgb);
   --background-shade: var(--cp-dark-600);
