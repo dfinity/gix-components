@@ -5,7 +5,7 @@
   // We want to migrate to a new set of CSS variables for colors more adapted to our Figma.
   --elements-divider: var(--violet-300);
   --elements-icons: var(--violet-50);
-  --elements-badges: var(--cp-dark-accent);
+  --elements-badges: var(--violet-accent);
   --elements-badges-inactive: var(--violet-100);
   --text-description: var(--violet-50);
   --text-description-tint: var(--violet-100);
@@ -16,7 +16,7 @@
   --tag-text-dark: var(--blue-900);
 
   --input-focus-background: var(--violet-500);
-  --button-primary: var(--cp-dark-accent);
+  --button-primary: var(--violet-accent);
   --table-background: var(--violet-450);
   --table-header-background: var(--violet-450);
   --table-row-background: var(--violet-500);
@@ -48,8 +48,8 @@
   --footer-background: transparent;
 
   // Gradient
-  --primary-gradient: var(--cp-dark-accent);
-  --primary-gradient-fallback: var(--cp-dark-accent);
+  --primary-gradient: var(--violet-accent);
+  --primary-gradient-fallback: var(--violet-accent);
 
   // Json colors
   --json-bracket-color: inherit;
@@ -78,7 +78,7 @@
   --dropdown-background: var(--violet-450);
   --dropdown-focus-background: var(--violet-500);
   --dropdown-border-color: var(--violet-400);
-  --dropdown-focus-border-color: var(--cp-dark-accent);
+  --dropdown-focus-border-color: var(--violet-accent);
   --dropdown-border-size: 1.5px;
 
   // Buttons custom colors
@@ -193,13 +193,13 @@
   --background-disable-rgb: 55, 38, 82;
   --background-disable-contrast: var(--disable-contrast);
 
-  --primary: var(--cp-dark-accent);
+  --primary: var(--violet-accent);
   --primary-rgb: 163, 106, 255;
   --primary-contrast: var(--text-color);
   --primary-shade: var(--cp-dark-350);
   --primary-tint: var(--cp-dark-250);
 
-  --secondary: var(--cp-dark-accent);
+  --secondary: var(--violet-accent);
   --secondary-rgb: 163, 106, 255;
   --secondary-contrast: var(--text-color);
 
