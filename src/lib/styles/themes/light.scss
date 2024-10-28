@@ -26,7 +26,7 @@
     --alert: var(--pink);
     --alert-tint: var(--pink-tint);
     --check: var(--green);
-    --check-tint: var(--green-tint);
+    --check-tint: var(--green-200-a25);
     --pending-color: var(--orange);
     --pending-background: var(--orange-tint);
     --island-card-background: var(--neutral-50);
@@ -190,7 +190,7 @@
     --positive-emphasis: var(--green);
     --positive-emphasis-rgb: 48, 175, 145;
     --positive-emphasis-contrast: var(--neutral-50);
-    --positive-emphasis-light: var(--green-tint);
+    --positive-emphasis-light: var(--green-200-a25);
     --negative-emphasis: var(--pink);
     --negative-emphasis-contrast: var(--neutral-50);
   }
