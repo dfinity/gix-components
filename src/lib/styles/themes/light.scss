@@ -4,14 +4,14 @@
   &[theme="light"] {
     // -------- NEW CSS VARIABLES ----------------
     // We want to migrate to a new set of CSS variables for colors more adapted to our Figma.
-    --elements-divider: var(--cp-light-125);
+    --elements-divider: var(--neutral-250);
     --elements-icons: var(--blue-600);
     --elements-badges: var(--blue-accent);
     --elements-badges-inactive: var(--blue-250);
     --text-description: var(--blue-600);
     --text-description-tint: var(--blue-250);
 
-    --tag-background: var(--cp-light-125);
+    --tag-background: var(--neutral-250);
     --tag-text: var(--blue-600);
     --tag-text-light: var(--cp-light-50);
     --tag-text-dark: var(--blue-900);
@@ -47,7 +47,7 @@
 
     // Inputs
     /* Design Light/7969C0 (8%)-light */
-    --input-border-color: var(--cp-light-125);
+    --input-border-color: var(--neutral-250);
 
     //Tooltip
     --tooltip-background: var(--violet-900);
@@ -59,14 +59,14 @@
     // Dropdown (used for Popover)
     --dropdown-background: var(--cp-light-100);
     --dropdown-focus-background: var(--cp-light-75);
-    --dropdown-border-color: var(--cp-light-125);
+    --dropdown-border-color: var(--neutral-250);
     --dropdown-focus-border-color: var(--blue-accent);
 
     // Buttons custom colors
     --button-secondary-color: var(--primary);
     --button-card-focus-color: var(--primary);
     --button-card-focus-background: var(--cp-light-100);
-    --button-disable-background: var(--cp-light-125);
+    --button-disable-background: var(--neutral-250);
     --button-disable-color: var(--disable-contrast);
 
     // Text color
@@ -87,10 +87,10 @@
     --disable-contrast-rgb: 171, 153, 209;
 
     // Line
-    --line: var(--cp-light-125);
+    --line: var(--neutral-250);
 
     // Scrollbar
-    --scrollbar-thumb-color: var(--cp-light-125);
+    --scrollbar-thumb-color: var(--neutral-250);
 
     // Progress
     --progress-color: var(--primary);
@@ -163,13 +163,13 @@
     --card-background-disabled: var(--cp-light-opaque);
 
     /* Design: Light/Bg/Background-01 */
-    --background: var(--cp-light-125);
+    --background: var(--neutral-250);
     --background-contrast: var(--text-color);
     --background-contrast-rgb: var(--text-color-rgb);
-    --background-shade: var(--cp-light-125);
+    --background-shade: var(--neutral-250);
 
     /* Design: Light/Bg/Background-03 */
-    --background-disable: var(--cp-light-125);
+    --background-disable: var(--neutral-250);
     --background-disable-rgb: 225, 217, 243;
     --background-disable-contrast: var(--disable-contrast);
 
