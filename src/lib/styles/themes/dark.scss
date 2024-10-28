@@ -22,7 +22,7 @@
   --table-row-background: var(--violet-500);
   --table-row-background-hover: var(--violet-450);
 
-  --alert: var(--pink);
+  --alert: var(--pink-200);
   --alert-tint: var(--deep-violet-tint);
   --check: var(--green-200);
   --check-tint: var(--green-dark);
@@ -213,6 +213,6 @@
   --positive-emphasis-rgb: 48, 175, 145;
   --positive-emphasis-contrast: var(--neutral-50);
   --positive-emphasis-light: var(--green-200-a25);
-  --negative-emphasis: var(--pink);
+  --negative-emphasis: var(--pink-200);
   --negative-emphasis-contrast: var(--neutral-50);
 }
