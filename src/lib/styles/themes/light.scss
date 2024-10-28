@@ -25,7 +25,7 @@
 
     --alert: var(--pink);
     --alert-tint: var(--pink-tint);
-    --check: var(--green);
+    --check: var(--green-200);
     --check-tint: var(--green-200-a25);
     --pending-color: var(--orange);
     --pending-background: var(--orange-tint);
@@ -187,7 +187,7 @@
     --warning-emphasis-contrast: var(--blue-900);
     --warning-emphasis-shade: var(--orange);
 
-    --positive-emphasis: var(--green);
+    --positive-emphasis: var(--green-200);
     --positive-emphasis-rgb: 48, 175, 145;
     --positive-emphasis-contrast: var(--neutral-50);
     --positive-emphasis-light: var(--green-200-a25);
