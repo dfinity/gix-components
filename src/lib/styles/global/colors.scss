@@ -4,10 +4,10 @@
   // naming structure: --cp-[themename]-[primitivename]
 
   // light theme
-  --cp-light-50: rgb(var(--cp-light-50-rgb));
+  --neutral-50: rgb(var(--cp-light-50-rgb));
   --cp-light-50-rgb: 255, 255, 255;
   --cp-light-75: #f9f7ff;
-  --cp-light-100: var(--cp-light-50);
+  --cp-light-100: var(--neutral-50);
   --neutral-250: #dadef2;
   // @deprecated (same as --neutral-250)
   --cp-light-150: var(--neutral-250);
@@ -20,7 +20,7 @@
   --blue-600: #3d4d99;
   --blue-900: #151a33;
   // @deprecated TODO: replace with Neutral-50A45
-  --cp-light-opaque: #ffffff40; // --cp-light-50 with 40% opacity
+  --cp-light-opaque: #ffffff40; // --neutral-50 with 40% opacity
   --blue-50: #d4e7fa;
   --cp-light-gradient-2: #f2dae2;
   // @deprecated (same as  --cp-light-50-45)
