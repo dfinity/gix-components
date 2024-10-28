@@ -60,8 +60,8 @@
   --neutral-blue-1000-a80: #05070a80;
   --orchid-200-a25: #bb5fea25;
   // @deprecated TODO: replace in nns-dapp
-  --TMP_orchid: var(--orchid);
-  --orchid: #bb5fea;
+  --TMP_orchid: var(--orchid-200);
+  --orchid-200: #bb5fea;
   --indigo: #906bff;
   // @deprecated TODO: replace in nns-dapp
   --TMP_indigo-tint: var(--violet-accent-tint);
