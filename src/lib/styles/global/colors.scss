@@ -5,15 +5,15 @@
 
   // light theme
   --cp-light-accent: #4d79ff;
-  
+
   --neutral-50-rgb: 255, 255, 255;
-  --neutral-50: rgb(var(--neutral-50-rgb));  
+  --neutral-50: rgb(var(--neutral-50-rgb));
   --cp-light-50: rgb(var(--cp-light-50-rgb));
   --cp-light-50-rgb: 255, 255, 255;
 
   --neutral-75: #f9f7ff;
   --cp-light-75: #f9f7ff;
-  
+
   --cp-light-100: var(--cp-light-50);
 
   --neutral-250: #dadef2;
@@ -27,7 +27,7 @@
 
   --blue-250: #6f7fcd;
   --cp-light-250: #6f7fcd;
-  
+
   // @deprecated
   --cp-light-400: #34407c;
 
@@ -41,13 +41,13 @@
 
   // @deprecated TODO: replace with Neutral-50A45
   --cp-light-opaque: #ffffff40; // --cp-light-50 with 40% opacity
-  
+
   --blue-50: #d4e7fa;
   --cp-light-gradient-1: #d4e7fa;
 
   --pink-25: #f2dae2;
   --cp-light-gradient-2: #f2dae2;
-  
+
   // @deprecated (same as  --neutral-50-a45)
   --cp-light-hover-overlay: var(--cp-light-50-45);
 
@@ -69,7 +69,7 @@
 
   --violet-50: #b0a3d9;
   --cp-dark-200: #b0a3d9;
-  
+
   // @deprecated
   --cp-dark-250: #a688ff;
   // @deprecated
@@ -98,7 +98,7 @@
 
   --cp-dark-1000: rgb(var(--cp-dark-1000-rgb));
   --cp-dark-1000-rgb: 0, 0, 0;
-  
+
   --neutral-1000a20: #00000020;
   // @deprecated (same as  --cp-dark-1000-20)
   --cp-dark-opaque: #00000020;
@@ -153,7 +153,6 @@
 
   // @deprecated
   --orange-mid: #fdc087;
-
 
   --orange-200-a25: #faa12325;
   --orange-tint: #faa12325;
