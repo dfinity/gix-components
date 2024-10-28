@@ -79,8 +79,8 @@
   // @deprecated TODO: replace with --blue-accent-tint here https://github.com/dfinity/nns-dapp/blob/1c49f8963d40efd99e94f72b6c9d151d711bf6e9/frontend/src/lib/components/ui/ProposalStatusTag.svelte#L60
   --blue-tint: var(--blue-accent-tint);
     // @deprecated TODO: replace in nns-dapp
-    --TMP_orange: var(--orange);
-  --orange: #faa123;
+    --TMP_orange: var(--orange-200);
+  --orange-200: #faa123;
   // @deprecated
   --orange-mid: #fdc087;
   --orange-200-a25: #faa12325;
