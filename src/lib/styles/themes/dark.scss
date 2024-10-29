@@ -1,185 +1,68 @@
-/** Default theme: dark */
+@use "../global/colors";
 
 :root {
-  --elements-divider: var(--outline_line);
-  --elements-icons: var(--on-surface_secondary);
-  --elements-badges: var(--brand_primary);
-  --elements-badges-inactive: var(--on-surface_tertiary);
-  --text-description: var(--on-surface_secondary);
-  --text-description-tint: var(--on-surface_tertiary);
+  --brand_primary-tint: #{$violet-accent-tint};
+  --brand_primary: #{$violet-accent};
+  --brand_primary-shade: #{$violet-accent-secondary};
+  --brand_on-primary: #{$neutral-50};
 
-  --tag-background: red;
-  --tag-text: var(--on-surface_variant_inverse-variant);
-  --tag-text-light: var(--surface_variant_inverse);
-  --tag-text-dark: var(--surface_gradient_lowest-left);
+  --surface_low: #{$neutral-1000-a20};
+  --surface_medium: #{$violet-450};
+  --surface_high: #{$violet-500};
+  --surface_highest: #{$violet-500};
+  --surface_variant_low: #{$violet-400};
+  --surface_variant_medium: #{$violet-900};
+  --surface_variant_inverse: #{$neutral-50-a15};
+  --surface_variant_inverse-variant: #{$neutral-50};
+  --surface_variant_inverse-tint: #{$neutral-1000-a20};
+  --surface_gradient_lowest-left: #{$blue-800};
+  --surface_gradient_lowest-right: #{$violet-250};
 
-  --input-focus-background: var(--surface_high);
-  --button-primary: var(--brand_primary);
-  --table-background: var(--surface_medium);
-  --table-header-background: var(--surface_medium);
-  --table-row-background: var(--surface_high);
-  --table-row-background-hover: var(--surface_medium);
+  --on-surface_primary: #{$neutral-50};
+  --on-surface_secondary: #{$violet-50};
+  --on-surface_tertiary: #{$violet-100};
+  --on-surface_highlight: #{$neutral-50};
+  --on-surface_variant_inverse: #{$violet-900};
+  --on-surface_variant_inverse-variant: #{$violet-400};
+  --on-surface_variant_highlight: #{$neutral-50-a45};
 
-  --alert: var(--statuses_error);
-  --alert-tint: var(--statuses_error-surface);
-  --check: var(--statuses_success);
-  --check-tint: var(--statuses_success-on-success);
-  --pending-color: var(--statuses_warning);
-  --pending-background: var(--statuses_warning--surface);
-  --island-card-background: var(--outline_line);
+  --outline_line: #{$violet-300};
+  --outline_highlight: #{$violet-accent};
+  --outline_variant_line: #{$violet-600};
+  --outline_variant_inverse: #{$neutral-1000-a20};
 
-  --box-shadow-color: #281f3f;
-  --box-shadow-color-rgb: 40, 31, 63;
-  --box-shadow: 0px 0px 6px var(--box-shadow-color);
-  --interaction-box-shadow: 0px 4px 4px rgba(var(--box-shadow-color-rgb), 0.25),
-    1px 1px 2px rgba(var(--box-shadow-color-rgb), 0.3);
-  --bottom-sheet-box-shadow: -1px -1px 10px rgba(var(--box-shadow-color-rgb), 0.25);
-  --input-box-shadow: 1px 1px 3px rgba(var(--box-shadow-color-rgb), 0.4) inset;
-  --content-box-shadow: 0px 0px 10px rgba(var(--box-shadow-color-rgb), 0.05);
-  --overlay-box-shadow: 0px 0px 8px rgba(var(--box-shadow-color-rgb), 0.2);
+  --statuses_error: #{$pink-200};
+  --statuses_error-shade: #{$pink-300};
+  --statuses_error-surface: #{$pink-200-a25};
+  --statuses_warning: #{$orange-200};
+  --statuses_warning--surface: #{$orange-200-a25};
+  --statuses_success: #{$green-200};
+  --statuses_success-on-success: #{$green-300};
+  --statuses_success-surface: #{$green-200-a25};
 
-  --footer-background: transparent;
-
-  --primary-gradient: var(--brand_primary);
-  --primary-gradient-fallback: var(--brand_primary);
-
-  --json-bracket-color: inherit;
-  --json-value-color: var(--text-description);
-  --json-string-color: var(--on-surface_tertiary);
-  --json-number-color: var(--text-description);
-  --json-null-color: var(--text-description);
-  --json-principal-color: var(--text-description);
-  --json-hash-color: var(--text-description);
-  --json-bigint-color: var(--text-description);
-  --json-boolean-color: var(--text-description);
-
-  --input-border-color: var(--surface_variant_low);
-  --input-border-size: 1.5px;
-
-  --tooltip-background: var(--on-surface_variant_highlight);
-  --tooltip-border-color: var(--outline_variant_inverse);
-  --tooltip-divider: var(--surface_variant_inverse);
-  --tooltip-description-color: var(--surface_gradient_lowest-left);
-  --tooltip-text-color: var(--on-surface_variant_highlight);
-  --tooltip-border-size: 1.5px;
-
-  --dropdown-background: var(--surface_variant_low);
-  --dropdown-focus-background: var(--surface_high);
-  --dropdown-border-color: var(--surface_variant_low);
-  --dropdown-focus-border-color: var(--outline_highlight);
-  --dropdown-border-size: 1.5px;
-
-  --button-secondary-color: var(--brand_primary);
-  --button-card-focus-color: var(--brand_primary);
-  --button-card-focus-background: var(--outline_variant_line);
-  --button-disable-background: var(--surface_variant_low);
-  --button-disable-color: var(--on-surface_secondary);
-
+  /**************************
+   *  Additional Variables  *
+   **************************/
   --light-opacity: 0.6;
   --very-light-opacity: 0.4;
 
-  --value-color: var(--on-surface_primary);
-  --label-color: var(--text-color);
-  --description-color: var(--on-surface_secondary);
+  --input-border-size: 1.5px;
+  --tooltip-border-size: 1.5px;
+  --dropdown-border-size: 1.5px;
 
-  --backdrop: var(--surface_variant_inverse-tint);
-  --backdrop-contrast: var(--text-color);
-  --backdrop-filter: blur(6px);
+  --backdrop-background: #{$neutral-blue-1000-a80};
 
-  --disable: var(--surface_variant_low);
-  --disable-contrast: var(--on-surface_secondary);
-  --disable-contrast-rgb: 184, 161, 222;
+  // Footer
+  --footer-background: transparent;
 
-  --line: var(--outline_line);
-
-  --scrollbar-thumb-background: transparent;
-  --scrollbar-thumb-color: var(--surface_variant_low);
-
-  --progress-color: var(--brand_primary);
-  --progress-color-contrast: var(--on-surface_primary);
-  --progress-color-rgb: var(--primary-rgb);
-
-  --body-background: radial-gradient(
-    farthest-corner circle at 0% 100%,
-    var(--surface_gradient_lowest-right),
-    var(--surface_gradient_lowest-left)
-  );
-  --body-color: var(--on-surface_tertiary);
-
-  --content-background: var(--surface_variant_inverse-tint);
-  --content-color: var(--text-color);
-  --content-start-background: var(--outline_variant_line);
-  --content-start-color: var(--text-color);
-
-  --overlay-background: var(--background);
-  --overlay-background-contrast: var(--background-contrast);
-  --overlay-content-background: var(--surface_high);
-  --overlay-content-background-contrast: var(--focus-background-contrast);
-
-  --toast-inverted-background: var(--surface_variant_inverse-variant);
-  --toast-inverted-background-contrast: var(--surface_gradient_lowest-left);
-
-  --menu-color: var(--on-surface_primary);
-  --menu-select-color: var(--on-surface_primary);
-  --menu-selected-background: var(--outline_variant_line);
-
-  --toolbar-color: var(--on-surface_highlight);
-  --segment-selected-background: var(--overlay-content-background);
-
-  --sidebar-button-background: var(--surface_variant_inverse-tint);
-  --sidebar-button-background-hover: var(--surface_variant_medium);
-  --sidebar-icon: var(--text-color);
-
-  --theme-color: var(--surface_high);
-
-  --text-color: var(--on-surface_primary);
-  --text-color-rgb: 240, 237, 245;
-
-  --input-background: var(--surface_medium);
-  --input-background-contrast: var(--text-color);
-
-  --focus-background: var(--surface_high);
-  --focus-background-rgb: 61, 42, 92;
-  --focus-background-contrast: var(--text-color);
-  --focus-background-tint: var(--surface_variant_low);
-
-  --card-background: var(--surface_high);
-  --card-background-rgb: 61, 42, 92;
-  --card-background-contrast: var(--text-color);
-  --card-background-contrast-rgb: var(--text-color-rgb);
-  --card-background-shade: var(--surface_high);
-  --card-background-tint: var(--surface_variant_low);
-  --card-background-disabled: var(--surface_variant_inverse-tint);
-
-  --background: var(--outline_line);
-  --background-contrast: var(--text-color);
-  --background-contrast-rgb: var(--text-color-rgb);
-  --background-shade: var(--outline_variant_line);
-
-  --background-disable: var(--surface_medium);
-  --background-disable-rgb: 55, 38, 82;
-  --background-disable-contrast: var(--disable-contrast);
-
-  --primary: var(--brand_primary);
-  --primary-rgb: 163, 106, 255;
-  --primary-contrast: var(--text-color);
-  --primary-shade: var(--brand_primary-shade);
-  --primary-tint: var(--brand_primary-tint);
-
-  --secondary: var(--brand_primary);
-  --secondary-rgb: 163, 106, 255;
-  --secondary-contrast: var(--text-color);
-
-  --tertiary: var(--on-surface_tertiary);
-
-  --warning-emphasis: var(--statuses_warning);
-  --warning-emphasis-contrast: var(--on-surface_primary);
-  --warning-emphasis-shade: var(--statuses_error-shade);
-
-  --positive-emphasis: var(--statuses_success);
-  --positive-emphasis-rgb: 48, 175, 145;
-  --positive-emphasis-contrast: var(--on-surface_primary);
-  --positive-emphasis-light: var(--statuses_success-surface);
-  --negative-emphasis: var(--statuses_error);
-  --negative-emphasis-contrast: var(--on-surface_primary);
+  --box-shadow-color: #{$violet-500};
+  // TODO: get rid of -rgb variables
+  --box-shadow-color-rgb: #{to-rgb($violet-500)};
+  --on-surface_secondary-rgb: #{to-rgb($violet-50)};
+  --on-surface_primary-rgb: #{to-rgb($neutral-50)};
+  --surface_high-rgb: #{to-rgb($violet-500)};
+  --violet-450-rgb: #{to-rgb($violet-450)};
+  --brand_primary-rgb: #{to-rgb($violet-accent)};
+  --statuses_success-rgb: #{to-rgb($green-200)};
+  --surface_medium-rgb: #{to-rgb($violet-450)};
 }

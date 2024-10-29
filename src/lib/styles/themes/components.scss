@@ -1,0 +1,237 @@
+/** Default theme: dark */
+
+// tmp versioning
+body {
+  &::before {
+    content: "7";
+    opacity: 0;
+    position: absolute;
+  }
+}
+
+:root {
+  // -------- NEW CSS VARIABLES ----------------
+  // We want to migrate to a new set of CSS variables for colors more adapted to our Figma.
+  --elements-divider: var(--outline_line);
+  --elements-icons: var(--on-surface_secondary);
+  --elements-badges: var(--brand_primary);
+  --elements-badges-inactive: var(--on-surface_tertiary);
+  --text-description: var(--on-surface_secondary);
+  --text-description-tint: var(--on-surface_tertiary);
+
+  --tag-background: var(--surface_variant_low);
+  --tag-text: var(--on-surface_secondary);
+  --tag-text-light: var(--on-surface_variant_inverse);
+  // Exception, not found --blue-900
+  --tag-text-dark: var(--surface_gradient_lowest-left);
+
+  --input-focus-background: var(--surface_high);
+  --button-primary: var(--brand_primary);
+  --table-background: var(--surface_medium);
+  --table-header-background: var(--surface_medium);
+  --table-row-background: var(--surface_high);
+  --table-row-background-hover: var(--surface_medium);
+
+  --alert: var(--statuses_error);
+  // Exception --deep-violet-tint
+  --alert-tint: var(--statuses_error-surface);
+  --check: var(--statuses_success);
+  // Exception: use closest --green-dark
+  --check-tint: var(--statuses_success-on-success);
+  // Exception: use closest --orange-mid
+  --pending-color: var(--statuses_warning);
+  // Exception --deep-violet-tint
+  --pending-background: var(--statuses_warning--surface);
+  // Exception: use closest --violet-300
+  --island-card-background: var(--outline_line);
+
+  // -------- OLD CSS VARIABLES ----------------
+  // Shadows
+  // TODO-colors: Remove along the dark shadows.
+  --box-shadow: 0px 0px 6px var(--box-shadow-color);
+  --interaction-box-shadow: 0px 4px 4px rgba(var(--box-shadow-color-rgb), 0.25),
+    1px 1px 2px rgba(var(--box-shadow-color-rgb), 0.3);
+  --bottom-sheet-box-shadow: -1px -1px 10px rgba(var(--box-shadow-color-rgb), 0.25);
+  --input-box-shadow: 1px 1px 3px rgba(var(--box-shadow-color-rgb), 0.4) inset;
+  --content-box-shadow: 0px 0px 10px rgba(var(--box-shadow-color-rgb), 0.05);
+  --overlay-box-shadow: 0px 0px 8px rgba(var(--box-shadow-color-rgb), 0.2);
+
+  // Gradient
+  --primary-gradient: var(--brand_primary);
+  --primary-gradient-fallback: var(--brand_primary);
+
+  // Json colors
+  --json-bracket-color: inherit;
+  --json-value-color: var(--description-color);
+  --json-string-color: var(--value-color);
+  --json-number-color: var(--value-color);
+  --json-null-color: var(--description-color);
+  --json-principal-color: var(--value-color);
+  --json-hash-color: var(--value-color);
+  --json-bigint-color: var(--value-color);
+  --json-boolean-color: var(--value-color);
+
+  // Inputs
+  --input-border-color: var(--surface_variant_low);
+
+  //Tooltip
+  // Exception: use closest --neutral-75
+  --tooltip-background: var(--surface_variant_inverse-variant);
+  // Exception --cp-light-50-45
+  --tooltip-border-color: var(--surface_variant_inverse-tint);
+  // Exception: use closest --neutral-250
+  --tooltip-divider: var(--surface_variant_inverse-variant);
+  // Exception --blue-600
+  --tooltip-description-color: var(--outline_variant_line);
+  // Exception --blue-900
+  --tooltip-text-color: var(--surface_gradient_lowest-left);
+
+  // Dropdown (used for Popover)
+  --dropdown-background: var(--surface_medium);
+  --dropdown-focus-background: var(--surface_high);
+  --dropdown-border-color: var(--surface_variant_low);
+  --dropdown-focus-border-color: var(--outline_highlight);
+
+  // Buttons custom colors
+  --button-secondary-color: var(--brand_primary);
+  --button-card-focus-color: var(--brand_primary);
+  // Exception: use closest --violet-650
+  --button-card-focus-background: var(--surface_variant_medium);
+  --button-disable-background: var(--surface_variant_low);
+  --button-disable-color: var(--on-surface_secondary);
+
+  // Text color
+  --value-color: var(--on-surface_primary);
+  --label-color: var(--text-color);
+  --description-color: var(--on-surface_secondary);
+
+  // Overlays - based on dark card background rgb color
+  // Exception: not found in themes
+  --backdrop: var(--backdrop-background);
+  --backdrop-contrast: var(--on-surface_primary);
+  --backdrop-filter: blur(6px);
+
+  // Disable
+  --disable: var(--surface_high);
+  --disable-contrast: var(--on-surface_secondary);
+  // TODO-colors: Remove application of rgbs
+  --disable-contrast-rgb: var(--on-surface_secondary-rgb);
+
+  // Line
+  --line: var(--surface_variant_low);
+
+  // Scrollbar
+  --scrollbar-thumb-background: transparent;
+  --scrollbar-thumb-color: var(--surface_variant_low);
+
+  // Progress
+  --progress-color: var(--brand_primary);
+  --progress-color-contrast: var(--on-surface_primary);
+  // Exception: use closest
+  --progress-color-rgb: var(--primary-rgb);
+
+  // Custom backgrounds
+  --body-background: radial-gradient(
+    farthest-corner circle at 0% 100%,
+    var(--surface_gradient_lowest-right),
+    var(--surface_gradient_lowest-left)
+  );
+  --body-color: var(--on-surface_tertiary);
+
+  --content-background: var(--surface_variant_inverse-tint);
+  --content-color: var(--on-surface_primary);
+  // Exception: use closest --violet-600
+  --content-start-background: var(--outline_variant_line);
+  --content-start-color: var(--on-surface_primary);
+
+  --overlay-background: var(--background);
+  --overlay-background-contrast: var(--background-contrast);
+  --overlay-content-background: var(--surface_high);
+  --overlay-content-background-contrast: var(--on-surface_primary);
+
+  // Overlay inverted colors - i.e. light mode colors
+  --toast-inverted-background: var(--surface_variant_inverse-variant);
+  // Exception --purple-dark-900
+  --toast-inverted-background-contrast: var(--surface_variant_medium);
+
+  // Menu
+  // Exception: use closest --cp-light-100
+  --menu-color: var(--surface_variant_inverse-variant);
+  --menu-select-color: var(--surface_variant_inverse-variant);
+  // Exception: use closest --violet-600
+  --menu-selected-background: var(--outline_variant_line);
+
+  --toolbar-color: var(--body-color); // Tab and segment
+  --segment-selected-background: var(--overlay-content-background);
+
+  // Sidebar
+  --sidebar-button-background: var(--surface_variant_inverse-tint);
+  --sidebar-button-background-hover: var(--surface_variant_medium);
+  --sidebar-icon: var(--on-surface_primary);
+
+  // Theme color
+  --theme-color: var(--card-background);
+
+  // Palette
+
+  // Light/Text/Text-xx?
+  --text-color: var(--on-surface_primary);
+  --text-color-rgb: var(--on-surface_primary-rgb);
+
+  // Design: Dark/Bg/Background-03
+  --input-background: var(--surface_medium);
+  --input-background-contrast: var(--on-surface_primary);
+
+  // Design: Dark/Bg/Background
+  --focus-background: var(--surface_high);
+  --focus-background-rgb: var(--surface_high-rgb);
+  --focus-background-contrast: var(--on-surface_primary);
+  --focus-background-tint: var(--surface_variant_low);
+
+  // Design: Dark/Bg/Background-01
+  --card-background: var(--surface_high);
+  --card-background-rgb: var(--surface_high-rgb);
+  --card-background-contrast: var(--on-surface_primary);
+  --card-background-contrast-rgb: var(--text-color-rgb);
+  --card-background-shade: var(--surface_high);
+  --card-background-tint: var(--surface_variant_low);
+  --card-background-disabled: var(--surface_variant_inverse-tint);
+
+  // Design: Dark/Bg/Background-02
+  --background: var(--surface_variant_low);
+  --background-contrast: var(--on-surface_primary);
+  --background-contrast-rgb: var(--text-color-rgb);
+  // Exception: use closest --violet-600
+  --background-shade: var(--outline_variant_line);
+
+  // Design: Dark/Bg/Background-01
+  --background-disable: var(--surface_medium);
+  --background-disable-rgb: var(--surface_medium-rgb);
+  --background-disable-contrast: var(--disable-contrast);
+
+  --primary: var(--brand_primary);
+  --primary-rgb: var(--brand_primary-rgb);
+  --primary-contrast: var(--brand_on-primary);
+  // Exception --cp-dark-350
+  --primary-shade: var(--brand_primary-shade);
+  // Exception --cp-dark-250
+  --primary-tint: var(--outline_highlight);
+  // --primary-tint: var(--surface_gradient_lowest-right);
+
+  --secondary: var(--brand_primary);
+  --secondary-rgb: var(--brand_primary-rgb);
+  --secondary-contrast: var(--on-surface_primary);
+
+  --tertiary: var(--on-surface_secondary);
+
+  --warning-emphasis: var(--statuses_warning);
+  --warning-emphasis-contrast: var(--on-surface_primary);
+  --warning-emphasis-shade: var(--statuses_warning);
+
+  --positive-emphasis: var(--statuses_success);
+  --positive-emphasis-rgb: var(--statuses_success-rgb);
+  --positive-emphasis-contrast: var(--on-surface_primary);
+  --positive-emphasis-light: var(--statuses_success-surface);
+  --negative-emphasis: var(--statuses_error);
+  --negative-emphasis-contrast: var(--on-surface_primary);
+}
