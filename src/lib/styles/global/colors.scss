@@ -5,175 +5,80 @@
 
   // light theme
   --cp-light-accent: #4d79ff;
-  
-  --neutral-50-rgb: 255, 255, 255;
-  --neutral-50: rgb(var(--neutral-50-rgb));  
   --cp-light-50: rgb(var(--cp-light-50-rgb));
   --cp-light-50-rgb: 255, 255, 255;
-
-  --neutral-75: #f9f7ff;
   --cp-light-75: #f9f7ff;
-  
   --cp-light-100: var(--cp-light-50);
-
-  --neutral-250: #dadef2;
   --cp-light-125: #dadef2;
-
   // @deprecated (same as --cp-light-125)
   --cp-light-150: var(--cp-light-125);
-
-  --neutral-100: #eef1fe;
   --cp-light-200: #eef1fe;
-
-  --blue-250: #6f7fcd;
   --cp-light-250: #6f7fcd;
-  
   // @deprecated
   --cp-light-400: #34407c;
-
-  --blue-600: #3d4d99;
   // @deprecated (same as --cp-light-600)
   --cp-light-500: var(--cp-light-600);
   --cp-light-600: #3d4d99;
-
-  --blue-900: #151a33;
   --cp-light-900: #151a33;
-
   // @deprecated TODO: replace with Neutral-50A45
   --cp-light-opaque: #ffffff40; // --cp-light-50 with 40% opacity
-  
-  --blue-50: #d4e7fa;
   --cp-light-gradient-1: #d4e7fa;
-
-  --pink-25: #f2dae2;
   --cp-light-gradient-2: #f2dae2;
-  
-  // @deprecated (same as  --neutral-50-a45)
+  // @deprecated (same as  --cp-light-50-45)
   --cp-light-hover-overlay: var(--cp-light-50-45);
-
-  --neutral-50-a45: rgba(var(--neutral-50-rgb), 0.45);
   --cp-light-50-45: rgba(var(--cp-light-50-rgb), 0.45);
 
   // dark theme
-  --violet-accent: #906bff;
   --cp-dark-accent: #906bff;
-
-  --neutral-50: #fff;
   --cp-dark-50: #fff;
-
   // @deprecated
   --cp-dark-75: var(--cp-dark-50);
-
-  --violet-100: #897dad;
   --cp-dark-100: #897dad;
-
-  --violet-50: #b0a3d9;
   --cp-dark-200: #b0a3d9;
-  
   // @deprecated
   --cp-dark-250: #a688ff;
   // @deprecated
   --cp-dark-350: #4b3bf8;
-
-  --violet-400: #3d3061;
   --cp-dark-400: #3d3061;
-
-  --violet-500: #2b1b4d;
   --cp-dark-450: #2b1b4d;
-
-  --violet-450: #342759;
   --cp-dark-500: #342759;
-
-  --violet-300: #56497a;
   --cp-dark-550: #56497a;
-
-  --violet-600: #170c36;
   --cp-dark-600: #170c36;
-
-  --violet-650: #150c31;
   --cp-dark-650: #150c31;
-
-  --violet-900: #130a2c;
   --cp-dark-900: #130a2c;
-
   --cp-dark-1000: rgb(var(--cp-dark-1000-rgb));
   --cp-dark-1000-rgb: 0, 0, 0;
-  
-  --neutral-1000a20: #00000020;
   // @deprecated (same as  --cp-dark-1000-20)
   --cp-dark-opaque: #00000020;
-
-  --blue-800: #0f0f4d;
   --cp-dark-gradient-1: #0f0f4d;
-
-  --violet-250: #4d1259;
   --cp-dark-gradient-2: #4d1259;
-
   // @deprecated (same as --cp-dark-1000-20)
   --cp-dark-hover-overlay: rgba(0, 0, 0, 0.2);
   --cp-dark-1000-20: rgba(var(--cp-dark-1000-rgb), 0.2);
 
   // Accessory
   --fade: #0e0b2660;
-
-  --neutral-blue-1000-a80: #05070a80;
   --fade-dark: #05070a80;
-
-  --orchid-200-a25: #bb5fea25;
   --orchid-tint: #bb5fea25;
-
-  --orchid-200: #bb5fea;
-  // @deprecated TODO: replace in nns-dapp
   --orchid: #bb5fea;
-
   --indigo: #906bff;
-
-  --violet-accent-tint: #906bff25;
-  // @deprecated TODO: replace in nns-dapp
   --indigo-tint: #906bff25;
-
   // @deprecated
   --deep-violet: #603a68;
   // @deprecated
   --deep-violet-tint: #634a65;
   // @deprecated
   --blue-dark: #3d4c7a;
-
-  --blue-accent: #4d79ff;
-  // @deprecated TODO: replace https://github.com/dfinity/nns-dapp/blob/1c49f8963d40efd99e94f72b6c9d151d711bf6e9/frontend/src/lib/components/ui/ProposalStatusTag.svelte#L59
   --blue: #4d79ff;
-
-  --blue-accent-tint: #4d79ff25;
-  // @deprecated TODO: replace with --blue-accent-tint here https://github.com/dfinity/nns-dapp/blob/1c49f8963d40efd99e94f72b6c9d151d711bf6e9/frontend/src/lib/components/ui/ProposalStatusTag.svelte#L60
   --blue-tint: #4d79ff25;
-
-  --orange-200: #faa123;
-  // @deprecated TODO: replace in nns-dapp
   --orange: #faa123;
-
   // @deprecated
   --orange-mid: #fdc087;
-
-
-  --orange-200-a25: #faa12325;
   --orange-tint: #faa12325;
-
-  // @deprecated TODO: replace in nns-dapp
+  // @deprecated
   --green-dark: #3c586d;
-
-  --green-200: #2db286;
-  // @deprecated TODO: replace in nns-dapp
   --green: #2db286;
-
-  --green-200-a25: #2db28625;
-  // @deprecated TODO: replace in nns-dapp
   --green-tint: #2db28625;
-
-  --pink-200: #f2556f;
-  // @deprecated TODO: replace in nns-dapp
   --pink: #f2556f;
-
-  --pink-200-a25: #f2556f25;
-  // @deprecated TODO: replace in nns-dapp
   --pink-tint: #f2556f25;
 }
