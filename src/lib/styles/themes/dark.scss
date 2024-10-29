@@ -1,41 +1,35 @@
 /** Default theme: dark */
 
 :root {
-  // -------- NEW CSS VARIABLES ----------------
-  // We want to migrate to a new set of CSS variables for colors more adapted to our Figma.
-  --elements-divider: var(--violet-300);
-  --elements-icons: var(--violet-50);
-  --elements-badges: var(--violet-accent);
-  --elements-badges-inactive: var(--violet-100);
-  --text-description: var(--violet-50);
-  --text-description-tint: var(--violet-100);
+  --elements-divider: var(--outline_line);
+  --elements-icons: var(--on-surface_secondary);
+  --elements-badges: var(--brand_primary);
+  --elements-badges-inactive: var(--on-surface_tertiary);
+  --text-description: var(--on-surface_secondary);
+  --text-description-tint: var(--on-surface_tertiary);
 
-  --tag-background: var(--violet-400);
-  --tag-text: var(--violet-50);
-  --tag-text-light: var(--neutral-50);
-  --tag-text-dark: var(--blue-900);
+  --tag-background: red;
+  --tag-text: var(--on-surface_variant_inverse-variant);
+  --tag-text-light: var(--surface_variant_inverse);
+  --tag-text-dark: var(--surface_gradient_lowest-left);
 
-  --input-focus-background: var(--violet-500);
-  --button-primary: var(--violet-accent);
-  --table-background: var(--violet-450);
-  --table-header-background: var(--violet-450);
-  --table-row-background: var(--violet-500);
-  --table-row-background-hover: var(--violet-450);
+  --input-focus-background: var(--surface_high);
+  --button-primary: var(--brand_primary);
+  --table-background: var(--surface_medium);
+  --table-header-background: var(--surface_medium);
+  --table-row-background: var(--surface_high);
+  --table-row-background-hover: var(--surface_medium);
 
-  --alert: var(--pink-200);
-  --alert-tint: var(--deep-violet-tint);
-  --check: var(--green-200);
-  --check-tint: var(--green-dark);
-  --pending-color: var(--orange-mid);
-  --pending-background: var(--deep-violet-tint);
-  --island-card-background: var(--violet-300);
+  --alert: var(--statuses_error);
+  --alert-tint: var(--statuses_error-surface);
+  --check: var(--statuses_success);
+  --check-tint: var(--statuses_success-on-success);
+  --pending-color: var(--statuses_warning);
+  --pending-background: var(--statuses_warning--surface);
+  --island-card-background: var(--outline_line);
 
-  // -------- OLD CSS VARIABLES ----------------
-  // Shadows
-  // TODO-colors: Remove along the dark shadows.
   --box-shadow-color: #281f3f;
   --box-shadow-color-rgb: 40, 31, 63;
-
   --box-shadow: 0px 0px 6px var(--box-shadow-color);
   --interaction-box-shadow: 0px 4px 4px rgba(var(--box-shadow-color-rgb), 0.25),
     1px 1px 2px rgba(var(--box-shadow-color-rgb), 0.3);
@@ -44,175 +38,148 @@
   --content-box-shadow: 0px 0px 10px rgba(var(--box-shadow-color-rgb), 0.05);
   --overlay-box-shadow: 0px 0px 8px rgba(var(--box-shadow-color-rgb), 0.2);
 
-  // Footer
   --footer-background: transparent;
 
-  // Gradient
-  --primary-gradient: var(--violet-accent);
-  --primary-gradient-fallback: var(--violet-accent);
+  --primary-gradient: var(--brand_primary);
+  --primary-gradient-fallback: var(--brand_primary);
 
-  // Json colors
   --json-bracket-color: inherit;
-  --json-value-color: var(--description-color);
-  --json-string-color: var(--value-color);
-  --json-number-color: var(--value-color);
-  --json-null-color: var(--description-color);
-  --json-principal-color: var(--value-color);
-  --json-hash-color: var(--value-color);
-  --json-bigint-color: var(--value-color);
-  --json-boolean-color: var(--value-color);
+  --json-value-color: var(--text-description);
+  --json-string-color: var(--on-surface_tertiary);
+  --json-number-color: var(--text-description);
+  --json-null-color: var(--text-description);
+  --json-principal-color: var(--text-description);
+  --json-hash-color: var(--text-description);
+  --json-bigint-color: var(--text-description);
+  --json-boolean-color: var(--text-description);
 
-  // Inputs
-  --input-border-color: var(--violet-400);
+  --input-border-color: var(--surface_variant_low);
   --input-border-size: 1.5px;
 
-  //Tooltip
-  --tooltip-background: var(--neutral-75);
-  --tooltip-border-color: var(--cp-light-50-45);
-  --tooltip-divider: var(--neutral-250);
-  --tooltip-description-color: var(--blue-600);
-  --tooltip-text-color: var(--blue-900);
+  --tooltip-background: var(--on-surface_variant_highlight);
+  --tooltip-border-color: var(--outline_variant_inverse);
+  --tooltip-divider: var(--surface_variant_inverse);
+  --tooltip-description-color: var(--surface_gradient_lowest-left);
+  --tooltip-text-color: var(--on-surface_variant_highlight);
   --tooltip-border-size: 1.5px;
 
-  // Dropdown (used for Popover)
-  --dropdown-background: var(--violet-450);
-  --dropdown-focus-background: var(--violet-500);
-  --dropdown-border-color: var(--violet-400);
-  --dropdown-focus-border-color: var(--violet-accent);
+  --dropdown-background: var(--surface_variant_low);
+  --dropdown-focus-background: var(--surface_high);
+  --dropdown-border-color: var(--surface_variant_low);
+  --dropdown-focus-border-color: var(--outline_highlight);
   --dropdown-border-size: 1.5px;
 
-  // Buttons custom colors
-  --button-secondary-color: var(--secondary);
-  --button-card-focus-color: var(--secondary);
-  --button-card-focus-background: var(--violet-650);
-  --button-disable-background: var(--violet-400);
-  --button-disable-color: var(--violet-50);
+  --button-secondary-color: var(--brand_primary);
+  --button-card-focus-color: var(--brand_primary);
+  --button-card-focus-background: var(--outline_variant_line);
+  --button-disable-background: var(--surface_variant_low);
+  --button-disable-color: var(--on-surface_secondary);
 
   --light-opacity: 0.6;
   --very-light-opacity: 0.4;
 
-  // Text color
-  --value-color: var(--neutral-50);
+  --value-color: var(--on-surface_primary);
   --label-color: var(--text-color);
-  --description-color: var(--violet-50);
+  --description-color: var(--on-surface_secondary);
 
-  // Overlays - based on dark card background rgb color
-  --backdrop: var(--neutral-blue-1000-a80);
+  --backdrop: var(--surface_variant_inverse-tint);
   --backdrop-contrast: var(--text-color);
   --backdrop-filter: blur(6px);
 
-  // Disable
-  --disable: var(--card-background);
-  --disable-contrast: var(--violet-50);
-  // TODO-colors: Remove application of rgbs
+  --disable: var(--surface_variant_low);
+  --disable-contrast: var(--on-surface_secondary);
   --disable-contrast-rgb: 184, 161, 222;
 
-  // Line
-  --line: var(--violet-400);
+  --line: var(--outline_line);
 
-  // Scrollbar
   --scrollbar-thumb-background: transparent;
-  --scrollbar-thumb-color: var(--violet-400);
+  --scrollbar-thumb-color: var(--surface_variant_low);
 
-  // Progress
-  --progress-color: var(--secondary);
-  --progress-color-contrast: var(--secondary-contrast);
-  --progress-color-rgb: var(--secondary-rgb);
+  --progress-color: var(--brand_primary);
+  --progress-color-contrast: var(--on-surface_primary);
+  --progress-color-rgb: var(--primary-rgb);
 
-  // Custom backgrounds
   --body-background: radial-gradient(
     farthest-corner circle at 0% 100%,
-    var(--violet-250),
-    var(--blue-800)
+    var(--surface_gradient_lowest-right),
+    var(--surface_gradient_lowest-left)
   );
-  --body-color: var(--violet-100);
+  --body-color: var(--on-surface_tertiary);
 
-  --content-background: var(--cp-dark-1000-20);
+  --content-background: var(--surface_variant_inverse-tint);
   --content-color: var(--text-color);
-  --content-start-background: var(--violet-600);
+  --content-start-background: var(--outline_variant_line);
   --content-start-color: var(--text-color);
 
   --overlay-background: var(--background);
   --overlay-background-contrast: var(--background-contrast);
-  --overlay-content-background: var(--violet-500);
+  --overlay-content-background: var(--surface_high);
   --overlay-content-background-contrast: var(--focus-background-contrast);
 
-  // Overlay inverted colors - i.e. light mode colors
-  --toast-inverted-background: var(--neutral-50);
-  --toast-inverted-background-contrast: var(--purple-dark-900);
+  --toast-inverted-background: var(--surface_variant_inverse-variant);
+  --toast-inverted-background-contrast: var(--surface_gradient_lowest-left);
 
-  // Menu
-  --menu-color: var(--cp-light-100);
-  --menu-select-color: var(--cp-light-100);
-  --menu-selected-background: var(--violet-600);
+  --menu-color: var(--on-surface_primary);
+  --menu-select-color: var(--on-surface_primary);
+  --menu-selected-background: var(--outline_variant_line);
 
-  --toolbar-color: var(--body-color); // Tab and segment
+  --toolbar-color: var(--on-surface_highlight);
   --segment-selected-background: var(--overlay-content-background);
 
-  // Sidebar
-  --sidebar-button-background: var(--cp-dark-1000-20);
-  --sidebar-button-background-hover: var(--violet-900);
+  --sidebar-button-background: var(--surface_variant_inverse-tint);
+  --sidebar-button-background-hover: var(--surface_variant_medium);
   --sidebar-icon: var(--text-color);
 
-  // Theme color
-  --theme-color: var(--card-background);
+  --theme-color: var(--surface_high);
 
-  // Palette
-
-  /* Light/Text/Text-xx? */
-  --text-color: var(--neutral-50);
+  --text-color: var(--on-surface_primary);
   --text-color-rgb: 240, 237, 245;
 
-  /* Design: Dark/Bg/Background-03 */
-  --input-background: var(--violet-450);
+  --input-background: var(--surface_medium);
   --input-background-contrast: var(--text-color);
 
-  /* Design: Dark/Bg/Background */
-  --focus-background: var(--violet-500);
+  --focus-background: var(--surface_high);
   --focus-background-rgb: 61, 42, 92;
   --focus-background-contrast: var(--text-color);
-  --focus-background-tint: var(--violet-400);
+  --focus-background-tint: var(--surface_variant_low);
 
-  /* Design: Dark/Bg/Background-01 */
-  --card-background: var(--violet-500);
+  --card-background: var(--surface_high);
   --card-background-rgb: 61, 42, 92;
   --card-background-contrast: var(--text-color);
   --card-background-contrast-rgb: var(--text-color-rgb);
-  --card-background-shade: var(--violet-500);
-  --card-background-tint: var(--violet-400);
-  --card-background-disabled: var(--cp-dark-1000-20);
+  --card-background-shade: var(--surface_high);
+  --card-background-tint: var(--surface_variant_low);
+  --card-background-disabled: var(--surface_variant_inverse-tint);
 
-  /* Design: Dark/Bg/Background-02 */
-  --background: var(--violet-300);
+  --background: var(--outline_line);
   --background-contrast: var(--text-color);
   --background-contrast-rgb: var(--text-color-rgb);
-  --background-shade: var(--violet-600);
+  --background-shade: var(--outline_variant_line);
 
-  /* Design: Dark/Bg/Background-01 */
-  --background-disable: var(--violet-450);
+  --background-disable: var(--surface_medium);
   --background-disable-rgb: 55, 38, 82;
   --background-disable-contrast: var(--disable-contrast);
 
-  --primary: var(--violet-accent);
+  --primary: var(--brand_primary);
   --primary-rgb: 163, 106, 255;
   --primary-contrast: var(--text-color);
-  --primary-shade: var(--cp-dark-350);
-  --primary-tint: var(--cp-dark-250);
+  --primary-shade: var(--brand_primary-shade);
+  --primary-tint: var(--brand_primary-tint);
 
-  --secondary: var(--violet-accent);
+  --secondary: var(--brand_primary);
   --secondary-rgb: 163, 106, 255;
   --secondary-contrast: var(--text-color);
 
-  --tertiary: var(--violet-50);
+  --tertiary: var(--on-surface_tertiary);
 
-  --warning-emphasis: var(--orange-mid);
-  --warning-emphasis-contrast: var(--neutral-50);
-  --warning-emphasis-shade: var(--orange-200);
+  --warning-emphasis: var(--statuses_warning);
+  --warning-emphasis-contrast: var(--on-surface_primary);
+  --warning-emphasis-shade: var(--statuses_error-shade);
 
-  --positive-emphasis: var(--green-200);
+  --positive-emphasis: var(--statuses_success);
   --positive-emphasis-rgb: 48, 175, 145;
-  --positive-emphasis-contrast: var(--neutral-50);
-  --positive-emphasis-light: var(--green-200-a25);
-  --negative-emphasis: var(--pink-200);
-  --negative-emphasis-contrast: var(--neutral-50);
+  --positive-emphasis-contrast: var(--on-surface_primary);
+  --positive-emphasis-light: var(--statuses_success-surface);
+  --negative-emphasis: var(--statuses_error);
+  --negative-emphasis-contrast: var(--on-surface_primary);
 }
