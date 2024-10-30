@@ -13,12 +13,12 @@
 >
   <rect
     opacity="0.2"
-    x="40.3364"
+    x="40.3359"
     y="10.2273"
     width="102.635"
     height="102.635"
     rx="18.0601"
-    transform="rotate(7 40.3364 10.2273)"
+    transform="rotate(7 40.3359 10.2273)"
     fill="#436FF5"
   />
   <g filter="url(#filter0_b_2_6655)">
@@ -32,20 +32,20 @@
   </g>
   <rect
     x="4.78418"
-    y="68.6382"
+    y="68.6381"
     width="88.0908"
     height="69.2142"
     rx="18.2338"
-    transform="rotate(-15 4.78418 68.6382)"
+    transform="rotate(-15 4.78418 68.6381)"
     fill="url(#paint1_linear_2_6655)"
   />
   <rect
-    x="63.5566"
+    x="63.5562"
     y="69.1753"
     width="37.7532"
     height="25.1688"
     rx="12.5844"
-    transform="rotate(75 63.5566 69.1753)"
+    transform="rotate(75 63.5562 69.1753)"
     fill="url(#paint2_linear_2_6655)"
   />
   <defs>
@@ -88,7 +88,7 @@
       x1="-48.4517"
       y1="161.899"
       x2="33.8169"
-      y2="34.7746"
+      y2="34.7745"
       gradientUnits="userSpaceOnUse"
     >
       <stop stop-color="#AFC3FF" stop-opacity="0" />
@@ -96,9 +96,9 @@
     </linearGradient>
     <linearGradient
       id="paint2_linear_2_6655"
-      x1="93.5459"
+      x1="93.5454"
       y1="69.1574"
-      x2="97.7464"
+      x2="97.7459"
       y2="100.921"
       gradientUnits="userSpaceOnUse"
     >
