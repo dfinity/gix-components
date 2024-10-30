@@ -98,7 +98,11 @@
     --progress-color-rgb: var(--primary-rgb);
 
     // Custom backgrounds
-    --body-background: radial-gradient(farthest-corner circle at 0% 100%, var(--pink-25), var(--blue-50));
+    --body-background: radial-gradient(
+      farthest-corner circle at 0% 100%,
+      var(--pink-25),
+      var(--blue-50)
+    );
     --body-color: var(--neutral-50);
 
     --content-background: var(--cp-light-opaque);
