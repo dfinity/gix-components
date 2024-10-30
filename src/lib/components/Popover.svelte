@@ -58,7 +58,9 @@
         >
       {/if}
 
-      <slot />
+      <div class="popover-content">
+        <slot />
+      </div>
     </div>
   </div>
 {/if}
@@ -88,6 +90,8 @@
     // limited by `100vw - right padding`
     max-width: calc(100vw - var(--padding));
 
+    max-height: calc(100vh - var(--popover-top) - calc(6 * var(--padding)));
+
     width: fit-content;
     height: auto;
 
@@ -112,5 +116,9 @@
 
   .close {
     align-self: flex-end;
+  }
+
+  .popover-content {
+    overflow-y: auto;
   }
 </style>
