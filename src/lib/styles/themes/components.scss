@@ -43,7 +43,7 @@ body {
   // Exception --deep-violet-tint
   --pending-background: var(--statuses_warning--surface);
   // Exception: use closest --violet-300
-  --island-card-background: var(--outline_line);
+  --island-card-background: var(--surface_high);
 
   // -------- OLD CSS VARIABLES ----------------
   // Shadows
@@ -52,7 +52,6 @@ body {
   --interaction-box-shadow: 0px 4px 4px rgba(var(--box-shadow-color-rgb), 0.25),
     1px 1px 2px rgba(var(--box-shadow-color-rgb), 0.3);
   --bottom-sheet-box-shadow: -1px -1px 10px rgba(var(--box-shadow-color-rgb), 0.25);
-  --input-box-shadow: 1px 1px 3px rgba(var(--box-shadow-color-rgb), 0.4) inset;
   --content-box-shadow: 0px 0px 10px rgba(var(--box-shadow-color-rgb), 0.05);
   --overlay-box-shadow: 0px 0px 8px rgba(var(--box-shadow-color-rgb), 0.2);
 

@@ -56,9 +56,10 @@
   --footer-background: transparent;
 
   --box-shadow-color: #{$violet-500};
-  // TODO: get rid of -rgb variables
   --box-shadow-color-rgb: #{to-rgb($violet-500)};
   --brand_primary-rgb: #{to-rgb($violet-accent)};
+  // progress
+  --input-box-shadow: 1px 1px 3px rgba(#{to-rgb($violet-500)}, 0.4) inset;
   --on-surface_primary-rgb: #{to-rgb($neutral-50)};
   --on-surface_secondary-rgb: #{to-rgb($violet-50)};
   --statuses_success-rgb: #{to-rgb($green-200)};
