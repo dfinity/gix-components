@@ -3,7 +3,7 @@
 // tmp versioning
 body {
   &::before {
-    content: "9";
+    content: "10";
     opacity: 1;
     position: absolute;
   }
@@ -37,7 +37,7 @@ body {
   --alert-tint: var(--statuses_error-surface);
   --check: var(--statuses_success);
   // Exception: use closest --green-dark
-  --check-tint: var(--statuses_success-on-success);
+  --check-tint: var(--statuses_success-surface);
   // Exception: use closest --orange-mid
   --pending-color: var(--statuses_warning);
   // Exception --deep-violet-tint
