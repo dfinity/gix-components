@@ -100,26 +100,20 @@ next to an anchor — commonly a button — which initiates its display.
 
 The popover placement will be below the anchor element, either from left to right (default)
 or from right to left.
-If the popover should overflow the viewport, it will be automatically resized to fit within the viewport, 
+If the popover should overflow the viewport, it will be automatically resized to fit within the viewport,
 and the content will be scrollable.
 
-```html
-
+````html
 ```javascript
 <script lang="ts">
-    let visible = false;
-    let button: HTMLButtonElement | undefined;
+  let visible = false;
+  let button: HTMLButtonElement | undefined;
 </script>
-<button class="primary"
-    bind:this={button}
-    on:click={() => (visible = !visible)}
->
-    Open Popover
+<button class="primary" bind:this="{button}" on:click="{()" ="">
+  (visible = !visible)} > Open Popover
 </button>
-<Popover bind:visible anchor={button}>
-    This is a popover!
-</Popover>
-```
+<Popover bind:visible anchor="{button}"> This is a popover! </Popover>
+````
 
 # Properties
 
