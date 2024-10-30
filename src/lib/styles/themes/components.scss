@@ -229,8 +229,8 @@ body {
 
   --positive-emphasis: var(--statuses_success);
   --positive-emphasis-rgb: var(--statuses_success-rgb);
-  --positive-emphasis-contrast: var(--on-surface_primary);
+  --positive-emphasis-contrast: var(--brand_on-primary);
   --positive-emphasis-light: var(--statuses_success-surface);
   --negative-emphasis: var(--statuses_error);
-  --negative-emphasis-contrast: var(--on-surface_primary);
+  --negative-emphasis-contrast: var(--brand_on-primary);
 }
