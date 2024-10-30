@@ -23,5 +23,9 @@ test("Should render overflowing popover", async ({ page }) => {
   // Wait for animation
   await page.waitForTimeout(750);
 
+  //scroll in div that has test id popover-content
+  const content = page.getByTestId("popover-content");
+  await content?.evaluate((el) => el.scrollBy(0, 100));
+
   await expect(page).toHaveScreenshot();
 });

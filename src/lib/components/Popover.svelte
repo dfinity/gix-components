@@ -58,7 +58,7 @@
         >
       {/if}
 
-      <div class="popover-content">
+      <div class="popover-content" data-tid="popover-content">
         <slot />
       </div>
     </div>
