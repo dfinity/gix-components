@@ -16,9 +16,9 @@ const config = {
   css: {
     preprocessorOptions: {
       scss: {
-        api: 'modern-compiler'
-      }
-    }
+        api: "modern-compiler",
+      },
+    },
   },
 };
 
