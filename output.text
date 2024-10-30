@@ -1,0 +1,346 @@
+Reading file: src/lib/styles/themes/dark.scss
+The following lines are ignored:
+/** Default theme: dark */
+:root {
+/* Light/Text/Text-xx? */
+/* Design: Dark/Bg/Background-03 */
+/* Design: Dark/Bg/Background */
+/* Design: Dark/Bg/Background-01 */
+/* Design: Dark/Bg/Background-02 */
+/* Design: Dark/Bg/Background-01 */
+}
+
+Reading file: src/lib/styles/themes/light.scss
+The following lines are ignored:
+/** Light theme colors - override default dark options */
+:root {
+&[theme="light"] {
+/* Design Light/7969C0 (8%)-light */
+/* Light/Bg/Background-03 */
+/* Light/Text/Text */
+/* Design: Extracted from Light/7969C0 (8%)-light */
+/* Design: Light/Bg/Background */
+/* Design: Dark/Bg/Background-04 */
+/* Design: Light/Bg/Background-01 */
+/* Design: Light/Bg/Background-03 */
+}
+}
+
+The following keys exist in dark but not in light:
+--box-shadow
+--interaction-box-shadow
+--bottom-sheet-box-shadow
+--input-box-shadow
+--content-box-shadow
+--overlay-box-shadow
+--json-bracket-color
+--json-value-color
+--json-string-color
+--json-number-color
+--json-null-color
+--json-principal-color
+--json-hash-color
+--json-bigint-color
+--json-boolean-color
+--input-border-size
+--tooltip-border-size
+--dropdown-border-size
+--light-opacity
+--very-light-opacity
+--scrollbar-thumb-background
+--overlay-background
+--overlay-background-contrast
+--overlay-content-background-contrast
+--primary-shade
+--tertiary
+
+The following keys exist in light but not in dark:
+
+The following keys have the same value in dark and light:
+--tag-text-light: var(--neutral-50)
+--tag-text-dark: var(--blue-900)
+--alert: var(--pink-200)
+--check: var(--green-200)
+--footer-background: transparent
+--label-color: var(--text-color)
+--content-color: var(--text-color)
+--content-start-color: var(--text-color)
+--sidebar-icon: var(--text-color)
+--input-background-contrast: var(--text-color)
+--focus-background-contrast: var(--text-color)
+--card-background-contrast: var(--text-color)
+--card-background-contrast-rgb: var(--text-color-rgb)
+--background-contrast: var(--text-color)
+--background-contrast-rgb: var(--text-color-rgb)
+--background-disable-contrast: var(--disable-contrast)
+--warning-emphasis: var(--orange-mid)
+--warning-emphasis-shade: var(--orange-200)
+--positive-emphasis: var(--green-200)
+--positive-emphasis-rgb: 48, 175, 145
+--positive-emphasis-contrast: var(--neutral-50)
+--positive-emphasis-light: var(--green-200-a25)
+--negative-emphasis: var(--pink-200)
+--negative-emphasis-contrast: var(--neutral-50)
+
+The following sections each require a unique theme variable:
+
+Section 1:
+The following keys all have dark value 'var(--violet-300)' and light value 'var(--neutral-250)':
+--elements-divider
+--background
+
+Section 2:
+The following keys all have dark value 'var(--violet-50)' and light value 'var(--blue-600)':
+--elements-icons
+--text-description
+--tag-text
+--description-color
+
+Section 3:
+The following keys all have dark value 'var(--violet-accent)' and light value 'var(--blue-accent)':
+--elements-badges
+--button-primary
+--primary-gradient
+--primary-gradient-fallback
+--dropdown-focus-border-color
+--primary
+
+Section 4:
+The following keys all have dark value 'var(--violet-100)' and light value 'var(--blue-250)':
+--elements-badges-inactive
+--text-description-tint
+
+Section 5:
+The following keys all have dark value 'var(--violet-400)' and light value 'var(--neutral-250)':
+--tag-background
+--input-border-color
+--dropdown-border-color
+--button-disable-background
+--line
+--scrollbar-thumb-color
+
+Section 6:
+The following keys all have dark value 'var(--violet-500)' and light value 'var(--neutral-75)':
+--input-focus-background
+--table-row-background
+--dropdown-focus-background
+--overlay-content-background
+--card-background
+
+Section 7:
+The following keys all have dark value 'var(--violet-450)' and light value 'var(--neutral-75)':
+--table-background
+
+Section 8:
+The following keys all have dark value 'var(--violet-450)' and light value 'var(--cp-light-100)':
+--table-header-background
+--table-row-background-hover
+--dropdown-background
+--input-background
+
+Section 9:
+The following keys all have dark value 'var(--deep-violet-tint)' and light value 'var(--pink-200-a25)':
+--alert-tint
+
+Section 10:
+The following keys all have dark value 'var(--green-dark)' and light value 'var(--green-200-a25)':
+--check-tint
+
+Section 11:
+The following keys all have dark value 'var(--orange-mid)' and light value 'var(--orange-200)':
+--pending-color
+
+Section 12:
+The following keys all have dark value 'var(--deep-violet-tint)' and light value 'var(--orange-200-a25)':
+--pending-background
+
+Section 13:
+The following keys all have dark value 'var(--violet-300)' and light value 'var(--neutral-50)':
+--island-card-background
+
+Section 14:
+The following keys all have dark value '#281f3f' and light value '#d6c3db':
+--box-shadow-color
+
+Section 15:
+The following keys all have dark value '40, 31, 63' and light value '111, 89, 133':
+--box-shadow-color-rgb
+
+Section 16:
+The following keys all have dark value 'var(--neutral-75)' and light value 'var(--violet-900)':
+--tooltip-background
+
+Section 17:
+The following keys all have dark value 'var(--cp-light-50-45)' and light value 'var(--cp-dark-hover-overlay)':
+--tooltip-border-color
+
+Section 18:
+The following keys all have dark value 'var(--neutral-250)' and light value 'var(--violet-400)':
+--tooltip-divider
+
+Section 19:
+The following keys all have dark value 'var(--blue-600)' and light value 'var(--violet-50)':
+--tooltip-description-color
+
+Section 20:
+The following keys all have dark value 'var(--blue-900)' and light value 'var(--neutral-50)':
+--tooltip-text-color
+
+Section 21:
+The following keys all have dark value 'var(--secondary)' and light value 'var(--primary)':
+--button-secondary-color
+--button-card-focus-color
+--progress-color
+
+Section 22:
+The following keys all have dark value 'var(--violet-650)' and light value 'var(--cp-light-100)':
+--button-card-focus-background
+
+Section 23:
+The following keys all have dark value 'var(--violet-50)' and light value 'var(--disable-contrast)':
+--button-disable-color
+
+Section 24:
+The following keys all have dark value 'var(--neutral-50)' and light value 'var(--blue-900)':
+--value-color
+--toast-inverted-background
+--text-color
+--warning-emphasis-contrast
+
+Section 25:
+The following keys all have dark value 'var(--neutral-blue-1000-a80)' and light value 'var(--fade)':
+--backdrop
+
+Section 26:
+The following keys all have dark value 'var(--text-color)' and light value 'var(--cp-light-100)':
+--backdrop-contrast
+
+Section 27:
+The following keys all have dark value 'blur(6px)' and light value 'blur(4px)':
+--backdrop-filter
+
+Section 28:
+The following keys all have dark value 'var(--card-background)' and light value 'var(--neutral-100)':
+--disable
+
+Section 29:
+The following keys all have dark value 'var(--violet-50)' and light value 'var(--blue-250)':
+--disable-contrast
+
+Section 30:
+The following keys all have dark value '184, 161, 222' and light value '171, 153, 209':
+--disable-contrast-rgb
+
+Section 31:
+The following keys all have dark value 'var(--secondary-contrast)' and light value 'var(--primary-contrast)':
+--progress-color-contrast
+
+Section 32:
+The following keys all have dark value 'var(--secondary-rgb)' and light value 'var(--primary-rgb)':
+--progress-color-rgb
+
+Section 33:
+The following keys all have dark value 'radial-gradient(farthest-corner circle at 0% 100%, var(--violet-250), var(--blue-800))' and light value 'radial-gradient(farthest-corner circle at 0% 100%, var(--pink-25), var(--blue-50))':
+--body-background
+
+Section 34:
+The following keys all have dark value 'var(--violet-100)' and light value 'var(--neutral-50)':
+--body-color
+
+Section 35:
+The following keys all have dark value 'var(--cp-dark-1000-20)' and light value 'var(--cp-light-opaque)':
+--content-background
+--card-background-disabled
+
+Section 36:
+The following keys all have dark value 'var(--violet-600)' and light value 'var(--neutral-75)':
+--content-start-background
+--menu-selected-background
+
+Section 37:
+The following keys all have dark value 'var(--purple-dark-900)' and light value 'var(--neutral-50)':
+--toast-inverted-background-contrast
+
+Section 38:
+The following keys all have dark value 'var(--cp-light-100)' and light value 'var(--blue-900)':
+--menu-color
+--menu-select-color
+
+Section 39:
+The following keys all have dark value 'var(--body-color)' and light value 'var(--menu-color)':
+--toolbar-color
+
+Section 40:
+The following keys all have dark value 'var(--overlay-content-background)' and light value 'var(--focus-background)':
+--segment-selected-background
+
+Section 41:
+The following keys all have dark value 'var(--cp-dark-1000-20)' and light value 'var(--cp-light-50-45)':
+--sidebar-button-background
+
+Section 42:
+The following keys all have dark value 'var(--violet-900)' and light value 'var(--neutral-50)':
+--sidebar-button-background-hover
+
+Section 43:
+The following keys all have dark value 'var(--card-background)' and light value 'var(--blue-accent)':
+--theme-color
+
+Section 44:
+The following keys all have dark value '240, 237, 245' and light value '56, 45, 80':
+--text-color-rgb
+
+Section 45:
+The following keys all have dark value 'var(--violet-500)' and light value 'var(--neutral-50)':
+--focus-background
+
+Section 46:
+The following keys all have dark value '61, 42, 92' and light value '248, 246, 252':
+--focus-background-rgb
+--card-background-rgb
+
+Section 47:
+The following keys all have dark value 'var(--violet-400)' and light value 'var(--neutral-50)':
+--focus-background-tint
+--card-background-tint
+
+Section 48:
+The following keys all have dark value 'var(--violet-500)' and light value 'var(--cp-light-100)':
+--card-background-shade
+
+Section 49:
+The following keys all have dark value 'var(--violet-600)' and light value 'var(--neutral-250)':
+--background-shade
+
+Section 50:
+The following keys all have dark value 'var(--violet-450)' and light value 'var(--neutral-250)':
+--background-disable
+
+Section 51:
+The following keys all have dark value '55, 38, 82' and light value '225, 217, 243':
+--background-disable-rgb
+
+Section 52:
+The following keys all have dark value '163, 106, 255' and light value '121, 78, 231':
+--primary-rgb
+
+Section 53:
+The following keys all have dark value 'var(--text-color)' and light value 'var(--neutral-50)':
+--primary-contrast
+
+Section 54:
+The following keys all have dark value 'var(--cp-dark-250)' and light value 'var(--cp-light-500)':
+--primary-tint
+
+Section 55:
+The following keys all have dark value 'var(--violet-accent)' and light value 'var(--cp-light-500)':
+--secondary
+
+Section 56:
+The following keys all have dark value '163, 106, 255' and light value '124, 92, 194':
+--secondary-rgb
+
+Section 57:
+The following keys all have dark value 'var(--text-color)' and light value 'var(--blue-900)':
+--secondary-contrast
+

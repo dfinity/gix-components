@@ -37,8 +37,7 @@
   --box-shadow-color-rgb: 40, 31, 63;
 
   --box-shadow: 0px 0px 6px var(--box-shadow-color);
-  --interaction-box-shadow: 0px 4px 4px rgba(var(--box-shadow-color-rgb), 0.25),
-    1px 1px 2px rgba(var(--box-shadow-color-rgb), 0.3);
+  --interaction-box-shadow: 0px 4px 4px rgba(var(--box-shadow-color-rgb), 0.25), 1px 1px 2px rgba(var(--box-shadow-color-rgb), 0.3);
   --bottom-sheet-box-shadow: -1px -1px 10px rgba(var(--box-shadow-color-rgb), 0.25);
   --input-box-shadow: 1px 1px 3px rgba(var(--box-shadow-color-rgb), 0.4) inset;
   --content-box-shadow: 0px 0px 10px rgba(var(--box-shadow-color-rgb), 0.05);
@@ -120,11 +119,7 @@
   --progress-color-rgb: var(--secondary-rgb);
 
   // Custom backgrounds
-  --body-background: radial-gradient(
-    farthest-corner circle at 0% 100%,
-    var(--violet-250),
-    var(--blue-800)
-  );
+  --body-background: radial-gradient(farthest-corner circle at 0% 100%, var(--violet-250), var(--blue-800));
   --body-color: var(--violet-100);
 
   --content-background: var(--cp-dark-1000-20);
