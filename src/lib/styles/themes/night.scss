@@ -8,7 +8,7 @@
     --brand_primary-shade: #{$blue-accent-secondary};
     --brand_on-primary: #{$neutral-50};
 
-    --surface_low: #{$neutral-1000-a20};
+    --surface_low: #{$neutral-1000-a30};
     --surface_medium: #{$night-500};
     --surface_medium-rgb: #{to-rgb($night-500)};
     --surface_high: #{$night-575};
@@ -24,7 +24,7 @@
 
     --on-surface_primary: #{$neutral-50};
     --on-surface_primary-rgb: #{to-rgb($neutral-50)};
-    --on-surface_secondary: #{$night-100};
+    --on-surface_secondary: #{$night-50};
     --on-surface_secondary-rgb: #{to-rgb($night-100)};
     --on-surface_tertiary: #{$night-100};
     --on-surface_highlight: #{$neutral-50};
