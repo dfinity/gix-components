@@ -86,10 +86,10 @@ body {
   --tooltip-text-color: var(--surface_gradient_lowest-left);
 
   // Dropdown (used for Popover)
-  --dropdown-background: var(--surface_medium);
-  --dropdown-focus-background: var(--surface_high);
-  --dropdown-border-color: var(--surface_variant_low);
-  --dropdown-focus-border-color: var(--outline_highlight);
+  --dropdown-background: var(--surface_high);
+  // --dropdown-focus-background: var(--surface_high);
+  --dropdown-border-color: var(--outline_line);
+  // --dropdown-focus-border-color: var(--outline_highlight);
 
   // Buttons custom colors
   --button-secondary-color: var(--brand_primary);
@@ -160,7 +160,7 @@ body {
   // Exception: use closest --violet-600
   --menu-selected-background: var(--surface_variant_medium);
 
-  --toolbar-color: var(--body-color); // Tab and segment
+  --toolbar-color: var(--on-surface_primary); // Tab and segment
   --segment-selected-background: var(--overlay-content-background);
 
   // Sidebar
