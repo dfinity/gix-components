@@ -11,7 +11,6 @@
   fill="none"
   xmlns="http://www.w3.org/2000/svg"
 >
-  <rect width="144" height="144" fill="white" />
   <rect
     opacity="0.2"
     width="102.264"
