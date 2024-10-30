@@ -58,11 +58,11 @@
   --box-shadow-color: #{$violet-500};
   // TODO: get rid of -rgb variables
   --box-shadow-color-rgb: #{to-rgb($violet-500)};
-  --on-surface_secondary-rgb: #{to-rgb($violet-50)};
-  --on-surface_primary-rgb: #{to-rgb($neutral-50)};
-  --surface_high-rgb: #{to-rgb($violet-500)};
-  --violet-450-rgb: #{to-rgb($violet-450)};
   --brand_primary-rgb: #{to-rgb($violet-accent)};
+  --on-surface_primary-rgb: #{to-rgb($neutral-50)};
+  --on-surface_secondary-rgb: #{to-rgb($violet-50)};
   --statuses_success-rgb: #{to-rgb($green-200)};
+  --surface_high-rgb: #{to-rgb($violet-500)};
   --surface_medium-rgb: #{to-rgb($violet-450)};
+  --violet-450-rgb: #{to-rgb($violet-450)};
 }

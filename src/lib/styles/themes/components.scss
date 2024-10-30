@@ -3,8 +3,8 @@
 // tmp versioning
 body {
   &::before {
-    content: "7";
-    opacity: 0;
+    content: "8";
+    opacity: 1;
     position: absolute;
   }
 }
@@ -189,8 +189,8 @@ body {
   --focus-background-tint: var(--surface_variant_low);
 
   // Design: Dark/Bg/Background-01
-  --card-background: var(--surface_high);
-  --card-background-rgb: var(--surface_high-rgb);
+  --card-background: var(--surface_medium);
+  --card-background-rgb: var(--surface_medium-rgb);
   --card-background-contrast: var(--on-surface_primary);
   --card-background-contrast-rgb: var(--text-color-rgb);
   --card-background-shade: var(--surface_high);
