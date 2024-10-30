@@ -21,13 +21,11 @@
     transform="rotate(7 35.3545 20.5668)"
     fill="#436FF5"
   />
+  <path
+    d="M14.4772 78.2999C12.208 63.4087 11.0734 55.9631 14.9946 50.6321C18.9158 45.3011 26.3614 44.1665 41.2525 41.8974L66.9789 37.9771C81.8701 35.708 89.3157 34.5734 94.6468 38.4946C99.9778 42.4157 101.112 49.8613 103.382 64.7525L107.302 90.4789C109.571 105.37 110.705 112.816 106.784 118.147C102.863 123.478 95.4175 124.612 80.5264 126.881L54.8 130.802C39.9088 133.071 32.4632 134.205 27.1321 130.284C21.8011 126.363 20.6665 118.917 18.3974 104.026L14.4772 78.2999Z"
+    fill="url(#paint0_linear_2_6694)"
+  />
   <g filter="url(#filter0_b_2_6694)">
-    <path
-      d="M14.4772 78.2999C12.208 63.4087 11.0734 55.9631 14.9946 50.6321C18.9158 45.3011 26.3614 44.1665 41.2525 41.8974L66.9789 37.9771C81.8701 35.708 89.3157 34.5734 94.6468 38.4946C99.9778 42.4157 101.112 49.8613 103.382 64.7525L107.302 90.4789C109.571 105.37 110.705 112.816 106.784 118.147C102.863 123.478 95.4175 124.612 80.5264 126.881L54.8 130.802C39.9088 133.071 32.4632 134.205 27.1321 130.284C21.8011 126.363 20.6665 118.917 18.3974 104.026L14.4772 78.2999Z"
-      fill="url(#paint0_linear_2_6694)"
-    />
-  </g>
-  <g filter="url(#filter1_b_2_6694)">
     <path
       fill-rule="evenodd"
       clip-rule="evenodd"
@@ -92,29 +90,6 @@
   <defs>
     <filter
       id="filter0_b_2_6694"
-      x="-2.79554"
-      y="20.7046"
-      width="127.37"
-      height="127.37"
-      filterUnits="userSpaceOnUse"
-      color-interpolation-filters="sRGB"
-    >
-      <feFlood flood-opacity="0" result="BackgroundImageFix" />
-      <feGaussianBlur in="BackgroundImageFix" stdDeviation="7.60211" />
-      <feComposite
-        in2="SourceAlpha"
-        operator="in"
-        result="effect1_backgroundBlur_2_6694"
-      />
-      <feBlend
-        mode="normal"
-        in="SourceGraphic"
-        in2="effect1_backgroundBlur_2_6694"
-        result="shape"
-      />
-    </filter>
-    <filter
-      id="filter1_b_2_6694"
       x="19.3158"
       y="42.5145"
       width="85.7332"
@@ -138,14 +113,14 @@
     </filter>
     <linearGradient
       id="paint0_linear_2_6694"
-      x1="10.479"
-      y1="52.0621"
-      x2="118.285"
-      y2="85.3913"
+      x1="-25.8098"
+      y1="174.69"
+      x2="66.8474"
+      y2="19.3316"
       gradientUnits="userSpaceOnUse"
     >
-      <stop stop-color="#F1F4FF" />
-      <stop offset="1" stop-color="#6288FF" />
+      <stop stop-color="#AFC3FF" stop-opacity="0" />
+      <stop offset="1" stop-color="#1851FF" />
     </linearGradient>
     <linearGradient
       id="paint1_linear_2_6694"

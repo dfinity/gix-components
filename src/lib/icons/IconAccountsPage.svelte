@@ -28,23 +28,22 @@
         y="49.604"
         width="76.0212"
         height="79.062"
-        rx="18.2451"
+        rx="18.2338"
         transform="rotate(-6.73734 9.54785 49.604)"
         fill="url(#paint0_linear_2_6638)"
+        fill-opacity="0.7"
       />
     </g>
+    <rect
+      x="8.31201"
+      y="65.0596"
+      width="91.2254"
+      height="69.9394"
+      rx="18.2338"
+      transform="rotate(-6.73734 8.31201 65.0596)"
+      fill="url(#paint1_linear_2_6638)"
+    />
     <g filter="url(#filter1_b_2_6638)">
-      <rect
-        x="8.31201"
-        y="65.0596"
-        width="91.2254"
-        height="69.9394"
-        rx="18.2451"
-        transform="rotate(-6.73734 8.31201 65.0596)"
-        fill="url(#paint1_linear_2_6638)"
-      />
-    </g>
-    <g filter="url(#filter2_b_2_6638)">
       <rect
         x="67.8296"
         y="76.4004"
@@ -68,15 +67,15 @@
   <defs>
     <filter
       id="filter0_b_2_6638"
-      x="-3.06653"
-      y="28.0709"
-      width="110"
-      height="112.664"
+      x="-3.05857"
+      y="28.0788"
+      width="109.985"
+      height="112.648"
       filterUnits="userSpaceOnUse"
       color-interpolation-filters="sRGB"
     >
       <feFlood flood-opacity="0" result="BackgroundImageFix" />
-      <feGaussianBlur in="BackgroundImageFix" stdDeviation="7.60211" />
+      <feGaussianBlur in="BackgroundImageFix" stdDeviation="7.5974" />
       <feComposite
         in2="SourceAlpha"
         operator="in"
@@ -91,29 +90,6 @@
     </filter>
     <filter
       id="filter1_b_2_6638"
-      x="-4.37952"
-      y="41.6654"
-      width="124.184"
-      height="105.542"
-      filterUnits="userSpaceOnUse"
-      color-interpolation-filters="sRGB"
-    >
-      <feFlood flood-opacity="0" result="BackgroundImageFix" />
-      <feGaussianBlur in="BackgroundImageFix" stdDeviation="7.60211" />
-      <feComposite
-        in2="SourceAlpha"
-        operator="in"
-        result="effect1_backgroundBlur_2_6638"
-      />
-      <feBlend
-        mode="normal"
-        in="SourceGraphic"
-        in2="effect1_backgroundBlur_2_6638"
-        result="shape"
-      />
-    </filter>
-    <filter
-      id="filter2_b_2_6638"
       x="53.9672"
       y="57.9003"
       width="69.8367"
@@ -138,24 +114,24 @@
     <linearGradient
       id="paint0_linear_2_6638"
       x1="9.54785"
-      y1="54.3628"
-      x2="78.2337"
-      y2="53.8122"
+      y1="57.733"
+      x2="78.2366"
+      y2="57.4107"
       gradientUnits="userSpaceOnUse"
     >
-      <stop stop-color="#AFC3FF" />
+      <stop stop-color="#AFC3FF" stop-opacity="0" />
       <stop offset="1" stop-color="#1851FF" />
     </linearGradient>
     <linearGradient
       id="paint1_linear_2_6638"
-      x1="8.31201"
-      y1="69.2693"
-      x2="99.2146"
-      y2="126.699"
+      x1="-46.8182"
+      y1="159.298"
+      x2="35.4605"
+      y2="28.999"
       gradientUnits="userSpaceOnUse"
     >
-      <stop stop-color="#F1F4FF" />
-      <stop offset="1" stop-color="#6288FF" />
+      <stop stop-color="#AFC3FF" stop-opacity="0" />
+      <stop offset="1" stop-color="#1851FF" />
     </linearGradient>
     <linearGradient
       id="paint2_linear_2_6638"

@@ -21,19 +21,17 @@
     transform="rotate(7 40.354 19.0638)"
     fill="#436FF5"
   />
+  <path
+    d="M16.4498 40.9681L80.9134 33.7485C88.056 32.9486 94.4502 38.0548 95.2501 45.1973L102.47 109.661C103.27 116.803 98.1634 123.198 91.0208 123.998L26.5572 131.217C19.4147 132.017 13.0205 126.911 12.2206 119.768L5.00104 55.3047C4.20111 48.1621 9.30728 41.768 16.4498 40.9681Z"
+    fill="url(#paint0_linear_77_2691)"
+  />
   <g filter="url(#filter0_b_77_2691)">
-    <path
-      d="M16.4498 40.9681L80.9134 33.7485C88.056 32.9486 94.4502 38.0548 95.2501 45.1973L102.47 109.661C103.27 116.803 98.1634 123.198 91.0208 123.998L26.5572 131.217C19.4147 132.017 13.0205 126.911 12.2206 119.768L5.00104 55.3047C4.20111 48.1621 9.30728 41.768 16.4498 40.9681Z"
-      fill="url(#paint0_linear_77_2691)"
-    />
-  </g>
-  <g filter="url(#filter1_b_77_2691)">
     <path
       d="M60.5699 96.2852L24.7892 100.293C23.0321 100.489 21.4481 99.2244 21.2514 97.4673C21.0546 95.7102 22.3194 94.1263 24.0765 93.9295L59.8573 89.9222C61.6144 89.7254 63.1983 90.9902 63.3951 92.7473C63.5919 94.5044 62.327 96.0884 60.5699 96.2852Z"
       fill="url(#paint1_linear_77_2691)"
     />
   </g>
-  <g filter="url(#filter2_b_77_2691)">
+  <g filter="url(#filter1_b_77_2691)">
     <path
       fill-rule="evenodd"
       clip-rule="evenodd"
@@ -41,7 +39,7 @@
       fill="url(#paint2_linear_77_2691)"
     />
   </g>
-  <g filter="url(#filter3_b_77_2691)">
+  <g filter="url(#filter2_b_77_2691)">
     <path
       fill-rule="evenodd"
       clip-rule="evenodd"
@@ -52,29 +50,6 @@
   <defs>
     <filter
       id="filter0_b_77_2691"
-      x="-11.0967"
-      y="17.6509"
-      width="129.664"
-      height="129.664"
-      filterUnits="userSpaceOnUse"
-      color-interpolation-filters="sRGB"
-    >
-      <feFlood flood-opacity="0" result="BackgroundImageFix" />
-      <feGaussianBlur in="BackgroundImageFix" stdDeviation="8.00756" />
-      <feComposite
-        in2="SourceAlpha"
-        operator="in"
-        result="effect1_backgroundBlur_77_2691"
-      />
-      <feBlend
-        mode="normal"
-        in="SourceGraphic"
-        in2="effect1_backgroundBlur_77_2691"
-        result="shape"
-      />
-    </filter>
-    <filter
-      id="filter1_b_77_2691"
       x="6.02913"
       y="74.7001"
       width="72.5877"
@@ -97,7 +72,7 @@
       />
     </filter>
     <filter
-      id="filter2_b_77_2691"
+      id="filter1_b_77_2691"
       x="2.12092"
       y="37.8994"
       width="97.9554"
@@ -120,7 +95,7 @@
       />
     </filter>
     <filter
-      id="filter3_b_77_2691"
+      id="filter2_b_77_2691"
       x="4.06038"
       y="54.8236"
       width="97.9554"
@@ -144,14 +119,14 @@
     </filter>
     <linearGradient
       id="paint0_linear_77_2691"
-      x1="4.1655"
-      y1="47.8441"
-      x2="111.608"
-      y2="85.7935"
+      x1="-33.8628"
+      y1="37.3771"
+      x2="116.462"
+      y2="113.234"
       gradientUnits="userSpaceOnUse"
     >
-      <stop stop-color="#F1F4FF" />
-      <stop offset="1" stop-color="#6288FF" />
+      <stop stop-color="#AFC3FF" stop-opacity="0" />
+      <stop offset="1" stop-color="#1851FF" />
     </linearGradient>
     <linearGradient
       id="paint1_linear_77_2691"
