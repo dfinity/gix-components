@@ -73,11 +73,12 @@ describe("Popover", () => {
   it("should render content container", async () => {
     const { container } = render(Popover, {
       props: {
-        visible: true
+        visible: true,
       },
     });
 
-    const popoverContent: HTMLDivElement | null = container.querySelector(".popover-content");
+    const popoverContent: HTMLDivElement | null =
+      container.querySelector(".popover-content");
 
     await expect(popoverContent).not.toBeNull();
   });
