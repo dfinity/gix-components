@@ -137,10 +137,10 @@ body {
   );
   --body-color: var(--on-surface_tertiary);
 
-  --content-background: var(--surface_variant_inverse-tint);
+  --content-background: var(--surface_low);
   --content-color: var(--on-surface_primary);
   // Exception: use closest --violet-600
-  --content-start-background: var(--outline_variant_line);
+  --content-start-background: var(--surface_variant_medium);
   --content-start-color: var(--on-surface_primary);
 
   --overlay-background: var(--background);
@@ -158,7 +158,7 @@ body {
   --menu-color: var(--surface_variant_inverse-variant);
   --menu-select-color: var(--surface_variant_inverse-variant);
   // Exception: use closest --violet-600
-  --menu-selected-background: var(--outline_variant_line);
+  --menu-selected-background: var(--surface_variant_medium);
 
   --toolbar-color: var(--body-color); // Tab and segment
   --segment-selected-background: var(--overlay-content-background);
