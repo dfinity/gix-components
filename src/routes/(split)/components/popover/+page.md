@@ -115,7 +115,7 @@ and the content will be scrollable.
 >
     Open Popover
 </button>
-<Popover bind:visible anchor="{button}"> 
+<Popover bind:visible anchor={button}>
     This is a popover!
 </Popover>
 ```
