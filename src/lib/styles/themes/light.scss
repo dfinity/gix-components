@@ -4,12 +4,15 @@
   &[theme="light"] {
     --brand_primary-tint: #{$blue-accent-tint};
     --brand_primary: #{$blue-accent};
+    --brand_primary-rgb: #{to-rgb($blue-accent)};
     --brand_primary-shade: #{$blue-accent-secondary};
     --brand_on-primary: #{$neutral-50};
 
     --surface_low: #{$neutral-50-a45};
     --surface_medium: #{$neutral-75};
+    --surface_medium-rgb: #{to-rgb($neutral-75)};
     --surface_high: #{$neutral-50};
+    --surface_high-rgb: #{to-rgb($neutral-50)};
     --surface_highest: #{$neutral-250};
     --surface_variant_low: #{$neutral-250};
     --surface_variant_medium: #{$neutral-75};
@@ -20,7 +23,9 @@
     --surface_gradient_lowest-right: #{$pink-25};
 
     --on-surface_primary: #{$blue-900};
+    --on-surface_primary-rgb: #{to-rgb($blue-900)};
     --on-surface_secondary: #{$blue-600};
+    --on-surface_secondary-rgb: #{to-rgb($blue-600)};
     --on-surface_tertiary: #{$blue-250};
     --on-surface_highlight: #{$neutral-50};
     --on-surface_variant_inverse: #{$neutral-50};
@@ -38,6 +43,7 @@
     --statuses_warning: #{$orange-200};
     --statuses_warning--surface: #{$orange-200-a25};
     --statuses_success: #{$green-200};
+    --statuses_success-rgb: #{to-rgb($green-200)};
     --statuses_success-on-success: #{$green-300};
     --statuses_success-surface: #{$green-200-a25};
 
@@ -58,13 +64,7 @@
 
     --box-shadow-color-rgb: #{to-rgb($neutral-250)};
     --box-shadow-color: #{$neutral-250};
-    --brand_primary-rgb: #{to-rgb($blue-accent)};
     // progress
     --input-box-shadow: 1px 1px 3px rgba(#{to-rgb($violet-300)}, 0.4) inset;
-    --on-surface_primary-rgb: #{to-rgb($blue-900)};
-    --on-surface_secondary-rgb: #{to-rgb($blue-600)};
-    --statuses_success-rgb: #{to-rgb($green-200)};
-    --surface_high-rgb: #{to-rgb($neutral-50)};
-    --surface_medium-rgb: #{to-rgb($neutral-75)};
   }
 }
