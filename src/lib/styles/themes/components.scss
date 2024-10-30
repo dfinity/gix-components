@@ -1,14 +1,3 @@
-/** Default theme: dark */
-
-// tmp versioning
-body {
-  &::before {
-    content: "10";
-    opacity: 1;
-    position: absolute;
-  }
-}
-
 :root {
   // -------- NEW CSS VARIABLES ----------------
   // We want to migrate to a new set of CSS variables for colors more adapted to our Figma.
