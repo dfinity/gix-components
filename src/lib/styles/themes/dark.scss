@@ -43,7 +43,7 @@
   --statuses_warning--surface: #{$orange-200-a25};
   --statuses_success: #{$green-200};
   --statuses_success-rgb: #{to-rgb($green-200)};
-  --statuses_success-on-success: #{$green-300};
+  --statuses_success-shade: #{$green-300};
   --statuses_success-surface: #{$green-200-a25};
 
   /**************************
