@@ -34,11 +34,13 @@ async function readFileIntoMap(filePath, pattern) {
 const darkMap = await readFileIntoMap(darkFilename, cssVarSassVarPattern);
 const lightMap = await readFileIntoMap(lightFilename, cssVarSassVarPattern);
 const nightMap = await readFileIntoMap(nightFilename, cssVarSassVarPattern);
-const componentsMap = await readFileIntoMap(componentsFilename, cssVarCssVarPattern);
+const componentsMap = await readFileIntoMap(
+  componentsFilename,
+  cssVarCssVarPattern,
+);
 
 console.log("\n\n\nNew Dark Theme:");
 for (const [componentName, themeName] of componentsMap) {
   const themeValue = nightMap.get(themeName);
   console.log(`--${componentName}: var(--${themeValue});`);
 }
-
