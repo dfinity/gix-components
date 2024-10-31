@@ -83,6 +83,21 @@
     display: flex;
     flex-direction: column;
 
+    width: 0;
+    max-width: 100vw;
+    height: 100%;
+
+    overflow-y: auto;
+    margin-left: -100%;
+
+    transition:
+      margin-left var(--animation-time-normal)
+        var(--menu-animation-timing-function),
+      width var(--animation-time-normal) var(--menu-animation-timing-function);
+
+    // On large screen the header is not sticky but within the content that's why we align the inner menu start
+    box-sizing: border-box;
+
     .top-logo {
       color: var(--menu-color);
       box-sizing: border-box;
@@ -105,11 +120,11 @@
       // otherwise the first selected menu entry would be cut off in mobile view.
       padding-top: var(--menu-selection-outer-radius);
 
+      padding-left: var(--menu-small-left-padding);
+
       @include media.min-width(large) {
         padding-top: var(--padding-4x);
       }
-
-      padding-left: var(--menu-small-left-padding);
 
       @include media.min-width(large) {
         padding-left: var(--menu-large-left-padding);
@@ -123,21 +138,6 @@
       padding-top: var(--padding-3x);
       padding-bottom: var(--padding-3x);
     }
-
-    width: 0;
-    max-width: 100vw;
-    height: 100%;
-
-    overflow-y: auto;
-    margin-left: -100%;
-
-    transition:
-      margin-left var(--animation-time-normal)
-        var(--menu-animation-timing-function),
-      width var(--animation-time-normal) var(--menu-animation-timing-function);
-
-    // On large screen the header is not sticky but within the content that's why we align the inner menu start
-    box-sizing: border-box;
 
     &.sticky {
       // On large screen the menu can be always open
