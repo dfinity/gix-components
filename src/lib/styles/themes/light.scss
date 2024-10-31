@@ -37,15 +37,6 @@
     --box-shadow-color: #d6c3db;
     --box-shadow-color-rgb: 111, 89, 133;
 
-    --box-shadow: 0px 0px 6px var(--box-shadow-color);
-    --interaction-box-shadow: 0px 4px 4px
-        rgba(var(--box-shadow-color-rgb), 0.25),
-      1px 1px 2px rgba(var(--box-shadow-color-rgb), 0.3);
-    --bottom-sheet-box-shadow: -1px -1px 10px rgba(var(--box-shadow-color-rgb), 0.25);
-    --input-box-shadow: 1px 1px 3px rgba(var(--box-shadow-color-rgb), 0.4) inset;
-    --content-box-shadow: 0px 0px 10px rgba(var(--box-shadow-color-rgb), 0.05);
-    --overlay-box-shadow: 0px 0px 8px rgba(var(--box-shadow-color-rgb), 0.2);
-
     // Footer
     // TODO-colors: Remove
     --footer-background: transparent;
@@ -54,21 +45,9 @@
     --primary-gradient: var(--blue-accent);
     --primary-gradient-fallback: var(--blue-accent);
 
-    // Json colors
-    --json-bracket-color: inherit;
-    --json-value-color: var(--description-color);
-    --json-string-color: var(--value-color);
-    --json-number-color: var(--value-color);
-    --json-null-color: var(--description-color);
-    --json-principal-color: var(--value-color);
-    --json-hash-color: var(--value-color);
-    --json-bigint-color: var(--value-color);
-    --json-boolean-color: var(--value-color);
-
     // Inputs
     /* Design Light/7969C0 (8%)-light */
     --input-border-color: var(--neutral-250);
-    --input-border-size: 1.5px;
 
     //Tooltip
     --tooltip-background: var(--violet-900);
@@ -76,14 +55,12 @@
     --tooltip-divider: var(--violet-400);
     --tooltip-description-color: var(--violet-50);
     --tooltip-text-color: var(--neutral-50);
-    --tooltip-border-size: 1.5px;
 
     // Dropdown (used for Popover)
     --dropdown-background: var(--cp-light-100);
     --dropdown-focus-background: var(--neutral-75);
     --dropdown-border-color: var(--neutral-250);
     --dropdown-focus-border-color: var(--blue-accent);
-    --dropdown-border-size: 1.5px;
 
     // Buttons custom colors
     --button-secondary-color: var(--primary);
@@ -91,9 +68,6 @@
     --button-card-focus-background: var(--cp-light-100);
     --button-disable-background: var(--neutral-250);
     --button-disable-color: var(--disable-contrast);
-
-    --light-opacity: 0.6;
-    --very-light-opacity: 0.4;
 
     // Text color
     --value-color: var(--blue-900);
@@ -117,7 +91,6 @@
 
     // Scrollbar
     --scrollbar-thumb-color: var(--neutral-250);
-    --scrollbar-thumb-background: transparent;
 
     // Progress
     --progress-color: var(--primary);
@@ -137,10 +110,7 @@
     --content-start-background: var(--neutral-75);
     --content-start-color: var(--text-color);
 
-    --overlay-background: var(--background);
     --overlay-content-background: var(--neutral-75);
-    --overlay-background-contrast: var(--background-contrast);
-    --overlay-content-background-contrast: var(--focus-background-contrast);
 
     // Overlay inverted colors - i.e. light mode colors
     --toast-inverted-background: var(--blue-900);
@@ -168,6 +138,7 @@
 
     /* Light/Text/Text */
     --text-color: var(--blue-900);
+    // TODO-colors: Remove application of rgbs
     --text-color-rgb: 56, 45, 80;
 
     /* Design: Extracted from Light/7969C0 (8%)-light */
@@ -176,12 +147,14 @@
 
     /* Design: Light/Bg/Background */
     --focus-background: var(--neutral-50);
+    // TODO-colors: Remove application of rgbs
     --focus-background-rgb: 248, 246, 252;
     --focus-background-contrast: var(--text-color);
     --focus-background-tint: var(--neutral-50);
 
     /* Design: Dark/Bg/Background-04 */
     --card-background: var(--neutral-75);
+    // TODO-colors: Remove application of rgbs
     --card-background-rgb: 248, 246, 252;
     --card-background-contrast: var(--text-color);
     --card-background-contrast-rgb: var(--text-color-rgb);
@@ -201,16 +174,14 @@
     --background-disable-contrast: var(--disable-contrast);
 
     --primary: var(--blue-accent);
+    // TODO-colors: Remove application of rgbs, then remove x-rgb.
     --primary-rgb: 121, 78, 231;
     --primary-contrast: var(--neutral-50);
-    --primary-shade: var(--cp-dark-350);
     --primary-tint: var(--cp-light-500);
 
     --secondary: var(--cp-light-500);
     --secondary-rgb: 124, 92, 194;
     --secondary-contrast: var(--blue-900);
-
-    --tertiary: var(--violet-50);
 
     --warning-emphasis: var(--orange-mid);
     --warning-emphasis-contrast: var(--blue-900);
