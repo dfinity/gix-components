@@ -1,4 +1,3 @@
-import { log } from "console";
 import { readFile } from "fs/promises";
 
 const darkFilename = "src/lib/styles/themes/dark.scss";
@@ -34,7 +33,7 @@ async function readFileIntoMap(filePath, pattern) {
 
 const darkMap = await readFileIntoMap(darkFilename, cssVarSassVarPattern);
 const lightMap = await readFileIntoMap(lightFilename, cssVarSassVarPattern);
-const nightMap = await readFileIntoMap(lightFilename, cssVarSassVarPattern);
+const nightMap = await readFileIntoMap(nightFilename, cssVarSassVarPattern);
 const componentsMap = await readFileIntoMap(componentsFilename, cssVarCssVarPattern);
 
 console.log("\n\n\nNew Dark Theme:");
