@@ -90,7 +90,7 @@
     // limited by `100vw - right padding`
     max-width: calc(100vw - var(--padding));
 
-    max-height: calc(100vh - var(--popover-top) - calc(6 * var(--padding)));
+    max-height: calc(100dvh - var(--popover-top) - calc(6 * var(--padding)));
 
     width: fit-content;
     height: auto;
