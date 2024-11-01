@@ -168,6 +168,7 @@
 
     /* Light/Text/Text */
     --text-color: var(--blue-900);
+    // TODO-colors: Remove application of rgbs
     --text-color-rgb: 56, 45, 80;
 
     /* Design: Extracted from Light/7969C0 (8%)-light */
@@ -176,12 +177,14 @@
 
     /* Design: Light/Bg/Background */
     --focus-background: var(--neutral-50);
+    // TODO-colors: Remove application of rgbs
     --focus-background-rgb: 248, 246, 252;
     --focus-background-contrast: var(--text-color);
     --focus-background-tint: var(--neutral-50);
 
     /* Design: Dark/Bg/Background-04 */
     --card-background: var(--neutral-75);
+    // TODO-colors: Remove application of rgbs
     --card-background-rgb: 248, 246, 252;
     --card-background-contrast: var(--text-color);
     --card-background-contrast-rgb: var(--text-color-rgb);
@@ -201,6 +204,7 @@
     --background-disable-contrast: var(--disable-contrast);
 
     --primary: var(--blue-accent);
+    // TODO-colors: Remove application of rgbs, then remove x-rgb.
     --primary-rgb: 121, 78, 231;
     --primary-contrast: var(--neutral-50);
     --primary-shade: var(--cp-dark-350);
