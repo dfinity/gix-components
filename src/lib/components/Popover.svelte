@@ -91,7 +91,7 @@
     max-width: calc(100vw - var(--padding));
 
     max-height: calc(
-      var(--full-vh) - var(--popover-top) - calc(6 * var(--padding))
+      var(--full-vh, 100vh) - var(--popover-top) - calc(6 * var(--padding))
     );
 
     width: fit-content;
@@ -108,10 +108,6 @@
 
     @supports (height: 100dvh) {
       --full-vh: 100dvh;
-    }
-
-    @supports not (height: 100dvh) {
-      --full-vh: 100vh;
     }
 
     &.rtl {
