@@ -90,7 +90,9 @@
     // limited by `100vw - right padding`
     max-width: calc(100vw - var(--padding));
 
-    max-height: calc(100dvh - var(--popover-top) - calc(6 * var(--padding)));
+    max-height: calc(
+      var(--full-vh) - var(--popover-top) - calc(6 * var(--padding))
+    );
 
     width: fit-content;
     height: auto;
@@ -103,6 +105,14 @@
     color: var(--background-contrast);
 
     border-radius: var(--border-radius);
+
+    @supports (height: 100dvh) {
+      --full-vh: 100dvh;
+    }
+
+    @supports not (height: 100dvh) {
+      --full-vh: 100vh;
+    }
 
     &.rtl {
       left: auto;
