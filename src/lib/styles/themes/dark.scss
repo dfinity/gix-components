@@ -63,7 +63,7 @@
   --json-boolean-color: var(--value-color);
 
   // Inputs
-  --input-border-color: var(--night-400);
+  --input-border-color: var(--night-200);
   --input-border-size: 1.5px;
 
   //Tooltip
@@ -102,7 +102,7 @@
   --backdrop-filter: blur(6px);
 
   // Disable
-  --disable: var(--night-575);
+  --disable: var(--night-400);
   --disable-contrast: var(--night-50);
   // TODO-colors: Remove application of rgbs
   --disable-contrast-rgb: 155, 173, 209;
