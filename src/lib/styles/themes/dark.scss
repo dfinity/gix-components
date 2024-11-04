@@ -3,38 +3,38 @@
 :root {
   // -------- NEW CSS VARIABLES ----------------
   // We want to migrate to a new set of CSS variables for colors more adapted to our Figma.
-  --elements-divider: var(--violet-300);
-  --elements-icons: var(--violet-50);
-  --elements-badges: var(--violet-accent);
-  --elements-badges-inactive: var(--violet-100);
-  --text-description: var(--violet-50);
-  --text-description-tint: var(--violet-100);
+  --elements-divider: var(--night-200);
+  --elements-icons: var(--night-50);
+  --elements-badges: var(--blue-accent);
+  --elements-badges-inactive: var(--night-100);
+  --text-description: var(--night-50);
+  --text-description-tint: var(--night-100);
 
-  --tag-background: var(--violet-400);
-  --tag-text: var(--violet-50);
-  --tag-text-light: var(--neutral-50);
-  --tag-text-dark: var(--blue-900);
+  --tag-background: var(--night-400);
+  --tag-text: var(--night-50);
+  --tag-text-light: var(--night-900);
+  --tag-text-dark: var(--night-550);
 
-  --input-focus-background: var(--violet-500);
-  --button-primary: var(--violet-accent);
-  --table-background: var(--violet-450);
-  --table-header-background: var(--violet-450);
-  --table-row-background: var(--violet-500);
-  --table-row-background-hover: var(--violet-450);
+  --input-focus-background: var(--night-575);
+  --button-primary: var(--blue-accent);
+  --table-background: var(--night-500);
+  --table-header-background: var(--night-575);
+  --table-row-background: var(--night-500);
+  --table-row-background-hover: var(--night-575);
 
   --alert: var(--pink-200);
-  --alert-tint: var(--deep-violet-tint);
+  --alert-tint: var(--pink-200-a25);
   --check: var(--green-200);
-  --check-tint: var(--green-dark);
-  --pending-color: var(--orange-mid);
-  --pending-background: var(--deep-violet-tint);
-  --island-card-background: var(--violet-300);
+  --check-tint: var(--green-200-a25);
+  --pending-color: var(--orange-200);
+  --pending-background: var(--orange-200-a25);
+  --island-card-background: var(--night-575);
 
   // -------- OLD CSS VARIABLES ----------------
   // Shadows
   // TODO-colors: Remove along the dark shadows.
-  --box-shadow-color: #281f3f;
-  --box-shadow-color-rgb: 40, 31, 63;
+  --box-shadow-color: var(--night-500);
+  --box-shadow-color-rgb: 43, 51, 67;
 
   --box-shadow: 0px 0px 6px var(--box-shadow-color);
   --interaction-box-shadow: 0px 4px 4px rgba(var(--box-shadow-color-rgb), 0.25),
@@ -48,8 +48,8 @@
   --footer-background: transparent;
 
   // Gradient
-  --primary-gradient: var(--violet-accent);
-  --primary-gradient-fallback: var(--violet-accent);
+  --primary-gradient: var(--blue-accent);
+  --primary-gradient-fallback: var(--blue-accent);
 
   // Json colors
   --json-bracket-color: inherit;
@@ -63,30 +63,30 @@
   --json-boolean-color: var(--value-color);
 
   // Inputs
-  --input-border-color: var(--violet-400);
+  --input-border-color: var(--night-200);
   --input-border-size: 1.5px;
 
   //Tooltip
-  --tooltip-background: var(--neutral-75);
-  --tooltip-border-color: var(--cp-light-50-45);
-  --tooltip-divider: var(--neutral-250);
-  --tooltip-description-color: var(--blue-600);
-  --tooltip-text-color: var(--blue-900);
+  --tooltip-background: var(--neutral-50);
+  --tooltip-border-color: var(--neutral-blue-a10);
+  --tooltip-divider: var(--neutral-50);
+  --tooltip-description-color: var(--night-600);
+  --tooltip-text-color: var(--night-550);
   --tooltip-border-size: 1.5px;
 
   // Dropdown (used for Popover)
-  --dropdown-background: var(--violet-450);
-  --dropdown-focus-background: var(--violet-500);
-  --dropdown-border-color: var(--violet-400);
-  --dropdown-focus-border-color: var(--violet-accent);
+  --dropdown-background: var(--night-575);
+  --dropdown-focus-background: var(--night-575);
+  --dropdown-border-color: var(--night-200);
+  --dropdown-focus-border-color: var(--blue-accent);
   --dropdown-border-size: 1.5px;
 
   // Buttons custom colors
-  --button-secondary-color: var(--secondary);
-  --button-card-focus-color: var(--secondary);
-  --button-card-focus-background: var(--violet-650);
-  --button-disable-background: var(--violet-400);
-  --button-disable-color: var(--violet-50);
+  --button-secondary-color: var(--blue-accent);
+  --button-card-focus-color: var(--blue-accent);
+  --button-card-focus-background: var(--night-550);
+  --button-disable-background: var(--night-575);
+  --button-disable-color: var(--night-50);
 
   --light-opacity: 0.6;
   --very-light-opacity: 0.4;
@@ -94,65 +94,67 @@
   // Text color
   --value-color: var(--neutral-50);
   --label-color: var(--text-color);
-  --description-color: var(--violet-50);
+  --description-color: var(--night-50);
 
   // Overlays - based on dark card background rgb color
   --backdrop: var(--neutral-blue-1000-a80);
-  --backdrop-contrast: var(--text-color);
+  --backdrop-contrast: var(--neutral-50);
   --backdrop-filter: blur(6px);
 
   // Disable
-  --disable: var(--card-background);
-  --disable-contrast: var(--violet-50);
+  --disable: var(--night-400);
+  --disable-contrast: var(--night-50);
   // TODO-colors: Remove application of rgbs
-  --disable-contrast-rgb: 184, 161, 222;
+  --disable-contrast-rgb: 155, 173, 209;
 
   // Line
-  --line: var(--violet-400);
+  --line: var(--night-400);
 
   // Scrollbar
   --scrollbar-thumb-background: transparent;
-  --scrollbar-thumb-color: var(--violet-400);
+  --scrollbar-thumb-color: var(--night-200);
 
   // Progress
-  --progress-color: var(--secondary);
-  --progress-color-contrast: var(--secondary-contrast);
-  --progress-color-rgb: var(--secondary-rgb);
+  --progress-color: var(--blue-accent);
+  --progress-color-contrast: var(--neutral-50);
+  --progress-color-rgb: 77, 121, 255;
 
   // Custom backgrounds
   --body-background: radial-gradient(
     farthest-corner circle at 0% 100%,
-    var(--violet-250),
-    var(--blue-800)
+    var(--night-1000),
+    var(--night-550)
   );
-  --body-color: var(--violet-100);
+  --body-color: var(--night-100);
 
-  --content-background: var(--cp-dark-1000-20);
-  --content-color: var(--text-color);
-  --content-start-background: var(--violet-600);
-  --content-start-color: var(--text-color);
+  --content-background: var(--neutral-1000-a30);
+  --content-color: var(--neutral-50);
+  --content-start-background: var(--night-550);
+  --content-start-color: var(--neutral-50);
 
-  --overlay-background: var(--background);
+  --overlay-background: var(--night-575);
   --overlay-background-contrast: var(--background-contrast);
-  --overlay-content-background: var(--violet-500);
-  --overlay-content-background-contrast: var(--focus-background-contrast);
+  --overlay-content-background: var(--background);
+  --overlay-content-background-contrast: var(--neutral-50);
 
   // Overlay inverted colors - i.e. light mode colors
   --toast-inverted-background: var(--neutral-50);
-  --toast-inverted-background-contrast: var(--purple-dark-900);
+  --toast-inverted-background-contrast: var(--night-550);
 
   // Menu
-  --menu-color: var(--cp-light-100);
-  --menu-select-color: var(--cp-light-100);
-  --menu-selected-background: var(--violet-600);
+  --menu-color: var(--neutral-50);
+  --menu-select-color: var(--neutral-50);
+  --menu-selected-background: var(--night-550);
 
-  --toolbar-color: var(--body-color); // Tab and segment
+  --toolbar-color: var(--neutral-50);
+
+  // Tab and segment
   --segment-selected-background: var(--overlay-content-background);
 
   // Sidebar
-  --sidebar-button-background: var(--cp-dark-1000-20);
-  --sidebar-button-background-hover: var(--violet-900);
-  --sidebar-icon: var(--text-color);
+  --sidebar-button-background: var(--neutral-blue-a10);
+  --sidebar-button-background-hover: var(--night-550);
+  --sidebar-icon: var(--neutral-50);
 
   // Theme color
   --theme-color: var(--card-background);
@@ -161,56 +163,56 @@
 
   /* Light/Text/Text-xx? */
   --text-color: var(--neutral-50);
-  --text-color-rgb: 240, 237, 245;
+  --text-color-rgb: 255, 255, 255;
 
   /* Design: Dark/Bg/Background-03 */
-  --input-background: var(--violet-450);
-  --input-background-contrast: var(--text-color);
+  --input-background: var(--night-500);
+  --input-background-contrast: var(--neutral-50);
 
   /* Design: Dark/Bg/Background */
-  --focus-background: var(--violet-500);
-  --focus-background-rgb: 61, 42, 92;
-  --focus-background-contrast: var(--text-color);
-  --focus-background-tint: var(--violet-400);
+  --focus-background: var(--night-575);
+  --focus-background-rgb: 33, 39, 51;
+  --focus-background-contrast: var(--neutral-50);
+  --focus-background-tint: var(--night-400);
 
   /* Design: Dark/Bg/Background-01 */
-  --card-background: var(--violet-500);
-  --card-background-rgb: 61, 42, 92;
-  --card-background-contrast: var(--text-color);
-  --card-background-contrast-rgb: var(--text-color-rgb);
-  --card-background-shade: var(--violet-500);
-  --card-background-tint: var(--violet-400);
-  --card-background-disabled: var(--cp-dark-1000-20);
+  --card-background: var(--night-500);
+  --card-background-rgb: 43, 51, 67;
+  --card-background-contrast: var(--neutral-50);
+  --card-background-contrast-rgb: 255, 255, 255;
+  --card-background-shade: var(--night-575);
+  --card-background-tint: var(--night-575);
+  --card-background-disabled: var(--neutral-blue-a10);
 
   /* Design: Dark/Bg/Background-02 */
-  --background: var(--violet-300);
-  --background-contrast: var(--text-color);
-  --background-contrast-rgb: var(--text-color-rgb);
-  --background-shade: var(--violet-600);
+  --background: var(--night-400);
+  --background-contrast: var(--neutral-50);
+  --background-contrast-rgb: 255, 255, 255;
+  --background-shade: var(--night-600);
 
   /* Design: Dark/Bg/Background-01 */
-  --background-disable: var(--violet-450);
-  --background-disable-rgb: 55, 38, 82;
+  --background-disable: var(--neutral-75);
+  --background-disable-rgb: 249, 247, 255;
   --background-disable-contrast: var(--disable-contrast);
 
-  --primary: var(--violet-accent);
-  --primary-rgb: 163, 106, 255;
-  --primary-contrast: var(--text-color);
-  --primary-shade: var(--cp-dark-350);
-  --primary-tint: var(--cp-dark-250);
+  --primary: var(--blue-accent);
+  --primary-rgb: 77, 121, 255;
+  --primary-contrast: var(--neutral-50);
+  --primary-shade: var(--blue-accent-secondary);
+  --primary-tint: var(--blue-accent);
 
-  --secondary: var(--violet-accent);
-  --secondary-rgb: 163, 106, 255;
-  --secondary-contrast: var(--text-color);
+  --secondary: var(--blue-accent);
+  --secondary-rgb: 77, 121, 255;
+  --secondary-contrast: var(--neutral-50);
 
-  --tertiary: var(--violet-50);
+  --tertiary: var(--night-50);
 
-  --warning-emphasis: var(--orange-mid);
+  --warning-emphasis: var(--orange-200);
   --warning-emphasis-contrast: var(--neutral-50);
   --warning-emphasis-shade: var(--orange-200);
 
   --positive-emphasis: var(--green-200);
-  --positive-emphasis-rgb: 48, 175, 145;
+  --positive-emphasis-rgb: 45, 178, 134;
   --positive-emphasis-contrast: var(--neutral-50);
   --positive-emphasis-light: var(--green-200-a25);
   --negative-emphasis: var(--pink-200);
