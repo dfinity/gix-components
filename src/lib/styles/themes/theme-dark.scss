@@ -1,0 +1,42 @@
+:root {
+  &[theme="dark"] {
+    --brand_primary-tint: var(--blue-accent-tint);
+    --brand_primary: var(--blue-accent);
+    --brand_primary-shade: var(--blue-accent-secondary);
+    --brand_on-primary: var(--neutral-50);
+
+    --surface_low: var(--neutral-1000-a20);
+    --surface_medium: var(--night-500);
+    --surface_high: var(--night-575);
+    --surface_highest: var(--night-575);
+    --surface_variant_low: var(--night-400);
+    --surface_variant_medium: var(--night-550);
+    --surface_variant_inverse: var(--neutral-blue-50-a10);
+    --surface_variant_inverse-variant: var(--neutral-50);
+    --surface_variant_inverse-tint: var(--neutral-blue-a10);
+    --surface_gradient_lowest-left: var(--night-550);
+    --surface_gradient_lowest-right: var(--night-1000);
+
+    --on-surface_primary: var(--neutral-50);
+    --on-surface_secondary: var(--night-100);
+    --on-surface_tertiary: var(--night-100);
+    --on-surface_highlight: var(--neutral-50);
+    --on-surface_variant_inverse: var(--night-900);
+    --on-surface_variant_inverse-variant: var(--night-400);
+    --on-surface_variant_highlight: var(--neutral-blue-a45);
+
+    --outline_line: var(--night-200);
+    --outline_highlight: var(--blue-accent);
+    --outline_variant_line: var(--night-600);
+    --outline_variant_inverse: var(--neutral-1000-a20);
+
+    --statuses_error: var(--pink-200);
+    --statuses_error-shade: var(--pink-300);
+    --statuses_error-surface: var(--pink-200-a25);
+    --statuses_warning: var(--orange-200);
+    --statuses_warning--surface: var(--orange-200-a25);
+    --statuses_success: var(--green-200);
+    --statuses_success-on-success: var(--green-300);
+    --statuses_success-surface: var(--green-200-a25);
+  }
+}

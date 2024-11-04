@@ -1,0 +1,70 @@
+@use "../global/colors";
+
+:root {
+  &[theme="night"] {
+    --brand_primary-tint: #{$blue-accent-tint};
+    --brand_primary: #{$blue-accent};
+    --brand_primary-rgb: #{to-rgb($violet-accent)};
+    --brand_primary-shade: #{$blue-accent-secondary};
+    --brand_on-primary: #{$neutral-50};
+
+    --surface_low: #{$neutral-1000-a30};
+    --surface_medium: #{$night-500};
+    --surface_medium-rgb: #{to-rgb($night-500)};
+    --surface_high: #{$night-575};
+    --surface_high-rgb: #{to-rgb($night-575)};
+    --surface_highest: #{$night-575};
+    --surface_variant_low: #{$night-400};
+    --surface_variant_medium: #{$night-550};
+    --surface_variant_inverse: #{$neutral-blue-a10};
+    --surface_variant_inverse-variant: #{$neutral-50};
+    --surface_variant_inverse-tint: #{$neutral-blue-a10};
+    --surface_gradient_lowest-left: #{$night-550};
+    --surface_gradient_lowest-right: #{$night-1000};
+
+    --on-surface_primary: #{$neutral-50};
+    --on-surface_primary-rgb: #{to-rgb($neutral-50)};
+    --on-surface_secondary: #{$night-50};
+    --on-surface_secondary-rgb: #{to-rgb($night-100)};
+    --on-surface_tertiary: #{$night-100};
+    --on-surface_highlight: #{$neutral-50};
+    --on-surface_variant_inverse: #{$night-900};
+    --on-surface_variant_inverse-variant: #{$night-400};
+    --on-surface_variant_highlight: #{$neutral-blue-a45};
+
+    --outline_line: #{$night-200};
+    --outline_highlight: #{$blue-accent};
+    --outline_variant_line: #{$night-600};
+    --outline_variant_inverse: #{$neutral-1000-a20};
+
+    --statuses_error: #{$pink-200};
+    --statuses_error-shade: #{$pink-300};
+    --statuses_error-surface: #{$pink-200-a25};
+    --statuses_warning: #{$orange-200};
+    --statuses_warning--surface: #{$orange-200-a25};
+    --statuses_success: #{$green-200};
+    --statuses_success-rgb: #{to-rgb($green-200)};
+    --statuses_success-shade: #{$green-300};
+    --statuses_success-surface: #{$green-200-a25};
+
+    /**************************
+   *  Additional Variables  *
+   **************************/
+    --light-opacity: 0.6;
+    --very-light-opacity: 0.4;
+
+    --input-border-size: 1.5px;
+    --tooltip-border-size: 1.5px;
+    --dropdown-border-size: 1.5px;
+
+    --backdrop-background: #{$neutral-blue-1000-a80};
+
+    // Footer
+    --footer-background: transparent;
+
+    --box-shadow-color: #{$night-500};
+    --box-shadow-color-rgb: #{to-rgb($night-500)};
+    // progress
+    --input-box-shadow: 1px 1px 3px rgba(#{to-rgb($night-500)}, 0.4) inset;
+  }
+}
