@@ -58,7 +58,9 @@
         >
       {/if}
 
-      <slot />
+      <div class="popover-content" data-tid="popover-content">
+        <slot />
+      </div>
     </div>
   </div>
 {/if}
@@ -88,6 +90,10 @@
     // limited by `100vw - right padding`
     max-width: calc(100vw - var(--padding));
 
+    max-height: calc(
+      var(--full-vh, 100vh) - var(--popover-top) - calc(6 * var(--padding))
+    );
+
     width: fit-content;
     height: auto;
 
@@ -99,6 +105,10 @@
     color: var(--background-contrast);
 
     border-radius: var(--border-radius);
+
+    @supports (height: 100dvh) {
+      --full-vh: 100dvh;
+    }
 
     &.rtl {
       left: auto;
@@ -112,5 +122,9 @@
 
   .close {
     align-self: flex-end;
+  }
+
+  .popover-content {
+    overflow-y: auto;
   }
 </style>
