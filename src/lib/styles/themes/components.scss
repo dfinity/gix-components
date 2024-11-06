@@ -60,7 +60,7 @@
   --json-boolean-color: var(--value-color);
 
   // Inputs
-  --input-border-color: var(--surface_variant_low);
+  --input-border-color: var(--outline_line);
 
   //Tooltip
   // Exception: use closest --neutral-75
@@ -85,7 +85,7 @@
   --button-card-focus-color: var(--brand_primary);
   // Exception: use closest --violet-650
   --button-card-focus-background: var(--surface_variant_medium);
-  --button-disable-background: var(--surface_variant_low);
+  --button-disable-background: var(--surface_highest);
   --button-disable-color: var(--on-surface_secondary);
 
   // Text color
@@ -100,7 +100,7 @@
   --backdrop-filter: blur(6px);
 
   // Disable
-  --disable: var(--surface_high);
+  --disable: var(--input-border-disabled);
   --disable-contrast: var(--on-surface_secondary);
   // TODO-colors: Remove application of rgbs
   --disable-contrast-rgb: var(--on-surface_secondary-rgb);
@@ -110,7 +110,7 @@
 
   // Scrollbar
   --scrollbar-thumb-background: transparent;
-  --scrollbar-thumb-color: var(--surface_variant_low);
+  --scrollbar-thumb-color: var(--outline_line);
 
   // Progress
   --progress-color: var(--brand_primary);
@@ -132,9 +132,9 @@
   --content-start-background: var(--surface_variant_medium);
   --content-start-color: var(--on-surface_primary);
 
-  --overlay-background: var(--background);
+  --overlay-background: var(--surface_highest);
   --overlay-background-contrast: var(--background-contrast);
-  --overlay-content-background: var(--surface_high);
+  --overlay-content-background: var(--surface_medium);
   --overlay-content-background-contrast: var(--on-surface_primary);
 
   // Overlay inverted colors - i.e. light mode colors
@@ -153,7 +153,7 @@
   --segment-selected-background: var(--overlay-content-background);
 
   // Sidebar
-  --sidebar-button-background: var(--surface_variant_inverse-tint);
+  --sidebar-button-background: red;
   --sidebar-button-background-hover: var(--surface_variant_medium);
   --sidebar-icon: var(--on-surface_primary);
 
@@ -182,7 +182,7 @@
   --card-background-contrast: var(--on-surface_primary);
   --card-background-contrast-rgb: var(--text-color-rgb);
   --card-background-shade: var(--surface_high);
-  --card-background-tint: var(--surface_variant_low);
+  --card-background-tint: var(--surface_high);
   --card-background-disabled: var(--surface_variant_inverse-tint);
 
   // Design: Dark/Bg/Background-02
