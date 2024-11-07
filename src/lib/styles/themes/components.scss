@@ -8,15 +8,17 @@
   --text-description: var(--on-surface_secondary);
   --text-description-tint: var(--on-surface_tertiary);
 
-  --tag-background: var(--surface_variant_low);
+  --tag-background: var(--surface_highest);
   --tag-text: var(--on-surface_secondary);
-  --tag-text-light: var(--on-surface_variant_inverse);
-  // Exception, not found --blue-900
-  --tag-text-dark: var(--surface_gradient_lowest-left);
+  // @deprecated not in use
+  // --tag-text-light: var(--on-surface_variant_inverse);
+  // @deprecated not in use
+  // --tag-text-dark: var(--surface_gradient_lowest-left);
 
   --input-focus-background: var(--surface_high);
   --button-primary: var(--brand_primary);
-  --table-background: var(--surface_medium);
+  // @deprecated not in use
+  // --table-background: var(--surface_medium);
   --table-header-background: var(--surface_high);
   --table-row-background: var(--surface_medium);
   --table-row-background-hover: var(--surface_high);
@@ -68,11 +70,11 @@
   // Exception --cp-light-50-45
   --tooltip-border-color: var(--surface_variant_inverse-tint);
   // Exception: use closest --neutral-250
-  --tooltip-divider: var(--surface_variant_inverse-variant);
+  --tooltip-divider: var(--outline_variant_inverse);
   // Exception --blue-600
-  --tooltip-description-color: var(--outline_variant_line);
+  --tooltip-description-color: var(--on-surface_variant_inverse-variant);
   // Exception --blue-900
-  --tooltip-text-color: var(--surface_gradient_lowest-left);
+  --tooltip-text-color: var(--on-surface_variant_inverse);
 
   // Dropdown (used for Popover)
   --dropdown-background: var(--surface_high);
@@ -106,7 +108,7 @@
   --disable-contrast-rgb: var(--on-surface_secondary-rgb);
 
   // Line
-  --line: var(--surface_variant_low);
+  --line: var(--outline_line);
 
   // Scrollbar
   --scrollbar-thumb-background: transparent;
@@ -140,11 +142,11 @@
   // Overlay inverted colors - i.e. light mode colors
   --toast-inverted-background: var(--surface_variant_inverse-variant);
   // Exception --purple-dark-900
-  --toast-inverted-background-contrast: var(--surface_variant_medium);
+  --toast-inverted-background-contrast: var(--on-surface_variant_inverse);
 
   // Menu
   // Exception: use closest --cp-light-100
-  --menu-color: var(--surface_variant_inverse-variant);
+  --menu-color: var(--on-surface_primary);
   --menu-select-color: var(--surface_variant_inverse-variant);
   // Exception: use closest --violet-600
   --menu-selected-background: var(--surface_variant_medium);
@@ -174,7 +176,8 @@
   --focus-background: var(--surface_high);
   --focus-background-rgb: var(--surface_high-rgb);
   --focus-background-contrast: var(--on-surface_primary);
-  --focus-background-tint: var(--surface_variant_low);
+  // @deprecated not in use
+  // --focus-background-tint: var(--surface_variant_low);
 
   // Design: Dark/Bg/Background-01
   --card-background: var(--surface_medium);
