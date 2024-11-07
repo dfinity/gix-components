@@ -24,7 +24,7 @@
     }
 
     &.warning {
-      background-color: var(--statuses_warning--surface);
+      background-color: var(--statuses_warning-surface);
       color: var(--statuses_warning);
     }
 

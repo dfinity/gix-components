@@ -32,7 +32,7 @@
   // Exception: use closest --orange-mid
   --pending-color: var(--statuses_warning);
   // Exception --deep-violet-tint
-  --pending-background: var(--statuses_warning--surface);
+  --pending-background: var(--statuses_warning-surface);
   // Exception: use closest --violet-300
   --island-card-background: var(--surface_high);
 
