@@ -1,12 +1,27 @@
-<!-- source: https://fonts.google.com/icons?selected=Material%20Icons%3Athumb_up%3A -->
+<!-- source: DFINITY foundation -->
 <svg
+  width="48"
+  height="48"
+  viewBox="0 0 48 48"
+  role="img"
+  aria-label="Like or Thumbs Up Icon"
   xmlns="http://www.w3.org/2000/svg"
-  height="18px"
-  viewBox="0 0 24 24"
-  width="18px"
-  fill="currentColor"
-  data-tid="thumb-up"
-  ><path d="M0 0h24v24H0V0z" fill="none" /><path
-    d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"
-  /></svg
 >
+  <path
+    fill="#2DB286"
+    fill-opacity=".25"
+    d="M0 24C0 10.745 10.745 0 24 0s24 10.745 24 24-10.745 24-24 24S0 37.255 0 24Z"
+  />
+  <path
+    fill="#2DB386"
+    d="m19.407 22.894 5.555-6.949a.46.46 0 0 1 .7-.022c.418.458.576 1.096.422 1.696l-.785 3.064h6.446a1.466 1.466 0 0 1 1.406 1.04c.06.2.05.382.05.618v1.36a3 3 0 0 1-.225 1.137l-2.599 6.341s-.282.69-.55.927c-.268.237-.613.369-.971.37h-7.449a2 2 0 0 1-2-2v-7.582Z"
+  />
+  <rect
+    width="3.704"
+    height="9.556"
+    x="14.799"
+    y="22.92"
+    fill="#2DB386"
+    rx=".5"
+  />
+</svg>

@@ -1,12 +1,28 @@
-<!-- source: https://fonts.google.com/icons?selected=Material%20Icons%3Athumb_down%3A -->
+<!-- source: DFINITY foundation -->
 <svg
+  width="48"
+  height="48"
+  viewBox="0 0 48 48"
+  role="img"
+  aria-label="Dislike or Thumbs Down Icon"
   xmlns="http://www.w3.org/2000/svg"
-  height="18px"
-  viewBox="0 0 24 24"
-  width="18px"
-  fill="currentColor"
-  data-tid="thumb-down"
-  ><path d="M0 0h24v24H0z" fill="none" /><path
-    d="M15 3H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 23l6.59-6.59c.36-.36.58-.86.58-1.41V5c0-1.1-.9-2-2-2zm4 0v12h4V3h-4z"
-  /></svg
 >
+  <path
+    fill="#F2556F"
+    fill-opacity=".25"
+    d="M.03 24c0-13.255 10.746-24 24-24 13.255 0 24 10.745 24 24s-10.745 24-24 24c-13.254 0-24-10.745-24-24Z"
+  />
+  <path
+    fill="#F2556F"
+    d="m28.623 25.106-5.555 6.949a.46.46 0 0 1-.7.022 1.842 1.842 0 0 1-.422-1.696l.785-3.064h-6.446a1.465 1.465 0 0 1-1.405-1.04c-.06-.2-.05-.382-.05-.618v-1.347a3 3 0 0 1 .233-1.16l2.655-6.339.096-.18c.255-.483.621-.941 1.15-1.078a.877.877 0 0 1 .21-.032h7.449a2 2 0 0 1 2 2v7.583Z"
+  />
+  <rect
+    width="3.704"
+    height="9.556"
+    x="33.232"
+    y="25.08"
+    fill="#F2556F"
+    rx=".5"
+    transform="rotate(-180 33.232 25.08)"
+  />
+</svg>
