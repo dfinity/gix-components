@@ -64,7 +64,9 @@ export { default as IconStakedMaturity } from "./icons/IconStakedMaturity.svelte
 export { default as IconSubdirectory } from "./icons/IconSubdirectory.svelte";
 export { default as IconSync } from "./icons/IconSync.svelte";
 export { default as IconThumbDown } from "./icons/IconThumbDown.svelte";
+export { default as IconThumbDownCircle } from "./icons/IconThumbDownCircle.svelte";
 export { default as IconThumbUp } from "./icons/IconThumbUp.svelte";
+export { default as IconThumbUpCircle } from "./icons/IconThumbUpCircle.svelte";
 export { default as IconTokens } from "./icons/IconTokens.svelte";
 export { default as IconUp } from "./icons/IconUp.svelte";
 export { default as IconUser } from "./icons/IconUser.svelte";
