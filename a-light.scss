@@ -19,9 +19,9 @@
     --input-focus-background: var(--neutral-75);
     --button-primary: var(--blue-accent);
     --table-background: var(--neutral-75);
-    --table-header-background: var(--cp-light-100);
+    --table-header-background: var(--neutral-50);
     --table-row-background: var(--neutral-75);
-    --table-row-background-hover: var(--cp-light-100);
+    --table-row-background-hover: var(--neutral-50);
 
     --alert: var(--pink-200);
     --alert-tint: var(--pink-200-a25);
@@ -79,7 +79,7 @@
     --tooltip-border-size: 1.5px;
 
     // Dropdown (used for Popover)
-    --dropdown-background: var(--cp-light-100);
+    --dropdown-background: var(--neutral-50);
     --dropdown-focus-background: var(--neutral-75);
     --dropdown-border-color: var(--neutral-250);
     --dropdown-focus-border-color: var(--blue-accent);
@@ -88,7 +88,7 @@
     // Buttons custom colors
     --button-secondary-color: var(--primary);
     --button-card-focus-color: var(--primary);
-    --button-card-focus-background: var(--cp-light-100);
+    --button-card-focus-background: var(--neutral-50);
     --button-disable-background: var(--neutral-250);
     --button-disable-color: var(--disable-contrast);
 
@@ -102,7 +102,7 @@
 
     // Overlays - based on dark card background rgb color
     --backdrop: var(--fade);
-    --backdrop-contrast: var(--cp-light-100);
+    --backdrop-contrast: var(--neutral-50);
     --backdrop-filter: blur(4px);
 
     // Disable
@@ -172,7 +172,7 @@
     --text-color-rgb: 56, 45, 80;
 
     /* Design: Extracted from Light/7969C0 (8%)-light */
-    --input-background: var(--cp-light-100);
+    --input-background: var(--neutral-50);
     --input-background-contrast: var(--text-color);
 
     /* Design: Light/Bg/Background */
@@ -188,7 +188,7 @@
     --card-background-rgb: 248, 246, 252;
     --card-background-contrast: var(--text-color);
     --card-background-contrast-rgb: var(--text-color-rgb);
-    --card-background-shade: var(--cp-light-100);
+    --card-background-shade: var(--neutral-50);
     --card-background-tint: var(--neutral-50);
     --card-background-disabled: var(--cp-light-opaque);
 
