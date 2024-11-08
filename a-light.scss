@@ -72,7 +72,7 @@
 
     //Tooltip
     --tooltip-background: var(--violet-900);
-    --tooltip-border-color: var(--cp-dark-hover-overlay);
+    --tooltip-border-color: var(--neutral-1000-a20);
     --tooltip-divider: var(--violet-400);
     --tooltip-description-color: var(--violet-50);
     --tooltip-text-color: var(--neutral-50);
@@ -132,7 +132,7 @@
     );
     --body-color: var(--neutral-50);
 
-    --content-background: var(--cp-light-opaque);
+    --content-background: var(--neutral-50-a45);
     --content-color: var(--text-color);
     --content-start-background: var(--neutral-75);
     --content-start-color: var(--text-color);
@@ -157,7 +157,7 @@
     --segment-selected-background: var(--focus-background);
 
     // Sidebar
-    --sidebar-button-background: var(--cp-light-50-45);
+    --sidebar-button-background: var(--neutral-50-a45);
     --sidebar-button-background-hover: var(--neutral-50);
     --sidebar-icon: var(--text-color);
 
@@ -190,7 +190,7 @@
     --card-background-contrast-rgb: var(--text-color-rgb);
     --card-background-shade: var(--neutral-50);
     --card-background-tint: var(--neutral-50);
-    --card-background-disabled: var(--cp-light-opaque);
+    --card-background-disabled: var(--neutral-50-a45);
 
     /* Design: Light/Bg/Background-01 */
     --background: var(--neutral-250);
@@ -208,15 +208,15 @@
     --primary-rgb: 121, 78, 231;
     --primary-contrast: var(--neutral-50);
     --primary-shade: var(--cp-dark-350);
-    --primary-tint: var(--cp-light-500);
+    --primary-tint: var(--blue-600);
 
-    --secondary: var(--cp-light-500);
+    --secondary: var(--blue-600);
     --secondary-rgb: 124, 92, 194;
     --secondary-contrast: var(--blue-900);
 
     --tertiary: var(--violet-50);
 
-    --warning-emphasis: var(--orange-mid);
+    --warning-emphasis: var(--orange-200);
     --warning-emphasis-contrast: var(--blue-900);
     --warning-emphasis-shade: var(--orange-200);
 

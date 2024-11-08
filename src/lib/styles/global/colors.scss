@@ -151,6 +151,11 @@ $green-200-a25: #2db28625;
 $orange-200: #faa123;
 $orange-200-a25: #faa12325;
 
+// New missing variables
+// TODO: Discuss with design team to get the correct values
+$cp-dark-350: #4b3bf8;
+$fade: #0e0b2660;
+
 @function to-rgb($color) {
   @return "#{red($color)}, #{green($color)}, #{blue($color)}";
 }
