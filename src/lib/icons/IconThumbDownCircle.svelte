@@ -1,0 +1,31 @@
+<!-- source: DFINITY foundation -->
+<script lang="ts">
+  import { DEFAULT_ICON_SIZE } from "$lib/constants/constants";
+
+  export let size = `${DEFAULT_ICON_SIZE}px`;
+</script>
+
+<svg
+  width={size}
+  height={size}
+  viewBox="0 0 48 48"
+  xmlns="http://www.w3.org/2000/svg"
+  fill="currentColor"
+  data-tid="thumb-down-circle"
+>
+  <path
+    fill-opacity=".25"
+    d="M.03 24c0-13.255 10.746-24 24-24 13.255 0 24 10.745 24 24s-10.745 24-24 24c-13.254 0-24-10.745-24-24Z"
+  />
+  <path
+    d="m28.623 25.106-5.555 6.949a.46.46 0 0 1-.7.022 1.842 1.842 0 0 1-.422-1.696l.785-3.064h-6.446a1.465 1.465 0 0 1-1.405-1.04c-.06-.2-.05-.382-.05-.618v-1.347a3 3 0 0 1 .233-1.16l2.655-6.339.096-.18c.255-.483.621-.941 1.15-1.078a.877.877 0 0 1 .21-.032h7.449a2 2 0 0 1 2 2v7.583Z"
+  />
+  <rect
+    width="3.704"
+    height="9.556"
+    x="33.232"
+    y="25.08"
+    rx=".5"
+    transform="rotate(-180 33.232 25.08)"
+  />
+</svg>
