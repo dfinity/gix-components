@@ -7,7 +7,7 @@ const UNKNOWN = "❌";
 
 const oldDarkFilename = "./a-dark.scss";
 const oldLightFilename = "./a-light.scss";
-const colorsFilename = "src/lib/styles/global/colors.scss";
+const primitivesFilename = "src/lib/styles/global/colors.scss";
 const darkFilename = "src/lib/styles/themes/dark.scss";
 const lightFilename = "src/lib/styles/themes/light.scss";
 const nightFilename = "src/lib/styles/themes/night.scss";
@@ -21,6 +21,17 @@ const cssVarRgbValuePattern = /^\s*\$([^:]+):\s*#(.*);/;
 const isColorValue = (value) =>
   value.match(/^#([0-9a-fA-F]{3}){1,2}$/) || value.match(/^\d+, \d+, \d+$/);
 
+/**
+  Sample input:
+    key: label-color
+    value: text-color
+    mapA:
+      neutral-50: #ffffff;
+    mapB:
+      --label-color: var(--text-color);
+      --text-color: var(--neutral-50);
+  Returns: #ffffff
+ */
 const recursiveSearch = (key, value, mapA, mapB) =>
   mapB.get(value) ??
   (mapA.get(value)
@@ -76,8 +87,10 @@ const componentsMap = await readFileIntoMap(
   componentsFilename,
   cssVarCssVarPattern,
 );
-
-const colorMap = await readFileIntoMap(colorsFilename, cssVarRgbValuePattern);
+const primitiveMap = await readFileIntoMap(
+  primitivesFilename,
+  cssVarRgbValuePattern,
+);
 // Read the old dark and light themes
 const oldDarkMap = await readFileIntoMap(oldDarkFilename, cssVarCssVarPattern);
 const oldLightMap = await readFileIntoMap(
@@ -144,7 +157,7 @@ logMissing &&
 const oldLightColors = new Map(
   Array.from(oldLightMap.entries()).map(([key, value]) => [
     key,
-    recursiveSearch(key, value, oldLightMap, colorMap),
+    recursiveSearch(key, value, oldLightMap, primitiveMap),
   ]),
 );
 const unknownLightColors = Array.from(oldLightColors.entries()).filter(
@@ -159,7 +172,7 @@ unknownLightColors.length > 0 &&
 const oldDarkColors = new Map(
   Array.from(oldDarkMap.entries()).map(([key, value]) => [
     key,
-    recursiveSearch(key, value, oldDarkMap, colorMap),
+    recursiveSearch(key, value, oldDarkMap, primitiveMap),
   ]),
 );
 const unknownDarkColors = Array.from(oldDarkColors.entries()).filter(
