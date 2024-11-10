@@ -1,14 +1,12 @@
 /* eslint-disable no-console */
 import { readFile } from "fs/promises";
-
-const logMissing = true;
+import { compareColors, toHex } from "./color-comparison.js";
 
 const UNKNOWN = "❌";
 
 const oldDarkFilename = "./a-dark.scss";
 const oldLightFilename = "./a-light.scss";
 const primitivesFilename = "src/lib/styles/global/colors.scss";
-const darkFilename = "src/lib/styles/themes/dark.scss";
 const lightFilename = "src/lib/styles/themes/light.scss";
 const nightFilename = "src/lib/styles/themes/night.scss";
 const componentsFilename = "src/lib/styles/themes/components.scss";
@@ -84,6 +82,46 @@ async function readFileIntoMap(filePath, pattern, log = false) {
   return map;
 }
 
+/**
+ * Logs the differences.
+ * @param {Array<{
+ *  key: string,
+ *  value: string,
+ *  oldColor: string,
+ *  newColor: string,
+ *  colorDiff: number,
+ *  alphaDiff: number
+ * }>} diff
+ */
+const logDifferences = (diff) => {
+  const toPercent = (value) => `${(value * 100).toFixed(2)}%`;
+  let diffEntries = diff.filter(
+    ({ colorDiff, alphaDiff }) => colorDiff + alphaDiff > 0,
+  );
+  // Sort by colorDiff + alphaDiff descending
+  diffEntries.sort(
+    (a, b) => b.colorDiff + b.alphaDiff - (a.colorDiff + a.alphaDiff),
+  );
+
+  console.log(
+    `\nThemes have ${diff.length - diffEntries.length} same colors and ${diffEntries.length} different:`,
+  );
+
+  for (const { key, oldColor, newColor, colorDiff, alphaDiff } of diffEntries) {
+    const combinedDiff = colorDiff + alphaDiff;
+    const logColor =
+      combinedDiff <= 0.15
+        ? "\x1b[32m%s\x1b[0m"
+        : combinedDiff <= 0.4
+          ? "\x1b[33m%s\x1b[0m"
+          : "\x1b[31m%s\x1b[0m";
+    console.log(
+      logColor,
+      `  ${key} diff = c:${toPercent(colorDiff)} a:${toPercent(alphaDiff)} (${toHex(oldColor)} to ${toHex(newColor)})`,
+    );
+  }
+};
+
 const primitiveMap = await readFileIntoMap(
   primitivesFilename,
   cssVarRgbValuePattern,
@@ -115,34 +153,22 @@ if (oldLightMap.size !== oldDarkMap.size) {
  * Find missing variables *
  **************************/
 
-logMissing &&
-  console.log(
-    "Existing in old dark but not in new dark:",
-    sortMap(
-      new Map([...oldDarkMap].filter(([key]) => !componentsMap.has(key))),
-    ),
-  );
-logMissing &&
-  console.log(
-    "Existing in old light but not in new light:",
-    sortMap(
-      new Map([...oldLightMap].filter(([key]) => !componentsMap.has(key))),
-    ),
-  );
-logMissing &&
-  console.log(
-    "Existing in new components but not in old dark:",
-    sortMap(
-      new Map([...componentsMap].filter(([key]) => !oldDarkMap.has(key))),
-    ),
-  );
-logMissing &&
-  console.log(
-    "Existing in new components but not in old light:",
-    sortMap(
-      new Map([...componentsMap].filter(([key]) => !oldLightMap.has(key))),
-    ),
-  );
+console.log(
+  "Existing in old dark but not in new dark:",
+  sortMap(new Map([...oldDarkMap].filter(([key]) => !componentsMap.has(key)))),
+);
+console.log(
+  "Existing in old light but not in new light:",
+  sortMap(new Map([...oldLightMap].filter(([key]) => !componentsMap.has(key)))),
+);
+console.log(
+  "Existing in new components but not in old dark:",
+  sortMap(new Map([...componentsMap].filter(([key]) => !oldDarkMap.has(key)))),
+);
+console.log(
+  "Existing in new components but not in old light:",
+  sortMap(new Map([...componentsMap].filter(([key]) => !oldLightMap.has(key)))),
+);
 
 /**************************
  * Unknown old variables *
@@ -157,11 +183,10 @@ const oldLightColors = new Map(
 const unknownLightColors = [...oldLightColors].filter(([, value]) =>
   value.includes(UNKNOWN),
 );
-unknownLightColors.length > 0 &&
-  console.log(
-    `\nPrimitives that used in old Light theme, but not found in new (${unknownLightColors.length}):`,
-    sortMap(unknownLightColors),
-  );
+console.log(
+  `\nPrimitives that used in old Light theme, but not found in new (${unknownLightColors.length}):`,
+  sortMap(unknownLightColors),
+);
 
 const oldDarkColors = new Map(
   [...oldDarkMap].map(([key, value]) => [
@@ -177,23 +202,49 @@ console.log(
   sortMap(unknownDarkColors),
 );
 
-const newDarkMap = new Map(
+/*****************************
+ * Compare Old vs New colors *
+ * ***************************/
+
+const lightMap = await readFileIntoMap(lightFilename, cssVarSassVarPattern);
+// [componentName, primitiveValue]
+const lightThemeColorMap = new Map(
   [...componentsMap].map(([key, value]) => [
     key,
-    nightMap.get(value) ?? nightMap.get(componentsMap.get(value)),
+    primitiveMap.get(recursiveSearch(key, value, componentsMap, lightMap)),
   ]),
 );
-const newLightMap = new Map(
+const lightThemeNewVsOld = [...lightThemeColorMap].map(([key, value]) => {
+  const [colorDiff, alphaDiff] = compareColors(value, oldLightColors.get(key));
+  return {
+    key,
+    oldColor: oldLightColors.get(key),
+    newColor: value,
+    colorDiff,
+    alphaDiff,
+  };
+});
+console.log("\n\n\nLight Theme New vs Old:");
+logDifferences(lightThemeNewVsOld);
+
+// read the new dark and light themes
+const nightMap = await readFileIntoMap(nightFilename, cssVarSassVarPattern);
+// [componentName, primitiveValue]
+const darkThemeColorMap = new Map(
   [...componentsMap].map(([key, value]) => [
     key,
-    lightMap.get(value) ?? lightMap.get(componentsMap.get(value)),
+    primitiveMap.get(recursiveSearch(key, value, componentsMap, nightMap)),
   ]),
 );
-
-// console.log(oldLightColors);
-
-// console.log("\n\n\nNew Dark Theme:");
-// for (const [componentName, themeName] of componentsMap) {
-//   const themeValue = nightMap.get(themeName);
-//   console.log(`--${componentName}: var(--${themeValue});`);
-// }
+const darkThemeNewVsOld = [...darkThemeColorMap].map(([key, value]) => {
+  const [colorDiff, alphaDiff] = compareColors(value, oldDarkColors.get(key));
+  return {
+    key,
+    oldColor: oldDarkColors.get(key),
+    newColor: value,
+    colorDiff,
+    alphaDiff,
+  };
+});
+console.log("\n\nDark Theme New vs Old:");
+logDifferences(darkThemeNewVsOld);
