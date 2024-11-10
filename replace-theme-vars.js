@@ -116,38 +116,22 @@ if (oldLightMap.size !== oldDarkMap.size) {
 logMissing &&
   console.log(
     "Existing in old dark but not in new dark:",
-    new Map(
-      Array.from(oldDarkMap.entries()).filter(
-        ([key]) => !componentsMap.has(key),
-      ),
-    ),
+    new Map([...oldDarkMap].filter(([key]) => !componentsMap.has(key))),
   );
 logMissing &&
   console.log(
     "Existing in old light but not in new light:",
-    new Map(
-      Array.from(oldLightMap.entries()).filter(
-        ([key]) => !componentsMap.has(key),
-      ),
-    ),
+    new Map([...oldLightMap].filter(([key]) => !componentsMap.has(key))),
   );
 logMissing &&
   console.log(
     "Existing in new components but not in old dark:",
-    new Map(
-      Array.from(componentsMap.entries()).filter(
-        ([key]) => !oldDarkMap.has(key),
-      ),
-    ),
+    new Map([...componentsMap].filter(([key]) => !oldDarkMap.has(key))),
   );
 logMissing &&
   console.log(
     "Existing in new components but not in old light:",
-    new Map(
-      Array.from(componentsMap.entries()).filter(
-        ([key]) => !oldLightMap.has(key),
-      ),
-    ),
+    new Map([...componentsMap].filter(([key]) => !oldLightMap.has(key))),
   );
 
 /**************************
@@ -155,13 +139,13 @@ logMissing &&
  **************************/
 
 const oldLightColors = new Map(
-  Array.from(oldLightMap.entries()).map(([key, value]) => [
+  [...oldLightMap].map(([key, value]) => [
     key,
     recursiveSearch(key, value, oldLightMap, primitiveMap),
   ]),
 );
-const unknownLightColors = Array.from(oldLightColors.entries()).filter(
-  ([, value]) => value.includes(UNKNOWN),
+const unknownLightColors = [...oldLightColors].filter(([, value]) =>
+  value.includes(UNKNOWN),
 );
 unknownLightColors.length > 0 &&
   console.log(
@@ -170,13 +154,13 @@ unknownLightColors.length > 0 &&
   );
 
 const oldDarkColors = new Map(
-  Array.from(oldDarkMap.entries()).map(([key, value]) => [
+  [...oldDarkMap].map(([key, value]) => [
     key,
     recursiveSearch(key, value, oldDarkMap, primitiveMap),
   ]),
 );
-const unknownDarkColors = Array.from(oldDarkColors.entries()).filter(
-  ([, value]) => value.includes(UNKNOWN),
+const unknownDarkColors = [...oldDarkColors].filter(([, value]) =>
+  value.includes(UNKNOWN),
 );
 console.log(
   `\nPrimitives that used in old Dark theme, but not found in new (${unknownDarkColors.length}):`,
@@ -184,13 +168,13 @@ console.log(
 );
 
 const newDarkMap = new Map(
-  Array.from(componentsMap.entries()).map(([key, value]) => [
+  [...componentsMap].map(([key, value]) => [
     key,
     nightMap.get(value) ?? nightMap.get(componentsMap.get(value)),
   ]),
 );
 const newLightMap = new Map(
-  Array.from(componentsMap.entries()).map(([key, value]) => [
+  [...componentsMap].map(([key, value]) => [
     key,
     lightMap.get(value) ?? lightMap.get(componentsMap.get(value)),
   ]),
