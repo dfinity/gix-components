@@ -208,6 +208,7 @@
   --tertiary: var(--night-50);
 
   --warning-emphasis: var(--orange-200);
+  --warning-emphasis-light: var(--orange-200-a25);
   --warning-emphasis-contrast: var(--neutral-50);
   --warning-emphasis-shade: var(--orange-200);
 
@@ -216,5 +217,13 @@
   --positive-emphasis-contrast: var(--neutral-50);
   --positive-emphasis-light: var(--green-200-a25);
   --negative-emphasis: var(--pink-200);
+  --negative-emphasis-light: var(--pink-200-a25);
   --negative-emphasis-contrast: var(--neutral-50);
+
+  // Currently used in the proposal status tags only
+  --executed-emphasis: var(--orchid-200);
+  --executed-emphasis-light: var(--orchid-200-a25);
+  // Currently used in the proposal status tags only
+  --open-emphasis: var(--blue-accent);
+  --open-emphasis-light: var(--blue-accent-tint);
 }
