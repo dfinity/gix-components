@@ -1,12 +1,19 @@
-<!-- source: https://fonts.google.com/icons?selected=Material%20Icons%3Athumb_up%3A -->
+<!-- source: DFINITY foundation -->
+<script lang="ts">
+  import { DEFAULT_ICON_SIZE } from "$lib/constants/constants";
+
+  export let size = `${DEFAULT_ICON_SIZE}px`;
+</script>
+
 <svg
   xmlns="http://www.w3.org/2000/svg"
-  height="18px"
-  viewBox="0 0 24 24"
-  width="18px"
+  width={size}
+  height={size}
   fill="currentColor"
-  data-tid="thumb-up"
-  ><path d="M0 0h24v24H0V0z" fill="none" /><path
-    d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"
-  /></svg
+  viewBox="0 0 20 20"
 >
+  <path
+    d="m6.72 9.21 3.967-4.963a.329.329 0 0 1 .5-.016c.299.327.412.783.302 1.212l-.56 2.188h4.603a1.046 1.046 0 0 1 1.004.743c.043.143.036.273.036.441v.802a3 3 0 0 1-.224 1.138l-1.793 4.373s-.201.492-.393.662c-.191.17-.438.264-.693.265h-4.75a2 2 0 0 1-2-2V9.21Z"
+  />
+  <rect width="2.646" height="6.826" x="3.428" y="9.229" rx=".5" />
+</svg>

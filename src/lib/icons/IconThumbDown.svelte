@@ -1,12 +1,26 @@
-<!-- source: https://fonts.google.com/icons?selected=Material%20Icons%3Athumb_down%3A -->
+<!-- source: DFINITY foundation -->
+<script lang="ts">
+  import { DEFAULT_ICON_SIZE } from "$lib/constants/constants";
+
+  export let size = `${DEFAULT_ICON_SIZE}px`;
+</script>
+
 <svg
   xmlns="http://www.w3.org/2000/svg"
-  height="18px"
-  viewBox="0 0 24 24"
-  width="18px"
+  width={size}
+  height={size}
   fill="currentColor"
-  data-tid="thumb-down"
-  ><path d="M0 0h24v24H0z" fill="none" /><path
-    d="M15 3H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 23l6.59-6.59c.36-.36.58-.86.58-1.41V5c0-1.1-.9-2-2-2zm4 0v12h4V3h-4z"
-  /></svg
+  viewBox="0 0 20 20"
 >
+  <path
+    d="m13.28 10.79-3.967 4.963a.329.329 0 0 1-.5.016 1.316 1.316 0 0 1-.302-1.212l.56-2.188H4.469a1.046 1.046 0 0 1-1.004-.743c-.043-.143-.036-.273-.036-.441v-.79a3 3 0 0 1 .233-1.16l1.83-4.368c.227-.43.555-.92 1.04-.922h4.75a2 2 0 0 1 2 2v4.845Z"
+  />
+  <rect
+    width="2.646"
+    height="6.826"
+    x="16.572"
+    y="10.771"
+    rx=".5"
+    transform="rotate(-180 16.572 10.771)"
+  />
+</svg>
