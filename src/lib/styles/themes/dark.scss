@@ -220,10 +220,14 @@
   --negative-emphasis-light: var(--pink-200-a25);
   --negative-emphasis-contrast: var(--neutral-50);
 
-  // Currently used in the proposal status tags only
-  --executed-emphasis: var(--orchid-200);
-  --executed-emphasis-light: var(--orchid-200-a25);
-  // Currently used in the proposal status tags only
-  --open-emphasis: var(--blue-accent);
-  --open-emphasis-light: var(--blue-accent-tint);
+  --proposal-open-background: var(--blue-accent-tint);
+  --proposal-open-text: var(--blue-accent);
+  --proposal-adopted-background: var(--green-200-a25);
+  --proposal-adopted-text: var(--green-200);
+  --proposal-rejected-background: var(--pink-200-a25);
+  --proposal-rejected-text: var(--pink-200);
+  --proposal-failed-background: var(--orange-200-a25);
+  --proposal-failed-text: var(--orange-200);
+  --proposal-executed-background: var(--orchid-200-a25);
+  --proposal-executed-text: var(--orchid-200);
 }
