@@ -19,18 +19,18 @@
     color: var(--tag-text);
 
     &.success {
-      background-color: var(--tag-success-background);
-      color: var(--tag-success-text);
+      background-color: var(--positive-emphasis);
+      color: var(--tag-text-light);
     }
 
     &.warning {
-      background-color: var(--tag-warning-background);
-      color: var(--tag-warning-text);
+      background-color: var(--warning-emphasis);
+      color: var(--tag-text-dark);
     }
 
     &.error {
-      background-color: var(--tag-error-background);
-      color: var(--tag-error-text);
+      background-color: var(--negative-emphasis);
+      color: var(--tag-text-light);
     }
   }
 </style>
