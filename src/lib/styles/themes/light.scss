@@ -11,11 +11,6 @@
     --text-description: var(--blue-600);
     --text-description-tint: var(--blue-250);
 
-    --tag-background: var(--neutral-250);
-    --tag-text: var(--blue-600);
-    --tag-text-light: var(--neutral-50);
-    --tag-text-dark: var(--blue-900);
-
     --input-focus-background: var(--neutral-75);
     --button-primary: var(--blue-accent);
     --table-background: var(--neutral-75);
@@ -230,6 +225,12 @@
 
     --tag-text: var(--blue-600);
     --tag-background: var(--neutral-250);
+    --tag-success-text: var(--green-200);
+    --tag-success-background: var(--green-200-a25);
+    --tag-warning-text: var(--orange-200);
+    --tag-warning-background: var(--orange-200-a25);
+    --tag-error-text: var(--pink-200);
+    --tag-error-background: var(--pink-200-a25);
     // Proposal status colors
     --tag-adopted-text: var(--green-200);
     --tag-adopted-background: var(--green-200-a25);

@@ -10,11 +10,6 @@
   --text-description: var(--night-50);
   --text-description-tint: var(--night-100);
 
-  --tag-background: var(--night-400);
-  --tag-text: var(--night-50);
-  --tag-text-light: var(--night-900);
-  --tag-text-dark: var(--night-550);
-
   --input-focus-background: var(--night-575);
   --button-primary: var(--blue-accent);
   --table-background: var(--night-500);
@@ -221,6 +216,12 @@
 
   --tag-text: var(--night-50);
   --tag-background: var(--night-575);
+  --tag-success-text: var(--green-200);
+  --tag-success-background: var(--green-200-a25);
+  --tag-warning-text: var(--orange-200);
+  --tag-warning-background: var(--orange-200-a25);
+  --tag-error-text: var(--pink-200);
+  --tag-error-background: var(--pink-200-a25);
   // Proposal status colors
   --tag-adopted-text: var(--green-200);
   --tag-adopted-background: var(--green-200-a25);
