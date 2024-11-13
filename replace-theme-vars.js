@@ -82,6 +82,7 @@ async function readFileIntoMap(filePath, pattern, log = false) {
   return map;
 }
 
+const toLatexColor = (color) => "$${\\color{#" + color + "}⏺}$$";
 /**
  * Logs the differences.
  * @param {Array<{
@@ -95,6 +96,10 @@ async function readFileIntoMap(filePath, pattern, log = false) {
  */
 const logDifferences = (diff) => {
   const toPercent = (value) => `${(value * 100).toFixed(2)}%`;
+  const logEntry = ({ key, oldColor, newColor, colorDiff, alphaDiff }) =>
+    console.log(
+      `  ${key} diff_rgb:${toPercent(colorDiff)} diff_alpha:${toPercent(alphaDiff)} (from ${oldColor} ${toLatexColor(toHex(oldColor).substring(0, 6))} to ${newColor} ${toLatexColor(toHex(newColor).substring(0, 6))}) [usage](https://sourcegraph.com/search?q=repo:%5Egithub%5C.com/dfinity/%28gix-components%7Cnns-dapp%29%24+${key}&patternType=keyword&sm=0)`,
+    );
   let diffEntries = diff.filter(
     ({ colorDiff, alphaDiff }) => colorDiff + alphaDiff > 0,
   );
@@ -104,22 +109,24 @@ const logDifferences = (diff) => {
   );
 
   console.log(
-    `\nThemes have ${diff.length - diffEntries.length} same colors and ${diffEntries.length} different:`,
+    `\n### Themes have ${diff.length - diffEntries.length} same colors and ${diffEntries.length} different:`,
   );
 
-  for (const { key, oldColor, newColor, colorDiff, alphaDiff } of diffEntries) {
-    const combinedDiff = colorDiff + alphaDiff;
-    const logColor =
-      combinedDiff <= 0.15
-        ? "\x1b[32m%s\x1b[0m"
-        : combinedDiff <= 0.4
-          ? "\x1b[33m%s\x1b[0m"
-          : "\x1b[31m%s\x1b[0m";
-    console.log(
-      logColor,
-      `  ${key} diff = c:${toPercent(colorDiff)} a:${toPercent(alphaDiff)} (${toHex(oldColor)} to ${toHex(newColor)})`,
-    );
-  }
+  console.log("\n #### Distance > 50%");
+  diffEntries
+    .filter(({ colorDiff, alphaDiff }) => colorDiff + alphaDiff > 0.5)
+    .forEach(logEntry);
+  console.log("\n #### Distance > 10%");
+  diffEntries
+    .filter(
+      ({ colorDiff, alphaDiff }) =>
+        colorDiff + alphaDiff <= 0.5 && colorDiff + alphaDiff >= 0.1,
+    )
+    .forEach(logEntry);
+  console.log("\n #### Distance < 10%");
+  diffEntries
+    .filter(({ colorDiff, alphaDiff }) => colorDiff + alphaDiff < 0.1)
+    .forEach(logEntry);
 };
 
 const primitiveMap = await readFileIntoMap(
@@ -154,19 +161,19 @@ if (oldLightMap.size !== oldDarkMap.size) {
  **************************/
 
 console.log(
-  "Existing in old dark but not in new dark:",
+  "## Existing in old dark but not in new dark:",
   sortMap(new Map([...oldDarkMap].filter(([key]) => !componentsMap.has(key)))),
 );
 console.log(
-  "Existing in old light but not in new light:",
+  "## Existing in old light but not in new light:",
   sortMap(new Map([...oldLightMap].filter(([key]) => !componentsMap.has(key)))),
 );
 console.log(
-  "Existing in new components but not in old dark:",
+  "## Existing in new components but not in old dark:",
   sortMap(new Map([...componentsMap].filter(([key]) => !oldDarkMap.has(key)))),
 );
 console.log(
-  "Existing in new components but not in old light:",
+  "## Existing in new components but not in old light:",
   sortMap(new Map([...componentsMap].filter(([key]) => !oldLightMap.has(key)))),
 );
 
@@ -184,7 +191,7 @@ const unknownLightColors = [...oldLightColors].filter(([, value]) =>
   value.includes(UNKNOWN),
 );
 console.log(
-  `\nPrimitives that used in old Light theme, but not found in new (${unknownLightColors.length}):`,
+  `\n## Primitives that used in old Light theme, but not found in new (${unknownLightColors.length}):`,
   sortMap(unknownLightColors),
 );
 
@@ -198,7 +205,7 @@ const unknownDarkColors = [...oldDarkColors].filter(([, value]) =>
   value.includes(UNKNOWN),
 );
 console.log(
-  `\nPrimitives that used in old Dark theme, but not found in new (${unknownDarkColors.length}):`,
+  `\n## Primitives that used in old Dark theme, but not found in new (${unknownDarkColors.length}):`,
   sortMap(unknownDarkColors),
 );
 
@@ -224,7 +231,7 @@ const lightThemeNewVsOld = [...lightThemeColorMap].map(([key, value]) => {
     alphaDiff,
   };
 });
-console.log("\n\n\nLight Theme New vs Old:");
+console.log("\n\n\n## Light Theme New vs Old:");
 logDifferences(lightThemeNewVsOld);
 
 // read the new dark and light themes
@@ -246,5 +253,5 @@ const darkThemeNewVsOld = [...darkThemeColorMap].map(([key, value]) => {
     alphaDiff,
   };
 });
-console.log("\n\nDark Theme New vs Old:");
+console.log("\n\n## Dark Theme New vs Old:");
 logDifferences(darkThemeNewVsOld);

@@ -75,7 +75,5 @@ export function toHex(color) {
   }
 
   // Convert RGB values to hex and concatenate
-  return (
-    rgb.map((x) => x.toString(16).padStart(2, "0")).join("") + ` [${color}]`
-  );
+  return rgb.map((x) => x.toString(16).padStart(2, "0")).join("");
 }
