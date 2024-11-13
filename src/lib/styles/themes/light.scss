@@ -46,6 +46,10 @@
     --statuses_success-rgb: #{to-rgb($green-200)};
     --statuses_success-shade: #{$green-300};
     --statuses_success-surface: #{$green-200-a25};
+    --statuses_active: #{$blue-accent};
+    --statuses_active-surface: #{$blue-accent-tint};
+    --statuses_completed: #{$orchid-200};
+    --statuses_completed-surface: #{$orchid-200-a25};
 
     /**************************
    *  Additional Variables  *

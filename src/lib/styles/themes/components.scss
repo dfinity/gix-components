@@ -225,4 +225,15 @@
   --positive-emphasis-light: var(--statuses_success-surface);
   --negative-emphasis: var(--statuses_error);
   --negative-emphasis-contrast: var(--brand_on-primary);
+
+  --tag-adopted-text: var(--statuses_success);
+  --tag-adopted-background: var(--statuses_success-surface);
+  --tag-rejected-text: var(--statuses_error);
+  --tag-rejected-background: var(--statuses_error-surface);
+  --tag-open-text: var(--statuses_active);
+  --tag-open-background: var(--statuses_active-surface);
+  --tag-executed-text: var(--statuses_completed);
+  --tag-executed-background: var(--statuses_completed-surface);
+  --tag-failed-text: var(--statuses_warning);
+  --tag-failed-background: var(--statuses_warning-surface);
 }
