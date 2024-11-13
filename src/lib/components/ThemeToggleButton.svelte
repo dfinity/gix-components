@@ -7,17 +7,11 @@
   import { fade } from "svelte/transition";
 
   const switchTheme = () => {
-    themeStore.select(
-      $themeStore === Theme.LIGHT
-        ? Theme.NIGHT
-        : $themeStore === Theme.NIGHT
-          ? Theme.DARK
-          : Theme.LIGHT,
-    );
+    themeStore.select($themeStore === Theme.LIGHT ? Theme.DARK : Theme.LIGHT);
   };
 
   let isDarkMode: boolean;
-  $: isDarkMode = $themeStore === Theme.NIGHT || $themeStore === Theme.DARK;
+  $: isDarkMode = $themeStore === Theme.DARK;
 </script>
 
 <button
