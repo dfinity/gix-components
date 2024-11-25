@@ -7,7 +7,7 @@
   export let checked: boolean;
   export let ariaLabel: string;
   export let disabled = false;
-  export let testId = 'toggle';
+  export let testId = "toggle";
 
   const dispatch = createEventDispatcher();
 
