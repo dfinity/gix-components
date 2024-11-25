@@ -7,13 +7,14 @@
   export let checked: boolean;
   export let ariaLabel: string;
   export let disabled = false;
+  export let testId = 'toggle';
 
   const dispatch = createEventDispatcher();
 
   const id = nextElementId("toggle-");
 </script>
 
-<div class="toggle" class:disabled>
+<div class="toggle" class:disabled data-tid={testId}>
   <input
     type="checkbox"
     {id}
