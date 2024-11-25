@@ -5,7 +5,14 @@ describe("Toggle", () => {
   const props = {
     checked: false,
     ariaLabel: "test",
+    testId: "toogle-test",
   };
+
+  it ("should render a toggle", () => {
+    const { getByTestId } = render(Toggle, { props });
+
+    expect(getByTestId(props.testId)).not.toBeNull();
+  })
 
   it("should render an input checkbox", () => {
     const { container } = render(Toggle, { props });
