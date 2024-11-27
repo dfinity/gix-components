@@ -110,7 +110,8 @@
     --disable: var(--neutral-100);
     --disable-contrast: var(--blue-250);
     // TODO-colors: Remove application of rgbs
-    --disable-contrast-rgb: 171, 153, 209;
+    // --blue-250 to RGB, uses in merge neurons icp number
+    --disable-contrast-rgb: var(--blue-250-rgb);
 
     // Line
     --line: var(--neutral-250);
