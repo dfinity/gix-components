@@ -142,6 +142,7 @@
       display: block;
       content: "";
       position: absolute;
+      box-sizing: content-box;
     }
   }
 </style>
