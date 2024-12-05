@@ -29,8 +29,8 @@
     }
 
     &.error {
-      background-color: var(--negative-emphasis);
-      color: var(--tag-text-light);
+      background-color: var(--negative-emphasis-light);
+      color: var(--negative-emphasis);
     }
   }
 </style>

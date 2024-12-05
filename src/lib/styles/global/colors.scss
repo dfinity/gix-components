@@ -89,24 +89,26 @@
   --blue-accent-secondary: #456de5;
   --blue-50: #d4e7fa;
   --blue-250: #6f7fcd;
+  --blue-250-rgb: 111, 127, 205;
   --blue-600: #3d4d99;
   --blue-800: #0f0f4d;
   --blue-900: #151a33;
 
-  --neutral-50-a15: #ffffff15;
-  --neutral-50-a45: #ffffff45;
+  --neutral-50-a15: #ffffff26;
+  --neutral-50-a45: #ffffff73;
   --neutral-50: #ffffff;
   --neutral-75: #f9f7ff;
   --neutral-100: #eef1fe;
   --neutral-250: #dadef2;
-  --neutral-1000-a20: #00000020;
-  --neutral-1000-a30: #00000030;
+  --neutral-1000-a20: #00000033;
+  --neutral-1000-a30: #0000004d;
 
-  --neutral-blue-a10: #99bbff10;
+  --neutral-blue-a10: #99bbff1a;
   --neutral-blue-a45: #ccddff45;
-  --neutral-blue-800-a15: #33468015;
-  --neutral-blue-800-a20: #33468020;
-  --neutral-blue-1000-a80: #05070a80;
+  --neutral-blue-800-a15: #33468026;
+  --neutral-blue-800-a20: #33468033;
+  --neutral-blue-1000-a65: #05070aa6;
+  --neutral-blue-1000-a80: #05070acc;
 
   --violet-accent-tint: #906bff25;
   --violet-accent: #906bff;
@@ -136,15 +138,15 @@
   --pink-25: #f2dae2;
   --pink-200: #f2556f;
   --pink-300: #da4d64;
-  --pink-200-a25: #f2556f25;
+  --pink-200-a25: #f2556f40;
 
   --orchid-200: #bb5fea;
-  --orchid-200-a25: #bb5fea25;
+  --orchid-200-a25: #bb5fea40;
 
   --green-200: #2db286;
   --green-300: #29a079;
-  --green-200-a25: #2db28625;
+  --green-200-a25: #2db28640;
 
   --orange-200: #faa123;
-  --orange-200-a25: #faa12325;
+  --orange-200-a25: #faa12340;
 }

@@ -71,10 +71,10 @@
     --input-border-size: 1.5px;
 
     //Tooltip
-    --tooltip-background: var(--violet-900);
+    --tooltip-background: var(--blue-900);
     --tooltip-border-color: var(--cp-dark-hover-overlay);
-    --tooltip-divider: var(--violet-400);
-    --tooltip-description-color: var(--violet-50);
+    --tooltip-divider: var(--neutral-50-a15);
+    --tooltip-description-color: var(--neutral-250);
     --tooltip-text-color: var(--neutral-50);
     --tooltip-border-size: 1.5px;
 
@@ -101,7 +101,7 @@
     --description-color: var(--blue-600);
 
     // Overlays - based on dark card background rgb color
-    --backdrop: var(--fade);
+    --backdrop: var(--neutral-blue-1000-a65);
     --backdrop-contrast: var(--cp-light-100);
     --backdrop-filter: blur(4px);
 
@@ -110,7 +110,8 @@
     --disable: var(--neutral-100);
     --disable-contrast: var(--blue-250);
     // TODO-colors: Remove application of rgbs
-    --disable-contrast-rgb: 171, 153, 209;
+    // --blue-250 to RGB, uses in merge neurons icp number
+    --disable-contrast-rgb: var(--blue-250-rgb);
 
     // Line
     --line: var(--neutral-250);
@@ -214,7 +215,7 @@
     --secondary-rgb: 124, 92, 194;
     --secondary-contrast: var(--blue-900);
 
-    --tertiary: var(--violet-50);
+    --tertiary: var(--blue-250);
 
     --warning-emphasis: var(--orange-mid);
     --warning-emphasis-contrast: var(--blue-900);

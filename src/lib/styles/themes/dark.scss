@@ -69,9 +69,9 @@
   //Tooltip
   --tooltip-background: var(--neutral-50);
   --tooltip-border-color: var(--neutral-blue-a10);
-  --tooltip-divider: var(--neutral-50);
-  --tooltip-description-color: var(--night-600);
-  --tooltip-text-color: var(--night-550);
+  --tooltip-divider: var(--neutral-1000-a20);
+  --tooltip-description-color: var(--night-400);
+  --tooltip-text-color: var(--night-900);
   --tooltip-border-size: 1.5px;
 
   // Dropdown (used for Popover)
@@ -97,7 +97,7 @@
   --description-color: var(--night-50);
 
   // Overlays - based on dark card background rgb color
-  --backdrop: var(--neutral-blue-1000-a80);
+  --backdrop: var(--neutral-blue-1000-a65);
   --backdrop-contrast: var(--neutral-50);
   --backdrop-filter: blur(6px);
 
