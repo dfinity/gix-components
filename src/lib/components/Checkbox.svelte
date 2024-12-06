@@ -120,6 +120,8 @@
 
     position: relative;
 
+    box-sizing: border-box;
+
     @include form.input;
 
     &[disabled],
