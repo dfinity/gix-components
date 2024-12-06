@@ -15,3 +15,25 @@ test("Should display default behavior", async ({ page }) => {
 
   await expect(page).toHaveScreenshot();
 });
+
+test("Should display default behavior even if box-sizing is set as border-box", async ({
+  page,
+}) => {
+  await page.goto(testUrl);
+
+  await page.addStyleTag({
+    content: `
+      input[type="checkbox"] {
+        box-sizing: border-box;
+      }
+    `,
+  });
+
+  const checkbox = page.getByTestId("checkbox-2");
+  expect(checkbox).not.toBeNull();
+
+  const showcase = page.getByTestId("showcase");
+  await showcase.scrollIntoViewIfNeeded();
+
+  await expect(page).toHaveScreenshot();
+});
