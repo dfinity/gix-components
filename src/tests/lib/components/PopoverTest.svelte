@@ -3,5 +3,5 @@
 </script>
 
 <Popover visible={true}>
-  <div data-tid="Popover-slot" />
+  <div data-tid="Popover-slot"></div>
 </Popover>

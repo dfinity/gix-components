@@ -3,7 +3,7 @@
 </script>
 
 <Content>
-  <div data-tid="content-test-slot" />
-  <div data-tid="content-test-title-slot" slot="title" />
-  <div data-tid="content-test-toolbar-end-slot" slot="toolbar-end" />
+  <div data-tid="content-test-slot"></div>
+  <div data-tid="content-test-title-slot" slot="title"></div>
+  <div data-tid="content-test-toolbar-end-slot" slot="toolbar-end"></div>
 </Content>

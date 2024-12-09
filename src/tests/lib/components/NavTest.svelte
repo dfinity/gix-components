@@ -3,6 +3,6 @@
 </script>
 
 <Nav>
-  <div data-tid="nav-test-1" />
-  <div data-tid="nav-test-2" />
+  <div data-tid="nav-test-1"></div>
+  <div data-tid="nav-test-2"></div>
 </Nav>
