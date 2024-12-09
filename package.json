@@ -68,7 +68,7 @@
     "typescript": "^5.3.3",
     "user-agent-data-types": "^0.4.2",
     "vite": "^6.0.3",
-    "vitest": "^2.1.8"
+    "vitest": "^3.0.0-beta.1"
   },
   "dependencies": {
     "dompurify": "^3.1.6",
