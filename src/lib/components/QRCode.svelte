@@ -113,7 +113,7 @@
       style={`width: ${size.width > 0 ? `${size.width}px` : "100%"}; height: ${
         size.width > 0 ? `${size.width}px` : "100%"
       }`}
-    />
+    ></canvas>
   {/if}
 
   {#if showLogo}
