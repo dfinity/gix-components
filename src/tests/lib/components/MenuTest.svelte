@@ -3,5 +3,5 @@
 </script>
 
 <Menu>
-  <div data-tid="menu-test-slot" />
+  <div data-tid="menu-test-slot"></div>
 </Menu>

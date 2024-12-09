@@ -24,50 +24,52 @@
 <h2>Device</h2>
 
 <table>
-  <tr>
-    <td class="description">isMobile</td>
-    <td
-      ><Value>
-        {isMobile()}
-      </Value></td
-    >
-  </tr>
+  <tbody>
+    <tr>
+      <td class="description">isMobile</td>
+      <td
+        ><Value>
+          {isMobile()}
+        </Value></td
+      >
+    </tr>
 
-  <tr>
-    <td class="description">isIPad</td>
-    <td
-      ><Value>
-        {isIPad()}
-      </Value></td
-    >
-  </tr>
+    <tr>
+      <td class="description">isIPad</td>
+      <td
+        ><Value>
+          {isIPad()}
+        </Value></td
+      >
+    </tr>
 
-  <tr>
-    <td class="description">isAndroidTablet</td>
-    <td
-      ><Value>
-        {isAndroidTablet()}
-      </Value></td
-    >
-  </tr>
+    <tr>
+      <td class="description">isAndroidTablet</td>
+      <td
+        ><Value>
+          {isAndroidTablet()}
+        </Value></td
+      >
+    </tr>
 
-  <tr>
-    <td class="description">Touch screen</td>
-    <td
-      ><Value>
-        {#if browser}{window.matchMedia("(any-pointer:coarse)").matches}{/if}
-      </Value></td
-    >
-  </tr>
+    <tr>
+      <td class="description">Touch screen</td>
+      <td
+        ><Value>
+          {#if browser}{window.matchMedia("(any-pointer:coarse)").matches}{/if}
+        </Value></td
+      >
+    </tr>
 
-  <tr>
-    <td class="description">Mouse screen</td>
-    <td
-      ><Value>
-        {#if browser}{window.matchMedia("(any-pointer:fine)").matches}{/if}
-      </Value></td
-    >
-  </tr>
+    <tr>
+      <td class="description">Mouse screen</td>
+      <td
+        ><Value>
+          {#if browser}{window.matchMedia("(any-pointer:fine)").matches}{/if}
+        </Value></td
+      >
+    </tr>
+  </tbody>
 </table>
 
 <style lang="scss">

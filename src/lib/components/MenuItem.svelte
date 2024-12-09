@@ -89,11 +89,6 @@
       color: var(--menu-select-color);
     }
 
-    :global(& > :first-child) {
-      // preserve icon size
-      flex: none;
-    }
-
     :global(svg) {
       width: var(--padding-3x);
       min-width: var(--padding-3x);

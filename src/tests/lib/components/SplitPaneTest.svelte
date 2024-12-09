@@ -3,6 +3,6 @@
 </script>
 
 <SplitPane>
-  <div data-tid="split-pane-test-slot" />
-  <div data-tid="split-pane-test-menu-slot" slot="menu" />
+  <div data-tid="split-pane-test-slot"></div>
+  <div data-tid="split-pane-test-menu-slot" slot="menu"></div>
 </SplitPane>

@@ -40,7 +40,7 @@ Checkboxes allow the selection of multiple options from a set of options. They a
     <Checkbox checked={checkbox1} on:nnsChange={() => (checkbox1 = !checkbox1)}>An option</Checkbox>
 
     <div style="--checkbox-label-order: 1">
-        <Checkbox checked={checkbox2} on:nnsChange={() => (checkbox2 = !checkbox2)}>An option with row-reverse style</Checkbox>
+        <Checkbox checked={checkbox2} on:nnsChange={() => (checkbox2 = !checkbox2)} testId="checkbox-2">An option with row-reverse style</Checkbox>
     </div>
 
     <div style="--checkbox-label-order: 1; --checkbox-align-items: flex-start">

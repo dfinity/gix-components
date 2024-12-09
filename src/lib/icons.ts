@@ -2,6 +2,7 @@ export { default as IconAccountBalance } from "./icons/IconAccountBalance.svelte
 export { default as IconAccountsPage } from "./icons/IconAccountsPage.svelte";
 export { default as IconAdd } from "./icons/IconAdd.svelte";
 export { default as IconAddCircle } from "./icons/IconAddCircle.svelte";
+export { default as IconArrowsSwitch } from "./icons/IconArrowsSwitch.svelte";
 export { default as IconBack } from "./icons/IconBack.svelte";
 export { default as IconBin } from "./icons/IconBin.svelte";
 export { default as IconCanistersPage } from "./icons/IconCanistersPage.svelte";

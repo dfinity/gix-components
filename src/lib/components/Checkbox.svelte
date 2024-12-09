@@ -120,6 +120,8 @@
 
     position: relative;
 
+    box-sizing: border-box;
+
     @include form.input;
 
     &[disabled],
@@ -142,6 +144,7 @@
       display: block;
       content: "";
       position: absolute;
+      box-sizing: content-box;
     }
   }
 </style>

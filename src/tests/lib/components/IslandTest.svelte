@@ -3,5 +3,5 @@
 </script>
 
 <Island>
-  <div data-tid="island-test-slot" />
+  <div data-tid="island-test-slot"></div>
 </Island>
