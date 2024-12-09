@@ -1,4 +1,4 @@
-import '@testing-library/jest-dom/vitest';
+import "@testing-library/jest-dom/vitest";
 import { configure } from "@testing-library/svelte";
 // jsdom does not implement TextEncoder
 // Polyfill the encoders with node

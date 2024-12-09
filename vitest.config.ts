@@ -1,7 +1,7 @@
 import { sveltekit } from "@sveltejs/kit/vite";
+import { svelteTesting } from "@testing-library/svelte/vite";
 import { resolve } from "path";
 import { defineConfig } from "vitest/config";
-import {svelteTesting} from '@testing-library/svelte/vite';
 
 export default defineConfig({
   // TODO: cast until https://github.com/sveltejs/cli/issues/341 is resolved or vitest properly support vite v6
