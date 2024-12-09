@@ -24,7 +24,7 @@
     aria-label={ariaLabel}
     {disabled}
   />
-  <label for={id} />
+  <label for={id}></label>
 </div>
 
 <style lang="scss">

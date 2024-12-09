@@ -54,7 +54,7 @@
     aria-valuemax={max}
     aria-valuenow={totalValue}
     style={inlineStyle}
-  />
+  ></progress>
   <slot name="bottom" />
 </div>
 

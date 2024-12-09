@@ -26,7 +26,7 @@
   on:keypress={($event) => handleKeyPress({ $event, callback: close })}
   class:disablePointerEvents
   data-tid="backdrop"
-/>
+></div>
 
 <style lang="scss">
   @use "../styles/mixins/interaction";
