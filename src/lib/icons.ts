@@ -17,6 +17,7 @@ export { default as IconCollapseAll } from "./icons/IconCollapseAll.svelte";
 export { default as IconCopy } from "./icons/IconCopy.svelte";
 export { default as IconDarkMode } from "./icons/IconDarkMode.svelte";
 export { default as IconDissolving } from "./icons/IconDissolving.svelte";
+export { default as IconDocument } from "./icons/IconDocument.svelte";
 export { default as IconDots } from "./icons/IconDots.svelte";
 export { default as IconDown } from "./icons/IconDown.svelte";
 export { default as IconEast } from "./icons/IconEast.svelte";
