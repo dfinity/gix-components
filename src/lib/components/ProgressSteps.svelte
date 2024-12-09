@@ -23,7 +23,7 @@
 
     <span class="text">{text}</span>
 
-    <div class:line={!last} />
+    <div class:line={!last}></div>
 
     {#if state === "completed"}
       <span class="state">{$i18n.progress.completed}</span>
