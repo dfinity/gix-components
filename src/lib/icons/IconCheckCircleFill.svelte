@@ -1,6 +1,8 @@
 <!-- source: DFINITY foundation -->
 <script lang="ts">
-  export let size = `24px`;
+  import { DEFAULT_ICON_SIZE } from "$lib/constants/constants";
+
+  export let size = DEFAULT_ICON_SIZE;
 </script>
 
 <svg
