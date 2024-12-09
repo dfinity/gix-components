@@ -82,7 +82,7 @@
 >
   {#if nonNullish(indicator)}
     <div class="indicator">
-      <div class="indicator-background" />
+      <div class="indicator-background"></div>
     </div>
   {/if}
 

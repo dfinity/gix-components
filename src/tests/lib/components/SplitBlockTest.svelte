@@ -3,6 +3,6 @@
 </script>
 
 <SplitBlock>
-  <div data-tid="content-test-start-slot" slot="start" />
-  <div data-tid="content-test-end-slot" slot="end" />
+  <div data-tid="content-test-start-slot" slot="start"></div>
+  <div data-tid="content-test-end-slot" slot="end"></div>
 </SplitBlock>

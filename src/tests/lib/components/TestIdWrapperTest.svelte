@@ -6,5 +6,5 @@
 </script>
 
 <TestIdWrapper {testId}>
-  <div data-tid={childTestId} />
+  <div data-tid={childTestId}></div>
 </TestIdWrapper>

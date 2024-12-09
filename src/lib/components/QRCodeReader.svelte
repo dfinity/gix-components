@@ -85,7 +85,7 @@
   const mirror = isDesktop();
 </script>
 
-<article class="reader" {id} class:mirror />
+<article class="reader" {id} class:mirror></article>
 
 <style lang="scss">
   .reader {
