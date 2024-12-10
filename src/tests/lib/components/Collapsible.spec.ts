@@ -111,13 +111,17 @@ describe("Collapsible", () => {
   });
 
   it("should not toggle if external toggle", async () => {
-    const { getByTestId, container, component } = render(
-      CollapsibleTest,
-      props({ externalToggle: true }),
-    );
-
     const spyToggle = vi.fn();
-    component.$on("nnsToggle", spyToggle);
+
+    const { getByTestId, container } = render(CollapsibleTest, {
+      props: { ...props({ externalToggle: true }) },
+      // TODO: remove once events is migrated to props
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      events: {
+        nnsToggle: spyToggle,
+      },
+    });
 
     fireEvent.click(getByTestId("collapsible-header"));
     await tick();
