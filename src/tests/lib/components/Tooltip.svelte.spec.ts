@@ -145,7 +145,7 @@ describe("Tooltip", () => {
     });
 
     const { baseElement } = render(TooltipListTest, {
-      props: testProps
+      props: testProps,
     });
 
     {
