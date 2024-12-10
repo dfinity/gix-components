@@ -34,10 +34,13 @@ describe("Card", () => {
 
   it("should forward the click event", () =>
     new Promise<void>((done) => {
-      const { container, component } = render(Card);
-
-      component.$on("click", () => {
-        done();
+      const { container, component } = render(Card, {
+        // TODO: remove once events is migrated to props
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        events: {
+          click: () => done(),
+        },
       });
 
       const article = container.querySelector("article");

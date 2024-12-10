@@ -33,7 +33,7 @@ describe("Tooltip", () => {
     const tooltipElement = baseElement.querySelector(".tooltip");
     expect(tooltipElement).toBeInTheDocument();
     expect(tooltipElement?.classList).not.toContain("not-rendered");
-    expect(tooltipElement?.innerHTML).toBe("text");
+    expect(tooltipElement?.textContent).toBe("text");
   });
 
   it("should render tooltip slot content", () => {
@@ -42,9 +42,13 @@ describe("Tooltip", () => {
     const tooltipElement = baseElement.querySelector(".tooltip");
     expect(tooltipElement).toBeInTheDocument();
     expect(tooltipElement?.classList).not.toContain("not-rendered");
-    expect(tooltipElement?.innerHTML).toBe(
-      '<div slot="tooltip-content">slot text</div>',
+
+    const tooltipSlot = tooltipElement?.querySelector(
+      "[slot='tooltip-content']",
     );
+    expect(tooltipSlot).toBeInTheDocument();
+    expect(tooltipSlot?.nodeName.toLowerCase()).toEqual("div");
+    expect(tooltipSlot?.textContent).toBe("slot text");
   });
 
   it("should render aria-describedby and relevant id", () => {

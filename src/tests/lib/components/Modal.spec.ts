@@ -109,12 +109,14 @@ describe("Modal", () => {
 
   it("should trigger close modal on click on backdrop", () =>
     new Promise<void>((done) => {
-      const { container, component } = render(Modal, {
+      const { container } = render(Modal, {
         props,
-      });
-
-      component.$on("nnsClose", () => {
-        done();
+        // TODO: remove once events is migrated to props
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        events: {
+          nnsClose: () => done(),
+        },
       });
 
       const backdrop: HTMLDivElement | null =
@@ -124,24 +126,30 @@ describe("Modal", () => {
 
   it("should trigger close modal on Esc", () =>
     new Promise<void>((done) => {
-      const { container, component } = render(Modal, {
+      const { container } = render(Modal, {
         props,
-      });
-
-      component.$on("nnsClose", () => {
-        done();
+        // TODO: remove once events is migrated to props
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        events: {
+          nnsClose: () => done(),
+        },
       });
 
       fireEvent.keyDown(container, { key: "Escape" });
     }));
 
   it("should not close modal on not Esc keypress", () => {
-    const { container, component } = render(Modal, {
+    const { container } = render(Modal, {
       props,
-    });
-
-    component.$on("nnsClose", () => {
-      throw new Error("Should not close modal");
+      // TODO: remove once events is migrated to props
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      events: {
+        nnsClose: () => {
+          throw new Error("Should not close modal");
+        },
+      },
     });
 
     fireEvent.keyDown(container, { key: "Enter" });
@@ -149,15 +157,19 @@ describe("Modal", () => {
   });
 
   it("should not close modal on Esc when busy = true", () => {
-    const { container, component } = render(Modal, {
+    const { container } = render(Modal, {
       props,
+      // TODO: remove once events is migrated to props
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      events: {
+        nnsClose: () => {
+          throw new Error("Should not close modal");
+        },
+      },
     });
 
     startBusy({ initiator: "stake-neuron" });
-
-    component.$on("nnsClose", () => {
-      throw new Error("Should not close modal");
-    });
 
     fireEvent.keyDown(container, { key: "Escape" });
   });
@@ -191,12 +203,14 @@ describe("Modal", () => {
 
   it("should trigger close modal on click on close button", () =>
     new Promise<void>((done) => {
-      const { getByTestId, component } = render(ModalTest, {
+      const { getByTestId } = render(ModalTest, {
         props,
-      });
-
-      component.$on("nnsClose", () => {
-        done();
+        // TODO: remove once events is migrated to props
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        events: {
+          nnsClose: () => done(),
+        },
       });
 
       const button: HTMLElement | null = getByTestId("close-modal");

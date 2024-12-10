@@ -6,6 +6,7 @@ import { resolve } from "path";
 const config = {
   plugins: [sveltekit(), juno()],
   resolve: {
+    ...(process.env.VITEST && { conditions: ["browser"] }),
     alias: {
       $docs: resolve("./src/docs"),
     },
