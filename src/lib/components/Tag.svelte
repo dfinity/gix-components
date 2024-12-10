@@ -24,8 +24,8 @@
     }
 
     &.warning {
-      // TODO: Use --warning-emphasis-... variables after they are reviewed
-      background-color: var(--orange-200-a25);
+      background-color: var(--warning-emphasis-light);
+      // TODO: Use --warning-emphasis after it's reviewed
       color: var(--orange-200);
     }
 
