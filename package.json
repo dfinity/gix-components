@@ -89,7 +89,7 @@
   ],
   "peerDependencies": {
     "@dfinity/utils": "*",
-    "svelte": "^5.10.0"
+    "svelte": "^5"
   },
   "repository": {
     "type": "git",
