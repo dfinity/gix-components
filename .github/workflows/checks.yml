@@ -10,10 +10,10 @@ jobs:
   formatting:
     runs-on: ubuntu-20.04
 
-    # In order to trigger the CLA after committing formatting changes, we need
-    # to use the GIX_CREATE_PR_PAT token. This token is not available for all
-    # users. So on PRs where the token is not available, we don't commit
-    # changes and instead just fail if the formatting is incorrect.
+    # In order to trigger other workflows after committing docs changes, we need
+    # to use the PR Automation App. This token is not available for external
+    # contributors. So on forked PRs, we don't commit changes and instead just fail 
+    # if the docs changes are needed.
     steps:
       - name: Check if commits can be added
         id: check_can_add_commit
