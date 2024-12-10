@@ -445,12 +445,14 @@ describe("Input", () => {
     });
 
     it("should avoid exponent formatted on change in icp mode", async () => {
-      const { container, component } = render(Input, {
-        props: {
-          ...props,
-          value: "",
-          inputType: "icp",
-        },
+      const testProps = $state({
+        ...props,
+        value: "",
+        inputType: "icp" as const,
+      });
+
+      const { container } = render(Input, {
+        props: testProps,
       });
 
       const input: HTMLInputElement | null = container.querySelector("input");
@@ -459,7 +461,7 @@ describe("Input", () => {
         throw new Error("No input");
       }
 
-      component.$set({ value: 0.00000001 });
+      testProps.value = "0.00000001";
 
       // svelte does not update the dom immediately
       expect(input.value).toBe("");

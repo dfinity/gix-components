@@ -139,8 +139,13 @@ describe("Tooltip", () => {
   it("should keep tooltips directly in body when rearranged", async () => {
     const tooltip1 = { text: "tooltip1", id: "id1" };
     const tooltip2 = { text: "tooltip2", id: "id2" };
-    const { component, baseElement } = render(TooltipListTest, {
+
+    const testProps = $state({
       list: [tooltip1, tooltip2],
+    });
+
+    const { baseElement } = render(TooltipListTest, {
+      props: testProps
     });
 
     {
@@ -152,7 +157,7 @@ describe("Tooltip", () => {
 
     // After rearranging the components, the tooltips should still be direct
     // children of the body.
-    component.$set({ list: [tooltip2, tooltip1] });
+    testProps.list = [tooltip2, tooltip1];
     await tick();
 
     {
