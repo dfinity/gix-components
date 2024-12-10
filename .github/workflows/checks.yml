@@ -12,7 +12,7 @@ jobs:
 
     # In order to trigger other workflows after committing formatting changes, we need
     # to use the PR Automation App. This secret is not available for external
-    # contributors. So on forked PRs (or dependabot), we don't commit changes and instead just 
+    # contributors. So on PRs that can't acces the secret, we don't commit changes and instead just 
     # fail if the formatting changes are needed.
     steps:
       - name: Check if commits can be added
