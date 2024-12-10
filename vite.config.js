@@ -14,7 +14,6 @@ const config = {
   define: {
     "process.env.VITE_BUILD_TIME": JSON.stringify(new Date().toISOString()),
   },
-
   css: {
     preprocessorOptions: {
       scss: {
