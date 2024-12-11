@@ -1,18 +1,30 @@
 <script lang="ts">
-  import { createEventDispatcher } from "svelte";
-
   import Input from "$lib/components/Input.svelte";
+  import { onMount } from "svelte";
 
-  const dispatch = createEventDispatcher();
+  interface Props {
+    inputType?: "text" | "icp" | "currency";
+    name: string;
+    value?: string | undefined;
+    placeholder?: string;
+    decimals?: number;
+    amount?: string | undefined;
+  }
 
-  export let inputType: "text" | "icp" | "currency" = "text";
-  export let name: string;
-  export let value: string | undefined = undefined;
-  export let placeholder = "test.placeholder";
-  export let decimals = 8;
+  let {
+    inputType = "text",
+    name,
+    value = undefined,
+    placeholder = "test.placeholder",
+    decimals = 8,
+    amount = $bindable(),
+  }: Props = $props();
 
-  let amount: string | undefined = value;
-  $: amount, (() => dispatch("testAmount", { amount }))();
+  onMount(() => {
+    amount = value;
+  });
+
+  $inspect(amount)
 
   // We want to test that we can change value programmatically
   const changeValue = () => {
