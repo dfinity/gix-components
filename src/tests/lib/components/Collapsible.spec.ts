@@ -114,7 +114,7 @@ describe("Collapsible", () => {
     const spyToggle = vi.fn();
 
     const { getByTestId, container } = render(CollapsibleTest, {
-      props: { ...props({ externalToggle: true }) },
+      ...props({ externalToggle: true }),
       // TODO: remove once events is migrated to props
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
