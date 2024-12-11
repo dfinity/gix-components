@@ -49,12 +49,19 @@ describe("Toggle", () => {
   });
 
   it("should toggle checked", () => {
-    const { component, container } = render(Toggle, { props });
+    const onToggle = vi.fn();
+
+    const { container } = render(Toggle, {
+      props,
+      // TODO: remove once events is migrated to props
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      events: {
+        nnsToggle: onToggle,
+      },
+    });
 
     const input = container.querySelector("input") as HTMLInputElement;
-
-    const onToggle = vi.fn();
-    component.$on("nnsToggle", onToggle);
 
     fireEvent.click(input);
 
