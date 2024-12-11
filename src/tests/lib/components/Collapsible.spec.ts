@@ -132,20 +132,29 @@ describe("Collapsible", () => {
     expect(spyToggle).not.toHaveBeenCalled();
   });
 
-  it("should emit state update", async () => {
-    const { getByTestId, component } = render(CollapsibleTest);
-    await new Promise((resolve) => {
+  it("should emit state update", () =>
+    new Promise<void>((done) => {
       let callIndex = 0;
 
-      component.$on("nnsToggle", ({ detail }) => {
+      const onToggle = ({ detail }: { detail: { expanded: boolean } }) => {
         expect(detail.expanded).toBe(callIndex++ % 2 === 0);
-        if (callIndex >= 4) resolve(undefined);
+        if (callIndex >= 4) {
+          done();
+        }
+      };
+
+      const { getByTestId } = render(CollapsibleTest, {
+        // TODO: remove once events is migrated to props
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        events: {
+          nnsToggle: onToggle,
+        },
       });
 
       fireEvent.click(getByTestId("collapsible-header"));
       fireEvent.click(getByTestId("collapsible-header"));
       fireEvent.click(getByTestId("collapsible-header"));
       fireEvent.click(getByTestId("collapsible-header"));
-    });
-  });
+    }));
 });
