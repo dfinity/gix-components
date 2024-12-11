@@ -24,8 +24,6 @@
     amount = value;
   });
 
-  $inspect(amount)
-
   // We want to test that we can change value programmatically
   const changeValue = () => {
     amount = "new value";
