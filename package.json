@@ -40,12 +40,12 @@
     "LICENSE"
   ],
   "devDependencies": {
-    "@junobuild/analytics": "^0.0.28",
+    "@junobuild/analytics": "^0.0.31",
     "@junobuild/config": "^0.0.14",
     "@junobuild/vite-plugin": "^0.0.18",
     "@playwright/test": "^1.47.1",
     "@sveltejs/adapter-static": "^3.0.6",
-    "@sveltejs/kit": "^2.9.1",
+    "@sveltejs/kit": "^2.10.1",
     "@sveltejs/package": "^2.3.7",
     "@sveltejs/vite-plugin-svelte": "^4.0.1",
     "@testing-library/jest-dom": "^6.6.3",
