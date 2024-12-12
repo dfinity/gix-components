@@ -40,7 +40,7 @@
     "LICENSE"
   ],
   "devDependencies": {
-    "@junobuild/analytics": "^0.0.28",
+    "@junobuild/analytics": "^0.0.31",
     "@junobuild/config": "^0.0.14",
     "@junobuild/vite-plugin": "^0.0.18",
     "@playwright/test": "^1.47.1",
@@ -99,6 +99,7 @@
     "url": "https://github.com/dfinity/gix-components"
   },
   "overrides": {
-    "semver": "^7.5.3"
+    "semver": "^7.5.3",
+    "cookie": "^0.7.0"
   }
 }
