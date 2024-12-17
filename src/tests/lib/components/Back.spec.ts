@@ -1,13 +1,11 @@
 import Back from "$lib/components/Back.svelte";
-import { fireEvent, render } from "@testing-library/svelte";
+import { fireEvent } from "@testing-library/svelte";
+import { render } from "../../utils/render.test-utils";
 
 describe("Back", () => {
   it("should forward the click event", () =>
     new Promise<void>((done) => {
       const { getByTestId } = render(Back, {
-        // TODO: remove once events are migrated to callback props
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
         events: {
           nnsBack: () => done(),
         },

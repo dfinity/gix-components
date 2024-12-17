@@ -1,6 +1,7 @@
 import { startBusy } from "$lib";
 import Modal from "$lib/components/Modal.svelte";
-import { fireEvent, render } from "@testing-library/svelte";
+import { fireEvent } from "@testing-library/svelte";
+import { render } from "../../utils/render.test-utils";
 import ModalTest from "./ModalTest.svelte";
 
 describe("Modal", () => {
@@ -111,9 +112,6 @@ describe("Modal", () => {
     new Promise<void>((done) => {
       const { container } = render(Modal, {
         props,
-        // TODO: remove once events are migrated to callback props
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
         events: {
           nnsClose: () => done(),
         },
@@ -128,9 +126,6 @@ describe("Modal", () => {
     new Promise<void>((done) => {
       const { container } = render(Modal, {
         props,
-        // TODO: remove once events are migrated to callback props
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
         events: {
           nnsClose: () => done(),
         },
@@ -142,9 +137,6 @@ describe("Modal", () => {
   it("should not close modal on not Esc keypress", () => {
     const { container } = render(Modal, {
       props,
-      // TODO: remove once events are migrated to callback props
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
       events: {
         nnsClose: () => {
           throw new Error("Should not close modal");
@@ -159,9 +151,6 @@ describe("Modal", () => {
   it("should not close modal on Esc when busy = true", () => {
     const { container } = render(Modal, {
       props,
-      // TODO: remove once events are migrated to callback props
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
       events: {
         nnsClose: () => {
           throw new Error("Should not close modal");
@@ -205,9 +194,7 @@ describe("Modal", () => {
     new Promise<void>((done) => {
       const { getByTestId } = render(ModalTest, {
         props,
-        // TODO: remove once events are migrated to callback props
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
+        // TODO: remove once events is migrated to props
         events: {
           nnsClose: () => done(),
         },

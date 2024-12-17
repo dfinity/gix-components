@@ -1,6 +1,6 @@
 import { fireEvent } from "@testing-library/dom";
-import { render } from "@testing-library/svelte";
 import { tick } from "svelte";
+import { render } from "../../utils/render.test-utils";
 import CollapsibleTest from "./CollapsibleTest.svelte";
 
 // props
@@ -115,9 +115,6 @@ describe("Collapsible", () => {
 
     const { getByTestId, container } = render(CollapsibleTest, {
       ...props({ externalToggle: true }),
-      // TODO: remove once events are migrated to callback props
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
       events: {
         nnsToggle: spyToggle,
       },
@@ -136,7 +133,7 @@ describe("Collapsible", () => {
     new Promise<void>((done) => {
       let callIndex = 0;
 
-      const onToggle = ({ detail }: { detail: { expanded: boolean } }) => {
+      const onToggle = ({ detail }: CustomEvent<{ expanded: boolean }>) => {
         expect(detail.expanded).toBe(callIndex++ % 2 === 0);
         if (callIndex >= 4) {
           done();
@@ -144,9 +141,6 @@ describe("Collapsible", () => {
       };
 
       const { getByTestId } = render(CollapsibleTest, {
-        // TODO: remove once events are migrated to callback props
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
         events: {
           nnsToggle: onToggle,
         },

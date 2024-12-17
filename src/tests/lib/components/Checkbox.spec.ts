@@ -1,5 +1,6 @@
 import Checkbox from "$lib/components/Checkbox.svelte";
-import { fireEvent, render } from "@testing-library/svelte";
+import { fireEvent } from "@testing-library/svelte";
+import { render } from "../../utils/render.test-utils";
 
 describe("Checkbox", () => {
   const props: { inputId: string; checked: boolean } = {
@@ -65,9 +66,6 @@ describe("Checkbox", () => {
     new Promise<void>((done) => {
       const { container } = render(Checkbox, {
         props,
-        // TODO: remove once events are migrated to callback props
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
         events: {
           nnsChange: () => done(),
         },
@@ -83,9 +81,6 @@ describe("Checkbox", () => {
     new Promise<void>((done) => {
       const { container } = render(Checkbox, {
         props,
-        // TODO: remove once events are migrated to callback props
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
         events: {
           nnsChange: () => done(),
         },
@@ -123,9 +118,6 @@ describe("Checkbox", () => {
         ...props,
         disabled: true,
       },
-      // TODO: remove once events are migrated to callback props
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
       events: {
         nnsChange: mockChange,
       },
@@ -143,9 +135,6 @@ describe("Checkbox", () => {
         ...props,
         disabled: true,
       },
-      // TODO: remove once events are migrated to callback props
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
       events: {
         nnsChange: mockChange,
       },

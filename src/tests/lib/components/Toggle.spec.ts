@@ -1,5 +1,6 @@
 import Toggle from "$lib/components/Toggle.svelte";
-import { fireEvent, render } from "@testing-library/svelte";
+import { fireEvent } from "@testing-library/svelte";
+import { render } from "../../utils/render.test-utils";
 
 describe("Toggle", () => {
   const props = {
@@ -53,9 +54,6 @@ describe("Toggle", () => {
 
     const { container } = render(Toggle, {
       props,
-      // TODO: remove once events are migrated to callback props
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
       events: {
         nnsToggle: onToggle,
       },
