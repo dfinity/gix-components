@@ -1,4 +1,7 @@
-import { render as svelteRender, type RenderResult } from "@testing-library/svelte";
+import {
+  render as svelteRender,
+  type RenderResult,
+} from "@testing-library/svelte";
 import type { ComponentProps, ComponentType, SvelteComponent } from "svelte";
 
 export const render = <C extends SvelteComponent>(
