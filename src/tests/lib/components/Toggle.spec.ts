@@ -53,7 +53,7 @@ describe("Toggle", () => {
 
     const { container } = render(Toggle, {
       props,
-      // TODO: remove once events is migrated to props
+      // TODO: remove once events are migrated to callback props
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       events: {

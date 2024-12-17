@@ -35,7 +35,7 @@ describe("Card", () => {
   it("should forward the click event", () =>
     new Promise<void>((done) => {
       const { container } = render(Card, {
-        // TODO: remove once events is migrated to props
+        // TODO: remove once events are migrated to callback props
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         events: {

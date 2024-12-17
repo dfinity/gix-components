@@ -115,7 +115,7 @@ describe("Collapsible", () => {
 
     const { getByTestId, container } = render(CollapsibleTest, {
       ...props({ externalToggle: true }),
-      // TODO: remove once events is migrated to props
+      // TODO: remove once events are migrated to callback props
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       events: {
@@ -144,7 +144,7 @@ describe("Collapsible", () => {
       };
 
       const { getByTestId } = render(CollapsibleTest, {
-        // TODO: remove once events is migrated to props
+        // TODO: remove once events are migrated to callback props
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         events: {

@@ -111,7 +111,7 @@ describe("Modal", () => {
     new Promise<void>((done) => {
       const { container } = render(Modal, {
         props,
-        // TODO: remove once events is migrated to props
+        // TODO: remove once events are migrated to callback props
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         events: {
@@ -128,7 +128,7 @@ describe("Modal", () => {
     new Promise<void>((done) => {
       const { container } = render(Modal, {
         props,
-        // TODO: remove once events is migrated to props
+        // TODO: remove once events are migrated to callback props
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         events: {
@@ -142,7 +142,7 @@ describe("Modal", () => {
   it("should not close modal on not Esc keypress", () => {
     const { container } = render(Modal, {
       props,
-      // TODO: remove once events is migrated to props
+      // TODO: remove once events are migrated to callback props
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       events: {
@@ -159,7 +159,7 @@ describe("Modal", () => {
   it("should not close modal on Esc when busy = true", () => {
     const { container } = render(Modal, {
       props,
-      // TODO: remove once events is migrated to props
+      // TODO: remove once events are migrated to callback props
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       events: {
@@ -205,7 +205,7 @@ describe("Modal", () => {
     new Promise<void>((done) => {
       const { getByTestId } = render(ModalTest, {
         props,
-        // TODO: remove once events is migrated to props
+        // TODO: remove once events are migrated to callback props
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         events: {

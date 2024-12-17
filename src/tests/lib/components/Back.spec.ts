@@ -5,7 +5,7 @@ describe("Back", () => {
   it("should forward the click event", () =>
     new Promise<void>((done) => {
       const { getByTestId } = render(Back, {
-        // TODO: remove once events is migrated to props
+        // TODO: remove once events are migrated to callback props
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         events: {
