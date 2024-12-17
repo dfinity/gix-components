@@ -6,14 +6,14 @@ import type { ComponentProps, ComponentType, SvelteComponent } from "svelte";
 
 export const render = <C extends SvelteComponent>(
   cmp: ComponentType<C>,
-  options: {
+  options?: {
     props?: ComponentProps<C>;
-    events: Record<string, ($event: CustomEvent) => void>;
+    events?: Record<string, ($event: CustomEvent) => void>;
   },
 ): RenderResult<C> => {
-  const { component, ...rest } = svelteRender(cmp, { props: options.props });
+  const { component, ...rest } = svelteRender(cmp, { props: options?.props });
 
-  const events = Object.entries(options.events);
+  const events = Object.entries(options?.events ?? {});
 
   events.forEach(([event, fn]) => {
     component.$on(event, fn);

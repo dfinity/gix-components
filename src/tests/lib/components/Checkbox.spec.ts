@@ -1,5 +1,6 @@
 import Checkbox from "$lib/components/Checkbox.svelte";
-import { fireEvent, render } from "@testing-library/svelte";
+import { fireEvent } from "@testing-library/svelte";
+import { render } from "../../utils/render.test-utils";
 
 describe("Checkbox", () => {
   const props: { inputId: string; checked: boolean } = {

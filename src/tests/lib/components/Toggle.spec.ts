@@ -1,5 +1,6 @@
 import Toggle from "$lib/components/Toggle.svelte";
-import { fireEvent, render } from "@testing-library/svelte";
+import { fireEvent } from "@testing-library/svelte";
+import { render } from "../../utils/render.test-utils";
 
 describe("Toggle", () => {
   const props = {

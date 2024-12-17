@@ -1,5 +1,6 @@
 import Card from "$lib/components/Card.svelte";
-import { fireEvent, render } from "@testing-library/svelte";
+import { fireEvent } from "@testing-library/svelte";
+import { render } from "../../utils/render.test-utils";
 
 describe("Card", () => {
   it("should render an article", () => {

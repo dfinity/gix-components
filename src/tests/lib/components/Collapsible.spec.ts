@@ -1,6 +1,6 @@
 import { fireEvent } from "@testing-library/dom";
-import { render } from "@testing-library/svelte";
 import { tick } from "svelte";
+import { render } from "../../utils/render.test-utils";
 import CollapsibleTest from "./CollapsibleTest.svelte";
 
 // props
