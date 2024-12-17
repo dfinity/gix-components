@@ -1,6 +1,6 @@
 import Checkbox from "$lib/components/Checkbox.svelte";
 import { fireEvent, render } from "@testing-library/svelte";
-import { renderWithEvents } from "../../utils/render.test-utils";
+import { render } from "../../utils/render.test-utils";
 
 describe("Checkbox", () => {
   const props: { inputId: string; checked: boolean } = {
@@ -64,7 +64,7 @@ describe("Checkbox", () => {
 
   it("should trigger select on container", () =>
     new Promise<void>((done) => {
-      const { container } = renderWithEvents(Checkbox, {
+      const { container } = render(Checkbox, {
         props,
         events: {
           nnsChange: () => done(),
@@ -79,7 +79,7 @@ describe("Checkbox", () => {
 
   it("should trigger select on input", () =>
     new Promise<void>((done) => {
-      const { container } = renderWithEvents(Checkbox, {
+      const { container } = render(Checkbox, {
         props,
         events: {
           nnsChange: () => done(),
@@ -113,7 +113,7 @@ describe("Checkbox", () => {
 
   it("should not trigger nnsChange event when disabled and clicked", async () => {
     const mockChange = vi.fn();
-    const { container } = renderWithEvents(Checkbox, {
+    const { container } = render(Checkbox, {
       props: {
         ...props,
         disabled: true,
@@ -130,7 +130,7 @@ describe("Checkbox", () => {
 
   it("should not trigger nnsChange event when disabled and key pressed", async () => {
     const mockChange = vi.fn();
-    const { container } = renderWithEvents(Checkbox, {
+    const { container } = render(Checkbox, {
       props: {
         ...props,
         disabled: true,

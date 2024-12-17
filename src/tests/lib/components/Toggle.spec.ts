@@ -1,6 +1,6 @@
 import Toggle from "$lib/components/Toggle.svelte";
 import { fireEvent, render } from "@testing-library/svelte";
-import { renderWithEvents } from "../../utils/render.test-utils";
+import { render } from "../../utils/render.test-utils";
 
 describe("Toggle", () => {
   const props = {
@@ -52,7 +52,7 @@ describe("Toggle", () => {
   it("should toggle checked", () => {
     const onToggle = vi.fn();
 
-    const { container } = renderWithEvents(Toggle, {
+    const { container } = render(Toggle, {
       props,
       events: {
         nnsToggle: onToggle,

@@ -1,7 +1,7 @@
 import { startBusy } from "$lib";
 import Modal from "$lib/components/Modal.svelte";
 import { fireEvent, render } from "@testing-library/svelte";
-import { renderWithEvents } from "../../utils/render.test-utils";
+import { render } from "../../utils/render.test-utils";
 import ModalTest from "./ModalTest.svelte";
 
 describe("Modal", () => {
@@ -110,7 +110,7 @@ describe("Modal", () => {
 
   it("should trigger close modal on click on backdrop", () =>
     new Promise<void>((done) => {
-      const { container } = renderWithEvents(Modal, {
+      const { container } = render(Modal, {
         props,
         events: {
           nnsClose: () => done(),
@@ -124,7 +124,7 @@ describe("Modal", () => {
 
   it("should trigger close modal on Esc", () =>
     new Promise<void>((done) => {
-      const { container } = renderWithEvents(Modal, {
+      const { container } = render(Modal, {
         props,
         events: {
           nnsClose: () => done(),
@@ -135,7 +135,7 @@ describe("Modal", () => {
     }));
 
   it("should not close modal on not Esc keypress", () => {
-    const { container } = renderWithEvents(Modal, {
+    const { container } = render(Modal, {
       props,
       events: {
         nnsClose: () => {
@@ -149,7 +149,7 @@ describe("Modal", () => {
   });
 
   it("should not close modal on Esc when busy = true", () => {
-    const { container } = renderWithEvents(Modal, {
+    const { container } = render(Modal, {
       props,
       events: {
         nnsClose: () => {
@@ -192,7 +192,7 @@ describe("Modal", () => {
 
   it("should trigger close modal on click on close button", () =>
     new Promise<void>((done) => {
-      const { getByTestId } = renderWithEvents(ModalTest, {
+      const { getByTestId } = render(ModalTest, {
         props,
         // TODO: remove once events is migrated to props
         events: {

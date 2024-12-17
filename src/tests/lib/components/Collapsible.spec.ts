@@ -1,7 +1,7 @@
 import { fireEvent } from "@testing-library/dom";
 import { render } from "@testing-library/svelte";
 import { tick } from "svelte";
-import { renderWithEvents } from "../../utils/render.test-utils";
+import { render } from "../../utils/render.test-utils";
 import CollapsibleTest from "./CollapsibleTest.svelte";
 
 // props
@@ -114,7 +114,7 @@ describe("Collapsible", () => {
   it("should not toggle if external toggle", async () => {
     const spyToggle = vi.fn();
 
-    const { getByTestId, container } = renderWithEvents(CollapsibleTest, {
+    const { getByTestId, container } = render(CollapsibleTest, {
       ...props({ externalToggle: true }),
       events: {
         nnsToggle: spyToggle,
@@ -141,7 +141,7 @@ describe("Collapsible", () => {
         }
       };
 
-      const { getByTestId } = renderWithEvents(CollapsibleTest, {
+      const { getByTestId } = render(CollapsibleTest, {
         events: {
           nnsToggle: onToggle,
         },

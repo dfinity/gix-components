@@ -1,6 +1,6 @@
 import Card from "$lib/components/Card.svelte";
 import { fireEvent, render } from "@testing-library/svelte";
-import { renderWithEvents } from "../../utils/render.test-utils";
+import { render } from "../../utils/render.test-utils";
 
 describe("Card", () => {
   it("should render an article", () => {
@@ -35,7 +35,7 @@ describe("Card", () => {
 
   it("should forward the click event", () =>
     new Promise<void>((done) => {
-      const { container } = renderWithEvents(Card, {
+      const { container } = render(Card, {
         events: {
           click: () => done(),
         },
