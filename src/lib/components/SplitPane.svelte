@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { layoutMenuOpen } from "../stores/layout.store";
+  import { layoutMenuOpen } from "$lib/stores/layout.store";
 
   let innerWidth = 0;
 

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onDestroy } from "svelte";
-  import { layoutContentScrollY } from "../stores/layout.store";
-  import { BREAKPOINT_LARGE } from "../constants/constants";
+  import { layoutContentScrollY } from "$lib/stores/layout.store";
+  import { BREAKPOINT_LARGE } from "$lib/constants/constants";
 
   export let testId: string | undefined = undefined;
 
