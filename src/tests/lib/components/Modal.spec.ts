@@ -1,7 +1,6 @@
 import { startBusy } from "$lib";
 import Modal from "$lib/components/Modal.svelte";
 import { fireEvent, render } from "@testing-library/svelte";
-import { render } from "../../utils/render.test-utils";
 import ModalTest from "./ModalTest.svelte";
 
 describe("Modal", () => {
