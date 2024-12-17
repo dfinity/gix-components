@@ -3,7 +3,7 @@
   import IconCheckCircle from "$lib/icons/IconCheckCircle.svelte";
   import { nonNullish } from "@dfinity/utils";
   import { createEventDispatcher } from "svelte";
-  import type { ComponentType } from "svelte";
+  import type { Component } from "svelte";
 
   export let role: "button" | "checkbox" | undefined = undefined;
   export let ariaLabel: string | undefined = undefined;
@@ -39,7 +39,7 @@
     dispatch("click", $event?.detail);
   };
 
-  let iconCmp: ComponentType | undefined = undefined;
+  let iconCmp: Component | undefined = undefined;
 
   $: (() => {
     switch (icon) {
