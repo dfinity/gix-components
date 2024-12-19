@@ -30,6 +30,7 @@ export { default as IconExplore } from "./icons/IconExplore.svelte";
 export { default as IconFilter } from "./icons/IconFilter.svelte";
 export { default as IconGitHub } from "./icons/IconGitHub.svelte";
 export { default as IconHistoryToggleOff } from "./icons/IconHistoryToggleOff.svelte";
+export { default as IconHome } from "./icons/IconHome.svelte";
 export { default as IconInfo } from "./icons/IconInfo.svelte";
 export { default as IconKey } from "./icons/IconKey.svelte";
 export { default as IconLaunchpad } from "./icons/IconLaunchpad.svelte";
