@@ -1,10 +1,9 @@
-import juno from "@junobuild/vite-plugin";
 import { sveltekit } from "@sveltejs/kit/vite";
 import { resolve } from "path";
 
 /** @type {import('vite').UserConfig} */
 const config = {
-  plugins: [sveltekit(), juno()],
+  plugins: [sveltekit()],
   resolve: {
     ...(process.env.VITEST && { conditions: ["browser"] }),
     alias: {
