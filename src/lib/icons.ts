@@ -77,3 +77,8 @@ export { default as IconVote } from "./icons/IconVote.svelte";
 export { default as IconWallet } from "./icons/IconWallet.svelte";
 export { default as IconWarning } from "./icons/IconWarning.svelte";
 export { default as IconWest } from "./icons/IconWest.svelte";
+
+export { default as IconHeldTokens } from "./icons/IconHeldTokens.svelte";
+export { default as IconStakedTokens } from "./icons/IconStakedTokens.svelte";
+export { default as IconUserLogin } from "./icons/IconUserLogin.svelte";
+
