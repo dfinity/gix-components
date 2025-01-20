@@ -19,6 +19,9 @@ test("First segment is selected", async ({ page }) => {
   await showcase.scrollIntoViewIfNeeded();
   await clickToSegment(page, 0);
 
+  // Wait for animation
+  await page.waitForTimeout(750);
+
   await expect(page).toHaveScreenshot();
 });
 
@@ -29,6 +32,9 @@ test("Second segment is selected", async ({ page }) => {
   await showcase.scrollIntoViewIfNeeded();
   await clickToSegment(page, 1);
 
+  // Wait for animation
+  await page.waitForTimeout(750);
+
   await expect(page).toHaveScreenshot();
 });
 
@@ -38,6 +44,9 @@ test("Third segment is selected", async ({ page }) => {
   const showcase = page.getByTestId("showcase");
   await showcase.scrollIntoViewIfNeeded();
   await clickToSegment(page, 2);
+
+  // Wait for animation
+  await page.waitForTimeout(750);
 
   await expect(page).toHaveScreenshot();
 });
