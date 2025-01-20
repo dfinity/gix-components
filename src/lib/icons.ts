@@ -80,4 +80,3 @@ export { default as IconVote } from "./icons/IconVote.svelte";
 export { default as IconWallet } from "./icons/IconWallet.svelte";
 export { default as IconWarning } from "./icons/IconWarning.svelte";
 export { default as IconWest } from "./icons/IconWest.svelte";
-
