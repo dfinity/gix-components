@@ -78,18 +78,18 @@
 
   onDestroy(disconnectResizeObserver);
 
-  const resize = () => {
+  const observeSegmentResize = () => {
+    disconnectResizeObserver();
+
     if (isNullish(segment)) {
       return;
     }
-
-    disconnectResizeObserver();
 
     resizeObserver = new ResizeObserver(initIndicator);
     resizeObserver.observe(segment);
   };
 
-  $: segment, resize();
+  $: segment, observeSegmentResize();
 </script>
 
 <svelte:window on:resize={initIndicator} />
