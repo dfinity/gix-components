@@ -2,7 +2,7 @@
   import { writable } from "svelte/store";
   import type { SegmentContext, SelectedSegment } from "$lib/types/segment";
   import { SEGMENT_CONTEXT_KEY } from "$lib/types/segment";
-  import { setContext, tick } from "svelte";
+  import { onDestroy, setContext, tick } from "svelte";
   import { isNullish, nonNullish } from "@dfinity/utils";
 
   export let selectedSegmentId: symbol | undefined = undefined;
@@ -59,7 +59,7 @@
     };
   };
 
-  $: selectedElement, (() => initIndicator())();
+  $: selectedElement, initIndicator();
 
   // TODO: support adding segmebt buttons dynamically
   let segmentsCount = 0;
@@ -67,6 +67,29 @@
     (() =>
       (segmentsCount =
         segment?.querySelectorAll(".segment-button").length ?? 0))();
+
+  // The SegmentButton has a width set to 100%—i.e., not fixed. Therefore, its size might change.
+  // Likewise, on mount, when the segment is bound and the indicator is set for the first time, the buttons might not be fully rendered in terms of size yet.
+  // Furthermore, if the content of the button dynamically changes—such as in applications that support runtime translations—their size might change.
+  // That is why, if the overall size of the component changes, we re-evaluate the position of the indicator.
+  let resizeObserver: ResizeObserver | undefined;
+
+  const disconnectResizeObserver = () => resizeObserver?.disconnect();
+
+  onDestroy(disconnectResizeObserver);
+
+  const observeSegmentResize = () => {
+    disconnectResizeObserver();
+
+    if (isNullish(segment)) {
+      return;
+    }
+
+    resizeObserver = new ResizeObserver(initIndicator);
+    resizeObserver.observe(segment);
+  };
+
+  $: segment, observeSegmentResize();
 </script>
 
 <svelte:window on:resize={initIndicator} />
