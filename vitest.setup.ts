@@ -8,7 +8,7 @@ import { IntersectionObserverPassive } from "./src/tests/lib/mocks/infinitescrol
 global.TextEncoder = TextEncoder;
 (global as { TextDecoder: typeof TextDecoder }).TextDecoder = TextDecoder;
 (
-    global as { IntersectionObserver: typeof IntersectionObserver }
+  global as { IntersectionObserver: typeof IntersectionObserver }
 ).IntersectionObserver = IntersectionObserverPassive;
 
 // testing-library setup
