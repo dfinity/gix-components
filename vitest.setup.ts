@@ -8,7 +8,7 @@ import { IntersectionObserverPassive } from "./src/tests/lib/mocks/infinitescrol
 global.TextEncoder = TextEncoder;
 (global as { TextDecoder: typeof TextDecoder }).TextDecoder = TextDecoder;
 (
-  global as { IntersectionObserver: typeof IntersectionObserver }
+    global as { IntersectionObserver: typeof IntersectionObserver }
 ).IntersectionObserver = IntersectionObserverPassive;
 
 // testing-library setup
@@ -24,3 +24,15 @@ const purify = DOMPurify(window as unknown as Window);
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore: used for testing only
 global.DOMPurify = purify;
+
+global.ResizeObserver = class ResizeObserver {
+  observe() {
+    // do nothing
+  }
+  unobserve() {
+    // do nothing
+  }
+  disconnect() {
+    // do nothing
+  }
+};
