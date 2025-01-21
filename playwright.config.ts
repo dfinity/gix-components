@@ -21,7 +21,6 @@ const config: PlaywrightTestConfig = {
   use: {
     testIdAttribute: "data-tid",
     trace: "on",
-    ...(DEV && { headless: false }),
   },
   projects: [
     {
