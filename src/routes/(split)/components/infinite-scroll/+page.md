@@ -1,3 +1,22 @@
+<script lang="ts">
+    import InfiniteScroll from "$lib/components/InfiniteScroll.svelte";
+    import Tag from "$lib/components/Tag.svelte";
+
+    const generate = (index: number): number[] =>  [ ...Array(100).keys().map(i => i + index) ];
+    
+    let scrollDisabled = false;
+    let elements = generate(0);
+
+    const onIntersect = () => {
+        if (elements.length >= 300) {
+            scrollDisabled = true;
+            return;
+        }
+
+        setTimeout(() => elements = [...elements, ...generate(elements.length)], 500);
+    }
+</script>
+
 # Infinite Scroll
 
 The Infinite Scroll component calls an action to be performed when the user scrolls a specified distance of the list presented in the page.
@@ -33,3 +52,22 @@ It sets the reference to the last element of the list after each re-render. **Pa
 | Event          | Description                                                                                                | Detail    |
 | -------------- | ---------------------------------------------------------------------------------------------------------- | --------- |
 | `nnsIntersect` | Triggered each time the next observed item is intersecting. The event that can be use to call your action. | No detail |
+
+## Showcase
+
+<InfiniteScroll on:nnsIntersect={onIntersect} disabled={scrollDisabled} testId="showcase-infinite-scroll">
+    {#each elements as _element, i}
+        <li><Tag>Element {i}</Tag></li>
+    {/each}
+
+    {#if scrollDisabled}
+        <li data-tid="infinite-scroll-end"><Tag intent="success">Maximum pagination reached</Tag></li>
+    {/if}
+
+</InfiniteScroll>
+
+<style lang="scss">
+    li {
+        margin: 0 0 var(--padding);
+    }
+</style>

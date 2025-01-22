@@ -9,6 +9,7 @@
 
   export let layout: "list" | "grid" = "list";
   export let disabled = false;
+  export let testId: string | undefined = undefined;
 
   // IntersectionObserverInit is not recognized by the linter
   // eslint-disable-next-line no-undef
@@ -75,7 +76,7 @@
   onDestroy(() => observer.disconnect());
 </script>
 
-<ul bind:this={container} class:card-grid={layout === "grid"}>
+<ul bind:this={container} class:card-grid={layout === "grid"} data-tid={testId}>
   <slot />
 </ul>
 
