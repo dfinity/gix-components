@@ -18,7 +18,7 @@
     threshold: 0,
   };
 
-  let target: HTMLDivElement | undefined;
+  let intersectionTarget: HTMLDivElement | undefined;
 
   const dispatch = createEventDispatcher();
 
@@ -48,14 +48,14 @@
       observer.disconnect();
     }
 
-    skipContainerNextUpdate = isNullish(target);
+    skipContainerNextUpdate = isNullish(intersectionTarget);
   });
 
   afterUpdate(() => {
     // The DOM has been updated. We reset the observer to the current last HTML element of the infinite list.
 
     // If no element to observe
-    if (isNullish(target)) {
+    if (isNullish(intersectionTarget)) {
       return;
     }
 
@@ -64,7 +64,7 @@
       return;
     }
 
-    observer.observe(target);
+    observer.observe(intersectionTarget);
   });
 
   onDestroy(() => observer.disconnect());
@@ -74,7 +74,7 @@
   <slot />
 </ul>
 
-<div bind:this={target} class="intersection-observer-target"></div>
+<div bind:this={intersectionTarget} class="intersection-observer-target"></div>
 
 <style lang="scss">
   ul {
