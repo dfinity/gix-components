@@ -18,14 +18,11 @@
     threshold: 0,
   };
 
-  let container: HTMLUListElement | undefined;
+  let intersectionTarget: HTMLDivElement | undefined;
 
   const dispatch = createEventDispatcher();
 
-  const onIntersection = (
-    entries: IntersectionObserverEntry[],
-    observer: IntersectionObserver,
-  ) => {
+  const onIntersection = (entries: IntersectionObserverEntry[]) => {
     const intersecting: IntersectionObserverEntry | undefined = entries.find(
       ({ isIntersecting }: IntersectionObserverEntry) => isIntersecting,
     );
@@ -33,9 +30,6 @@
     if (isNullish(intersecting)) {
       return;
     }
-
-    // We can disconnect the observer. We have detected an intersection and consumer is going to fetch new elements.
-    observer.disconnect();
 
     dispatch("nnsIntersect");
   };
@@ -54,14 +48,14 @@
       observer.disconnect();
     }
 
-    skipContainerNextUpdate = isNullish(container);
+    skipContainerNextUpdate = isNullish(intersectionTarget);
   });
 
   afterUpdate(() => {
     // The DOM has been updated. We reset the observer to the current last HTML element of the infinite list.
 
-    // If not children, no element to observe
-    if (isNullish(container) || isNullish(container.lastElementChild)) {
+    // If no element to observe
+    if (isNullish(intersectionTarget)) {
       return;
     }
 
@@ -70,20 +64,29 @@
       return;
     }
 
-    observer.observe(container.lastElementChild);
+    observer.observe(intersectionTarget);
   });
 
   onDestroy(() => observer.disconnect());
 </script>
 
-<ul bind:this={container} class:card-grid={layout === "grid"} data-tid={testId}>
+<ul class:card-grid={layout === "grid"} data-tid={testId}>
   <slot />
 </ul>
+
+<div bind:this={intersectionTarget} class="intersection-observer-target"></div>
 
 <style lang="scss">
   ul {
     margin: 0;
     padding: 0;
     list-style: none;
+  }
+
+  .intersection-observer-target {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
   }
 </style>
