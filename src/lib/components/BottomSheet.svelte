@@ -2,7 +2,7 @@
   import { nonNullish } from "@dfinity/utils";
   import { layoutBottomOffset } from "$lib/stores/layout.store";
   import { onDestroy } from "svelte";
-  import { BREAKPOINT_LARGE } from "../constants/constants";
+  import { BREAKPOINT_LARGE } from "$lib/constants/constants";
 
   onDestroy(() => ($layoutBottomOffset = 0));
 

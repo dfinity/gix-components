@@ -24,3 +24,15 @@ const purify = DOMPurify(window as unknown as Window);
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore: used for testing only
 global.DOMPurify = purify;
+
+global.ResizeObserver = class ResizeObserver {
+  observe() {
+    // do nothing
+  }
+  unobserve() {
+    // do nothing
+  }
+  disconnect() {
+    // do nothing
+  }
+};

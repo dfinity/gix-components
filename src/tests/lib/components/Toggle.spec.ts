@@ -1,5 +1,6 @@
 import Toggle from "$lib/components/Toggle.svelte";
-import { fireEvent, render } from "@testing-library/svelte";
+import { fireEvent } from "@testing-library/svelte";
+import { render } from "../../utils/render.test-utils";
 
 describe("Toggle", () => {
   const props = {
@@ -49,12 +50,16 @@ describe("Toggle", () => {
   });
 
   it("should toggle checked", () => {
-    const { component, container } = render(Toggle, { props });
+    const onToggle = vi.fn();
+
+    const { container } = render(Toggle, {
+      props,
+      events: {
+        nnsToggle: onToggle,
+      },
+    });
 
     const input = container.querySelector("input") as HTMLInputElement;
-
-    const onToggle = vi.fn();
-    component.$on("nnsToggle", onToggle);
 
     fireEvent.click(input);
 

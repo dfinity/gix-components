@@ -1,5 +1,6 @@
 import Checkbox from "$lib/components/Checkbox.svelte";
-import { fireEvent, render } from "@testing-library/svelte";
+import { fireEvent } from "@testing-library/svelte";
+import { render } from "../../utils/render.test-utils";
 
 describe("Checkbox", () => {
   const props: { inputId: string; checked: boolean } = {
@@ -63,12 +64,11 @@ describe("Checkbox", () => {
 
   it("should trigger select on container", () =>
     new Promise<void>((done) => {
-      const { container, component } = render(Checkbox, {
+      const { container } = render(Checkbox, {
         props,
-      });
-
-      component.$on("nnsChange", () => {
-        done();
+        events: {
+          nnsChange: () => done(),
+        },
       });
 
       const div: HTMLDivElement | null =
@@ -79,12 +79,11 @@ describe("Checkbox", () => {
 
   it("should trigger select on input", () =>
     new Promise<void>((done) => {
-      const { container, component } = render(Checkbox, {
+      const { container } = render(Checkbox, {
         props,
-      });
-
-      component.$on("nnsChange", () => {
-        done();
+        events: {
+          nnsChange: () => done(),
+        },
       });
 
       const input: HTMLInputElement | null = container.querySelector("input");
@@ -114,11 +113,15 @@ describe("Checkbox", () => {
 
   it("should not trigger nnsChange event when disabled and clicked", async () => {
     const mockChange = vi.fn();
-    const { container, component } = render(Checkbox, {
-      props: { ...props, disabled: true },
+    const { container } = render(Checkbox, {
+      props: {
+        ...props,
+        disabled: true,
+      },
+      events: {
+        nnsChange: mockChange,
+      },
     });
-
-    component.$on("nnsChange", mockChange);
 
     await fireEvent.click(container.querySelector("div.checkbox") as Element);
 
@@ -127,11 +130,15 @@ describe("Checkbox", () => {
 
   it("should not trigger nnsChange event when disabled and key pressed", async () => {
     const mockChange = vi.fn();
-    const { container, component } = render(Checkbox, {
-      props: { ...props, disabled: true },
+    const { container } = render(Checkbox, {
+      props: {
+        ...props,
+        disabled: true,
+      },
+      events: {
+        nnsChange: mockChange,
+      },
     });
-
-    component.$on("nnsChange", mockChange);
 
     await fireEvent.keyPress(
       container.querySelector("div.checkbox") as Element,

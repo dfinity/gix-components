@@ -1,6 +1,6 @@
 import { fireEvent } from "@testing-library/dom";
-import { render } from "@testing-library/svelte";
 import { tick } from "svelte";
+import { render } from "../../utils/render.test-utils";
 import CollapsibleTest from "./CollapsibleTest.svelte";
 
 // props
@@ -111,13 +111,14 @@ describe("Collapsible", () => {
   });
 
   it("should not toggle if external toggle", async () => {
-    const { getByTestId, container, component } = render(
-      CollapsibleTest,
-      props({ externalToggle: true }),
-    );
-
     const spyToggle = vi.fn();
-    component.$on("nnsToggle", spyToggle);
+
+    const { getByTestId, container } = render(CollapsibleTest, {
+      ...props({ externalToggle: true }),
+      events: {
+        nnsToggle: spyToggle,
+      },
+    });
 
     fireEvent.click(getByTestId("collapsible-header"));
     await tick();
@@ -128,20 +129,26 @@ describe("Collapsible", () => {
     expect(spyToggle).not.toHaveBeenCalled();
   });
 
-  it("should emit state update", async () => {
-    const { getByTestId, component } = render(CollapsibleTest);
-    await new Promise((resolve) => {
+  it("should emit state update", () =>
+    new Promise<void>((done) => {
       let callIndex = 0;
 
-      component.$on("nnsToggle", ({ detail }) => {
+      const onToggle = ({ detail }: CustomEvent<{ expanded: boolean }>) => {
         expect(detail.expanded).toBe(callIndex++ % 2 === 0);
-        if (callIndex >= 4) resolve(undefined);
+        if (callIndex >= 4) {
+          done();
+        }
+      };
+
+      const { getByTestId } = render(CollapsibleTest, {
+        events: {
+          nnsToggle: onToggle,
+        },
       });
 
       fireEvent.click(getByTestId("collapsible-header"));
       fireEvent.click(getByTestId("collapsible-header"));
       fireEvent.click(getByTestId("collapsible-header"));
       fireEvent.click(getByTestId("collapsible-header"));
-    });
-  });
+    }));
 });

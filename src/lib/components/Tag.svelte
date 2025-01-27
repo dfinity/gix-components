@@ -24,8 +24,9 @@
     }
 
     &.warning {
-      background-color: var(--warning-emphasis);
-      color: var(--tag-text-dark);
+      background-color: var(--warning-emphasis-light);
+      // TODO: Use --warning-emphasis after it's reviewed
+      color: var(--orange-200);
     }
 
     &.error {
