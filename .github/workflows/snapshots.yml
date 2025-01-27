@@ -26,6 +26,8 @@ jobs:
           token: ${{ steps.app-token.outputs.token }}
       - name: Install dependencies
         run: npm ci
+      - name: Install Playwright Browsers
+        run: npm run playwright:install
       - name: Run Playwright tests
         run: npm run e2e:snapshots
       - name: Commit Playwright updated snapshots
