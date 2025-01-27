@@ -5,8 +5,8 @@
   "license": "Apache-2.0",
   "scripts": {
     "dev": "npm run i18n && vite dev",
-    "build": "npm run i18n && vite build && npm run copy:workers",
-    "staging": "npm run i18n && vite build --mode staging && npm run copy:workers",
+    "build": "npm run i18n && vite build",
+    "staging": "npm run i18n && vite build --mode staging",
     "package": "svelte-kit sync && svelte-package",
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
@@ -20,7 +20,7 @@
     "e2e:ci": "npm run download:samples && playwright test --reporter=html",
     "e2e:snapshots": "npm run download:samples && npx playwright test --update-snapshots --reporter=list",
     "e2e:report": "npx playwright show-report",
-    "copy:workers": "node ./scripts/copy-workers.mjs"
+    "e2e:dev": "NODE_ENV=development playwright test"
   },
   "sideEffects": [
     "**/*.css"
@@ -40,9 +40,7 @@
     "LICENSE"
   ],
   "devDependencies": {
-    "@junobuild/analytics": "^0.0.31",
     "@junobuild/config": "^0.0.14",
-    "@junobuild/vite-plugin": "^0.0.18",
     "@playwright/test": "^1.47.1",
     "@sveltejs/adapter-static": "^3.0.6",
     "@sveltejs/kit": "^2.10.1",

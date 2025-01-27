@@ -3,10 +3,12 @@
 
   let noDescription = false;
   $: noDescription = $$slots.description === undefined;
+  let noTitle = false;
+  $: noTitle = $$slots.title === undefined && $$slots.end === undefined;
 </script>
 
 <div class="container" data-tid={testId}>
-  <div class="section-title" class:noDescription>
+  <div class="section-title" class:noTitle class:noDescription>
     <slot name="title" />
     <slot name="end" />
   </div>
@@ -28,7 +30,7 @@
     align-items: center;
     justify-content: space-between;
 
-    &:not(.noDescription) {
+    &:not(.noDescription):not(.noTitle) {
       margin-bottom: var(--padding);
     }
   }
