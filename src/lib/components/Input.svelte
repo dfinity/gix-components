@@ -15,6 +15,7 @@
   export let testId: string | undefined = undefined;
   export let decimals = 8;
   export let ignore1Password = true;
+  export let autofocus = false;
 
   const dispatch = createEventDispatcher();
 
@@ -189,6 +190,7 @@
       {placeholder}
       {max}
       {autocomplete}
+      {autofocus}
       on:blur
       on:focus
       on:input={handleInput}

@@ -538,4 +538,28 @@ describe("Input", () => {
         });
       }));
   });
+
+  it("should set autofocus", () => {
+    const { container } = render(Input, {
+      props: { ...props, autofocus: true },
+    });
+
+    const input: HTMLInputElement | null = container.querySelector("input");
+    assertNonNullish(input);
+
+    const isFocused = (input === document.activeElement)
+    expect(isFocused).toBe(true);
+  });
+
+  it("should not set autofocus", () => {
+    const { container } = render(Input, {
+      props
+    });
+
+    const input: HTMLInputElement | null = container.querySelector("input");
+    assertNonNullish(input);
+
+    const isFocused = (input === document.activeElement)
+    expect(isFocused).toBe(false);
+  });
 });
