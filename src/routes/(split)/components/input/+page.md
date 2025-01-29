@@ -18,7 +18,7 @@ The input component is a wrapper to the HTML input element with custom styling a
 ## Properties
 
 | Property          | Description                                                                                                                                           | Type                                      | Default     |
-|-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------| ----------- |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------- | ----------- |
 | `name`            | HTML input `name` field.                                                                                                                              | `string`                                  |             |
 | `inputType`       | HTML input `type` field extended with a custom `icp` type.                                                                                            | `text` or `number` or `icp` or `currency` | `number`    |
 | `required`        | HTML input `required` field.                                                                                                                          | `boolean`                                 | `true`      |
