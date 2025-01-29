@@ -4,6 +4,7 @@ import { fireEvent, render } from "@testing-library/svelte";
 import { tick } from "svelte";
 import InputTest from "./InputTest.svelte";
 import InputValueTest from "./InputValueTest.svelte";
+import InputElementTest from "./InputElementTest.svelte";
 
 describe("Input", () => {
   const props = { name: "name", placeholder: "test.placeholder" };
@@ -539,27 +540,17 @@ describe("Input", () => {
       }));
   });
 
-  it("should set autofocus", () => {
-    const { container } = render(Input, {
-      props: { ...props, autofocus: true },
-    });
-
-    const input: HTMLInputElement | null = container.querySelector("input");
-    assertNonNullish(input);
-
-    const isFocused = input === document.activeElement;
-    expect(isFocused).toBe(true);
-  });
-
-  it("should not set autofocus", () => {
-    const { container } = render(Input, {
+  it("should bind input element", async () => {
+    const { container } = render(InputElementTest, {
       props,
     });
 
     const input: HTMLInputElement | null = container.querySelector("input");
-    assertNonNullish(input);
+    expect(input === document.activeElement).toBe(false);
 
-    const isFocused = input === document.activeElement;
-    expect(isFocused).toBe(false);
+    const testBind: HTMLSpanElement | null = container.querySelector("#test");
+    testBind && (await fireEvent.click(testBind));
+
+    expect(input === document.activeElement).toBe(true);
   });
 });
