@@ -2,9 +2,9 @@ import Input from "$lib/components/Input.svelte";
 import { assertNonNullish, isNullish, nonNullish } from "@dfinity/utils";
 import { fireEvent, render } from "@testing-library/svelte";
 import { tick } from "svelte";
+import InputElementTest from "./InputElementTest.svelte";
 import InputTest from "./InputTest.svelte";
 import InputValueTest from "./InputValueTest.svelte";
-import InputElementTest from "./InputElementTest.svelte";
 
 describe("Input", () => {
   const props = { name: "name", placeholder: "test.placeholder" };

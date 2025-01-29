@@ -1,14 +1,14 @@
 <script lang="ts">
-import Input from "$lib/components/Input.svelte";
+  import Input from "$lib/components/Input.svelte";
 
-export let name: string;
-export let placeholder = "test.placeholder";
+  export let name: string;
+  export let placeholder = "test.placeholder";
 
-let inputField;
+  let inputField;
 
-const changeFocus = () => {
-  inputField.focus();
-};
+  const changeFocus = () => {
+    inputField.focus();
+  };
 </script>
 
 <!-- eslint-disable svelte/valid-compile -->
