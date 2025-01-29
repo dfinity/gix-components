@@ -4,14 +4,13 @@
   export let name: string;
   export let placeholder = "test.placeholder";
 
-  let inputField;
+  let inputField: HTMLInputElement | undefined;
 
   const changeFocus = () => {
     inputField.focus();
   };
 </script>
 
-<!-- eslint-disable svelte/valid-compile -->
-<span on:click={changeFocus} id="test" />
+<button on:click={changeFocus} id="test" />
 
 <Input bind:inputElement={inputField} {name} {placeholder} />

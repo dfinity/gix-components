@@ -548,8 +548,8 @@ describe("Input", () => {
     const input: HTMLInputElement | null = container.querySelector("input");
     expect(input === document.activeElement).toBe(false);
 
-    const testBind: HTMLSpanElement | null = container.querySelector("#test");
-    testBind && (await fireEvent.click(testBind));
+    const testBind: HTMLButtonElement | null = container.querySelector("#test");
+    testBind && testBind.click();
 
     expect(input === document.activeElement).toBe(true);
   });
