@@ -15,6 +15,7 @@
   export let testId: string | undefined = undefined;
   export let decimals = 8;
   export let ignore1Password = true;
+  export let inputElement: HTMLInputElement | undefined = undefined;
 
   const dispatch = createEventDispatcher();
 
@@ -28,8 +29,6 @@
   // Ideally, this would be calculated
   // showInfo = $$slots.label || $$slots.end
   export let showInfo = true;
-
-  let inputElement: HTMLInputElement | undefined;
 
   $: step = inputType === "number" ? (step ?? "any") : undefined;
   $: autocomplete =

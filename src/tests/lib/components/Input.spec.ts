@@ -2,6 +2,7 @@ import Input from "$lib/components/Input.svelte";
 import { assertNonNullish, isNullish, nonNullish } from "@dfinity/utils";
 import { fireEvent, render } from "@testing-library/svelte";
 import { tick } from "svelte";
+import InputElementTest from "./InputElementTest.svelte";
 import InputTest from "./InputTest.svelte";
 import InputValueTest from "./InputValueTest.svelte";
 
@@ -537,5 +538,19 @@ describe("Input", () => {
           done();
         });
       }));
+  });
+
+  it("should bind input element", async () => {
+    const { container } = render(InputElementTest, {
+      props,
+    });
+
+    const input: HTMLInputElement | null = container.querySelector("input");
+    expect(input === document.activeElement).toBe(false);
+
+    const testBind: HTMLButtonElement | null = container.querySelector("#test");
+    testBind && testBind.click();
+
+    expect(input === document.activeElement).toBe(true);
   });
 });
