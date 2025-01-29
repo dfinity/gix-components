@@ -547,19 +547,19 @@ describe("Input", () => {
     const input: HTMLInputElement | null = container.querySelector("input");
     assertNonNullish(input);
 
-    const isFocused = (input === document.activeElement)
+    const isFocused = input === document.activeElement;
     expect(isFocused).toBe(true);
   });
 
   it("should not set autofocus", () => {
     const { container } = render(Input, {
-      props
+      props,
     });
 
     const input: HTMLInputElement | null = container.querySelector("input");
     assertNonNullish(input);
 
-    const isFocused = (input === document.activeElement)
+    const isFocused = input === document.activeElement;
     expect(isFocused).toBe(false);
   });
 });
