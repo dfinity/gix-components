@@ -156,10 +156,6 @@
     ({ selectionStart, selectionEnd } = inputElement);
   };
 
-  $: step = inputType === "number" ? (step ?? "any") : undefined;
-  $: autocomplete =
-    inputType !== "number" && !currency ? (autocomplete ?? "off") : undefined;
-
   let displayInnerEnd: boolean;
   $: displayInnerEnd = nonNullish($$slots["inner-end"]);
 </script>
