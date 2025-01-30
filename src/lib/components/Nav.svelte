@@ -29,6 +29,9 @@
     @include layout.main;
 
     margin: 0;
-    padding: 0 var(--padding-2x);
+    padding: 0;
+    @include media.min-width(large) {
+      padding: 0 var(--padding-2x);
+    }
   }
 </style>
