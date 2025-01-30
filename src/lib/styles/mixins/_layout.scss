@@ -6,15 +6,20 @@
   position: relative;
   width: 100%;
 
-  background: var(--content-background);
   color: var(--content-color);
-  box-shadow: var(--content-box-shadow);
+  @include media.min-width(large) {
+    background: var(--content-background);
+    box-shadow: var(--content-box-shadow);
+  }
 
   transition: background var(--animation-time-normal)
     cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
 
   overflow: hidden;
-  border-radius: var(--border-radius-2x);
+  border-radius: var(--border-radius);
+  @include media.min-width(large) {
+    border-radius: var(--border-radius-2x);
+  }
 
   box-sizing: border-box;
   margin: var(--content-margin);
