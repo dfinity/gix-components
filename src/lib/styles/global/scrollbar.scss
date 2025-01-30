@@ -1,16 +1,33 @@
+@use "../mixins/media";
+
+// Hide scrollbar on mobile devices
+html {
+  scrollbar-width: none; /* Firefox */
+}
 ::-webkit-scrollbar {
-  background: var(--scrollbar-thumb-background);
-  width: var(--padding-2x);
+  display: none; /* WebKit browsers */
 }
 
-::-webkit-scrollbar-thumb {
-  background: var(--scrollbar-thumb-color);
-  border: calc(var(--padding) * 2 / 3) var(--scrollbar-thumb-background) solid;
-  border-radius: 0.5em;
-  -webkit-border-radius: 0.5em;
-  background-clip: padding-box;
-}
+@include media.min-width(large) {
+  html {
+    scrollbar-width: thin; /* Firefox */
+  }
 
-::-webkit-scrollbar-corner {
-  background: var(--scrollbar-thumb-color);
+  ::-webkit-scrollbar {
+    display: inherit;
+    background: var(--scrollbar-thumb-background);
+    width: var(--padding-2x);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb-color);
+    border: calc(var(--padding) * 2 / 3) var(--scrollbar-thumb-background) solid;
+    border-radius: 0.5em;
+    -webkit-border-radius: 0.5em;
+    background-clip: padding-box;
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: var(--scrollbar-thumb-color);
+  }
 }
