@@ -1,20 +1,12 @@
 @use "../mixins/media";
 
-// Hide scrollbar on mobile devices
-html {
-  scrollbar-width: none; /* Firefox */
-}
-::-webkit-scrollbar {
-  display: none; /* WebKit browsers */
-}
-
-@include media.min-width(large) {
+// Rely on the default scrollbar styles for mobile devices
+@include media.min-width(medium) {
   html {
     scrollbar-width: thin; /* Firefox */
   }
 
   ::-webkit-scrollbar {
-    display: inherit;
     background: var(--scrollbar-thumb-background);
     width: var(--padding-2x);
   }
