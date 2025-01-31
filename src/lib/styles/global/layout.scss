@@ -10,12 +10,10 @@ main {
   max-width: var(--max-main-content-width);
   min-height: 100%;
 
-  @include media.min-width(large) {
-    padding: var(--padding-2x) 0;
-  }
+  padding: var(--padding-2x) var(--padding);
 
-  @include media.min-width(large) {
-    padding: var(--padding-4x);
+  @include media.min-width(medium) {
+    padding: var(--padding-2x);
   }
 
   @include media.min-width(large) {

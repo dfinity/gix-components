@@ -14,13 +14,14 @@
     cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
 
   overflow: hidden;
-  border-radius: var(--border-radius);
-  @include media.min-width(large) {
+
+  @include media.min-width(medium) {
     border-radius: var(--border-radius-2x);
+    margin: var(--content-margin);
   }
 
   box-sizing: border-box;
-  margin: var(--content-margin);
+
   padding-top: 0;
 
   // If a bottom sheet is displayed the content pane height should be updated accordingly

@@ -30,7 +30,7 @@
 
     margin: 0;
     padding: 0;
-    @include media.min-width(large) {
+    @include media.min-width(medium) {
       padding: 0 var(--padding-2x);
     }
   }
