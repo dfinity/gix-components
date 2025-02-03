@@ -23,7 +23,7 @@
 
   div {
     margin: 0 var(--padding);
-    @include media.min-width(medium) {
+    @include media.min-width(small) {
       margin: 0;
     }
 
