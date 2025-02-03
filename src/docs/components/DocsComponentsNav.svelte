@@ -23,6 +23,10 @@
 
   div {
     margin: 0 var(--padding);
+    @include media.min-width(medium) {
+      margin: 0;
+    }
+
     :global(.card:not(.selected)) {
       display: none;
 
