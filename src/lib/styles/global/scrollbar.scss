@@ -2,10 +2,6 @@
 
 // Rely on the default scrollbar styles for mobile devices
 @include media.min-width(medium) {
-  html {
-    scrollbar-width: thin; /* Firefox */
-  }
-
   ::-webkit-scrollbar {
     background: var(--scrollbar-thumb-background);
     width: var(--padding-2x);
