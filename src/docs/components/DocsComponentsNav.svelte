@@ -22,6 +22,7 @@
   }
 
   div {
+    margin: 0 var(--padding);
     :global(.card:not(.selected)) {
       display: none;
 
