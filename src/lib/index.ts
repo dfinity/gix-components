@@ -1,5 +1,6 @@
 export * from "./components";
 export * from "./constants/constants";
+export * from "./directives/transition.directives";
 export * from "./icons";
 export * from "./stores/busy.store";
 export * from "./stores/layout.store";

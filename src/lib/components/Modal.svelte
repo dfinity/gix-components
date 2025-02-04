@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { fade } from "svelte/transition";
+  import { testSafeFade } from "$lib/directives/transition.directives";
   import { createEventDispatcher } from "svelte";
   import { i18n } from "$lib/stores/i18n";
   import IconClose from "$lib/icons/IconClose.svelte";
@@ -46,7 +46,7 @@
 {#if visible}
   <div
     class="modal"
-    transition:fade|global={{ duration: 25 }}
+    transition:testSafeFade|global={{ duration: 25 }}
     on:introend
     {role}
     data-tid={testId}
@@ -56,8 +56,8 @@
   >
     <Backdrop {disablePointerEvents} on:nnsClose />
     <div
-      in:fade|global={{ duration: FADE_IN_DURATION }}
-      out:fade|global={{ duration: FADE_OUT_DURATION }}
+      in:testSafeFade|global={{ duration: FADE_IN_DURATION }}
+      out:testSafeFade|global={{ duration: FADE_OUT_DURATION }}
       class={`wrapper ${role}`}
     >
       {#if showHeader}
