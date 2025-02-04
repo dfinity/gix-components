@@ -2,10 +2,14 @@ import Input from "$lib/components/Input.svelte";
 import { assertNonNullish, isNullish, nonNullish } from "@dfinity/utils";
 import { fireEvent, render } from "@testing-library/svelte";
 import { tick } from "svelte";
+import InputElementTest from "./InputElementTest.svelte";
 import InputTest from "./InputTest.svelte";
 import InputValueTest from "./InputValueTest.svelte";
 
 describe("Input", () => {
+  type InputType = "icp" | "number" | "text" | "currency";
+  type AutoComplete = "on" | "off" | undefined;
+
   const props = { name: "name", placeholder: "test.placeholder" };
 
   it("should render an input", () => {
@@ -33,7 +37,7 @@ describe("Input", () => {
     container,
   }: {
     attribute: string;
-    expected: string;
+    expected: string | null | undefined;
     container: HTMLElement;
   }) => {
     const input: HTMLInputElement | null = container.querySelector("input");
@@ -534,5 +538,74 @@ describe("Input", () => {
       expect(testProps.amount).not.toBe("0.121999999999999997");
       expect(testProps.amount).toBe("0.122");
     });
+  });
+
+  it("should bind input element", async () => {
+    const { container } = render(InputElementTest, {
+      props,
+    });
+
+    const input: HTMLInputElement | null = container.querySelector("input");
+    expect(input === document.activeElement).toBe(false);
+
+    const testBind: HTMLButtonElement | null = container.querySelector("#test");
+    testBind && testBind.click();
+
+    expect(input === document.activeElement).toBe(true);
+  });
+
+  describe.each(["number"])("inputType=%s", (inputType) => {
+    it("should never set autocomplete", () => {
+      const { container: container1 } = render(Input, {
+        props: {
+          ...props,
+          inputType: inputType as InputType,
+          autocomplete: "off",
+        },
+      });
+
+      testGetAttribute({
+        container: container1,
+        attribute: "autocomplete",
+        expected: null,
+      });
+
+      const { container: container2 } = render(Input, {
+        props: {
+          ...props,
+          inputType: inputType as InputType,
+          autocomplete: "on",
+        },
+      });
+
+      testGetAttribute({
+        container: container2,
+        attribute: "autocomplete",
+        expected: null,
+      });
+    });
+  });
+
+  describe.each(["icp", "text", "currency"])("inputType='%s'", (inputType) => {
+    describe.each([["on"], ["off"], [undefined, "off"]])(
+      "autocomplete='%s'",
+      (autocomplete, expected = undefined) => {
+        it(`should set autocomplete to '${expected}' for inputType='${inputType}' and autocomplete='${autocomplete}'`, () => {
+          const { container } = render(Input, {
+            props: {
+              ...props,
+              inputType: inputType as InputType,
+              autocomplete: autocomplete as AutoComplete,
+            },
+          });
+
+          testGetAttribute({
+            container,
+            attribute: "autocomplete",
+            expected: autocomplete ?? expected,
+          });
+        });
+      },
+    );
   });
 });

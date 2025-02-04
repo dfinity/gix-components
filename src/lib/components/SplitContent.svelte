@@ -69,6 +69,7 @@
       box-shadow: var(--menu-selection-content-box-shadow);
       // remove extra space because of menu selection touches the edge (when open)
       margin-left: 0;
+      border-top-left-radius: var(--border-radius-2x);
     }
   }
 
