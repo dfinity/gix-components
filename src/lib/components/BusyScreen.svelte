@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { fade } from "svelte/transition";
+  import { testSafeFade } from "$lib/directives/transition.directives";
   import { busy, busyMessage } from "$lib/stores/busy.store";
   import Spinner from "$lib/components/Spinner.svelte";
   import { nonNullish } from "@dfinity/utils";
@@ -7,7 +7,7 @@
 
 <!-- Display spinner and lock UI if busyStore is not empty -->
 {#if $busy}
-  <div data-tid="busy" transition:fade|global>
+  <div data-tid="busy" transition:testSafeFade|global>
     <div class="content">
       {#if nonNullish($busyMessage)}
         <p>{$busyMessage}</p>
