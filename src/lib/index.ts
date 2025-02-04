@@ -1,5 +1,6 @@
 export * from "./components";
 export * from "./constants/constants";
+export * from "./directives/transition.directives";
 export * from "./icons";
 export * from "./stores/busy.store";
 export * from "./stores/layout.store";
@@ -12,4 +13,3 @@ export type { ProgressStep, ProgressStepState } from "./types/progress-step";
 export type { ToastLevel, ToastMsg } from "./types/toast";
 export type { WizardStep, WizardSteps } from "./types/wizard";
 export * from "./utils/wizard.utils";
-export * from "./directives/transition.directives";
