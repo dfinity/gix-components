@@ -32,8 +32,6 @@
     margin: var(--content-margin);
   }
 
-
-
   @include media.min-width(large) {
     min-width: auto;
   }
