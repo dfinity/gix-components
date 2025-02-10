@@ -4,6 +4,8 @@ import {
   scale as svelteScale,
   slide as svelteSlide,
   type FadeParams,
+  type FlyParams,
+  type ScaleParams,
   type SlideParams,
   type TransitionConfig,
 } from "svelte/transition";
@@ -39,7 +41,7 @@ export const testSafeFade = (
  */
 export const testSafeFly = (
   node: HTMLElement,
-  params?: FadeParams | undefined,
+  params?: FlyParams | undefined,
 ): TransitionConfig => {
   if (process.env.NODE_ENV === "test") {
     return {};
@@ -59,7 +61,7 @@ export const testSafeFly = (
  */
 export const testSafeScale = (
   node: HTMLElement,
-  params?: FadeParams | undefined,
+  params?: ScaleParams | undefined,
 ): TransitionConfig => {
   if (process.env.NODE_ENV === "test") {
     return {};
