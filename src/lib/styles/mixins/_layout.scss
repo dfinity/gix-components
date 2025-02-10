@@ -15,11 +15,6 @@
 
   overflow: hidden;
 
-  @include media.min-width(medium) {
-    border-radius: var(--border-radius-2x);
-    margin: var(--content-margin);
-  }
-
   box-sizing: border-box;
 
   padding-top: 0;
@@ -31,6 +26,11 @@
 
   // On small screen the menu pushes the content
   min-width: calc(100vw - var(--padding-2x));
+
+  @include media.min-width(medium) {
+    border-radius: var(--border-radius-2x);
+    margin: var(--content-margin);
+  }
 
   @include media.min-width(large) {
     min-width: auto;
