@@ -69,6 +69,7 @@
   aria-disabled={disabled}
   aria-checked={ariaChecked}
   aria-label={ariaLabel}
+
 >
   {#if nonNullish(iconCmp)}
     <svelte:component this={iconCmp} />
