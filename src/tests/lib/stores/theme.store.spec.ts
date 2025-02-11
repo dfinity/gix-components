@@ -18,7 +18,7 @@ describe("theme-store", () => {
 
   afterEach(() => {
     window.document.documentElement.removeAttribute(THEME_ATTRIBUTE);
-  })
+  });
 
   it("should initialise with the no theme if the theme is not set", () => {
     expect(get(themeStore)).toBeUndefined();
