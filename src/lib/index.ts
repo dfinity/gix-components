@@ -14,5 +14,4 @@ export type { ProgressStep, ProgressStepState } from "./types/progress-step";
 export * from "./types/theme";
 export type { ToastLevel, ToastMsg } from "./types/toast";
 export type { WizardStep, WizardSteps } from "./types/wizard";
-export { LOCALSTORAGE_THEME_KEY } from "./utils/theme.utils";
 export * from "./utils/wizard.utils";
