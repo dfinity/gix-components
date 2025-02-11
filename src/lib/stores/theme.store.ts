@@ -18,7 +18,7 @@ export const initThemeStore = () => {
 
     select: (theme: Theme) => setTheme(theme),
 
-    reset: () => setTheme(getCurrentTheme()),
+    refresh: () => setTheme(getCurrentTheme()),
   };
 };
 
