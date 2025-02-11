@@ -1,27 +1,17 @@
 import { Theme } from "$lib/types/theme";
 import { isNode } from "$lib/utils/env.utils";
+import { nonNullish } from "@dfinity/utils";
 import { enumFromStringExists } from "./enum.utils";
 
 export const THEME_ATTRIBUTE = "theme";
 export const LOCALSTORAGE_THEME_KEY = "nnsTheme";
 
 export const initTheme = (): Theme | undefined => {
-  // No DOM therefore cannot guess the theme
-  if (isNode()) {
-    return undefined;
+  const initialTheme: Theme | undefined = getCurrentTheme();
+
+  if (nonNullish(initialTheme)) {
+    applyTheme({ theme: initialTheme, preserve: false });
   }
-
-  const theme: string | null =
-    document.documentElement.getAttribute(THEME_ATTRIBUTE);
-
-  const initialTheme: Theme = enumFromStringExists({
-    obj: Theme,
-    value: theme,
-  })
-    ? (theme as Theme)
-    : Theme.DARK;
-
-  applyTheme({ theme: initialTheme, preserve: false });
 
   return initialTheme;
 };
@@ -49,4 +39,21 @@ export const applyTheme = ({
   if (preserve) {
     localStorage.setItem(LOCALSTORAGE_THEME_KEY, JSON.stringify(theme));
   }
+};
+
+export const getCurrentTheme = (): Theme | undefined => {
+  // No DOM therefore cannot guess the theme
+  if (isNode()) {
+    return undefined;
+  }
+
+  const theme: string | null =
+    document.documentElement.getAttribute(THEME_ATTRIBUTE);
+
+  return enumFromStringExists({
+    obj: Theme,
+    value: theme,
+  })
+    ? (theme as Theme)
+    : Theme.DARK;
 };

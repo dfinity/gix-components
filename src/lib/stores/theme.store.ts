@@ -1,19 +1,24 @@
 import type { Theme } from "$lib/types/theme";
-import { applyTheme, initTheme } from "$lib/utils/theme.utils";
+import { applyTheme, getCurrentTheme, initTheme } from "$lib/utils/theme.utils";
+import { nonNullish } from "@dfinity/utils";
 import { writable } from "svelte/store";
 
-const initialTheme: Theme | undefined = initTheme();
-
 export const initThemeStore = () => {
-  const { subscribe, set } = writable<Theme | undefined>(initialTheme);
+  const { subscribe, set } = writable<Theme | undefined>(initTheme());
+
+  const setTheme = (theme: Theme | undefined) => {
+    if (nonNullish(theme)) {
+      applyTheme({ theme, preserve: true });
+    }
+    set(theme);
+  };
 
   return {
     subscribe,
 
-    select: (theme: Theme) => {
-      applyTheme({ theme, preserve: true });
-      set(theme);
-    },
+    select: (theme: Theme) => setTheme(theme),
+
+    reset: () => setTheme(getCurrentTheme()),
   };
 };
 
