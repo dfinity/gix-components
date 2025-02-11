@@ -63,7 +63,7 @@ describe("theme-store", () => {
     );
   });
 
-  it("should reset to the current theme", () => {
+  it("should refresh to the current theme", () => {
     const spy = vi.spyOn(themeUtils, "applyTheme");
 
     // We first set the store, then we mock that the attribute may be changed in a different way
@@ -73,7 +73,7 @@ describe("theme-store", () => {
     );
     window.document.documentElement.setAttribute(THEME_ATTRIBUTE, Theme.DARK);
 
-    themeStore.reset();
+    themeStore.refresh();
 
     expect(get(themeStore)).toBe(Theme.DARK);
     expect(spy).toHaveBeenCalledWith({ theme: Theme.DARK, preserve: true });
