@@ -1,9 +1,6 @@
 <script lang="ts">
   import { toastsStore } from "$lib/stores/toasts.store";
-  import {
-    testSafeFade,
-    testSafeFly,
-  } from "$lib/directives/transition.directives";
+  import { fade, fly } from "svelte/transition";
   import { i18n } from "$lib/stores/i18n";
   import type {
     ToastLevel,
@@ -95,11 +92,8 @@
   data-tid="toast-component"
   role="dialog"
   class={`toast ${theme ?? "themed"}`}
-  in:testSafeFly|global={{
-    y: (position === "top" ? -1 : 1) * 100,
-    duration: 200,
-  }}
-  out:testSafeFade|global={{ delay: 100 }}
+  in:fly|global={{ y: (position === "top" ? -1 : 1) * 100, duration: 200 }}
+  out:fade|global={{ delay: 100 }}
 >
   <div class="icon {level}" aria-hidden="true">
     {#if spinner}

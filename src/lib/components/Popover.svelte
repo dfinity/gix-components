@@ -1,9 +1,6 @@
 <!-- https://github.com/papyrs/papyrs/blob/main/src/lib/components/ui/Popover.svelte -->
 <script lang="ts">
-  import {
-    testSafeFade,
-    testSafeScale,
-  } from "$lib/directives/transition.directives";
+  import { fade, scale } from "svelte/transition";
   import { quintOut } from "svelte/easing";
   import { i18n } from "$lib/stores/i18n";
   import Backdrop from "./Backdrop.svelte";
@@ -33,7 +30,7 @@
   <div
     role="menu"
     aria-orientation="vertical"
-    transition:testSafeFade|global
+    transition:fade|global
     class="popover"
     tabindex="-1"
     style="--popover-top: {`${bottom}px`}; --popover-left: {`${left}px`}; --popover-right: {`${
@@ -48,11 +45,7 @@
       invisible={invisibleBackdrop}
     />
     <div
-      transition:testSafeScale|global={{
-        delay: 25,
-        duration: 150,
-        easing: quintOut,
-      }}
+      transition:scale|global={{ delay: 25, duration: 150, easing: quintOut }}
       class="wrapper"
       class:with-border={invisibleBackdrop}
       class:rtl={direction === "rtl"}
