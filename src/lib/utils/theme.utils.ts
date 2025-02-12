@@ -60,7 +60,7 @@ export const getThemeFromSystemSettings = (): Theme => {
 };
 
 export const resetTheme = (theme: Theme) => {
-  applyTheme({ theme, preserve: false });
-
   localStorage.removeItem(LOCALSTORAGE_THEME_KEY);
+
+  applyTheme({ theme, preserve: false });
 };
