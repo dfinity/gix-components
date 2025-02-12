@@ -28,7 +28,7 @@ describe("theme-store", () => {
     resetThemeSpy = vi.spyOn(themeUtils, "resetTheme");
   });
 
-  afterEach(() => {
+  afterAll(() => {
     window.document.documentElement.removeAttribute(THEME_ATTRIBUTE);
   });
 
@@ -94,6 +94,8 @@ describe("theme-store", () => {
   });
 
   it("should reset to the current system theme", () => {
+    const originalMatchMedia = window.matchMedia;
+
     // We mock window.matchMedia to match the DARK theme
     Object.defineProperty(window, "matchMedia", {
       value: vi.fn().mockImplementation(() => ({
@@ -139,6 +141,11 @@ describe("theme-store", () => {
       Theme.LIGHT,
     );
     expect(localStorage.getItem(LOCALSTORAGE_THEME_KEY)).toBeNull();
+
+    Object.defineProperty(window, "matchMedia", {
+      writable: true,
+      value: originalMatchMedia
+    });
   });
 
   it("should handle gracefully when the theme is not set", () => {
