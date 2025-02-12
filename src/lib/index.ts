@@ -15,4 +15,3 @@ export * from "./types/theme";
 export type { ToastLevel, ToastMsg } from "./types/toast";
 export type { WizardStep, WizardSteps } from "./types/wizard";
 export * from "./utils/wizard.utils";
-
