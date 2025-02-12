@@ -50,3 +50,17 @@ export const applyTheme = ({
     localStorage.setItem(LOCALSTORAGE_THEME_KEY, JSON.stringify(theme));
   }
 };
+
+export const getThemeFromSystemSettings = (): Theme => {
+  const isDarkPreferred = window.matchMedia(
+    "(prefers-color-scheme: dark)",
+  ).matches;
+
+  return isDarkPreferred ? Theme.DARK : Theme.LIGHT;
+};
+
+export const resetTheme = (theme: Theme) => {
+  applyTheme({ theme, preserve: false });
+
+  localStorage.removeItem(LOCALSTORAGE_THEME_KEY);
+};

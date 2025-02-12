@@ -1,5 +1,10 @@
 import type { Theme } from "$lib/types/theme";
-import { applyTheme, initTheme } from "$lib/utils/theme.utils";
+import {
+  applyTheme,
+  getThemeFromSystemSettings,
+  initTheme,
+  resetTheme,
+} from "$lib/utils/theme.utils";
 import { writable } from "svelte/store";
 
 const initialTheme: Theme | undefined = initTheme();
@@ -12,6 +17,12 @@ export const initThemeStore = () => {
 
     select: (theme: Theme) => {
       applyTheme({ theme, preserve: true });
+      set(theme);
+    },
+
+    resetToSystemSettings: () => {
+      const theme = getThemeFromSystemSettings();
+      resetTheme(theme);
       set(theme);
     },
   };
