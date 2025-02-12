@@ -14,9 +14,9 @@ export interface ThemeStore extends Readable<ThemeStoreData> {
   resetToSystemSettings: () => void;
 }
 
-const initialTheme: ThemeStoreData = initTheme();
-
 export const initThemeStore = (): ThemeStore => {
+  const initialTheme: ThemeStoreData = initTheme();
+
   const { subscribe, set } = writable<ThemeStoreData>(initialTheme);
 
   return {
