@@ -41,9 +41,9 @@ describe("theme-store", () => {
     (theme) => {
       window.document.documentElement.setAttribute(THEME_ATTRIBUTE, theme);
 
-      const mockThemeStore = initThemeStore();
+      const themeStore = initThemeStore();
 
-      expect(get(mockThemeStore)).toBe(theme);
+      expect(get(themeStore)).toBe(theme);
       expect(initThemeSpy).toHaveBeenCalledOnce();
     },
   );
@@ -151,9 +151,9 @@ describe("theme-store", () => {
   it("should handle gracefully when the theme is not set", () => {
     window.document.documentElement.removeAttribute(THEME_ATTRIBUTE);
 
-    const mockThemeStore = initThemeStore();
+    const themeStore = initThemeStore();
 
-    expect(get(mockThemeStore)).toBe(Theme.DARK);
+    expect(get(themeStore)).toBe(Theme.DARK);
   });
 
   it("should handle gracefully when the theme is not correctly set", () => {
@@ -162,8 +162,8 @@ describe("theme-store", () => {
       "invalid-theme",
     );
 
-    const mockThemeStore = initThemeStore();
+    const themeStore = initThemeStore();
 
-    expect(get(mockThemeStore)).toBe(Theme.DARK);
+    expect(get(themeStore)).toBe(Theme.DARK);
   });
 });
