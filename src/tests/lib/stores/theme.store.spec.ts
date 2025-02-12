@@ -7,8 +7,13 @@ import {
   THEME_ATTRIBUTE,
 } from "$lib/utils/theme.utils";
 import { get } from "svelte/store";
+import type { MockInstance } from "vitest";
 
 describe("theme-store", () => {
+  let initThemeSpy: MockInstance;
+  let applyThemeSpy: MockInstance;
+  let resetThemeSpy: MockInstance;
+
   beforeEach(() => {
     vi.clearAllMocks();
     vi.restoreAllMocks();
@@ -17,6 +22,10 @@ describe("theme-store", () => {
     window.document.documentElement.removeAttribute(THEME_ATTRIBUTE);
 
     vi.spyOn(envUtils, "isNode").mockReturnValue(false);
+
+    initThemeSpy = vi.spyOn(themeUtils, "initTheme");
+    applyThemeSpy = vi.spyOn(themeUtils, "applyTheme");
+    resetThemeSpy = vi.spyOn(themeUtils, "resetTheme");
   });
 
   afterEach(() => {
@@ -32,60 +41,63 @@ describe("theme-store", () => {
     (theme) => {
       window.document.documentElement.setAttribute(THEME_ATTRIBUTE, theme);
 
-      const spy = vi.spyOn(themeUtils, "initTheme");
-
       const mockThemeStore = initThemeStore();
 
       expect(get(mockThemeStore)).toBe(theme);
-      expect(spy).toHaveBeenCalledOnce();
+      expect(initThemeSpy).toHaveBeenCalledOnce();
     },
   );
 
   it("should apply and store the selected theme", () => {
-    const spy = vi.spyOn(themeUtils, "applyTheme");
-
     themeStore.select(Theme.LIGHT);
 
     expect(get(themeStore)).toBe(Theme.LIGHT);
-    expect(spy).toHaveBeenCalledWith({ theme: Theme.LIGHT, preserve: true });
+    expect(applyThemeSpy).toHaveBeenCalledWith({
+      theme: Theme.LIGHT,
+      preserve: true,
+    });
     expect(document.documentElement.getAttribute(THEME_ATTRIBUTE)).toBe(
       Theme.LIGHT,
+    );
+    expect(localStorage.getItem(LOCALSTORAGE_THEME_KEY)).toBe(
+      JSON.stringify(Theme.LIGHT),
     );
 
     themeStore.select(Theme.DARK);
 
     expect(get(themeStore)).toBe(Theme.DARK);
-    expect(spy).toHaveBeenCalledWith({ theme: Theme.DARK, preserve: true });
+    expect(applyThemeSpy).toHaveBeenCalledWith({
+      theme: Theme.DARK,
+      preserve: true,
+    });
     expect(document.documentElement.getAttribute(THEME_ATTRIBUTE)).toBe(
       Theme.DARK,
+    );
+    expect(localStorage.getItem(LOCALSTORAGE_THEME_KEY)).toBe(
+      JSON.stringify(Theme.DARK),
     );
 
     // Just to double-check, we set it to light once more
     themeStore.select(Theme.LIGHT);
 
     expect(get(themeStore)).toBe(Theme.LIGHT);
-    expect(spy).toHaveBeenCalledWith({ theme: Theme.LIGHT, preserve: true });
+    expect(applyThemeSpy).toHaveBeenCalledWith({
+      theme: Theme.LIGHT,
+      preserve: true,
+    });
     expect(document.documentElement.getAttribute(THEME_ATTRIBUTE)).toBe(
       Theme.LIGHT,
+    );
+    expect(localStorage.getItem(LOCALSTORAGE_THEME_KEY)).toBe(
+      JSON.stringify(Theme.LIGHT),
     );
   });
 
   it("should reset to the current system theme", () => {
-    const spy = vi.spyOn(themeUtils, "resetTheme");
-
     // We mock window.matchMedia to match the DARK theme
     Object.defineProperty(window, "matchMedia", {
-      writable: true,
-      enumerable: true,
-      value: vi.fn().mockImplementation((query) => ({
+      value: vi.fn().mockImplementation(() => ({
         matches: true,
-        media: query,
-        onchange: null,
-        addListener: vi.fn(), // deprecated
-        removeListener: vi.fn(), // deprecated
-        addEventListener: vi.fn(),
-        removeEventListener: vi.fn(),
-        dispatchEvent: vi.fn(),
       })),
     });
 
@@ -99,7 +111,7 @@ describe("theme-store", () => {
     themeStore.resetToSystemSettings();
 
     expect(get(themeStore)).toBe(Theme.DARK);
-    expect(spy).toHaveBeenCalledWith(Theme.DARK);
+    expect(resetThemeSpy).toHaveBeenCalledWith(Theme.DARK);
     expect(document.documentElement.getAttribute(THEME_ATTRIBUTE)).toBe(
       Theme.DARK,
     );
@@ -107,17 +119,8 @@ describe("theme-store", () => {
 
     // We mock window.matchMedia to match the LIGHT theme
     Object.defineProperty(window, "matchMedia", {
-      writable: true,
-      enumerable: true,
-      value: vi.fn().mockImplementation((query) => ({
+      value: vi.fn().mockImplementation(() => ({
         matches: false,
-        media: query,
-        onchange: null,
-        addListener: vi.fn(), // deprecated
-        removeListener: vi.fn(), // deprecated
-        addEventListener: vi.fn(),
-        removeEventListener: vi.fn(),
-        dispatchEvent: vi.fn(),
       })),
     });
 
@@ -131,7 +134,7 @@ describe("theme-store", () => {
     themeStore.resetToSystemSettings();
 
     expect(get(themeStore)).toBe(Theme.LIGHT);
-    expect(spy).toHaveBeenCalledWith(Theme.LIGHT);
+    expect(resetThemeSpy).toHaveBeenCalledWith(Theme.LIGHT);
     expect(document.documentElement.getAttribute(THEME_ATTRIBUTE)).toBe(
       Theme.LIGHT,
     );
