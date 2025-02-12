@@ -144,7 +144,7 @@ describe("theme-store", () => {
 
     Object.defineProperty(window, "matchMedia", {
       writable: true,
-      value: originalMatchMedia
+      value: originalMatchMedia,
     });
   });
 
