@@ -2,7 +2,7 @@ import { initThemeStore, themeStore } from "$lib";
 import { Theme } from "$lib/types/theme";
 import * as envUtils from "$lib/utils/env.utils";
 import * as themeUtils from "$lib/utils/theme.utils";
-import { THEME_ATTRIBUTE } from "$lib/utils/theme.utils";
+import { LOCALSTORAGE_THEME_KEY, THEME_ATTRIBUTE } from "$lib/utils/theme.utils";
 import { get } from "svelte/store";
 
 describe("theme-store", () => {
@@ -67,7 +67,7 @@ describe("theme-store", () => {
     );
   });
 
-  it("should refresh to the current theme", () => {
+  it("should reset to the current system theme", () => {
     const spy = vi.spyOn(themeUtils, "resetTheme");
 
     // We mock window.matchMedia to match the DARK theme
@@ -97,6 +97,10 @@ describe("theme-store", () => {
 
     expect(get(themeStore)).toBe(Theme.DARK);
     expect(spy).toHaveBeenCalledWith(Theme.DARK);
+    expect(document.documentElement.getAttribute(THEME_ATTRIBUTE)).toBe(
+      Theme.DARK,
+    );
+    expect(localStorage.getItem(LOCALSTORAGE_THEME_KEY)).toBeNull();
 
     // We mock window.matchMedia to match the LIGHT theme
     Object.defineProperty(window, "matchMedia", {
@@ -125,6 +129,10 @@ describe("theme-store", () => {
 
     expect(get(themeStore)).toBe(Theme.LIGHT);
     expect(spy).toHaveBeenCalledWith(Theme.LIGHT);
+    expect(document.documentElement.getAttribute(THEME_ATTRIBUTE)).toBe(
+      Theme.LIGHT,
+    );
+    expect(localStorage.getItem(LOCALSTORAGE_THEME_KEY)).toBeNull();
   });
 
   it("should handle gracefully when the theme is not set", () => {
