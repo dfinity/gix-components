@@ -4,7 +4,7 @@
   import { i18n } from "$lib/stores/i18n";
   import IconLightMode from "$lib/icons/IconLightMode.svelte";
   import IconDarkMode from "$lib/icons/IconDarkMode.svelte";
-  import { testSafeFade } from "$lib/directives/transition.directives";
+  import { fade } from "svelte/transition";
 
   const switchTheme = () => {
     themeStore.select($themeStore === Theme.LIGHT ? Theme.DARK : Theme.LIGHT);
@@ -21,11 +21,11 @@
   aria-label={$i18n.theme.switch_theme}
 >
   {#if isDarkMode}
-    <span in:testSafeFade|global>
+    <span in:fade|global>
       <IconLightMode />
     </span>
   {:else}
-    <span in:testSafeFade|global>
+    <span in:fade|global>
       <IconDarkMode />
     </span>
   {/if}
