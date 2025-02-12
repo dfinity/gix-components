@@ -58,6 +58,7 @@ describe("theme-store", () => {
     themeStore.select(Theme.LIGHT);
 
     expect(get(themeStore)).toBe(Theme.LIGHT);
+    expect(applyThemeSpy).toHaveBeenCalledOnce();
     expect(applyThemeSpy).toHaveBeenCalledWith({
       theme: Theme.LIGHT,
       preserve: true,
@@ -72,6 +73,7 @@ describe("theme-store", () => {
     themeStore.select(Theme.DARK);
 
     expect(get(themeStore)).toBe(Theme.DARK);
+    expect(applyThemeSpy).toHaveBeenCalledTimes(2);
     expect(applyThemeSpy).toHaveBeenCalledWith({
       theme: Theme.DARK,
       preserve: true,
@@ -87,6 +89,7 @@ describe("theme-store", () => {
     themeStore.select(Theme.LIGHT);
 
     expect(get(themeStore)).toBe(Theme.LIGHT);
+    expect(applyThemeSpy).toHaveBeenCalledTimes(3);
     expect(applyThemeSpy).toHaveBeenCalledWith({
       theme: Theme.LIGHT,
       preserve: true,
