@@ -55,7 +55,6 @@ describe("theme-store", () => {
     expect(document.documentElement.getAttribute(THEME_ATTRIBUTE)).toBeNull();
     expect(localStorage.getItem(LOCALSTORAGE_THEME_KEY)).toBeNull();
 
-
     themeStore.select(Theme.LIGHT);
 
     expect(get(themeStore)).toBe(Theme.LIGHT);
