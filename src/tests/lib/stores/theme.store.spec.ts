@@ -2,7 +2,10 @@ import { initThemeStore, themeStore } from "$lib";
 import { Theme } from "$lib/types/theme";
 import * as envUtils from "$lib/utils/env.utils";
 import * as themeUtils from "$lib/utils/theme.utils";
-import { LOCALSTORAGE_THEME_KEY, THEME_ATTRIBUTE } from "$lib/utils/theme.utils";
+import {
+  LOCALSTORAGE_THEME_KEY,
+  THEME_ATTRIBUTE,
+} from "$lib/utils/theme.utils";
 import { get } from "svelte/store";
 
 describe("theme-store", () => {
