@@ -5,12 +5,19 @@ import {
   initTheme,
   resetTheme,
 } from "$lib/utils/theme.utils";
-import { writable } from "svelte/store";
+import { writable, type Readable } from "svelte/store";
 
-const initialTheme: Theme | undefined = initTheme();
+export type ThemeStoreData = Theme | undefined;
 
-export const initThemeStore = () => {
-  const { subscribe, set } = writable<Theme | undefined>(initialTheme);
+export interface ThemeStore extends Readable<ThemeStoreData> {
+  select: (theme: Theme) => void;
+  resetToSystemSettings: () => void;
+}
+
+const initialTheme: ThemeStoreData = initTheme();
+
+export const initThemeStore = (): ThemeStore => {
+  const { subscribe, set } = writable<ThemeStoreData>(initialTheme);
 
   return {
     subscribe,
