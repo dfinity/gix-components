@@ -1,10 +1,10 @@
 <script lang="ts">
     import { browser } from "$app/environment";
-    import type { ComponentType } from "svelte";
+    import type { Component } from "svelte";
     import { onMount } from "svelte";
     import icpRounded from "$docs/assets/icp-rounded.svg";
 
-    let QRCode: ComponentType | undefined = undefined;
+    let QRCode: Component | undefined = undefined;
 
     onMount(async () => {
         if (!browser) {
