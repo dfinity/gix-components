@@ -8,7 +8,7 @@ export interface ThemeStore extends Readable<ThemeStoreData> {
   select: (theme: Theme) => void;
 }
 
-const initialTheme: Theme | undefined = initTheme();
+const initialTheme: ThemeStoreData = initTheme();
 
 export const initThemeStore = (): ThemeStore => {
   const { subscribe, set } = writable<ThemeStoreData>(initialTheme);
