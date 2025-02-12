@@ -1,11 +1,17 @@
 import type { Theme } from "$lib/types/theme";
 import { applyTheme, initTheme } from "$lib/utils/theme.utils";
-import { writable } from "svelte/store";
+import { writable, type Readable } from "svelte/store";
+
+export type ThemeStoreData = Theme | undefined;
+
+export interface ThemeStore extends Readable<ThemeStoreData> {
+  select: (theme: Theme) => void;
+}
 
 const initialTheme: Theme | undefined = initTheme();
 
-export const initThemeStore = () => {
-  const { subscribe, set } = writable<Theme | undefined>(initialTheme);
+export const initThemeStore = (): ThemeStore => {
+  const { subscribe, set } = writable<ThemeStoreData>(initialTheme);
 
   return {
     subscribe,
