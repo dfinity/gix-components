@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { testSafeFade } from "$lib/directives/transition.directives";
+  import { fade } from "svelte/transition";
   import { createEventDispatcher } from "svelte";
   import { i18n } from "$lib/stores/i18n";
   import { handleKeyPress } from "$lib/utils/keyboard.utils";
@@ -18,8 +18,8 @@
   role="button"
   tabindex="-1"
   aria-label={$i18n.core.close}
-  in:testSafeFade|global={{ duration: FADE_IN_DURATION }}
-  out:testSafeFade|global={{ duration: FADE_OUT_DURATION }}
+  in:fade|global={{ duration: FADE_IN_DURATION }}
+  out:fade|global={{ duration: FADE_OUT_DURATION }}
   class="backdrop"
   class:visible={!invisible}
   on:click|stopPropagation={close}

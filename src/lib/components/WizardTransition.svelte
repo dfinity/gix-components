@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { testSafeFly } from "$lib/directives/transition.directives";
+  import { fly } from "svelte/transition";
 
   // Instead of a number an object is used to make svelte notice any updates need rerender
   export let transition: { diff: number } = { diff: 0 };
@@ -19,7 +19,7 @@
 {#key transition}
   <div
     bind:clientWidth={absolutOffset}
-    in:testSafeFly|global={{ x: slideOffset, duration: ANIMATION_DURATION }}
+    in:fly|global={{ x: slideOffset, duration: ANIMATION_DURATION }}
     class="transition"
   >
     <slot />
