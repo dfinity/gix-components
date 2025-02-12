@@ -34,6 +34,8 @@ describe("theme-store", () => {
 
   it("should initialize with no theme if the theme is not set", () => {
     expect(get(themeStore)).toBeUndefined();
+    expect(document.documentElement.getAttribute(THEME_ATTRIBUTE)).toBeNull();
+    expect(localStorage.getItem(LOCALSTORAGE_THEME_KEY)).toBeNull();
   });
 
   it.each(Object.values(Theme))(
@@ -49,6 +51,11 @@ describe("theme-store", () => {
   );
 
   it("should apply and store the selected theme", () => {
+    expect(get(themeStore)).toBeUndefined();
+    expect(document.documentElement.getAttribute(THEME_ATTRIBUTE)).toBeNull();
+    expect(localStorage.getItem(LOCALSTORAGE_THEME_KEY)).toBeNull();
+
+
     themeStore.select(Theme.LIGHT);
 
     expect(get(themeStore)).toBe(Theme.LIGHT);
