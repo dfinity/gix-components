@@ -2,10 +2,20 @@ import type { Theme } from "$lib/types/theme";
 import { applyTheme, getCurrentTheme, initTheme } from "$lib/utils/theme.utils";
 import { nonNullish } from "@dfinity/utils";
 import { writable } from "svelte/store";
+import { applyTheme, initTheme } from "$lib/utils/theme.utils";
+import { writable, type Readable } from "svelte/store";
 
-export const initThemeStore = () => {
-  const { subscribe, set } = writable<Theme | undefined>(initTheme());
+export type ThemeStoreData = Theme | undefined;
 
+export interface ThemeStore extends Readable<ThemeStoreData> {
+  select: (theme: Theme) => void;
+}
+
+const initialTheme: ThemeStoreData = initTheme();
+
+export const initThemeStore = (): ThemeStore => {
+  const { subscribe, set } = writable<ThemeStoreData>(initialTheme);
+  
   const setTheme = (theme: Theme | undefined) => {
     if (nonNullish(theme)) {
       applyTheme({ theme, preserve: true });
