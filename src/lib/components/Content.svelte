@@ -1,6 +1,7 @@
 <script lang="ts">
   import {
     layoutBottomOffset,
+    layoutContentScrollTop,
     layoutContentScrollY,
     layoutMenuOpen,
   } from "$lib/stores/layout.store";
@@ -12,6 +13,11 @@
 
   // Observed: nested component - bottom sheet - might not call destroy when navigating route and therefore offset might not be reseted which is not the case here
   onDestroy(() => ($layoutBottomOffset = 0));
+
+  const handleScroll = (event: Event) => {
+    const target = event.target as HTMLElement;
+    layoutContentScrollTop.updateScrollTop(target.scrollTop);
+  };
 </script>
 
 <div
@@ -25,7 +31,11 @@
     <slot name="toolbar-end" slot="toolbar-end" />
   </Header>
 
-  <div class="scrollable-content" class:open={$layoutMenuOpen}>
+  <div
+    class="scrollable-content"
+    class:open={$layoutMenuOpen}
+    on:scroll={handleScroll}
+  >
     <ContentBackdrop />
 
     <slot />
