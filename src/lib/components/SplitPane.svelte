@@ -1,5 +1,8 @@
 <script lang="ts">
-  import { layoutMenuOpen } from "$lib/stores/layout.store";
+  import {
+    layoutContentScrollDirection,
+    layoutMenuOpen,
+  } from "$lib/stores/layout.store";
 
   let innerWidth = 0;
 
@@ -14,11 +17,14 @@
   };
 
   $: onWindowSizeChange(innerWidth);
+
+  let isScrollingDown = false;
+  $: isScrollingDown = $layoutContentScrollDirection === "down";
 </script>
 
 <svelte:window bind:innerWidth />
 
-<div class="split-pane">
+<div class="split-pane" class:scrolling-down={isScrollingDown}>
   <slot name="menu" />
   <slot />
 </div>
@@ -42,6 +48,17 @@
       var(--header-offset, 0px) + var(--header-height)
     );
     padding-top: var(--split-pane-content-top-offset);
+    &.scrolling-down {
+      padding-top: 0;
+      // Reset on tablet+
+      @include media.min-width(medium) {
+        padding-top: var(--split-pane-content-top-offset);
+      }
+      @include media.min-width(large) {
+        padding-top: var(--header-offset, 0px);
+      }
+    }
+    transition: padding-top var(--animation-time-normal) ease;
 
     :global(header) {
       position: fixed;
