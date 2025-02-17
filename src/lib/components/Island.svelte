@@ -1,6 +1,9 @@
 <script lang="ts">
   import { onDestroy } from "svelte";
-  import { layoutContentScrollY } from "$lib/stores/layout.store";
+  import {
+    layoutContentScrollTop,
+    layoutContentScrollY,
+  } from "$lib/stores/layout.store";
   import { BREAKPOINT_LARGE } from "$lib/constants/constants";
 
   export let testId: string | undefined = undefined;
@@ -10,12 +13,17 @@
     layoutContentScrollY.set(innerWidth < BREAKPOINT_LARGE ? "auto" : "hidden");
 
   onDestroy(() => layoutContentScrollY.set("auto"));
+
+  const handleScroll = (event: Event) => {
+    const target = event.target as HTMLElement;
+    layoutContentScrollTop.updateScrollTop(target.scrollTop);
+  };
 </script>
 
 <svelte:window bind:innerWidth />
 
 <div class="island" data-tid={testId}>
-  <div class="scrollable-island">
+  <div class="scrollable-island" on:scroll={handleScroll}>
     <slot />
   </div>
 </div>
