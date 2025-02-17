@@ -2,17 +2,14 @@ import {
   render as svelteRender,
   type RenderResult,
 } from "@testing-library/svelte";
-import {
-  type Component,
-  type ComponentProps,
-  type SvelteComponent as LegacyComponent,
-} from "svelte";
+import { type Component, type ComponentProps } from "svelte";
 
-// Duplicate Testing-library ComponentType which is not exposed
-type ComponentType<C> = C extends LegacyComponent
-  ? // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    new (...args: any[]) => C
-  : C;
+// prettier-ignore
+// @ts-expect-error Testing-library type not exposed
+import type { MountOptions } from "@testing-library/svelte/types/component-types";
+// prettier-ignore
+// @ts-expect-error Testing-library type not exposed
+import type { ComponentType } from "@testing-library/svelte/types/component-types";
 
 export const render = <C extends Component>(
   cmp: ComponentType<C>,
@@ -21,11 +18,13 @@ export const render = <C extends Component>(
     events?: Record<string, ($event: CustomEvent) => void>;
   },
 ): RenderResult<C> => {
+  const mountOptions: Partial<MountOptions<ComponentProps<C>>> = {
+    // TODO: remove once events are migrated to callback props
+    events: options?.events,
+  };
+
   return svelteRender(cmp, {
     props: options?.props,
-    // TODO: remove once events are migrated to callback props
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    events: options?.events,
+    ...mountOptions,
   });
 };
