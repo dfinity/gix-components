@@ -45,7 +45,9 @@
       var(--header-offset, 0px) + var(--header-height)
     );
     padding-top: var(--split-pane-content-top-offset);
-    &. {
+    transition: padding-top var(--animation-time-normal) ease;
+
+    &.header-hidden {
       padding-top: 0;
       // Reset on tablet+
       @include media.min-width(medium) {
@@ -55,7 +57,6 @@
         padding-top: var(--header-offset, 0px);
       }
     }
-    transition: padding-top var(--animation-time-normal) ease;
 
     :global(header) {
       position: fixed;

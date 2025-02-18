@@ -28,6 +28,8 @@
 
   header {
     --toolbar-padding: 0;
+    transition: all var(--animation-time-normal) ease-in-out;
+
     @include media.min-width(medium) {
       --toolbar-padding: 0 var(--padding-2x);
     }
@@ -44,6 +46,5 @@
         transform: none;
       }
     }
-    transition: all var(--animation-time-normal) ease-in-out;
   }
 </style>
