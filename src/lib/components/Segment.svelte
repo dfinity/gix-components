@@ -166,7 +166,8 @@
               2 * var(--segment-padding) + var(--segment-gap) *
                 (var(--segments) - 1)
             )
-        ) / var(--segments)
+        ) /
+        var(--segments)
     );
     height: calc(100% - var(--segment-padding) * 2);
     border-radius: var(--border-radius);
