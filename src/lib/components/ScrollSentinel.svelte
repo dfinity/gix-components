@@ -3,7 +3,7 @@
   import { isNullish } from "@dfinity/utils";
   import { onDestroy, onMount } from "svelte";
 
-  // The ScrollSentinel component should be placed right before the scrollable content
+  // The ScrollSentinel component should be placed right before the content
   // inside the scrollable container.
   export let scrollContainer: HTMLElement;
 
@@ -20,4 +20,4 @@
   });
 </script>
 
-<div bind:this={element}></div>
+<div data-tid="sentinel" bind:this={element}></div>
