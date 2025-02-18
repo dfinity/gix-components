@@ -1,7 +1,6 @@
 <script lang="ts">
   import { layoutContentTopHidden } from "$lib/stores/layout.store";
-  import { isNullish } from "@dfinity/utils";
-  import { onDestroy, onMount } from "svelte";
+  import { onMount } from "svelte";
 
   // The ScrollSentinel component should be placed right before the content
   // inside the scrollable container.

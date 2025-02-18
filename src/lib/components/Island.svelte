@@ -12,11 +12,6 @@
 
   onDestroy(() => layoutContentScrollY.set("auto"));
 
-  const handleScroll = (event: Event) => {
-    const target = event.target as HTMLElement;
-    layoutContentScrollTop.updateScrollTop(target.scrollTop);
-  };
-
   let scrollContainer: HTMLElement;
 </script>
 
