@@ -19,4 +19,13 @@
   });
 </script>
 
-<div data-tid="sentinel" bind:this={element}></div>
+<div data-tid="sentinel" class="sentinel" bind:this={element}></div>
+
+<style lang="scss">
+  .sentinel {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+  }
+</style>
