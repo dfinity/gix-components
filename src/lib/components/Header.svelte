@@ -7,7 +7,7 @@
   export let back = false;
 </script>
 
-<header data-tid="header-component" class:is-hidden={$layoutContentTopHidden}>
+<header data-tid="header-component" class:hidden={$layoutContentTopHidden}>
   <Toolbar>
     <svelte:fragment slot="start">
       {#if back}
@@ -35,7 +35,7 @@
       --toolbar-padding: 0;
     }
 
-    &.is-hidden {
+    &.hidden {
       opacity: 0;
       transform: translateY(-100%);
       // Reset on tablet+

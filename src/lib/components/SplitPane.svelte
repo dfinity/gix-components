@@ -21,7 +21,7 @@
 
 <svelte:window bind:innerWidth />
 
-<div class="split-pane" class:is-header-hidden={$layoutContentTopHidden}>
+<div class="split-pane" class:header-hidden={$layoutContentTopHidden}>
   <slot name="menu" />
   <slot />
 </div>
@@ -45,7 +45,7 @@
       var(--header-offset, 0px) + var(--header-height)
     );
     padding-top: var(--split-pane-content-top-offset);
-    &.is-header-hidden {
+    &. {
       padding-top: 0;
       // Reset on tablet+
       @include media.min-width(medium) {
