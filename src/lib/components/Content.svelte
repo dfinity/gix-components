@@ -1,11 +1,11 @@
 <script lang="ts">
   import {
     layoutBottomOffset,
-    layoutContentScrollTop,
     layoutContentScrollY,
+    layoutContentTopHidden,
     layoutMenuOpen,
   } from "$lib/stores/layout.store";
-  import { onDestroy } from "svelte";
+  import { onDestroy, onMount } from "svelte";
   import ContentBackdrop from "$lib/components/ContentBackdrop.svelte";
   import Header from "$lib/components/Header.svelte";
 
@@ -14,10 +14,17 @@
   // Observed: nested component - bottom sheet - might not call destroy when navigating route and therefore offset might not be reseted which is not the case here
   onDestroy(() => ($layoutBottomOffset = 0));
 
-  const handleScroll = (event: Event) => {
-    const target = event.target as HTMLElement;
-    layoutContentScrollTop.updateScrollTop(target.scrollTop);
-  };
+  let container: HTMLDivElement;
+  // To observe when the top leaves the view
+  let sentinel: HTMLDivElement;
+  onMount(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => layoutContentTopHidden.set(!entry.isIntersecting),
+      { root: container, threshold: 0 },
+    );
+    observer.observe(sentinel as HTMLDivElement);
+    return () => observer.disconnect();
+  });
 </script>
 
 <div
@@ -34,10 +41,11 @@
   <div
     class="scrollable-content"
     class:open={$layoutMenuOpen}
-    on:scroll={handleScroll}
+    bind:this={container}
   >
     <ContentBackdrop />
 
+    <div bind:this={sentinel} class="sentinel"></div>
     <slot />
   </div>
 </div>

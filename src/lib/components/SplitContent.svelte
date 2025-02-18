@@ -1,8 +1,9 @@
 <script lang="ts">
-  import { onDestroy } from "svelte";
+  import { onDestroy, onMount } from "svelte";
   import {
     layoutBottomOffset,
     layoutContentScrollY,
+    layoutContentTopHidden,
     layoutMenuOpen,
   } from "$lib/stores/layout.store";
   import Header from "$lib/components/Header.svelte";
@@ -19,6 +20,17 @@
 
   // Same as in <Content />
   onDestroy(() => ($layoutBottomOffset = 0));
+
+  // To observe when the top leaves the view
+  let sentinel: HTMLDivElement;
+  onMount(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => layoutContentTopHidden.set(!entry.isIntersecting),
+      { root: scrollableElement, threshold: 0 },
+    );
+    observer.observe(sentinel as HTMLDivElement);
+    return () => observer.disconnect();
+  });
 </script>
 
 <div
@@ -43,6 +55,7 @@
     <div class="scrollable-content-end" bind:this={scrollableElement}>
       <ContentBackdrop />
 
+      <div bind:this={sentinel} class="sentinel"></div>
       <slot name="end" />
     </div>
   </div>
