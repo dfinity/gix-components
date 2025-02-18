@@ -1,10 +1,8 @@
 <script lang="ts">
-  import { onDestroy, onMount } from "svelte";
-  import {
-    layoutContentScrollY,
-    layoutContentTopHidden,
-  } from "$lib/stores/layout.store";
+  import { onDestroy } from "svelte";
+  import { layoutContentScrollY } from "$lib/stores/layout.store";
   import { BREAKPOINT_LARGE } from "$lib/constants/constants";
+  import ScrollSentinel from "$lib/components/ScrollSentinel.svelte";
 
   export let testId: string | undefined = undefined;
 
@@ -19,24 +17,14 @@
     layoutContentScrollTop.updateScrollTop(target.scrollTop);
   };
 
-  let container: HTMLDivElement;
-  // To observe when the top leaves the view
-  let sentinel: HTMLDivElement;
-  onMount(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => layoutContentTopHidden.set(!entry.isIntersecting),
-      { root: container, threshold: 0 },
-    );
-    observer.observe(sentinel as HTMLDivElement);
-    return () => observer.disconnect();
-  });
+  let scrollContainer: HTMLElement;
 </script>
 
 <svelte:window bind:innerWidth />
 
 <div class="island" data-tid={testId}>
-  <div class="scrollable-island" bind:this={container}>
-    <div bind:this={sentinel} class="sentinel"></div>
+  <div class="scrollable-island" bind:this={scrollContainer}>
+    <ScrollSentinel {scrollContainer} />
     <slot />
   </div>
 </div>

@@ -3,11 +3,11 @@
   import {
     layoutBottomOffset,
     layoutContentScrollY,
-    layoutContentTopHidden,
     layoutMenuOpen,
   } from "$lib/stores/layout.store";
   import Header from "$lib/components/Header.svelte";
   import ContentBackdrop from "$lib/components/ContentBackdrop.svelte";
+  import ScrollSentinel from "$lib/components/ScrollSentinel.svelte";
 
   export let back = false;
   export const resetScrollPosition = () => {
@@ -20,17 +20,6 @@
 
   // Same as in <Content />
   onDestroy(() => ($layoutBottomOffset = 0));
-
-  // To observe when the top leaves the view
-  let sentinel: HTMLDivElement;
-  onMount(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => layoutContentTopHidden.set(!entry.isIntersecting),
-      { root: scrollableElement, threshold: 0 },
-    );
-    observer.observe(sentinel as HTMLDivElement);
-    return () => observer.disconnect();
-  });
 </script>
 
 <div
@@ -55,7 +44,7 @@
     <div class="scrollable-content-end" bind:this={scrollableElement}>
       <ContentBackdrop />
 
-      <div bind:this={sentinel} class="sentinel"></div>
+      <ScrollSentinel scrollContainer={scrollableElement} />
       <slot name="end" />
     </div>
   </div>
