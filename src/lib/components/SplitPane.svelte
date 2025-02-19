@@ -54,7 +54,7 @@
         padding-top: var(--split-pane-content-top-offset);
       }
       @include media.min-width(large) {
-        padding-top: var(--header-offset, 0px);
+        padding-top: var(--header-offset, 0);
       }
     }
 
