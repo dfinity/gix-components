@@ -321,53 +321,51 @@ describe("Input", () => {
       testGetAttribute({ container, attribute: "type", expected: "text" });
     });
 
-    it("should bind value", () =>
-      new Promise<void>((done) => {
-        const { container, component } = render(InputValueTest, {
-          props: {
-            ...props,
-            inputType: "icp",
-          },
-        });
+    it("should bind value", () => {
+      const testProps = $state({
+        ...props,
+        inputType: "icp" as const,
+        amount: undefined,
+      });
 
-        const input: HTMLInputElement | null = container.querySelector("input");
+      const { container } = render(InputValueTest, {
+        props: testProps,
+      });
 
-        if (isNullish(input)) {
-          throw new Error("No input");
-        }
+      const input: HTMLInputElement | null = container.querySelector("input");
 
-        fireEvent.input(input, { target: { value: "100" } });
-        expect(input.value).toBe("100");
+      if (isNullish(input)) {
+        throw new Error("No input");
+      }
 
-        component.$on("testAmount", ({ detail }) => {
-          expect(detail.amount).toBe(100);
-          done();
-        });
-      }));
+      fireEvent.input(input, { target: { value: "100" } });
+      expect(input.value).toBe("100");
 
-    it("should bind value as string", () =>
-      new Promise<void>((done) => {
-        const { container, component } = render(InputValueTest, {
-          props: {
-            ...props,
-            inputType: "currency",
-            decimals: 18,
-          },
-        });
+      expect(testProps.amount).toBe(100);
+    });
 
-        const input: HTMLInputElement | null = container.querySelector("input");
-        assertNonNullish(input);
+    it("should bind value as string", () => {
+      const ethValue = "0.000000094829004242";
 
-        const ethValue = "0.000000094829004242";
+      const testProps = $state({
+        ...props,
+        inputType: "currency" as const,
+        decimals: 18,
+        amount: undefined,
+      });
 
-        fireEvent.input(input, { target: { value: ethValue } });
-        expect(input.value).toBe(ethValue);
+      const { container } = render(InputValueTest, {
+        props: testProps,
+      });
 
-        component.$on("testAmount", ({ detail }) => {
-          expect(detail.amount).toBe(ethValue);
-          done();
-        });
-      }));
+      const input: HTMLInputElement | null = container.querySelector("input");
+      assertNonNullish(input);
+
+      fireEvent.input(input, { target: { value: ethValue } });
+      expect(input.value).toBe(ethValue);
+
+      expect(testProps.amount).toBe(ethValue);
+    });
 
     it("should not accept not icp formatted changed", async () => {
       const { container } = render(Input, {
@@ -400,30 +398,29 @@ describe("Input", () => {
       expect(input.value).toBe(".0000001");
     });
 
-    it('should replace "" with undefined', () =>
-      new Promise<void>((done) => {
-        const { container, component } = render(InputValueTest, {
-          props: {
-            ...props,
-            value: "0",
-            inputType: "icp",
-          },
-        });
+    it('should replace "" with undefined', () => {
+      const testProps = $state({
+        ...props,
+        value: "0",
+        inputType: "icp" as const,
+        amount: undefined,
+      });
 
-        const input: HTMLInputElement | null = container.querySelector("input");
+      const { container } = render(InputValueTest, {
+        props: testProps,
+      });
 
-        if (isNullish(input)) {
-          throw new Error("No input");
-        }
+      const input: HTMLInputElement | null = container.querySelector("input");
 
-        fireEvent.input(input, { target: { value: "" } });
-        expect(input.value).toBe("");
+      if (isNullish(input)) {
+        throw new Error("No input");
+      }
 
-        component.$on("testAmount", ({ detail }) => {
-          expect(detail.amount).toBe(undefined);
-          done();
-        });
-      }));
+      fireEvent.input(input, { target: { value: "" } });
+      expect(input.value).toBe("");
+
+      expect(testProps.amount).toBe(undefined);
+    });
 
     it("should avoid exponent formatted initial zero in icp mode", () => {
       const { container } = render(InputValueTest, {
@@ -449,12 +446,14 @@ describe("Input", () => {
     });
 
     it("should avoid exponent formatted on change in icp mode", async () => {
-      const { container, component } = render(Input, {
-        props: {
-          ...props,
-          value: "",
-          inputType: "icp",
-        },
+      const testProps = $state({
+        ...props,
+        value: "",
+        inputType: "icp" as const,
+      });
+
+      const { container } = render(Input, {
+        props: testProps,
       });
 
       const input: HTMLInputElement | null = container.querySelector("input");
@@ -463,7 +462,7 @@ describe("Input", () => {
         throw new Error("No input");
       }
 
-      component.$set({ value: 0.00000001 });
+      testProps.value = "0.00000001";
 
       // svelte does not update the dom immediately
       expect(input.value).toBe("");
@@ -518,29 +517,27 @@ describe("Input", () => {
       expect(input.value).toBe("0.000000011231232121");
     });
 
-    it("should not round custom decimals with JS imprecision", () =>
-      new Promise<void>((done) => {
-        const { container, component } = render(InputValueTest, {
-          props: {
-            ...props,
-            value: "0.12",
-            inputType: "currency",
-            decimals: 18,
-          },
-        });
+    it("should not round custom decimals with JS imprecision", () => {
+      const testProps = $state({
+        ...props,
+        value: "0.12",
+        inputType: "currency" as const,
+        decimals: 18,
+        amount: undefined,
+      });
 
-        const input: HTMLInputElement | null = container.querySelector("input");
-        assertNonNullish(input);
+      const { container } = render(InputValueTest, {
+        props: testProps,
+      });
 
-        fireEvent.input(input, { target: { value: "0.122" } });
+      const input: HTMLInputElement | null = container.querySelector("input");
+      assertNonNullish(input);
 
-        component.$on("testAmount", ({ detail }) => {
-          // Example if the input would be rounded with Number(value).toFixed(18)
-          expect(detail.amount).not.toBe("0.121999999999999997");
-          expect(detail.amount).toBe("0.122");
-          done();
-        });
-      }));
+      fireEvent.input(input, { target: { value: "0.122" } });
+
+      expect(testProps.amount).not.toBe("0.121999999999999997");
+      expect(testProps.amount).toBe("0.122");
+    });
   });
 
   it("should bind input element", async () => {
