@@ -7,11 +7,14 @@
   import { onDestroy } from "svelte";
   import ContentBackdrop from "$lib/components/ContentBackdrop.svelte";
   import Header from "$lib/components/Header.svelte";
+  import ScrollSentinel from "$lib/components/ScrollSentinel.svelte";
 
   export let back = false;
 
   // Observed: nested component - bottom sheet - might not call destroy when navigating route and therefore offset might not be reseted which is not the case here
   onDestroy(() => ($layoutBottomOffset = 0));
+
+  let scrollContainer: HTMLDivElement;
 </script>
 
 <div
@@ -25,9 +28,13 @@
     <slot name="toolbar-end" slot="toolbar-end" />
   </Header>
 
-  <div class="scrollable-content" class:open={$layoutMenuOpen}>
+  <div
+    class="scrollable-content"
+    class:open={$layoutMenuOpen}
+    bind:this={scrollContainer}
+  >
     <ContentBackdrop />
-
+    <ScrollSentinel {scrollContainer} />
     <slot />
   </div>
 </div>
