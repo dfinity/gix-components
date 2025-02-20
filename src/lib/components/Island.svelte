@@ -2,7 +2,6 @@
   import { onDestroy } from "svelte";
   import { layoutContentScrollY } from "$lib/stores/layout.store";
   import { BREAKPOINT_LARGE } from "$lib/constants/constants";
-  import ScrollSentinel from "$lib/components/ScrollSentinel.svelte";
 
   export let testId: string | undefined = undefined;
 
@@ -11,15 +10,12 @@
     layoutContentScrollY.set(innerWidth < BREAKPOINT_LARGE ? "auto" : "hidden");
 
   onDestroy(() => layoutContentScrollY.set("auto"));
-
-  let scrollContainer: HTMLElement;
 </script>
 
 <svelte:window bind:innerWidth />
 
 <div class="island" data-tid={testId}>
-  <div class="scrollable-island" bind:this={scrollContainer}>
-    <ScrollSentinel {scrollContainer} />
+  <div class="scrollable-island">
     <slot />
   </div>
 </div>
