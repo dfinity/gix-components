@@ -1,8 +1,5 @@
 <script lang="ts">
-  import {
-    layoutContentTopHidden,
-    layoutMenuOpen,
-  } from "$lib/stores/layout.store";
+  import { layoutMenuOpen } from "$lib/stores/layout.store";
 
   let innerWidth = 0;
 
@@ -21,7 +18,7 @@
 
 <svelte:window bind:innerWidth />
 
-<div class="split-pane" class:header-hidden={$layoutContentTopHidden}>
+<div class="split-pane">
   <slot name="menu" />
   <slot />
 </div>
@@ -45,18 +42,6 @@
       var(--header-offset, 0px) + var(--header-height)
     );
     padding-top: var(--split-pane-content-top-offset);
-    transition: padding-top var(--animation-time-normal) ease;
-
-    &.header-hidden {
-      padding-top: 0;
-      // Reset on tablet+
-      @include media.min-width(medium) {
-        padding-top: var(--split-pane-content-top-offset);
-      }
-      @include media.min-width(large) {
-        padding-top: var(--header-offset, 0);
-      }
-    }
 
     :global(header) {
       position: fixed;

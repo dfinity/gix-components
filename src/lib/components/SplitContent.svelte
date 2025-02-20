@@ -7,7 +7,6 @@
   } from "$lib/stores/layout.store";
   import Header from "$lib/components/Header.svelte";
   import ContentBackdrop from "$lib/components/ContentBackdrop.svelte";
-  import ScrollSentinel from "$lib/components/ScrollSentinel.svelte";
 
   export let back = false;
   export const resetScrollPosition = () => {
@@ -44,7 +43,6 @@
     <div class="scrollable-content-end" bind:this={scrollableElement}>
       <ContentBackdrop />
 
-      <ScrollSentinel scrollContainer={scrollableElement} />
       <slot name="end" />
     </div>
   </div>
