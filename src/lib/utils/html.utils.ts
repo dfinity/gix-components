@@ -51,13 +51,14 @@ export const sanitize = (text: string): string => {
     if (isNullish(domPurify)) {
       if (typeof DOMPurify.sanitize === "function") {
         domPurify = DOMPurify;
+        // @ts-expect-error For testing purpose only.
       } else if (typeof global.DOMPurify.sanitize === "function") {
-        // utilize NodeJS version
-        domPurify = global.DOMPurify;
+        // @ts-expect-error For testing purpose only.
+        domPurify = global.DOMPurify as unknown as typeof DOMPurify;
       }
 
       // Preserve target="blank" workaround
-      domPurify?.addHook("beforeSanitizeElements", flagTargetAttributeHook);
+      domPurify?.addHook("beforeSanitizeAttributes", flagTargetAttributeHook);
       domPurify?.addHook("afterSanitizeAttributes", restoreTargetAttributeHook);
     }
 
