@@ -1,4 +1,4 @@
-# System Theme Listened
+# System Theme Listener
 
 A component that listens to changes in the users system/OS theme.
 
