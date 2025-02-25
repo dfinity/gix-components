@@ -240,6 +240,14 @@ export const COMPONENT_ROUTES: ComponentRoute[] = [
   },
 
   {
+    path: "/components/system-theme-listener",
+    title: "System Theme Listener",
+
+    description:
+      "A component that listens to changes in the users system/OS theme..",
+  },
+
+  {
     path: "/components/tag",
     title: "Tag",
     description:
