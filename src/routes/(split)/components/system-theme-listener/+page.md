@@ -23,5 +23,5 @@ A component that listens to changes in the users system/OS theme.
 ## Properties
 
 | Property      | Description                                                          | Type                                 | Default |
-| ------------- |----------------------------------------------------------------------| ------------------------------------ | ------- |
+| ------------- | -------------------------------------------------------------------- | ------------------------------------ | ------- |
 | `nnsOnChange` | Override default behavior of saving the selected theme to themeStore | `(prefersDarkMode: boolean) => void` |         |
