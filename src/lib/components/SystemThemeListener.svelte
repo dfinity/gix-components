@@ -21,9 +21,7 @@
   };
 
   // Register change event on mount
-  onMount(() =>
-    matchMediaDark.addEventListener("change", updateThemeOnChange),
-  );
+  onMount(() => matchMediaDark.addEventListener("change", updateThemeOnChange));
 
   // Clean up if this component is destroyed
   onDestroy(() =>
