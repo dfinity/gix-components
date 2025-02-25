@@ -3,7 +3,7 @@
   import { themeStore } from "$lib/stores/theme.store";
   import { isThemeSelected } from "$lib/utils/theme.utils";
 
-  export let nnsOnChange: undefined | ((isDarkMode: boolean) => void);
+  export let nnsOnChange: null | ((isDarkMode: boolean) => void) = null;
 
   // Set up our MediaQueryList
   const matchMediaDark = window.matchMedia("(prefers-color-scheme: dark)");
