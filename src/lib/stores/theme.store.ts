@@ -3,7 +3,7 @@ import {
   applyTheme,
   getThemeFromSystemSettings,
   initTheme,
-  resetTheme,
+  resetTheme
 } from "$lib/utils/theme.utils";
 import { writable, type Readable } from "svelte/store";
 

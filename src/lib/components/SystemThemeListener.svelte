@@ -1,20 +1,20 @@
 <script lang="ts">
   import { onDestroy, onMount } from "svelte";
-  import { themeStore } from "$lib";
-  import { LOCALSTORAGE_THEME_KEY } from "$lib/utils/theme.utils.js";
+  import { themeStore } from "$lib/stores/theme.store";
+  import { isThemeSelected } from "$lib/utils/theme.utils";
 
   export let nnsOnChange: undefined | ((isDarkMode: boolean) => void);
 
   // Set up our MediaQueryList
-  const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)");
+  const matchMediaDark = window.matchMedia("(prefers-color-scheme: dark)");
 
   // Update the store if OS preference changes
   const updateThemeOnChange = () => {
     if (nnsOnChange) {
-      nnsOnChange(prefersDarkMode.matches);
+      nnsOnChange(matchMediaDark.matches);
     } else {
       // Only reset to system theme if no specific preference has been selected
-      if (window.localStorage.getItem(LOCALSTORAGE_THEME_KEY) !== null) return;
+      if (isThemeSelected()) return;
 
       themeStore.resetToSystemSettings();
     }
@@ -22,11 +22,11 @@
 
   // Register change event on mount
   onMount(() =>
-    prefersDarkMode.addEventListener("change", updateThemeOnChange),
+    matchMediaDark.addEventListener("change", updateThemeOnChange),
   );
 
   // Clean up if this component is destroyed
   onDestroy(() =>
-    prefersDarkMode.removeEventListener("change", updateThemeOnChange),
+    matchMediaDark.removeEventListener("change", updateThemeOnChange),
   );
 </script>
