@@ -1,5 +1,6 @@
 import { Theme } from "$lib/types/theme";
 import { isNode } from "$lib/utils/env.utils";
+import { notEmptyString } from "@dfinity/utils";
 import { enumFromStringExists } from "./enum.utils";
 
 export const THEME_ATTRIBUTE = "theme";
@@ -64,3 +65,6 @@ export const resetTheme = (theme: Theme) => {
 
   applyTheme({ theme, preserve: false });
 };
+
+export const isThemeSelected = (): boolean =>
+  notEmptyString(localStorage.getItem(LOCALSTORAGE_THEME_KEY));
