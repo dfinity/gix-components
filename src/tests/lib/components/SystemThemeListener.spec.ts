@@ -6,14 +6,18 @@ import { get } from "svelte/store";
 
 describe("SystemThemeListener", () => {
   // Mock match media window events
-  const listeners: {[key: string]: (() => void) | undefined} = {};
+  const listeners: {[key: string]: ((e: Partial<MediaQueryListEvent>) => void) | undefined} = {};
 
   const mockMatchMedia = vi.fn((query) => ({
     matches: query === '(prefers-color-scheme: dark)',
     media: query,
-    addEventListener: (name: string, handler: () => void) => listeners[name] = handler,
-    removeEventListener: (name: string) => listeners[name] = undefined,
-    dispatchEvent: (event: Event) => listeners[event.type]?.(),
+    addEventListener: (name: string, handler: (e: Partial<MediaQueryListEvent>) => void) => {
+      listeners[name] = handler
+    },
+    removeEventListener: (name: string, handler: (e: Partial<MediaQueryListEvent>) => void) => {
+      if (listeners[name] === handler) listeners[name] = undefined;
+    },
+    dispatchEvent: (event: Partial<MediaQueryListEvent>) => listeners[event.type || ""]?.({matches: true}),
   }));
 
   vi.stubGlobal('matchMedia', mockMatchMedia);
@@ -68,11 +72,11 @@ describe("SystemThemeListener", () => {
     const expectedTestValue = "changed";
     let testValue = initialTestValue;
 
-    render(SystemThemeListener, {props: {
-      nnsOnChange: () => {
-        testValue = expectedTestValue;
-      }
-      }});
+    const listenerRender = render(SystemThemeListener);
+
+    listenerRender.component.$on("nnsSystemThemeChange", (e) => {
+      testValue = expectedTestValue;
+    });
 
     // Set theme to light initially
     themeStore.select(Theme.LIGHT);
@@ -92,6 +96,38 @@ describe("SystemThemeListener", () => {
     mediaQueryList.dispatchEvent(changeEvent);
 
     expect(get(themeStore)).toEqual(Theme.LIGHT);
+    expect(testValue).toEqual(expectedTestValue);
+  });
+
+
+  it("should run custom event handler and receive media query event data", () => {
+    const initialTestValue = "";
+    const expectedTestValue = "dark mode";
+    let testValue = initialTestValue;
+
+    const listenerRender = render(SystemThemeListener);
+
+    listenerRender.component.$on("nnsSystemThemeChange", (e: CustomEvent<MediaQueryListEvent>) => {
+      testValue = e.detail.matches ? "dark mode" : "light mode";
+    });
+
+    // Set theme to light initially
+    themeStore.select(Theme.LIGHT);
+
+    // Init change event
+    const changeEvent = new Event('change', {
+      bubbles: true,
+      cancelable: true
+    });
+
+    // Modify the event object to simulate the new theme state (e.g., matches = true for dark mode)
+    Object.defineProperty(changeEvent, 'matches', {
+      value: true, // Simulate dark mode
+    });
+
+    const mediaQueryList = window.matchMedia('(prefers-color-scheme: dark)');
+    mediaQueryList.dispatchEvent(changeEvent);
+
     expect(testValue).toEqual(expectedTestValue);
   });
 

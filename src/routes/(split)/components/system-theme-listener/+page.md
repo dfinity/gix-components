@@ -10,18 +10,24 @@ A component that listens to changes in the users system/OS theme.
 
 > By default, the newly selected theme will be saved in themeStore (as long as a theme has not been explicitly selected / system setting is selected).
 >
-> You may also pass a custom event handler which overrides the default behavior
+> You may also pass a custom event handler to extend/add to this behavior:
 
 ```javascript
 <SystemThemeListener
-  nnsOnChange={(prefersDarkMode) =>
-    console.log(`User selected ${prefersDarkMode ? "dark" : "light"} mode`)
+  on:nnsSystemThemeChange={(e: CustomEvent<MediaQueryListEvent>) =>
+    console.log(`User selected ${e.detail.matches ? "dark" : "light"} mode`)
   }
 />
 ```
 
-## Properties
+## Slots
 
-| Property      | Description                                                          | Type                                 | Default |
-| ------------- | -------------------------------------------------------------------- | ------------------------------------ | ------- |
-| `nnsOnChange` | Override default behavior of saving the selected theme to themeStore | `(prefersDarkMode: boolean) => void` |         |
+| Slot name     | Description                                                                                                                                                                                                                                                         |
+| ------------- |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Default slot  | Renders wrapped components<br/><br/>**Note:** Even though you can wrap other elements, the event listener that gets registered is global and not only applied to child elements, so it will always trigger as long as the SystemThemeListener component is mounted. |
+
+## Events
+
+| Event                  | Description                             | Detail                           |
+|------------------------|-----------------------------------------|----------------------------------|
+| `nnsSystemThemeChange` | Triggered when the system theme changes | `CustomEvent<MediaQueryListEvent>` |
