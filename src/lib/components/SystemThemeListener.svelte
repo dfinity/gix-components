@@ -19,14 +19,12 @@
   };
 
   // Register change event on mount
-  onMount(() =>
-    matchMediaDark.addEventListener("change", updateThemeOnChange)
-  );
+  onMount(() => matchMediaDark.addEventListener("change", updateThemeOnChange));
 
   // Clean up if this component is destroyed
   onDestroy(() =>
-    matchMediaDark.removeEventListener("change", updateThemeOnChange)
+    matchMediaDark.removeEventListener("change", updateThemeOnChange),
   );
 </script>
 
-<slot/>
+<slot />

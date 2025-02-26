@@ -22,12 +22,12 @@ A component that listens to changes in the users system/OS theme.
 
 ## Slots
 
-| Slot name     | Description                                                                                                                                                                                                                                                         |
-| ------------- |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Default slot  | Renders wrapped components<br/><br/>**Note:** Even though you can wrap other elements, the event listener that gets registered is global and not only applied to child elements, so it will always trigger as long as the SystemThemeListener component is mounted. |
+| Slot name    | Description                                                                                                                                                                                                                                                         |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Default slot | Renders wrapped components<br/><br/>**Note:** Even though you can wrap other elements, the event listener that gets registered is global and not only applied to child elements, so it will always trigger as long as the SystemThemeListener component is mounted. |
 
 ## Events
 
-| Event                  | Description                             | Detail                           |
-|------------------------|-----------------------------------------|----------------------------------|
+| Event                  | Description                             | Detail                             |
+| ---------------------- | --------------------------------------- | ---------------------------------- |
 | `nnsSystemThemeChange` | Triggered when the system theme changes | `CustomEvent<MediaQueryListEvent>` |
