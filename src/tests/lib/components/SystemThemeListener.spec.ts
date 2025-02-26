@@ -81,7 +81,7 @@ describe("SystemThemeListener", () => {
 
     const listenerRender = render(SystemThemeListener);
 
-    listenerRender.component.$on("nnsSystemThemeChange", (e) => {
+    listenerRender.component.$on("nnsSystemThemeChange", () => {
       testValue = expectedTestValue;
     });
 
