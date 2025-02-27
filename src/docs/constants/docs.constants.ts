@@ -35,6 +35,13 @@ export const COMPONENT_ROUTES: ComponentRoute[] = [
   },
 
   {
+    path: "/components/chip-group",
+    title: "Chip Group",
+    description:
+      "Checkboxes allow the selection of multiple options from a set of options.",
+  },
+
+  {
     path: "/components/collapsible",
     title: "Collapsible",
     description: "A Collapsible toggle summary.",
