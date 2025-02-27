@@ -24,21 +24,32 @@
 
   .chip {
     @include button.base;
-    @include button.secondary;
-
-    // @include effect.ripple-effect(--card-background);
-
-    // Override default button styles
-    min-height: 0;
-    // Decrease padding to match default chip size
-    padding: calc(var(--padding) - var(--button-border-size))
-      calc(var(--padding-1_5x) - var(--button-border-size));
-    border-radius: var(--border-radius-5x);
     @include fonts.small(true);
 
+    // Override default button styles
+    padding: var(--padding) var(--padding-1_5x);
+    min-height: 0;
+    border: solid var(--button-border-size) var(--primary);
+    background: transparent;
+    color: var(--button-secondary-color);
+    border-radius: var(--border-radius-5x);
+
+    transition: all var(--animation-time-short) ease-in;
+
+    &:hover,
+    &:focus {
+      background: var(--button-card-focus-background);
+    }
+
     &.selected {
-      @include button.primary;
-      padding: var(--padding) var(--padding-1_5x);
+      background: var(--primary);
+      color: var(--primary-contrast);
+      pointer-events: none;
+
+      &:hover,
+      &:focus {
+        background: var(--primary);
+      }
     }
   }
 </style>
