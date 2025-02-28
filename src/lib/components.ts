@@ -44,6 +44,7 @@ export { default as Spinner } from "./components/Spinner.svelte";
 export { default as SplitBlock } from "./components/SplitBlock.svelte";
 export { default as SplitContent } from "./components/SplitContent.svelte";
 export { default as SplitPane } from "./components/SplitPane.svelte";
+export { default as SystemThemeListener } from "./components/SystemThemeListener.svelte";
 export { default as Tag } from "./components/Tag.svelte";
 export { default as ThemeToggle } from "./components/ThemeToggle.svelte";
 export { default as ThemeToggleButton } from "./components/ThemeToggleButton.svelte";
