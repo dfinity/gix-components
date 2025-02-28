@@ -37,8 +37,7 @@ export const COMPONENT_ROUTES: ComponentRoute[] = [
   {
     path: "/components/chip-group",
     title: "Chip Group",
-    description:
-      "Checkboxes allow the selection of multiple options from a set of options.",
+    description: "ChipGroup allows users to choose from multiple options.",
   },
 
   {
