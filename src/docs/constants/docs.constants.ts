@@ -35,6 +35,12 @@ export const COMPONENT_ROUTES: ComponentRoute[] = [
   },
 
   {
+    path: "/components/chip-group",
+    title: "Chip Group",
+    description: "ChipGroup allows users to choose from multiple options.",
+  },
+
+  {
     path: "/components/collapsible",
     title: "Collapsible",
     description: "A Collapsible toggle summary.",
