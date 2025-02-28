@@ -49,6 +49,7 @@ export interface ChipData {
       label: "January",
       selected: false
     },
+    // ...
   ];
   let nnsSelectDetail;
   const onNnsSelect = ({detail}) => nnsSelectDetail= detail;
