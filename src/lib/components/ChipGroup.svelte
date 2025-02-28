@@ -23,7 +23,12 @@
   };
 </script>
 
-<div data-tid={testId} class="chip-group">
+<div
+  data-tid={testId}
+  class="chip-group"
+  role="radiogroup"
+  aria-label="Options"
+>
   {#each chips as { id, label, selected } (id)}
     <Chip {id} {label} {selected} on:nnsClick={onChipClick} />
   {/each}

@@ -12,6 +12,8 @@
   class="chip"
   data-tid="chip-component"
   class:selected
+  role="radio"
+  aria-checked={selected}
   on:click={() => dispatch("nnsClick", id)}>{label}</button
 >
 
