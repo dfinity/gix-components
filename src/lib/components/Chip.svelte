@@ -5,8 +5,6 @@
   export let id: string;
   export let selected: boolean;
 
-  $: console.log(selected);
-
   const dispatch = createEventDispatcher();
 </script>
 
