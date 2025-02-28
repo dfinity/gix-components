@@ -32,6 +32,7 @@
 <style lang="scss">
   .chip-group {
     display: flex;
+    flex-wrap: wrap;
     gap: var(--padding-0_5x);
   }
 </style>
