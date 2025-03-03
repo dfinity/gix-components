@@ -5,7 +5,10 @@ export { default as BusyScreen } from "./components/BusyScreen.svelte";
 export { default as Card } from "./components/Card.svelte";
 export { default as Checkbox } from "./components/Checkbox.svelte";
 export { default as Chip } from "./components/Chip.svelte";
-export { default as ChipGroup } from "./components/ChipGroup.svelte";
+export {
+  default as ChipGroup,
+  type ChipData,
+} from "./components/ChipGroup.svelte";
 export { default as Collapsible } from "./components/Collapsible.svelte";
 export { default as Content } from "./components/Content.svelte";
 export { default as ContentBackdrop } from "./components/ContentBackdrop.svelte";
