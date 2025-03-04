@@ -1,8 +1,8 @@
 import { Theme, themeStore } from "$lib";
 import SystemThemeListener from "$lib/components/SystemThemeListener.svelte";
-import { render } from "@testing-library/svelte";
 import { get } from "svelte/store";
 import { vi } from "vitest";
+import { render } from "../../utils/render.test-utils";
 
 describe("SystemThemeListener", () => {
   // Mock match media window events
@@ -79,10 +79,12 @@ describe("SystemThemeListener", () => {
     const expectedTestValue = "changed";
     let testValue = initialTestValue;
 
-    const listenerRender = render(SystemThemeListener);
-
-    listenerRender.component.$on("nnsSystemThemeChange", () => {
-      testValue = expectedTestValue;
+    render(SystemThemeListener, {
+      events: {
+        nnsSystemThemeChange: () => {
+          testValue = expectedTestValue;
+        },
+      },
     });
 
     // Set theme to light initially
@@ -111,14 +113,13 @@ describe("SystemThemeListener", () => {
     const expectedTestValue = "dark mode";
     let testValue = initialTestValue;
 
-    const listenerRender = render(SystemThemeListener);
-
-    listenerRender.component.$on(
-      "nnsSystemThemeChange",
-      (e: CustomEvent<MediaQueryListEvent>) => {
-        testValue = e.detail.matches ? "dark mode" : "light mode";
+    render(SystemThemeListener, {
+      events: {
+        nnsSystemThemeChange: ($event: CustomEvent<MediaQueryListEvent>) => {
+          testValue = $event.detail.matches ? "dark mode" : "light mode";
+        },
       },
-    );
+    });
 
     // Set theme to light initially
     themeStore.select(Theme.LIGHT);
