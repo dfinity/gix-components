@@ -1,16 +1,9 @@
-<script lang="ts" context="module">
-  export interface ChipData {
-    label: string;
-    id: string;
-    selected: boolean;
-  }
-</script>
-
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
   import Chip from "./Chip.svelte";
+  import type { ChipGroupItem } from "../types/chip-group";
 
-  export let chips: ChipData[] = [];
+  export let chips: ChipGroupItem[] = [];
   export let testId: string = "chip-group-component";
 
   const dispatch = createEventDispatcher();

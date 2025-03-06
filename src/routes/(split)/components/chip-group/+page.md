@@ -28,10 +28,10 @@
 
 ChipGroup allows users to choose from multiple options. It’s possible to listen for the nnsSelect event (where the selected ID is provided in the event detail) or, alternatively, bind the chip property. The current implementation does not support multiple selections.
 
-### ChipData interface
+### ChipGroupItem interface
 
 ```typescript
-export interface ChipData {
+export interface ChipGroupItem {
   label: string;
   id: string;
   selected: boolean;
@@ -42,7 +42,7 @@ export interface ChipData {
 
 ```javascript
 <script>
-  // Items of ChipData
+  // Items of ChipGroupItem
   let chips = [
     {
       id: "jan",
@@ -60,16 +60,16 @@ export interface ChipData {
 
 ## Properties
 
-| Property | Description                | Type              | Default                |
-| -------- | -------------------------- | ----------------- | ---------------------- |
-| `chips`  | ChipData items to display. | `Array<ChipData>` |                        |
-| `testId` | Optional data-tid value.   | `string`          | `chip-group-component` |
+| Property | Description                     | Type                   | Default                |
+| -------- | ------------------------------- | ---------------------- | ---------------------- |
+| `chips`  | ChipGroupItem items to display. | `Array<ChipGroupItem>` |                        |
+| `testId` | Optional data-tid value.        | `string`               | `chip-group-component` |
 
 ## Events
 
-| Event       | Description                             | Detail      |
-| ----------- | --------------------------------------- | ----------- |
-| `nnsSelect` | Triggered when a user clicks on a Chip. | ChipData.id |
+| Event       | Description                             | Detail           |
+| ----------- | --------------------------------------- | ---------------- |
+| `nnsSelect` | Triggered when a user clicks on a Chip. | ChipGroupItem.id |
 
 ## Showcase
 
