@@ -1,7 +1,7 @@
 {
   "name": "@dfinity/gix-components",
   "description": "A UI kit developed by the GIX team",
-  "version": "5.0.0",
+  "version": "5.1.0",
   "license": "Apache-2.0",
   "scripts": {
     "dev": "npm run i18n && vite dev",
@@ -44,7 +44,7 @@
     "@junobuild/config": "^0.0.14",
     "@playwright/test": "^1.50.0",
     "@sveltejs/adapter-static": "^3.0.8",
-    "@sveltejs/kit": "^2.17.3",
+    "@sveltejs/kit": "^2.19.0",
     "@sveltejs/package": "^2.3.10",
     "@sveltejs/vite-plugin-svelte": "^5.0.3",
     "@testing-library/jest-dom": "^6.6.3",
@@ -64,16 +64,16 @@
     "prettier-plugin-organize-imports": "^4.0.0",
     "prettier-plugin-svelte": "^3.2.6",
     "sass": "^1.79.1",
-    "svelte-check": "^4.1.4",
+    "svelte-check": "^4.1.5",
     "svelte-preprocess": "^6.0.3",
-    "svelte2tsx": "^0.7.34",
+    "svelte2tsx": "^0.7.35",
     "typescript": "^5.3.3",
     "user-agent-data-types": "^0.4.2",
-    "vite": "^6.2.0",
-    "vitest": "^3.0.7"
+    "vite": "^6.2.1",
+    "vitest": "^3.0.8"
   },
   "dependencies": {
-    "dompurify": "^3.1.6",
+    "dompurify": "^3.2.4",
     "html5-qrcode": "^2.3.8",
     "marked": "^9.1.0",
     "qr-creator": "^1.0.0"
