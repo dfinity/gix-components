@@ -1,14 +1,13 @@
 <script lang="ts">
   import SplitPane from "$lib/components/SplitPane.svelte";
   import Menu from "$lib/components/Menu.svelte";
-  import type { ComponentType } from "svelte";
   import StretchPane from "$lib/components/StretchPane.svelte";
   import LogoNNS from "$lib/components/LogoNNS.svelte";
   import LogoOnChain from "$lib/components/LogoOnChain.svelte";
 
   export let layout: "split" | "stretch" = "split";
 
-  let component: ComponentType;
+  let component: typeof StretchPane | typeof SplitPane;
   $: component = layout === "stretch" ? StretchPane : SplitPane;
 </script>
 
