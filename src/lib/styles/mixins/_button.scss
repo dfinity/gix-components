@@ -1,6 +1,6 @@
 @use "./fonts";
 
-@mixin base {
+@mixin base($hasDisabled: true) {
   padding: var(--padding) var(--padding-2x);
 
   border-radius: var(--border-radius);
@@ -12,12 +12,14 @@
 
   font-weight: var(--font-weight-bold);
 
-  &[disabled],
-  &[disabled]:hover {
-    background: var(--button-disable-background);
-    color: var(--button-disable-color);
-    cursor: default;
-    box-shadow: none;
+  @if $hasDisabled {
+    &[disabled],
+    &[disabled]:hover {
+      background: var(--button-disable-background);
+      color: var(--button-disable-color);
+      cursor: default;
+      box-shadow: none;
+    }
   }
 
   &:focus {

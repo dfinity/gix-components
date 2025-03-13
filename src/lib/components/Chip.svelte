@@ -23,7 +23,7 @@
   @use "../styles/mixins/button";
 
   .chip {
-    @include button.base;
+    @include button.base(false);
     @include fonts.small(true);
 
     // Override default button styles
