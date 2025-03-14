@@ -174,7 +174,7 @@
   }
 
   .wrapper {
-    //margin-top: 0;
+    margin-top: 0;
     opacity: 0;
     visibility: hidden;
 
