@@ -200,12 +200,14 @@
     }
   }
 
-  .offset-content, .offset-content-scroll {
+  .offset-content,
+  .offset-content-scroll {
     &.wrapper {
       margin: 0 calc(var(--padding) * -1);
     }
     &.expanded {
-      margin: 0 calc(var(--padding) * -1) calc(var(--padding) * -1) calc(var(--padding) * -1);
+      margin: 0 calc(var(--padding) * -1) calc(var(--padding) * -1)
+        calc(var(--padding) * -1);
     }
 
     .content {
@@ -215,7 +217,8 @@
 
   .offset-content-scroll {
     &.expanded {
-      margin: var(--padding) calc(var(--padding) * -1) calc(var(--padding) * -1) calc(var(--padding) * -1);
+      margin: var(--padding) calc(var(--padding) * -1) calc(var(--padding) * -1)
+        calc(var(--padding) * -1);
     }
   }
 </style>
