@@ -15,6 +15,7 @@
   export let expandButton = true;
   export let externalToggle = false;
   export let wrapHeight = false;
+  export let offsetContent = false;
 
   // Minimum height when some part of the text-content is visible (empirical value)
   const CONTENT_MIN_HEIGHT = 40;
@@ -97,6 +98,8 @@
     role="definition"
     class="wrapper"
     class:expanded
+    class:offset-content={offsetContent && !maxContentHeight}
+    class:offset-content-scroll={offsetContent && maxContentHeight}
     style={`${maxHeightStyle(maxHeight)}${overflyYStyle(maxHeight)}`}
   >
     <div
@@ -171,7 +174,7 @@
   }
 
   .wrapper {
-    margin-top: 0;
+    //margin-top: 0;
     opacity: 0;
     visibility: hidden;
 
@@ -194,6 +197,25 @@
     &:not(.wrapHeight) {
       // to not stick the content to the bottom
       padding-bottom: var(--padding);
+    }
+  }
+
+  .offset-content, .offset-content-scroll {
+    &.wrapper {
+      margin: 0 calc(var(--padding) * -1);
+    }
+    &.expanded {
+      margin: 0 calc(var(--padding) * -1) calc(var(--padding) * -1) calc(var(--padding) * -1);
+    }
+
+    .content {
+      padding: var(--padding);
+    }
+  }
+
+  .offset-content-scroll {
+    &.expanded {
+      margin: var(--padding) calc(var(--padding) * -1) calc(var(--padding) * -1) calc(var(--padding) * -1);
     }
   }
 </style>
