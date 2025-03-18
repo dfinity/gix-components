@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { createEventDispatcher } from "svelte";
   import { isNullish, nonNullish } from "@dfinity/utils";
+  import { createEventDispatcher } from "svelte";
 
   export let name: string;
   export let inputType: "icp" | "number" | "text" | "currency" = "number";
@@ -158,6 +158,9 @@
 
   let displayInnerEnd: boolean;
   $: displayInnerEnd = nonNullish($$slots["inner-end"]);
+
+  let displayBottom: boolean;
+  $: displayBottom = nonNullish($$slots["bottom"]);
 </script>
 
 <div class="input-block" class:disabled>
@@ -168,7 +171,7 @@
       <slot name="end" />
     </div>
   {/if}
-  <div class="input-field">
+  <div class="input-field" class:withBottom={displayBottom}>
     <input
       bind:this={inputElement}
       data-tid={testId}
@@ -194,6 +197,12 @@
     {#if displayInnerEnd}
       <div class="inner-end-slot">
         <slot name="inner-end" />
+      </div>
+    {/if}
+
+    {#if displayBottom}
+      <div class="bottom-slot">
+        <slot name="bottom" />
       </div>
     {/if}
   </div>
@@ -258,6 +267,16 @@
 
   .input-field {
     position: relative;
+  }
+
+  .withBottom {
+    background-color: var(--input-border-color);
+    border-radius: var(--border-radius);
+
+    input {
+      padding-top: var(--padding-3x);
+      padding-bottom: var(--padding-3x);
+    }
   }
 
   .inner-end {
