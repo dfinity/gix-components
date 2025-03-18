@@ -171,34 +171,36 @@
       <slot name="end" />
     </div>
   {/if}
-  <div class="input-field" class:withBottom={displayBottom}>
-    <input
-      bind:this={inputElement}
-      data-tid={testId}
-      type={currency ? "text" : inputType}
-      {required}
-      {spellcheck}
-      {name}
-      id={name}
-      {step}
-      {disabled}
-      value={currency ? currencyValue : value}
-      minlength={minLength}
-      {placeholder}
-      {max}
-      {autocomplete}
-      on:blur
-      on:focus
-      on:input={handleInput}
-      on:keydown={handleKeyDown}
-      class:inner-end={displayInnerEnd}
-      data-1p-ignore={ignore1Password}
-    />
-    {#if displayInnerEnd}
-      <div class="inner-end-slot">
-        <slot name="inner-end" />
-      </div>
-    {/if}
+  <div class:with-bottom={displayBottom}>
+    <div class="input-field">
+      <input
+        bind:this={inputElement}
+        data-tid={testId}
+        type={currency ? "text" : inputType}
+        {required}
+        {spellcheck}
+        {name}
+        id={name}
+        {step}
+        {disabled}
+        value={currency ? currencyValue : value}
+        minlength={minLength}
+        {placeholder}
+        {max}
+        {autocomplete}
+        on:blur
+        on:focus
+        on:input={handleInput}
+        on:keydown={handleKeyDown}
+        class:inner-end={displayInnerEnd}
+        data-1p-ignore={ignore1Password}
+      />
+      {#if displayInnerEnd}
+        <div class="inner-end-slot">
+          <slot name="inner-end" />
+        </div>
+      {/if}
+    </div>
 
     {#if displayBottom}
       <div class="bottom-slot">
@@ -269,16 +271,6 @@
     position: relative;
   }
 
-  .withBottom {
-    background-color: var(--input-border-color);
-    border-radius: var(--border-radius);
-
-    input {
-      padding-top: var(--padding-3x);
-      padding-bottom: var(--padding-3x);
-    }
-  }
-
   .inner-end {
     padding-right: var(--input-padding-inner-end, 64px);
   }
@@ -289,5 +281,15 @@
     right: 0;
     transform: translate(0, -50%);
     padding: var(--padding) var(--padding-2x);
+  }
+
+  .with-bottom {
+    background-color: var(--input-border-color);
+    border-radius: var(--border-radius);
+
+    input {
+      padding-top: var(--padding-3x);
+      padding-bottom: var(--padding-3x);
+    }
   }
 </style>

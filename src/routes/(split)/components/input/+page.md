@@ -83,4 +83,12 @@ Both slots are displayed `flex` with `space-between`.
         </div>
     </Input>
 
+    <Input placeholder="Input text" inputType="text" value="">
+        <IconQRCodeScanner slot="inner-end" />
+
+        <div slot="bottom">
+           <p>A slot to show stuff below the input field</p>
+        </div>
+    </Input>
+
 </div>
