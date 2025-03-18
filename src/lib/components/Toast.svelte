@@ -8,7 +8,7 @@
     ToastPosition,
     ToastTheme,
   } from "$lib/types/toast";
-  import { onDestroy, onMount, type ComponentType } from "svelte";
+  import { onDestroy, onMount, type Component } from "svelte";
   import Spinner from "./Spinner.svelte";
   import IconWarning from "$lib/icons/IconWarning.svelte";
   import IconClose from "$lib/icons/IconClose.svelte";
@@ -21,7 +21,7 @@
 
   export let msg: ToastMsg;
 
-  const iconMapper = (level: ToastLevel): ComponentType | undefined =>
+  const iconMapper = (level: ToastLevel): Component | undefined =>
     ({
       ["success"]: IconCheckCircle,
       ["warn"]: IconWarning,
@@ -38,7 +38,7 @@
   let title: string | undefined;
   let overflow: "scroll" | "truncate" | "clamp" | undefined;
   let position: ToastPosition | undefined;
-  let icon: ComponentType | undefined;
+  let icon: Component | undefined;
   let theme: ToastTheme | undefined;
   let renderAsHtml: boolean | undefined;
 
