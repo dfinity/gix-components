@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { createEventDispatcher } from "svelte";
   import { isNullish, nonNullish } from "@dfinity/utils";
+  import { createEventDispatcher } from "svelte";
 
   export let name: string;
   export let inputType: "icp" | "number" | "text" | "currency" = "number";
@@ -158,6 +158,9 @@
 
   let displayInnerEnd: boolean;
   $: displayInnerEnd = nonNullish($$slots["inner-end"]);
+
+  let displayBottom: boolean;
+  $: displayBottom = nonNullish($$slots["bottom"]);
 </script>
 
 <div class="input-block" class:disabled>
@@ -168,32 +171,40 @@
       <slot name="end" />
     </div>
   {/if}
-  <div class="input-field">
-    <input
-      bind:this={inputElement}
-      data-tid={testId}
-      type={currency ? "text" : inputType}
-      {required}
-      {spellcheck}
-      {name}
-      id={name}
-      {step}
-      {disabled}
-      value={currency ? currencyValue : value}
-      minlength={minLength}
-      {placeholder}
-      {max}
-      {autocomplete}
-      on:blur
-      on:focus
-      on:input={handleInput}
-      on:keydown={handleKeyDown}
-      class:inner-end={displayInnerEnd}
-      data-1p-ignore={ignore1Password}
-    />
-    {#if displayInnerEnd}
-      <div class="inner-end-slot">
-        <slot name="inner-end" />
+  <div class:with-bottom={displayBottom}>
+    <div class="input-field">
+      <input
+        bind:this={inputElement}
+        data-tid={testId}
+        type={currency ? "text" : inputType}
+        {required}
+        {spellcheck}
+        {name}
+        id={name}
+        {step}
+        {disabled}
+        value={currency ? currencyValue : value}
+        minlength={minLength}
+        {placeholder}
+        {max}
+        {autocomplete}
+        on:blur
+        on:focus
+        on:input={handleInput}
+        on:keydown={handleKeyDown}
+        class:inner-end={displayInnerEnd}
+        data-1p-ignore={ignore1Password}
+      />
+      {#if displayInnerEnd}
+        <div class="inner-end-slot">
+          <slot name="inner-end" />
+        </div>
+      {/if}
+    </div>
+
+    {#if displayBottom}
+      <div class="bottom-slot">
+        <slot name="bottom" />
       </div>
     {/if}
   </div>
@@ -270,5 +281,15 @@
     right: 0;
     transform: translate(0, -50%);
     padding: var(--padding) var(--padding-2x);
+  }
+
+  .with-bottom {
+    background-color: var(--input-border-color);
+    border-radius: var(--border-radius);
+
+    input {
+      padding-top: var(--padding-3x);
+      padding-bottom: var(--padding-3x);
+    }
   }
 </style>
