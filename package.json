@@ -45,7 +45,7 @@
     "@sveltejs/adapter-static": "^3.0.5",
     "@sveltejs/kit": "^2.5.28",
     "@sveltejs/package": "^2.3.5",
-    "@sveltejs/vite-plugin-svelte": "^3.1.2",
+    "@sveltejs/vite-plugin-svelte": "^5.0.3",
     "@testing-library/jest-dom": "^6.5.0",
     "@testing-library/svelte": "^5.2.1",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
@@ -67,8 +67,8 @@
     "svelte2tsx": "^0.7.19",
     "typescript": "^5.3.3",
     "user-agent-data-types": "^0.4.2",
-    "vite": "^5.4.6",
-    "vitest": "^2.1.9"
+    "vite": "^6.2.2",
+    "vitest": "^3.0.9"
   },
   "dependencies": {
     "dompurify": "^3.2.4",
