@@ -1,4 +1,4 @@
-import type { ComponentType } from "svelte";
+import type { Component } from "svelte";
 
 export type ToastLevel = "success" | "warn" | "error" | "info" | "custom";
 
@@ -15,7 +15,7 @@ export interface ToastMsg {
   duration?: number;
   position?: ToastPosition;
   overflow?: "scroll" | "truncate" | "clamp";
-  icon?: ComponentType;
+  icon?: Component;
   theme?: ToastTheme;
   renderAsHtml?: boolean;
 }

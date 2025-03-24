@@ -51,10 +51,12 @@ export const sanitize = (text: string): string => {
     if (isNullish(domPurify)) {
       if (typeof DOMPurify.sanitize === "function") {
         domPurify = DOMPurify;
-        // @ts-expect-error For testing purpose only.
-      } else if (typeof global.DOMPurify.sanitize === "function") {
-        // @ts-expect-error For testing purpose only.
-        domPurify = global.DOMPurify as unknown as typeof DOMPurify;
+      } else {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        if (typeof (global as any).DOMPurify.sanitize === "function") {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          domPurify = (global as any).DOMPurify as unknown as typeof DOMPurify;
+        }
       }
 
       // Preserve target="blank" workaround

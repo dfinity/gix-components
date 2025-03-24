@@ -123,7 +123,7 @@ A toast message can be created with following properties.
 | `duration`     | A timeout (in milliseconds) after which the toast automatically disappear.                                   | `number`                                 |           |
 | `position`     | The position of the toast. A related `<Toasts />` component should be declared in order to use the position. | `bottom` or `top`                        |           |
 | `overflow`     | By default, a text content of a toast is scrollbable. This option truncate or clamp the text and title.      | `scroll` or `truncate` or `clamp`        |           |
-| `icon`         | A custom icon to be displayed before the text of the toast.                                                  | `ComponentType`                          |           |
+| `icon`         | A custom icon to be displayed before the text of the toast.                                                  | `Component`                              |           |
 | `renderAsHtml` | Whether the `text` should be rendered as HTML.                                                               | `boolean`                                |           |
 
 ## Showcase
