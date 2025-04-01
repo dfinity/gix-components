@@ -162,6 +162,10 @@
         margin: 0 0 calc(var(--alert-padding-y) / 2);
         padding: calc(var(--alert-padding-y) / 2)
           calc(var(--alert-padding-x) / 2) 0;
+
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
       }
 
       .footer {
