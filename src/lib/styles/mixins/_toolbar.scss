@@ -24,9 +24,5 @@
       grid-template-columns: max-content;
       justify-content: end;
     }
-
-    /* :has(> :global(button):nth-child(2):last-child) {
-      grid-template-columns: 1fr 1fr;
-    } */
   }
 }
