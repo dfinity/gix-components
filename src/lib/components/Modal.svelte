@@ -1,13 +1,13 @@
 <script lang="ts">
-  import { fade } from "svelte/transition";
-  import { createEventDispatcher } from "svelte";
-  import { i18n } from "$lib/stores/i18n";
-  import IconClose from "$lib/icons/IconClose.svelte";
   import Backdrop from "$lib/components/Backdrop.svelte";
-  import { nonNullish } from "@dfinity/utils";
-  import { nextElementId } from "$lib/utils/html.utils";
+  import IconClose from "$lib/icons/IconClose.svelte";
   import { busy } from "$lib/stores/busy.store";
+  import { i18n } from "$lib/stores/i18n";
+  import { nextElementId } from "$lib/utils/html.utils";
+  import { nonNullish } from "@dfinity/utils";
+  import { createEventDispatcher } from "svelte";
   import { get } from "svelte/store";
+  import { fade } from "svelte/transition";
 
   export let visible = true;
   export let role: "dialog" | "alert" = "dialog";
@@ -162,6 +162,10 @@
         margin: 0 0 calc(var(--alert-padding-y) / 2);
         padding: calc(var(--alert-padding-y) / 2)
           calc(var(--alert-padding-x) / 2) 0;
+
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
       }
 
       .footer {
@@ -202,6 +206,9 @@
       .content {
         margin: 0;
         padding: var(--dialog-padding-y) var(--dialog-padding-x);
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
       }
     }
   }
