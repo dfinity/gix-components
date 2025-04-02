@@ -8,11 +8,11 @@ on:
 
 jobs:
   formatting:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
 
     # In order to trigger other workflows after committing formatting changes, we need
     # to use the PR Automation App. This secret is not available for external
-    # contributors. So on PRs that can't acces the secret, we don't commit changes and instead just 
+    # contributors. So on PRs that can't acces the secret, we don't commit changes and instead just
     # fail if the formatting changes are needed.
     steps:
       - name: Check if commits can be added
@@ -74,7 +74,7 @@ jobs:
           exit 1
 
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
 
     steps:
       - name: Checkout
@@ -85,7 +85,7 @@ jobs:
         run: npm run build
 
   lint:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
 
     steps:
       - name: Checkout
@@ -96,7 +96,7 @@ jobs:
         run: npm run lint -- --max-warnings 0
 
   test:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
 
     steps:
       - name: Checkout
@@ -109,7 +109,7 @@ jobs:
         run: npm run test
 
   e2e:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     timeout-minutes: 60
 
     steps:
@@ -140,7 +140,7 @@ jobs:
 
   may-merge:
     needs: ["formatting", "build", "lint", "test", "e2e"]
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
       - name: Cleared for merging
         run: echo OK
