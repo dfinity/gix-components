@@ -1,6 +1,7 @@
 <!-- source: DFINITY foundation -->
 <script lang="ts">
   const DEFAULT_SIZE = 40;
+
   export let size = `${DEFAULT_SIZE}px`;
 </script>
 
