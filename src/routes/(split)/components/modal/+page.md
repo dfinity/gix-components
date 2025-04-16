@@ -37,12 +37,14 @@ A Modal is a dialog that appears on top of the app's content, and must be dismis
 
 ## Slots
 
-| Slot name    | Description                                                                                  |
-| ------------ | -------------------------------------------------------------------------------------------- |
-| Default slot | The content of the modal.                                                                    |
-| `title`      | The title of the modal. Displayed in a toolbar with a "Close" icon button on the right side. |
-| `toolbar`    | A sticky toolbar displayed at the bottom of the modal. Available for "alert" only.           |
-| `sub-title`  | A slot below the title but outside of the content card.                                      |
+| Slot name      | Description                                                                                                                                                                       |
+| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Default slot   | The content of the modal.                                                                                                                                                         |
+| `title`        | The title of the modal. Displayed in a toolbar with a "Close" icon button on the right side.                                                                                      |
+| `header-left`  | Position content on the left side of the header title, such as additional buttons.                                                                                                |
+| `header-right` | Position content on the right side of the header title, such as additional buttons, or replace the close button with a custom button by setting `disablePointerEvents` to `true`. |
+| `toolbar`      | A sticky toolbar displayed at the bottom of the modal. Available for "alert" only.                                                                                                |
+| `sub-title`    | A slot below the title but outside of the content card.                                                                                                                           |
 
 ## Events
 
