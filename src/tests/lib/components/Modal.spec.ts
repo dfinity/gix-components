@@ -215,4 +215,20 @@ describe("Modal", () => {
 
     expect(() => getByTestId("close-modal")).toThrow();
   });
+
+  it("should render header-left and header-right slots", () => {
+    const { container } = render(ModalTest, { props: { ...props } });
+
+    const headerLeftElement = container.querySelector(
+      '[data-tid="header-left-content"]',
+    );
+    const headerRightElement = container.querySelector(
+      '[data-tid="header-right-content"]',
+    );
+
+    expect(headerLeftElement).not.toBeNull();
+    expect(headerLeftElement?.textContent).toBe("Left Header Content");
+    expect(headerRightElement).not.toBeNull();
+    expect(headerRightElement?.textContent).toBe("Right Header Content");
+  });
 });

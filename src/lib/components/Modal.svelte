@@ -17,6 +17,9 @@
   let showHeader: boolean;
   $: showHeader = nonNullish($$slots.title);
 
+  let showHeaderLeft: boolean;
+  $: showHeaderLeft = nonNullish($$slots["header-left"]);
+
   /**
    * @deprecated according new design there should be no sticky footer
    */
@@ -62,16 +65,27 @@
     >
       {#if showHeader}
         <div class="header">
+          {#if showHeaderLeft}
+            <div class="header-left">
+              <slot name="header-left" />
+            </div>
+          {/if}
+
           <h2 id={modalTitleId} data-tid="modal-title">
             <slot name="title" />
           </h2>
-          {#if !disablePointerEvents}
-            <button
-              data-tid="close-modal"
-              on:click|stopPropagation={close}
-              aria-label={$i18n.core.close}><IconClose size="24px" /></button
-            >
-          {/if}
+
+          <div class="header-right">
+            <slot name="header-right" />
+
+            {#if !disablePointerEvents}
+              <button
+                data-tid="close-modal"
+                on:click|stopPropagation={close}
+                aria-label={$i18n.core.close}><IconClose size="24px" /></button
+              >
+            {/if}
+          </div>
         </div>
       {/if}
 
@@ -222,10 +236,22 @@
 
     position: relative;
 
+    .header-left {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
     h2 {
       @include text.truncate;
       grid-column-start: 2;
       text-align: center;
+    }
+
+    .header-right {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
     }
 
     button {
@@ -233,9 +259,6 @@
       justify-content: center;
       align-items: center;
       padding: 0;
-
-      justify-self: flex-end;
-
       &:active,
       &:focus,
       &:hover {
