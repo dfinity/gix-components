@@ -9,4 +9,10 @@
 <Modal {visible} {disablePointerEvents} on:nnsClose>
   <h3 slot="title">Test</h3>
   <p slot="sub-title">{subTitle}</p>
+  <span slot="header-left" data-tid="header-left-content"
+    >Left Header Content</span
+  >
+  <span slot="header-right" data-tid="header-right-content"
+    >Right Header Content</span
+  >
 </Modal>
