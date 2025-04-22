@@ -554,6 +554,36 @@ describe("Input", () => {
     expect(input === document.activeElement).toBe(true);
   });
 
+  it("should autofocus the input when autofocus is true", async () => {
+    const { container } = render(Input, {
+      props: { ...props, autofocus: true },
+    });
+
+    const input: HTMLInputElement | null = container.querySelector("input");
+    expect(input).not.toBeNull();
+
+    // In testing environments, we need to wait for the DOM to update
+    await tick();
+
+    // Check if the input is the active element
+    expect(input === document.activeElement).toBe(true);
+  });
+
+  it("should not focus by default", async () => {
+    const { container } = render(Input, {
+      props: { ...props },
+    });
+
+    const input: HTMLInputElement | null = container.querySelector("input");
+    expect(input).not.toBeNull();
+
+    // In testing environments, we need to wait for the DOM to update
+    await tick();
+
+    // Check if the input is the active element
+    expect(input === document.activeElement).toBe(false);
+  });
+
   describe.each(["number"])("inputType=%s", (inputType) => {
     it("should never set autocomplete", () => {
       const { container: container1 } = render(Input, {
