@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { IconClose } from "$lib/icons";
   import { isNullish, nonNullish } from "@dfinity/utils";
   import { createEventDispatcher } from "svelte";
 
@@ -16,6 +17,7 @@
   export let decimals = 8;
   export let ignore1Password = true;
   export let inputElement: HTMLInputElement | undefined = undefined;
+  export let showClearButton = false;
 
   const dispatch = createEventDispatcher();
 
@@ -156,8 +158,12 @@
     ({ selectionStart, selectionEnd } = inputElement);
   };
 
+  const clear = () => {
+    value = undefined;
+  };
+
   let displayInnerEnd: boolean;
-  $: displayInnerEnd = nonNullish($$slots["inner-end"]);
+  $: displayInnerEnd = nonNullish($$slots["inner-end"]) || showClearButton;
 
   let displayBottom: boolean;
   $: displayBottom = nonNullish($$slots["bottom"]);
@@ -198,6 +204,11 @@
       {#if displayInnerEnd}
         <div class="inner-end-slot">
           <slot name="inner-end" />
+          {#if showClearButton && value}
+            <button class="clear-button" on:click={clear}>
+              <IconClose />
+            </button>
+          {/if}
         </div>
       {/if}
     </div>

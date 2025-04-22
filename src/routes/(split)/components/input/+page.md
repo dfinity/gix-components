@@ -91,4 +91,6 @@ Both slots are displayed `flex` with `space-between`.
         </div>
     </Input>
 
+    <Input placeholder="With clear button" inputType="text" value="" showClearButton={true}/>
+
 </div>

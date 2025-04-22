@@ -554,6 +554,74 @@ describe("Input", () => {
     expect(input === document.activeElement).toBe(true);
   });
 
+  it("should clear input value when clear button is clicked", async () => {
+    const { container } = render(Input, {
+      props: {
+        ...props,
+        inputType: "text",
+        value: "test value",
+        showClearButton: true,
+      },
+    });
+
+    // Verify input has the initial value
+    const input: HTMLInputElement | null = container.querySelector("input");
+    expect(input).not.toBeNull();
+    expect(input?.value).toBe("test value");
+
+    // Verify clear button is rendered
+    const clearButton: HTMLButtonElement | null =
+      container.querySelector(".clear-button");
+    expect(clearButton).not.toBeNull();
+
+    // Click the clear button
+    clearButton && (await fireEvent.click(clearButton));
+
+    // Verify the value is cleared (we can only check the input value, not the bound value)
+    expect(input?.value).toBe("");
+  });
+
+  it("should not show clear button when showClearButton is false", () => {
+    const { container } = render(Input, {
+      props: {
+        ...props,
+        inputType: "text",
+        value: "test value",
+        showClearButton: false,
+      },
+    });
+
+    // Verify input has the value
+    const input: HTMLInputElement | null = container.querySelector("input");
+    expect(input).not.toBeNull();
+    expect(input?.value).toBe("test value");
+
+    // Verify clear button is not rendered
+    const clearButton: HTMLButtonElement | null =
+      container.querySelector(".clear-button");
+    expect(clearButton).toBeNull();
+  });
+
+  it("should not show clear button when there is no value even if showClearButton is true", () => {
+    const { container } = render(Input, {
+      props: {
+        ...props,
+        value: undefined,
+        showClearButton: true,
+      },
+    });
+
+    // Verify input has no value
+    const input: HTMLInputElement | null = container.querySelector("input");
+    expect(input).not.toBeNull();
+    expect(input?.value).toBe("");
+
+    // Verify clear button is not rendered
+    const clearButton: HTMLButtonElement | null =
+      container.querySelector(".clear-button");
+    expect(clearButton).toBeNull();
+  });
+
   describe.each(["number"])("inputType=%s", (inputType) => {
     it("should never set autocomplete", () => {
       const { container: container1 } = render(Input, {
