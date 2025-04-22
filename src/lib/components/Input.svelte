@@ -16,6 +16,7 @@
   export let decimals = 8;
   export let ignore1Password = true;
   export let inputElement: HTMLInputElement | undefined = undefined;
+  export let autofocus = false;
 
   const dispatch = createEventDispatcher();
 
@@ -173,6 +174,7 @@
   {/if}
   <div class:with-bottom={displayBottom}>
     <div class="input-field">
+      <!-- svelte-ignore a11y_autofocus -->
       <input
         bind:this={inputElement}
         data-tid={testId}
@@ -188,6 +190,7 @@
         {placeholder}
         {max}
         {autocomplete}
+        {autofocus}
         on:blur
         on:focus
         on:input={handleInput}
