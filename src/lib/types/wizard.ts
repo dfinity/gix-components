@@ -3,4 +3,7 @@ export interface WizardStep<T extends string = string> {
   readonly title: string;
 }
 
-export type WizardSteps<T extends string = string> = [WizardStep<T>, ...WizardStep<T>[]];
+export type WizardSteps<T extends string = string> = [
+  WizardStep<T>,
+  ...WizardStep<T>[],
+];
