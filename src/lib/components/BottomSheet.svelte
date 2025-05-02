@@ -48,7 +48,6 @@
   div {
     span {
 			display: flex;
-			padding: var(--padding-2x);
 
 			&:nth-child(2) {
 				overflow-y: auto;
