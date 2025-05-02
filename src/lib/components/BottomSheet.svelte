@@ -2,10 +2,10 @@
   import { nonNullish } from "@dfinity/utils";
   import { layoutBottomOffset } from "$lib/stores/layout.store";
   import { onDestroy } from "svelte";
-	import {slide} from "svelte/transition"
+  import { slide } from "svelte/transition";
   import { BREAKPOINT_LARGE } from "$lib/constants/constants";
 
-	export let transition = false;
+  export let transition = false;
 
   onDestroy(() => ($layoutBottomOffset = 0));
 
@@ -24,40 +24,40 @@
 <svelte:window bind:innerWidth />
 
 <div
-  transition:slide|global={{ axis: 'y', duration: transition ? 300 : 0 }}
+  transition:slide|global={{ axis: "y", duration: transition ? 300 : 0 }}
   role="dialog"
   data-tid="bottom-sheet"
   bind:clientHeight={height}
 >
-	<span>
-		<slot name="header" />
-	</span>
-
-	<span>
-		<slot />
-	</span>
+  <span>
+    <slot name="header" />
+  </span>
 
   <span>
-		<slot name="footer" />
-	</span>
+    <slot />
+  </span>
+
+  <span>
+    <slot name="footer" />
+  </span>
 </div>
 
 <style lang="scss">
-	@use "../styles/mixins/media";
+  @use "../styles/mixins/media";
 
   div {
     span {
-			display: flex;
+      display: flex;
 
-			&:nth-child(2) {
-				overflow-y: auto;
-				flex-direction: inherit;
-				padding-top: 0;
-			}
+      &:nth-child(2) {
+        overflow-y: auto;
+        flex-direction: inherit;
+        padding-top: 0;
+      }
 
-			&:last-of-type {
-				border-top: 1px solid var(--bottom-sheet-border-color);
-			}
+      &:last-of-type {
+        border-top: 1px solid var(--bottom-sheet-border-color);
+      }
     }
 
     position: fixed;
@@ -91,8 +91,8 @@
 
       padding-bottom: 0;
 
-			border-top-left-radius: 0;
-			border-top-right-radius: 0;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
     }
   }
 </style>
