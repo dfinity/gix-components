@@ -2,15 +2,19 @@
   import { nonNullish } from "@dfinity/utils";
   import { layoutBottomOffset } from "$lib/stores/layout.store";
   import { onDestroy } from "svelte";
-	import { slide, type SlideParams, type TransitionConfig } from "svelte/transition";
+  import {
+    slide,
+    type SlideParams,
+    type TransitionConfig,
+  } from "svelte/transition";
   import { BREAKPOINT_LARGE } from "$lib/constants/constants";
 
   export let transition = false;
 
-	let hasHeaderSlot: boolean;
-	$: hasHeaderSlot = nonNullish($$slots['header']);
-	let hasFooterSlot: boolean;
-	$: hasFooterSlot = nonNullish($$slots['footer']);
+  let hasHeaderSlot: boolean;
+  $: hasHeaderSlot = nonNullish($$slots["header"]);
+  let hasFooterSlot: boolean;
+  $: hasFooterSlot = nonNullish($$slots["footer"]);
 
   onDestroy(() => ($layoutBottomOffset = 0));
 
@@ -25,34 +29,36 @@
   let innerWidth: number | undefined = undefined;
   $: height, innerWidth, updateBottomOffset();
 
-	let transitionFn: (node: Element,
-										 params?: SlideParams | undefined) => TransitionConfig;
-	$: transitionFn = transition ? slide : () => ({});
+  let transitionFn: (
+    node: Element,
+    params?: SlideParams | undefined,
+  ) => TransitionConfig;
+  $: transitionFn = transition ? slide : () => ({});
 </script>
 
 <svelte:window bind:innerWidth />
 
 <div
-  transition:transitionFn|global={{ axis: 'y', duration: 300 }}
+  transition:transitionFn|global={{ axis: "y", duration: 300 }}
   role="dialog"
   data-tid="bottom-sheet"
   bind:clientHeight={height}
 >
-	{#if hasHeaderSlot}
-		<span>
-			<slot name="header" />
-		</span>
-	{/if}
+  {#if hasHeaderSlot}
+    <span>
+      <slot name="header" />
+    </span>
+  {/if}
 
   <span>
     <slot />
   </span>
 
-	{#if hasFooterSlot}
-		<span>
-			<slot name="footer" />
-		</span>
-	{/if}
+  {#if hasFooterSlot}
+    <span>
+      <slot name="footer" />
+    </span>
+  {/if}
 </div>
 
 <style lang="scss">
