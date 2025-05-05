@@ -5,7 +5,7 @@
 	import { slide, type SlideParams, type TransitionConfig } from "svelte/transition";
   import { BREAKPOINT_LARGE } from "$lib/constants/constants";
 
-	export let transition = false;
+  export let transition = false;
 
 	let hasHeaderSlot: boolean;
 	$: hasHeaderSlot = nonNullish($$slots['header']);
@@ -44,9 +44,9 @@
 		</span>
 	{/if}
 
-	<span>
-		<slot />
-	</span>
+  <span>
+    <slot />
+  </span>
 
 	{#if hasFooterSlot}
 		<span>
@@ -56,21 +56,21 @@
 </div>
 
 <style lang="scss">
-	@use "../styles/mixins/media";
+  @use "../styles/mixins/media";
 
   div {
     span {
-			display: flex;
+      display: flex;
 
-			&:nth-child(2) {
-				overflow-y: auto;
-				flex-direction: inherit;
-				padding-top: 0;
-			}
+      &:nth-child(2) {
+        overflow-y: auto;
+        flex-direction: inherit;
+        padding-top: 0;
+      }
 
-			&:last-of-type {
-				border-top: 1px solid var(--bottom-sheet-border-color);
-			}
+      &:last-of-type {
+        border-top: 1px solid var(--bottom-sheet-border-color);
+      }
     }
 
     position: fixed;
@@ -104,8 +104,8 @@
 
       padding-bottom: 0;
 
-			border-top-left-radius: 0;
-			border-top-right-radius: 0;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
     }
   }
 </style>

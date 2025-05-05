@@ -26,7 +26,7 @@ If you dynamically open/close ths component, you might add `transition` prop to 
 ## Slots
 
 | Slot name    | Description                             |
-|--------------|-----------------------------------------|
+| ------------ | --------------------------------------- |
 | Default slot | The content of the bottom sheet.        |
 | header       | Renders a fixed (if scrollable) header. |
 | footer       | Renders a fixed (if scrollable) footer. |
