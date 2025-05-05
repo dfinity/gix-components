@@ -1,7 +1,7 @@
 import BottomSheet from "$lib/components/BottomSheet.svelte";
 import { render } from "@testing-library/svelte";
-import ComponentTest from "./ComponentTest.svelte";
 import BottomSheetTest from "./BottomSheetTest.svelte";
+import ComponentTest from "./ComponentTest.svelte";
 
 describe("BottomSheet", () => {
   it("should render a slotted content", () => {
@@ -9,8 +9,12 @@ describe("BottomSheet", () => {
       props: { cmp: BottomSheet, testId: "bottom-sheet-test-slot" },
     });
     expect(getByTestId("bottom-sheet-test-slot")).not.toBeNull();
-    expect(queryByTestId("bottom-sheet-test-slot-header")).not.toBeInTheDocument();
-    expect(queryByTestId("bottom-sheet-test-slot-footer")).not.toBeInTheDocument();
+    expect(
+      queryByTestId("bottom-sheet-test-slot-header"),
+    ).not.toBeInTheDocument();
+    expect(
+      queryByTestId("bottom-sheet-test-slot-footer"),
+    ).not.toBeInTheDocument();
   });
 
   it("should render a header and footer slot as well", () => {
