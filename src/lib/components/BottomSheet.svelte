@@ -2,7 +2,19 @@
   import { nonNullish } from "@dfinity/utils";
   import { layoutBottomOffset } from "$lib/stores/layout.store";
   import { onDestroy } from "svelte";
+  import {
+    slide,
+    type SlideParams,
+    type TransitionConfig,
+  } from "svelte/transition";
   import { BREAKPOINT_LARGE } from "$lib/constants/constants";
+
+  export let transition = false;
+
+  let hasHeaderSlot: boolean;
+  $: hasHeaderSlot = nonNullish($$slots["header"]);
+  let hasFooterSlot: boolean;
+  $: hasFooterSlot = nonNullish($$slots["footer"]);
 
   onDestroy(() => ($layoutBottomOffset = 0));
 
@@ -16,22 +28,68 @@
   let height: number | undefined = undefined;
   let innerWidth: number | undefined = undefined;
   $: height, innerWidth, updateBottomOffset();
+
+  let transitionFn: (
+    node: Element,
+    params?: SlideParams | undefined,
+  ) => TransitionConfig;
+  $: transitionFn = transition ? slide : () => ({});
 </script>
 
 <svelte:window bind:innerWidth />
 
-<div role="dialog" data-tid="bottom-sheet" bind:clientHeight={height}>
-  <slot />
+<div
+  transition:transitionFn|global={{ axis: "y", duration: 300 }}
+  role="dialog"
+  data-tid="bottom-sheet"
+  bind:clientHeight={height}
+>
+  {#if hasHeaderSlot}
+    <span>
+      <slot name="header" />
+    </span>
+  {/if}
+
+  <span>
+    <slot />
+  </span>
+
+  {#if hasFooterSlot}
+    <span>
+      <slot name="footer" />
+    </span>
+  {/if}
 </div>
 
 <style lang="scss">
   @use "../styles/mixins/media";
 
   div {
+    span {
+      display: flex;
+
+      &:nth-child(2) {
+        overflow-y: auto;
+        flex-direction: inherit;
+        padding-top: 0;
+      }
+
+      &:last-of-type {
+        border-top: 1px solid var(--bottom-sheet-border-color);
+      }
+    }
+
     position: fixed;
     left: 0;
     right: 0;
     bottom: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    max-height: 90vh;
+    max-height: 90dvh;
+    overflow-y: auto;
 
     background: var(--card-background);
     box-shadow: var(--bottom-sheet-box-shadow);
@@ -52,6 +110,9 @@
       z-index: auto;
 
       padding-bottom: 0;
+
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
     }
   }
 </style>
