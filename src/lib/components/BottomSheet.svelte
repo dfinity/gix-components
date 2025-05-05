@@ -87,7 +87,11 @@
     display: flex;
     flex-direction: column;
 
-    max-height: 90dvh;
+    @supports (height: 90dvh) {
+      --90-vh: 90dvh;
+    }
+
+    max-height: var(--90-vh, 90vh);
     overflow-y: auto;
 
     background: var(--card-background);
