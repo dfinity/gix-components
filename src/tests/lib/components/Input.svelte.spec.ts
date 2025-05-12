@@ -1,7 +1,7 @@
 import Input from "$lib/components/Input.svelte";
 import { assertNonNullish, isNullish, nonNullish } from "@dfinity/utils";
-import { fireEvent, render } from "@testing-library/svelte";
 import { tick } from "svelte";
+import { fireEvent, render, waitFor } from "@testing-library/svelte";
 import InputElementTest from "./InputElementTest.svelte";
 import InputTest from "./InputTest.svelte";
 import InputValueTest from "./InputValueTest.svelte";
@@ -562,11 +562,10 @@ describe("Input", () => {
     const input: HTMLInputElement | null = container.querySelector("input");
     expect(input).not.toBeNull();
 
-    // In testing environments, we need to wait for the DOM to update
-    await tick();
-
-    // Check if the input is the active element
-    expect(input === document.activeElement).toBe(true);
+    await waitFor(() => {
+      // Check if the input is the active element
+      expect(input === document.activeElement).toBe(true);
+    });
   });
 
   it("should not focus by default", async () => {
@@ -577,11 +576,18 @@ describe("Input", () => {
     const input: HTMLInputElement | null = container.querySelector("input");
     expect(input).not.toBeNull();
 
-    // In testing environments, we need to wait for the DOM to update
-    await tick();
+    await waitFor(() => {
+      // Check if the input is the active element
+      expect(input === document.activeElement).toBe(false);
+    });
+  });
 
-    // Check if the input is the active element
-    expect(input === document.activeElement).toBe(false);
+  it("should not render autofocus by default", () => {
+    const { container } = render(Input, {
+      props: { ...props },
+    });
+
+    testHasAttribute({ container, attribute: "autofocus", expected: false });
   });
 
   describe.each(["number"])("inputType=%s", (inputType) => {
