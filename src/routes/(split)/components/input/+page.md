@@ -35,6 +35,7 @@ The input component is a wrapper to the HTML input element with custom styling a
 | `testId`          | Add a `data-tid` attribute to the DOM, useful for test purpose.                                                                                       | `string` or `undefined`                   | `undefined` |
 | `ignore1Password` | Tell 1Password it should ignore the field (Reference: 1Password [documentation](https://developer.1password.com/docs/web/compatible-website-design/)) | `boolean`                                 | `true`      |
 | `inputElement`    | HTML input element                                                                                                                                    | `HTMLInputElement` or `undefined`         | `undefined` |
+| `autofocus`       | HTML input `autofocus` attribute. When set to true, the input will be automatically focused when the component is mounted.                            | `boolean`                                 | `false`     |
 
 ### Notes
 
