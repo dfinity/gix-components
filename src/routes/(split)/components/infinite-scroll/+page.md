@@ -22,7 +22,7 @@
 The Infinite Scroll component calls an action to be performed when the user scrolls a specified distance of the list presented in the page.
 
 ```javascript
-<InfiniteScroll>
+<InfiniteScroll onIntersect={onIntersect}>
   {#each array as data}
     <li>{data}</li>
   {/each}
@@ -36,10 +36,11 @@ It sets the reference to the last element of the list after each re-render. **Pa
 
 ## Properties
 
-| Property   | Description                                                                                                                  | Type             | Default |
-| ---------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------- | ------- |
-| `layout`   | Display of the rendered items. Defined by a class set on `ul` container.                                                     | `list` or `grid` | `list`  |
-| `disabled` | If `true`, the infinite scroll stops observing for intersection and therefore, will stop calling the action to be performed. | `boolean`        | `false` |
+| Property      | Description                                                                                                                  | Type                  | Default |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------- | --------------------- | ------- |
+| `onIntersect` | Triggered each time the next observed item is intersecting. The event that can be use to call your action.                   | `() => Promise<void>` |         |
+| `layout`      | Display of the rendered items. Defined by a class set on `ul` container.                                                     | `list` or `grid`      | `list`  |
+| `disabled`    | If `true`, the infinite scroll stops observing for intersection and therefore, will stop calling the action to be performed. | `boolean`             | `false` |
 
 ## Slots
 
@@ -47,15 +48,9 @@ It sets the reference to the last element of the list after each re-render. **Pa
 | ------------ | ------------------------------------------- |
 | Default slot | The list of elements. Should be `li` nodes. |
 
-## Events
-
-| Event          | Description                                                                                                | Detail    |
-| -------------- | ---------------------------------------------------------------------------------------------------------- | --------- |
-| `nnsIntersect` | Triggered each time the next observed item is intersecting. The event that can be use to call your action. | No detail |
-
 ## Showcase
 
-<InfiniteScroll on:nnsIntersect={onIntersect} disabled={scrollDisabled} testId="showcase-infinite-scroll">
+<InfiniteScroll onIntersect={onIntersect} disabled={scrollDisabled} testId="showcase-infinite-scroll">
     {#each elements as _element, i}
         <li><Tag>Element {i}</Tag></li>
     {/each}
