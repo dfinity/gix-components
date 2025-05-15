@@ -1,6 +1,6 @@
 import type { WizardStep } from "$lib/types/wizard";
 
-export const wizardStepIndex =<T extends string = string> ({
+export const wizardStepIndex = <T extends string = string>({
   name: stepName,
   steps,
 }: {

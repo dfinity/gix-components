@@ -1,6 +1,6 @@
 import type { WizardStep, WizardSteps } from "$lib/types/wizard";
 
-export class WizardStepsState <T extends string = string> {
+export class WizardStepsState<T extends string = string> {
   public currentStep: WizardStep<T> | undefined;
   public currentStepIndex = 0;
   public previousStepIndex = 0;
