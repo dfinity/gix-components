@@ -3,7 +3,7 @@
   import { isNullish } from "@dfinity/utils";
 
   interface Props {
-    onintersect: () => void;
+    onintersect: () => Promise<void>;
     layout?: "list" | "grid";
     disabled?: boolean;
     testId?: string;
@@ -27,7 +27,7 @@
 
   let intersectionTarget: HTMLDivElement | undefined;
 
-  const onIntersection = (entries: IntersectionObserverEntry[]) => {
+  const onIntersection = async (entries: IntersectionObserverEntry[]) => {
     const intersecting: IntersectionObserverEntry | undefined = entries.find(
       ({ isIntersecting }: IntersectionObserverEntry) => isIntersecting,
     );
@@ -36,7 +36,7 @@
       return;
     }
 
-    onintersect();
+    await onintersect();
   };
 
   const observer: IntersectionObserver = new IntersectionObserver(

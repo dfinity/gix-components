@@ -22,7 +22,7 @@
 The Infinite Scroll component calls an action to be performed when the user scrolls a specified distance of the list presented in the page.
 
 ```javascript
-<InfiniteScroll>
+<InfiniteScroll onintersect={onIntersect}>
   {#each array as data}
     <li>{data}</li>
   {/each}
