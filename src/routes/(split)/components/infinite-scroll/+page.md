@@ -55,7 +55,7 @@ It sets the reference to the last element of the list after each re-render. **Pa
 
 ## Showcase
 
-<InfiniteScroll on:nnsIntersect={onIntersect} disabled={scrollDisabled} testId="showcase-infinite-scroll">
+<InfiniteScroll onintersect={onIntersect} disabled={scrollDisabled} testId="showcase-infinite-scroll">
     {#each elements as _element, i}
         <li><Tag>Element {i}</Tag></li>
     {/each}
