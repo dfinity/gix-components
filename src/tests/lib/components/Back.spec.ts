@@ -6,8 +6,8 @@ describe("Back", () => {
   it("should forward the click event", () =>
     new Promise<void>((done) => {
       const { getByTestId } = render(Back, {
-        events: {
-          nnsBack: () => done(),
+        props: {
+          onBack: () => done(),
         },
       });
 
