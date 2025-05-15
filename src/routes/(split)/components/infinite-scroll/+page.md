@@ -22,7 +22,7 @@
 The Infinite Scroll component calls an action to be performed when the user scrolls a specified distance of the list presented in the page.
 
 ```javascript
-<InfiniteScroll onintersect={onIntersect}>
+<InfiniteScroll onIntersect={onIntersect}>
   {#each array as data}
     <li>{data}</li>
   {/each}
@@ -55,7 +55,7 @@ It sets the reference to the last element of the list after each re-render. **Pa
 
 ## Showcase
 
-<InfiniteScroll onintersect={onIntersect} disabled={scrollDisabled} testId="showcase-infinite-scroll">
+<InfiniteScroll onIntersect={onIntersect} disabled={scrollDisabled} testId="showcase-infinite-scroll">
     {#each elements as _element, i}
         <li><Tag>Element {i}</Tag></li>
     {/each}

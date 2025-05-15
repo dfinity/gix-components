@@ -25,7 +25,7 @@ describe("InfiniteScroll", () => {
 
     const { container } = render(InfiniteScroll, {
       props: {
-        onintersect: () => {},
+        onIntersect: () => Promise.resolve(),
         children: mockSnippet,
       },
     });

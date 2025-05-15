@@ -3,7 +3,7 @@
   import { isNullish } from "@dfinity/utils";
 
   interface Props {
-    onintersect: () => Promise<void>;
+    onIntersect: () => Promise<void>;
     layout?: "list" | "grid";
     disabled?: boolean;
     testId?: string;
@@ -14,7 +14,7 @@
   }
 
   let {
-    onintersect,
+    onIntersect,
     layout = "list",
     disabled = false,
     testId,
@@ -36,7 +36,7 @@
       return;
     }
 
-    await onintersect();
+    await onIntersect();
   };
 
   const observer: IntersectionObserver = new IntersectionObserver(
