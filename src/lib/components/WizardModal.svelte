@@ -1,18 +1,18 @@
-<script lang="ts">
+<script lang="ts" generics="T extends string = string">
   import Modal from "$lib/components/Modal.svelte";
   import WizardTransition from "./WizardTransition.svelte";
   import { WizardStepsState } from "$lib/stores/wizard.state";
   import type { WizardStep, WizardSteps } from "$lib/types/wizard";
   import { createEventDispatcher } from "svelte";
 
-  export let steps: WizardSteps;
+  export let steps: WizardSteps<T>;
   export let disablePointerEvents = false;
   export let testId: string | undefined = undefined;
 
-  let stepState: WizardStepsState;
-  $: stepState = new WizardStepsState(steps);
+  let stepState: WizardStepsState<T>;
+  $: stepState = new WizardStepsState<T>(steps);
 
-  export let currentStep: WizardStep | undefined;
+  export let currentStep: WizardStep<T> | undefined;
   $: ({ currentStep } = stepState);
 
   let transition: { diff: number };
