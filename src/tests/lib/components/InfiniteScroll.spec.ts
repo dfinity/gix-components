@@ -1,5 +1,6 @@
 import InfiniteScroll from "$lib/components/InfiniteScroll.svelte";
 import { render } from "@testing-library/svelte";
+import { createRawSnippet } from "svelte";
 import {
   IntersectionObserverActive,
   IntersectionObserverPassive,
@@ -18,7 +19,16 @@ describe("InfiniteScroll", () => {
   afterAll(() => (global.IntersectionObserver = IntersectionObserverPassive));
 
   it("should render a container", () => {
-    const { container } = render(InfiniteScroll);
+    const mockSnippet = createRawSnippet(() => ({
+      render: () => `<span>Mock Snippet</span>`,
+    }));
+
+    const { container } = render(InfiniteScroll, {
+      props: {
+        onintersect: () => {},
+        children: mockSnippet,
+      },
+    });
 
     expect(container.querySelector("ul")).not.toBeNull();
   });
