@@ -1,17 +1,17 @@
 import type { WizardStep, WizardSteps } from "$lib/types/wizard";
 
-export class WizardStepsState {
-  public currentStep: WizardStep | undefined;
+export class WizardStepsState<T extends string = string> {
+  public currentStep: WizardStep<T> | undefined;
   public currentStepIndex = 0;
   public previousStepIndex = 0;
-  private readonly steps: WizardStep[];
+  private readonly steps: WizardStep<T>[];
 
-  constructor(steps: WizardSteps) {
+  constructor(steps: WizardSteps<T>) {
     this.steps = steps;
     this.currentStep = this.steps[0];
   }
 
-  public next(): WizardStepsState {
+  public next(): WizardStepsState<T> {
     if (this.currentStepIndex < this.steps.length - 1) {
       this.move(this.currentStepIndex + 1);
     }
@@ -22,14 +22,14 @@ export class WizardStepsState {
     return this.currentStepIndex - this.previousStepIndex;
   }
 
-  public back(): WizardStepsState {
+  public back(): WizardStepsState<T> {
     if (this.currentStepIndex > 0) {
       this.move(this.currentStepIndex - 1);
     }
     return this;
   }
 
-  public set(newStep: number): WizardStepsState {
+  public set(newStep: number): WizardStepsState<T> {
     this.move(newStep);
     return this;
   }
