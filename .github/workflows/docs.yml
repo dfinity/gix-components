@@ -4,6 +4,9 @@ name: Documentation
 
 on:
   push:
+    paths:
+      - 'src/lib/utils/**'
+      - 'src/routes/(page)/utility-functions/**'
 
 jobs:
   docs:
