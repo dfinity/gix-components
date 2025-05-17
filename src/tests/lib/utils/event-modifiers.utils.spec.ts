@@ -1,6 +1,5 @@
 import { stopPropagation } from "$lib/utils/event-modifiers.utils";
 import { fireEvent, render } from "@testing-library/svelte";
-import { describe } from "vitest";
 import StopPropagationTest from "./StopPropagationTest.svelte";
 
 describe("event-modifiers-utils", () => {
