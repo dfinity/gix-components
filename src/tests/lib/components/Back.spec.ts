@@ -7,7 +7,7 @@ describe("Back", () => {
     new Promise<void>((done) => {
       const { getByTestId } = render(Back, {
         props: {
-          onBack: () => done(),
+          onBack: done,
         },
       });
 
