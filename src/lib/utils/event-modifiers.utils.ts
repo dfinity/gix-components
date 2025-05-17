@@ -5,9 +5,9 @@ import type {
 
 export const stopPropagation = (fn: OnEventCallback): OnMouseEventHandler => {
   return async (
-    event?: MouseEvent & { currentTarget: EventTarget & HTMLButtonElement },
+    $event?: MouseEvent & { currentTarget: EventTarget & HTMLButtonElement },
   ) => {
-    event?.stopPropagation();
+    $event?.stopPropagation();
     await fn();
   };
 };
