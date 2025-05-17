@@ -33,6 +33,14 @@
   <DocsIconMenu text="U" slot="icon" />
   Utility Classes
 </MenuItem>
+<MenuItem
+  href="/utility-functions"
+  selected={pathname.startsWith("/utility-functions")}
+  on:click
+>
+  <DocsIconMenu text="F" slot="icon" />
+  Utility Functions
+</MenuItem>
 <MenuItem href="/styling" selected={pathname.startsWith("/styling")} on:click>
   <DocsIconMenu text="S" slot="icon" />
   Styling
