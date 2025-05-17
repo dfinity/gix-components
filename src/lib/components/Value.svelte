@@ -1,8 +1,15 @@
 <script lang="ts">
-  export let ariaLabel: string | undefined = undefined;
-  export let testId: string | undefined = undefined;
+  import type { Snippet } from "svelte";
+
+  interface Props {
+    children?: Snippet;
+    ariaLabel?: string;
+    testId?: string;
+  }
+
+  let { ariaLabel, testId, children }: Props = $props();
 </script>
 
 <span class="value" aria-label={ariaLabel} data-tid={testId}>
-  <slot />
+  {@render children?.()}
 </span>
