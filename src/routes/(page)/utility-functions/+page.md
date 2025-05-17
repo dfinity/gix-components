@@ -23,3 +23,9 @@ Parameters:
 [Source](https://github.com/dfinity/gix-components/tree/main/src/lib/utils/event-modifiers.utils.ts#L18)
 
 <!-- TSDOC_END -->
+
+<style lang="scss">
+    ul + p {
+        padding: var(--padding) 0;
+    }
+</style>
