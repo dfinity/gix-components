@@ -61,13 +61,13 @@ describe("event-modifiers-utils", () => {
       );
     });
 
-    it('should call only the child handler and stop propagation to parent', async () => {
+    it("should call only the child handler and stop propagation to parent", async () => {
       const onParentClick = vi.fn();
       const onChildClick = vi.fn();
-      const childTestId = 'child-button';
+      const childTestId = "child-button";
 
       const { getByTestId } = render(StopPropagationTest, {
-        props: { onParentClick, onChildClick, childTestId }
+        props: { onParentClick, onChildClick, childTestId },
       });
 
       const button = getByTestId(childTestId);

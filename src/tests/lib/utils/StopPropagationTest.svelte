@@ -8,9 +8,15 @@
     childTestId?: string;
   }
 
-  let { onParentClick = () => {}, onChildClick = () => {}, childTestId }: Props = $props();
+  let {
+    onParentClick = () => {},
+    onChildClick = () => {},
+    childTestId,
+  }: Props = $props();
 </script>
 
 <div role="button" tabindex="-1" onkeypress={() => {}} onclick={onParentClick}>
-  <button onclick={stopPropagation(onChildClick)} data-tid={childTestId}>Click Me</button>
+  <button onclick={stopPropagation(onChildClick)} data-tid={childTestId}
+    >Click Me</button
+  >
 </div>
