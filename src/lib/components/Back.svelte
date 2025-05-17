@@ -2,10 +2,10 @@
   import IconBack from "$lib/icons/IconBack.svelte";
   import { i18n } from "$lib/stores/i18n";
   import { stopPropagation } from "$lib/utils/event-modifiers.utils";
-  import type { GenericCallback } from "$lib/types/functions";
+  import type { OnEventCallback } from "$lib/types/event-modifiers";
 
   interface Props {
-    onBack: GenericCallback;
+    onBack: OnEventCallback;
   }
 
   let { onBack }: Props = $props();
