@@ -10,11 +10,11 @@ import type { MouseEventHandler } from "svelte/elements";
  *
  * @param {OnEventCallback} fn - The function to be executed after stopping the event propagation. It can be a synchronous or asynchronous function.
  *
- * @returns {MouseEventHandler<T extends EventTarget>} - A function that takes an event and stop its propagation, before executing the provided function.
+ * @returns {MouseEventHandler<T extends EventTarget> | undefined | null} - A function that takes an event and stop its propagation, before executing the provided function.
  */
 export const stopPropagation = <T extends EventTarget>(
   fn: OnEventCallback,
-): MouseEventHandler<T> => {
+): MouseEventHandler<T> | undefined | null => {
   return async ($event?: MouseEvent & { currentTarget: EventTarget & T }) => {
     $event?.stopPropagation();
     await fn();

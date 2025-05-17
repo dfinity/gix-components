@@ -37,6 +37,7 @@ describe("event-modifiers-utils", () => {
     it("should still call callback even if event is undefined", async () => {
       const handler = stopPropagation(callbackMock);
 
+      // @ts-expect-error Testing this on purpose
       await handler(undefined);
 
       expect(callbackMock).toHaveBeenCalledOnce();
