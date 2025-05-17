@@ -1,5 +1,7 @@
 import { stopPropagation } from "$lib/utils/event-modifiers.utils";
+import { fireEvent, render } from "@testing-library/svelte";
 import { describe } from "vitest";
+import StopPropagationTest from "./StopPropagationTest.svelte";
 
 describe("event-modifiers-utils", () => {
   describe("stopPropagation", () => {
@@ -57,6 +59,22 @@ describe("event-modifiers-utils", () => {
       await expect(handler(mockEvent)).rejects.toThrow(
         new TypeError("fn is not a function"),
       );
+    });
+
+    it('should call only the child handler and stop propagation to parent', async () => {
+      const onParentClick = vi.fn();
+      const onChildClick = vi.fn();
+      const childTestId = 'child-button';
+
+      const { getByTestId } = render(StopPropagationTest, {
+        props: { onParentClick, onChildClick, childTestId }
+      });
+
+      const button = getByTestId(childTestId);
+      await fireEvent.click(button);
+
+      expect(onChildClick).toHaveBeenCalledOnce();
+      expect(onParentClick).not.toHaveBeenCalled();
     });
   });
 });
