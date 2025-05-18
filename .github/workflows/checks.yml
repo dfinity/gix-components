@@ -43,8 +43,8 @@ jobs:
       - name: Format shell scripts
         run: ./scripts/fmt-sh
 
-      - name: Install ts dependencies
-        run: npm ci
+      - name: Prepare
+        uses: ./.github/actions/prepare
       - name: Format ts
         run: npm run format
 
@@ -79,8 +79,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Install dependencies
-        run: npm ci
+      - name: Prepare
+        uses: ./.github/actions/prepare
       - name: Build
         run: npm run build
 
@@ -90,8 +90,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Install dependencies
-        run: npm ci
+      - name: Prepare
+        uses: ./.github/actions/prepare
       - name: Lint
         run: npm run lint -- --max-warnings 0
 
@@ -101,8 +101,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Install dependencies
-        run: npm ci
+      - name: Prepare
+        uses: ./.github/actions/prepare
       - name: Build
         run: npm run build
       - name: Test
@@ -127,8 +127,8 @@ jobs:
           key: ${{ runner.os }}-samples-${{ hashFiles('**/scripts/download-samples.sh') }}
           restore-keys: |
             ${{ runner.os }}-samples-
-      - name: Install dependencies
-        run: npm ci
+      - name: Prepare
+        uses: ./.github/actions/prepare
       - name: Run Playwright tests
         run: npm run e2e:ci
       - uses: actions/upload-artifact@v4
