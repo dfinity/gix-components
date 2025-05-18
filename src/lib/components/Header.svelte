@@ -3,15 +3,22 @@
   import MenuButton from "$lib/components/MenuButton.svelte";
   import Back from "$lib/components/Back.svelte";
   import { layoutContentTopHidden } from "$lib/stores/layout.store";
+  import { createEventDispatcher } from "svelte";
 
   export let back = false;
+
+  const dispatch = createEventDispatcher();
+
+  const onBack = () => {
+    dispatch("nnsBack");
+  };
 </script>
 
 <header data-tid="header-component" class:hidden={$layoutContentTopHidden}>
   <Toolbar>
     <svelte:fragment slot="start">
       {#if back}
-        <Back on:nnsBack />
+        <Back {onBack} />
       {:else}
         <MenuButton />
       {/if}
