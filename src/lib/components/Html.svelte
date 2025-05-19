@@ -3,10 +3,14 @@
   import { onMount } from "svelte";
   import { nonNullish } from "@dfinity/utils";
 
-  export let text: string | undefined = undefined;
+  interface Props {
+    text?: string;
+  }
+
+  let { text }: Props = $props();
 
   // force to rerender after SSR
-  let mounted = false;
+  let mounted = $state(false);
   onMount(async () => (mounted = true));
 </script>
 
