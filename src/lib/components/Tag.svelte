@@ -2,7 +2,7 @@
   import type { Snippet } from "svelte";
 
   interface Props {
-    children?: Snippet;
+    children: Snippet;
     tagName?: "span" | "li";
     intent?: "warning" | "success" | "error" | "info";
     size?: "medium" | "large";
@@ -23,7 +23,7 @@
   data-tid={testId}
   class={`tag ${size === "large" ? "tag--large" : ""} ${intent}`}
 >
-  {@render children?.()}
+  {@render children()}
 </svelte:element>
 
 <style lang="scss">
