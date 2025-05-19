@@ -1,5 +1,5 @@
 import { createRawSnippet } from "svelte";
 
 export const mockSnippet = createRawSnippet(() => ({
-  render: () => `<span>Mock Snippet</span>`,
+  render: () => `<div>Mock Snippet</div>`,
 }));
