@@ -12,7 +12,7 @@
   fill="none"
   viewBox="0 0 20 20"
   ><path
-    stroke="#3D4D99"
+    stroke="currentColor"
     stroke-linecap="round"
     stroke-linejoin="round"
     stroke-width="1.5"
