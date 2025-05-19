@@ -6,24 +6,17 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v3
-        with:
-          node-version: "18"
-
-      - name: Install Dependencies
-        run: npm ci
-
-      - name: Build
-        run: npm run build
+      - name: Prepare
+        uses: ./.github/actions/prepare
 
       - name: Deploy to Juno
-        uses: buildwithjuno/juno-action@main
+        uses: junobuild/juno-action@main
         with:
           args: deploy
         env:
