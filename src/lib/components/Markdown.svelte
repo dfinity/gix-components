@@ -9,7 +9,7 @@
 
   let { text }: Props = $props();
 
-  let html: string | undefined = $state();
+  let html = $state<string | undefined>();
   let error = $state(false);
   const transform = async (text: string) => {
     try {
