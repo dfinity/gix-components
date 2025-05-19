@@ -22,6 +22,6 @@ test("Should render tooltip", async ({ page }) => {
   await expect(tooltip).toBeVisible();
 
   await expect(page).toHaveScreenshot({
-    maxDiffPixelRatio: 0.05
+    maxDiffPixelRatio: 0.05,
   });
 });
