@@ -28,7 +28,7 @@
     in:fly|global={{ x: slideOffset, duration: ANIMATION_DURATION }}
     class="transition"
   >
-    {@render children?.()}
+    {@render children()}
   </div>
 {/key}
 
