@@ -20,11 +20,11 @@ A component that renders a header, a column and your content.
 
 ## Properties
 
-| Property              | Description                                                     | Type       | Default       |
-| --------------------- | --------------------------------------------------------------- | ---------- | ------------- |
-| `back`                | Display an arrowed `back` button instead of the hamburger menu. | `boolean`  | `false`       |
-| `onBack`              | A function to call when the back button is clicked.             | `function` | Void function |
-| `resetScrollPosition` | A function to reset the scrollable content scroll position.     | `function` | `function`    |
+| Property              | Description                                                     | Type       | Default         |
+| --------------------- | --------------------------------------------------------------- | ---------- | --------------- |
+| `back`                | Display an arrowed `back` button instead of the hamburger menu. | `boolean`  | `false`         |
+| `onBack`              | A function to call when the back button is clicked.             | `function` | `noop function` |
+| `resetScrollPosition` | A function to reset the scrollable content scroll position.     | `function` | `function`      |
 
 ## Snippets
 
