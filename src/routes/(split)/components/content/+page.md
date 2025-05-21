@@ -17,7 +17,7 @@ A component that renders a header and your content.
 | Property | Description                                                     | Type       | Default         |
 | -------- | --------------------------------------------------------------- | ---------- | --------------- |
 | `back`   | Display an arrowed `back` button instead of the hamburger menu. | `boolean`  | `false`         |
-| `onBack` | A function to call when the back button is clicked.             | `function` | `noop funciton` |
+| `onBack` | A function to call when the back button is clicked.             | `function` | `noop function` |
 
 ## Snippets
 
