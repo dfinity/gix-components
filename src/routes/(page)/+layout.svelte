@@ -14,8 +14,10 @@
   $: back = canGoBack($page.route.id);
 </script>
 
-<Content {back} on:nnsBack={async () => await goBack({ navHistory })}>
-  <DocsAccountMenu slot="toolbar-end" />
+<Content {back} onBack={async () => await goBack({ navHistory })}>
+  {#snippet toolbarEnd()}
+    <DocsAccountMenu />
+  {/snippet}
 
   <main>
     <slot />
