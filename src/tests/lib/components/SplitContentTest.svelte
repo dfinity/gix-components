@@ -7,8 +7,10 @@
 </script>
 
 <SplitContent bind:this={originalComponent}>
-  {#snippet  start()}<div data-tid="content-test-start-slot" ></div>{/snippet}
-  {#snippet  end()}<div data-tid="content-test-end-slot" ></div>{/snippet}
-  {#snippet  title()}<div data-tid="content-test-title-slot" ></div>{/snippet}
-  {#snippet  toolbarEnd()}<div data-tid="content-test-toolbar-end-slot" ></div>{/snippet}
+  {#snippet start()}<div data-tid="content-test-start-slot"></div>{/snippet}
+  {#snippet end()}<div data-tid="content-test-end-slot"></div>{/snippet}
+  {#snippet title()}<div data-tid="content-test-title-slot"></div>{/snippet}
+  {#snippet toolbarEnd()}<div
+      data-tid="content-test-toolbar-end-slot"
+    ></div>{/snippet}
 </SplitContent>
