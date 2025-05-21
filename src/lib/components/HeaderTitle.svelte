@@ -2,13 +2,13 @@
   import type { Snippet } from "svelte";
 
   interface Props {
-    children?: Snippet;
+    children: Snippet;
   }
 
   let { children }: Props = $props();
 </script>
 
-<h4>{@render children?.()}</h4>
+<h4>{@render children()}</h4>
 
 <style lang="scss">
   @use "../styles/mixins/text";
