@@ -8,13 +8,14 @@
   import ContentBackdrop from "$lib/components/ContentBackdrop.svelte";
   import Header from "$lib/components/Header.svelte";
   import ScrollSentinel from "$lib/components/ScrollSentinel.svelte";
+  import type { OnEventCallback } from "$lib/types/event-modifiers";
 
   interface Props {
     title?: Snippet;
     toolbarEnd?: Snippet;
     children: Snippet;
     back?: boolean;
-    onBack?: () => void;
+    onBack?: OnEventCallback;
   }
 
   let {
