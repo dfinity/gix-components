@@ -2,7 +2,7 @@
   import type { Snippet } from "svelte";
 
   interface Props {
-    children?: Snippet;
+    children: Snippet;
     ariaLabel?: string;
     testId?: string;
   }
@@ -11,5 +11,5 @@
 </script>
 
 <span class="value" aria-label={ariaLabel} data-tid={testId}>
-  {@render children?.()}
+  {@render children()}
 </span>
