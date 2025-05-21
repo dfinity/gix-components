@@ -4,7 +4,7 @@ A component that renders a header and your content.
 
 ```javascript
 <Content>
-  {#snippet title()}<Title >My dapp page</Title>{/snippet}
+  {#snippet title()}<Title>My dapp page</Title>{/snippet}
 
   <main>
     <slot />
