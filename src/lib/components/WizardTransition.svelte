@@ -3,9 +3,9 @@
   import type { Snippet } from "svelte";
 
   interface Props {
-    children?: Snippet;
+    children: Snippet;
     // Instead of a number an object is used to make svelte notice any updates need rerender
-    transition: { diff: number };
+    transition?: { diff: number };
   }
 
   let { children, transition = { diff: 0 } }: Props = $props();
