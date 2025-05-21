@@ -14,10 +14,10 @@ A component that renders a header and your content.
 
 ## Properties
 
-| Property | Description                                                     | Type       | Default  |
-| -------- | --------------------------------------------------------------- | ---------- | -------- |
-| `back`   | Display an arrowed `back` button instead of the hamburger menu. | `boolean`  | `false`  |
-| `onBack` | A function to call when the back button is clicked.             | `function` | () => {} |
+| Property | Description                                                     | Type       | Default         |
+| -------- | --------------------------------------------------------------- | ---------- | --------------- |
+| `back`   | Display an arrowed `back` button instead of the hamburger menu. | `boolean`  | `false`         |
+| `onBack` | A function to call when the back button is clicked.             | `function` | `noop funciton` |
 
 ## Snippets
 
