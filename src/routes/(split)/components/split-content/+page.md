@@ -29,7 +29,7 @@ A component that renders a header, a column and your content.
 ## Snippets
 
 | Snippet name | Description                                                                |
-|--------------| -------------------------------------------------------------------------- |
+| ------------ | -------------------------------------------------------------------------- |
 | `start`      | A column displayed next to the menu.                                       |
 | `end`        | The content of the page.                                                   |
 | `title`      | The title of the page displayed centered in the toolbar of the `end` slot. |
