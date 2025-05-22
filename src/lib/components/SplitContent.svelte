@@ -9,24 +9,17 @@
   import ContentBackdrop from "$lib/components/ContentBackdrop.svelte";
   import ScrollSentinel from "$lib/components/ScrollSentinel.svelte";
   import type { OnEventCallback } from "$lib/types/event-modifiers";
+  import { nonNullish } from "@dfinity/utils";
 
   interface Props {
     title?: Snippet;
     toolbarEnd?: Snippet;
     start: Snippet;
     end: Snippet;
-    back?: boolean;
     onBack?: OnEventCallback;
   }
 
-  let {
-    title,
-    toolbarEnd,
-    start,
-    end,
-    back = false,
-    onBack = () => {},
-  }: Props = $props();
+  let { title, toolbarEnd, start, end, onBack }: Props = $props();
 
   export const resetScrollPosition = () => {
     if (scrollableElement) {
@@ -53,7 +46,7 @@
   </div>
 
   <div class="end">
-    <Header {back} on:nnsBack={onBack}>
+    <Header back={nonNullish(onBack)} on:nnsBack={() => onBack?.()}>
       <svelte:fragment slot="title">{@render title?.()}</svelte:fragment>
 
       <svelte:fragment slot="toolbar-end"
