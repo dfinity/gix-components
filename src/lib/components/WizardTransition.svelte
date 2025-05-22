@@ -1,19 +1,25 @@
 <script lang="ts">
   import { fly } from "svelte/transition";
+  import type { Snippet } from "svelte";
 
-  // Instead of a number an object is used to make svelte notice any updates need rerender
-  export let transition: { diff: number } = { diff: 0 };
+  interface Props {
+    children: Snippet;
+    // Instead of a number an object is used to make svelte notice any updates need rerender
+    transition?: { diff: number };
+  }
+
+  let { children, transition = { diff: 0 } }: Props = $props();
+
   const DEFAULT_OFFSET = 200;
   const ANIMATION_DURATION = 200;
-  let absolutOffset = DEFAULT_OFFSET;
-  let slideOffset: number | undefined;
-
-  $: slideOffset =
+  let absolutOffset = $state(DEFAULT_OFFSET);
+  let slideOffset = $derived(
     transition.diff === 0
       ? 0
       : transition.diff > 0
         ? absolutOffset
-        : -absolutOffset;
+        : -absolutOffset,
+  );
 </script>
 
 {#key transition}
@@ -22,7 +28,7 @@
     in:fly|global={{ x: slideOffset, duration: ANIMATION_DURATION }}
     class="transition"
   >
-    <slot />
+    {@render children()}
   </div>
 {/key}
 
