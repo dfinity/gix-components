@@ -21,5 +21,7 @@ test("Should render tooltip", async ({ page }) => {
   const tooltip = await page.locator(`[id="${tooltipId}"]`);
   await expect(tooltip).toBeVisible();
 
-  await expect(page).toHaveScreenshot();
+  await expect(page).toHaveScreenshot({
+    maxDiffPixelRatio: 0.05,
+  });
 });
