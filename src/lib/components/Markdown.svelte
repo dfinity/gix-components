@@ -3,10 +3,14 @@
   import Spinner from "$lib/components/Spinner.svelte";
   import Html from "$lib/components/Html.svelte";
 
-  export let text: string | undefined;
+  interface Props {
+    text: string | undefined;
+  }
 
-  let html: string | undefined;
-  let error = false;
+  let { text }: Props = $props();
+
+  let html = $state<string | undefined>();
+  let error = $state(false);
   const transform = async (text: string) => {
     try {
       html = await markdownToHTML(text);
@@ -15,7 +19,9 @@
       error = true;
     }
   };
-  $: if (text !== undefined) transform(text).then();
+  $effect(() => {
+    if (text !== undefined) transform(text).then();
+  });
 </script>
 
 {#if error}

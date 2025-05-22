@@ -4,6 +4,7 @@ import {
   IntersectionObserverActive,
   IntersectionObserverPassive,
 } from "../mocks/infinitescroll.mock";
+import { mockSnippet } from "../mocks/snippet.mocks";
 import InfiniteScrollTest from "./InfiniteScrollTest.svelte";
 
 describe("InfiniteScroll", () => {
@@ -18,7 +19,12 @@ describe("InfiniteScroll", () => {
   afterAll(() => (global.IntersectionObserver = IntersectionObserverPassive));
 
   it("should render a container", () => {
-    const { container } = render(InfiniteScroll);
+    const { container } = render(InfiniteScroll, {
+      props: {
+        onIntersect: () => Promise.resolve(),
+        children: mockSnippet,
+      },
+    });
 
     expect(container.querySelector("ul")).not.toBeNull();
   });

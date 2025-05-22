@@ -1,25 +1,36 @@
 <script lang="ts">
   import Toolbar from "$lib/components/Toolbar.svelte";
+  import { type Snippet } from "svelte";
+  import type { OnEventCallback } from "$lib/types/event-modifiers";
   import MenuButton from "$lib/components/MenuButton.svelte";
   import Back from "$lib/components/Back.svelte";
   import { layoutContentTopHidden } from "$lib/stores/layout.store";
+  import { nonNullish } from "@dfinity/utils";
 
-  export let back = false;
+  interface Props {
+    title?: Snippet;
+    toolbarEnd?: Snippet;
+    onBack?: OnEventCallback;
+  }
+
+  let { title, toolbarEnd, onBack }: Props = $props();
 </script>
 
 <header data-tid="header-component" class:hidden={$layoutContentTopHidden}>
   <Toolbar>
     <svelte:fragment slot="start">
-      {#if back}
-        <Back on:nnsBack />
+      {#if nonNullish(onBack)}
+        <Back {onBack} />
       {:else}
         <MenuButton />
       {/if}
     </svelte:fragment>
 
-    <slot name="title" />
+    {@render title?.()}
 
-    <slot name="toolbar-end" slot="end" />
+    <svelte:fragment slot="end">
+      {@render toolbarEnd?.()}
+    </svelte:fragment>
   </Toolbar>
 </header>
 

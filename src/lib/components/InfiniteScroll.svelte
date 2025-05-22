@@ -1,28 +1,33 @@
 <script lang="ts">
-  import {
-    afterUpdate,
-    beforeUpdate,
-    createEventDispatcher,
-    onDestroy,
-  } from "svelte";
+  import { onDestroy, type Snippet } from "svelte";
   import { isNullish } from "@dfinity/utils";
 
-  export let layout: "list" | "grid" = "list";
-  export let disabled = false;
-  export let testId: string | undefined = undefined;
+  interface Props {
+    onIntersect: () => Promise<void>;
+    layout?: "list" | "grid";
+    disabled?: boolean;
+    testId?: string;
+    // IntersectionObserverInit is not recognized by the linter
+    // eslint-disable-next-line no-undef
+    options?: IntersectionObserverInit;
+    children: Snippet;
+  }
 
-  // IntersectionObserverInit is not recognized by the linter
-  // eslint-disable-next-line no-undef
-  export let options: IntersectionObserverInit = {
-    rootMargin: "300px",
-    threshold: 0,
-  };
+  let {
+    onIntersect,
+    layout = "list",
+    disabled = false,
+    testId,
+    options = {
+      rootMargin: "300px",
+      threshold: 0,
+    },
+    children,
+  }: Props = $props();
 
   let intersectionTarget: HTMLDivElement | undefined;
 
-  const dispatch = createEventDispatcher();
-
-  const onIntersection = (entries: IntersectionObserverEntry[]) => {
+  const onIntersection = async (entries: IntersectionObserverEntry[]) => {
     const intersecting: IntersectionObserverEntry | undefined = entries.find(
       ({ isIntersecting }: IntersectionObserverEntry) => isIntersecting,
     );
@@ -31,7 +36,7 @@
       return;
     }
 
-    dispatch("nnsIntersect");
+    await onIntersect();
   };
 
   const observer: IntersectionObserver = new IntersectionObserver(
@@ -43,7 +48,7 @@
   let skipContainerNextUpdate = false;
 
   // We disconnect previous observer before any update. We do want to trigger an intersection in case of layout shifting.
-  beforeUpdate(() => {
+  $effect.pre(() => {
     if (!skipContainerNextUpdate) {
       observer.disconnect();
     }
@@ -51,7 +56,7 @@
     skipContainerNextUpdate = isNullish(intersectionTarget);
   });
 
-  afterUpdate(() => {
+  $effect(() => {
     // The DOM has been updated. We reset the observer to the current last HTML element of the infinite list.
 
     // If no element to observe
@@ -71,7 +76,7 @@
 </script>
 
 <ul class:card-grid={layout === "grid"} data-tid={testId}>
-  <slot />
+  {@render children()}
 </ul>
 
 <div bind:this={intersectionTarget} class="intersection-observer-target"></div>

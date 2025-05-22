@@ -35,6 +35,7 @@ The input component is a wrapper to the HTML input element with custom styling a
 | `testId`          | Add a `data-tid` attribute to the DOM, useful for test purpose.                                                                                       | `string` or `undefined`                   | `undefined` |
 | `ignore1Password` | Tell 1Password it should ignore the field (Reference: 1Password [documentation](https://developer.1password.com/docs/web/compatible-website-design/)) | `boolean`                                 | `true`      |
 | `inputElement`    | HTML input element                                                                                                                                    | `HTMLInputElement` or `undefined`         | `undefined` |
+| `autofocus`       | HTML input `autofocus` attribute. When set to true, the input will be automatically focused when the component is mounted.                            | `boolean`                                 | `false`     |
 
 ### Notes
 
@@ -48,6 +49,7 @@ If the `inputType` is set to `icp`, the `value` bind by the component is a `numb
 | `label`     | A label related to the input. Need to be activated with the property `showInfo`.                                       |
 | `end`       | An addition after the label (e.g. an action related to the input). Need to be activated with the property `showInfo`.  |
 | `inner-end` | An addition displayed within the input (e.g. an action related to the input).                                          |
+| `bottom`    | An addition below the input field.                                                                                     |
 
 Both slots are displayed `flex` with `space-between`.
 
@@ -74,6 +76,20 @@ Both slots are displayed `flex` with `space-between`.
 
     <Input placeholder="Input text" inputType="text" value="">
         <IconQRCodeScanner slot="inner-end" />
+    </Input>
+
+    <Input placeholder="Input text" inputType="text" value="">
+        <div slot="bottom">
+           <p>A slot to show stuff below the input field</p>
+        </div>
+    </Input>
+
+    <Input placeholder="Input text" inputType="text" value="">
+        <IconQRCodeScanner slot="inner-end" />
+
+        <div slot="bottom">
+           <p>A slot to show stuff below the input field</p>
+        </div>
     </Input>
 
 </div>

@@ -1,13 +1,13 @@
 <script lang="ts">
-  import { fade } from "svelte/transition";
-  import { createEventDispatcher } from "svelte";
-  import { i18n } from "$lib/stores/i18n";
-  import IconClose from "$lib/icons/IconClose.svelte";
   import Backdrop from "$lib/components/Backdrop.svelte";
-  import { nonNullish } from "@dfinity/utils";
-  import { nextElementId } from "$lib/utils/html.utils";
+  import IconClose from "$lib/icons/IconClose.svelte";
   import { busy } from "$lib/stores/busy.store";
+  import { i18n } from "$lib/stores/i18n";
+  import { nextElementId } from "$lib/utils/html.utils";
+  import { nonNullish } from "@dfinity/utils";
+  import { createEventDispatcher } from "svelte";
   import { get } from "svelte/store";
+  import { fade } from "svelte/transition";
 
   export let visible = true;
   export let role: "dialog" | "alert" = "dialog";
@@ -16,6 +16,9 @@
 
   let showHeader: boolean;
   $: showHeader = nonNullish($$slots.title);
+
+  let showHeaderLeft: boolean;
+  $: showHeaderLeft = nonNullish($$slots["header-left"]);
 
   /**
    * @deprecated according new design there should be no sticky footer
@@ -62,16 +65,27 @@
     >
       {#if showHeader}
         <div class="header">
+          {#if showHeaderLeft}
+            <div class="header-left">
+              <slot name="header-left" />
+            </div>
+          {/if}
+
           <h2 id={modalTitleId} data-tid="modal-title">
             <slot name="title" />
           </h2>
-          {#if !disablePointerEvents}
-            <button
-              data-tid="close-modal"
-              on:click|stopPropagation={close}
-              aria-label={$i18n.core.close}><IconClose size="24px" /></button
-            >
-          {/if}
+
+          <div class="header-right">
+            <slot name="header-right" />
+
+            {#if !disablePointerEvents}
+              <button
+                data-tid="close-modal"
+                on:click|stopPropagation={close}
+                aria-label={$i18n.core.close}><IconClose size="24px" /></button
+              >
+            {/if}
+          </div>
         </div>
       {/if}
 
@@ -162,6 +176,10 @@
         margin: 0 0 calc(var(--alert-padding-y) / 2);
         padding: calc(var(--alert-padding-y) / 2)
           calc(var(--alert-padding-x) / 2) 0;
+
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
       }
 
       .footer {
@@ -202,6 +220,9 @@
       .content {
         margin: 0;
         padding: var(--dialog-padding-y) var(--dialog-padding-x);
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
       }
     }
   }
@@ -215,10 +236,22 @@
 
     position: relative;
 
+    .header-left {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
     h2 {
       @include text.truncate;
       grid-column-start: 2;
       text-align: center;
+    }
+
+    .header-right {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
     }
 
     button {
@@ -226,9 +259,6 @@
       justify-content: center;
       align-items: center;
       padding: 0;
-
-      justify-self: flex-end;
-
       &:active,
       &:focus,
       &:hover {

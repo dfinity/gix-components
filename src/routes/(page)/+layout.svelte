@@ -7,15 +7,18 @@
   import { canGoBack, goBack } from "$docs/utils/docs.utils";
 
   let navHistory: AfterNavigate[] = [];
-  let back = false;
 
   afterNavigate((navigation) => (navHistory = [navigation, ...navHistory]));
 
-  $: back = canGoBack($page.route.id);
+  $: onBack = canGoBack($page.route.id)
+    ? async () => await goBack({ navHistory })
+    : undefined;
 </script>
 
-<Content {back} on:nnsBack={async () => await goBack({ navHistory })}>
-  <DocsAccountMenu slot="toolbar-end" />
+<Content {onBack}>
+  {#snippet toolbarEnd()}
+    <DocsAccountMenu />
+  {/snippet}
 
   <main>
     <slot />
