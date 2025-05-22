@@ -9,7 +9,6 @@
   import Header from "$lib/components/Header.svelte";
   import ScrollSentinel from "$lib/components/ScrollSentinel.svelte";
   import type { OnEventCallback } from "$lib/types/event-modifiers";
-  import { nonNullish } from "@dfinity/utils";
 
   interface Props {
     title?: Snippet;
@@ -31,13 +30,7 @@
   class:open={$layoutMenuOpen}
   style={`--layout-bottom-offset: calc(${$layoutBottomOffset}px - var(--content-margin)); --content-overflow-y: ${$layoutContentScrollY}`}
 >
-  <Header back={nonNullish(onBack)} on:nnsBack={() => onBack?.()}>
-    <svelte:fragment slot="title">{@render title?.()}</svelte:fragment>
-
-    <svelte:fragment slot="toolbar-end"
-      >{@render toolbarEnd?.()}</svelte:fragment
-    >
-  </Header>
+  <Header {title} {toolbarEnd} {onBack} />
 
   <div
     class="scrollable-content"
