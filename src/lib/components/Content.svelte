@@ -9,22 +9,16 @@
   import Header from "$lib/components/Header.svelte";
   import ScrollSentinel from "$lib/components/ScrollSentinel.svelte";
   import type { OnEventCallback } from "$lib/types/event-modifiers";
+  import { nonNullish } from "@dfinity/utils";
 
   interface Props {
     title?: Snippet;
     toolbarEnd?: Snippet;
     children: Snippet;
-    back?: boolean;
     onBack?: OnEventCallback;
   }
 
-  let {
-    title,
-    toolbarEnd,
-    children,
-    back = false,
-    onBack = () => {},
-  }: Props = $props();
+  let { title, toolbarEnd, children, onBack }: Props = $props();
 
   // Observed: nested component - bottom sheet - might not call destroy when navigating route and therefore offset might not be reseted which is not the case here
   onDestroy(() => ($layoutBottomOffset = 0));
@@ -37,7 +31,7 @@
   class:open={$layoutMenuOpen}
   style={`--layout-bottom-offset: calc(${$layoutBottomOffset}px - var(--content-margin)); --content-overflow-y: ${$layoutContentScrollY}`}
 >
-  <Header {back} on:nnsBack={onBack}>
+  <Header back={nonNullish(onBack)} on:nnsBack={() => onBack?.()}>
     <svelte:fragment slot="title">{@render title?.()}</svelte:fragment>
 
     <svelte:fragment slot="toolbar-end"
