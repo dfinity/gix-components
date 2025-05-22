@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onDestroy } from "svelte";
+  import { onDestroy, type Snippet } from "svelte";
   import {
     layoutBottomOffset,
     layoutContentScrollY,
@@ -8,15 +8,25 @@
   import Header from "$lib/components/Header.svelte";
   import ContentBackdrop from "$lib/components/ContentBackdrop.svelte";
   import ScrollSentinel from "$lib/components/ScrollSentinel.svelte";
+  import type { OnEventCallback } from "$lib/types/event-modifiers";
 
-  export let back = false;
+  interface Props {
+    title?: Snippet;
+    toolbarEnd?: Snippet;
+    start: Snippet;
+    end: Snippet;
+    onBack?: OnEventCallback;
+  }
+
+  let { title, toolbarEnd, start, end, onBack }: Props = $props();
+
   export const resetScrollPosition = () => {
     if (scrollableElement) {
       scrollableElement.scrollTop = 0;
     }
   };
 
-  let scrollableElement: HTMLElement | undefined;
+  let scrollableElement = $state<HTMLElement | undefined>();
 
   // Same as in <Content />
   onDestroy(() => ($layoutBottomOffset = 0));
@@ -30,22 +40,18 @@
   <div class="start">
     <div class="scrollable-content-start">
       <ContentBackdrop />
-      <slot name="start" />
+      {@render start()}
     </div>
   </div>
 
   <div class="end">
-    <Header {back} on:nnsBack>
-      <slot name="title" slot="title" />
-
-      <slot name="toolbar-end" slot="toolbar-end" />
-    </Header>
+    <Header {title} {toolbarEnd} {onBack} />
 
     <div class="scrollable-content-end" bind:this={scrollableElement}>
       <ContentBackdrop />
 
       <ScrollSentinel scrollContainer={scrollableElement} />
-      <slot name="end" />
+      {@render end()}
     </div>
   </div>
 </div>
