@@ -1,7 +1,11 @@
 <!-- adapted source: https://github.com/ionic-team/ionic-framework/tree/main/core/src/components/skeleton-text -->
 <script lang="ts">
-  export let animated = true;
-  export let tagName: "span" | "p" | "h1" | "h2" | "h3" = "span";
+  interface Props {
+    animated?: boolean;
+    tagName?: "span" | "p" | "h1" | "h2" | "h3";
+  }
+
+  let { animated = true, tagName = "span" }: Props = $props();
 </script>
 
 <div

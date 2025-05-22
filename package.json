@@ -21,7 +21,8 @@
     "e2e:ci": "npm run download:samples && playwright test --reporter=html",
     "e2e:snapshots": "npm run download:samples && npx playwright test --update-snapshots --reporter=list",
     "e2e:report": "npx playwright show-report",
-    "e2e:dev": "NODE_ENV=development playwright test"
+    "e2e:dev": "NODE_ENV=development playwright test",
+    "docs": "node scripts/docs.mjs && prettier --write 'src/routes/(page)/utility-functions/+page.md'"
   },
   "sideEffects": [
     "**/*.css"
@@ -41,7 +42,7 @@
     "LICENSE"
   ],
   "devDependencies": {
-    "@junobuild/config": "^0.0.14",
+    "@junobuild/config": "^0.1.8",
     "@playwright/test": "^1.51.0",
     "@sveltejs/adapter-static": "^3.0.8",
     "@sveltejs/kit": "^2.20.7",
@@ -66,6 +67,7 @@
     "svelte-check": "^4.1.5",
     "svelte-preprocess": "^6.0.3",
     "svelte2tsx": "^0.7.35",
+    "tsdoc-markdown": "^1.2.0",
     "typescript": "^5.3.3",
     "user-agent-data-types": "^0.4.2",
     "vite": "^6.2.6",

@@ -1,16 +1,30 @@
 <script lang="ts">
-  export let tagName: "span" | "li" = "span";
-  export let intent: "warning" | "success" | "error" | "info" = "info";
-  export let size: "medium" | "large" = "medium";
-  export let testId = "tag";
+  import type { Snippet } from "svelte";
+
+  interface Props {
+    children: Snippet;
+    tagName?: "span" | "li";
+    intent?: "warning" | "success" | "error" | "info";
+    size?: "medium" | "large";
+    testId?: string;
+  }
+
+  let {
+    children,
+    tagName = "span",
+    intent = "info",
+    size = "medium",
+    testId = "tag",
+  }: Props = $props();
 </script>
 
 <svelte:element
   this={tagName}
   data-tid={testId}
   class={`tag ${size === "large" ? "tag--large" : ""} ${intent}`}
-  ><slot /></svelte:element
 >
+  {@render children()}
+</svelte:element>
 
 <style lang="scss">
   .tag {
