@@ -1,4 +1,14 @@
-<h4><slot /></h4>
+<script lang="ts">
+  import type { Snippet } from "svelte";
+
+  interface Props {
+    children: Snippet;
+  }
+
+  let { children }: Props = $props();
+</script>
+
+<h4>{@render children()}</h4>
 
 <style lang="scss">
   @use "../styles/mixins/text";

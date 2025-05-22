@@ -5,11 +5,13 @@
 </script>
 
 <SplitContent>
-  <DocsComponentsNav slot="start" />
+  {#snippet start()}<DocsComponentsNav />{/snippet}
 
-  <DocsAccountMenu slot="toolbar-end" />
+  {#snippet toolbarEnd()}<DocsAccountMenu />{/snippet}
 
-  <main slot="end">
-    <slot />
-  </main>
+  {#snippet end()}
+    <main>
+      <slot />
+    </main>
+  {/snippet}
 </SplitContent>
