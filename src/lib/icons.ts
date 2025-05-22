@@ -27,6 +27,7 @@ export { default as IconExpandAll } from "./icons/IconExpandAll.svelte";
 export { default as IconExpandCircleDown } from "./icons/IconExpandCircleDown.svelte";
 export { default as IconExpandMore } from "./icons/IconExpandMore.svelte";
 export { default as IconExplore } from "./icons/IconExplore.svelte";
+export { default as IconEyeClosed } from "./icons/IconEyeClosed.svelte";
 export { default as IconEyeOpen } from "./icons/IconEyeOpen.svelte";
 export { default as IconFilter } from "./icons/IconFilter.svelte";
 export { default as IconGitHub } from "./icons/IconGitHub.svelte";
