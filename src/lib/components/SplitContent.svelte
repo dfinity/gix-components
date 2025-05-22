@@ -9,7 +9,6 @@
   import ContentBackdrop from "$lib/components/ContentBackdrop.svelte";
   import ScrollSentinel from "$lib/components/ScrollSentinel.svelte";
   import type { OnEventCallback } from "$lib/types/event-modifiers";
-  import { nonNullish } from "@dfinity/utils";
 
   interface Props {
     title?: Snippet;
@@ -46,13 +45,7 @@
   </div>
 
   <div class="end">
-    <Header back={nonNullish(onBack)} on:nnsBack={() => onBack?.()}>
-      <svelte:fragment slot="title">{@render title?.()}</svelte:fragment>
-
-      <svelte:fragment slot="toolbar-end"
-        >{@render toolbarEnd?.()}</svelte:fragment
-      >
-    </Header>
+    <Header {title} {toolbarEnd} {onBack} />
 
     <div class="scrollable-content-end" bind:this={scrollableElement}>
       <ContentBackdrop />
