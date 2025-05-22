@@ -4,17 +4,25 @@
     layoutContentScrollY,
     layoutMenuOpen,
   } from "$lib/stores/layout.store";
-  import { onDestroy } from "svelte";
+  import { onDestroy, type Snippet } from "svelte";
   import ContentBackdrop from "$lib/components/ContentBackdrop.svelte";
   import Header from "$lib/components/Header.svelte";
   import ScrollSentinel from "$lib/components/ScrollSentinel.svelte";
+  import type { OnEventCallback } from "$lib/types/event-modifiers";
 
-  export let back = false;
+  interface Props {
+    title?: Snippet;
+    toolbarEnd?: Snippet;
+    children: Snippet;
+    onBack?: OnEventCallback;
+  }
+
+  let { title, toolbarEnd, children, onBack }: Props = $props();
 
   // Observed: nested component - bottom sheet - might not call destroy when navigating route and therefore offset might not be reseted which is not the case here
   onDestroy(() => ($layoutBottomOffset = 0));
 
-  let scrollContainer: HTMLDivElement;
+  let scrollContainer = $state<HTMLDivElement | undefined>();
 </script>
 
 <div
@@ -22,11 +30,7 @@
   class:open={$layoutMenuOpen}
   style={`--layout-bottom-offset: calc(${$layoutBottomOffset}px - var(--content-margin)); --content-overflow-y: ${$layoutContentScrollY}`}
 >
-  <Header {back} on:nnsBack>
-    <slot name="title" slot="title" />
-
-    <slot name="toolbar-end" slot="toolbar-end" />
-  </Header>
+  <Header {title} {toolbarEnd} {onBack} />
 
   <div
     class="scrollable-content"
@@ -35,7 +39,7 @@
   >
     <ContentBackdrop />
     <ScrollSentinel {scrollContainer} />
-    <slot />
+    {@render children()}
   </div>
 </div>
 

@@ -4,7 +4,7 @@ A component that renders a header and your content.
 
 ```javascript
 <Content>
-  <Title slot="title">My dapp page</Title>
+  {#snippet title()}<Title>My dapp page</Title>{/snippet}
 
   <main>
     <slot />
@@ -14,14 +14,14 @@ A component that renders a header and your content.
 
 ## Properties
 
-| Property | Description                                                     | Type      | Default |
-| -------- | --------------------------------------------------------------- | --------- | ------- |
-| `back`   | Display an arrowed `back` button instead of the hamburger menu. | `boolean` | `false` |
+| Property | Description                                                                                | Type                      | Default     |
+| -------- | ------------------------------------------------------------------------------------------ | ------------------------- | ----------- |
+| `onBack` | When provided, the `Back` button will be shown and it will call the function when clicked. | `function` or `undefined` | `undefined` |
 
-## Slots
+## Snippets
 
-| Slot name     | Description                                               |
-| ------------- | --------------------------------------------------------- |
-| Default slot  | The content of the page.                                  |
-| `title`       | The title of the page displayed centered in the toolbar.  |
-| `toolbar-end` | An element that can be added to the `end` of the toolbar. |
+| Snippet name    | Description                                               |
+| --------------- | --------------------------------------------------------- |
+| Default snippet | The content of the page.                                  |
+| `title`         | The title of the page displayed centered in the toolbar.  |
+| `toolbarEnd`    | An element that can be added to the `end` of the toolbar. |
