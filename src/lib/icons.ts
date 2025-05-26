@@ -10,6 +10,7 @@ export { default as IconChat } from "./icons/IconChat.svelte";
 export { default as IconCheck } from "./icons/IconCheck.svelte";
 export { default as IconCheckCircle } from "./icons/IconCheckCircle.svelte";
 export { default as IconCheckCircleFill } from "./icons/IconCheckCircleFill.svelte";
+export { default as IconCheckCircleV2 } from "./icons/IconCheckCircleV2.svelte";
 export { default as IconClock } from "./icons/IconClock.svelte";
 export { default as IconClockNoFill } from "./icons/IconClockNoFill.svelte";
 export { default as IconClose } from "./icons/IconClose.svelte";
