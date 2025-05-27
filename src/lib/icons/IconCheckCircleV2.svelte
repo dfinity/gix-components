@@ -14,13 +14,11 @@
   fill="none"
 >
   <path
-    stroke="#BEC2D6"
     stroke-linecap="round"
     stroke-linejoin="round"
     stroke-width="1.5"
     d="M13.438 8.125 8.851 12.5l-2.29-2.188"
   /><path
-    stroke="#BEC2D6"
     stroke-linecap="round"
     stroke-linejoin="round"
     stroke-width="1.5"
