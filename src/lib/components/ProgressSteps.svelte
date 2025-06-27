@@ -4,7 +4,11 @@
   import type { ProgressStep } from "$lib/types/progress-step";
   import { i18n } from "$lib/stores/i18n";
 
-  export let steps: [ProgressStep, ...ProgressStep[]];
+  interface Props {
+    steps: [ProgressStep, ...ProgressStep[]];
+  }
+
+  let { steps }: Props = $props();
 </script>
 
 {#each steps as { step: _, text, state }, i}
