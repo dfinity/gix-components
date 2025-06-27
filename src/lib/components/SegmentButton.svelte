@@ -2,9 +2,15 @@
   import { getContext } from "svelte";
   import { SEGMENT_CONTEXT_KEY, type SegmentContext } from "$lib/types/segment";
   import { nonNullish } from "@dfinity/utils";
+  import type { Snippet } from "svelte";
 
-  export let testId: string | undefined = undefined;
-  export let segmentId: symbol;
+  interface Props {
+    testId?: string;
+    segmentId: symbol;
+    children?: Snippet;
+  }
+
+  let { testId, segmentId, children }: Props = $props();
 
   const { store } = getContext<SegmentContext>(SEGMENT_CONTEXT_KEY);
 
@@ -14,30 +20,31 @@
       element,
     });
 
-  let element: HTMLDivElement | undefined;
+  let element = $state<HTMLDivElement | undefined>();
 
-  let selected = false;
-  $: selected = $store.id === segmentId;
+  let selected = $derived($store.id === segmentId);
 
-  // Update the store with initially selected element as soon as it is available
-  $: if (selected && $store.element !== element && nonNullish(element)) {
-    store.set({
-      id: segmentId,
-      element,
-    });
-  }
+  // Update the store with the initially selected element as soon as it is available
+  $effect(() => {
+    if (selected && $store.element !== element && nonNullish(element)) {
+      store.set({
+        id: segmentId,
+        element,
+      });
+    }
+  });
 </script>
 
 <div bind:this={element} class="segment-button" data-tid={testId}>
   <button
-    on:click={onClick}
+    onclick={onClick}
     role="tab"
     class:selected
     class:initialised={nonNullish($store.element)}
     disabled={selected}
     data-tid="segment-button"
   >
-    <slot />
+    {@render children?.()}
   </button>
 </div>
 
