@@ -1,7 +1,11 @@
 <!-- adapted source: https://github.com/angular/components/tree/master/src/material/progress-spinner -->
 <script lang="ts">
-  export let inline = false;
-  export let size: "tiny" | "small" | "medium" = "medium";
+  interface Props {
+    inline?: boolean;
+    size?: "tiny" | "small" | "medium";
+  }
+
+  let { inline = false, size = "medium" }: Props = $props();
 </script>
 
 <svg
