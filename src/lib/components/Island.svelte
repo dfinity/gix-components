@@ -7,7 +7,7 @@
 
   interface Props {
     testId?: string;
-    children?: Snippet;
+    children: Snippet;
   }
 
   let { testId, children }: Props = $props();
@@ -28,7 +28,7 @@
 <div class="island" data-tid={testId}>
   <div class="scrollable-island" bind:this={scrollContainer}>
     <ScrollSentinel {scrollContainer} />
-    {@render children?.()}
+    {@render children()}
   </div>
 </div>
 
