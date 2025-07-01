@@ -15,9 +15,7 @@
     handleInput = undefined,
   }: Props = $props();
 
-  let progression: number = $derived(
-    Math.round(((value - min) / (max - min)) * 100),
-  );
+  let progression = $derived(Math.round(((value - min) / (max - min)) * 100));
 </script>
 
 <!-- Order of on:input and bind:value matters: https://svelte.dev/docs#template-syntax-element-directives-bind-property -->
