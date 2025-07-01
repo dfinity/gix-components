@@ -7,7 +7,7 @@
   interface Props {
     testId?: string;
     segmentId: symbol;
-    children?: Snippet;
+    children: Snippet;
   }
 
   let { testId, segmentId, children }: Props = $props();
@@ -44,7 +44,7 @@
     disabled={selected}
     data-tid="segment-button"
   >
-    {@render children?.()}
+    {@render children()}
   </button>
 </div>
 
