@@ -1,12 +1,23 @@
 <script lang="ts">
-  export let max: number;
-  export let min: number;
-  export let value: number;
-  export let ariaLabel: string;
-  export let handleInput: (() => void) | undefined = undefined;
+  interface Props {
+    max: number;
+    min: number;
+    value: number;
+    ariaLabel: string;
+    handleInput?: (() => void) | undefined;
+  }
 
-  let progression: number;
-  $: progression = Math.round(((value - min) / (max - min)) * 100);
+  let {
+    max,
+    min,
+    value = $bindable<number>(),
+    ariaLabel,
+    handleInput = undefined,
+  }: Props = $props();
+
+  let progression: number = $derived(
+    Math.round(((value - min) / (max - min)) * 100),
+  );
 </script>
 
 <!-- Order of on:input and bind:value matters: https://svelte.dev/docs#template-syntax-element-directives-bind-property -->
@@ -17,7 +28,7 @@
   aria-label={ariaLabel}
   type="range"
   bind:value
-  on:input={handleInput}
+  oninput={handleInput}
   style={`--range-progression: ${progression}%; --range-end: ${
     1 - progression
   }%;`}
