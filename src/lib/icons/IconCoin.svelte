@@ -11,7 +11,6 @@
   fill="none"
   stroke="currentColor"
   xmlns="http://www.w3.org/2000/svg"
-  data-tid="document"
 >
   <path
     d="M8 9.5C11.5899 9.5 14.5 8.15685 14.5 6.5C14.5 4.84315 11.5899 3.5 8 3.5C4.41015 3.5 1.5 4.84315 1.5 6.5C1.5 8.15685 4.41015 9.5 8 9.5Z"
