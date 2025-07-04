@@ -49,11 +49,10 @@ In the meanwhile, the `i18n` store is being exported so that it can be set speci
 
 ```typescript
 import fr from "i18n/fr.json";
-import { i18n } from '@dfinity/gix-components';
+import { i18n } from "@dfinity/gix-components";
 
 i18n.set({
   lang: "fr",
   ...fr,
-})
+});
 ```
-
