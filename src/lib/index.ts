@@ -2,6 +2,7 @@ export * from "./components";
 export * from "./constants/constants";
 export * from "./icons";
 export * from "./stores/busy.store";
+export { i18n } from "./stores/i18n";
 export * from "./stores/layout.store";
 export * from "./stores/menu.store";
 export * from "./stores/theme.store";

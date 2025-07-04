@@ -45,3 +45,15 @@ Currently, they are packaged as pure Svelte components - e.g. are not shipped as
 ## Internationalization
 
 Currently only provided in english, the design system supports i18n. If it were to be translated, a setup function will be exposed to select language and other i18n options.
+In the meanwhile, the `i18n` store is being exported so that it can be set specifically in the consumer app, if needed.
+
+```typescript
+import fr from "i18n/fr.json";
+import { i18n } from '@dfinity/gix-components';
+
+i18n.set({
+  lang: "fr",
+  ...fr,
+})
+```
+
