@@ -1,6 +1,5 @@
 <script lang="ts">
   import { layoutContentTopHidden } from "$lib/stores/layout.store";
-  import { onMount, tick } from "svelte";
   import { isNullish } from "@dfinity/utils";
 
   // The ScrollSentinel component should be placed right before the content
@@ -15,27 +14,24 @@
   // To observe when the top leaves the view
   let element = $state<HTMLElement | undefined>();
 
-  onMount(() => {
-    let observer: IntersectionObserver | undefined = undefined;
+  const observer = new IntersectionObserver(
+    ([entry]) => layoutContentTopHidden.set(!entry.isIntersecting),
+    { root: scrollContainer, threshold: 0 },
+  );
 
-    const setObserver = async () => {
-      await tick(); // wait for DOM + bind:this to complete
+  // We disconnect previous observer before any update.
+  $effect.pre(() => {
+    observer.disconnect();
+  });
 
-      if (isNullish(element)) {
-        return;
-      }
+  $effect(() => {
+    if (isNullish(element)) {
+      return;
+    }
 
-      observer = new IntersectionObserver(
-        ([entry]) => layoutContentTopHidden.set(!entry.isIntersecting),
-        { root: scrollContainer, threshold: 0 },
-      );
+    observer.observe(element);
 
-      observer.observe(element);
-    };
-
-    setObserver();
-
-    return () => observer?.disconnect();
+    return () => observer.disconnect();
   });
 </script>
 
