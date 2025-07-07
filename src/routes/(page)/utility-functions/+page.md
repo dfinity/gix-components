@@ -13,9 +13,9 @@ A collection of handy JavaScript/TypeScript utility functions you can use alongs
 
 A wrapper function to stop event propagation of a mouse event before executing a callback function.
 
-| Function          | Type                                                                   |
-| ----------------- | ---------------------------------------------------------------------- |
-| `stopPropagation` | `<T extends EventTarget>(fn: OnEventCallback) => MouseEventHandler<T>` |
+| Function          | Type                                                                      |
+| ----------------- | ------------------------------------------------------------------------- |
+| `stopPropagation` | `<T extends EventTarget>(fn: OnEventCallback<T>) => MouseEventHandler<T>` |
 
 Parameters:
 
@@ -27,9 +27,9 @@ Parameters:
 
 A wrapper function to prevent the default action of a mouse event before executing a callback function.
 
-| Function         | Type                                                                   |
-| ---------------- | ---------------------------------------------------------------------- |
-| `preventDefault` | `<T extends EventTarget>(fn: OnEventCallback) => MouseEventHandler<T>` |
+| Function         | Type                                                                      |
+| ---------------- | ------------------------------------------------------------------------- |
+| `preventDefault` | `<T extends EventTarget>(fn: OnEventCallback<T>) => MouseEventHandler<T>` |
 
 Parameters:
 
