@@ -5,8 +5,15 @@
     DEFAULT_STROKE_WIDTH,
   } from "$lib/constants/constants";
 
-  export let size = `${DEFAULT_ICON_SIZE}px`;
-  export let strokeWidth = DEFAULT_STROKE_WIDTH;
+  interface Props {
+    size?: string | number;
+    strokeWidth?: string | number;
+  }
+
+  let {
+    size = `${DEFAULT_ICON_SIZE}px`,
+    strokeWidth = DEFAULT_STROKE_WIDTH,
+  }: Props = $props();
 </script>
 
 <svg
