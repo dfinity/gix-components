@@ -1,8 +1,12 @@
 <!-- source: DFINITY foundation -->
 <script lang="ts">
+  interface Props {
+    size?: string | number;
+  }
+
   const DEFAULT_SIZE = 40;
 
-  export let size = `${DEFAULT_SIZE}px`;
+  let { size = `${DEFAULT_SIZE}px` }: Props = $props();
 </script>
 
 <svg
