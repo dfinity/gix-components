@@ -23,3 +23,19 @@ export const stopPropagation = <T extends EventTarget>(
     await fn();
   };
 };
+
+/**
+ * A wrapper function to prevent the default action of a mouse event before executing a callback function.
+ *
+ * @param {OnEventCallback} fn - The function to be executed after preventing the default action. It can be a synchronous or asynchronous function.
+ *
+ * @returns {MouseEventHandler<T extends EventTarget>} - A function that takes an event and prevents its default action, before executing the provided function.
+ */
+export const preventDefault = <T extends EventTarget>(
+  fn: OnEventCallback,
+): MouseEventHandler<T> => {
+  return async ($event?: MouseEvent & { currentTarget: EventTarget & T }) => {
+    $event?.preventDefault();
+    await fn();
+  };
+};

@@ -2,12 +2,7 @@
   import { toastsStore } from "$lib/stores/toasts.store";
   import { fade, fly } from "svelte/transition";
   import { i18n } from "$lib/stores/i18n";
-  import type {
-    ToastLevel,
-    ToastMsg,
-    ToastPosition,
-    ToastTheme,
-  } from "$lib/types/toast";
+  import type { ToastLevel, ToastMsg } from "$lib/types/toast";
   import { onDestroy, onMount, type Component } from "svelte";
   import Spinner from "./Spinner.svelte";
   import IconWarning from "$lib/icons/IconWarning.svelte";
@@ -19,7 +14,11 @@
   import { isNullish, nonNullish } from "@dfinity/utils";
   import Html from "./Html.svelte";
 
-  export let msg: ToastMsg;
+  interface Props {
+    msg: ToastMsg;
+  }
+
+  let { msg }: Props = $props();
 
   const iconMapper = (level: ToastLevel): Component | undefined =>
     ({
@@ -32,17 +31,7 @@
 
   const close = () => toastsStore.hide(msg.id);
 
-  let text: string;
-  let level: ToastLevel;
-  let spinner: boolean | undefined;
-  let title: string | undefined;
-  let overflow: "scroll" | "truncate" | "clamp" | undefined;
-  let position: ToastPosition | undefined;
-  let icon: Component | undefined;
-  let theme: ToastTheme | undefined;
-  let renderAsHtml: boolean | undefined;
-
-  $: ({
+  let {
     text,
     level,
     spinner,
@@ -52,16 +41,15 @@
     icon,
     theme,
     renderAsHtml,
-  } = msg);
+  } = $derived(msg);
 
-  let scroll: boolean;
-  $: scroll = overflow === undefined || overflow === "scroll";
-  let truncate: boolean;
-  $: truncate = overflow === "truncate";
-  let clamp: boolean;
-  $: clamp = overflow === "clamp";
+  let scroll = $derived(overflow === undefined || overflow === "scroll");
 
-  let timeoutId: NodeJS.Timeout | undefined = undefined;
+  let truncate = $derived(overflow === "truncate");
+
+  let clamp = $derived(overflow === "clamp");
+
+  let timeoutId = $state<NodeJS.Timeout | undefined>();
 
   const autoHide = () => {
     const { duration } = msg;
@@ -99,9 +87,11 @@
     {#if spinner}
       <Spinner size="small" inline />
     {:else if nonNullish(icon)}
-      <svelte:component this={icon} />
+      {@const IconCmp = icon}
+      <IconCmp />
     {:else if iconMapper(level)}
-      <svelte:component this={iconMapper(level)} size={DEFAULT_ICON_SIZE} />
+      {@const MappedIconCmp = iconMapper(level)}
+      <MappedIconCmp size={DEFAULT_ICON_SIZE} />
     {/if}
   </div>
 
@@ -126,7 +116,7 @@
   <button
     data-tid="close-button"
     class="close"
-    on:click={close}
+    onclick={close}
     aria-label={$i18n.core.close}><IconClose /></button
   >
 </div>
