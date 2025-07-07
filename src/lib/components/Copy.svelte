@@ -1,8 +1,16 @@
 <script lang="ts">
   import { IconCopy } from "$lib/icons";
   import { i18n } from "$lib/stores/i18n";
+  import {
+    stopPropagation,
+    preventDefault,
+  } from "$lib/utils/event-modifiers.utils";
 
-  export let value: string;
+  interface Props {
+    value: string;
+  }
+
+  let { value }: Props = $props();
 
   const copyToClipboard = async () =>
     await navigator.clipboard.writeText(value);
@@ -10,7 +18,7 @@
 
 <button
   data-tid="copy-component"
-  on:click|preventDefault|stopPropagation={copyToClipboard}
+  onclick={stopPropagation(preventDefault(copyToClipboard))}
   aria-label={`${$i18n.core.copy}: ${value}`}
   class="icon-only"
 >
