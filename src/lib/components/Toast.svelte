@@ -79,7 +79,7 @@
 <div
   data-tid="toast-component"
   role="dialog"
-  class={`toast ${theme ?? "themed"}`}
+  class={`toast ${level} ${theme ?? "themed"}`}
   in:fly|global={{ y: (position === "top" ? -1 : 1) * 100, duration: 200 }}
   out:fade|global={{ delay: 100 }}
 >
