@@ -1,7 +1,7 @@
 <!-- source: DFINITY foundation -->
 <script lang="ts">
   interface Props {
-    size?: string | number
+    size?: string | number;
   }
 
   // Default to 100% size to make sure Safari renders the SVG correctly
