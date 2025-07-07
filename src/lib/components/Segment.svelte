@@ -4,8 +4,14 @@
   import { SEGMENT_CONTEXT_KEY } from "$lib/types/segment";
   import { onDestroy, setContext, tick } from "svelte";
   import { isNullish, nonNullish } from "@dfinity/utils";
+  import type { Snippet } from "svelte";
 
-  export let selectedSegmentId: symbol | undefined = undefined;
+  interface Props {
+    selectedSegmentId?: symbol;
+    children: Snippet;
+  }
+
+  let { selectedSegmentId = $bindable(), children }: Props = $props();
 
   const store = writable<SelectedSegment>({
     id: selectedSegmentId,
@@ -16,20 +22,25 @@
     store,
   });
 
-  $: $store, (() => (selectedSegmentId = $store.id))();
+  let storeId = $derived($store.id);
 
-  let indicator:
+  $effect(() => {
+    selectedSegmentId = storeId;
+  });
+
+  let indicator = $state<
     | {
         left: number;
         width: number;
       }
-    | undefined = undefined;
+    | undefined
+  >();
 
-  let segment: HTMLElement | undefined | null;
+  let segment: HTMLElement | undefined | null = $state();
 
-  let selectedElement: HTMLElement | undefined | null;
-  $: selectedElement =
-    $store.element ?? segment?.querySelector(".segment-button");
+  let selectedElement = $derived(
+    $store.element ?? segment?.querySelector(".segment-button"),
+  );
 
   export const initIndicator = async () => {
     if (isNullish(selectedElement)) {
@@ -59,14 +70,15 @@
     };
   };
 
-  $: selectedElement, initIndicator();
+  $effect(() => {
+    [selectedElement];
+    initIndicator();
+  });
 
   // TODO: support adding segmebt buttons dynamically
-  let segmentsCount = 0;
-  $: segment,
-    (() =>
-      (segmentsCount =
-        segment?.querySelectorAll(".segment-button").length ?? 0))();
+  let segmentsCount = $derived(
+    segment?.querySelectorAll(".segment-button").length ?? 0,
+  );
 
   // The SegmentButton has a width set to 100%—i.e., not fixed. Therefore, its size might change.
   // Likewise, on mount, when the segment is bound and the indicator is set for the first time, the buttons might not be fully rendered in terms of size yet.
@@ -89,10 +101,13 @@
     resizeObserver.observe(segment);
   };
 
-  $: segment, observeSegmentResize();
+  $effect(() => {
+    [segment];
+    observeSegmentResize();
+  });
 </script>
 
-<svelte:window on:resize={initIndicator} />
+<svelte:window onresize={initIndicator} />
 
 <div
   bind:this={segment}
@@ -109,7 +124,7 @@
     </div>
   {/if}
 
-  <slot />
+  {@render children()}
 </div>
 
 <style lang="scss">
