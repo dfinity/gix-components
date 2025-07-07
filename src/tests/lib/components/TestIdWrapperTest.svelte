@@ -1,7 +1,7 @@
 <script lang="ts">
   import TestIdWrapper from "$lib/components/TestIdWrapper.svelte";
 
-  export let testId: string | undefined = undefined;
+  export let testId: string;
   export let childTestId: string | undefined = undefined;
 </script>
 
