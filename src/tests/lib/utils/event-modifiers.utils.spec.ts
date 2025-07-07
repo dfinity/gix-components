@@ -35,16 +35,16 @@ describe("event-modifiers-utils", () => {
 
       await handler(mockEvent);
 
-      expect(callbackMock).toHaveBeenCalledOnce();
+      expect(callbackMock).toHaveBeenCalledExactlyOnceWith(mockEvent);
     });
 
-    it("should still call callback even if event is undefined", async () => {
+    it("should handle nullish events", async () => {
       const handler = stopPropagation(callbackMock);
 
       // @ts-expect-error Testing this on purpose
       await handler(undefined);
 
-      expect(callbackMock).toHaveBeenCalledOnce();
+      expect(callbackMock).toHaveBeenCalledExactlyOnceWith(undefined);
     });
 
     it("should throw if callback throws an error", async () => {
@@ -110,16 +110,16 @@ describe("event-modifiers-utils", () => {
 
       await handler(mockEvent);
 
-      expect(callbackMock).toHaveBeenCalledOnce();
+      expect(callbackMock).toHaveBeenCalledExactlyOnceWith(mockEvent);
     });
 
-    it("should still call callback even if event is undefined", async () => {
+    it("should handle nullish events", async () => {
       const handler = preventDefault(callbackMock);
 
       // @ts-expect-error Testing this on purpose
       await handler(undefined);
 
-      expect(callbackMock).toHaveBeenCalledOnce();
+      expect(callbackMock).toHaveBeenCalledExactlyOnceWith(undefined);
     });
 
     it("should throw if callback throws an error", async () => {
