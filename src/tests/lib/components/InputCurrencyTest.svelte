@@ -1,6 +1,5 @@
 <script lang="ts">
   import Input from "$lib/components/Input.svelte";
-  import { onMount } from "svelte";
 
   interface Props {
     decimals?: number;
