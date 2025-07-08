@@ -1,6 +1,7 @@
 <script lang="ts">
   import { isNullish, nonNullish } from "@dfinity/utils";
   import { createEventDispatcher } from "svelte";
+  import Decimal from "decimal.js";
 
   export let name: string;
   export let inputType: "icp" | "number" | "text" | "currency" = "number";
@@ -42,11 +43,26 @@
   let selectionStart: number | null = 0;
   let selectionEnd: number | null = 0;
 
-  const toStringWrapDecimals = (value: string): string =>
-    Number(value).toLocaleString("en", {
-      useGrouping: false,
-      maximumFractionDigits: wrapDecimals,
-    });
+  const safeDecimal = (value: unknown): Decimal | null => {
+    try {
+      return new Decimal(value as string);
+    } catch {
+      return null;
+    }
+  };
+
+  const toStringWrapDecimals = (value: string): string => {
+    const decimalValue = safeDecimal(value);
+
+    if (isNullish(decimalValue)) {
+      return Number(value).toLocaleString("en", {
+        useGrouping: false,
+        maximumFractionDigits: wrapDecimals,
+      });
+    }
+
+    return decimalValue.toDecimalPlaces(wrapDecimals).toFixed();
+  };
 
   // replace exponent format (1e-4) w/ plain (0.0001)
   const exponentToPlainNumberString = (value: string): string =>

@@ -2,6 +2,7 @@ import Input from "$lib/components/Input.svelte";
 import { assertNonNullish, isNullish, nonNullish } from "@dfinity/utils";
 import { fireEvent, render, waitFor } from "@testing-library/svelte";
 import { tick } from "svelte";
+import InputCurrencyTest from "./InputCurrencyTest.svelte";
 import InputElementTest from "./InputElementTest.svelte";
 import InputTest from "./InputTest.svelte";
 import InputValueTest from "./InputValueTest.svelte";
@@ -515,6 +516,32 @@ describe("Input", () => {
 
       fireEvent.input(input, { target: { value: "0.0000000112312321219" } });
       expect(input.value).toBe("0.000000011231232121");
+    });
+
+    it("should not trim below given decimals", async () => {
+      const { container, getByTestId } = render(InputCurrencyTest, {
+        props: {
+          ...props,
+          decimals: 18,
+        },
+      });
+
+      const input: HTMLInputElement | null = container.querySelector("input");
+      assertNonNullish(input);
+
+      const testValue = getByTestId("amount-decimals-output");
+
+      fireEvent.input(input, { target: { value: "0.999999999999999843" } });
+
+      await tick();
+
+      expect(testValue.textContent).toBe("0.999999999999999843");
+
+      fireEvent.input(input, { target: { value: "0.100000000000000843" } });
+
+      await tick();
+
+      expect(testValue.textContent).toBe("0.100000000000000843");
     });
 
     it("should not round custom decimals with JS imprecision", () => {
