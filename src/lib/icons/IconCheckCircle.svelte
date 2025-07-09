@@ -1,6 +1,10 @@
 <!-- source: DFINITY foundation -->
 <script lang="ts">
-  export let size = `24px`;
+  interface Props {
+    size?: string | number;
+  }
+
+  let { size = "24px" }: Props = $props();
 </script>
 
 <svg

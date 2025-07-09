@@ -1,5 +1,9 @@
-import { stopPropagation } from "$lib/utils/event-modifiers.utils";
+import {
+  preventDefault,
+  stopPropagation,
+} from "$lib/utils/event-modifiers.utils";
 import { fireEvent, render } from "@testing-library/svelte";
+import PreventDefaultTest from "./PreventDefaultTest.svelte";
 import StopPropagationTest from "./StopPropagationTest.svelte";
 
 describe("event-modifiers-utils", () => {
@@ -31,16 +35,16 @@ describe("event-modifiers-utils", () => {
 
       await handler(mockEvent);
 
-      expect(callbackMock).toHaveBeenCalledOnce();
+      expect(callbackMock).toHaveBeenCalledExactlyOnceWith(mockEvent);
     });
 
-    it("should still call callback even if event is undefined", async () => {
+    it("should handle nullish events", async () => {
       const handler = stopPropagation(callbackMock);
 
       // @ts-expect-error Testing this on purpose
       await handler(undefined);
 
-      expect(callbackMock).toHaveBeenCalledOnce();
+      expect(callbackMock).toHaveBeenCalledExactlyOnceWith(undefined);
     });
 
     it("should throw if callback throws an error", async () => {
@@ -75,6 +79,81 @@ describe("event-modifiers-utils", () => {
 
       expect(onChildClick).toHaveBeenCalledOnce();
       expect(onParentClick).not.toHaveBeenCalled();
+    });
+  });
+
+  describe("preventDefault", () => {
+    const preventDefaultMock = vi.fn();
+    const callbackMock = vi.fn();
+
+    const mockEvent = {
+      preventDefault: preventDefaultMock,
+      currentTarget: {} as EventTarget & HTMLButtonElement,
+    } as unknown as MouseEvent & {
+      currentTarget: EventTarget & HTMLButtonElement;
+    };
+
+    beforeEach(() => {
+      vi.clearAllMocks();
+    });
+
+    it("should prevent default event behavior", async () => {
+      const handler = preventDefault(callbackMock);
+
+      await handler(mockEvent);
+
+      expect(preventDefaultMock).toHaveBeenCalledOnce();
+    });
+
+    it("should call the callback", async () => {
+      const handler = preventDefault(callbackMock);
+
+      await handler(mockEvent);
+
+      expect(callbackMock).toHaveBeenCalledExactlyOnceWith(mockEvent);
+    });
+
+    it("should handle nullish events", async () => {
+      const handler = preventDefault(callbackMock);
+
+      // @ts-expect-error Testing this on purpose
+      await handler(undefined);
+
+      expect(callbackMock).toHaveBeenCalledExactlyOnceWith(undefined);
+    });
+
+    it("should throw if callback throws an error", async () => {
+      const error = new Error("Test error");
+      const handler = preventDefault(() => {
+        throw error;
+      });
+
+      await expect(handler(mockEvent)).rejects.toThrow(error);
+    });
+
+    it("should throw if callback is not a function", async () => {
+      // @ts-expect-error Testing this on purpose
+      const handler = preventDefault(undefined);
+
+      await expect(handler(mockEvent)).rejects.toThrow(
+        new TypeError("fn is not a function"),
+      );
+    });
+
+    it("should call only the child handler and prevent default form submission", async () => {
+      const onSubmit = vi.fn();
+      const onButtonClick = vi.fn();
+      const childTestId = "submit-button";
+
+      const { getByTestId } = render(PreventDefaultTest, {
+        props: { onSubmit, onButtonClick, childTestId },
+      });
+
+      const button = getByTestId(childTestId);
+      await fireEvent.click(button);
+
+      expect(onButtonClick).toHaveBeenCalledOnce();
+      expect(onSubmit).not.toHaveBeenCalled();
     });
   });
 });
