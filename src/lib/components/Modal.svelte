@@ -121,6 +121,9 @@
 
   .modal {
     position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items:    center;
     @include display.inset;
 
     z-index: var(--modal-z-index);
@@ -130,9 +133,9 @@
 
   .wrapper {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    left: 0;
+    right: 0;
+    margin: auto;
 
     display: flex;
     flex-direction: column;
