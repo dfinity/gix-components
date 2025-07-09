@@ -1,6 +1,7 @@
 <script lang="ts">
   import { isNullish, nonNullish } from "@dfinity/utils";
   import { createEventDispatcher } from "svelte";
+  import Decimal from "decimal.js";
 
   export let name: string;
   export let inputType: "icp" | "number" | "text" | "currency" = "number";
@@ -42,11 +43,51 @@
   let selectionStart: number | null = 0;
   let selectionEnd: number | null = 0;
 
-  const toStringWrapDecimals = (value: string): string =>
-    Number(value).toLocaleString("en", {
-      useGrouping: false,
-      maximumFractionDigits: wrapDecimals,
-    });
+  /**
+   * Safely parses a value into a `Decimal` instance.
+   *
+   * This is used instead of JavaScript’s native `Number()` to avoid floating-point precision issues
+   * when dealing with currency or high-precision inputs (e.g. more than 15–17 decimal places).
+   *
+   * The native `Number()` can produce inaccurate results for such inputs. For example:
+   * `Number(0.999999999999999876n)` or `(+"0.999999999999999876")` prints `0.9999999999999999`.
+   * `Number(0.999999999999999812n)` or `(+"0.999999999999999812")` prints `0.9999999999999998`.
+   * Reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number#number_encoding
+   *
+   * To mitigate this, we use the `decimal.js` library, which provides arbitrary-precision decimals.
+   *
+   * However, `Decimal` throws an error for invalid inputs (e.g. empty string, non-numeric strings),
+   * whereas `Number()` simply returns `NaN`. To handle this safely, this function wraps the constructor
+   * in a try-catch block and returns `null` on failure — allowing consumers to fallback to other logic.
+   *
+   * @param value - The input to parse (typically a string, but could be unknown).
+   * @returns A `Decimal` instance if the input is valid, otherwise `null`.
+   */
+  const safeDecimal = (value: unknown): Decimal | null => {
+    try {
+      return new Decimal(value as string);
+    } catch {
+      return null;
+    }
+  };
+
+  const toStringWrapDecimals = (value: string): string => {
+    const decimalValue = safeDecimal(value);
+
+    // If the value is not a valid decimal, fallback to native `Number` formatting:
+    // - The input has already failed parsing via `Decimal`, which means it's either not a number or a trivial case (like an empty string).
+    // - In such edge cases, native `Number()` will return `NaN` or coerce the value into a number, and the formatting is capped via `maximumFractionDigits`,
+    //   so any inaccuracies are irrelevant or already present in the input.
+    // - The fallback ensures we don't throw or break the rendering pipeline for malformed inputs, maintaining graceful degradation.
+    if (isNullish(decimalValue)) {
+      return Number(value).toLocaleString("en", {
+        useGrouping: false,
+        maximumFractionDigits: wrapDecimals,
+      });
+    }
+
+    return decimalValue.toDecimalPlaces(wrapDecimals).toFixed();
+  };
 
   // replace exponent format (1e-4) w/ plain (0.0001)
   const exponentToPlainNumberString = (value: string): string =>

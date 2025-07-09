@@ -74,6 +74,7 @@ export { default as IconStackedLineChart } from "./icons/IconStackedLineChart.sv
 export { default as IconStakedMaturity } from "./icons/IconStakedMaturity.svelte";
 export { default as IconStakedTokens } from "./icons/IconStakedTokens.svelte";
 export { default as IconStar } from "./icons/IconStar.svelte";
+export { default as IconStarFill } from "./icons/IconStarFill.svelte";
 export { default as IconSubdirectory } from "./icons/IconSubdirectory.svelte";
 export { default as IconSync } from "./icons/IconSync.svelte";
 export { default as IconThumbDown } from "./icons/IconThumbDown.svelte";
