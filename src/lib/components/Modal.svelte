@@ -123,7 +123,7 @@
     position: fixed;
     display: flex;
     justify-content: center;
-    align-items:    center;
+    align-items: center;
     @include display.inset;
 
     z-index: var(--modal-z-index);
