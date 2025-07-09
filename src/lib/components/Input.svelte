@@ -52,6 +52,7 @@
    * The native `Number()` can produce inaccurate results for such inputs. For example:
    * `Number(0.999999999999999876n)` or `(+"0.999999999999999876")` prints `0.9999999999999999`.
    * `Number(0.999999999999999812n)` or `(+"0.999999999999999812")` prints `0.9999999999999998`.
+   * Reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number#number_encoding
    *
    * To mitigate this, we use the `decimal.js` library, which provides arbitrary-precision decimals.
    *
