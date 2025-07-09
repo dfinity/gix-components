@@ -140,47 +140,61 @@
     padding: var(--padding-1_5x);
     box-sizing: border-box;
 
-    &.success {
-      background: var(--toast-background-success, initial);
-      color: var(--toast-background-contrast-success, initial);
+    background: var(--toast-background, var(--overlay-background));
+    color: var(--toast-background-contrast, var(--overlay-background-contrast));
+
+    .toast.success {
+      --toast-background: var(--toast-background-success);
+      --toast-background-contrast: var(--toast-background-contrast-success);
     }
 
-    &.info {
-      background: var(--toast-background-info, initial);
-      color: var(--toast-background-contrast-info, initial);
+    .toast.info {
+      --toast-background: var(--toast-background-info);
+      --toast-background-contrast: var(--toast-background-contrast-info);
     }
 
-    &.warn {
-      background: var(--toast-background-warn, initial);
-      color: var(--toast-background-contrast-warn, initial);
+    .toast.warn {
+      --toast-background: var(--toast-background-warn);
+      --toast-background-contrast: var(--toast-background-contrast-warn);
     }
 
-    &.error {
-      background: var(--toast-background-error, initial);
-      color: var(--toast-background-contrast-error, initial);
+    .toast.error {
+      --toast-background: var(--toast-background-error);
+      --toast-background-contrast: var(--toast-background-contrast-error);
     }
 
     &.inverted {
       @include overlay.toast-inverted;
 
+      --toast-background: var(--toast-inverted-background);
+      --toast-background-contrast: var(--toast-inverted-background-contrast);
+
       &.success {
-        background: var(--toast-inverted-background-success, initial);
-        color: var(--toast-inverted-background-contrast-success, initial);
+        --toast-background: var(--toast-inverted-background-success);
+        --toast-background-contrast: var(
+          --toast-inverted-background-contrast-success
+        );
       }
 
       &.info {
-        background: var(--toast-inverted-background-info, initial);
-        color: var(--toast-inverted-background-contrast-info, initial);
+        --toast-background: var(--toast-inverted-background-info);
+        --toast-background-contrast: var(
+          --toast-inverted-background-contrast-info
+        );
       }
 
       &.warn {
-        background: var(--toast-inverted-background-warn, initial);
-        color: var(--toast-inverted-background-contrast-warn, initial);
+        --toast-background: var(--toast-inverted-background-warn);
+        --toast-background-contrast: var(
+          --toast-inverted-background-contrast-warn
+        );
       }
 
       &.error {
-        background: var(--toast-inverted-background-error, initial);
-        color: var(--toast-inverted-background-contrast-error, initial);
+        --toast-background: var(--toast-inverted-background-error);
+        --toast-background-contrast: var(
+          --toast-inverted-background-contrast-error
+        );
       }
     }
 
