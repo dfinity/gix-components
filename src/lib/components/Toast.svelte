@@ -140,8 +140,90 @@
     padding: var(--padding-1_5x);
     box-sizing: border-box;
 
+    &.success {
+      background-color: var(
+        --toast-background-success,
+        var(--overlay-background)
+      );
+      color: var(
+        --toast-background-contrast-success,
+        var(--overlay-background-contrast)
+      );
+    }
+
+    &.info {
+      background-color: var(--toast-background-info, var(--overlay-background));
+      color: var(
+        --toast-background-contrast-info,
+        var(--overlay-background-contrast)
+      );
+    }
+
+    &.warn {
+      background-color: var(--toast-background-warn, var(--overlay-background));
+      color: var(
+        --toast-background-contrast-warn,
+        var(--overlay-background-contrast)
+      );
+    }
+
+    &.error {
+      background-color: var(
+        --toast-background-error,
+        var(--overlay-background)
+      );
+      color: var(
+        --toast-background-contrast-error,
+        var(--overlay-background-contrast)
+      );
+    }
+
     &.inverted {
       @include overlay.toast-inverted;
+
+      &.success {
+        background-color: var(
+          --toast-inverted-background-success,
+          var(--toast-inverted-background)
+        );
+        color: var(
+          --toast-inverted-background-contrast-success,
+          var(--toast-inverted-background-contrast)
+        );
+      }
+
+      &.info {
+        background-color: var(
+          --toast-inverted-background-info,
+          var(--toast-inverted-background)
+        );
+        color: var(
+          --toast-inverted-background-contrast-info,
+          var(--toast-inverted-background-contrast)
+        );
+      }
+
+      &.warn {
+        background-color: var(
+          --toast-inverted-background-warn,
+          var(--toast-inverted-background)
+        );
+        color: var(
+          --toast-inverted-background-contrast-warn,
+          var(--toast-inverted-background-contrast)
+        );
+      }
+
+      &.error {
+        background-color: var(
+          --toast-inverted-background-error,
+          var(--toast-inverted-background)
+        );
+        color: var(
+          --toast-inverted-background-contrast-error,
+          var(--toast-inverted-background-contrast)
+        );
+      }
     }
 
     .icon {
