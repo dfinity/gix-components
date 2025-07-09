@@ -143,22 +143,22 @@
     background: var(--toast-background, var(--overlay-background));
     color: var(--toast-background-contrast, var(--overlay-background-contrast));
 
-    .toast.success {
+    &.success {
       --toast-background: var(--toast-background-success);
       --toast-background-contrast: var(--toast-background-contrast-success);
     }
 
-    .toast.info {
+    &.info {
       --toast-background: var(--toast-background-info);
       --toast-background-contrast: var(--toast-background-contrast-info);
     }
 
-    .toast.warn {
+    &.warn {
       --toast-background: var(--toast-background-warn);
       --toast-background-contrast: var(--toast-background-contrast-warn);
     }
 
-    .toast.error {
+    &.error {
       --toast-background: var(--toast-background-error);
       --toast-background-contrast: var(--toast-background-contrast-error);
     }
