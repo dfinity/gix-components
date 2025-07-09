@@ -531,11 +531,11 @@ describe("Input", () => {
 
       const testValue = getByTestId("amount-decimals-output");
 
-      fireEvent.input(input, { target: { value: "0.999999999999999843" } });
+      fireEvent.input(input, { target: { value: "0.999999999999999876" } });
 
       await tick();
 
-      expect(testValue.textContent).toBe("0.999999999999999843");
+      expect(testValue.textContent).toBe("0.999999999999999876");
 
       fireEvent.input(input, { target: { value: "0.100000000000000843" } });
 
