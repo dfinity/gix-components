@@ -542,6 +542,12 @@ describe("Input", () => {
       await tick();
 
       expect(testValue.textContent).toBe("0.100000000000000843");
+
+      fireEvent.input(input, { target: { value: "0.9999999999919999" } });
+
+      await tick();
+
+      expect(testValue.textContent).toBe("0.9999999999919999");
     });
 
     it("should not round custom decimals with JS imprecision", () => {
