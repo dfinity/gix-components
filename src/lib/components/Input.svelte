@@ -43,6 +43,24 @@
   let selectionStart: number | null = 0;
   let selectionEnd: number | null = 0;
 
+  /**
+   * Safely parses a value into a `Decimal` instance.
+   *
+   * This is used instead of JavaScript’s native `Number()` to avoid floating-point precision issues
+   * when dealing with currency or high-precision inputs (e.g. more than 15–17 decimal places).
+   *
+   * The native `Number()` can produce inaccurate results for such inputs. For example:
+   * `Number("0.999999999999999876")` may yield a different value than what the user actually typed.
+   *
+   * To mitigate this, we use the `decimal.js` library, which provides arbitrary-precision decimals.
+   *
+   * However, `Decimal` throws an error for invalid inputs (e.g. empty string, non-numeric strings),
+   * whereas `Number()` simply returns `NaN`. To handle this safely, this function wraps the constructor
+   * in a try-catch block and returns `null` on failure — allowing consumers to fallback to other logic.
+   *
+   * @param value - The input to parse (typically a string, but could be unknown).
+   * @returns A `Decimal` instance if the input is valid, otherwise `null`.
+   */
   const safeDecimal = (value: unknown): Decimal | null => {
     try {
       return new Decimal(value as string);
@@ -51,6 +69,23 @@
     }
   };
 
+  /**
+   * Converts a string value into a formatted string with a fixed number of decimal places.
+   *
+   * This function attempts to use `decimal.js` for precise formatting to avoid floating-point
+   * errors inherent in JavaScript's native number handling. If parsing with `Decimal` fails
+   * (e.g. the input is an empty string, `null`, or an invalid number), it safely falls back to
+   * `Number(value).toLocaleString(...)`.
+   *
+   * The fallback is considered safe in this context because:
+   * - The input has already failed parsing via `Decimal`, which means it's either not a number or a trivial case (like an empty string).
+   * - In such edge cases, native `Number()` will return `NaN` or coerce the value into a number, and the formatting is capped via `maximumFractionDigits`,
+   *   so any inaccuracies are irrelevant or already present in the input.
+   * - The fallback ensures we don't throw or break the rendering pipeline for malformed inputs, maintaining graceful degradation.
+   *
+   * @param value - The string to format.
+   * @returns The value as a string with decimals wrapped to the configured precision.
+   */
   const toStringWrapDecimals = (value: string): string => {
     const decimalValue = safeDecimal(value);
 
