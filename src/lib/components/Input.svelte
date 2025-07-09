@@ -50,7 +50,8 @@
    * when dealing with currency or high-precision inputs (e.g. more than 15–17 decimal places).
    *
    * The native `Number()` can produce inaccurate results for such inputs. For example:
-   * `Number("0.999999999999999876")` may yield a different value than what the user actually typed.
+   * `Number(0.999999999999999876n)` or `(+"0.999999999999999876")` prints `0.9999999999999999`.
+   * `Number(0.999999999999999812n)` or `(+"0.999999999999999812")` prints `0.9999999999999998`.
    *
    * To mitigate this, we use the `decimal.js` library, which provides arbitrary-precision decimals.
    *
@@ -69,26 +70,15 @@
     }
   };
 
-  /**
-   * Converts a string value into a formatted string with a fixed number of decimal places.
-   *
-   * This function attempts to use `decimal.js` for precise formatting to avoid floating-point
-   * errors inherent in JavaScript's native number handling. If parsing with `Decimal` fails
-   * (e.g. the input is an empty string, `null`, or an invalid number), it safely falls back to
-   * `Number(value).toLocaleString(...)`.
-   *
-   * The fallback is considered safe in this context because:
-   * - The input has already failed parsing via `Decimal`, which means it's either not a number or a trivial case (like an empty string).
-   * - In such edge cases, native `Number()` will return `NaN` or coerce the value into a number, and the formatting is capped via `maximumFractionDigits`,
-   *   so any inaccuracies are irrelevant or already present in the input.
-   * - The fallback ensures we don't throw or break the rendering pipeline for malformed inputs, maintaining graceful degradation.
-   *
-   * @param value - The string to format.
-   * @returns The value as a string with decimals wrapped to the configured precision.
-   */
+
   const toStringWrapDecimals = (value: string): string => {
     const decimalValue = safeDecimal(value);
 
+    // If the value is not a valid decimal, fallback to native Number formatting:
+    // - The input has already failed parsing via `Decimal`, which means it's either not a number or a trivial case (like an empty string).
+    // - In such edge cases, native `Number()` will return `NaN` or coerce the value into a number, and the formatting is capped via `maximumFractionDigits`,
+    //   so any inaccuracies are irrelevant or already present in the input.
+    // - The fallback ensures we don't throw or break the rendering pipeline for malformed inputs, maintaining graceful degradation.
     if (isNullish(decimalValue)) {
       return Number(value).toLocaleString("en", {
         useGrouping: false,
