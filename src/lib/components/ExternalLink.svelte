@@ -1,12 +1,18 @@
 <script lang="ts">
+  import type { Snippet } from "svelte";
   import IconNorthEast from "$lib/icons/IconNorthEast.svelte";
 
-  export let href: string;
-  export let alt = "";
+  interface Props {
+    href: string;
+    alt?: string;
+    children?: Snippet;
+  }
+
+  let { href, alt = "", children }: Props = $props();
 </script>
 
 <a {href} rel="external noopener noreferrer" target="_blank" title={alt}>
-  <slot />
+  {@render children?.()}
   <IconNorthEast size="16px" />
 </a>
 

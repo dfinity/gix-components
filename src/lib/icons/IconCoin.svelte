@@ -12,27 +12,38 @@
 <svg
   height={size}
   width={size}
-  viewBox="0 0 20 20"
+  viewBox="0 0 16 16"
   fill="none"
   stroke="currentColor"
   xmlns="http://www.w3.org/2000/svg"
-  data-tid="open-in-new"
 >
   <path
-    d="M16.875 7.8125V3.125H12.1875"
-    stroke-width="1.5"
+    d="M8 9.5C11.5899 9.5 14.5 8.15685 14.5 6.5C14.5 4.84315 11.5899 3.5 8 3.5C4.41015 3.5 1.5 4.84315 1.5 6.5C1.5 8.15685 4.41015 9.5 8 9.5Z"
+    stroke-width="1.2"
     stroke-linecap="round"
     stroke-linejoin="round"
   />
   <path
-    d="M11.25 8.75L16.875 3.125"
-    stroke-width="1.5"
+    d="M8 9.5V12.5"
+    stroke-width="1.2"
     stroke-linecap="round"
     stroke-linejoin="round"
   />
   <path
-    d="M14.375 11.25V16.25C14.375 16.4158 14.3092 16.5747 14.1919 16.6919C14.0747 16.8092 13.9158 16.875 13.75 16.875H3.75C3.58424 16.875 3.42527 16.8092 3.30806 16.6919C3.19085 16.5747 3.125 16.4158 3.125 16.25V6.25C3.125 6.08424 3.19085 5.92527 3.30806 5.80806C3.42527 5.69085 3.58424 5.625 3.75 5.625H8.75"
-    stroke-width="1.5"
+    d="M1.5 6.5V9.5C1.5 11 4 12.5 8 12.5C12 12.5 14.5 11 14.5 9.5V6.5"
+    stroke-width="1.2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M12 8.88086V11.8809"
+    stroke-width="1.2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M4 8.88086V11.8809"
+    stroke-width="1.2"
     stroke-linecap="round"
     stroke-linejoin="round"
   />

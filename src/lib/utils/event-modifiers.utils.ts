@@ -5,21 +5,37 @@
  * @see {@link https://svelte.dev/docs/svelte/v5-migration-guide#Event-changes-Event-modifiers}
  */
 
-import type { OnEventCallback } from "$lib/types/event-modifiers";
+import type { OnEventCallback, OnEventParam } from "$lib/types/event-modifiers";
 import type { MouseEventHandler } from "svelte/elements";
 
 /**
  * A wrapper function to stop event propagation of a mouse event before executing a callback function.
  *
- * @param {OnEventCallback} fn - The function to be executed after stopping the event propagation. It can be a synchronous or asynchronous function.
+ * @param {OnEventCallback<T extends EventTarget>} fn - The function to be executed after stopping the event propagation. It can be a synchronous or asynchronous function.
  *
  * @returns {MouseEventHandler<T extends EventTarget>} - A function that takes an event and stop its propagation, before executing the provided function.
  */
 export const stopPropagation = <T extends EventTarget>(
-  fn: OnEventCallback,
+  fn: OnEventCallback<T>,
 ): MouseEventHandler<T> => {
-  return async ($event?: MouseEvent & { currentTarget: EventTarget & T }) => {
+  return async ($event: OnEventParam<T>) => {
     $event?.stopPropagation();
-    await fn();
+    await fn($event);
+  };
+};
+
+/**
+ * A wrapper function to prevent the default action of a mouse event before executing a callback function.
+ *
+ * @param {OnEventCallback<T extends EventTarget>} fn - The function to be executed after preventing the default action. It can be a synchronous or asynchronous function.
+ *
+ * @returns {MouseEventHandler<T extends EventTarget>} - A function that takes an event and prevents its default action, before executing the provided function.
+ */
+export const preventDefault = <T extends EventTarget>(
+  fn: OnEventCallback<T>,
+): MouseEventHandler<T> => {
+  return async ($event: OnEventParam<T>) => {
+    $event?.preventDefault();
+    await fn($event);
   };
 };

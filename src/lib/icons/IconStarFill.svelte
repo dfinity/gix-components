@@ -1,4 +1,4 @@
-<!-- Source DFINITY Foundation -->
+<!-- source: DFINITY foundation -->
 <script lang="ts">
   import { DEFAULT_ICON_SIZE } from "$lib/constants/constants";
 
@@ -10,22 +10,15 @@
 </script>
 
 <svg
-  width={size}
   height={size}
-  viewBox="0 0 20 20"
-  fill="none"
+  width={size}
+  viewBox="0 0 24 24"
+  fill="currentColor"
   stroke="currentColor"
   xmlns="http://www.w3.org/2000/svg"
 >
   <path
-    d="M10 18C14.4183 18 18 14.4183 18 10C18 5.58172 14.4183 2 10 2C5.58172 2 2 5.58172 2 10C2 14.4183 5.58172 18 10 18Z"
-    stroke-width="1.5"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  />
-  <path
-    d="M10 5V10.25L13 12"
-    stroke-width="1.5"
+    d="M11.938 3.5L14.6998 9.09516L20.8759 9.9979L16.4069 14.3507L17.4616 20.5L11.938 17.5952L6.4143 20.5L7.46898 14.3507L3 9.9979L9.17613 9.09516L11.938 3.5Z"
     stroke-linecap="round"
     stroke-linejoin="round"
   />

@@ -3,16 +3,24 @@
   import { layoutContentScrollY } from "$lib/stores/layout.store";
   import { BREAKPOINT_LARGE } from "$lib/constants/constants";
   import ScrollSentinel from "$lib/components/ScrollSentinel.svelte";
+  import type { Snippet } from "svelte";
 
-  export let testId: string | undefined = undefined;
+  interface Props {
+    testId?: string;
+    children: Snippet;
+  }
 
-  let innerWidth = 0;
-  $: innerWidth,
+  let { testId, children }: Props = $props();
+
+  let innerWidth = $state(0);
+
+  $effect(() => {
     layoutContentScrollY.set(innerWidth < BREAKPOINT_LARGE ? "auto" : "hidden");
+  });
 
   onDestroy(() => layoutContentScrollY.set("auto"));
 
-  let scrollContainer: HTMLElement;
+  let scrollContainer = $state<HTMLElement | undefined>();
 </script>
 
 <svelte:window bind:innerWidth />
@@ -20,7 +28,7 @@
 <div class="island" data-tid={testId}>
   <div class="scrollable-island" bind:this={scrollContainer}>
     <ScrollSentinel {scrollContainer} />
-    <slot />
+    {@render children()}
   </div>
 </div>
 

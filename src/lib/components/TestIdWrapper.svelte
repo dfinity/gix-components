@@ -1,9 +1,16 @@
 <script lang="ts">
-  export let testId: string | undefined = undefined;
+  import type { Snippet } from "svelte";
+
+  interface Props {
+    testId: string;
+    children: Snippet;
+  }
+
+  let { testId, children }: Props = $props();
 </script>
 
 <div class="contents" data-tid={testId}>
-  <slot />
+  {@render children()}
 </div>
 
 <style lang="scss">
