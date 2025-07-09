@@ -70,7 +70,6 @@
     }
   };
 
-
   const toStringWrapDecimals = (value: string): string => {
     const decimalValue = safeDecimal(value);
 
