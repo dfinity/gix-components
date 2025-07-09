@@ -73,7 +73,7 @@
   const toStringWrapDecimals = (value: string): string => {
     const decimalValue = safeDecimal(value);
 
-    // If the value is not a valid decimal, fallback to native Number formatting:
+    // If the value is not a valid decimal, fallback to native `Number` formatting:
     // - The input has already failed parsing via `Decimal`, which means it's either not a number or a trivial case (like an empty string).
     // - In such edge cases, native `Number()` will return `NaN` or coerce the value into a number, and the formatting is capped via `maximumFractionDigits`,
     //   so any inaccuracies are irrelevant or already present in the input.
