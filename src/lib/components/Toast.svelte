@@ -79,7 +79,7 @@
 <div
   data-tid="toast-component"
   role="dialog"
-  class={`toast ${theme ?? "themed"}`}
+  class={`toast ${level} ${theme ?? "themed"}`}
   in:fly|global={{ y: (position === "top" ? -1 : 1) * 100, duration: 200 }}
   out:fade|global={{ delay: 100 }}
 >
@@ -140,8 +140,54 @@
     padding: var(--padding-1_5x);
     box-sizing: border-box;
 
+    background: var(--toast-background, var(--overlay-background));
+    color: var(--toast-color, var(--overlay-background-contrast));
+
+    &.success {
+      --toast-background: var(--toast-success-background);
+      --toast-color: var(--toast-success-color);
+    }
+
+    &.info {
+      --toast-background: var(--toast-info-background);
+      --toast-color: var(--toast-info-color);
+    }
+
+    &.warn {
+      --toast-background: var(--toast-warn-background);
+      --toast-color: var(--toast-warn-color);
+    }
+
+    &.error {
+      --toast-background: var(--toast-error-background);
+      --toast-color: var(--toast-error-color);
+    }
+
     &.inverted {
       @include overlay.toast-inverted;
+
+      --toast-background: var(--toast-inverted-background);
+      --toast-color: var(--toast-inverted-background-contrast);
+
+      &.success {
+        --toast-background: var(--toast-success-inverted-background);
+        --toast-color: var(--toast-success-inverted-color);
+      }
+
+      &.info {
+        --toast-background: var(--toast-info-inverted-background);
+        --toast-color: var(--toast-info-inverted-color);
+      }
+
+      &.warn {
+        --toast-background: var(--toast-warn-inverted-background);
+        --toast-color: var(--toast-warn-inverted-color);
+      }
+
+      &.error {
+        --toast-background: var(--toast-error-inverted-background);
+        --toast-color: var(--toast-error-inverted-color);
+      }
     }
 
     .icon {
