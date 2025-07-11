@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { layoutContentTopHidden } from "$lib/stores/layout.store";
   import { isNullish } from "@dfinity/utils";
+  import { layoutContentTopHidden } from "$lib/stores/layout.store";
 
   // The ScrollSentinel component should be placed right before the content
   // inside the scrollable container.

@@ -3,7 +3,7 @@ import { layoutMenuOpen } from "$lib/stores/layout.store";
 import { render } from "@testing-library/svelte";
 
 describe("ContentBackdrop", () => {
-  it("should be displayed if menu open", async () => {
+  it("should be displayed if menu open", () => {
     layoutMenuOpen.set(true);
 
     const { getByTestId } = render(ContentBackdrop);

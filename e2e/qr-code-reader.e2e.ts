@@ -4,6 +4,7 @@ const testUrl = "/components/qr-code-reader";
 
 test("QR code page has expected h1", async ({ page }) => {
   await page.goto(testUrl);
+
   await expect(page.locator("h1")).toHaveText("QR Code Reader");
 });
 

@@ -9,6 +9,7 @@ describe("ExternalLink", () => {
       },
     });
     const a = container.querySelector("a");
+
     expect(a).not.toBeNull();
   });
 
@@ -19,6 +20,7 @@ describe("ExternalLink", () => {
       },
     });
     const a = container.querySelector("a") as unknown as HTMLLinkElement;
+
     expect(a.getAttribute("rel")).toEqual("external noopener noreferrer");
     expect(a.getAttribute("target")).toEqual("_blank");
   });
@@ -33,6 +35,7 @@ describe("ExternalLink", () => {
       },
     });
     const a = container.querySelector("a") as unknown as HTMLLinkElement;
+
     expect(a.getAttribute("title")).toEqual(alt);
   });
 });

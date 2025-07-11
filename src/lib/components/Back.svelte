@@ -1,8 +1,8 @@
 <script lang="ts">
   import IconBack from "$lib/icons/IconBack.svelte";
   import { i18n } from "$lib/stores/i18n";
-  import { stopPropagation } from "$lib/utils/event-modifiers.utils";
   import type { OnEventCallback } from "$lib/types/event-modifiers";
+  import { stopPropagation } from "$lib/utils/event-modifiers.utils";
 
   interface Props {
     onBack: OnEventCallback;

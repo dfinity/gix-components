@@ -4,6 +4,7 @@ const testUrl = "/";
 
 test("Menu is expanded per default", async ({ page }) => {
   await page.goto(testUrl);
+
   await expect(page).toHaveScreenshot();
 });
 

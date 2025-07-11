@@ -1,7 +1,7 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
-  import Chip from "./Chip.svelte";
   import type { ChipGroupItem } from "../types/chip-group";
+  import Chip from "./Chip.svelte";
 
   export let chips: ChipGroupItem[] = [];
   export let testId = "gix-cmp-chip-group-component";

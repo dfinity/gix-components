@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { layoutMenuOpen } from "$lib/stores/layout.store";
   import { BREAKPOINT_LARGE } from "$lib/constants/constants";
+  import { layoutMenuOpen } from "$lib/stores/layout.store";
 
   let innerWidth = 0;
 

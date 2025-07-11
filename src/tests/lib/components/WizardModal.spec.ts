@@ -1,6 +1,8 @@
 import WizardModal from "$lib/components/WizardModal.svelte";
 import type { WizardStep, WizardSteps } from "$lib/types/wizard";
 import { render } from "@testing-library/svelte";
+import type { Snippet } from "svelte";
+import { mockSnippet } from "../mocks/snippet.mocks";
 
 describe("WizardModal", () => {
   const steps: WizardSteps = [
@@ -10,9 +12,14 @@ describe("WizardModal", () => {
     },
   ];
 
-  const props: { steps: WizardSteps; currentStep: WizardStep | undefined } = {
+  const props: {
+    steps: WizardSteps;
+    currentStep: WizardStep | undefined;
+    children: Snippet;
+  } = {
     steps,
     currentStep: undefined,
+    children: mockSnippet,
   };
 
   it("should not have a data-tid attribute", () => {
@@ -23,6 +30,7 @@ describe("WizardModal", () => {
     });
 
     const modal = container.querySelector("div.modal");
+
     expect(modal?.getAttribute("data-tid")).toBeNull();
   });
 
@@ -37,7 +45,9 @@ describe("WizardModal", () => {
 
     // Make sure the data-tid encloses everything in the component.
     expect(baseElement.firstElementChild?.children.length).toBe(1);
+
     const modal = baseElement.firstElementChild?.firstElementChild;
+
     expect(modal?.className).toContain("modal");
     expect(modal?.getAttribute("data-tid")).toBe(testId);
   });
@@ -50,6 +60,7 @@ describe("WizardModal", () => {
     });
 
     const div = container.querySelector("div.transition");
+
     expect(div).not.toBeNull();
   });
 });

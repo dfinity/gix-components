@@ -95,6 +95,17 @@ jobs:
       - name: Lint
         run: npm run lint -- --max-warnings 0
 
+  check:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Prepare
+        uses: ./.github/actions/prepare
+      - name: Check
+        run: npm run check
+
   test:
     runs-on: ubuntu-22.04
 
@@ -139,7 +150,7 @@ jobs:
           retention-days: 30
 
   may-merge:
-    needs: ["formatting", "build", "lint", "test", "e2e"]
+    needs: ["formatting", "build", "lint", "check", "test", "e2e"]
     runs-on: ubuntu-22.04
     steps:
       - name: Cleared for merging

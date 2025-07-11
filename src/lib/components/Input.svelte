@@ -1,7 +1,7 @@
 <script lang="ts">
   import { isNullish, nonNullish } from "@dfinity/utils";
-  import { createEventDispatcher } from "svelte";
   import Decimal from "decimal.js";
+  import { createEventDispatcher } from "svelte";
 
   export let name: string;
   export let inputType: "icp" | "number" | "text" | "currency" = "number";

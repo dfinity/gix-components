@@ -1,1 +1,4 @@
-export type ProgressBarSegment = { value: number; color: string };
+export interface ProgressBarSegment {
+  value: number;
+  color: string;
+}

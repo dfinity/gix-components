@@ -1,26 +1,41 @@
-<script lang="ts" generics="T extends string = string">
-  import Modal from "$lib/components/Modal.svelte";
+<script lang="ts" module>
+  type T = string;
+</script>
+
+<script lang="ts" generics="T extends string">
+  import type { Snippet } from "svelte";
   import WizardTransition from "./WizardTransition.svelte";
+  import Modal from "$lib/components/Modal.svelte";
   import { WizardStepsState } from "$lib/stores/wizard.state";
   import type { WizardStep, WizardSteps } from "$lib/types/wizard";
-  import { createEventDispatcher } from "svelte";
 
-  // eslint-disable-next-line no-undef -- The still linter does not understand the Svelte generics type
-  export let steps: WizardSteps<T>;
-  export let disablePointerEvents = false;
-  export let testId: string | undefined = undefined;
+  interface Props {
+    steps: WizardSteps<T>;
+    disablePointerEvents?: boolean;
+    testId?: string;
+    currentStep?: WizardStep<T>;
+    title?: Snippet;
+    children: Snippet;
+    onClose?: () => void;
+  }
 
-  // eslint-disable-next-line no-undef -- The linter still does not understand the Svelte generics type
-  let stepState: WizardStepsState<T>;
-  // eslint-disable-next-line no-undef -- The linter still does not understand the Svelte generics type
-  $: stepState = new WizardStepsState<T>(steps);
+  let {
+    steps,
+    disablePointerEvents = false,
+    testId,
+    currentStep = $bindable(),
+    title,
+    children,
+    onClose,
+  }: Props = $props();
 
-  // eslint-disable-next-line no-undef -- The linter still does not understand the Svelte generics type
-  export let currentStep: WizardStep<T> | undefined;
-  $: ({ currentStep } = stepState);
+  let stepState = $derived(new WizardStepsState<T>(steps));
 
-  let transition: { diff: number };
-  $: transition = { diff: stepState.diff };
+  let transition = $derived({ diff: stepState.diff });
+
+  $effect(() => {
+    ({ currentStep } = stepState);
+  });
 
   export const next = () => (stepState = stepState.next());
   export const back = () => (stepState = stepState.back());
@@ -28,22 +43,23 @@
 
   // onDestroy is not always called when repetitively opened/closed in NNS-dapp.
   // This might be linked to Svelte issue https://github.com/sveltejs/svelte/issues/5268.
-  // We use to display the content of the wizard modal according the modal intro state (see GIT history) but, this happens to be visually glitchy.
-  // That is why we rather enforce not rendering any content in the DOM when the modal is closed which solve both issue.
-  const dispatch = createEventDispatcher();
-  let visible = true;
+  // We use to display the content of the wizard modal according to the modal intro state (see GIT history), but this happens to be visually glitchy.
+  // That is why we rather enforce not rendering any content in the DOM when the modal is closed, which solves both issues.
+  let visible = $state(true);
   const close = () => {
     visible = false;
-    dispatch("nnsClose");
+    onClose?.();
   };
 </script>
 
 {#if visible}
   <Modal on:nnsClose={close} {testId} {disablePointerEvents}>
-    <slot name="title" slot="title" />
+    <svelte:fragment slot="title">
+      {@render title?.()}
+    </svelte:fragment>
 
     <WizardTransition {transition}>
-      <slot />
+      {@render children()}
     </WizardTransition>
   </Modal>
 {/if}

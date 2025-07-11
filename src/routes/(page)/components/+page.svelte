@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Card from "$lib/components/Card.svelte";
   import { COMPONENT_ROUTES } from "$docs/constants/docs.constants";
+  import Card from "$lib/components/Card.svelte";
 </script>
 
 <h1>Components</h1>
@@ -11,7 +11,7 @@
 </p>
 
 <div class="card-grid">
-  {#each COMPONENT_ROUTES as { path, title, description }}
+  {#each COMPONENT_ROUTES as { path, title, description }, index (index)}
     <Card href={path}>
       <h2 class="title" slot="start">{title}</h2>
 

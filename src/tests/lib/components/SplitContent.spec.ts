@@ -16,11 +16,13 @@ describe("SplitContent", () => {
     layoutMenuOpen.set(true);
 
     const { getAllByTestId } = render(SplitContentTest);
-    expect(getAllByTestId("backdrop").length).toEqual(2);
+
+    expect(getAllByTestId("backdrop")).toHaveLength(2);
   });
 
   it("should render a header", () => {
     const { container } = render(SplitContentTest);
+
     expect(container.querySelector("header")).not.toBeNull();
   });
 
@@ -31,9 +33,11 @@ describe("SplitContent", () => {
       ".scrollable-content-end",
     ) as HTMLElement;
     scrollableContent.scrollTop = 100;
+
     expect(scrollableContent.scrollTop).toEqual(100);
 
     component.originalComponent.resetScrollPosition();
+
     expect(scrollableContent.scrollTop).toEqual(0);
   });
 });

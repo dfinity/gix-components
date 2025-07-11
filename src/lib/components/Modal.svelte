@@ -1,13 +1,13 @@
 <script lang="ts">
+  import { nonNullish } from "@dfinity/utils";
+  import { createEventDispatcher } from "svelte";
+  import { get } from "svelte/store";
+  import { fade } from "svelte/transition";
   import Backdrop from "$lib/components/Backdrop.svelte";
   import IconClose from "$lib/icons/IconClose.svelte";
   import { busy } from "$lib/stores/busy.store";
   import { i18n } from "$lib/stores/i18n";
   import { nextElementId } from "$lib/utils/html.utils";
-  import { nonNullish } from "@dfinity/utils";
-  import { createEventDispatcher } from "svelte";
-  import { get } from "svelte/store";
-  import { fade } from "svelte/transition";
 
   export let visible = true;
   export let role: "dialog" | "alert" = "dialog";

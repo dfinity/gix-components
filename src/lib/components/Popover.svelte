@@ -1,10 +1,10 @@
 <!-- https://github.com/papyrs/papyrs/blob/main/src/lib/components/ui/Popover.svelte -->
 <script lang="ts">
-  import { fade, scale } from "svelte/transition";
   import { quintOut } from "svelte/easing";
-  import { i18n } from "$lib/stores/i18n";
+  import { fade, scale } from "svelte/transition";
   import Backdrop from "./Backdrop.svelte";
   import IconClose from "$lib/icons/IconClose.svelte";
+  import { i18n } from "$lib/stores/i18n";
 
   export let anchor: HTMLElement | undefined = undefined;
   export let visible = false;

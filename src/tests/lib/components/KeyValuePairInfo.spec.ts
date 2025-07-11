@@ -6,6 +6,7 @@ describe("KeyValuePairInfo", () => {
   const key = "test-key";
   const value = "test-value";
   const info = "test-info";
+
   it("should render key and value", () => {
     const { queryByText } = render(KeyValuePairInfoTest, {
       props: { key, value, info },
@@ -22,7 +23,8 @@ describe("KeyValuePairInfo", () => {
 
     const button = getByTestId("key-value-pair-info-test")?.querySelector(
       "div.wrapper > button",
-    ) as HTMLButtonElement | null;
+    );
+
     expect(button).not.toBeNull();
 
     expect(queryByTestId("icon-info")).toBeInTheDocument();

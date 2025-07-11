@@ -1,6 +1,6 @@
 <script lang="ts">
-  import IconExpandMore from "$lib/icons/IconExpandMore.svelte";
   import { nonNullish } from "@dfinity/utils";
+  import IconExpandMore from "$lib/icons/IconExpandMore.svelte";
 
   // Do not allow to use objects as values.
   // Ex: in the query/update calls we do, when the object changes, the value is pointing to the old object.

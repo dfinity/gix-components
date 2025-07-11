@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { sanitize } from "$lib/utils/html.utils";
-  import { onMount } from "svelte";
   import { nonNullish } from "@dfinity/utils";
+  import { onMount } from "svelte";
+  import { sanitize } from "$lib/utils/html.utils";
 
   interface Props {
     text?: string;
@@ -11,7 +11,7 @@
 
   // force to rerender after SSR
   let mounted = $state(false);
-  onMount(async () => (mounted = true));
+  onMount(() => (mounted = true));
 </script>
 
 {#if mounted && nonNullish(text)}

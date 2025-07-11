@@ -22,7 +22,7 @@
   let tooltipTransformY = 0;
   let tooltipStyle: string | undefined = undefined;
 
-  let idToUse = nonNullish(id) ? id : `${idPrefix}-${nextTooltipIdSuffix++}`;
+  const idToUse = nonNullish(id) ? id : `${idPrefix}-${nextTooltipIdSuffix++}`;
 
   let isAbsent: boolean;
   $: isAbsent = isNullish($$slots["tooltip-content"]) && !notEmptyString(text);
@@ -86,7 +86,9 @@
   let destroyed = false;
   onDestroy(() => {
     destroyed = true;
+    // TODO: error  Don't manipulate the DOM directly. The Svelte runtime can get confused if there is a difference between the actual DOM and the DOM expected by the Svelte runtime  svelte/no-dom-manipulating
     // Remove tooltip from the document body where it was placed in onMount.
+    // eslint-disable-next-line svelte/no-dom-manipulating
     tooltipComponent?.remove();
   });
 </script>
