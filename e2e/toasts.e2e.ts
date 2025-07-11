@@ -54,9 +54,7 @@ test("Should close toast", async ({ page }) => {
 
   // Hide spinner to avoid test failing if not exact same timing
   await page.evaluate(() =>
-    (
-      document.querySelector(".toast button.close")
-    )?.click(),
+    document.querySelector(".toast button.close")?.click(),
   );
 
   await page.waitForTimeout(250);
@@ -78,9 +76,7 @@ test("Should display multiple toasts and user is able to close one", async ({
 
   // Hide spinner to avoid test failing if not exact same timing
   await page.evaluate(() =>
-    (
-      document.querySelector(".toast button.close")
-    )?.click(),
+    document.querySelector(".toast button.close")?.click(),
   );
 
   await page.waitForTimeout(250);

@@ -2,8 +2,8 @@
   "extends": "./tsconfig.json",
   "include": [
     "./vite.config.js",
-    "./vitetest.config.ts",
-    "./vitetest.setup.ts",
+    "./vitest.config.ts",
+    "./vitest.setup.ts",
     "./src/**/*.js",
     "./src/**/*.ts",
     "./src/**/*.svelte",

@@ -1,4 +1,4 @@
-import { type PlaywrightTestConfig , devices } from "@playwright/test";
+import { devices, type PlaywrightTestConfig } from "@playwright/test";
 
 const DEV = (process.env.NODE_ENV ?? "production") === "development";
 
