@@ -29,14 +29,14 @@ hover or tap over the target element.
 
 ## Properties
 
-| Property | Description                                                     | Type      | Default               |
-| -------- | --------------------------------------------------------------- | --------- | --------------------- |
-| `id`     | Used to link the target to the tooltip via `aria-describedby`   | `string`  |                       |
-| `testId` | Add a `data-tid` attribute to the DOM, useful for test purpose. | `string`  | `"tooltip-component"` |
-| `text`   | The text displayed in the tooltip.                              | `string`  | `""`                  |
-| `noWrap` | Whether to prevent the tooltip text from taking mulitple lines. | `boolean` | `false`               |
-| `top`    | Whether to prevent the tooltip text from taking mulitple lines. | `boolean` | `false`               |
-| `center` | Whether to ignore overflow logic an just center align instead.  | `boolean` | `false`               |
+| Property | Description                                                     | Type      | Default                       |
+| -------- | --------------------------------------------------------------- | --------- | ----------------------------- |
+| `id`     | Used to link the target to the tooltip via `aria-describedby`   | `string`  |                               |
+| `testId` | Add a `data-tid` attribute to the DOM, useful for test purpose. | `string`  | `"gix-cmp-tooltip-component"` |
+| `text`   | The text displayed in the tooltip.                              | `string`  | `""`                          |
+| `noWrap` | Whether to prevent the tooltip text from taking mulitple lines. | `boolean` | `false`                       |
+| `top`    | Whether to prevent the tooltip text from taking mulitple lines. | `boolean` | `false`                       |
+| `center` | Whether to ignore overflow logic an just center align instead.  | `boolean` | `false`                       |
 
 ## Slots
 
