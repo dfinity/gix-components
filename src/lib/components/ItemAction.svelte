@@ -1,17 +1,26 @@
 <script lang="ts">
-  export let tagName: "div" | "li" = "li";
-  export let testId: string | undefined = undefined;
+  import type { Snippet } from "svelte";
+
+  interface Props {
+    tagName?: "div" | "li";
+    testId?: string;
+    icon?: Snippet;
+    children: Snippet;
+    actions: Snippet;
+  }
+
+  let { tagName = "li", testId, icon, children, actions }: Props = $props();
 </script>
 
 <svelte:element this={tagName} class="container" data-tid={testId}>
   <div class="start-wrapper">
     <div class="icon-wrapper">
-      <slot name="icon" />
+      {@render icon?.()}
     </div>
-    <slot />
+    {@render children()}
   </div>
   <div>
-    <slot name="actions" />
+    {@render actions()}
   </div>
 </svelte:element>
 
