@@ -33,25 +33,19 @@
 
   let transition = $derived({ diff: stepState.diff });
 
-  const updateCurrentStep = (stepState: WizardStepsState<T>) =>
+  const updateCurrentStep = (go: () => WizardStepsState<T>) => {
+    stepState = go();
     ({ currentStep } = stepState);
+  };
 
   $effect(() => {
-    updateCurrentStep(stepState);
+    updateCurrentStep(() => stepState);
   });
 
-  export const next = () => {
-    stepState = stepState.next();
-    updateCurrentStep(stepState);
-  };
-  export const back = () => {
-    stepState = stepState.back();
-    updateCurrentStep(stepState);
-  };
-  export const set = (step: number) => {
-    stepState = stepState.set(step);
-    updateCurrentStep(stepState);
-  };
+  export const next = () => updateCurrentStep(stepState.next);
+  export const back = () => updateCurrentStep(stepState.back);
+  export const set = (step: number) =>
+    updateCurrentStep(() => stepState.set(step));
 
   // onDestroy is not always called when repetitively opened/closed in NNS-dapp.
   // This might be linked to Svelte issue https://github.com/sveltejs/svelte/issues/5268.
