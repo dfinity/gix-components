@@ -58,7 +58,6 @@
     "eslint-plugin-svelte": "^2.46.1",
     "jest-environment-jsdom": "^29.7.0",
     "mdsvex": "^0.12.3",
-    "node-fetch": "^3.3.2",
     "postcss": "^8.4.47",
     "prettier": "^3.3.3",
     "prettier-plugin-organize-imports": "^4.0.0",
