@@ -42,8 +42,8 @@
     runStepTransition(() => stepState);
   });
 
-  export const next = () => runStepTransition(stepState.next);
-  export const back = () => runStepTransition(stepState.back);
+  export const next = () => runStepTransition(() => stepState.next());
+  export const back = () => runStepTransition(() => stepState.back());
   export const set = (step: number) =>
     runStepTransition(() => stepState.set(step));
 
