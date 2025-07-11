@@ -45,13 +45,13 @@ describe("Dropdown", () => {
     selectElement && expect(selectElement.value).toBe(value);
   });
 
-  it("should bind the value", () => {
+  it("should bind the value", async () => {
     const { queryByTestId, container } = render(DropdownTest, { props });
 
     const selectElement = container.querySelector("select");
     selectElement && expect(selectElement.value).toBe("1");
 
-    clickByTestId(queryByTestId, "test");
+    await clickByTestId(queryByTestId, "test");
     selectElement && expect(selectElement.value).toBe("3");
   });
 });
