@@ -20,13 +20,13 @@
       { id: "dec", label: "December", selected: currentMonth === "dec" }
     ];
 
-    let nnsSelectDetail = undefined;
-    const onNnsSelect = ({detail}) => nnsSelectDetail= detail;    
+    let selectDetail = undefined;
+    const onSelect = (detail) => selectDetail = detail;    
 </script>
 
 # ChipGroup
 
-ChipGroup allows users to choose from multiple options. It’s possible to listen for the nnsSelect event (where the selected ID is provided in the event detail) or, alternatively, bind the chip property. The current implementation does not support multiple selections.
+ChipGroup allows users to choose from multiple options. It’s possible to trigger the `onSelect` callback (where the selected ID is provided in the event detail) or, alternatively, bind the chip property. The current implementation does not support multiple selections.
 
 ### ChipGroupItem interface
 
@@ -35,6 +35,7 @@ export interface ChipGroupItem {
   label: string;
   id: string;
   selected: boolean;
+  onSelect?: (id: string) => void;
 }
 ```
 
@@ -51,34 +52,29 @@ export interface ChipGroupItem {
     },
     // ...
   ];
-  let nnsSelectDetail;
-  const onNnsSelect = ({detail}) => nnsSelectDetail= detail;
+  let selectDetail;
+  const onSelect = (detail) => selectDetail= detail;
 </script>
 
-<ChipGroup bind:chips on:nnsSelect={onNnsSelect} />
+<ChipGroup bind:chips {onSelect} />
 ```
 
 ## Properties
 
-| Property | Description                     | Type                   | Default                |
-| -------- | ------------------------------- | ---------------------- | ---------------------- |
-| `chips`  | ChipGroupItem items to display. | `Array<ChipGroupItem>` |                        |
-| `testId` | Optional data-tid value.        | `string`               | `chip-group-component` |
-
-## Events
-
-| Event       | Description                             | Detail           |
-| ----------- | --------------------------------------- | ---------------- |
-| `nnsSelect` | Triggered when a user clicks on a Chip. | ChipGroupItem.id |
+| Property   | Description                             | Type                      | Default                |
+| ---------- | --------------------------------------- | ------------------------- | ---------------------- |
+| `chips`    | ChipGroupItem items to display.         | `Array<ChipGroupItem>`    |                        |
+| `testId`   | Optional data-tid value.                | `string`                  | `chip-group-component` |
+| `onSelect` | Triggered when a user clicks on a Chip. | `function` or `undefined` | `undefined`            |
 
 ## Showcase
 
 <Card>
-<ChipGroup on:nnsSelect={onNnsSelect} bind:chips />
+<ChipGroup {onSelect} bind:chips />
 </Card>
 
-<h4>nnsSelect event detail:</h4>
-<pre>{nnsSelectDetail}</pre>
+<h4>Select detail:</h4>
+<pre>{selectDetail}</pre>
 
 <h4>bind:chips</h4>
 <pre>{JSON.stringify(chips, null, 2)}</pre>

@@ -1,11 +1,12 @@
 <script lang="ts">
-  import { createEventDispatcher } from "svelte";
+  interface Props {
+    label: string;
+    id: string;
+    selected: boolean;
+    onClick: (id: string) => void;
+  }
 
-  export let label: string;
-  export let id: string;
-  export let selected: boolean;
-
-  const dispatch = createEventDispatcher();
+  let { label, id, selected, onClick }: Props = $props();
 </script>
 
 <button
@@ -14,7 +15,7 @@
   class:selected
   role="radio"
   aria-checked={selected}
-  on:click={() => dispatch("nnsClick", id)}>{label}</button
+  onclick={() => onClick(id)}>{label}</button
 >
 
 <style lang="scss">
