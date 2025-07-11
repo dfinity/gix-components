@@ -20,7 +20,7 @@ describe("Tooltip", () => {
     const { container } = render(TooltipTest, { text: "text", id });
 
     const element: HTMLParagraphElement | null = container.querySelector(
-      "[data-tid='tooltip-component']",
+      "[data-tid='gix-cmp-tooltip-component']",
     );
 
     expect(element).toBeInTheDocument();

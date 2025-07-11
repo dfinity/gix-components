@@ -16,7 +16,7 @@ describe("ChipGroup", () => {
       props: { chips: testChips },
     });
 
-    expect(getByTestId("chip-group-component")).not.toBeNull();
+    expect(getByTestId("gix-cmp-chip-group-component")).not.toBeNull();
 
     const chipElements = getAllByTestId("chip-component");
 

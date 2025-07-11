@@ -4,7 +4,7 @@
   import Chip from "./Chip.svelte";
 
   export let chips: ChipGroupItem[] = [];
-  export let testId = "chip-group-component";
+  export let testId = "gix-cmp-chip-group-component";
 
   const dispatch = createEventDispatcher();
   const onChipClick = ({ detail: selectedId }: CustomEvent<string>) => {

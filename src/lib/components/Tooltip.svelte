@@ -9,7 +9,7 @@
 
   export let id: string | undefined = undefined;
   export let idPrefix = "tooltip";
-  export let testId = "tooltip-component";
+  export let testId = "gix-cmp-tooltip-component";
   export let text: string | undefined = undefined;
   export let noWrap = false;
   export let top = false;
