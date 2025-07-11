@@ -33,6 +33,9 @@
 
   let transition = $derived({ diff: stepState.diff });
 
+  // In Svelte 5, $effect only re-runs when stepState's reference changes — not its internal properties.
+  // So we manually sync `currentStep` whenever stepState transitions (next, back, set).
+  // This ensures reactivity works as expected (e.g. updating the UI).
   const runStepTransition = (transition: () => WizardStepsState<T>) => {
     stepState = transition();
     ({ currentStep } = stepState);
