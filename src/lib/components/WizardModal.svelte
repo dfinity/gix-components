@@ -33,8 +33,8 @@
 
   let transition = $derived({ diff: stepState.diff });
 
-  const updateCurrentStep = (go: () => WizardStepsState<T>) => {
-    stepState = go();
+  const updateCurrentStep = (set: () => WizardStepsState<T>) => {
+    stepState = set();
     ({ currentStep } = stepState);
   };
 
