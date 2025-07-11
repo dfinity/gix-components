@@ -11,7 +11,7 @@
   afterNavigate((navigation) => (navHistory = [navigation, ...navHistory]));
 
   $: onBack = canGoBack($page.route.id)
-    ? async () => await goBack({ navHistory })
+    ? () => goBack({ navHistory })
     : undefined;
 </script>
 

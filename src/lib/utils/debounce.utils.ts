@@ -1,7 +1,7 @@
 // TODO: copied from NNS-dapp and needs to be moved to utils
-/* eslint-disable-next-line @typescript-eslint/ban-types */
 import { nonNullish } from "@dfinity/utils";
 
+// eslint-disable-next-line local-rules/prefer-object-params
 export const debounce = (
   func: (...args: unknown[]) => unknown,
   timeout?: number,

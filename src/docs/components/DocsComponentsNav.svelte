@@ -8,7 +8,7 @@
   <Nav>
     <h3 slot="title">Pick a component</h3>
 
-    {#each COMPONENT_ROUTES as { path, title }}
+    {#each COMPONENT_ROUTES as { path, title }, index (index)}
       <DocsCardNav url={path}>{title}</DocsCardNav>
     {/each}
   </Nav>

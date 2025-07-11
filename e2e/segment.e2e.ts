@@ -8,6 +8,7 @@ test("Segment page has expected h1", async ({ page }) => {
   await expect(page.locator("h1")).toHaveText("Segment");
 });
 
+// eslint-disable-next-line local-rules/prefer-object-params
 const clickToSegment = async (page: Page, index: number) => {
   const showcase = page.getByTestId("showcase");
   (await showcase.locator(".segment-button").all())[index].click();

@@ -1,7 +1,7 @@
 import { goto } from "$app/navigation";
 import type { AfterNavigate } from "@sveltejs/kit";
 
-export const goBack = async ({
+export const goBack = ({
   defaultRoute = "/",
   navHistory,
 }: {

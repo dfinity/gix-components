@@ -26,22 +26,19 @@ const testToast = async ({ page, toast }: { page: Page; toast: string }) => {
   await expect(page).toHaveScreenshot();
 };
 
-test("Toast info", async ({ page }) =>
-  testToast({ page, toast: "toast-info" }));
+test("Toast info", ({ page }) => testToast({ page, toast: "toast-info" }));
 
-test("Toast success", async ({ page }) =>
+test("Toast success", ({ page }) =>
   testToast({ page, toast: "toast-success" }));
 
-test("Toast error", async ({ page }) =>
-  testToast({ page, toast: "toast-error" }));
+test("Toast error", ({ page }) => testToast({ page, toast: "toast-error" }));
 
-test("Toast warn", async ({ page }) =>
-  testToast({ page, toast: "toast-warn" }));
+test("Toast warn", ({ page }) => testToast({ page, toast: "toast-warn" }));
 
-test("Toast message", async ({ page }) =>
+test("Toast message", ({ page }) =>
   testToast({ page, toast: "toast-message" }));
 
-test("Toast multiline message", async ({ page }) =>
+test("Toast multiline message", ({ page }) =>
   testToast({ page, toast: "toast-multiline" }));
 
 test("Should close toast", async ({ page }) => {

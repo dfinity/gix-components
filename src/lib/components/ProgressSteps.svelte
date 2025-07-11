@@ -11,7 +11,7 @@
   let { steps }: Props = $props();
 </script>
 
-{#each steps as { step: _, text, state }, i}
+{#each steps as { step: _, text, state }, i (i)}
   {@const last = i === steps.length - 1}
   <div class={`step ${state} ${last ? "last" : ""}`}>
     {#if state === "completed"}

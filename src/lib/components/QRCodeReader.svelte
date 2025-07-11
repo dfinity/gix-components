@@ -18,6 +18,7 @@
       dispatch("nnsQRCode", decodedText);
 
     // Source documentation: https://scanapp.org/blog/2022/01/09/setting-dynamic-qr-box-size-in-html5-qrcode.html
+    // eslint-disable-next-line local-rules/prefer-object-params
     const qrboxFunction = (
       viewfinderWidth: number,
       viewfinderHeight: number,

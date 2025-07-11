@@ -22,4 +22,9 @@ export default [
       "/samples",
     ],
   },
+  {
+    rules: {
+      "local-rules/use-option-type-wrapper": ["off"],
+    },
+  },
 ];
