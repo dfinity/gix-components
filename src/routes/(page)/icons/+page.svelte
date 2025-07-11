@@ -35,10 +35,7 @@
     grid-template-columns: repeat(
       auto-fill,
       calc(
-        (
-            var(--grid-max-width) -
-              ((var(--grid-columns) - 1) * var(--grid-gap))
-          ) /
+        (var(--grid-max-width) - ((var(--grid-columns) - 1) * var(--grid-gap))) /
           var(--grid-columns)
       )
     );

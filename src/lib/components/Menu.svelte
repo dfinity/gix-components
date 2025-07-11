@@ -66,8 +66,9 @@
     position: relative;
 
     --top-logo-height: calc(
-      var(--menu-logo-height) + var(--padding-4x) +
-        var(--header-offset, 0px) - var(--menu-selection-outer-radius)
+      var(--menu-logo-height) + var(--padding-4x) + var(--header-offset, 0px) - var(
+          --menu-selection-outer-radius
+        )
     );
 
     // Shift the menu on large screen e.g. if a banner is displayed

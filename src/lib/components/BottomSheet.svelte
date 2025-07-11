@@ -27,7 +27,7 @@
 
   let height: number | undefined = undefined;
   let innerWidth: number | undefined = undefined;
-  $: (height, innerWidth, updateBottomOffset());
+  $: height, innerWidth, updateBottomOffset();
 
   let transitionFn: (
     node: Element,

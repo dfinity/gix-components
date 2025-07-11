@@ -6,7 +6,7 @@ export const debounce = (
   func: (...args: unknown[]) => unknown,
   timeout?: number,
 ) => {
-  let timer: string | number | NodeJS.Timeout | undefined;
+  let timer: NodeJS.Timer | undefined;
 
   return (...args: unknown[]) => {
     const next = () => func(...args);

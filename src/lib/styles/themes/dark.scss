@@ -37,11 +37,9 @@
   --box-shadow-color-rgb: 43, 51, 67;
 
   --box-shadow: 0px 0px 6px var(--box-shadow-color);
-  --interaction-box-shadow:
-    0px 4px 4px rgba(var(--box-shadow-color-rgb), 0.25),
+  --interaction-box-shadow: 0px 4px 4px rgba(var(--box-shadow-color-rgb), 0.25),
     1px 1px 2px rgba(var(--box-shadow-color-rgb), 0.3);
-  --bottom-sheet-box-shadow: -1px -1px 10px
-    rgba(var(--box-shadow-color-rgb), 0.25);
+  --bottom-sheet-box-shadow: -1px -1px 10px rgba(var(--box-shadow-color-rgb), 0.25);
   --input-box-shadow: 1px 1px 3px rgba(var(--box-shadow-color-rgb), 0.4) inset;
   --content-box-shadow: 0px 0px 10px rgba(var(--box-shadow-color-rgb), 0.05);
   --overlay-box-shadow: 0px 0px 8px rgba(var(--box-shadow-color-rgb), 0.2);
