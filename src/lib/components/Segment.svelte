@@ -16,7 +16,7 @@
     store,
   });
 
-  $: $store, (() => (selectedSegmentId = $store.id))();
+  $: ($store, (() => (selectedSegmentId = $store.id))());
 
   let indicator:
     | {
@@ -59,14 +59,14 @@
     };
   };
 
-  $: selectedElement, initIndicator();
+  $: (selectedElement, initIndicator());
 
   // TODO: support adding segmebt buttons dynamically
   let segmentsCount = 0;
-  $: segment,
+  $: (segment,
     (() =>
       (segmentsCount =
-        segment?.querySelectorAll(".segment-button").length ?? 0))();
+        segment?.querySelectorAll(".segment-button").length ?? 0))());
 
   // The SegmentButton has a width set to 100%—i.e., not fixed. Therefore, its size might change.
   // Likewise, on mount, when the segment is bound and the indicator is set for the first time, the buttons might not be fully rendered in terms of size yet.
@@ -89,7 +89,7 @@
     resizeObserver.observe(segment);
   };
 
-  $: segment, observeSegmentResize();
+  $: (segment, observeSegmentResize());
 </script>
 
 <svelte:window on:resize={initIndicator} />
@@ -166,7 +166,8 @@
               2 * var(--segment-padding) + var(--segment-gap) *
                 (var(--segments) - 1)
             )
-        ) / var(--segments)
+        ) /
+        var(--segments)
     );
     height: calc(100% - var(--segment-padding) * 2);
     border-radius: var(--border-radius);
