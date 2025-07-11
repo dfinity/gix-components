@@ -3,7 +3,7 @@
 </script>
 
 <script lang="ts" generics="T extends string">
-  import type { Snippet } from "svelte";
+  import { type Snippet } from "svelte";
   import WizardTransition from "./WizardTransition.svelte";
   import Modal from "$lib/components/Modal.svelte";
   import { WizardStepsState } from "$lib/stores/wizard.state";
@@ -33,13 +33,25 @@
 
   let transition = $derived({ diff: stepState.diff });
 
-  $effect(() => {
+  const updateCurrentStep = (stepState: WizardStepsState<T>) =>
     ({ currentStep } = stepState);
+
+  $effect(() => {
+    updateCurrentStep(stepState);
   });
 
-  export const next = () => (stepState = stepState.next());
-  export const back = () => (stepState = stepState.back());
-  export const set = (step: number) => (stepState = stepState.set(step));
+  export const next = () => {
+    stepState = stepState.next();
+    updateCurrentStep(stepState);
+  };
+  export const back = () => {
+    stepState = stepState.back();
+    updateCurrentStep(stepState);
+  };
+  export const set = (step: number) => {
+    stepState = stepState.set(step);
+    updateCurrentStep(stepState);
+  };
 
   // onDestroy is not always called when repetitively opened/closed in NNS-dapp.
   // This might be linked to Svelte issue https://github.com/sveltejs/svelte/issues/5268.
