@@ -15,7 +15,7 @@ describe("MenuButton", () => {
 
     await toggleMenu(renderResult);
 
-    expect(get(layoutMenuOpen)).toEqual(true);
+    expect(get(layoutMenuOpen)).toBeTruthy();
   });
 
   it("should close the menu", async () => {
@@ -24,10 +24,12 @@ describe("MenuButton", () => {
     const renderResult = render(MenuButton);
 
     await toggleMenu(renderResult);
-    expect(get(layoutMenuOpen)).toEqual(true);
+
+    expect(get(layoutMenuOpen)).toBeTruthy();
 
     await toggleMenu(renderResult);
-    expect(get(layoutMenuOpen)).toEqual(false);
+
+    expect(get(layoutMenuOpen)).toBeFalsy();
   });
 
   const testA11y = ({ label, open }: { label: string; open: boolean }) => {
@@ -35,6 +37,7 @@ describe("MenuButton", () => {
 
     const { getByTestId } = render(MenuButton);
     const button = getByTestId("menu-toggle") as HTMLButtonElement;
+
     expect(button.getAttribute("aria-label")).toEqual(label);
   };
 

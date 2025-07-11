@@ -30,6 +30,7 @@ describe("WizardModal", () => {
     });
 
     const modal = container.querySelector("div.modal");
+
     expect(modal?.getAttribute("data-tid")).toBeNull();
   });
 
@@ -44,7 +45,9 @@ describe("WizardModal", () => {
 
     // Make sure the data-tid encloses everything in the component.
     expect(baseElement.firstElementChild?.children.length).toBe(1);
+
     const modal = baseElement.firstElementChild?.firstElementChild;
+
     expect(modal?.className).toContain("modal");
     expect(modal?.getAttribute("data-tid")).toBe(testId);
   });
@@ -57,6 +60,7 @@ describe("WizardModal", () => {
     });
 
     const div = container.querySelector("div.transition");
+
     expect(div).not.toBeNull();
   });
 });

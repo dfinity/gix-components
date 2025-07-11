@@ -21,10 +21,9 @@ export const listIcons = (): SlugIcon[] => {
     .filter(({ svg }) => nonNullish(svg)) as SlugIcon[];
 };
 
-const listIconSlugs = (): Slug[] => {
-  return readdirSync(`src/lib/icons`)
+const listIconSlugs = (): Slug[] =>
+  readdirSync(`src/lib/icons`)
     .filter((fileName) => /.+\.svelte$/.test(fileName))
     .map((fileName) => ({
       slug: parse(fileName).name,
     }));
-};

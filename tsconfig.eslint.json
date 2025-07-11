@@ -1,0 +1,21 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    "./vite.config.js",
+    "./vitest.config.ts",
+    "./vitest.setup.ts",
+    "./src/**/*.js",
+    "./src/**/*.ts",
+    "./src/**/*.svelte",
+    "./svelte.config.js",
+    "./playwright.config.ts",
+    "./e2e/**/*.js",
+    "./e2e/**/*.ts",
+    "./scripts/*.mjs",
+    "./scripts/*.ts",
+    "./eslint.config.mjs",
+    "./eslint-local-rules.cjs",
+    "./juno.config.ts"
+  ],
+  "exclude": ["./node_modules/**"]
+}

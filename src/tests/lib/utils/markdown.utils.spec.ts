@@ -99,6 +99,7 @@ describe("markdown.utils", () => {
       const title = "title";
       const alt = "alt";
       const expectation = imageToLinkRenderer(src, title, alt);
+
       expect(
         htmlRenderer(`<img src="${src}" alt="${alt}" title="${title}" />`),
       ).toEqual(expectation);
@@ -121,29 +122,31 @@ describe("markdown.utils", () => {
 
   describe("markdown", () => {
     it("should call markedjs/marked", async () => {
-      expect(await markdownToHTML("test")).toBe("<p>test</p>\n");
+      await expect(markdownToHTML("test")).resolves.toBe("<p>test</p>\n");
     });
 
     it("should escape all SVGs", async () => {
-      expect(await markdownToHTML("<h1><svg>...</svg></h1>")).toBe(
+      await expect(markdownToHTML("<h1><svg>...</svg></h1>")).resolves.toBe(
         "<h1>&lt;svg&gt;...&lt;/svg&gt;</h1>",
       );
     });
 
     it("should render link with a custom renderer", async () => {
-      expect(await markdownToHTML("[test](https://test.com)")).toBe(
+      await expect(markdownToHTML("[test](https://test.com)")).resolves.toBe(
         '<p><a target="_blank" rel="noopener noreferrer" href="https://test.com">test</a></p>\n',
       );
     });
 
     it("should render image link with a custom renderer", async () => {
-      expect(await markdownToHTML(`![alt](image.png "title")`)).toBe(
+      await expect(markdownToHTML(`![alt](image.png "title")`)).resolves.toBe(
         `<p><a href="image.png" target="_blank" rel="noopener noreferrer" type="image/png" title="title">alt</a></p>\n`,
       );
     });
 
     it("should render image provided as html with a custom renderer", async () => {
-      expect(await markdownToHTML(`<img src="image.png" alt="title" />`)).toBe(
+      await expect(
+        markdownToHTML(`<img src="image.png" alt="title" />`),
+      ).resolves.toBe(
         `<a href="image.png" target="_blank" rel="noopener noreferrer" type="image/png">title</a>`,
       );
     });

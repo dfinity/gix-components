@@ -26,32 +26,30 @@ const initToastsStore = (): ToastsStore => {
   return {
     subscribe,
 
-    show({
+    show: ({
       id,
       ...rest
-    }: Partial<Pick<ToastMsg, "id">> & Omit<ToastMsg, "id">): symbol {
+    }: Partial<Pick<ToastMsg, "id">> & Omit<ToastMsg, "id">): symbol => {
       const toastId = id ?? Symbol("toast");
 
-      update((messages: ToastMsg[]) => {
-        return [...messages, { ...rest, id: toastId }];
-      });
+      update((messages: ToastMsg[]) => [...messages, { ...rest, id: toastId }]);
 
       return toastId;
     },
 
-    hide(idToHide: symbol) {
+    hide: (idToHide: symbol) => {
       update((messages: ToastMsg[]) =>
         messages.filter(({ id }) => id !== idToHide),
       );
     },
 
-    update({
+    update: ({
       id,
       content,
     }: {
       id: symbol;
       content: Partial<Omit<ToastMsg, "id">>;
-    }) {
+    }) => {
       update((messages: ToastMsg[]) =>
         // use map to preserve order
         messages.map((message) => {
@@ -66,7 +64,7 @@ const initToastsStore = (): ToastsStore => {
       );
     },
 
-    reset(levels?: ToastLevel[]) {
+    reset: (levels?: ToastLevel[]) => {
       if (nonNullish(levels) && levels.length > 0) {
         update((messages: ToastMsg[]) =>
           messages.filter(({ level }) => !levels.includes(level)),

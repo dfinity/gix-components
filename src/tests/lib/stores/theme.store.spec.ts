@@ -114,9 +114,11 @@ describe("theme-store", () => {
 
     // We first set the store, then we mock that the attribute may be changed in a different way
     themeStore.select(Theme.LIGHT);
+
     expect(document.documentElement.getAttribute(THEME_ATTRIBUTE)).toBe(
       Theme.LIGHT,
     );
+
     window.document.documentElement.setAttribute(THEME_ATTRIBUTE, Theme.DARK);
 
     themeStore.resetToSystemSettings();
@@ -137,9 +139,11 @@ describe("theme-store", () => {
 
     // We first set the store, then we mock that the attribute may be changed in a different way
     themeStore.select(Theme.DARK);
+
     expect(document.documentElement.getAttribute(THEME_ATTRIBUTE)).toBe(
       Theme.DARK,
     );
+
     window.document.documentElement.setAttribute(THEME_ATTRIBUTE, Theme.LIGHT);
 
     themeStore.resetToSystemSettings();

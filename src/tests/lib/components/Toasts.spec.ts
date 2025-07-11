@@ -36,6 +36,7 @@ describe("Toasts", () => {
     await waitForDialog(container);
 
     const dialog: HTMLDivElement | null = container.querySelector("div.toast");
+
     expect(dialog?.classList.contains("error")).toBeFalsy();
 
     toastsStore.hide(id);
@@ -50,6 +51,7 @@ describe("Toasts", () => {
 
     const icon: HTMLDivElement | null =
       container.querySelector("div.toast .icon");
+
     expect(icon?.classList.contains("error")).toBeTruthy();
 
     toastsStore.hide(id);
@@ -63,11 +65,11 @@ describe("Toasts", () => {
     toastsStore.show({ text: "Test", level: "error" });
 
     await waitFor(() =>
-      expect(container.querySelectorAll("div.toast").length).toEqual(3),
+      expect(container.querySelectorAll("div.toast")).toHaveLength(3),
     );
   });
 
-  it("should return a shown toast id", async () => {
+  it("should return a shown toast id", () => {
     const id = toastsStore.show({ text: "Test", level: "success" });
 
     expect(id).toBeDefined();
@@ -83,7 +85,7 @@ describe("Toasts", () => {
     toastsStore.show({ text: "Test", level: "error", position: "top" });
 
     await waitFor(() =>
-      expect(container.querySelectorAll("div.toast").length).toEqual(2),
+      expect(container.querySelectorAll("div.toast")).toHaveLength(2),
     );
   });
 
@@ -95,7 +97,7 @@ describe("Toasts", () => {
     toastsStore.show({ text: "Test", level: "error" });
 
     await waitFor(() =>
-      expect(container.querySelectorAll("div.toast").length).toEqual(2),
+      expect(container.querySelectorAll("div.toast")).toHaveLength(2),
     );
   });
 
@@ -113,7 +115,7 @@ describe("Toasts", () => {
     const { container: container1 } = render(ToastsTest, props);
 
     await waitFor(() =>
-      expect(container1.querySelectorAll("div.toast").length).toEqual(2),
+      expect(container1.querySelectorAll("div.toast")).toHaveLength(2),
     );
 
     toastsStore.hide(toast3);
@@ -121,7 +123,7 @@ describe("Toasts", () => {
     const { container: container2 } = render(ToastsTest, props);
 
     await waitFor(() =>
-      expect(container2.querySelectorAll("div.toast").length).toEqual(2),
+      expect(container2.querySelectorAll("div.toast")).toHaveLength(2),
     );
 
     toastsStore.hide(toast2);
@@ -129,7 +131,7 @@ describe("Toasts", () => {
     const { container: container3 } = render(ToastsTest, props);
 
     await waitFor(() =>
-      expect(container3.querySelectorAll("div.toast").length).toEqual(1),
+      expect(container3.querySelectorAll("div.toast")).toHaveLength(1),
     );
 
     toastsStore.hide(toast1);
@@ -137,7 +139,7 @@ describe("Toasts", () => {
     const { container: container4 } = render(ToastsTest, props);
 
     await waitFor(() =>
-      expect(container4.querySelectorAll("div.toast").length).toEqual(0),
+      expect(container4.querySelectorAll("div.toast")).toHaveLength(0),
     );
   });
 });

@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import Tag from "$lib/components/Tag.svelte";
 </script>
 

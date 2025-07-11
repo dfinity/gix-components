@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { preventDefault } from "$lib/utils/event-modifiers.utils";
   import type { OnEventCallback } from "$lib/types/event-modifiers";
+  import { preventDefault } from "$lib/utils/event-modifiers.utils";
 
   interface Props {
     onSubmit?: OnEventCallback;

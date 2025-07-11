@@ -1,15 +1,15 @@
 <script lang="ts">
+  import { isNullish, nonNullish } from "@dfinity/utils";
   import { afterUpdate, createEventDispatcher } from "svelte";
+  import TestIdWrapper from "./TestIdWrapper.svelte";
   import IconExpandMore from "$lib/icons/IconExpandMore.svelte";
   import { i18n } from "$lib/stores/i18n";
-  import TestIdWrapper from "./TestIdWrapper.svelte";
-  import { isNullish, nonNullish } from "@dfinity/utils";
   import { handleKeyPress } from "$lib/utils/keyboard.utils";
 
   export let id: string | undefined = undefined;
   export let initiallyExpanded = false;
   export let maxContentHeight: number | undefined = undefined;
-  export let testId = "collapsible";
+  export let testId = "gix-cmp-collapsible";
 
   export let iconSize: "small" | "medium" = "small";
   export let expandButton = true;
@@ -34,7 +34,9 @@
   };
 
   const calculateMaxContentHeight = (): number => {
-    if (nonNullish(maxContentHeight)) return maxContentHeight;
+    if (nonNullish(maxContentHeight)) {
+      return maxContentHeight;
+    }
     const height =
       container?.getBoundingClientRect().height ?? container?.offsetHeight ?? 0;
     return height < CONTENT_MIN_HEIGHT ? CONTENT_MIN_HEIGHT : height;

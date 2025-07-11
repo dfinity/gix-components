@@ -1,9 +1,9 @@
 <script lang="ts">
-  import SplitPane from "$lib/components/SplitPane.svelte";
-  import Menu from "$lib/components/Menu.svelte";
-  import StretchPane from "$lib/components/StretchPane.svelte";
   import LogoNNS from "$lib/components/LogoNNS.svelte";
   import LogoOnChain from "$lib/components/LogoOnChain.svelte";
+  import Menu from "$lib/components/Menu.svelte";
+  import SplitPane from "$lib/components/SplitPane.svelte";
+  import StretchPane from "$lib/components/StretchPane.svelte";
 
   export let layout: "split" | "stretch" = "split";
 

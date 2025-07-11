@@ -12,6 +12,7 @@ describe("ThemeToggleButton", () => {
     const { container } = render(ThemeToggleButton);
 
     const input = container.querySelector("button") as HTMLButtonElement;
+
     expect(input).not.toBeNull();
   });
 
@@ -19,6 +20,7 @@ describe("ThemeToggleButton", () => {
     const { container } = render(ThemeToggleButton);
 
     const input = container.querySelector("button") as HTMLButtonElement;
+
     expect(input.getAttribute("aria-label")).toEqual(en.theme.switch_theme);
   });
 
@@ -28,9 +30,11 @@ describe("ThemeToggleButton", () => {
     const input = container.querySelector("button") as HTMLButtonElement;
 
     fireEvent.click(input);
+
     expect(get(themeStore)).toEqual(Theme.LIGHT);
 
     fireEvent.click(input);
+
     expect(get(themeStore)).toEqual(Theme.DARK);
   });
 
@@ -39,6 +43,7 @@ describe("ThemeToggleButton", () => {
     const { container } = render(ThemeToggleButton);
 
     const lightModeIcon = container.querySelector("svg");
+
     expect(lightModeIcon).toBeInstanceOf(SVGSVGElement);
     expect(container.innerHTML).toContain(
       render(IconLightMode).container.innerHTML,
@@ -50,6 +55,7 @@ describe("ThemeToggleButton", () => {
     const { container } = render(ThemeToggleButton);
 
     const darkModeIcon = container.querySelector("svg");
+
     expect(darkModeIcon).toBeInstanceOf(SVGSVGElement);
     expect(container.innerHTML).toContain(
       render(IconDarkMode).container.innerHTML,

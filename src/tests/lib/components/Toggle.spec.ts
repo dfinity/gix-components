@@ -19,6 +19,7 @@ describe("Toggle", () => {
     const { container } = render(Toggle, { props });
 
     const input = container.querySelector("input") as HTMLInputElement;
+
     expect(input).not.toBeNull();
     expect(input.getAttribute("type")).toEqual("checkbox");
   });
@@ -27,6 +28,7 @@ describe("Toggle", () => {
     const { container } = render(Toggle, { props });
 
     const input = container.querySelector("input") as HTMLInputElement;
+
     expect(input?.hasAttribute("disabled")).toBeFalsy();
   });
 
@@ -39,6 +41,7 @@ describe("Toggle", () => {
     });
 
     const input = container.querySelector("input") as HTMLInputElement;
+
     expect(input?.hasAttribute("disabled")).toBeTruthy();
   });
 
@@ -46,6 +49,7 @@ describe("Toggle", () => {
     const { container } = render(Toggle, { props });
 
     const input = container.querySelector("input") as HTMLInputElement;
+
     expect(input.getAttribute("aria-label")).toEqual(props.ariaLabel);
   });
 
@@ -63,6 +67,6 @@ describe("Toggle", () => {
 
     fireEvent.click(input);
 
-    expect(onToggle).toBeCalled();
+    expect(onToggle).toHaveBeenCalled();
   });
 });

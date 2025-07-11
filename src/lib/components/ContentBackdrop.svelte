@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { layoutMenuOpen } from "$lib/stores/layout.store";
   import Backdrop from "$lib/components/Backdrop.svelte";
+  import { layoutMenuOpen } from "$lib/stores/layout.store";
 </script>
 
 {#if $layoutMenuOpen}
