@@ -17,20 +17,16 @@
 </script>
 
 <header data-tid="header-component" class:hidden={$layoutContentTopHidden}>
-  <Toolbar>
-    <svelte:fragment slot="start">
+  <Toolbar end={toolbarEnd}>
+    {#snippet start()}
       {#if nonNullish(onBack)}
         <Back {onBack} />
       {:else}
         <MenuButton />
       {/if}
-    </svelte:fragment>
+    {/snippet}
 
     {@render title?.()}
-
-    <svelte:fragment slot="end">
-      {@render toolbarEnd?.()}
-    </svelte:fragment>
   </Toolbar>
 </header>
 

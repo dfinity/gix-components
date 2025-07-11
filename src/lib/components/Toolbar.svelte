@@ -1,11 +1,23 @@
+<script lang="ts">
+  import type { Snippet } from "svelte";
+
+  interface Props {
+    start?: Snippet;
+    children?: Snippet;
+    end?: Snippet;
+  }
+
+  let { start, children, end }: Props = $props();
+</script>
+
 <div class="toolbar" role="toolbar">
-  <slot name="start" />
+  {@render start?.()}
 
   <div class="main">
-    <slot />
+    {@render children?.()}
   </div>
 
-  <slot name="end" />
+  {@render end?.()}
 </div>
 
 <style lang="scss">
