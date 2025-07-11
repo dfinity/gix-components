@@ -1,21 +1,21 @@
 <script lang="ts" generics="T extends string = string">
-  import Modal from "$lib/components/Modal.svelte";
+  import { createEventDispatcher } from "svelte";
   import WizardTransition from "./WizardTransition.svelte";
+  import Modal from "$lib/components/Modal.svelte";
   import { WizardStepsState } from "$lib/stores/wizard.state";
   import type { WizardStep, WizardSteps } from "$lib/types/wizard";
-  import { createEventDispatcher } from "svelte";
 
-  // eslint-disable-next-line no-undef -- The still linter does not understand the Svelte generics type
+   
   export let steps: WizardSteps<T>;
   export let disablePointerEvents = false;
   export let testId: string | undefined = undefined;
 
-  // eslint-disable-next-line no-undef -- The linter still does not understand the Svelte generics type
+   
   let stepState: WizardStepsState<T>;
-  // eslint-disable-next-line no-undef -- The linter still does not understand the Svelte generics type
+   
   $: stepState = new WizardStepsState<T>(steps);
 
-  // eslint-disable-next-line no-undef -- The linter still does not understand the Svelte generics type
+   
   export let currentStep: WizardStep<T> | undefined;
   $: ({ currentStep } = stepState);
 

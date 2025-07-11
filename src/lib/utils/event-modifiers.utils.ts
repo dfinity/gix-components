@@ -17,12 +17,10 @@ import type { MouseEventHandler } from "svelte/elements";
  */
 export const stopPropagation = <T extends EventTarget>(
   fn: OnEventCallback<T>,
-): MouseEventHandler<T> => {
-  return async ($event: OnEventParam<T>) => {
+): MouseEventHandler<T> => async ($event: OnEventParam<T>) => {
     $event?.stopPropagation();
     await fn($event);
   };
-};
 
 /**
  * A wrapper function to prevent the default action of a mouse event before executing a callback function.
@@ -33,9 +31,7 @@ export const stopPropagation = <T extends EventTarget>(
  */
 export const preventDefault = <T extends EventTarget>(
   fn: OnEventCallback<T>,
-): MouseEventHandler<T> => {
-  return async ($event: OnEventParam<T>) => {
+): MouseEventHandler<T> => async ($event: OnEventParam<T>) => {
     $event?.preventDefault();
     await fn($event);
   };
-};

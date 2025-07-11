@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { PageData } from "./$types";
-  import type { SlugIcon } from "$docs/types/slug";
   import DocsIcon from "$docs/components/DocsIcon.svelte";
+  import type { SlugIcon } from "$docs/types/slug";
 
   export let data: PageData;
   let icons: SlugIcon[];

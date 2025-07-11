@@ -1,7 +1,7 @@
 <script lang="ts">
   import DocsCardNav from "$docs/components/DocsCardNav.svelte";
-  import Nav from "$lib/components/Nav.svelte";
   import { COMPONENT_ROUTES } from "$docs/constants/docs.constants";
+  import Nav from "$lib/components/Nav.svelte";
 </script>
 
 <div>

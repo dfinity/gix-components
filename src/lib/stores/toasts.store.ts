@@ -32,9 +32,7 @@ const initToastsStore = (): ToastsStore => {
     }: Partial<Pick<ToastMsg, "id">> & Omit<ToastMsg, "id">): symbol {
       const toastId = id ?? Symbol("toast");
 
-      update((messages: ToastMsg[]) => {
-        return [...messages, { ...rest, id: toastId }];
-      });
+      update((messages: ToastMsg[]) => [...messages, { ...rest, id: toastId }]);
 
       return toastId;
     },

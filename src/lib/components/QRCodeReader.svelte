@@ -1,10 +1,9 @@
 <script lang="ts">
+  import type { Html5Qrcode ,Html5QrcodeScannerState } from "html5-qrcode";
   import { createEventDispatcher, onDestroy, onMount } from "svelte";
-  import type { Html5Qrcode } from "html5-qrcode";
   import { isDesktop } from "$lib/utils/device.utils";
   import { nextElementId } from "$lib/utils/html.utils";
-  import type { Html5QrcodeScannerState } from "html5-qrcode";
-
+  
   const id = nextElementId("qrcode-reader-");
 
   const dispatch = createEventDispatcher();
@@ -23,9 +22,9 @@
       viewfinderWidth: number,
       viewfinderHeight: number,
     ) => {
-      let minEdgePercentage = 0.7; // 70%
-      let minEdgeSize = Math.min(viewfinderWidth, viewfinderHeight);
-      let qrboxSize = Math.floor(minEdgeSize * minEdgePercentage);
+      const minEdgePercentage = 0.7; // 70%
+      const minEdgeSize = Math.min(viewfinderWidth, viewfinderHeight);
+      const qrboxSize = Math.floor(minEdgeSize * minEdgePercentage);
       return {
         width: qrboxSize,
         height: qrboxSize,
@@ -47,7 +46,7 @@
           qrbox: qrboxFunction,
         },
         qrCodeSuccessCallback,
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+         
         (_errorMessage: string) => {
           // Do nothing. This error message is throw when the QR code cannot be read.
           // Examples of error:

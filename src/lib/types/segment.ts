@@ -2,7 +2,7 @@ import type { Writable } from "svelte/store";
 
 export interface SelectedSegment {
   id: symbol | undefined;
-  element: HTMLElement | undefined | null;
+  element: Option<HTMLElement>;
 }
 
 export interface SegmentContext {

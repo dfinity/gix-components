@@ -1,10 +1,10 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
-  import Chip from "./Chip.svelte";
   import type { ChipGroupItem } from "../types/chip-group";
+  import Chip from "./Chip.svelte";
 
   export let chips: ChipGroupItem[] = [];
-  export let testId: string = "chip-group-component";
+  export let testId = "chip-group-component";
 
   const dispatch = createEventDispatcher();
   const onChipClick = ({ detail: selectedId }: CustomEvent<string>) => {

@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Layout from "$lib/components/Layout.svelte";
   import DocsMenu from "$docs/components/DocsMenu.svelte";
+  import Layout from "$lib/components/Layout.svelte";
   import Toasts from "$lib/components/Toasts.svelte";
   import "$lib/styles/global.scss";
   import "$docs/styles/docs-global.scss";

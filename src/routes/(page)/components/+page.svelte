@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Card from "$lib/components/Card.svelte";
   import { COMPONENT_ROUTES } from "$docs/constants/docs.constants";
+  import Card from "$lib/components/Card.svelte";
 </script>
 
 <h1>Components</h1>

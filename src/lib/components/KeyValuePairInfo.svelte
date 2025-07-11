@@ -1,8 +1,8 @@
 <script lang="ts">
-  import IconInfo from "$lib/icons/IconInfo.svelte";
+  import { nonNullish } from "@dfinity/utils";
   import Collapsible from "./Collapsible.svelte";
   import KeyValuePair from "./KeyValuePair.svelte";
-  import { nonNullish } from "@dfinity/utils";
+  import IconInfo from "$lib/icons/IconInfo.svelte";
 
   export let testId: string | undefined = undefined;
   export let alignIconRight: boolean | undefined = false;

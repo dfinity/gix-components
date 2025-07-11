@@ -1,18 +1,18 @@
 <script lang="ts">
-  import { toastsStore } from "$lib/stores/toasts.store";
-  import { fade, fly } from "svelte/transition";
-  import { i18n } from "$lib/stores/i18n";
-  import type { ToastLevel, ToastMsg } from "$lib/types/toast";
-  import { onDestroy, onMount, type Component } from "svelte";
-  import Spinner from "./Spinner.svelte";
-  import IconWarning from "$lib/icons/IconWarning.svelte";
-  import IconClose from "$lib/icons/IconClose.svelte";
-  import IconInfo from "$lib/icons/IconInfo.svelte";
-  import IconCheckCircle from "$lib/icons/IconCheckCircle.svelte";
-  import IconError from "$lib/icons/IconError.svelte";
-  import { DEFAULT_ICON_SIZE } from "$lib/constants/constants";
   import { isNullish, nonNullish } from "@dfinity/utils";
+  import { onDestroy, onMount, type Component } from "svelte";
+  import { fade, fly } from "svelte/transition";
   import Html from "./Html.svelte";
+  import Spinner from "./Spinner.svelte";
+  import { DEFAULT_ICON_SIZE } from "$lib/constants/constants";
+  import IconCheckCircle from "$lib/icons/IconCheckCircle.svelte";
+  import IconClose from "$lib/icons/IconClose.svelte";
+  import IconWarning from "$lib/icons/IconWarning.svelte";
+  import { i18n } from "$lib/stores/i18n";
+  import { toastsStore } from "$lib/stores/toasts.store";
+  import type { ToastLevel, ToastMsg } from "$lib/types/toast";
+  import IconInfo from "$lib/icons/IconInfo.svelte";
+  import IconError from "$lib/icons/IconError.svelte";
 
   interface Props {
     msg: ToastMsg;

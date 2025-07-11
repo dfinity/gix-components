@@ -1,11 +1,11 @@
-type translateTooltipParams = {
+interface translateTooltipParams {
   containerRect: DOMRect;
   targetRect: DOMRect;
   tooltipRect: DOMRect;
   scrollbarWidth: number;
   top?: boolean;
   center?: boolean;
-};
+}
 
 /**
  * Returns how much the tooltip should be translated in the x and y directions

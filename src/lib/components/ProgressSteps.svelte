@@ -1,8 +1,8 @@
 <script lang="ts">
-  import IconCheckCircle from "$lib/icons/IconCheckCircle.svelte";
   import Spinner from "$lib/components/Spinner.svelte";
-  import type { ProgressStep } from "$lib/types/progress-step";
+  import IconCheckCircle from "$lib/icons/IconCheckCircle.svelte";
   import { i18n } from "$lib/stores/i18n";
+  import type { ProgressStep } from "$lib/types/progress-step";
 
   interface Props {
     steps: [ProgressStep, ...ProgressStep[]];

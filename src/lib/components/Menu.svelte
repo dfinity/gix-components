@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { layoutMenuOpen } from "$lib/stores/layout.store";
-  import { handleKeyPress } from "$lib/utils/keyboard.utils";
   import IconBack from "$lib/icons/IconBack.svelte";
-  import { menuCollapsed, menuStore } from "$lib/stores/menu.store";
   import { i18n } from "$lib/stores/i18n";
+  import { layoutMenuOpen } from "$lib/stores/layout.store";
+  import { menuCollapsed, menuStore } from "$lib/stores/menu.store";
+  import { handleKeyPress } from "$lib/utils/keyboard.utils";
 
   export let sticky = true;
 

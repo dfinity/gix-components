@@ -22,7 +22,7 @@
   let tooltipTransformY = 0;
   let tooltipStyle: string | undefined = undefined;
 
-  let idToUse = nonNullish(id) ? id : `${idPrefix}-${nextTooltipIdSuffix++}`;
+  const idToUse = nonNullish(id) ? id : `${idPrefix}-${nextTooltipIdSuffix++}`;
 
   let isAbsent: boolean;
   $: isAbsent = isNullish($$slots["tooltip-content"]) && !notEmptyString(text);

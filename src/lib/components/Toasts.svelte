@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { toastsStore } from "$lib/stores/toasts.store";
   import Toast from "./Toast.svelte";
   import { layoutBottomOffset } from "$lib/stores/layout.store";
+  import { toastsStore } from "$lib/stores/toasts.store";
   import type { ToastPosition } from "$lib/types/toast";
 
   interface Props {

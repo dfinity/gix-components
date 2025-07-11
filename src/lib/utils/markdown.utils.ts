@@ -4,8 +4,8 @@ import type { marked as markedTypes, Renderer } from "marked";
 type Marked = typeof markedTypes;
 
 export const targetBlankLinkRenderer = (
-  href: string | null | undefined,
-  title: string | null | undefined,
+  href: Option<string>,
+  title: Option<string>,
   text: string,
 ): string =>
   `<a${
@@ -21,8 +21,8 @@ export const targetBlankLinkRenderer = (
  * @returns <a> tag to image
  */
 export const imageToLinkRenderer = (
-  src: string | null | undefined,
-  title: string | null | undefined,
+  src: Option<string>,
+  title: Option<string>,
   alt: string,
 ): string => {
   if (src === undefined || src === null || src?.length === 0) {

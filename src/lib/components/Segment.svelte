@@ -1,10 +1,9 @@
 <script lang="ts">
-  import { writable } from "svelte/store";
-  import type { SegmentContext, SelectedSegment } from "$lib/types/segment";
-  import { SEGMENT_CONTEXT_KEY } from "$lib/types/segment";
-  import { onDestroy, setContext, tick } from "svelte";
   import { isNullish, nonNullish } from "@dfinity/utils";
-
+  import { onDestroy, setContext, tick } from "svelte";
+  import { writable } from "svelte/store";
+  import { type SegmentContext, type SelectedSegment , SEGMENT_CONTEXT_KEY } from "$lib/types/segment";
+  
   export let selectedSegmentId: symbol | undefined = undefined;
 
   const store = writable<SelectedSegment>({
@@ -25,9 +24,9 @@
       }
     | undefined = undefined;
 
-  let segment: HTMLElement | undefined | null;
+  let segment: Option<HTMLElement>;
 
-  let selectedElement: HTMLElement | undefined | null;
+  let selectedElement: Option<HTMLElement>;
   $: selectedElement =
     $store.element ?? segment?.querySelector(".segment-button");
 
