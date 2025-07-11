@@ -6,6 +6,7 @@
   export let value: string | undefined = undefined;
 
   const changeValue = () => {
+    // eslint-disable-next-line prefer-destructuring
     value = options[2].value;
   };
 </script>

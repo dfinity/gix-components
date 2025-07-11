@@ -1,8 +1,8 @@
 <script lang="ts">
-  import IconCheckCircle from "$lib/icons/IconCheckCircle.svelte";
   import Spinner from "$lib/components/Spinner.svelte";
-  import type { ProgressStep } from "$lib/types/progress-step";
+  import IconCheckCircle from "$lib/icons/IconCheckCircle.svelte";
   import { i18n } from "$lib/stores/i18n";
+  import type { ProgressStep } from "$lib/types/progress-step";
 
   interface Props {
     steps: [ProgressStep, ...ProgressStep[]];
@@ -11,7 +11,7 @@
   let { steps }: Props = $props();
 </script>
 
-{#each steps as { step: _, text, state }, i}
+{#each steps as { step: _, text, state }, i (i)}
   {@const last = i === steps.length - 1}
   <div class={`step ${state} ${last ? "last" : ""}`}>
     {#if state === "completed"}

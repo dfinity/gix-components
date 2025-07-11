@@ -25,7 +25,7 @@ const initBusyStore = (): BusyStore => {
     /**
      * Show the busy-screen if not visible
      */
-    startBusy({ initiator: newInitiator, text }: BusyState) {
+    startBusy: ({ initiator: newInitiator, text }: BusyState) => {
       update((state) => [
         ...state.filter(({ initiator }) => newInitiator !== initiator),
         { initiator: newInitiator, text },
@@ -35,13 +35,13 @@ const initBusyStore = (): BusyStore => {
     /**
      * Hide the busy-screen if no other initiators are done
      */
-    stopBusy(initiatorToRemove: BusyState["initiator"]) {
+    stopBusy: (initiatorToRemove: BusyState["initiator"]) => {
       update((state) =>
         state.filter(({ initiator }) => initiator !== initiatorToRemove),
       );
     },
 
-    resetForTesting() {
+    resetForTesting: () => {
       set(DEFAULT_STATE);
     },
   };

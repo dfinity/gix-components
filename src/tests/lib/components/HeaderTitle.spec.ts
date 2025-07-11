@@ -7,6 +7,7 @@ describe("HeaderTitle", () => {
     const { getByText } = render(ComponentTest, {
       props: { cmp: HeaderTitle, testId: "header-test-slot" },
     });
+
     expect(getByText("TEST TITLE")).toBeInTheDocument();
   });
 });

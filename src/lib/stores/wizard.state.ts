@@ -8,6 +8,7 @@ export class WizardStepsState<T extends string = string> {
 
   constructor(steps: WizardSteps<T>) {
     this.steps = steps;
+    // eslint-disable-next-line prefer-destructuring
     this.currentStep = this.steps[0];
   }
 

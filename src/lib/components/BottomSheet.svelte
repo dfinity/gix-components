@@ -1,6 +1,5 @@
 <script lang="ts">
   import { nonNullish } from "@dfinity/utils";
-  import { layoutBottomOffset } from "$lib/stores/layout.store";
   import { onDestroy } from "svelte";
   import {
     slide,
@@ -8,6 +7,7 @@
     type TransitionConfig,
   } from "svelte/transition";
   import { BREAKPOINT_LARGE } from "$lib/constants/constants";
+  import { layoutBottomOffset } from "$lib/stores/layout.store";
 
   export let transition = false;
 

@@ -1,15 +1,14 @@
 <script lang="ts">
-  import IconExpandMore from "$lib/icons/IconExpandMore.svelte";
-  import IconCheckCircle from "$lib/icons/IconCheckCircle.svelte";
   import { nonNullish } from "@dfinity/utils";
-  import { createEventDispatcher } from "svelte";
-  import type { Component } from "svelte";
+  import { createEventDispatcher, type Component } from "svelte";
+  import IconCheckCircle from "$lib/icons/IconCheckCircle.svelte";
+  import IconExpandMore from "$lib/icons/IconExpandMore.svelte";
 
   export let role: "button" | "checkbox" | undefined = undefined;
   export let ariaLabel: string | undefined = undefined;
   export let selected = false;
   export let disabled: boolean | undefined = undefined;
-  export let testId = "card";
+  export let testId = "gix-cmp-card";
   export let icon: "expand" | "check" | undefined = undefined;
   export let theme: "transparent" | "framed" | "highlighted" | undefined =
     undefined;

@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import Collapsible from "$lib/components/Collapsible.svelte";
 
   export let props = {};

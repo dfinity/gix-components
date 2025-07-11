@@ -1,17 +1,17 @@
 <script lang="ts">
-  import { page } from "$app/stores";
-  import { afterNavigate } from "$app/navigation";
-  import DocsAccountMenu from "$docs/components/DocsAccountMenu.svelte";
   import type { AfterNavigate } from "@sveltejs/kit";
-  import Content from "$lib/components/Content.svelte";
+  import { afterNavigate } from "$app/navigation";
+  import { page } from "$app/stores";
+  import DocsAccountMenu from "$docs/components/DocsAccountMenu.svelte";
   import { canGoBack, goBack } from "$docs/utils/docs.utils";
+  import Content from "$lib/components/Content.svelte";
 
   let navHistory: AfterNavigate[] = [];
 
   afterNavigate((navigation) => (navHistory = [navigation, ...navHistory]));
 
   $: onBack = canGoBack($page.route.id)
-    ? async () => await goBack({ navHistory })
+    ? () => goBack({ navHistory })
     : undefined;
 </script>
 

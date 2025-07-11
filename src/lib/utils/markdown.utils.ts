@@ -3,6 +3,7 @@ import type { marked as markedTypes, Renderer } from "marked";
 
 type Marked = typeof markedTypes;
 
+// eslint-disable-next-line local-rules/prefer-object-params
 export const targetBlankLinkRenderer = (
   href: string | null | undefined,
   title: string | null | undefined,
@@ -20,6 +21,7 @@ export const targetBlankLinkRenderer = (
  * Based on https://github.com/markedjs/marked/blob/master/src/Renderer.js#L186
  * @returns <a> tag to image
  */
+// eslint-disable-next-line local-rules/prefer-object-params
 export const imageToLinkRenderer = (
   src: string | null | undefined,
   title: string | null | undefined,
@@ -53,7 +55,7 @@ const escapeSvgs = (html: string): string =>
  */
 const transformImg = (img: string): string => {
   const src = img.match(/src="([^"]+)"/)?.[1];
-  const alt = img.match(/alt="([^"]+)"/)?.[1] || "img";
+  const alt = img.match(/alt="([^"]+)"/)?.[1] ?? "img";
   const title = img.match(/title="([^"]+)"/)?.[1];
   const shouldEscape = isNullish(src) || src.startsWith("data:image");
   const imageHtml = shouldEscape

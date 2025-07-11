@@ -32,7 +32,7 @@ describe("Progress Steps", () => {
       },
     });
 
-    expect(container.querySelectorAll(".step").length).toEqual(steps.length);
+    expect(container.querySelectorAll(".step")).toHaveLength(steps.length);
   });
 
   it("should render proper states", () => {

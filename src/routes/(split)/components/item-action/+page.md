@@ -12,14 +12,16 @@ Mainly used in settings pages to render the properties and the actions alongside
 
 ```javascript
 <ItemAction>
-  <img slot="icon" src="{icpLogo}" class="start" />
+  {#snippet icon()}<img src="{icpLogo}" class="start" />{/snippet}
   <div class="content">
     <p>Unlocking</p>
     <p class="description">No age bonus</p>
   </div>
-  <button slot="actions" class="secondary">
-    One action
-  </button>
+  {#snippet actions()}
+    <button class="secondary">
+      One action
+    </button>
+  {/snippet}
 </ItemAction>
 ```
 
@@ -30,13 +32,13 @@ Mainly used in settings pages to render the properties and the actions alongside
 | `tagName` | The tagName of the parent element.                              | `"li"` or `"div"`       | `"li"`      |
 | `testId`  | Add a `data-tid` attribute to the DOM, useful for test purpose. | `string` or `undefined` | `undefined` |
 
-## Slots
+## Snippets
 
-| Slot name    | Description                                                     |
-| ------------ | --------------------------------------------------------------- |
-| Default slot | The main content of the item.                                   |
-| `logo`       | The logo of the item. Recommended to use 100% width and height. |
-| `actions`    | Slot to add the item actions.                                   |
+| Snippet name    | Description                                                     |
+| --------------- | --------------------------------------------------------------- |
+| Default snippet | The main content of the item.                                   |
+| `logo`          | The logo of the item. Recommended to use 100% width and height. |
+| `actions`       | Snippet to add the item actions.                                |
 
 ## Usage Recommendation
 
@@ -44,15 +46,15 @@ Mainly used in settings pages to render the properties and the actions alongside
 
 The icon should be square and take all the item height.
 
-The item has a set height of the button height plus some padding. The icon slot is square of the whole item height and the same size for the width.
+The item has a set height of the button height plus some padding. The icon snippet is square of the whole item height and the same size for the width.
 
-Therefore, the icon slot should take the whole width and height to be square.
+Therefore, the icon snippet should take the whole width and height to be square.
 
 ### Full Width Actions Mobile
 
 In mobile, the actions are rendered below the content. It's recommended that the buttons take the full width.
 
-If it's just on button, then stretch it or set the slot to the button. If it's two buttons, make sure they cover the full width together.
+If it's just on button, then stretch it or set the snippet to the button. If it's two buttons, make sure they cover the full width together.
 
 ## Showcase
 
@@ -64,12 +66,12 @@ The component is within a `div` with background to highlight the component exact
 
 <div class="wrapper">
   <ItemAction tagName="div">
-    <img slot="icon" src={icpLogo} class="start" />
+    {#snippet icon()}<img src="{icpLogo}" class="start" />{/snippet}
     <div class="content">
       <p>Unlocking</p>
       <p class="description">No age bonus</p>
     </div>
-    <button slot="actions" class="secondary">One action</button>
+    {#snippet actions()}<button class="secondary">One action</button>{/snippet}
   </ItemAction>
 </div>
 
@@ -77,17 +79,21 @@ The component is within a `div` with background to highlight the component exact
 
 <ul class="wrapper">
   <ItemAction>
-    <div slot="icon" class="start icon">
-      <IconLockOpen size="24px" />
-    </div>
+    {#snippet icon()}
+        <div class="start icon">
+          <IconLockOpen size="24px" />
+        </div>
+    {/snippet}
     <div class="content">
       <p>Unlocking</p>
       <p class="description">No age bonus</p>
     </div>
-    <div slot="actions" class="actions">
-      <button class="secondary">One action</button>
-      <button class="secondary">Another action</button>
-    </div>
+    {#snippet actions()}
+        <div class="actions">
+          <button class="secondary">One action</button>
+          <button class="secondary">Another action</button>
+        </div>
+    {/snippet}
   </ItemAction>
 </ul>
 

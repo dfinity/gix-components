@@ -64,7 +64,7 @@ export interface ChipGroupItem {
 | Property   | Description                             | Type                      | Default                |
 | ---------- | --------------------------------------- | ------------------------- | ---------------------- |
 | `chips`    | ChipGroupItem items to display.         | `Array<ChipGroupItem>`    |                        |
-| `testId`   | Optional data-tid value.                | `string`                  | `chip-group-component` |
+| `testId`   | Optional data-tid value.                | `string`                  | `gix-cmp-chip-group-component` |
 | `onSelect` | Triggered when a user clicks on a Chip. | `function` or `undefined` | `undefined`            |
 
 ## Showcase

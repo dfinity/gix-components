@@ -1,11 +1,11 @@
 <script lang="ts">
-  import Toolbar from "$lib/components/Toolbar.svelte";
-  import { type Snippet } from "svelte";
-  import type { OnEventCallback } from "$lib/types/event-modifiers";
-  import MenuButton from "$lib/components/MenuButton.svelte";
-  import Back from "$lib/components/Back.svelte";
-  import { layoutContentTopHidden } from "$lib/stores/layout.store";
   import { nonNullish } from "@dfinity/utils";
+  import type { Snippet } from "svelte";
+  import Back from "$lib/components/Back.svelte";
+  import MenuButton from "$lib/components/MenuButton.svelte";
+  import Toolbar from "$lib/components/Toolbar.svelte";
+  import { layoutContentTopHidden } from "$lib/stores/layout.store";
+  import type { OnEventCallback } from "$lib/types/event-modifiers";
 
   interface Props {
     title?: Snippet;
@@ -17,20 +17,16 @@
 </script>
 
 <header data-tid="header-component" class:hidden={$layoutContentTopHidden}>
-  <Toolbar>
-    <svelte:fragment slot="start">
+  <Toolbar end={toolbarEnd}>
+    {#snippet start()}
       {#if nonNullish(onBack)}
         <Back {onBack} />
       {:else}
         <MenuButton />
       {/if}
-    </svelte:fragment>
+    {/snippet}
 
     {@render title?.()}
-
-    <svelte:fragment slot="end">
-      {@render toolbarEnd?.()}
-    </svelte:fragment>
   </Toolbar>
 </header>
 

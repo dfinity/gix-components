@@ -17,8 +17,11 @@ describe("ChipGroup", () => {
     });
 
     expect(getByTestId("gix-cmp-chip-group-component")).not.toBeNull();
+
     const chipElements = getAllByTestId("chip-component");
+
     expect(chipElements).toHaveLength(testChips.length);
+
     chipElements.forEach((chip, index) => {
       expect(chip.textContent).toEqual(testChips[index].label);
     });
@@ -68,9 +71,11 @@ describe("ChipGroup", () => {
     });
 
     expect(spySelect).toHaveBeenCalledTimes(0);
+    
     const chipElements = getAllByTestId("chip-component");
 
     fireEvent.click(chipElements[1]);
+    
     expect(spySelect).toHaveBeenCalledExactlyOnceWith(testChips[1].id);
   });
 });

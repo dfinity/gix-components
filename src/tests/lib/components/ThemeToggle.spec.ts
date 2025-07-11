@@ -10,6 +10,7 @@ describe("ThemeToggle", () => {
     const { container } = render(ThemeToggle);
 
     const input = container.querySelector("input") as HTMLInputElement;
+
     expect(input).not.toBeNull();
     expect(input.getAttribute("type")).toEqual("checkbox");
   });
@@ -18,6 +19,7 @@ describe("ThemeToggle", () => {
     const { container } = render(ThemeToggle);
 
     const input = container.querySelector("input") as HTMLInputElement;
+
     expect(input.getAttribute("aria-label")).toEqual(en.theme.switch_theme);
   });
 
@@ -27,9 +29,11 @@ describe("ThemeToggle", () => {
     const input = container.querySelector("input") as HTMLInputElement;
 
     fireEvent.click(input);
+
     expect(get(themeStore)).toEqual(Theme.LIGHT);
 
     fireEvent.click(input);
+
     expect(get(themeStore)).toEqual(Theme.DARK);
   });
 });

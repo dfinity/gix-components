@@ -54,11 +54,13 @@ describe("Checkbox", () => {
     });
 
     let input: HTMLInputElement | null = container.querySelector("input");
+
     expect(input?.checked).toBeTruthy();
 
     await rerender({ ...props, checked: false });
 
     input = container.querySelector("input");
+
     expect(input?.checked).toBeFalsy();
   });
 
@@ -73,7 +75,9 @@ describe("Checkbox", () => {
 
       const div: HTMLDivElement | null =
         container.querySelector("div.checkbox");
+
       expect(div).not.toBeNull();
+
       div && fireEvent.click(div);
     }));
 
@@ -87,7 +91,9 @@ describe("Checkbox", () => {
       });
 
       const input: HTMLInputElement | null = container.querySelector("input");
+
       expect(input).not.toBeNull();
+
       input && fireEvent.click(input);
     }));
 
