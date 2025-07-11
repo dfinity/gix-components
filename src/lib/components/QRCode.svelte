@@ -6,9 +6,8 @@
    * - DeckDeckGo: https://github.com/deckgo/deckdeckgo/blob/main/webcomponents/elements/src/components/qrcode/qrcode/qrcode.tsx
    */
   import { afterUpdate, createEventDispatcher, onMount } from "svelte";
-  import { debounce } from "$lib/utils/debounce.utils";
   import type { QrCreateClass } from "$lib/types/qr-creator";
-  import { isNullish, nonNullish } from "@dfinity/utils";
+  import { isNullish, nonNullish, debounce } from "@dfinity/utils";
 
   export let ariaLabel: string | undefined = undefined;
   export let value: string;
