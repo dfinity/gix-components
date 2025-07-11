@@ -5,17 +5,14 @@
   import { WizardStepsState } from "$lib/stores/wizard.state";
   import type { WizardStep, WizardSteps } from "$lib/types/wizard";
 
-   
   export let steps: WizardSteps<T>;
   export let disablePointerEvents = false;
   export let testId: string | undefined = undefined;
 
-   
   let stepState: WizardStepsState<T>;
-   
+
   $: stepState = new WizardStepsState<T>(steps);
 
-   
   export let currentStep: WizardStep<T> | undefined;
   $: ({ currentStep } = stepState);
 

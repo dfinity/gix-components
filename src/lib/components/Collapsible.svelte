@@ -34,7 +34,9 @@
   };
 
   const calculateMaxContentHeight = (): number => {
-    if (nonNullish(maxContentHeight)) {return maxContentHeight;}
+    if (nonNullish(maxContentHeight)) {
+      return maxContentHeight;
+    }
     const height =
       container?.getBoundingClientRect().height ?? container?.offsetHeight ?? 0;
     return height < CONTENT_MIN_HEIGHT ? CONTENT_MIN_HEIGHT : height;

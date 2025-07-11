@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { onDestroy ,type  Snippet } from "svelte";
+  import { onDestroy, type Snippet } from "svelte";
   import ScrollSentinel from "$lib/components/ScrollSentinel.svelte";
   import { BREAKPOINT_LARGE } from "$lib/constants/constants";
   import { layoutContentScrollY } from "$lib/stores/layout.store";
-  
+
   interface Props {
     testId?: string;
     children: Snippet;

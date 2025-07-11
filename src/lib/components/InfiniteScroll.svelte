@@ -8,7 +8,7 @@
     disabled?: boolean;
     testId?: string;
     // IntersectionObserverInit is not recognized by the linter
-     
+
     options?: IntersectionObserverInit;
     children: Snippet;
   }
