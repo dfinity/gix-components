@@ -28,7 +28,7 @@ describe("SystemThemeListener", () => {
       }
     },
     dispatchEvent: (event: Partial<MediaQueryListEvent>) =>
-      listeners[event.type || ""]?.({ matches: true }),
+      listeners[event.type ?? ""]?.({ matches: true }),
   }));
 
   vi.stubGlobal("matchMedia", mockMatchMedia);

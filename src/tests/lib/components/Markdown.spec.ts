@@ -1,6 +1,7 @@
 import Markdown from "$lib/components/Markdown.svelte";
 import { render, waitFor } from "@testing-library/svelte";
 
+// eslint-disable-next-line local-rules/prefer-object-params
 const mockWaiting = (seconds: number, value?: unknown) =>
   new Promise((resolve) => setTimeout(() => resolve(value), seconds * 1000));
 

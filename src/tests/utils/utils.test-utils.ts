@@ -1,6 +1,7 @@
 import { fireEvent } from "@testing-library/dom";
 
-export const clickByTestId = async (
+// eslint-disable-next-line local-rules/prefer-object-params
+export const clickByTestId = (
   queryByTestId: (matcher: string) => HTMLElement | null,
   testId: string,
 ) => {

@@ -20,7 +20,7 @@ describe("Dropdown", () => {
     expect(container.querySelector("select")).toBeInTheDocument();
   });
 
-  it("should change value", async () => {
+  it("should change value", () => {
     const { container } = render(DropdownTest, {
       props,
     });
@@ -34,7 +34,8 @@ describe("Dropdown", () => {
     selectElement && expect(selectElement.value).toBe(options[4].value);
   });
 
-  it("should allow setting an initial value", async () => {
+  it("should allow setting an initial value", () => {
+    // eslint-disable-next-line prefer-destructuring
     const { value } = options[2];
     const { container } = render(DropdownTest, {
       props: { ...props, value },
@@ -44,13 +45,13 @@ describe("Dropdown", () => {
     selectElement && expect(selectElement.value).toBe(value);
   });
 
-  it("should bind the value", async () => {
+  it("should bind the value", () => {
     const { queryByTestId, container } = render(DropdownTest, { props });
 
     const selectElement = container.querySelector("select");
     selectElement && expect(selectElement.value).toBe("1");
 
-    await clickByTestId(queryByTestId, "test");
+    clickByTestId(queryByTestId, "test");
     selectElement && expect(selectElement.value).toBe("3");
   });
 });

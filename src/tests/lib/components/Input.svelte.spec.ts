@@ -39,7 +39,7 @@ describe("Input", () => {
     container,
   }: {
     attribute: string;
-    expected: Option<string>;
+    expected: string | null | undefined;
     container: HTMLElement;
   }) => {
     const input: HTMLInputElement | null = container.querySelector("input");
@@ -94,7 +94,7 @@ describe("Input", () => {
     testHasAttribute({ container, attribute: "required", expected: true });
   });
 
-  it("should render a required input", () => {
+  it("should not render a required input", () => {
     const { container } = render(Input, {
       props: { ...props, required: false },
     });

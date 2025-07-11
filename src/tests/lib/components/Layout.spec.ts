@@ -2,7 +2,7 @@ import Layout from "$lib/components/Layout.svelte";
 import { render } from "@testing-library/svelte";
 
 describe("Layout", () => {
-  it("should render a sticky menu", async () => {
+  it("should render a sticky menu", () => {
     const { getByTestId } = render(Layout, {
       props: {
         layout: "split",
@@ -12,7 +12,7 @@ describe("Layout", () => {
     expect(getByTestId("menu-inner")).toHaveClass("sticky");
   });
 
-  it("should not render a sticky menu", async () => {
+  it("should not render a sticky menu", () => {
     const { getByTestId } = render(Layout, {
       props: {
         layout: "stretch",
@@ -22,7 +22,7 @@ describe("Layout", () => {
     expect(getByTestId("menu-inner")).not.toHaveClass("sticky");
   });
 
-  it("should render split-pane", async () => {
+  it("should render split-pane", () => {
     const { container } = render(Layout, {
       props: {
         layout: "split",
@@ -32,7 +32,7 @@ describe("Layout", () => {
     expect(container.querySelector(".split-pane")).not.toBeNull();
   });
 
-  it("should render stretch-pane", async () => {
+  it("should render stretch-pane", () => {
     const { container } = render(Layout, {
       props: {
         layout: "stretch",

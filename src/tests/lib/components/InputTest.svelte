@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import Input from "$lib/components/Input.svelte";
 
   export let props = {};
