@@ -74,16 +74,16 @@ Likewise, it is up to developer to handle the `currentStep` and render the corre
 
 ## Properties
 
-| Property   | Description                                   | Type                        | Default     |
-| ---------- | --------------------------------------------- | --------------------------- | ----------- |
-| `steps`    | The configuration of the steps of the wizard. | `WizardSteps`               |             |
+| Property      | Description                                   | Type                        | Default     |
+| ------------- | --------------------------------------------- | --------------------------- | ----------- |
+| `steps`       | The configuration of the steps of the wizard. | `WizardSteps`               |             |
 | `currentStep` | The current step. A property to `bind`.       | `WizardStep` or `undefined` | `undefined` |
-| `onClose`  | A function to call when the modal is closed.  | `function` or `undefined`   | `undefined` |
+| `onClose`     | A function to call when the modal is closed.  | `function` or `undefined`   | `undefined` |
 
 ## Snippets
 
 | Snippet name    | Description                                                |
-| --------------- |------------------------------------------------------------|
+| --------------- | ---------------------------------------------------------- |
 | Default snippet | The content of the page.                                   |
 | `title`         | The title displayed centered on the top part of the modal. |
 
