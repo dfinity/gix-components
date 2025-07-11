@@ -1,6 +1,8 @@
 import WizardModal from "$lib/components/WizardModal.svelte";
 import type { WizardStep, WizardSteps } from "$lib/types/wizard";
 import { render } from "@testing-library/svelte";
+import { mockSnippet } from "../mocks/snippet.mocks";
+import type { Snippet } from "svelte";
 
 describe("WizardModal", () => {
   const steps: WizardSteps = [
@@ -10,9 +12,10 @@ describe("WizardModal", () => {
     },
   ];
 
-  const props: { steps: WizardSteps; currentStep: WizardStep | undefined } = {
+  const props: { steps: WizardSteps; currentStep: WizardStep | undefined, children: Snippet } = {
     steps,
     currentStep: undefined,
+    children: mockSnippet
   };
 
   it("should not have a data-tid attribute", () => {

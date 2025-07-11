@@ -49,8 +49,8 @@ A wizard that finds place within a modal to guide the user through miscellaneous
 </button>
 
 {#if visible}
-    <WizardModal {steps} bind:currentStep bind:this={modal} on:nnsClose={() => (visible = false)}>
-      <svelte:fragment slot="title">My title</svelte:fragment>
+    <WizardModal {steps} bind:currentStep bind:this={modal} onClose={() => (visible = false)}>
+      {#snippet title()}My title{/snippet}
 
       {#if currentStep?.name === "EnterController"}
         <p>Step to enter the controller</p>
@@ -74,10 +74,18 @@ Likewise, it is up to developer to handle the `currentStep` and render the corre
 
 ## Properties
 
-| Property      | Description                                   | Type                        | Default     |
-| ------------- | --------------------------------------------- | --------------------------- | ----------- |
-| `steps`       | The configuration of the steps of the wizard. | `WizardSteps`               |             |
+| Property   | Description                                   | Type                        | Default     |
+| ---------- | --------------------------------------------- | --------------------------- | ----------- |
+| `steps`    | The configuration of the steps of the wizard. | `WizardSteps`               |             |
 | `currentStep` | The current step. A property to `bind`.       | `WizardStep` or `undefined` | `undefined` |
+| `onClose`  | A function to call when the modal is closed.  | `function` or `undefined`   | `undefined` |
+
+## Snippets
+
+| Snippet name    | Description                                                |
+| --------------- |------------------------------------------------------------|
+| Default snippet | The content of the page.                                   |
+| `title`         | The title displayed centered on the top part of the modal. |
 
 ## Functions
 
@@ -96,8 +104,8 @@ Open modal
 </button>
 
 {#if visible}
-<WizardModal {steps} bind:currentStep bind:this={modal} on:nnsClose={() => (visible = false)}>
-<svelte:fragment slot="title">My title</svelte:fragment>
+<WizardModal {steps} bind:currentStep bind:this={modal} onClose={() => (visible = false)}>
+{#snippet title()}My title{/snippet}
 
       {#if currentStep?.name === "EnterController"}
         <p>Step to enter the controller</p>
