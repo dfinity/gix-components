@@ -35,7 +35,7 @@ Parameters:
 
 - `fn`: - The function to be executed after preventing the default action. It can be a synchronous or asynchronous function.
 
-[Source](https://github.com/dfinity/gix-components/tree/main/src/lib/utils/event-modifiers.utils.ts#L34)
+[Source](https://github.com/dfinity/gix-components/tree/main/src/lib/utils/event-modifiers.utils.ts#L32)
 
 <!-- TSDOC_END -->
 
