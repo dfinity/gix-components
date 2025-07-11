@@ -1,17 +1,17 @@
 <!-- https://github.com/papyrs/papyrs/blob/main/src/lib/components/ui/Popover.svelte -->
 <script lang="ts">
-  import { fade, scale } from "svelte/transition";
   import { quintOut } from "svelte/easing";
-  import { i18n } from "$lib/stores/i18n";
+  import { fade, scale } from "svelte/transition";
   import Backdrop from "./Backdrop.svelte";
   import IconClose from "$lib/icons/IconClose.svelte";
+  import { i18n } from "$lib/stores/i18n";
 
   export let anchor: HTMLElement | undefined = undefined;
   export let visible = false;
   export let direction: "ltr" | "rtl" = "ltr";
   export let closeButton = false;
   export let invisibleBackdrop = false;
-  export let testId = "popover-component";
+  export let testId = "gix-cmp-popover-component";
 
   let bottom: number;
   let left: number;

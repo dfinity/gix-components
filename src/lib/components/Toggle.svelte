@@ -7,7 +7,7 @@
   export let checked: boolean;
   export let ariaLabel: string;
   export let disabled = false;
-  export let testId = "toggle";
+  export let testId = "gix-cmp-toggle";
 
   const dispatch = createEventDispatcher();
 

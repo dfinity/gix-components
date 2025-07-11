@@ -1,25 +1,22 @@
 import Popover from "$lib/components/Popover.svelte";
-import { render, waitFor, type RenderResult } from "@testing-library/svelte";
+import { render, waitFor } from "@testing-library/svelte";
 import PopoverTest from "./PopoverTest.svelte";
 
 describe("Popover", () => {
-  const showPopover = async ({ getByRole }: RenderResult<Popover>) => {
-    await waitFor(() => expect(getByRole("menu")).not.toBeNull());
-  };
-
   it("should be closed by default", () => {
     const { getByRole } = render(Popover);
+
     expect(() => getByRole("menu")).toThrow();
   });
 
   it("should be visible", async () => {
-    const renderResult = render(Popover, {
+    const { getByRole } = render(Popover, {
       props: {
         visible: true,
       },
     });
 
-    await showPopover(renderResult);
+    await waitFor(() => expect(getByRole("menu")).not.toBeNull());
   });
 
   it("should render a backdrop", () => {

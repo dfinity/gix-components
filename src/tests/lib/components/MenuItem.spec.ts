@@ -10,6 +10,7 @@ describe("Menuitem", () => {
 
   it("should render a menuitem", () => {
     const { getByRole } = render(MenuItem, { props });
+
     expect(getByRole("menuitem")).not.toBeNull();
   });
 
@@ -17,6 +18,7 @@ describe("Menuitem", () => {
     const { getByRole } = render(MenuItem, { props });
 
     const { href } = getByRole("menuitem") as HTMLLinkElement;
+
     expect(href).toEqual(props.href);
   });
 
@@ -24,6 +26,7 @@ describe("Menuitem", () => {
     const { getByRole } = render(MenuItem, { props });
 
     const { classList } = getByRole("menuitem") as HTMLLinkElement;
+
     expect(classList.contains("selected")).toBeFalsy();
   });
 
@@ -36,6 +39,7 @@ describe("Menuitem", () => {
     });
 
     const { classList } = getByRole("menuitem") as HTMLLinkElement;
+
     expect(classList.contains("selected")).toBeTruthy();
   });
 

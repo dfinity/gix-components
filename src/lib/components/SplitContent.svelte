@@ -1,13 +1,13 @@
 <script lang="ts">
   import { onDestroy, type Snippet } from "svelte";
+  import ContentBackdrop from "$lib/components/ContentBackdrop.svelte";
+  import Header from "$lib/components/Header.svelte";
+  import ScrollSentinel from "$lib/components/ScrollSentinel.svelte";
   import {
     layoutBottomOffset,
     layoutContentScrollY,
     layoutMenuOpen,
   } from "$lib/stores/layout.store";
-  import Header from "$lib/components/Header.svelte";
-  import ContentBackdrop from "$lib/components/ContentBackdrop.svelte";
-  import ScrollSentinel from "$lib/components/ScrollSentinel.svelte";
   import type { OnEventCallback } from "$lib/types/event-modifiers";
 
   interface Props {

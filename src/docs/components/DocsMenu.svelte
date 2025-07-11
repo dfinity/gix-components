@@ -1,7 +1,7 @@
 <script lang="ts">
   import { page } from "$app/stores";
-  import MenuItem from "$lib/components/MenuItem.svelte";
   import DocsIconMenu from "$docs/components/DocsIconMenu.svelte";
+  import MenuItem from "$lib/components/MenuItem.svelte";
 
   let pathname: string;
   $: ({

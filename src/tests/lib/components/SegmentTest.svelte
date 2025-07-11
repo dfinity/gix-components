@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import Segment from "$lib/components/Segment.svelte";
   import SegmentButton from "$lib/components/SegmentButton.svelte";
 

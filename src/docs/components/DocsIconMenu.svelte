@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { DEFAULT_ICON_SIZE } from "$lib/constants/constants";
-  import { menuCollapsed } from "$lib";
   import { fade } from "svelte/transition";
+  import { menuCollapsed } from "$lib";
+  import { DEFAULT_ICON_SIZE } from "$lib/constants/constants";
 
   export let text: string;
 </script>

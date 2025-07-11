@@ -4,6 +4,7 @@ const testUrl = "/components/checkbox";
 
 test("Checkbox page has expected h1", async ({ page }) => {
   await page.goto(testUrl);
+
   await expect(page.locator("h1")).toHaveText("Checkbox");
 });
 
@@ -30,6 +31,7 @@ test("Should display default behavior even if box-sizing is set as border-box", 
   });
 
   const checkbox = page.getByTestId("checkbox-2");
+
   expect(checkbox).not.toBeNull();
 
   const showcase = page.getByTestId("showcase");

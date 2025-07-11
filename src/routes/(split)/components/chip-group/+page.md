@@ -60,10 +60,10 @@ export interface ChipGroupItem {
 
 ## Properties
 
-| Property | Description                     | Type                   | Default                |
-| -------- | ------------------------------- | ---------------------- | ---------------------- |
-| `chips`  | ChipGroupItem items to display. | `Array<ChipGroupItem>` |                        |
-| `testId` | Optional data-tid value.        | `string`               | `chip-group-component` |
+| Property | Description                     | Type                   | Default                        |
+| -------- | ------------------------------- | ---------------------- | ------------------------------ |
+| `chips`  | ChipGroupItem items to display. | `Array<ChipGroupItem>` |                                |
+| `testId` | Optional data-tid value.        | `string`               | `gix-cmp-chip-group-component` |
 
 ## Events
 

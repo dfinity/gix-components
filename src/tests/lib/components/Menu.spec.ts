@@ -4,7 +4,7 @@ import { render } from "@testing-library/svelte";
 import MenuTest from "./MenuTest.svelte";
 
 describe("Menu", () => {
-  it("should be displayed open", async () => {
+  it("should be displayed open", () => {
     layoutMenuOpen.set(true);
 
     const { getByTestId } = render(Menu);

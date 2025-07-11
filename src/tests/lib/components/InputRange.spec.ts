@@ -6,12 +6,14 @@ describe("InputRange", () => {
   const min = 0;
   const max = 100;
   const ariaLabel = "test";
+
   it("should render an input", () => {
     const { container } = render(InputRange, {
       props: { min, max, value: 25, ariaLabel },
     });
 
     const input = container.querySelector("input");
+
     expect(input).not.toBeNull();
   });
 
@@ -19,6 +21,7 @@ describe("InputRange", () => {
     const { container, queryByTestId } = render(InputRangeTest);
 
     const input = container.querySelector("input");
+
     expect(input).not.toBeNull();
 
     // Should match values in InputRangeTest
@@ -28,9 +31,11 @@ describe("InputRange", () => {
     expect(input?.value).toBe(initialValue.toString());
 
     const button = queryByTestId("change-test-value");
+
     expect(button).not.toBeNull();
 
     button && (await fireEvent.click(button));
+
     expect(input?.value).toBe(changedValue.toString());
   });
 
@@ -42,6 +47,7 @@ describe("InputRange", () => {
     });
 
     const input = container.querySelector("input");
+
     expect(input).not.toBeNull();
     expect(input?.value).toBe(initialValue.toString());
 
@@ -51,6 +57,7 @@ describe("InputRange", () => {
           value: changedValue,
         },
       }));
+
     expect(input?.value).toBe(changedValue.toString());
   });
 
@@ -62,6 +69,7 @@ describe("InputRange", () => {
     });
 
     const input = container.querySelector("input");
+
     expect(input).not.toBeNull();
     expect(input?.value).toBe(initialValue.toString());
 
@@ -71,6 +79,7 @@ describe("InputRange", () => {
           value: changedValue,
         },
       }));
+
     expect(input?.value).not.toBe(changedValue.toString());
   });
 
@@ -83,6 +92,7 @@ describe("InputRange", () => {
     });
 
     const input = container.querySelector("input");
+
     expect(input).not.toBeNull();
     expect(input?.value).toBe(initialValue.toString());
 
@@ -92,6 +102,7 @@ describe("InputRange", () => {
           value: changedValue,
         },
       }));
+
     expect(input?.value).not.toBe(changedValue.toString());
   });
 });

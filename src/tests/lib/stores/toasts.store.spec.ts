@@ -37,6 +37,6 @@ describe("toasts-store", () => {
 
     const msgs = get(toastsStore);
 
-    expect(msgs.length).toEqual(3);
+    expect(msgs).toHaveLength(3);
   });
 });

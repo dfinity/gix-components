@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { fade } from "svelte/transition";
-  import { busy, busyMessage } from "$lib/stores/busy.store";
-  import Spinner from "$lib/components/Spinner.svelte";
   import { nonNullish } from "@dfinity/utils";
+  import { fade } from "svelte/transition";
+  import Spinner from "$lib/components/Spinner.svelte";
+  import { busy, busyMessage } from "$lib/stores/busy.store";
 </script>
 
 <!-- Display spinner and lock UI if busyStore is not empty -->

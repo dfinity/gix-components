@@ -4,6 +4,7 @@ const testUrl = "/components/external-link";
 
 test("External link page has expected h1", async ({ page }) => {
   await page.goto(testUrl);
+
   await expect(page.locator("h1")).toHaveText("External Link");
 });
 

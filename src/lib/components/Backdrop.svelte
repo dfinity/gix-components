@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { fade } from "svelte/transition";
   import { createEventDispatcher } from "svelte";
+  import { fade } from "svelte/transition";
   import { i18n } from "$lib/stores/i18n";
   import { handleKeyPress } from "$lib/utils/keyboard.utils";
 

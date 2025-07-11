@@ -21,6 +21,7 @@ const props = (props: {
 describe("Collapsible", () => {
   it("should render header, content and button", () => {
     const { getByText, queryByTestId } = render(CollapsibleTest);
+
     expect(getByText("Jack")).toBeInTheDocument();
     expect(getByText("Sparrow")).toBeInTheDocument();
     expect(queryByTestId("collapsible-expand-button")).toBeInTheDocument();
@@ -31,6 +32,7 @@ describe("Collapsible", () => {
       CollapsibleTest,
       props({ expandButton: false }),
     );
+
     expect(getByText("Jack")).toBeInTheDocument();
     expect(getByText("Sparrow")).toBeInTheDocument();
     expect(queryByTestId("collapsible-expand-button")).not.toBeInTheDocument();
@@ -44,6 +46,7 @@ describe("Collapsible", () => {
         initiallyExpanded: true,
       }),
     );
+
     expect(
       container.querySelector('[id="headingCaptain"]'),
     ).toBeInTheDocument();
@@ -57,6 +60,7 @@ describe("Collapsible", () => {
         id: "_",
       }),
     );
+
     expect(container.querySelector('[aria-controls="_"]')).toBeInTheDocument();
     expect(
       container.querySelector('[aria-labelledby="heading_"]'),
@@ -65,6 +69,7 @@ describe("Collapsible", () => {
 
   it("should update aria-expanded value", async () => {
     const { container, getByTestId } = render(CollapsibleTest);
+
     expect(
       container.querySelector('[aria-expanded="false"]'),
     ).toBeInTheDocument();
@@ -79,6 +84,7 @@ describe("Collapsible", () => {
 
   it("should be initially collapsed", () => {
     const { container } = render(CollapsibleTest);
+
     expect(
       container.querySelector('[aria-expanded="false"]'),
     ).toBeInTheDocument();
@@ -89,6 +95,7 @@ describe("Collapsible", () => {
       CollapsibleTest,
       props({ initiallyExpanded: true }),
     );
+
     expect(
       container.querySelector('[aria-expanded="true"]'),
     ).toBeInTheDocument();
@@ -99,12 +106,14 @@ describe("Collapsible", () => {
 
     fireEvent.click(getByTestId("collapsible-header"));
     await tick();
+
     expect(
       container.querySelector('[aria-expanded="true"]'),
     ).toBeInTheDocument();
 
     fireEvent.click(getByTestId("collapsible-header"));
     await tick();
+
     expect(
       container.querySelector('[aria-expanded="false"]'),
     ).toBeInTheDocument();
@@ -122,6 +131,7 @@ describe("Collapsible", () => {
 
     fireEvent.click(getByTestId("collapsible-header"));
     await tick();
+
     expect(
       container.querySelector('[aria-expanded="false"]'),
     ).toBeInTheDocument();
@@ -135,6 +145,7 @@ describe("Collapsible", () => {
 
       const onToggle = ({ detail }: CustomEvent<{ expanded: boolean }>) => {
         expect(detail.expanded).toBe(callIndex++ % 2 === 0);
+
         if (callIndex >= 4) {
           done();
         }

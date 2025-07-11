@@ -1,14 +1,14 @@
 <script lang="ts">
   import DocsCardNav from "$docs/components/DocsCardNav.svelte";
-  import Nav from "$lib/components/Nav.svelte";
   import { COMPONENT_ROUTES } from "$docs/constants/docs.constants";
+  import Nav from "$lib/components/Nav.svelte";
 </script>
 
 <div>
   <Nav>
     <h3 slot="title">Pick a component</h3>
 
-    {#each COMPONENT_ROUTES as { path, title }}
+    {#each COMPONENT_ROUTES as { path, title }, index (index)}
       <DocsCardNav url={path}>{title}</DocsCardNav>
     {/each}
   </Nav>

@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { stopPropagation } from "$lib/utils/event-modifiers.utils";
   import type { OnEventCallback } from "$lib/types/event-modifiers";
+  import { stopPropagation } from "$lib/utils/event-modifiers.utils";
 
   interface Props {
     onParentClick?: OnEventCallback;

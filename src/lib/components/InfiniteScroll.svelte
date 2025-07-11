@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { onDestroy, type Snippet } from "svelte";
   import { isNullish } from "@dfinity/utils";
+  import { onDestroy, type Snippet } from "svelte";
 
   interface Props {
     onIntersect: () => Promise<void>;
@@ -8,7 +8,7 @@
     disabled?: boolean;
     testId?: string;
     // IntersectionObserverInit is not recognized by the linter
-    // eslint-disable-next-line no-undef
+
     options?: IntersectionObserverInit;
     children: Snippet;
   }
