@@ -1,8 +1,8 @@
 <script lang="ts">
   import { nonNullish } from "@dfinity/utils";
-  import { getContext ,type  Snippet } from "svelte";
+  import { getContext, type Snippet } from "svelte";
   import { SEGMENT_CONTEXT_KEY, type SegmentContext } from "$lib/types/segment";
-  
+
   interface Props {
     testId?: string;
     segmentId: symbol;

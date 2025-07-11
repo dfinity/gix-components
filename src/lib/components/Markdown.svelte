@@ -20,7 +20,9 @@
     }
   };
   $effect(() => {
-    if (text !== undefined) {transform(text).then();}
+    if (text !== undefined) {
+      transform(text).then();
+    }
   });
 </script>
 

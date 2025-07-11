@@ -13,7 +13,9 @@
     dispatch("nnsSystemThemeChange", e);
 
     // Only reset to system theme if no specific preference has been selected
-    if (isThemeSelected()) {return;}
+    if (isThemeSelected()) {
+      return;
+    }
 
     themeStore.resetToSystemSettings();
   };

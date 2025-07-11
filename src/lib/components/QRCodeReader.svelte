@@ -1,9 +1,9 @@
 <script lang="ts">
-  import type { Html5Qrcode ,Html5QrcodeScannerState } from "html5-qrcode";
+  import type { Html5Qrcode, Html5QrcodeScannerState } from "html5-qrcode";
   import { createEventDispatcher, onDestroy, onMount } from "svelte";
   import { isDesktop } from "$lib/utils/device.utils";
   import { nextElementId } from "$lib/utils/html.utils";
-  
+
   const id = nextElementId("qrcode-reader-");
 
   const dispatch = createEventDispatcher();
@@ -46,7 +46,7 @@
           qrbox: qrboxFunction,
         },
         qrCodeSuccessCallback,
-         
+
         (_errorMessage: string) => {
           // Do nothing. This error message is throw when the QR code cannot be read.
           // Examples of error:

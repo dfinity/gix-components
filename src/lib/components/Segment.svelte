@@ -2,8 +2,12 @@
   import { isNullish, nonNullish } from "@dfinity/utils";
   import { onDestroy, setContext, tick } from "svelte";
   import { writable } from "svelte/store";
-  import { type SegmentContext, type SelectedSegment , SEGMENT_CONTEXT_KEY } from "$lib/types/segment";
-  
+  import {
+    type SegmentContext,
+    type SelectedSegment,
+    SEGMENT_CONTEXT_KEY,
+  } from "$lib/types/segment";
+
   export let selectedSegmentId: symbol | undefined = undefined;
 
   const store = writable<SelectedSegment>({
