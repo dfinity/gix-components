@@ -3,7 +3,7 @@
 </script>
 
 <script lang="ts" generics="T extends string">
-  import { type Snippet } from "svelte";
+  import type { Snippet } from "svelte";
   import WizardTransition from "./WizardTransition.svelte";
   import Modal from "$lib/components/Modal.svelte";
   import { WizardStepsState } from "$lib/stores/wizard.state";
