@@ -9,7 +9,7 @@
   export let id: string | undefined = undefined;
   export let initiallyExpanded = false;
   export let maxContentHeight: number | undefined = undefined;
-  export let testId = 'collapsible';
+  export let testId = "collapsible";
 
   export let iconSize: "small" | "medium" = "small";
   export let expandButton = true;
