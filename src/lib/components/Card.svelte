@@ -9,7 +9,7 @@
   export let ariaLabel: string | undefined = undefined;
   export let selected = false;
   export let disabled: boolean | undefined = undefined;
-  export let testId = "card";
+  export let testId = "gix-cmp-card";
   export let icon: "expand" | "check" | undefined = undefined;
   export let theme: "transparent" | "framed" | "highlighted" | undefined =
     undefined;

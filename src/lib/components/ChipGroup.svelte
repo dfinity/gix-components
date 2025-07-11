@@ -4,7 +4,7 @@
   import type { ChipGroupItem } from "../types/chip-group";
 
   export let chips: ChipGroupItem[] = [];
-  export let testId: string = "chip-group-component";
+  export let testId = "gix-cmp-chip-group-component";
 
   const dispatch = createEventDispatcher();
   const onChipClick = ({ detail: selectedId }: CustomEvent<string>) => {
