@@ -1,18 +1,25 @@
 <script lang="ts">
-  import { createEventDispatcher } from "svelte";
   import type { ChipGroupItem } from "../types/chip-group";
   import Chip from "./Chip.svelte";
 
-  export let chips: ChipGroupItem[] = [];
-  export let testId = "gix-cmp-chip-group-component";
+  interface Props {
+    chips?: ChipGroupItem[];
+    testId?: string;
+    onSelect?: (selectedId: string) => void;
+  }
 
-  const dispatch = createEventDispatcher();
-  const onChipClick = ({ detail: selectedId }: CustomEvent<string>) => {
+  let {
+    chips = $bindable([]),
+    testId = "gix-cmp-chip-group-component",
+    onSelect,
+  }: Props = $props();
+
+  const onChipClick = (selectedId: string) => {
     chips = chips.map((chip) => ({
       ...chip,
       selected: chip.id === selectedId,
     }));
-    dispatch("nnsSelect", selectedId);
+    onSelect?.(selectedId);
   };
 </script>
 
@@ -23,7 +30,7 @@
   aria-label="Options"
 >
   {#each chips as { id, label, selected } (id)}
-    <Chip {id} {label} {selected} on:nnsClick={onChipClick} />
+    <Chip {id} {label} {selected} onClick={onChipClick} />
   {/each}
 </div>
 

@@ -64,26 +64,18 @@ describe("ChipGroup", () => {
     });
   });
 
-  it("should emit nnsSelect", () => {
-    const spyNnsSelect = vi.fn();
+  it("should use onSelect", () => {
+    const spySelect = vi.fn();
     const { getAllByTestId } = render(ChipGroup, {
-      props: { chips: testChips },
-      events: {
-        nnsSelect: spyNnsSelect,
-      },
+      props: { chips: testChips, onSelect: spySelect },
     });
 
-    expect(spyNnsSelect).toHaveBeenCalledTimes(0);
+    expect(spySelect).toHaveBeenCalledTimes(0);
 
     const chipElements = getAllByTestId("chip-component");
 
     fireEvent.click(chipElements[1]);
 
-    expect(spyNnsSelect).toHaveBeenCalledTimes(1);
-    expect(spyNnsSelect).toHaveBeenCalledWith(
-      expect.objectContaining({
-        detail: testChips[1].id,
-      }),
-    );
+    expect(spySelect).toHaveBeenCalledExactlyOnceWith(testChips[1].id);
   });
 });
