@@ -11,7 +11,7 @@
 </p>
 
 <div class="card-grid">
-  {#each COMPONENT_ROUTES as { path, title, description }}
+  {#each COMPONENT_ROUTES as { path, title, description }, index (index)}
     <Card href={path}>
       <h2 class="title" slot="start">{title}</h2>
 

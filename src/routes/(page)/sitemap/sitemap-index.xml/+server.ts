@@ -16,7 +16,7 @@ const staticPages = Object.keys(
 
 export const prerender = true;
 
-export const GET = async (): Promise<Response> => {
+export const GET = (): Response => {
   const headers: Record<string, string> = {
     "Cache-Control": "max-age=3600",
     "Content-Type": "application/xml",

@@ -17,7 +17,7 @@
 </p>
 
 <div>
-  {#each icons as icon}
+  {#each icons as icon, index (index)}
     <DocsIcon {icon} />
   {/each}
 </div>

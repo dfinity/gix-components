@@ -69,7 +69,7 @@ describe("Toasts", () => {
     );
   });
 
-  it("should return a shown toast id", async () => {
+  it("should return a shown toast id", () => {
     const id = toastsStore.show({ text: "Test", level: "success" });
 
     expect(id).toBeDefined();

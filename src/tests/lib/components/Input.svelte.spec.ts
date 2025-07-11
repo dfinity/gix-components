@@ -386,7 +386,7 @@ describe("Input", () => {
       expect(testProps.amount).toBe(ethValue);
     });
 
-    it("should not accept not icp formatted changed", async () => {
+    it("should not accept not icp formatted changed", () => {
       const { container } = render(Input, {
         props: {
           ...props,
@@ -601,7 +601,7 @@ describe("Input", () => {
     });
   });
 
-  it("should bind input element", async () => {
+  it("should bind input element", () => {
     const { container } = render(InputElementTest, {
       props,
     });
@@ -689,6 +689,7 @@ describe("Input", () => {
   describe.each(["icp", "text", "currency"])("inputType='%s'", (inputType) => {
     describe.each([["on"], ["off"], [undefined, "off"]])(
       "autocomplete='%s'",
+      // eslint-disable-next-line local-rules/prefer-object-params
       (autocomplete, expected = undefined) => {
         it(`should set autocomplete to '${expected}' for inputType='${inputType}' and autocomplete='${autocomplete}'`, () => {
           const { container } = render(Input, {

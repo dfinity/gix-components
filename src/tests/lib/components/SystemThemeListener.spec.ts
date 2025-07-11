@@ -13,12 +13,14 @@ describe("SystemThemeListener", () => {
   const mockMatchMedia = vi.fn((query) => ({
     matches: query === "(prefers-color-scheme: dark)",
     media: query,
+    // eslint-disable-next-line local-rules/prefer-object-params
     addEventListener: (
       name: string,
       handler: (e: Partial<MediaQueryListEvent>) => void,
     ) => {
       listeners[name] = handler;
     },
+    // eslint-disable-next-line local-rules/prefer-object-params
     removeEventListener: (
       name: string,
       handler: (e: Partial<MediaQueryListEvent>) => void,

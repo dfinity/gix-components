@@ -28,9 +28,9 @@
       }
     | undefined = undefined;
 
-  let segment: Option<HTMLElement>;
+  let segment: HTMLElement | undefined | null;
 
-  let selectedElement: Option<HTMLElement>;
+  let selectedElement: HTMLElement | undefined | null;
   $: selectedElement =
     $store.element ?? segment?.querySelector(".segment-button");
 

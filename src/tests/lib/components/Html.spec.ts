@@ -34,7 +34,7 @@ describe("Html", () => {
     expect(container.querySelector("a")?.getAttribute("href")).toEqual("#");
   });
 
-  it("should call sanitize", async () => {
+  it("should call sanitize", () => {
     render(Html, {
       props: {
         text: "test",

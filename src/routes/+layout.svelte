@@ -1,11 +1,12 @@
 <script lang="ts">
   import DocsMenu from "$docs/components/DocsMenu.svelte";
+  import IconGIX from "$docs/icons/IconGIX.svelte";
   import Layout from "$lib/components/Layout.svelte";
   import Toasts from "$lib/components/Toasts.svelte";
   import "$lib/styles/global.scss";
   import "$docs/styles/docs-global.scss";
+  // eslint-disable-next-line import/no-relative-parent-imports
   import "../../node_modules/prismjs/themes/prism-tomorrow.css";
-  import IconGIX from "$docs/icons/IconGIX.svelte";
 </script>
 
 <Layout>
