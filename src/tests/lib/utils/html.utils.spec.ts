@@ -25,10 +25,10 @@ describe("html-utils", () => {
     it("should preserve the target attribute", () => {
       expect(
         sanitize(`<a target="_blank" rel="noreferrer" href="/">link</a>`),
-      ).toEqual(`<a href="/" rel="noreferrer" target="_blank">link</a>`);
+      ).toEqual(`<a rel="noreferrer" href="/" target="_blank">link</a>`);
       expect(
         sanitize(`<a target="_blank" rel=" noreferrer " href="/">link</a>`),
-      ).toEqual(`<a href="/" rel="noreferrer" target="_blank">link</a>`);
+      ).toEqual(`<a rel="noreferrer" href="/" target="_blank">link</a>`);
     });
 
     it('should add "noopener" if rel not set', () => {
@@ -40,12 +40,12 @@ describe("html-utils", () => {
     it('should replace unknown|insecure rel value with "noopener"', () => {
       expect(
         sanitize(`<a target="_blank" rel="nocloser" href="/">link</a>`),
-      ).toEqual(`<a href="/" rel="noopener" target="_blank">link</a>`);
+      ).toEqual(`<a rel="noopener" href="/" target="_blank">link</a>`);
       expect(
         sanitize(
           `<a target="_blank" rel="noopenernoreferrer" href="/">link</a>`,
         ),
-      ).toEqual(`<a href="/" rel="noopener" target="_blank">link</a>`);
+      ).toEqual(`<a rel="noopener" href="/" target="_blank">link</a>`);
     });
   });
 });

@@ -21,6 +21,10 @@ Parameters:
 
 - `fn`: - The function to be executed after stopping the event propagation. It can be a synchronous or asynchronous function.
 
+Returns:
+
+- A function that takes an event and stop its propagation, before executing the provided function.
+
 [Source](https://github.com/dfinity/gix-components/tree/main/src/lib/utils/event-modifiers.utils.ts#L18)
 
 ### preventDefault
@@ -35,7 +39,11 @@ Parameters:
 
 - `fn`: - The function to be executed after preventing the default action. It can be a synchronous or asynchronous function.
 
-[Source](https://github.com/dfinity/gix-components/tree/main/src/lib/utils/event-modifiers.utils.ts#L32)
+Returns:
+
+- A function that takes an event and prevents its default action, before executing the provided function.
+
+[Source](https://github.com/dfinity/gix-components/tree/main/src/lib/utils/event-modifiers.utils.ts#L34)
 
 <!-- TSDOC_END -->
 
