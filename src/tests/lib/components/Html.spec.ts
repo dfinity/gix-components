@@ -4,8 +4,8 @@ import { render } from "@testing-library/svelte";
 import type { MockedFunction } from "vitest";
 
 vi.mock("$lib/utils/html.utils", () => ({
-    sanitize: vi.fn().mockImplementation((text: string) => text),
-  }));
+  sanitize: vi.fn().mockImplementation((text: string) => text),
+}));
 
 describe("Html", () => {
   beforeEach((sanitize as MockedFunction<typeof sanitize>).mockClear);

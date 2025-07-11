@@ -144,7 +144,9 @@ describe("markdown.utils", () => {
     });
 
     it("should render image provided as html with a custom renderer", async () => {
-      await expect(markdownToHTML(`<img src="image.png" alt="title" />`)).resolves.toBe(
+      await expect(
+        markdownToHTML(`<img src="image.png" alt="title" />`),
+      ).resolves.toBe(
         `<a href="image.png" target="_blank" rel="noopener noreferrer" type="image/png">title</a>`,
       );
     });

@@ -10,7 +10,7 @@ describe("translateTooltip", () => {
     left: 100,
     bottom: 800,
     right: 500,
-    toJSON () {
+    toJSON() {
       return JSON.stringify(this);
     },
   };
@@ -31,7 +31,7 @@ describe("translateTooltip", () => {
       left: x,
       bottom: y + targetHeight,
       right: x + targetWidth,
-      toJSON () {
+      toJSON() {
         return JSON.stringify(this);
       },
     },
@@ -44,7 +44,7 @@ describe("translateTooltip", () => {
       left: x,
       bottom: y + tooltipHeight,
       right: x + tooltipWidth,
-      toJSON () {
+      toJSON() {
         return JSON.stringify(this);
       },
     },
