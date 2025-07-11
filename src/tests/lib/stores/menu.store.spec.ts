@@ -7,31 +7,37 @@ describe("menu-store", () => {
     menuStore.resetForTesting();
   });
 
-  it("should derive collapsed", async () => {
+  it("should derive collapsed", () => {
     const storeExpanded = get(menuStore);
+
     expect(storeExpanded).toBe(Menu.EXPANDED);
 
     const derivedCollapsed = get(menuCollapsed);
+
     expect(derivedCollapsed).toBeFalsy();
 
     menuStore.toggle();
 
     const storeCollapsed = get(menuStore);
+
     expect(storeCollapsed).toBe(Menu.COLLAPSED);
 
     const derivedCollapsed2 = get(menuCollapsed);
+
     expect(derivedCollapsed2).toBeTruthy();
   });
 
-  it("should reset to EXPANDED for testing", async () => {
+  it("should reset to EXPANDED for testing", () => {
     expect(get(menuStore)).toBe(Menu.EXPANDED);
 
     menuStore.toggle();
 
     const storeCollapsed = get(menuStore);
+
     expect(storeCollapsed).toBe(Menu.COLLAPSED);
 
     menuStore.resetForTesting();
+
     expect(get(menuStore)).toBe(Menu.EXPANDED);
   });
 });

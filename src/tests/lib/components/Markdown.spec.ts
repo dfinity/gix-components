@@ -1,6 +1,7 @@
 import Markdown from "$lib/components/Markdown.svelte";
 import { render, waitFor } from "@testing-library/svelte";
 
+// eslint-disable-next-line local-rules/prefer-object-params
 const mockWaiting = (seconds: number, value?: unknown) =>
   new Promise((resolve) => setTimeout(() => resolve(value), seconds * 1000));
 
@@ -15,6 +16,7 @@ describe("Markdown", () => {
   beforeEach(() => {
     silentConsoleErrors();
   });
+
   afterAll(() => {
     vi.clearAllMocks();
   });
@@ -25,6 +27,7 @@ describe("Markdown", () => {
       props: { text: "test1" },
     });
     await waitFor(() => expect(getByText("test1")).not.toBeNull());
+
     expect(queryByTestId("markdown-text")).toBeNull();
   });
 
@@ -36,7 +39,9 @@ describe("Markdown", () => {
 
     expect(container.querySelector("svg")).toBeInTheDocument();
     expect(container.querySelector("circle")).toBeInTheDocument();
+
     await waitFor(() => expect(queryByText("test2")).not.toBeNull());
+
     expect(queryByTestId("markdown-text")).toBeNull();
     expect(container.querySelector("svg")).not.toBeInTheDocument();
   });
@@ -51,6 +56,7 @@ describe("Markdown", () => {
     await waitFor(() =>
       expect(queryByTestId("markdown-text")).toBeInTheDocument(),
     );
+
     expect(queryByText("text")).toBeInTheDocument();
   });
 });

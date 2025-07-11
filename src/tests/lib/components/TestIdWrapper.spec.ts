@@ -4,6 +4,7 @@ import TestIdWrapper from "./TestIdWrapperTest.svelte";
 describe("TestIdWrapper", () => {
   const testId = "test-id";
   const childTestId = "child-test-id";
+
   it("should wrap component with the passed test id", () => {
     const { queryByTestId } = render(TestIdWrapper, {
       props: { testId },

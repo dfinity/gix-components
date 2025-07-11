@@ -4,6 +4,7 @@ const testUrl = "/components/toasts";
 
 test("Toasts page has expected h1", async ({ page }) => {
   await page.goto(testUrl);
+
   await expect(page.locator("h1")).toHaveText("Toasts");
 });
 
@@ -25,22 +26,19 @@ const testToast = async ({ page, toast }: { page: Page; toast: string }) => {
   await expect(page).toHaveScreenshot();
 };
 
-test("Toast info", async ({ page }) =>
-  testToast({ page, toast: "toast-info" }));
+test("Toast info", ({ page }) => testToast({ page, toast: "toast-info" }));
 
-test("Toast success", async ({ page }) =>
+test("Toast success", ({ page }) =>
   testToast({ page, toast: "toast-success" }));
 
-test("Toast error", async ({ page }) =>
-  testToast({ page, toast: "toast-error" }));
+test("Toast error", ({ page }) => testToast({ page, toast: "toast-error" }));
 
-test("Toast warn", async ({ page }) =>
-  testToast({ page, toast: "toast-warn" }));
+test("Toast warn", ({ page }) => testToast({ page, toast: "toast-warn" }));
 
-test("Toast message", async ({ page }) =>
+test("Toast message", ({ page }) =>
   testToast({ page, toast: "toast-message" }));
 
-test("Toast multiline message", async ({ page }) =>
+test("Toast multiline message", ({ page }) =>
   testToast({ page, toast: "toast-multiline" }));
 
 test("Should close toast", async ({ page }) => {
@@ -53,9 +51,7 @@ test("Should close toast", async ({ page }) => {
 
   // Hide spinner to avoid test failing if not exact same timing
   await page.evaluate(() =>
-    (
-      document.querySelector(".toast button.close") as HTMLButtonElement | null
-    )?.click(),
+    document.querySelector(".toast button.close")?.click(),
   );
 
   await page.waitForTimeout(250);
@@ -77,9 +73,7 @@ test("Should display multiple toasts and user is able to close one", async ({
 
   // Hide spinner to avoid test failing if not exact same timing
   await page.evaluate(() =>
-    (
-      document.querySelector(".toast button.close") as HTMLButtonElement | null
-    )?.click(),
+    document.querySelector(".toast button.close")?.click(),
   );
 
   await page.waitForTimeout(250);

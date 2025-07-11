@@ -3,11 +3,9 @@ import { sanitize } from "$lib/utils/html.utils";
 import { render } from "@testing-library/svelte";
 import type { MockedFunction } from "vitest";
 
-vi.mock("$lib/utils/html.utils", () => {
-  return {
-    sanitize: vi.fn().mockImplementation((text: string) => text),
-  };
-});
+vi.mock("$lib/utils/html.utils", () => ({
+  sanitize: vi.fn().mockImplementation((text: string) => text),
+}));
 
 describe("Html", () => {
   beforeEach((sanitize as MockedFunction<typeof sanitize>).mockClear);
@@ -36,13 +34,13 @@ describe("Html", () => {
     expect(container.querySelector("a")?.getAttribute("href")).toEqual("#");
   });
 
-  it("should call sanitize", async () => {
+  it("should call sanitize", () => {
     render(Html, {
       props: {
         text: "test",
       },
     });
 
-    expect(sanitize).toBeCalledTimes(1);
+    expect(sanitize).toHaveBeenCalledTimes(1);
   });
 });

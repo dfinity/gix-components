@@ -7,7 +7,7 @@ describe("Toast", () => {
     msg: { id: Symbol("test"), text: "Test", level: "success" },
   };
 
-  it("should render a text", async () => {
+  it("should render a text", () => {
     const { container } = render(Toast, {
       props,
     });
@@ -17,7 +17,7 @@ describe("Toast", () => {
     expect(p?.textContent).toContain("Test");
   });
 
-  it("should render a close button", async () => {
+  it("should render a close button", () => {
     const { container } = render(Toast, {
       props,
     });
@@ -27,7 +27,7 @@ describe("Toast", () => {
     expect(button).toBeInTheDocument();
   });
 
-  it("should render a title", async () => {
+  it("should render a title", () => {
     const title = "A super title";
 
     const { container } = render(Toast, {
@@ -44,7 +44,7 @@ describe("Toast", () => {
     expect(span?.textContent).toContain(title);
   });
 
-  it("should render a text as html", async () => {
+  it("should render a text as html", () => {
     const linkText = "here";
     const { container } = render(Toast, {
       props: {
@@ -63,7 +63,7 @@ describe("Toast", () => {
     expect(link?.textContent).toBe(linkText);
   });
 
-  it("should not render a text as html", async () => {
+  it("should not render a text as html", () => {
     const linkText = "here";
     const text = `<a href='#' id='test-anchor'>${linkText}</a>`;
     const { container } = render(Toast, {

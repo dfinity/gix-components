@@ -7,6 +7,7 @@ describe("Card", () => {
     const { container } = render(Card);
 
     const article = container.querySelector("article");
+
     expect(article).not.toBeNull();
   });
 
@@ -18,6 +19,7 @@ describe("Card", () => {
     });
 
     const link = container.querySelector("a");
+
     expect(link).not.toBeNull();
   });
 
@@ -29,6 +31,7 @@ describe("Card", () => {
     });
 
     const article = container.querySelector("article");
+
     expect(article?.getAttribute("role")).toBe(role);
     expect(article?.getAttribute("aria-label")).toBe(ariaLabel);
   });
@@ -42,7 +45,9 @@ describe("Card", () => {
       });
 
       const article = container.querySelector("article");
+
       expect(article).not.toBeNull();
+
       article && fireEvent.click(article);
     }));
 
@@ -52,6 +57,7 @@ describe("Card", () => {
     });
 
     const article = container.querySelector(".clickable");
+
     expect(article).not.toBeNull();
   });
 
@@ -61,6 +67,7 @@ describe("Card", () => {
     });
 
     const a = container.querySelector(".clickable");
+
     expect(a).not.toBeNull();
   });
 
@@ -70,6 +77,7 @@ describe("Card", () => {
     });
 
     const article = container.querySelector(".transparent");
+
     expect(article).not.toBeNull();
   });
 });

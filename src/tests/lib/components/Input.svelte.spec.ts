@@ -19,6 +19,7 @@ describe("Input", () => {
     });
 
     const input: HTMLInputElement | null = container.querySelector("input");
+
     expect(input).not.toBeNull();
   });
 
@@ -42,6 +43,7 @@ describe("Input", () => {
     container: HTMLElement;
   }) => {
     const input: HTMLInputElement | null = container.querySelector("input");
+
     expect(input?.getAttribute(attribute)).toEqual(expected);
   };
 
@@ -57,7 +59,9 @@ describe("Input", () => {
     expectedValue?: string;
   }) => {
     const input: HTMLInputElement | null = container.querySelector("input");
+
     expect(input?.hasAttribute(attribute)).toEqual(expected);
+
     if (nonNullish(expectedValue)) {
       expect(input?.getAttribute(attribute)).toEqual(expectedValue);
     }
@@ -90,7 +94,7 @@ describe("Input", () => {
     testHasAttribute({ container, attribute: "required", expected: true });
   });
 
-  it("should render a required input", () => {
+  it("should not render a required input", () => {
     const { container } = render(Input, {
       props: { ...props, required: false },
     });
@@ -197,12 +201,16 @@ describe("Input", () => {
     });
 
     const input: HTMLInputElement | null = container.querySelector("input");
+
     expect(input).not.toBeNull();
+
     if (input) {
       fireEvent.change(input, { target: { value: "test" } });
+
       expect(input.value).toBe("");
 
       fireEvent.change(input, { target: { value: "123" } });
+
       expect(input.value).toBe("123");
     }
   });
@@ -216,15 +224,20 @@ describe("Input", () => {
     });
 
     const input: HTMLInputElement | null = container.querySelector("input");
+
     expect(input).not.toBeNull();
+
     if (input) {
       fireEvent.change(input, { target: { value: "test" } });
+
       expect(input.value).toBe("test");
 
       fireEvent.change(input, { target: { value: "123" } });
+
       expect(input.value).toBe("123");
 
       fireEvent.change(input, { target: { value: "test123" } });
+
       expect(input.value).toBe("test123");
     }
   });
@@ -238,6 +251,7 @@ describe("Input", () => {
         },
       },
     });
+
     expect(getByText("Test Button")).toBeInTheDocument();
   });
 
@@ -250,6 +264,7 @@ describe("Input", () => {
         },
       },
     });
+
     expect(getByText("Left Button")).toBeInTheDocument();
   });
 
@@ -307,6 +322,7 @@ describe("Input", () => {
     testBind && (await fireEvent.click(testBind));
 
     const input: HTMLInputElement | null = container.querySelector("input");
+
     expect(input?.value).toBe(testInput);
   });
 
@@ -340,6 +356,7 @@ describe("Input", () => {
       }
 
       fireEvent.input(input, { target: { value: "100" } });
+
       expect(input.value).toBe("100");
 
       expect(testProps.amount).toBe(100);
@@ -363,12 +380,13 @@ describe("Input", () => {
       assertNonNullish(input);
 
       fireEvent.input(input, { target: { value: ethValue } });
+
       expect(input.value).toBe(ethValue);
 
       expect(testProps.amount).toBe(ethValue);
     });
 
-    it("should not accept not icp formatted changed", async () => {
+    it("should not accept not icp formatted changed", () => {
       const { container } = render(Input, {
         props: {
           ...props,
@@ -384,18 +402,23 @@ describe("Input", () => {
       }
 
       fireEvent.input(input, { target: { value: "100" } });
+
       expect(input.value).toBe("100");
 
       fireEvent.input(input, { target: { value: "test" } });
+
       expect(input.value).toBe("100");
 
       fireEvent.input(input, { target: { value: "123" } });
+
       expect(input.value).toBe("123");
 
       fireEvent.input(input, { target: { value: ".0000001" } });
+
       expect(input.value).toBe(".0000001");
 
       fireEvent.input(input, { target: { value: ".000000001" } });
+
       expect(input.value).toBe(".0000001");
     });
 
@@ -418,6 +441,7 @@ describe("Input", () => {
       }
 
       fireEvent.input(input, { target: { value: "" } });
+
       expect(input.value).toBe("");
 
       expect(testProps.amount).toBe(undefined);
@@ -443,6 +467,7 @@ describe("Input", () => {
           inputType: "icp",
         },
       });
+
       expect(container.querySelector("input")?.value).toBe("0.00000001");
     });
 
@@ -481,6 +506,7 @@ describe("Input", () => {
           inputType: "icp",
         },
       });
+
       expect(container.querySelector("input")?.value).toBe("11111111.11111111");
     });
 
@@ -498,6 +524,7 @@ describe("Input", () => {
       assertNonNullish(input);
 
       fireEvent.input(input, { target: { value: "111.1234567891" } });
+
       expect(input.value).toBe("111.1234567891");
     });
 
@@ -515,6 +542,7 @@ describe("Input", () => {
       assertNonNullish(input);
 
       fireEvent.input(input, { target: { value: "0.0000000112312321219" } });
+
       expect(input.value).toBe("0.000000011231232121");
     });
 
@@ -573,18 +601,19 @@ describe("Input", () => {
     });
   });
 
-  it("should bind input element", async () => {
+  it("should bind input element", () => {
     const { container } = render(InputElementTest, {
       props,
     });
 
     const input: HTMLInputElement | null = container.querySelector("input");
-    expect(input === document.activeElement).toBe(false);
+
+    expect(input === document.activeElement).toBeFalsy();
 
     const testBind: HTMLButtonElement | null = container.querySelector("#test");
     testBind && testBind.click();
 
-    expect(input === document.activeElement).toBe(true);
+    expect(input === document.activeElement).toBeTruthy();
   });
 
   it("should autofocus the input when autofocus is true", async () => {
@@ -593,11 +622,12 @@ describe("Input", () => {
     });
 
     const input: HTMLInputElement | null = container.querySelector("input");
+
     expect(input).not.toBeNull();
 
     await waitFor(() => {
       // Check if the input is the active element
-      expect(input === document.activeElement).toBe(true);
+      expect(input === document.activeElement).toBeTruthy();
     });
   });
 
@@ -607,11 +637,12 @@ describe("Input", () => {
     });
 
     const input: HTMLInputElement | null = container.querySelector("input");
+
     expect(input).not.toBeNull();
 
     await waitFor(() => {
       // Check if the input is the active element
-      expect(input === document.activeElement).toBe(false);
+      expect(input === document.activeElement).toBeFalsy();
     });
   });
 
@@ -658,6 +689,7 @@ describe("Input", () => {
   describe.each(["icp", "text", "currency"])("inputType='%s'", (inputType) => {
     describe.each([["on"], ["off"], [undefined, "off"]])(
       "autocomplete='%s'",
+      // eslint-disable-next-line local-rules/prefer-object-params
       (autocomplete, expected = undefined) => {
         it(`should set autocomplete to '${expected}' for inputType='${inputType}' and autocomplete='${autocomplete}'`, () => {
           const { container } = render(Input, {

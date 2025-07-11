@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { markdownToHTML } from "$lib/utils/markdown.utils";
-  import Spinner from "$lib/components/Spinner.svelte";
   import Html from "$lib/components/Html.svelte";
+  import Spinner from "$lib/components/Spinner.svelte";
+  import { markdownToHTML } from "$lib/utils/markdown.utils";
 
   interface Props {
     text: string | undefined;
@@ -20,7 +20,9 @@
     }
   };
   $effect(() => {
-    if (text !== undefined) transform(text).then();
+    if (text !== undefined) {
+      transform(text).then();
+    }
   });
 </script>
 

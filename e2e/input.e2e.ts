@@ -9,5 +9,6 @@ test("should trim zero", async ({ page }) => {
   await input.fill("0.");
 
   const output = page.getByTestId("amount-decimals-output");
+
   await expect(output).toHaveText("0", { timeout: 500 });
 });

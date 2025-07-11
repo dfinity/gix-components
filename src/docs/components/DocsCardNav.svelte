@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Card from "$lib/components/Card.svelte";
   import { page } from "$app/stores";
+  import Card from "$lib/components/Card.svelte";
 
   export let url: string;
 

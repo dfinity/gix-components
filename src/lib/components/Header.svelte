@@ -1,11 +1,11 @@
 <script lang="ts">
-  import Toolbar from "$lib/components/Toolbar.svelte";
-  import { type Snippet } from "svelte";
-  import type { OnEventCallback } from "$lib/types/event-modifiers";
-  import MenuButton from "$lib/components/MenuButton.svelte";
-  import Back from "$lib/components/Back.svelte";
-  import { layoutContentTopHidden } from "$lib/stores/layout.store";
   import { nonNullish } from "@dfinity/utils";
+  import type { Snippet } from "svelte";
+  import Back from "$lib/components/Back.svelte";
+  import MenuButton from "$lib/components/MenuButton.svelte";
+  import Toolbar from "$lib/components/Toolbar.svelte";
+  import { layoutContentTopHidden } from "$lib/stores/layout.store";
+  import type { OnEventCallback } from "$lib/types/event-modifiers";
 
   interface Props {
     title?: Snippet;

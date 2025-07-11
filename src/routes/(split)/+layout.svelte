@@ -1,7 +1,7 @@
 <script lang="ts">
-  import SplitContent from "$lib/components/SplitContent.svelte";
   import DocsAccountMenu from "$docs/components/DocsAccountMenu.svelte";
   import DocsComponentsNav from "$docs/components/DocsComponentsNav.svelte";
+  import SplitContent from "$lib/components/SplitContent.svelte";
 </script>
 
 <SplitContent>
