@@ -6,7 +6,7 @@ import type { Component, ComponentProps } from "svelte";
 
 // prettier-ignore
 // @ts-expect-error Testing-library type not exposed
-import type { ComponentType,MountOptions } from "@testing-library/svelte/types/component-types";
+import type { ComponentType, MountOptions } from "@testing-library/svelte/types/component-types";
 
 // eslint-disable-next-line local-rules/prefer-object-params
 export const render = <C extends Component>(
