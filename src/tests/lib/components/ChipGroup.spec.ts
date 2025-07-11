@@ -71,11 +71,11 @@ describe("ChipGroup", () => {
     });
 
     expect(spySelect).toHaveBeenCalledTimes(0);
-    
+
     const chipElements = getAllByTestId("chip-component");
 
     fireEvent.click(chipElements[1]);
-    
+
     expect(spySelect).toHaveBeenCalledExactlyOnceWith(testChips[1].id);
   });
 });
