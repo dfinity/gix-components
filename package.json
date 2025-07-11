@@ -42,6 +42,7 @@
     "LICENSE"
   ],
   "devDependencies": {
+    "@dfinity/eslint-config-oisy-wallet": "^0.1.14",
     "@junobuild/config": "^0.1.8",
     "@playwright/test": "^1.51.0",
     "@sveltejs/adapter-static": "^3.0.8",
@@ -50,12 +51,7 @@
     "@sveltejs/vite-plugin-svelte": "^5.0.3",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/svelte": "^5.2.7",
-    "@typescript-eslint/eslint-plugin": "^6.21.0",
-    "@typescript-eslint/parser": "^6.21.0",
     "autoprefixer": "^10.4.20",
-    "eslint": "^8.56.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-svelte": "^2.46.1",
     "jest-environment-jsdom": "^29.7.0",
     "mdsvex": "^0.12.3",
     "node-fetch": "^3.3.2",
