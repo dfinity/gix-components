@@ -1,8 +1,9 @@
 import WizardModal from "$lib/components/WizardModal.svelte";
 import type { WizardStep, WizardSteps } from "$lib/types/wizard";
-import { render } from "@testing-library/svelte";
+import { fireEvent, render, waitFor } from "@testing-library/svelte";
 import type { Snippet } from "svelte";
 import { mockSnippet } from "../mocks/snippet.mocks";
+import WizardModalTest from "./WizardModalTest.svelte";
 
 describe("WizardModal", () => {
   const steps: WizardSteps = [
@@ -62,5 +63,61 @@ describe("WizardModal", () => {
     const div = container.querySelector("div.transition");
 
     expect(div).not.toBeNull();
+  });
+
+  it("should trigger the next step when modal.next is called", async () => {
+    const { getByTestId } = render(WizardModalTest);
+
+    const nextButton = getByTestId("next-button");
+
+    expect(nextButton).toBeInTheDocument();
+
+    await fireEvent.click(nextButton);
+
+    await waitFor(() => {
+      const backButton = getByTestId("back-button");
+
+      expect(nextButton).not.toBeInTheDocument();
+      expect(backButton).toBeInTheDocument();
+    });
+  });
+
+  it("should trigger the back step when modal.back is called", async () => {
+    const { getByTestId } = render(WizardModalTest);
+
+    const nextButton = getByTestId("next-button");
+
+    await fireEvent.click(nextButton);
+
+    await waitFor(() => {
+      const backButton = getByTestId("back-button");
+
+      expect(nextButton).not.toBeInTheDocument();
+      expect(backButton).toBeInTheDocument();
+    });
+
+    const backButton = getByTestId("back-button");
+
+    await fireEvent.click(backButton);
+
+    await waitFor(() => {
+      const nextButton = getByTestId("next-button");
+
+      expect(nextButton).toBeInTheDocument();
+      expect(backButton).not.toBeInTheDocument();
+    });
+  });
+
+  it("should set a custom step when modal.set is called", async () => {
+    const { getByTestId } = render(WizardModalTest);
+
+    const stepButton = getByTestId("hidden-step-button");
+
+    await fireEvent.click(stepButton);
+
+    await waitFor(() => {
+      expect(stepButton).not.toBeInTheDocument();
+      expect(getByTestId("hidden-step")).toBeInTheDocument();
+    });
   });
 });

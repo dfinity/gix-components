@@ -16,7 +16,7 @@
         ];
     
     let currentStep: WizardStep | undefined;
-    let modal: WizardModal;
+    let modal: WizardModal<string>;
 </script>
 
 # Wizard Modal
@@ -39,7 +39,7 @@ A wizard that finds place within a modal to guide the user through miscellaneous
     ];
 
     let currentStep: WizardStep | undefined;
-    let modal: WizardModal;
+    let modal: WizardModal<string>;
 
     const next = () => modal.next();
 </script>
