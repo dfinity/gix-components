@@ -103,7 +103,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Prepare
         uses: ./.github/actions/prepare
-      - name: Lint
+      - name: Check
         run: npm run check
 
   test:
