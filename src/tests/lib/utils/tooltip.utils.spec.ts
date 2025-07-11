@@ -10,7 +10,7 @@ describe("translateTooltip", () => {
     left: 100,
     bottom: 800,
     right: 500,
-    toJSON: function () {
+    toJSON () {
       return JSON.stringify(this);
     },
   };
@@ -31,7 +31,7 @@ describe("translateTooltip", () => {
       left: x,
       bottom: y + targetHeight,
       right: x + targetWidth,
-      toJSON: function () {
+      toJSON () {
         return JSON.stringify(this);
       },
     },
@@ -44,7 +44,7 @@ describe("translateTooltip", () => {
       left: x,
       bottom: y + tooltipHeight,
       right: x + tooltipWidth,
-      toJSON: function () {
+      toJSON () {
         return JSON.stringify(this);
       },
     },
@@ -136,6 +136,7 @@ describe("translateTooltip", () => {
 
     it("should position the tooltip touching the right edge", () => {
       const scrollbarWidth = 0;
+
       expect(
         translateTooltip({
           containerRect,
@@ -151,6 +152,7 @@ describe("translateTooltip", () => {
 
     it("should position the tooltip centered when 'center' is true", () => {
       const scrollbarWidth = 0;
+
       expect(
         translateTooltip({
           containerRect,
@@ -167,6 +169,7 @@ describe("translateTooltip", () => {
 
     it("should position the tooltip touching the scrollbar", () => {
       const scrollbarWidth = 10;
+
       expect(
         translateTooltip({
           containerRect,

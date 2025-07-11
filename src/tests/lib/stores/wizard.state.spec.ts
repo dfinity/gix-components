@@ -24,7 +24,7 @@ describe("StepsState", () => {
     expect(stepsState.back()).toBe(stepsState);
   });
 
-  it("it should move to next, back and reset", () => {
+  it("should move to next, back and reset", () => {
     const stepsState = new WizardStepsState(steps);
 
     stepsState.next();
@@ -46,7 +46,7 @@ describe("StepsState", () => {
     expect(stepsState.currentStep).toEqual(steps[1]);
   });
 
-  it("it should move further than steps", () => {
+  it("should move further than steps", () => {
     const stepsState = new WizardStepsState(steps);
 
     stepsState.next();
@@ -69,7 +69,7 @@ describe("StepsState", () => {
     expect(stepsState.currentStep).toEqual(steps[2]);
   });
 
-  it("it should not go less than zero", () => {
+  it("should not go less than zero", () => {
     const stepsState = new WizardStepsState(steps);
 
     expect(stepsState.currentStepIndex).toBe(0);
@@ -83,7 +83,7 @@ describe("StepsState", () => {
     expect(stepsState.currentStep).toEqual(steps[0]);
   });
 
-  it("it should be able to set to a specific step", () => {
+  it("should be able to set to a specific step", () => {
     const stepsState = new WizardStepsState(steps);
 
     expect(stepsState.currentStepIndex).toBe(0);

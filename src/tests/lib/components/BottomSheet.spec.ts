@@ -8,6 +8,7 @@ describe("BottomSheet", () => {
     const { getByTestId, queryByTestId } = render(ComponentTest, {
       props: { cmp: BottomSheet, testId: "bottom-sheet-test-slot" },
     });
+
     expect(getByTestId("bottom-sheet-test-slot")).not.toBeNull();
     expect(
       queryByTestId("bottom-sheet-test-slot-header"),
@@ -21,6 +22,7 @@ describe("BottomSheet", () => {
     const { getByTestId } = render(BottomSheetTest, {
       props: { testId: "bottom-sheet-test-slot" },
     });
+
     expect(getByTestId("bottom-sheet-test-slot-content")).not.toBeNull();
     expect(getByTestId("bottom-sheet-test-slot-header")).not.toBeNull();
     expect(getByTestId("bottom-sheet-test-slot-footer")).not.toBeNull();

@@ -10,7 +10,9 @@ describe("ProgressBar", () => {
     });
 
     const progressElement = container.querySelector("progress");
+
     expect(progressElement).not.toBeNull();
+
     progressElement && expect(progressElement.value).toBe(value);
   });
 
@@ -22,7 +24,9 @@ describe("ProgressBar", () => {
     });
 
     const progressElement = container.querySelector("progress");
+
     expect(progressElement).not.toBeNull();
+
     progressElement && expect(progressElement.max).toBe(max);
   });
 
@@ -38,7 +42,9 @@ describe("ProgressBar", () => {
     });
 
     const progressElement = container.querySelector("progress");
+
     expect(progressElement).not.toBeNull();
+
     // 40 is the sum of the segments
     progressElement && expect(progressElement.value).toBe(40);
   });
@@ -51,7 +57,9 @@ describe("ProgressBar", () => {
     });
 
     const progressElement = container.querySelector("progress");
+
     expect(progressElement).not.toBeNull();
+
     progressElement && expect(progressElement.max).toBe(max);
   });
 });

@@ -7,12 +7,12 @@
   import { DEFAULT_ICON_SIZE } from "$lib/constants/constants";
   import IconCheckCircle from "$lib/icons/IconCheckCircle.svelte";
   import IconClose from "$lib/icons/IconClose.svelte";
+  import IconError from "$lib/icons/IconError.svelte";
+  import IconInfo from "$lib/icons/IconInfo.svelte";
   import IconWarning from "$lib/icons/IconWarning.svelte";
   import { i18n } from "$lib/stores/i18n";
   import { toastsStore } from "$lib/stores/toasts.store";
   import type { ToastLevel, ToastMsg } from "$lib/types/toast";
-  import IconInfo from "$lib/icons/IconInfo.svelte";
-  import IconError from "$lib/icons/IconError.svelte";
 
   interface Props {
     msg: ToastMsg;

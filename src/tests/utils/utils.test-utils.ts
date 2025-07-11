@@ -5,6 +5,7 @@ export const clickByTestId = async (
   testId: string,
 ) => {
   const element = queryByTestId(testId);
+
   expect(element).toBeInTheDocument();
 
   element && fireEvent.click(element);

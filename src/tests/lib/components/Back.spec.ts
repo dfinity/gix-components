@@ -12,7 +12,9 @@ describe("Back", () => {
       });
 
       const button = getByTestId("back") as HTMLButtonElement;
+
       expect(button).not.toBeNull();
+
       fireEvent.click(button);
     }));
 });

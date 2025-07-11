@@ -9,6 +9,7 @@ describe("Popover", () => {
 
   it("should be closed by default", () => {
     const { getByRole } = render(Popover);
+
     expect(() => getByRole("menu")).toThrow();
   });
 

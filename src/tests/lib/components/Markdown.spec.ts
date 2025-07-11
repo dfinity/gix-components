@@ -15,6 +15,7 @@ describe("Markdown", () => {
   beforeEach(() => {
     silentConsoleErrors();
   });
+
   afterAll(() => {
     vi.clearAllMocks();
   });
@@ -25,6 +26,7 @@ describe("Markdown", () => {
       props: { text: "test1" },
     });
     await waitFor(() => expect(getByText("test1")).not.toBeNull());
+
     expect(queryByTestId("markdown-text")).toBeNull();
   });
 
@@ -36,7 +38,9 @@ describe("Markdown", () => {
 
     expect(container.querySelector("svg")).toBeInTheDocument();
     expect(container.querySelector("circle")).toBeInTheDocument();
+
     await waitFor(() => expect(queryByText("test2")).not.toBeNull());
+
     expect(queryByTestId("markdown-text")).toBeNull();
     expect(container.querySelector("svg")).not.toBeInTheDocument();
   });
@@ -51,6 +55,7 @@ describe("Markdown", () => {
     await waitFor(() =>
       expect(queryByTestId("markdown-text")).toBeInTheDocument(),
     );
+
     expect(queryByText("text")).toBeInTheDocument();
   });
 });

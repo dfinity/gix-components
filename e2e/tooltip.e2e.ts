@@ -19,6 +19,7 @@ test("Should render tooltip", async ({ page }) => {
 
   const tooltipId = await secondTarget.getAttribute("aria-describedby");
   const tooltip = await page.locator(`[id="${tooltipId}"]`);
+
   await expect(tooltip).toBeVisible();
 
   await expect(page).toHaveScreenshot({

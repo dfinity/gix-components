@@ -23,7 +23,7 @@ describe("SystemThemeListener", () => {
       name: string,
       handler: (e: Partial<MediaQueryListEvent>) => void,
     ) => {
-      if (listeners[name] === handler) listeners[name] = undefined;
+      if (listeners[name] === handler) {listeners[name] = undefined;}
     },
     dispatchEvent: (event: Partial<MediaQueryListEvent>) =>
       listeners[event.type || ""]?.({ matches: true }),

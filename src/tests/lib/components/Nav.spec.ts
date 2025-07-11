@@ -11,6 +11,7 @@ describe("Nav", () => {
 
   it("should render a nav", () => {
     const { container } = render(NavTest);
+
     expect(container.querySelector("nav")).not.toBeNull();
   });
 });

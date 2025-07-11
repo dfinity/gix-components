@@ -12,7 +12,7 @@ describe("ScrollSentinel", () => {
     disconnect: () => void = vi.fn();
     takeRecords: () => IntersectionObserverEntry[] = () => [];
     root: Element | Document | null = null;
-    rootMargin: string = "";
+    rootMargin = "";
     thresholds: ReadonlyArray<number> = [];
 
     constructor(private callback: IntersectionObserverCallback) {
@@ -38,16 +38,19 @@ describe("ScrollSentinel", () => {
 
   it("should render a sentinel element", () => {
     const { container } = render(ScrollSentinel);
+
     expect(container.querySelector("[data-tid='sentinel']")).not.toBeNull();
   });
 
   it("should update the store on intersection", () => {
-    expect(get(layoutContentTopHidden)).toBe(false);
+    expect(get(layoutContentTopHidden)).toBeFalsy();
 
     mockObserverInstance.trigger([{ isIntersecting: false }]);
-    expect(get(layoutContentTopHidden)).toBe(true);
+
+    expect(get(layoutContentTopHidden)).toBeTruthy();
 
     mockObserverInstance.trigger([{ isIntersecting: true }]);
-    expect(get(layoutContentTopHidden)).toBe(false);
+
+    expect(get(layoutContentTopHidden)).toBeFalsy();
   });
 });

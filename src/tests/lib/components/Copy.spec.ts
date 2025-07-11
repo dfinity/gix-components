@@ -24,7 +24,7 @@ describe("Copy", () => {
 
     Object.assign(window.navigator, {
       clipboard: {
-        writeText: vi.fn().mockImplementation(() => Promise.resolve()),
+        writeText: vi.fn().mockResolvedValue(undefined),
       },
     });
 

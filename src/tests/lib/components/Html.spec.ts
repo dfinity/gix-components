@@ -3,11 +3,9 @@ import { sanitize } from "$lib/utils/html.utils";
 import { render } from "@testing-library/svelte";
 import type { MockedFunction } from "vitest";
 
-vi.mock("$lib/utils/html.utils", () => {
-  return {
+vi.mock("$lib/utils/html.utils", () => ({
     sanitize: vi.fn().mockImplementation((text: string) => text),
-  };
-});
+  }));
 
 describe("Html", () => {
   beforeEach((sanitize as MockedFunction<typeof sanitize>).mockClear);
@@ -43,6 +41,6 @@ describe("Html", () => {
       },
     });
 
-    expect(sanitize).toBeCalledTimes(1);
+    expect(sanitize).toHaveBeenCalledTimes(1);
   });
 });

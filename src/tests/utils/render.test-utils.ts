@@ -2,7 +2,7 @@ import {
   render as svelteRender,
   type RenderResult,
 } from "@testing-library/svelte";
-import { type Component, type ComponentProps } from "svelte";
+import type { Component, ComponentProps } from "svelte";
 
 // prettier-ignore
 // @ts-expect-error Testing-library type not exposed

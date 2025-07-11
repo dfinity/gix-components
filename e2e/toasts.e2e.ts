@@ -4,6 +4,7 @@ const testUrl = "/components/toasts";
 
 test("Toasts page has expected h1", async ({ page }) => {
   await page.goto(testUrl);
+
   await expect(page.locator("h1")).toHaveText("Toasts");
 });
 
@@ -54,7 +55,7 @@ test("Should close toast", async ({ page }) => {
   // Hide spinner to avoid test failing if not exact same timing
   await page.evaluate(() =>
     (
-      document.querySelector(".toast button.close") as HTMLButtonElement | null
+      document.querySelector(".toast button.close")
     )?.click(),
   );
 
@@ -78,7 +79,7 @@ test("Should display multiple toasts and user is able to close one", async ({
   // Hide spinner to avoid test failing if not exact same timing
   await page.evaluate(() =>
     (
-      document.querySelector(".toast button.close") as HTMLButtonElement | null
+      document.querySelector(".toast button.close")
     )?.click(),
   );
 

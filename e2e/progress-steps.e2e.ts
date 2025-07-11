@@ -4,6 +4,7 @@ const testUrl = "/components/progress-steps";
 
 test("Progress-steps page has expected h1", async ({ page }) => {
   await page.goto(testUrl);
+
   await expect(page.locator("h1")).toHaveText("Progress Steps");
 });
 

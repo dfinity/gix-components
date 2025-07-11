@@ -4,6 +4,7 @@ import KeyValuePairTest from "./KeyValuePairTest.svelte";
 describe("KeyValuePair", () => {
   const key = "test-key";
   const value = "test-value";
+
   it("should render key and value", () => {
     const { queryByText } = render(KeyValuePairTest, {
       props: { key, value },
