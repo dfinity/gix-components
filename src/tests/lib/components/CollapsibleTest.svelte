@@ -1,7 +1,6 @@
 <script lang="ts">
-  import Collapsible, {
-    type CollapsibleProps,
-  } from "$lib/components/Collapsible.svelte";
+  import Collapsible from "$lib/components/Collapsible.svelte";
+  import type { CollapsibleProps } from "$lib/types/collapsible";
 
   export let props: Omit<CollapsibleProps, "header" | "children"> = {};
 </script>

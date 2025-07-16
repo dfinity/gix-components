@@ -1,29 +1,9 @@
-<script lang="ts" module>
-  import type { Snippet } from "svelte";
-
-  export type OnToggle = (params: { expanded: boolean }) => void;
-
-  export interface CollapsibleProps {
-    id?: string;
-    initiallyExpanded?: boolean;
-    maxContentHeight?: number;
-    testId?: string;
-    iconSize?: "small" | "medium";
-    expandButton?: boolean;
-    externalToggle?: boolean;
-    wrapHeight?: boolean;
-    header: Snippet;
-    children: Snippet;
-    onToggle?: OnToggle;
-    expanded?: boolean;
-  }
-</script>
-
 <script lang="ts">
   import { isNullish, nonNullish } from "@dfinity/utils";
   import TestIdWrapper from "./TestIdWrapper.svelte";
   import IconExpandMore from "$lib/icons/IconExpandMore.svelte";
   import { i18n } from "$lib/stores/i18n";
+  import type { CollapsibleProps } from "$lib/types/collapsible";
   import { handleKeyPress } from "$lib/utils/keyboard.utils";
 
   let {
