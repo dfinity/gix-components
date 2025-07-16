@@ -1,13 +1,17 @@
 <script lang="ts">
   import KeyValuePairInfo from "$lib/components/KeyValuePairInfo.svelte";
 
-  export let key: string;
-  export let value: string;
-  export let info: string;
+  interface Props {
+    key: string;
+    value: string;
+    info: string;
+  }
+
+  let { key: keyStr, value: valueStr, info: infoStr }: Props = $props();
 </script>
 
 <KeyValuePairInfo testId="key-value-pair-info-test">
-  <p slot="key">{key}</p>
-  <p slot="value">{value}</p>
-  <p slot="info">{info}</p>
+  {#snippet key()}{keyStr}{/snippet}
+  {#snippet value()}{valueStr}{/snippet}
+  {#snippet info()}{infoStr}{/snippet}
 </KeyValuePairInfo>
