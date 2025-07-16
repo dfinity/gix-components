@@ -7,20 +7,23 @@
   export let testId: string | undefined = undefined;
   export let alignIconRight: boolean | undefined = false;
 
-  let toggleContent: () => void;
+  let cmp: Collapsible | undefined;
 </script>
 
 <Collapsible
   {testId}
   expandButton={false}
   externalToggle={true}
-  bind:toggleContent
+  bind:this={cmp}
 >
   <KeyValuePair slot="header">
     <div class="wrapper" slot="key">
       <slot name="key" />
       {#if !alignIconRight}
-        <button class="icon" on:click|stopPropagation={toggleContent}>
+        <button
+          class="icon"
+          on:click|stopPropagation={() => cmp?.toggleContent()}
+        >
           <IconInfo />
         </button>
       {/if}
@@ -31,7 +34,7 @@
       {#if alignIconRight}
         <button
           class="icon alignIconRight"
-          on:click|stopPropagation={toggleContent}
+          on:click|stopPropagation={() => cmp?.toggleContent()}
         >
           <IconInfo />
         </button>

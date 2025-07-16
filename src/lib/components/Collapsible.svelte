@@ -11,11 +11,11 @@
     initiallyExpanded?: boolean;
     maxContentHeight?: number;
     testId?: string;
-    iconSize: "small" | "medium";
+    iconSize?: "small" | "medium";
     expandButton?: boolean;
     externalToggle?: boolean;
     wrapHeight?: boolean;
-    expanded: boolean;
+    expanded?: boolean;
   }
 
   let {
