@@ -1,12 +1,5 @@
-<script lang="ts">
-  import { isNullish, nonNullish } from "@dfinity/utils";
-  import { createEventDispatcher, type Snippet } from "svelte";
-  import TestIdWrapper from "./TestIdWrapper.svelte";
-  import IconExpandMore from "$lib/icons/IconExpandMore.svelte";
-  import { i18n } from "$lib/stores/i18n";
-  import { handleKeyPress } from "$lib/utils/keyboard.utils";
-
-  interface Props {
+<script lang="ts" module>
+  export interface CollapsibleProps {
     id?: string;
     initiallyExpanded?: boolean;
     maxContentHeight?: number;
@@ -19,6 +12,15 @@
     children: Snippet;
     expanded?: boolean;
   }
+</script>
+
+<script lang="ts">
+  import { isNullish, nonNullish } from "@dfinity/utils";
+  import { createEventDispatcher, type Snippet } from "svelte";
+  import TestIdWrapper from "./TestIdWrapper.svelte";
+  import IconExpandMore from "$lib/icons/IconExpandMore.svelte";
+  import { i18n } from "$lib/stores/i18n";
+  import { handleKeyPress } from "$lib/utils/keyboard.utils";
 
   let {
     id,
@@ -32,7 +34,7 @@
     children,
     header,
     expanded = $bindable(initiallyExpanded),
-  }: Props = $props();
+  }: CollapsibleProps = $props();
 
   // Minimum height when some part of the text-content is visible (empirical value)
   const CONTENT_MIN_HEIGHT = 40;
