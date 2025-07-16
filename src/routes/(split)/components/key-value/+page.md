@@ -22,7 +22,7 @@ Often a value needs to be displayed with a predecessor related label.
 ## Snippets
 
 | Snippet | Description                     |
-|---------| ------------------------------- |
+| ------- | ------------------------------- |
 | `key`   | The key that defines the value. |
 | `value` | The value.                      |
 
