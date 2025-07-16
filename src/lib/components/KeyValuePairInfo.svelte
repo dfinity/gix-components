@@ -14,7 +14,13 @@
     info: Snippet;
   }
 
-  let { testId, alignIconRight = false, key: infoKey, value: infoValue, info }: Props = $props();
+  let {
+    testId,
+    alignIconRight = false,
+    key: infoKey,
+    value: infoValue,
+    info,
+  }: Props = $props();
 
   let cmp: Collapsible | undefined;
 </script>

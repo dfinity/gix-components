@@ -61,7 +61,7 @@ Collapsible is an accordion element that expands when clicked on. They allow you
 ## Snippets
 
 | Snippet  | Description                                                                              |
-|----------| ---------------------------------------------------------------------------------------- |
+| -------- | ---------------------------------------------------------------------------------------- |
 | `header` | Summary header of the collapsible, usually displayed with an anchor button on the right. |
 
 ## Events

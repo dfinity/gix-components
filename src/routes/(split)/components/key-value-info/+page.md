@@ -27,7 +27,7 @@ As [KeyValuePair](/components/key-value), this component renders a value and a l
 ## Snippets
 
 | Snippet | Description                     |
-|---------| ------------------------------- |
+| ------- | ------------------------------- |
 | `key`   | The key that defines the value. |
 | `value` | The value.                      |
 | `info`  | The collapsed information.      |
