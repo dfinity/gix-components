@@ -1,15 +1,23 @@
 <script lang="ts">
-  export let testId: string | undefined = undefined;
+  import type {Snippet} from "svelte";
+
+  interface Props {
+    testId?: string;
+    key: Snippet;
+    value: Snippet;
+  }
+
+  let { testId, key, value }: Props = $props();
 </script>
 
 <dl data-tid={testId}>
   <dt>
     <span>
-      <slot name="key" />
+      {@render key()}
     </span>
   </dt>
   <dd>
-    <slot name="value" />
+    {@render value()}
   </dd>
 </dl>
 

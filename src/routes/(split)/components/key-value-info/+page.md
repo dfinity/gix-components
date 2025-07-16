@@ -8,14 +8,12 @@ As [KeyValuePair](/components/key-value), this component renders a value and a l
 
 ```javascript
 <KeyValuePairInfo>
-  <svelte:fragment slot="key">How many apples?</svelte:fragment>
-  <span slot="value" class="value">
-    8
-  </span>
-  <svelte:fragment slot="info">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lacinia
-    turpis mi, a facilisis risus elementum eu.
-  </svelte:fragment>
+    {#snippet key()}How many apples?{/snippet}
+    {#snippet value()}8{/snippet}
+    {#snippet info()}
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lacinia
+        turpis mi, a facilisis risus elementum eu.
+    {/snippet}
 </KeyValuePairInfo>
 ```
 
@@ -26,36 +24,36 @@ As [KeyValuePair](/components/key-value), this component renders a value and a l
 | `testId`         | Add a `data-tid` attribute to the DOM, useful for test purpose. | `string` or `undefined`  | `undefined` |
 | `alignIconRight` | When true the info icon will be rendered on the right side.     | `boolean` or `undefined` | `false`     |
 
-## Slots
+## Snippets
 
-| Slot name | Description                     |
-| --------- | ------------------------------- |
-| `key`     | The key that defines the value. |
-| `value`   | The value.                      |
-| `info`    | The collapsed information.      |
+| Snippet | Description                     |
+|---------| ------------------------------- |
+| `key`   | The key that defines the value. |
+| `value` | The value.                      |
+| `info`  | The collapsed information.      |
 
 ## Showcase
 
 ### Default
 
 <KeyValuePairInfo>
-  <svelte:fragment slot="key">How many apples?</svelte:fragment>
-  <span slot="value" class="value">8</span>
-  <svelte:fragment slot="info">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lacinia turpis mi, a facilisis risus elementum eu.</svelte:fragment>
+  {#snippet key()}How many apples?{/snippet}
+  {#snippet value()}8{/snippet}
+  {#snippet info()}Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lacinia turpis mi, a facilisis risus elementum eu.{/snippet}
 </KeyValuePairInfo>
 
 ### alignIconRight
 
 <KeyValuePairInfo alignIconRight>
-  <svelte:fragment slot="key">How many apples?</svelte:fragment>
-  <span slot="value" class="value">8</span>
-  <svelte:fragment slot="info">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lacinia turpis mi, a facilisis risus elementum eu.</svelte:fragment>
+  {#snippet key()}How many apples?{/snippet}
+  {#snippet value()}8{/snippet}
+  {#snippet info()}Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lacinia turpis mi, a facilisis risus elementum eu.{/snippet}
 </KeyValuePairInfo>
 
 <br>
 
 <KeyValuePairInfo alignIconRight>
-  <svelte:fragment slot="key">Demo container ID</svelte:fragment>
-  <span slot="value" class="value">tcszx-rqbbb-aaaaa-aabyq-cai</span>
-  <svelte:fragment slot="info">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lacinia turpis mi, a facilisis risus elementum eu.</svelte:fragment>
+  {#snippet key()}Demo container ID{/snippet}
+  {#snippet value()}tcszx-rqbbb-aaaaa-aabyq-cai{/snippet}
+  {#snippet info()}Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lacinia turpis mi, a facilisis risus elementum eu.{/snippet}
 </KeyValuePairInfo>

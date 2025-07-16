@@ -1,6 +1,6 @@
 <script lang="ts">
   import { isNullish, nonNullish } from "@dfinity/utils";
-  import { createEventDispatcher } from "svelte";
+  import { createEventDispatcher, type Snippet } from "svelte";
   import TestIdWrapper from "./TestIdWrapper.svelte";
   import IconExpandMore from "$lib/icons/IconExpandMore.svelte";
   import { i18n } from "$lib/stores/i18n";
@@ -15,6 +15,8 @@
     expandButton?: boolean;
     externalToggle?: boolean;
     wrapHeight?: boolean;
+    header: Snippet;
+    children: Snippet;
     expanded?: boolean;
   }
 
@@ -27,6 +29,8 @@
     expandButton = true,
     externalToggle = false,
     wrapHeight = false,
+    children,
+    header,
     expanded = $bindable(initiallyExpanded),
   }: Props = $props();
 
@@ -85,12 +89,12 @@
     id={nonNullish(id) ? `heading${id}` : undefined}
     role="button"
     class={`header ${externalToggle ? "external" : ""}`}
-    on:click={toggle}
-    on:keypress={($event) => handleKeyPress({ $event, callback: toggle })}
+    onclick={toggle}
+    onkeypress={($event) => handleKeyPress({ $event, callback: toggle })}
     tabindex={externalToggle ? -1 : 0}
   >
     <div class="header-content">
-      <slot name="header" />
+      {@render header()}
     </div>
     {#if expandButton}
       <button
@@ -121,7 +125,7 @@
       class:wrapHeight
       bind:this={container}
     >
-      <slot />
+      {@render children()}
     </div>
   </div>
 </TestIdWrapper>

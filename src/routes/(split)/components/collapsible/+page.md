@@ -58,11 +58,11 @@ Collapsible is an accordion element that expands when clicked on. They allow you
 | `externalToggle`   | To have an external toggle element                              | `boolean`               | `false`     |
 | `wrapHeight`       | To have wrapped height                                          | `boolean`               | `false`     |
 
-## Slots
+## Snippets
 
-| Slot name | Description                                                                              |
-| --------- | ---------------------------------------------------------------------------------------- |
-| `header`  | Summary header of the collapsible, usually displayed with an anchor button on the right. |
+| Snippet  | Description                                                                              |
+|----------| ---------------------------------------------------------------------------------------- |
+| `header` | Summary header of the collapsible, usually displayed with an anchor button on the right. |
 
 ## Events
 

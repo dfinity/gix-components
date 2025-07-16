@@ -1,11 +1,20 @@
 <script lang="ts">
   import { nonNullish } from "@dfinity/utils";
+  import type { Snippet } from "svelte";
   import Collapsible from "./Collapsible.svelte";
   import KeyValuePair from "./KeyValuePair.svelte";
   import IconInfo from "$lib/icons/IconInfo.svelte";
+  import { stopPropagation } from "$lib/utils/event-modifiers.utils";
 
-  export let testId: string | undefined = undefined;
-  export let alignIconRight: boolean | undefined = false;
+  interface Props {
+    testId?: string | undefined;
+    alignIconRight?: boolean | undefined;
+    key: Snippet;
+    value: Snippet;
+    info: Snippet;
+  }
+
+  let { testId, alignIconRight = false, key: infoKey, value: infoValue, info }: Props = $props();
 
   let cmp: Collapsible | undefined;
 </script>
@@ -16,37 +25,41 @@
   externalToggle={true}
   bind:this={cmp}
 >
-  <KeyValuePair slot="header">
-    <div class="wrapper" slot="key">
-      <slot name="key" />
-      {#if !alignIconRight}
-        <button
-          class="icon"
-          on:click|stopPropagation={() => cmp?.toggleContent()}
-        >
-          <IconInfo />
-        </button>
-      {/if}
-    </div>
+  {#snippet header()}
+    <KeyValuePair>
+      {#snippet key()}
+        <div class="wrapper">
+          {@render infoKey()}
+          {#if !alignIconRight}
+            <button
+              class="icon"
+              onclick={stopPropagation(() => cmp?.toggleContent())}
+            >
+              <IconInfo />
+            </button>
+          {/if}
+        </div>
+      {/snippet}
 
-    <svelte:fragment slot="value">
-      <slot name="value" />
-      {#if alignIconRight}
-        <button
-          class="icon alignIconRight"
-          on:click|stopPropagation={() => cmp?.toggleContent()}
-        >
-          <IconInfo />
-        </button>
-      {/if}
-    </svelte:fragment>
-  </KeyValuePair>
+      {#snippet value()}
+        {@render infoValue()}
+        {#if alignIconRight}
+          <button
+            class="icon alignIconRight"
+            onclick={stopPropagation(() => cmp?.toggleContent())}
+          >
+            <IconInfo />
+          </button>
+        {/if}
+      {/snippet}
+    </KeyValuePair>
+  {/snippet}
 
   <p
     class="description"
     data-tid={nonNullish(testId) ? `${testId}-description` : undefined}
   >
-    <slot name="info" />
+    {@render info()}
   </p>
 </Collapsible>
 
