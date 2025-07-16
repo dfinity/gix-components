@@ -1,18 +1,14 @@
+import type {
+  CollapsibleProps,
+   OnToggle,
+} from "$lib/components/Collapsible.svelte";
 import { fireEvent } from "@testing-library/dom";
 import { tick } from "svelte";
 import { render } from "../../utils/render.test-utils";
 import CollapsibleTest from "./CollapsibleTest.svelte";
 
 // props
-const props = (props: {
-  expandButton?: boolean;
-  id?: string;
-  initiallyExpanded?: boolean;
-  maxContentHeight?: number;
-  iconSize?: string;
-  externalToggle?: boolean;
-  wrapHeight?: boolean;
-}) => ({
+const props = (props: Omit<CollapsibleProps, "header" | "children">) => ({
   props: {
     props,
   },
@@ -122,12 +118,10 @@ describe("Collapsible", () => {
   it("should not toggle if external toggle", async () => {
     const spyToggle = vi.fn();
 
-    const { getByTestId, container } = render(CollapsibleTest, {
-      ...props({ externalToggle: true }),
-      events: {
-        nnsToggle: spyToggle,
-      },
-    });
+    const { getByTestId, container } = render(
+      CollapsibleTest,
+      props({ externalToggle: true, onToggle: spyToggle }),
+    );
 
     fireEvent.click(getByTestId("collapsible-header"));
     await tick();
@@ -143,19 +137,15 @@ describe("Collapsible", () => {
     new Promise<void>((done) => {
       let callIndex = 0;
 
-      const onToggle = ({ detail }: CustomEvent<{ expanded: boolean }>) => {
-        expect(detail.expanded).toBe(callIndex++ % 2 === 0);
+      const onToggle: OnToggle = ({ expanded }) => {
+        expect(expanded).toBe(callIndex++ % 2 === 0);
 
         if (callIndex >= 4) {
           done();
         }
       };
 
-      const { getByTestId } = render(CollapsibleTest, {
-        events: {
-          nnsToggle: onToggle,
-        },
-      });
+      const { getByTestId } = render(CollapsibleTest, props({ onToggle }));
 
       fireEvent.click(getByTestId("collapsible-header"));
       fireEvent.click(getByTestId("collapsible-header"));

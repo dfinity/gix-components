@@ -1,4 +1,8 @@
 <script lang="ts" module>
+  import type { Snippet } from "svelte";
+
+  export type OnToggle = (params: { expanded: boolean }) => void;
+
   export interface CollapsibleProps {
     id?: string;
     initiallyExpanded?: boolean;
@@ -10,13 +14,13 @@
     wrapHeight?: boolean;
     header: Snippet;
     children: Snippet;
+    onToggle?: OnToggle;
     expanded?: boolean;
   }
 </script>
 
 <script lang="ts">
   import { isNullish, nonNullish } from "@dfinity/utils";
-  import { createEventDispatcher, type Snippet } from "svelte";
   import TestIdWrapper from "./TestIdWrapper.svelte";
   import IconExpandMore from "$lib/icons/IconExpandMore.svelte";
   import { i18n } from "$lib/stores/i18n";
@@ -33,18 +37,18 @@
     wrapHeight = false,
     children,
     header,
+    onToggle,
     expanded = $bindable(initiallyExpanded),
   }: CollapsibleProps = $props();
 
   // Minimum height when some part of the text-content is visible (empirical value)
   const CONTENT_MIN_HEIGHT = 40;
-  const dispatch = createEventDispatcher();
 
   let container = $state<HTMLDivElement | undefined>();
   let userUpdated = $state(false);
   let maxHeight = $state<number | undefined>();
 
-  const dispatchUpdate = () => dispatch("nnsToggle", { expanded });
+  const dispatchUpdate = () => onToggle?.({ expanded });
 
   export const toggleContent = () => {
     userUpdated = true;

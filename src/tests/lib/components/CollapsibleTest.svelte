@@ -6,7 +6,7 @@
   export let props: Omit<CollapsibleProps, "header" | "children"> = {};
 </script>
 
-<Collapsible {...props} on:nnsToggle>
+<Collapsible {...props}>
   {#snippet header()}Jack{/snippet}
   Sparrow
 </Collapsible>
