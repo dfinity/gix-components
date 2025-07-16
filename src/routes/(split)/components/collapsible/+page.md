@@ -1,9 +1,10 @@
 <script lang="ts">
     import Collapsible from "$lib/components/Collapsible.svelte";
-    let toggleFunction: Function;
-    let expanded: boolean;
-    let message: string;
-    $: message = expanded ? 'close' : 'open';
+    
+    let cmp = $state<Collapsible | undefined>();
+
+    let expanded = $state(false);
+    let message = $derived(expanded ? 'close' : 'open');
 </script>
 
 # Collapsible
@@ -25,17 +26,17 @@ Collapsible is an accordion element that expands when clicked on. They allow you
 #### With an external button
 
 ```javascript
-<script>
-  let toggleContent: Function;
+<script lang="ts">
+    let cmp = $state<Collapsible | undefined>();
 </script>
 
 <button class="secondary toggleButton"
-  on:click={() => toggleContent()}
+  on:click={() => cmp?.toggleContent()}
 >
   Press to toggle
 </button>
 
-<Collapsible iconSize="medium" expandButton={false} externalToggle={true} bind:toggleContent={toggleContent}>
+<Collapsible iconSize="medium" expandButton={false} externalToggle={true} bind:this={cmp}>
   <div slot="header" class="header_div">
     Collapsible with external button
   </div>
@@ -84,10 +85,10 @@ Collapsible is an accordion element that expands when clicked on. They allow you
     </Collapsible>
   </div>
   <button class="secondary toggleButton" 
-    on:click={() => toggleFunction()}>Press to {message}
+    onclick={() => cmp?.toggleContent()}>Press to {message}
   </button>
   <div class="collapseA">
-    <Collapsible iconSize="medium" expandButton={false} bind:toggleContent={toggleFunction} bind:expanded={expanded} externalToggle>
+    <Collapsible iconSize="medium" expandButton={false} bind:this={cmp} bind:expanded={expanded} externalToggle>
       <div slot="header" class="header_div">
         Collapsible with external button 
       </div>

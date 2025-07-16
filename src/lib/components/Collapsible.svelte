@@ -1,29 +1,42 @@
 <script lang="ts">
   import { isNullish, nonNullish } from "@dfinity/utils";
-  import { afterUpdate, createEventDispatcher } from "svelte";
+  import { createEventDispatcher } from "svelte";
   import TestIdWrapper from "./TestIdWrapper.svelte";
   import IconExpandMore from "$lib/icons/IconExpandMore.svelte";
   import { i18n } from "$lib/stores/i18n";
   import { handleKeyPress } from "$lib/utils/keyboard.utils";
 
-  export let id: string | undefined = undefined;
-  export let initiallyExpanded = false;
-  export let maxContentHeight: number | undefined = undefined;
-  export let testId = "gix-cmp-collapsible";
+  interface Props {
+    id?: string;
+    initiallyExpanded?: boolean;
+    maxContentHeight?: number;
+    testId?: string;
+    iconSize: "small" | "medium";
+    expandButton?: boolean;
+    externalToggle?: boolean;
+    wrapHeight?: boolean;
+    expanded: boolean;
+  }
 
-  export let iconSize: "small" | "medium" = "small";
-  export let expandButton = true;
-  export let externalToggle = false;
-  export let wrapHeight = false;
+  let {
+    id,
+    initiallyExpanded = false,
+    maxContentHeight,
+    testId = "gix-cmp-collapsible",
+    iconSize = "small",
+    expandButton = true,
+    externalToggle = false,
+    wrapHeight = false,
+    expanded = $bindable(initiallyExpanded),
+  }: Props = $props();
 
   // Minimum height when some part of the text-content is visible (empirical value)
   const CONTENT_MIN_HEIGHT = 40;
   const dispatch = createEventDispatcher();
 
-  export let expanded = initiallyExpanded;
-  let container: HTMLDivElement | undefined;
-  let userUpdated = false;
-  let maxHeight: number | undefined;
+  let container = $state<HTMLDivElement | undefined>();
+  let userUpdated = $state(false);
+  let maxHeight = $state<number | undefined>();
 
   const dispatchUpdate = () => dispatch("nnsToggle", { expanded });
 
@@ -61,7 +74,7 @@
         : "overflow-y: auto;";
 
   // recalculate max-height after DOM update
-  afterUpdate(updateMaxHeight);
+  $effect(updateMaxHeight);
 
   const toggle = () => (externalToggle ? undefined : toggleContent());
 </script>
