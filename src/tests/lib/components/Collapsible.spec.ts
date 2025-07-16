@@ -1,6 +1,6 @@
 import type {
   CollapsibleProps,
-   OnToggle,
+  OnToggle,
 } from "$lib/components/Collapsible.svelte";
 import { fireEvent } from "@testing-library/dom";
 import { tick } from "svelte";
