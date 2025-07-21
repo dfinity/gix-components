@@ -1,19 +1,28 @@
 <script lang="ts">
-  export let testId: string | undefined = undefined;
+  import { isNullish } from "@dfinity/utils";
+  import type { Snippet } from "svelte";
 
-  let noDescription = false;
-  $: noDescription = $$slots.description === undefined;
-  let noTitle = false;
-  $: noTitle = $$slots.title === undefined && $$slots.end === undefined;
+  interface Props {
+    testId?: string;
+    description?: Snippet;
+    title?: Snippet;
+    end?: Snippet;
+    children: Snippet;
+  }
+
+  let { testId, description, title, end, children }: Props = $props();
+
+  let noDescription = $derived(isNullish(description));
+  let noTitle = $derived(isNullish(title) && isNullish(end));
 </script>
 
 <div class="container" data-tid={testId}>
   <div class="section-title" class:noTitle class:noDescription>
-    <slot name="title" />
-    <slot name="end" />
+    {@render title?.()}
+    {@render end?.()}
   </div>
-  <slot name="description" />
-  <div class="content-wrapper" class:noDescription><slot /></div>
+  {@render description?.()}
+  <div class="content-wrapper" class:noDescription>{@render children()}</div>
 </div>
 
 <style lang="scss">
