@@ -7,8 +7,8 @@
   import { stopPropagation } from "$lib/utils/event-modifiers.utils";
 
   interface Props {
-    testId?: string | undefined;
-    alignIconRight?: boolean | undefined;
+    testId?: string;
+    alignIconRight?: boolean;
     key: Snippet;
     value: Snippet;
     info: Snippet;
