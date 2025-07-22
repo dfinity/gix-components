@@ -1,36 +1,37 @@
 <script lang="ts">
   import { isNullish, nonNullish } from "@dfinity/utils";
-  import { afterUpdate, createEventDispatcher } from "svelte";
   import TestIdWrapper from "./TestIdWrapper.svelte";
   import IconExpandMore from "$lib/icons/IconExpandMore.svelte";
   import { i18n } from "$lib/stores/i18n";
+  import type { CollapsibleProps } from "$lib/types/collapsible";
   import { handleKeyPress } from "$lib/utils/keyboard.utils";
 
-  export let id: string | undefined = undefined;
-  export let initiallyExpanded = false;
-  export let maxContentHeight: number | undefined = undefined;
-  export let testId = "gix-cmp-collapsible";
-
-  export let iconSize: "small" | "medium" = "small";
-  export let expandButton = true;
-  export let externalToggle = false;
-  export let wrapHeight = false;
+  let {
+    id,
+    initiallyExpanded = false,
+    maxContentHeight,
+    testId = "gix-cmp-collapsible",
+    iconSize = "small",
+    expandButton = true,
+    externalToggle = false,
+    wrapHeight = false,
+    children,
+    header,
+    onToggle,
+    expanded = $bindable(initiallyExpanded),
+  }: CollapsibleProps = $props();
 
   // Minimum height when some part of the text-content is visible (empirical value)
   const CONTENT_MIN_HEIGHT = 40;
-  const dispatch = createEventDispatcher();
 
-  export let expanded = initiallyExpanded;
-  let container: HTMLDivElement | undefined;
-  let userUpdated = false;
-  let maxHeight: number | undefined;
-
-  const dispatchUpdate = () => dispatch("nnsToggle", { expanded });
+  let container = $state<HTMLDivElement | undefined>();
+  let userUpdated = $state(false);
+  let maxHeight = $state<number | undefined>();
 
   export const toggleContent = () => {
     userUpdated = true;
     expanded = !expanded;
-    dispatchUpdate();
+    onToggle?.({ expanded });
   };
 
   const calculateMaxContentHeight = (): number => {
@@ -61,7 +62,7 @@
         : "overflow-y: auto;";
 
   // recalculate max-height after DOM update
-  afterUpdate(updateMaxHeight);
+  $effect(updateMaxHeight);
 
   const toggle = () => (externalToggle ? undefined : toggleContent());
 </script>
@@ -72,12 +73,12 @@
     id={nonNullish(id) ? `heading${id}` : undefined}
     role="button"
     class={`header ${externalToggle ? "external" : ""}`}
-    on:click={toggle}
-    on:keypress={($event) => handleKeyPress({ $event, callback: toggle })}
+    onclick={toggle}
+    onkeypress={($event) => handleKeyPress({ $event, callback: toggle })}
     tabindex={externalToggle ? -1 : 0}
   >
     <div class="header-content">
-      <slot name="header" />
+      {@render header()}
     </div>
     {#if expandButton}
       <button
@@ -108,7 +109,7 @@
       class:wrapHeight
       bind:this={container}
     >
-      <slot />
+      {@render children()}
     </div>
   </div>
 </TestIdWrapper>

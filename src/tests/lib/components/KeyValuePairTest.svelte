@@ -1,11 +1,15 @@
 <script lang="ts">
   import KeyValuePair from "$lib/components/KeyValuePair.svelte";
 
-  export let key: string;
-  export let value: string;
+  interface Props {
+    key: string;
+    value: string;
+  }
+
+  let { key: keyStr, value: valueStr }: Props = $props();
 </script>
 
 <KeyValuePair>
-  <p slot="key">{key}</p>
-  <p slot="value">{value}</p>
+  {#snippet key()}{keyStr}{/snippet}
+  {#snippet value()}{valueStr}{/snippet}
 </KeyValuePair>

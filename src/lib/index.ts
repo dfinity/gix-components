@@ -1,3 +1,4 @@
+export type * from "$lib/types/collapsible";
 export * from "./components";
 export * from "./constants/constants";
 export * from "./icons";

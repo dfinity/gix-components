@@ -1,10 +1,11 @@
 <script lang="ts">
   import Collapsible from "$lib/components/Collapsible.svelte";
+  import type { CollapsibleProps } from "$lib/types/collapsible";
 
-  export let props = {};
+  export let props: Omit<CollapsibleProps, "header" | "children"> = {};
 </script>
 
-<Collapsible {...props} on:nnsToggle>
-  <h3 slot="header">Jack</h3>
+<Collapsible {...props}>
+  {#snippet header()}Jack{/snippet}
   Sparrow
 </Collapsible>
