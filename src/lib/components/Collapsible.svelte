@@ -28,12 +28,10 @@
   let userUpdated = $state(false);
   let maxHeight = $state<number | undefined>();
 
-  const dispatchUpdate = () => onToggle?.({ expanded });
-
   export const toggleContent = () => {
     userUpdated = true;
     expanded = !expanded;
-    dispatchUpdate();
+    onToggle?.({ expanded });
   };
 
   const calculateMaxContentHeight = (): number => {
