@@ -12,6 +12,7 @@
   },
   "progress": {
     "completed": "Completed",
-    "in_progress": "In progress"
+    "in_progress": "In progress",
+    "failed": "Failed"
   }
 }
