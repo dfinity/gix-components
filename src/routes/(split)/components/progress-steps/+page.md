@@ -14,11 +14,16 @@
     },
     {
       step: "3",
+      text: "Swapping tokens",
+      state: "failed",
+    },
+    {
+      step: "4",
       text: "Confirming your participation...",
       state: "next",
     },
     {
-      step: "4",
+      step: "5",
       text: "Updating your data",
       state: "next",
     },
@@ -27,29 +32,28 @@
   const animate = () => {
     steps = [
       steps[0],
-      {
-        ...steps[1],
-        state: "completed",
-      },
-      {
-        ...steps[2],
-        state: "in_progress",
-      },
-      steps[3],
+      { ...steps[1], state: "completed" },
+      { ...steps[2], state: "in_progress" },
+      { ...steps[3], state: "next" },
+      steps[4]
     ];
 
     setTimeout(() => {
       steps = [
         steps[0],
         steps[1],
-        {
-          ...steps[2],
-          state: "completed",
-        },
-        {
-          ...steps[3],
-          state: "in_progress",
-        },
+        { ...steps[2], state: "failed" },
+        { ...steps[3], state: "in_progress" },
+        steps[4]
+    ];
+
+    setTimeout(() => {
+      steps = [
+        steps[0],
+        steps[1],
+        steps[2],
+        { ...steps[3], state: "completed" },
+        { ...steps[4], state: "in_progress" },
       ];
 
       setTimeout(() => {
@@ -57,14 +61,13 @@
           steps[0],
           steps[1],
           steps[2],
-          {
-            ...steps[3],
-            state: "completed",
-          },
+          steps[3],
+          { ...steps[4], state: "completed" },
         ];
       }, 1000);
     }, 1000);
-  };
+  }, 1000);
+};
 </script>
 
 # Progress Steps
@@ -85,11 +88,11 @@ Display the progression of a long-lasting task with various steps
 
 A `Step` requires following information:
 
-| Property | Description                                   | Type                                   | Default |
-| -------- | --------------------------------------------- | -------------------------------------- | ------- |
-| `step`   | A key.                                        | `string`                               |         |
-| `text`   | The related text to display next to the step. | `string`                               |         |
-| `state`  | The status of the step.                       | `next` or `in_progress` or `completed` |         |
+| Property | Description                                   | Type                                               | Default |
+| -------- | --------------------------------------------- | -------------------------------------------------- | ------- |
+| `step`   | A key.                                        | `string`                                           |         |
+| `text`   | The related text to display next to the step. | `string`                                           |         |
+| `state`  | The status of the step.                       | `next` or `in_progress` or `completed` or `failed` |         |
 
 ### Note
 
