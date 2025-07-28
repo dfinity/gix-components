@@ -78,7 +78,7 @@
   }
 
   .completed {
-    --icon-check-circle-background: var(--positive-emphasis);
+    --icon-check-circle-fill-background: var(--positive-emphasis);
   }
 
   .failed {
