@@ -1,6 +1,6 @@
 <script lang="ts">
   import Spinner from "$lib/components/Spinner.svelte";
-  import IconCheckCircle from "$lib/icons/IconCheckCircle.svelte";
+  import IconCheckCircleFill from "$lib/icons/IconCheckCircleFill.svelte";
   import IconCloseCircleFill from "$lib/icons/IconCloseCircleFill.svelte";
   import { i18n } from "$lib/stores/i18n";
   import type { ProgressStep } from "$lib/types/progress-step";
@@ -16,9 +16,9 @@
   {@const last = i === steps.length - 1}
   <div class={`step ${state} ${last ? "last" : ""}`}>
     {#if state === "completed"}
-      <IconCheckCircle />
+      <IconCheckCircleFill size="26" />
     {:else if state === "failed"}
-      <IconCloseCircleFill size="24" />
+      <IconCloseCircleFill size="26" />
     {:else if state === "in_progress"}
       <div class="spinner">
         <span class="checkmark">{i + 1}</span>
@@ -60,7 +60,6 @@
     padding: 0 0 var(--padding);
 
     --icon-check-circle-background: var(--positive-emphasis);
-    --icon-check-circle-color: white;
 
     color: var(--value-color);
     transition: color var(--animation-time-normal) ease-out;
@@ -78,11 +77,14 @@
     }
   }
 
+  .completed {
+    --icon-check-circle-background: var(--positive-emphasis);
+  }
+
   .failed {
     color: var(--negative-emphasis);
 
     --icon-check-circle-background: var(--negative-emphasis);
-    --icon-check-circle-color: var(--negative-emphasis-contrast);
 
     .line {
       --line-color: var(--negative-emphasis);
@@ -102,7 +104,6 @@
     color: var(--progress-color);
 
     --icon-check-circle-background: var(--progress-color);
-    --icon-check-circle-color: var(--progress-color-contrast);
 
     .state {
       color: var(--progress-color);
@@ -118,8 +119,6 @@
     color: var(--tertiary);
 
     --icon-check-circle-background: transparent;
-    --icon-check-circle-color: var(--tertiary);
-    --icon-check-circle-border-color: var(--tertiary);
   }
 
   .state {
@@ -166,8 +165,10 @@
   }
 
   .round {
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
+
+    margin: 2px;
 
     border-radius: 50%;
 
