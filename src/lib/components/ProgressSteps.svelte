@@ -1,7 +1,7 @@
 <script lang="ts">
   import Spinner from "$lib/components/Spinner.svelte";
-  import IconCheckCircleFill from "$lib/icons/IconCheckCircleFill.svelte";
-  import IconCloseCircleFill from "$lib/icons/IconCloseCircleFill.svelte";
+  import IconCheckCircle from "$lib/icons/IconCheckCircle.svelte";
+  import IconCloseCircle from "$lib/icons/IconCloseCircle.svelte";
   import { i18n } from "$lib/stores/i18n";
   import type { ProgressStep } from "$lib/types/progress-step";
 
@@ -16,9 +16,9 @@
   {@const last = i === steps.length - 1}
   <div class={`step ${state} ${last ? "last" : ""}`}>
     {#if state === "completed"}
-      <IconCheckCircleFill size="26" />
+      <IconCheckCircle />
     {:else if state === "failed"}
-      <IconCloseCircleFill size="26" />
+      <IconCloseCircle />
     {:else if state === "in_progress"}
       <div class="spinner">
         <span class="checkmark">{i + 1}</span>
@@ -60,6 +60,7 @@
     padding: 0 0 var(--padding);
 
     --icon-check-circle-background: var(--positive-emphasis);
+    --icon-check-circle-color: white;
 
     color: var(--value-color);
     transition: color var(--animation-time-normal) ease-out;
@@ -77,14 +78,26 @@
     }
   }
 
-  .completed {
-    --icon-check-circle-fill-background: var(--positive-emphasis);
+  .in_progress {
+    color: var(--progress-color);
+
+    --icon-check-circle-background: var(--progress-color);
+    --icon-check-circle-color: var(--progress-color-contrast);
+
+    .state {
+      color: var(--progress-color);
+      background: rgba(var(--progress-color-rgb), 0.3);
+    }
+
+    .checkmark {
+      --checkmark-color: var(--progress-color);
+    }
   }
 
   .failed {
     color: var(--negative-emphasis);
-
-    --icon-check-circle-background: var(--negative-emphasis);
+    --icon-close-circle-background: var(--negative-emphasis);
+    --icon-close-circle-color: white;
 
     .line {
       --line-color: var(--negative-emphasis);
@@ -100,25 +113,12 @@
     }
   }
 
-  .in_progress {
-    color: var(--progress-color);
-
-    --icon-check-circle-background: var(--progress-color);
-
-    .state {
-      color: var(--progress-color);
-      background: rgba(var(--progress-color-rgb), 0.3);
-    }
-
-    .checkmark {
-      --checkmark-color: var(--progress-color);
-    }
-  }
-
   .next {
     color: var(--tertiary);
 
     --icon-check-circle-background: transparent;
+    --icon-check-circle-color: var(--tertiary);
+    --icon-check-circle-border-color: var(--tertiary);
   }
 
   .state {
@@ -165,10 +165,8 @@
   }
 
   .round {
-    width: 20px;
-    height: 20px;
-
-    margin: 2px;
+    width: 22px;
+    height: 22px;
 
     border-radius: 50%;
 
