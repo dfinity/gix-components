@@ -20,16 +20,16 @@
 
 <!-- Order of on:input and bind:value matters: https://svelte.dev/docs#template-syntax-element-directives-bind-property -->
 <input
-  data-tid="input-range"
-  {min}
-  {max}
-  aria-label={ariaLabel}
-  type="range"
-  bind:value
-  oninput={handleInput}
   style={`--range-progression: ${progression}%; --range-end: ${
     1 - progression
   }%;`}
+  aria-label={ariaLabel}
+  data-tid="input-range"
+  {max}
+  {min}
+  oninput={handleInput}
+  type="range"
+  bind:value
 />
 
 <style lang="scss">

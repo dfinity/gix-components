@@ -24,13 +24,13 @@
 </script>
 
 <div
-  data-tid={testId}
   class="chip-group"
-  role="radiogroup"
   aria-label="Options"
+  data-tid={testId}
+  role="radiogroup"
 >
   {#each chips as { id, label, selected } (id)}
-    <Chip {id} {label} {selected} onClick={onChipClick} />
+    <Chip {id} {label} onClick={onChipClick} {selected} />
   {/each}
 </div>
 

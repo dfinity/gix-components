@@ -10,10 +10,10 @@
 </script>
 
 <svg
-  width={size}
+  fill="none"
   height={size}
   viewBox="0 0 20 20"
-  fill="none"
+  width={size}
   xmlns="http://www.w3.org/2000/svg"
 >
   <g clip-path="url(#clip0_72_146)">
@@ -25,20 +25,20 @@
     <path
       d="M12.7742 6.6665V4.25317C12.7742 2.81003 13.9441 1.64014 15.3872 1.64014V1.64014C16.8303 1.64014 18.0002 2.81003 18.0002 4.25317V4.50936"
       stroke="currentColor"
-      stroke-width="1.5"
       stroke-linecap="round"
+      stroke-width="1.5"
     />
     <path
       d="M9.99487 12.0833H9.99988"
       stroke="currentColor"
-      stroke-width="2"
       stroke-linecap="round"
       stroke-linejoin="round"
+      stroke-width="2"
     />
   </g>
   <defs>
     <clipPath id="clip0_72_146">
-      <rect width="20" height="20" fill="currentColor" />
+      <rect fill="currentColor" height="20" width="20" />
     </clipPath>
   </defs>
 </svg>

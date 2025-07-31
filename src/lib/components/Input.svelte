@@ -218,26 +218,26 @@
       <!-- svelte-ignore a11y_autofocus -->
       <input
         bind:this={inputElement}
-        data-tid={testId}
-        type={currency ? "text" : inputType}
-        {required}
-        {spellcheck}
-        {name}
         id={name}
-        {step}
-        {disabled}
-        value={currency ? currencyValue : value}
-        minlength={minLength}
-        {placeholder}
-        {max}
+        {name}
+        class:inner-end={displayInnerEnd}
         {autocomplete}
         {autofocus}
+        data-1p-ignore={ignore1Password}
+        data-tid={testId}
+        {disabled}
+        {max}
+        minlength={minLength}
+        {placeholder}
+        {required}
+        {spellcheck}
+        {step}
+        type={currency ? "text" : inputType}
+        value={currency ? currencyValue : value}
         on:blur
         on:focus
         on:input={handleInput}
         on:keydown={handleKeyDown}
-        class:inner-end={displayInnerEnd}
-        data-1p-ignore={ignore1Password}
       />
       {#if displayInnerEnd}
         <div class="inner-end-slot">

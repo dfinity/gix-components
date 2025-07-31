@@ -1,4 +1,4 @@
-<script lang="ts" context="module">
+<script context="module" lang="ts">
   let nextTooltipIdSuffix = 0;
 </script>
 
@@ -97,23 +97,23 @@
 <!-- prettier-ignore -->
 <div class="tooltip-wrapper" data-tid={testId}>
   <div
+    bind:this={target}
     class="tooltip-target"
     aria-describedby={idToUse}
-    bind:this={target}
-    on:mouseenter={onMouseEnter}
-    on:mouseleave={onMouseLeave}
     role="presentation"
-    title=""><slot /></div
+    title=""
+    on:mouseenter={onMouseEnter}
+    on:mouseleave={onMouseLeave}><slot /></div
   ><div
-    class="tooltip"
-    role="tooltip"
-    id={idToUse}
-    class:noWrap
-    class:top
-    class:not-rendered={isAbsent}
-    class:visible={targetIsHovered}
     bind:this={tooltipComponent}
+    id={idToUse}
     style={tooltipStyle}
+    class="tooltip"
+    class:noWrap
+    class:not-rendered={isAbsent}
+    class:top
+    class:visible={targetIsHovered}
+    role="tooltip"
     >{#if nonNullish(text)}{text}{/if}<slot name="tooltip-content" /></div
   ></div
 >

@@ -42,7 +42,7 @@
     "LICENSE"
   ],
   "devDependencies": {
-    "@dfinity/eslint-config-oisy-wallet": "^0.1.14",
+    "@dfinity/eslint-config-oisy-wallet": "^0.2.2",
     "@junobuild/config": "^0.4.0",
     "@playwright/test": "^1.54.0",
     "@sveltejs/adapter-static": "^3.0.8",

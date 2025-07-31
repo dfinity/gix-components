@@ -24,9 +24,9 @@
 
 {#key transition}
   <div
+    class="transition"
     bind:clientWidth={absolutOffset}
     in:fly|global={{ x: slideOffset, duration: ANIMATION_DURATION }}
-    class="transition"
   >
     {@render children()}
   </div>

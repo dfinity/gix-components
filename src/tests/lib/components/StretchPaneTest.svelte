@@ -4,5 +4,5 @@
 
 <StretchPane>
   <div data-tid="stretch-pane-test-slot"></div>
-  <div data-tid="stretch-pane-test-menu-slot" slot="menu"></div>
+  <div slot="menu" data-tid="stretch-pane-test-menu-slot"></div>
 </StretchPane>

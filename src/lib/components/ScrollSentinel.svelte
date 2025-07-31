@@ -35,7 +35,7 @@
   });
 </script>
 
-<div data-tid="sentinel" class="sentinel" bind:this={element}></div>
+<div bind:this={element} class="sentinel" data-tid="sentinel"></div>
 
 <style lang="scss">
   .sentinel {

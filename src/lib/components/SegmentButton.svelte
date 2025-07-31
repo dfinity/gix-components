@@ -36,12 +36,12 @@
 
 <div bind:this={element} class="segment-button" data-tid={testId}>
   <button
+    class:initialised={nonNullish($store.element)}
+    class:selected
+    data-tid="segment-button"
+    disabled={selected}
     onclick={onClick}
     role="tab"
-    class:selected
-    class:initialised={nonNullish($store.element)}
-    disabled={selected}
-    data-tid="segment-button"
   >
     {@render children()}
   </button>

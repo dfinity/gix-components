@@ -10,11 +10,11 @@
 </script>
 
 <MenuItem href="/" selected={pathname === "/"} on:click>
-  <DocsIconMenu text="H" slot="icon" />
+  <DocsIconMenu slot="icon" text="H" />
   Home</MenuItem
 >
 <MenuItem href="/start" selected={pathname === "/start"} on:click>
-  <DocsIconMenu text="G" slot="icon" />
+  <DocsIconMenu slot="icon" text="G" />
   Getting Started
 </MenuItem>
 <MenuItem
@@ -22,7 +22,7 @@
   selected={pathname.startsWith("/components")}
   on:click
 >
-  <DocsIconMenu text="C" slot="icon" />
+  <DocsIconMenu slot="icon" text="C" />
   Components
 </MenuItem>
 <MenuItem
@@ -30,7 +30,7 @@
   selected={pathname.startsWith("/utility-classes")}
   on:click
 >
-  <DocsIconMenu text="U" slot="icon" />
+  <DocsIconMenu slot="icon" text="U" />
   Utility Classes
 </MenuItem>
 <MenuItem
@@ -38,18 +38,18 @@
   selected={pathname.startsWith("/utility-functions")}
   on:click
 >
-  <DocsIconMenu text="F" slot="icon" />
+  <DocsIconMenu slot="icon" text="F" />
   Utility Functions
 </MenuItem>
 <MenuItem href="/styling" selected={pathname.startsWith("/styling")} on:click>
-  <DocsIconMenu text="S" slot="icon" />
+  <DocsIconMenu slot="icon" text="S" />
   Styling
 </MenuItem>
 <MenuItem href="/icons" selected={pathname.startsWith("/icons")} on:click>
-  <DocsIconMenu text="I" slot="icon" />
+  <DocsIconMenu slot="icon" text="I" />
   Icons
 </MenuItem>
 <MenuItem href="/resources" selected={pathname === "/resources"} on:click>
-  <DocsIconMenu text="R" slot="icon" />
+  <DocsIconMenu slot="icon" text="R" />
   Resources
 </MenuItem>

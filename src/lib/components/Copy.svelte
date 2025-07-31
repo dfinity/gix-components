@@ -17,10 +17,10 @@
 </script>
 
 <button
+  class="icon-only"
+  aria-label={`${$i18n.core.copy}: ${value}`}
   data-tid="copy-component"
   onclick={preventDefault(stopPropagation(copyToClipboard))}
-  aria-label={`${$i18n.core.copy}: ${value}`}
-  class="icon-only"
 >
   <IconCopy />
 </button>

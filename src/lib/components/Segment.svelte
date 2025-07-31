@@ -99,12 +99,12 @@
 
 <div
   bind:this={segment}
-  class="segment"
   style={`--segments: ${segmentsCount}; ${
     nonNullish(indicator)
       ? `--position: ${indicator.left}px; --width: ${indicator.width}px`
       : ""
   }`}
+  class="segment"
 >
   {#if nonNullish(indicator)}
     <div class="indicator">

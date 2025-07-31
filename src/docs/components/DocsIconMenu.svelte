@@ -8,11 +8,11 @@
 
 {#if $menuCollapsed}
   <svg
-    xmlns="http://www.w3.org/2000/svg"
+    fill="currentColor"
     height={DEFAULT_ICON_SIZE}
     viewBox="0 0 24 24"
     width={DEFAULT_ICON_SIZE}
-    fill="currentColor"
+    xmlns="http://www.w3.org/2000/svg"
     in:fade><text x="4" y="20">{text}</text></svg
   >
 {/if}

@@ -31,6 +31,6 @@
 </script>
 
 <!-- eslint-disable svelte/valid-compile -->
-<span on:click={changeValue} id="test" />
+<span id="test" on:click={changeValue} />
 
-<Input bind:value={amount} {inputType} {name} {placeholder} {decimals} />
+<Input {name} {decimals} {inputType} {placeholder} bind:value={amount} />

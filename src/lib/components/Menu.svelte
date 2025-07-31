@@ -10,12 +10,12 @@
   const close = () => layoutMenuOpen.set(false);
 </script>
 
-<div role="menu" class:open={$layoutMenuOpen}>
+<div class:open={$layoutMenuOpen} role="menu">
   <div
     class="inner"
+    class:open={$layoutMenuOpen}
     class:sticky
     data-tid="menu-inner"
-    class:open={$layoutMenuOpen}
     role="button"
     tabindex="-1"
     on:click={close}

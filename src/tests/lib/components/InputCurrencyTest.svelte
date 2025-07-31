@@ -9,5 +9,5 @@
   let { decimals = 8, value = $bindable() }: Props = $props();
 </script>
 
-<Input bind:value inputType="currency" {decimals} />
+<Input {decimals} inputType="currency" bind:value />
 <p>Amount: <output data-tid="amount-decimals-output">{value ?? ""}</output></p>

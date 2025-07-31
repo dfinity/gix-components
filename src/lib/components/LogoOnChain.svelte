@@ -1,9 +1,9 @@
 <svg
-  xmlns="http://www.w3.org/2000/svg"
-  width="94"
+  fill="none"
   height="17"
   viewBox="0 0 94 17"
-  fill="none"
+  width="94"
+  xmlns="http://www.w3.org/2000/svg"
 >
   <path
     d="M19.8672 6.50079V2.43531H18.4885V1.82218C19.2782 1.80467 19.822 1.35998 19.9536 0.737427H20.7088V6.50079H19.8659H19.8672Z"

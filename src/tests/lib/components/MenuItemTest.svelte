@@ -3,7 +3,7 @@
 </script>
 
 <MenuItem href="https://test">
-  <div data-tid="menuitem-test-icon" slot="icon"></div>
+  <div slot="icon" data-tid="menuitem-test-icon"></div>
   <div data-tid="menuitem-test-default"></div>
-  <div data-tid="menuitem-test-status-icon" slot="statusIcon"></div>
+  <div slot="statusIcon" data-tid="menuitem-test-status-icon"></div>
 </MenuItem>

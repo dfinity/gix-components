@@ -11,11 +11,11 @@
 
 <button
   class="chip"
-  data-tid="chip-component"
   class:selected
-  role="radio"
   aria-checked={selected}
-  onclick={() => onClick(id)}>{label}</button
+  data-tid="chip-component"
+  onclick={() => onClick(id)}
+  role="radio">{label}</button
 >
 
 <style lang="scss">

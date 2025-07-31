@@ -7,7 +7,7 @@
   export let bottom: string | undefined = undefined;
 </script>
 
-<ProgressBar {value} {max}>
+<ProgressBar {max} {value}>
   <p slot="top">
     {top}
   </p>

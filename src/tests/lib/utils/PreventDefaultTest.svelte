@@ -17,9 +17,9 @@
 
 <form onsubmit={onSubmit}>
   <button
-    type="submit"
-    onclick={preventDefault(onButtonClick)}
     data-tid={childTestId}
+    onclick={preventDefault(onButtonClick)}
+    type="submit"
   >
     Submit
   </button>
