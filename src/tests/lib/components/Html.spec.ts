@@ -7,7 +7,7 @@ vi.mock("$lib/utils/html.utils", () => ({
 }));
 
 describe("Html", () => {
-  beforeEach((vi.mocked(sanitize)).mockClear);
+  beforeEach(vi.mocked(sanitize).mockClear);
 
   afterAll(vi.clearAllMocks);
 

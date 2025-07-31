@@ -82,7 +82,8 @@
               <button
                 aria-label={$i18n.core.close}
                 data-tid="close-modal"
-                on:click|stopPropagation={close}><IconClose size="24px" /></button
+                on:click|stopPropagation={close}
+                ><IconClose size="24px" /></button
               >
             {/if}
           </div>
