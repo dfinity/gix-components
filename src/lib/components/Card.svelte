@@ -54,20 +54,20 @@
 
 <svelte:element
   this={container}
-  {href}
-  {role}
-  data-tid={testId}
-  on:click={onClick}
   class={`card ${theme ?? ""}`}
   class:clickable
-  class:icon={nonNullish(icon)}
-  class:selected
   class:disabled
-  class:noPadding
+  class:icon={nonNullish(icon)}
   class:noMargin
-  aria-disabled={disabled}
+  class:noPadding
+  class:selected
   aria-checked={ariaChecked}
+  aria-disabled={disabled}
   aria-label={ariaLabel}
+  data-tid={testId}
+  {href}
+  {role}
+  on:click={onClick}
 >
   {#if nonNullish(iconCmp)}
     <svelte:component this={iconCmp} />

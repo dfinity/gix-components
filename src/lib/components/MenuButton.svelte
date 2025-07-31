@@ -6,10 +6,10 @@
 </script>
 
 <button
-  data-tid="menu-toggle"
   class="icon-only"
-  onclick={() => layoutMenuOpen.set(!$layoutMenuOpen)}
   aria-label={$layoutMenuOpen ? $i18n.core.close : $i18n.core.menu}
+  data-tid="menu-toggle"
+  onclick={() => layoutMenuOpen.set(!$layoutMenuOpen)}
 >
   {#if $layoutMenuOpen}
     <IconClose />

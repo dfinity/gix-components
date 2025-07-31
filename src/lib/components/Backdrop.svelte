@@ -15,17 +15,17 @@
 </script>
 
 <div
+  class="backdrop"
+  class:disablePointerEvents
+  class:visible={!invisible}
+  aria-label={$i18n.core.close}
+  data-tid="backdrop"
   role="button"
   tabindex="-1"
-  aria-label={$i18n.core.close}
-  in:fade|global={{ duration: FADE_IN_DURATION }}
-  out:fade|global={{ duration: FADE_OUT_DURATION }}
-  class="backdrop"
-  class:visible={!invisible}
   on:click|stopPropagation={close}
   on:keypress={($event) => handleKeyPress({ $event, callback: close })}
-  class:disablePointerEvents
-  data-tid="backdrop"
+  in:fade|global={{ duration: FADE_IN_DURATION }}
+  out:fade|global={{ duration: FADE_OUT_DURATION }}
 ></div>
 
 <style lang="scss">

@@ -8,7 +8,7 @@ vi.mock("$lib/utils/html.utils", () => ({
 }));
 
 describe("Html", () => {
-  beforeEach((sanitize as MockedFunction<typeof sanitize>).mockClear);
+  beforeEach((vi.mocked(sanitize)).mockClear);
 
   afterAll(vi.clearAllMocks);
 
@@ -41,6 +41,6 @@ describe("Html", () => {
       },
     });
 
-    expect(sanitize).toHaveBeenCalledTimes(1);
+    expect(sanitize).toHaveBeenCalledOnce();
   });
 });

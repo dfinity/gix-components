@@ -28,33 +28,33 @@
 
 {#if visible}
   <div
-    role="menu"
-    aria-orientation="vertical"
-    transition:fade|global
-    class="popover"
-    tabindex="-1"
     style="--popover-top: {`${bottom}px`}; --popover-left: {`${left}px`}; --popover-right: {`${
       window.innerWidth - right
     }px`}"
+    class="popover"
+    aria-orientation="vertical"
+    data-tid={testId}
+    role="menu"
+    tabindex="-1"
     on:click
     on:keypress
-    data-tid={testId}
+    transition:fade|global
   >
     <Backdrop
-      on:nnsClose={() => (visible = false)}
       invisible={invisibleBackdrop}
+      on:nnsClose={() => (visible = false)}
     />
     <div
-      transition:scale|global={{ delay: 25, duration: 150, easing: quintOut }}
       class="wrapper"
-      class:with-border={invisibleBackdrop}
       class:rtl={direction === "rtl"}
+      class:with-border={invisibleBackdrop}
+      transition:scale|global={{ delay: 25, duration: 150, easing: quintOut }}
     >
       {#if closeButton}
         <button
-          on:click|stopPropagation={close}
+          class="close icon-only"
           aria-label={$i18n.core.close}
-          class="close icon-only"><IconClose /></button
+          on:click|stopPropagation={close}><IconClose /></button
         >
       {/if}
 

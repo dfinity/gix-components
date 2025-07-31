@@ -69,12 +69,12 @@
 
 <TestIdWrapper {testId}>
   <div
-    data-tid="collapsible-header"
     id={nonNullish(id) ? `heading${id}` : undefined}
-    role="button"
     class={`header ${externalToggle ? "external" : ""}`}
+    data-tid="collapsible-header"
     onclick={toggle}
     onkeypress={($event) => handleKeyPress({ $event, callback: toggle })}
+    role="button"
     tabindex={externalToggle ? -1 : 0}
   >
     <div class="header-content">
@@ -83,31 +83,31 @@
     {#if expandButton}
       <button
         class="collapsible-expand-icon"
-        class:size-medium={iconSize === "medium"}
         class:expanded
-        data-tid="collapsible-expand-button"
-        aria-expanded={expanded}
+        class:size-medium={iconSize === "medium"}
         aria-controls={id}
-        title={expanded ? $i18n.core.collapse : $i18n.core.expand}
+        aria-expanded={expanded}
+        data-tid="collapsible-expand-button"
         tabindex="-1"
+        title={expanded ? $i18n.core.collapse : $i18n.core.expand}
       >
         <IconExpandMore />
       </button>
     {/if}
   </div>
   <div
-    data-tid="collapsible-content"
-    role="definition"
+    style={`${maxHeightStyle(maxHeight)}${overflyYStyle(maxHeight)}`}
     class="wrapper"
     class:expanded
-    style={`${maxHeightStyle(maxHeight)}${overflyYStyle(maxHeight)}`}
+    data-tid="collapsible-content"
+    role="definition"
   >
     <div
+      bind:this={container}
       {id}
-      aria-labelledby={nonNullish(id) ? `heading${id}` : undefined}
       class="content"
       class:wrapHeight
-      bind:this={container}
+      aria-labelledby={nonNullish(id) ? `heading${id}` : undefined}
     >
       {@render children()}
     </div>

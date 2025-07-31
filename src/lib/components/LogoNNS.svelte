@@ -1,8 +1,8 @@
 <svg
-  viewBox="0 0 118 44"
   fill="none"
-  xmlns="http://www.w3.org/2000/svg"
   role="presentation"
+  viewBox="0 0 118 44"
+  xmlns="http://www.w3.org/2000/svg"
 >
   <g clip-path="url(#clip0_1386_9727)">
     <path
@@ -83,32 +83,32 @@
   <defs>
     <linearGradient
       id="paint0_linear_1386_9727"
-      x1="53.2309"
-      y1="18.5964"
-      x2="39.53"
-      y2="4.40876"
       gradientUnits="userSpaceOnUse"
+      x1="53.2309"
+      x2="39.53"
+      y1="18.5964"
+      y2="4.40876"
     >
       <stop offset="0.22" stop-color="#FF0079" />
       <stop offset="0.89" stop-color="#592489" />
     </linearGradient>
     <linearGradient
       id="paint1_linear_1386_9727"
-      x1="64.1309"
-      y1="1.50728"
-      x2="77.8311"
-      y2="15.6949"
       gradientUnits="userSpaceOnUse"
+      x1="64.1309"
+      x2="77.8311"
+      y1="1.50728"
+      y2="15.6949"
     >
       <stop offset="0.21" stop-color="#FF4B00" />
       <stop offset="0.68" stop-color="#FFAB00" />
     </linearGradient>
     <clipPath id="clip0_1386_9727">
       <rect
-        width="41.8421"
-        height="19.7368"
         fill="white"
+        height="19.7368"
         transform="translate(37.8572)"
+        width="41.8421"
       />
     </clipPath>
   </defs>

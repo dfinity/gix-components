@@ -16,7 +16,7 @@
   let { title, toolbarEnd, onBack }: Props = $props();
 </script>
 
-<header data-tid="header-component" class:hidden={$layoutContentTopHidden}>
+<header class:hidden={$layoutContentTopHidden} data-tid="header-component">
   <Toolbar end={toolbarEnd}>
     {#snippet start()}
       {#if nonNullish(onBack)}

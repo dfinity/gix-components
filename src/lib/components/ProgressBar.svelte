@@ -48,12 +48,12 @@
 <div class="wrapper" data-tid={testId}>
   <slot name="top" />
   <progress
-    {max}
-    value={totalValue}
+    style={inlineStyle}
     class={color}
     aria-valuemax={max}
     aria-valuenow={totalValue}
-    style={inlineStyle}
+    {max}
+    value={totalValue}
   ></progress>
   <slot name="bottom" />
 </div>

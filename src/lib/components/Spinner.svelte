@@ -9,12 +9,12 @@
 </script>
 
 <svg
-  class:inline
   class={size}
-  preserveAspectRatio="xMidYMid meet"
-  focusable="false"
+  class:inline
   aria-hidden="true"
   data-tid="spinner"
+  focusable="false"
+  preserveAspectRatio="xMidYMid meet"
   viewBox="0 0 100 100"><circle cx="50%" cy="50%" r="45" /></svg
 >
 

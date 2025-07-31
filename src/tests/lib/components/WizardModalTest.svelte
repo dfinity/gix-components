@@ -21,7 +21,7 @@
   let modal: WizardModal<string>;
 </script>
 
-<WizardModal {steps} bind:currentStep bind:this={modal}>
+<WizardModal bind:this={modal} {steps} bind:currentStep>
   {#snippet title()}My title{/snippet}
 
   {#if currentStep?.name === "EnterController"}

@@ -33,9 +33,9 @@
 </script>
 
 <div
+  style={`--layout-bottom-offset: ${$layoutBottomOffset}px; --content-overflow-y: ${$layoutContentScrollY}`}
   class="content"
   class:open={$layoutMenuOpen}
-  style={`--layout-bottom-offset: ${$layoutBottomOffset}px; --content-overflow-y: ${$layoutContentScrollY}`}
 >
   <div class="start">
     <div class="scrollable-content-start">
@@ -45,9 +45,9 @@
   </div>
 
   <div class="end">
-    <Header {title} {toolbarEnd} {onBack} />
+    <Header {onBack} {title} {toolbarEnd} />
 
-    <div class="scrollable-content-end" bind:this={scrollableElement}>
+    <div bind:this={scrollableElement} class="scrollable-content-end">
       <ContentBackdrop />
 
       <ScrollSentinel scrollContainer={scrollableElement} />

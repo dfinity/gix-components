@@ -10,30 +10,30 @@
 </script>
 
 <svg
-  height={size}
-  width={size}
-  viewBox="0 0 20 20"
-  fill="none"
-  stroke="currentColor"
-  xmlns="http://www.w3.org/2000/svg"
   data-tid="icon-down"
+  fill="none"
+  height={size}
+  stroke="currentColor"
+  viewBox="0 0 20 20"
+  width={size}
+  xmlns="http://www.w3.org/2000/svg"
 >
   <path
     d="M10 2.5V14.375"
-    stroke-width="1.5"
     stroke-linecap="round"
     stroke-linejoin="round"
+    stroke-width="1.5"
   />
   <path
     d="M4.375 8.75L10 14.375L15.625 8.75"
-    stroke-width="1.5"
     stroke-linecap="round"
     stroke-linejoin="round"
+    stroke-width="1.5"
   />
   <path
     d="M3.125 16.875H16.875"
-    stroke-width="1.5"
     stroke-linecap="round"
     stroke-linejoin="round"
+    stroke-width="1.5"
   />
 </svg>

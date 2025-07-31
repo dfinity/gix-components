@@ -12,9 +12,9 @@
 </script>
 
 <!-- eslint-disable svelte/valid-compile -->
-<span on:click={changeValue} data-tid="test" />
+<span data-tid="test" on:click={changeValue} />
 
-<Dropdown selectedValue={value} name="test">
+<Dropdown name="test" selectedValue={value}>
   {#each options as { label, value } (value)}
     <DropdownItem {value}>
       {label}

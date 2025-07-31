@@ -20,8 +20,8 @@
 
 <svelte:element
   this={tagName}
-  data-tid={testId}
   class={`tag ${size === "large" ? "tag--large" : ""} ${intent}`}
+  data-tid={testId}
 >
   {@render children()}
 </svelte:element>

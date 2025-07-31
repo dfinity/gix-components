@@ -1,7 +1,7 @@
 import { Theme, themeStore } from "$lib";
 import SystemThemeListener from "$lib/components/SystemThemeListener.svelte";
 import { get } from "svelte/store";
-import { vi } from "vitest";
+
 import { render } from "../../utils/render.test-utils";
 
 describe("SystemThemeListener", () => {

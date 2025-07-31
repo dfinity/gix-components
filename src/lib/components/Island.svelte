@@ -25,7 +25,7 @@
 <svelte:window bind:innerWidth />
 
 <div class="island" data-tid={testId}>
-  <div class="scrollable-island" bind:this={scrollContainer}>
+  <div bind:this={scrollContainer} class="scrollable-island">
     <ScrollSentinel {scrollContainer} />
     {@render children()}
   </div>

@@ -24,10 +24,10 @@
 
 {#if toasts.length > 0}
   <div
-    data-tid="toasts-component"
+    style={`--layout-bottom-offset: ${$layoutBottomOffset}px`}
     class={`wrapper ${position}`}
     class:error={hasErrors}
-    style={`--layout-bottom-offset: ${$layoutBottomOffset}px`}
+    data-tid="toasts-component"
   >
     {#each toasts as msg (msg.id)}
       <Toast {msg} />

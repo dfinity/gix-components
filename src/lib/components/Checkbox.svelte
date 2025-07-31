@@ -28,23 +28,23 @@
 </script>
 
 <div
+  class="checkbox"
+  class:disabled
+  data-tid={testId}
+  role="button"
   tabindex="0"
   on:click|preventDefault={onClick}
   on:keypress={($event) =>
     !disabled && handleKeyPress({ $event, callback: change })}
-  class="checkbox"
-  class:disabled
-  role="button"
-  data-tid={testId}
 >
-  <label for={inputId} class={text}><slot /></label>
+  <label class={text} for={inputId}><slot /></label>
   <input
-    tabindex="-1"
-    data-tid="checkbox"
-    type="checkbox"
     id={inputId}
-    {disabled}
     {checked}
+    data-tid="checkbox"
+    {disabled}
+    tabindex="-1"
+    type="checkbox"
     on:click|stopPropagation={onClick}
   />
 </div>

@@ -8,13 +8,13 @@
 </script>
 
 <a
-  role="menuitem"
-  {href}
-  {rel}
-  {target}
-  {title}
   class:selected
   data-tid={testId}
+  {href}
+  {rel}
+  role="menuitem"
+  {target}
+  {title}
   on:click
 >
   <slot name="icon" />

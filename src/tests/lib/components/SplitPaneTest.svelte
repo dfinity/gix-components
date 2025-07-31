@@ -4,5 +4,5 @@
 
 <SplitPane>
   <div data-tid="split-pane-test-slot"></div>
-  <div data-tid="split-pane-test-menu-slot" slot="menu"></div>
+  <div slot="menu" data-tid="split-pane-test-menu-slot"></div>
 </SplitPane>

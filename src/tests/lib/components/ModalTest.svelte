@@ -6,7 +6,7 @@
   export let subTitle: string | undefined = undefined;
 </script>
 
-<Modal {visible} {disablePointerEvents} on:nnsClose>
+<Modal {disablePointerEvents} {visible} on:nnsClose>
   <h3 slot="title">Test</h3>
   <p slot="sub-title">{subTitle}</p>
   <span slot="header-left" data-tid="header-left-content"
