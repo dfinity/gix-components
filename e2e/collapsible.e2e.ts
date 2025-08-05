@@ -8,7 +8,7 @@ test("Should open and close collapsible", async ({ page }) => {
   const showcase = page.getByTestId("showcase");
   await showcase.scrollIntoViewIfNeeded();
 
-  await expect(page).toHaveScreenshot("Collapsible-default-close");
+  await expect(page).toHaveScreenshot("Collapsible-default-close.png");
 
   const toggle = async () => {
     const button = page.getByTestId("toggle-content");
@@ -20,9 +20,9 @@ test("Should open and close collapsible", async ({ page }) => {
 
   await toggle();
 
-  await expect(page).toHaveScreenshot("Collapsible-open");
+  await expect(page).toHaveScreenshot("Collapsible-open.png");
 
   await toggle();
 
-  await expect(page).toHaveScreenshot("Collapsible-close");
+  await expect(page).toHaveScreenshot("Collapsible-close.png");
 });
