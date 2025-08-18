@@ -1,4 +1,4 @@
-<!-- Source DFINITY Foundation -->
+<!-- source: DFINITY foundation -->
 <script lang="ts">
   import { DEFAULT_ICON_SIZE } from "$lib/constants/constants";
 
