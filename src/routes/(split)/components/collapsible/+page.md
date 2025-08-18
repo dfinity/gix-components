@@ -72,26 +72,30 @@ Collapsible is an accordion element that expands when clicked on. They allow you
 
 ## Showcase
 
-<div class="container">
+<div class="container" data-tid="showcase">
   <div class="collapseA">
     <Collapsible iconSize="medium" maxContentHeight={100} wrapHeight>
-      <div slot="header" class="header_div">
-        About smart contracts
-      </div>
+      {#snippet header()}
+          <div class="header_div">
+            About smart contracts
+          </div>
+      {/snippet}
       <p>
         Advanced smart contracts process HTTP requests, control other chains, and
         scale infinitely.
       </p>
     </Collapsible>
   </div>
-  <button class="secondary toggleButton" 
+  <button class="secondary toggleButton" data-tid="toggle-content"
     onclick={() => cmp?.toggleContent()}>Press to {message}
   </button>
   <div class="collapseA">
     <Collapsible iconSize="medium" expandButton={false} bind:this={cmp} bind:expanded={expanded} externalToggle>
-      <div slot="header" class="header_div">
-        Collapsible with external button 
-      </div>
+      {#snippet header()}
+          <div class="header_div">
+            Collapsible with external button 
+          </div>
+      {/snippet}
       <div>
         This collapsible uses an external element to toggle open its content.
       </div>

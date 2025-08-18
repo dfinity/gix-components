@@ -15,8 +15,8 @@
   }: Props = $props();
 </script>
 
-<div role="button" tabindex="-1" onkeypress={() => {}} onclick={onParentClick}>
-  <button onclick={stopPropagation(onChildClick)} data-tid={childTestId}>
+<div onclick={onParentClick} onkeypress={() => {}} role="button" tabindex="-1">
+  <button data-tid={childTestId} onclick={stopPropagation(onChildClick)}>
     Click Me
   </button>
 </div>

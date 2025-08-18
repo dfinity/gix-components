@@ -6,7 +6,7 @@
   export let spy: () => Promise<void>;
 </script>
 
-<InfiniteScroll onIntersect={spy} {disabled}>
+<InfiniteScroll {disabled} onIntersect={spy}>
   {#each elements as _element, i (i)}
     <div>Test {i}</div>
   {/each}

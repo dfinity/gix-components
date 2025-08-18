@@ -26,10 +26,10 @@
 </script>
 
 <Collapsible
-  {testId}
+  bind:this={cmp}
   expandButton={false}
   externalToggle={true}
-  bind:this={cmp}
+  {testId}
 >
   {#snippet header()}
     <KeyValuePair>

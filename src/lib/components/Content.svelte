@@ -26,16 +26,16 @@
 </script>
 
 <div
+  style={`--layout-bottom-offset: calc(${$layoutBottomOffset}px - var(--content-margin)); --content-overflow-y: ${$layoutContentScrollY}`}
   class="content"
   class:open={$layoutMenuOpen}
-  style={`--layout-bottom-offset: calc(${$layoutBottomOffset}px - var(--content-margin)); --content-overflow-y: ${$layoutContentScrollY}`}
 >
-  <Header {title} {toolbarEnd} {onBack} />
+  <Header {onBack} {title} {toolbarEnd} />
 
   <div
+    bind:this={scrollContainer}
     class="scrollable-content"
     class:open={$layoutMenuOpen}
-    bind:this={scrollContainer}
   >
     <ContentBackdrop />
     <ScrollSentinel {scrollContainer} />

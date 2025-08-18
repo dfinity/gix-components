@@ -10,5 +10,5 @@
 <!-- TypeError: Cannot read properties of null (reading 'removeChild') -->
 <!-- https://github.com/sveltejs/svelte/issues/6037 -->
 <div>
-  <Toasts {position} {maxVisible} />
+  <Toasts {maxVisible} {position} />
 </div>

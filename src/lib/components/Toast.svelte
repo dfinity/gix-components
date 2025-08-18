@@ -77,15 +77,15 @@
 </script>
 
 <div
+  class={`toast ${level} ${theme ?? "themed"}`}
   data-tid="toast-component"
   role="dialog"
-  class={`toast ${level} ${theme ?? "themed"}`}
   in:fly|global={{ y: (position === "top" ? -1 : 1) * 100, duration: 200 }}
   out:fade|global={{ delay: 100 }}
 >
   <div class="icon {level}" aria-hidden="true">
     {#if spinner}
-      <Spinner size="small" inline />
+      <Spinner inline size="small" />
     {:else if nonNullish(icon)}
       {@const IconCmp = icon}
       <IconCmp />
@@ -96,12 +96,12 @@
   </div>
 
   <p
-    data-tid="toast-message"
+    style={minHeightMessage}
     class="msg"
-    class:truncate
     class:clamp
     class:scroll
-    style={minHeightMessage}
+    class:truncate
+    data-tid="toast-message"
   >
     {#if nonNullish(title)}
       <span class="title">{title}</span>
@@ -114,10 +114,10 @@
   </p>
 
   <button
-    data-tid="close-button"
     class="close"
-    onclick={close}
-    aria-label={$i18n.core.close}><IconClose /></button
+    aria-label={$i18n.core.close}
+    data-tid="close-button"
+    onclick={close}><IconClose /></button
   >
 </div>
 

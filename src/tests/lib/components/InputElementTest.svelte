@@ -12,6 +12,6 @@
   };
 </script>
 
-<button on:click={changeFocus} id="test" aria-label={ariaLabel}></button>
+<button id="test" aria-label={ariaLabel} on:click={changeFocus}></button>
 
-<Input bind:inputElement={inputField} {name} {placeholder} />
+<Input {name} {placeholder} bind:inputElement={inputField} />

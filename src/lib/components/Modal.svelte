@@ -49,19 +49,19 @@
 {#if visible}
   <div
     class="modal"
-    transition:fade|global={{ duration: 25 }}
-    on:introend
-    {role}
-    data-tid={testId}
-    aria-labelledby={showHeader ? modalTitleId : undefined}
     aria-describedby={modalContentId}
+    aria-labelledby={showHeader ? modalTitleId : undefined}
+    data-tid={testId}
+    {role}
+    on:introend
     on:click|stopPropagation
+    transition:fade|global={{ duration: 25 }}
   >
     <Backdrop {disablePointerEvents} on:nnsClose />
     <div
+      class={`wrapper ${role}`}
       in:fade|global={{ duration: FADE_IN_DURATION }}
       out:fade|global={{ duration: FADE_OUT_DURATION }}
-      class={`wrapper ${role}`}
     >
       {#if showHeader}
         <div class="header">
@@ -80,9 +80,10 @@
 
             {#if !disablePointerEvents}
               <button
+                aria-label={$i18n.core.close}
                 data-tid="close-modal"
                 on:click|stopPropagation={close}
-                aria-label={$i18n.core.close}><IconClose size="24px" /></button
+                ><IconClose size="24px" /></button
               >
             {/if}
           </div>
@@ -94,8 +95,8 @@
 
         <div class="container">
           <div
-            class="content"
             id={modalContentId}
+            class="content"
             class:alert={role === "alert"}
           >
             <slot />

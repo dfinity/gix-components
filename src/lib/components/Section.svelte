@@ -17,7 +17,7 @@
 </script>
 
 <div class="container" data-tid={testId}>
-  <div class="section-title" class:noTitle class:noDescription>
+  <div class="section-title" class:noDescription class:noTitle>
     {@render title?.()}
     {@render end?.()}
   </div>

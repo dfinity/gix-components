@@ -9,21 +9,21 @@
 </script>
 
 <svg
-  width={size}
+  fill="none"
   height={size}
   viewBox="0 0 149 144"
-  fill="none"
+  width={size}
   xmlns="http://www.w3.org/2000/svg"
 >
   <rect
-    opacity="0.2"
-    x="45.354"
-    y="19.0638"
-    width="102.676"
+    fill="#436FF5"
     height="102.676"
+    opacity="0.2"
     rx="18.0684"
     transform="rotate(7 45.354 19.0638)"
-    fill="#436FF5"
+    width="102.676"
+    x="45.354"
+    y="19.0638"
   />
   <path
     d="M53.7796 39.1426C29.558 42.026 12.2601 63.999 15.1436 88.2205C18.0271 112.442 40 129.74 64.2216 126.857C88.4431 123.973 105.741 102 102.858 77.7785C99.9741 53.557 78.0011 36.2591 53.7796 39.1426Z"
@@ -44,44 +44,44 @@
   <defs>
     <linearGradient
       id="paint0_linear_101_2688"
-      x1="-20.8008"
-      y1="29.9097"
-      x2="116.312"
-      y2="119.519"
       gradientUnits="userSpaceOnUse"
+      x1="-20.8008"
+      x2="116.312"
+      y1="29.9097"
+      y2="119.519"
     >
       <stop stop-color="#AFC3FF" stop-opacity="0" />
       <stop offset="1" stop-color="#1851FF" />
     </linearGradient>
     <linearGradient
       id="paint1_linear_101_2688"
-      x1="20.7158"
-      y1="13.3455"
-      x2="112.379"
-      y2="38.0049"
       gradientUnits="userSpaceOnUse"
+      x1="20.7158"
+      x2="112.379"
+      y1="13.3455"
+      y2="38.0049"
     >
       <stop stop-color="#C4D3FF" />
       <stop offset="1" stop-color="#003FFF" />
     </linearGradient>
     <linearGradient
       id="paint2_linear_101_2688"
-      x1="62.7759"
-      y1="87.9491"
-      x2="52.2366"
-      y2="87.6729"
       gradientUnits="userSpaceOnUse"
+      x1="62.7759"
+      x2="52.2366"
+      y1="87.9491"
+      y2="87.6729"
     >
       <stop stop-color="#F9FAFF" />
       <stop offset="1" stop-color="#D9E2FD" />
     </linearGradient>
     <linearGradient
       id="paint3_linear_101_2688"
-      x1="62.7759"
-      y1="87.9491"
-      x2="52.2366"
-      y2="87.6729"
       gradientUnits="userSpaceOnUse"
+      x1="62.7759"
+      x2="52.2366"
+      y1="87.9491"
+      y2="87.6729"
     >
       <stop stop-color="#F9FAFF" />
       <stop offset="1" stop-color="#D9E2FD" />

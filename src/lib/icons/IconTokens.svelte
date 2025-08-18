@@ -10,11 +10,11 @@
 </script>
 
 <svg
-  width={size}
-  height={size}
-  viewBox="0 0 20 20"
   fill="none"
+  height={size}
   stroke="currentColor"
+  viewBox="0 0 20 20"
+  width={size}
   xmlns="http://www.w3.org/2000/svg"
 >
   <path
@@ -23,8 +23,8 @@
   />
   <path
     d="M12.554 10.157H12.559"
-    stroke-width="2"
     stroke-linecap="round"
     stroke-linejoin="round"
+    stroke-width="2"
   />
 </svg>

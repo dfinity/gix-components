@@ -14,6 +14,7 @@ export { default as IconCheckCircleV2 } from "./icons/IconCheckCircleV2.svelte";
 export { default as IconClock } from "./icons/IconClock.svelte";
 export { default as IconClockNoFill } from "./icons/IconClockNoFill.svelte";
 export { default as IconClose } from "./icons/IconClose.svelte";
+export { default as IconCloseCircle } from "./icons/IconCloseCircle.svelte";
 export { default as IconCloseCircleFill } from "./icons/IconCloseCircleFill.svelte";
 export { default as IconCoin } from "./icons/IconCoin.svelte";
 export { default as IconCollapseAll } from "./icons/IconCollapseAll.svelte";

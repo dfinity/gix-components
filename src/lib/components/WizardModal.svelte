@@ -2,7 +2,7 @@
   type T = string;
 </script>
 
-<script lang="ts" generics="T extends string">
+<script generics="T extends string" lang="ts">
   import type { Snippet } from "svelte";
   import WizardTransition from "./WizardTransition.svelte";
   import Modal from "$lib/components/Modal.svelte";
@@ -62,7 +62,7 @@
 </script>
 
 {#if visible}
-  <Modal on:nnsClose={close} {testId} {disablePointerEvents}>
+  <Modal {disablePointerEvents} {testId} on:nnsClose={close}>
     <svelte:fragment slot="title">
       {@render title?.()}
     </svelte:fragment>

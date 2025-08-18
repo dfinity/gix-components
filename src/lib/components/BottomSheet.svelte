@@ -39,10 +39,10 @@
 <svelte:window bind:innerWidth />
 
 <div
-  transition:transitionFn|global={{ axis: "y", duration: 300 }}
-  role="dialog"
   data-tid="bottom-sheet"
+  role="dialog"
   bind:clientHeight={height}
+  transition:transitionFn|global={{ axis: "y", duration: 300 }}
 >
   {#if hasHeaderSlot}
     <span>

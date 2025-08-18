@@ -18,6 +18,7 @@ interface I18nTheme {
 interface I18nProgress {
   completed: string;
   in_progress: string;
+  failed: string;
 }
 
 interface I18n {

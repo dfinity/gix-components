@@ -17,9 +17,9 @@
   <div class="toggle">
     <IconLightMode />
     <Toggle
+      ariaLabel={$i18n.theme.switch_theme}
       bind:checked
       on:nnsToggle={switchTheme}
-      ariaLabel={$i18n.theme.switch_theme}
     />
     <IconDarkMode />
   </div>

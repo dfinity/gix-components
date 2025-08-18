@@ -10,14 +10,14 @@
 </script>
 
 <svg
-  xmlns="http://www.w3.org/2000/svg"
-  width={size}
-  height={size}
-  viewBox="0 0 20 20"
   fill="none"
+  height={size}
   stroke="currentColor"
-  stroke-width="1.5"
   stroke-linecap="round"
+  stroke-width="1.5"
+  viewBox="0 0 20 20"
+  width={size}
+  xmlns="http://www.w3.org/2000/svg"
 >
   <path d="M3.33301 14.166H9.33301" />
   <path d="M3.3335 10L9.3335 10" />

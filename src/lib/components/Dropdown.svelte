@@ -20,11 +20,11 @@
     </div>
   {/if}
   <select
+    {name}
+    class:offset={showStart}
+    data-tid={testId}
     {disabled}
     bind:value={selectedValue}
-    {name}
-    data-tid={testId}
-    class:offset={showStart}
   >
     <slot />
   </select>

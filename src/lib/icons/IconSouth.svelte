@@ -17,23 +17,23 @@
 </script>
 
 <svg
-  width={size}
-  height={size}
-  viewBox="0 0 20 20"
   fill="none"
-  xmlns="http://www.w3.org/2000/svg"
+  height={size}
   stroke="currentColor"
+  viewBox="0 0 20 20"
+  width={size}
+  xmlns="http://www.w3.org/2000/svg"
 >
   <path
     d="M10 1L10 18"
-    stroke-width={strokeWidth}
     stroke-linecap="round"
     stroke-linejoin="round"
+    stroke-width={strokeWidth}
   />
   <path
     d="M2 11L10 19L18 11"
-    stroke-width={strokeWidth}
     stroke-linecap="round"
     stroke-linejoin="round"
+    stroke-width={strokeWidth}
   />
 </svg>

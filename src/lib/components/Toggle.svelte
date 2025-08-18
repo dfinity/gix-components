@@ -16,13 +16,13 @@
 
 <div class="toggle" class:disabled data-tid={testId}>
   <input
-    type="checkbox"
     {id}
+    aria-label={ariaLabel}
+    {checked}
+    {disabled}
+    type="checkbox"
     on:input={({ currentTarget }) =>
       dispatch("nnsToggle", currentTarget.checked)}
-    {checked}
-    aria-label={ariaLabel}
-    {disabled}
   />
   <label for={id}></label>
 </div>

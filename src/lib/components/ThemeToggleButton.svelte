@@ -15,10 +15,10 @@
 </script>
 
 <button
-  data-tid="theme-toggle-button"
   class="theme-toggle-button icon-only"
-  on:click={switchTheme}
   aria-label={$i18n.theme.switch_theme}
+  data-tid="theme-toggle-button"
+  on:click={switchTheme}
 >
   {#if isDarkMode}
     <span in:fade|global>

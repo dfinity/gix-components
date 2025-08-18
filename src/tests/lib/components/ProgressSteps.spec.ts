@@ -15,11 +15,16 @@ describe("Progress Steps", () => {
     },
     {
       step: "3",
+      text: "Swapping tokens",
+      state: "failed",
+    },
+    {
+      step: "4",
       text: "Confirming your participation...",
       state: "next",
     },
     {
-      step: "4",
+      step: "5",
       text: "Updating your data",
       state: "next",
     },

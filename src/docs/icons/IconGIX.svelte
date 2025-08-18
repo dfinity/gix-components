@@ -1,18 +1,18 @@
 <svg
-  version="1.0"
-  xmlns="http://www.w3.org/2000/svg"
-  width="32px"
   height="32px"
-  viewBox="0 0 611.000000 611.000000"
   preserveAspectRatio="xMidYMid meet"
+  version="1.0"
+  viewBox="0 0 611.000000 611.000000"
+  width="32px"
+  xmlns="http://www.w3.org/2000/svg"
 >
   <metadata>
     Created by potrace 1.14, written by Peter Selinger 2001-2017
   </metadata>
   <g
-    transform="translate(0.000000,611.000000) scale(0.100000,-0.100000)"
     fill="currentColor"
     stroke="none"
+    transform="translate(0.000000,611.000000) scale(0.100000,-0.100000)"
   >
     <path
       d="M3001 6098 c-21 -7 -70 -54 -72 -68 0 -3 -3 -14 -5 -25 -11 -52 -2

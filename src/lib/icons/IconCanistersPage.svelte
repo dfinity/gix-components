@@ -9,19 +9,19 @@
 </script>
 
 <svg
-  width={size}
+  fill="none"
   height={size}
   viewBox="0 0 144 144"
-  fill="none"
+  width={size}
   xmlns="http://www.w3.org/2000/svg"
 >
   <rect
-    opacity="0.2"
-    width="102.264"
+    fill="#436FF5"
     height="102.264"
+    opacity="0.2"
     rx="18.06"
     transform="matrix(0.992546 0.12187 -0.121868 0.992546 41.9346 19.3972)"
-    fill="#436FF5"
+    width="102.264"
   />
   <path
     d="M82.5255 95.4187C82.5249 103.6 69.9505 110.427 53.2345 112.005C62.857 111.097 71.107 108.449 76.3762 104.805C69.7992 109.353 58.5782 112.349 45.8411 112.349C30.2034 112.349 16.8511 107.833 11.5723 101.473C11.5723 101.473 11.5723 101.473 11.5723 101.473C10.0122 99.5928 9.15738 97.5518 9.15723 95.4187V123.638L9.15745 123.639C9.15745 132.99 25.5815 140.571 45.8416 140.571C66.1017 140.571 82.5258 132.99 82.5258 123.639L82.5255 123.58V95.4187Z"
@@ -38,9 +38,9 @@
   <ellipse
     cx="45.8418"
     cy="50.2685"
+    fill="url(#paint3_linear_2_6605)"
     rx="33.8623"
     ry="16.9313"
-    fill="url(#paint3_linear_2_6605)"
   />
   <path
     d="M13.9154 55.925H11.966L9.22845 94.2506C9.17054 94.6396 9.14111 95.0322 9.14111 95.428C9.14111 104.777 25.5617 112.356 45.8174 112.356C66.0732 112.356 82.4938 104.777 82.4938 95.428V95.423H82.4974L82.4935 95.3697C82.4911 95.0279 82.4666 94.6886 82.4208 94.3519L79.6761 55.925H77.7682C73.1124 62.4944 60.576 67.1997 45.8418 67.1997C31.1075 67.1997 18.5712 62.4944 13.9154 55.925Z"
@@ -53,55 +53,55 @@
   <defs>
     <linearGradient
       id="paint0_linear_2_6605"
-      x1="9.15723"
-      y1="76.9205"
-      x2="88.2344"
-      y2="111.488"
       gradientUnits="userSpaceOnUse"
+      x1="9.15723"
+      x2="88.2344"
+      y1="76.9205"
+      y2="111.488"
     >
       <stop stop-color="#C4D3FF" />
       <stop offset="1" stop-color="#003FFF" />
     </linearGradient>
     <linearGradient
       id="paint1_linear_2_6605"
-      x1="-35.1814"
-      y1="124.114"
-      x2="-5.87195"
-      y2="47.0138"
       gradientUnits="userSpaceOnUse"
+      x1="-35.1814"
+      x2="-5.87195"
+      y1="124.114"
+      y2="47.0138"
     >
       <stop stop-color="#AFC3FF" stop-opacity="0" />
       <stop offset="1" stop-color="#1851FF" />
     </linearGradient>
     <linearGradient
       id="paint2_linear_2_6605"
-      x1="-30.2278"
-      y1="120.192"
-      x2="-15.4791"
-      y2="65.3286"
       gradientUnits="userSpaceOnUse"
+      x1="-30.2278"
+      x2="-15.4791"
+      y1="120.192"
+      y2="65.3286"
     >
       <stop stop-color="#AFC3FF" stop-opacity="0" />
       <stop offset="1" stop-color="#1851FF" />
     </linearGradient>
     <linearGradient
       id="paint3_linear_2_6605"
-      x1="11.9795"
-      y1="19.4641"
-      x2="79.4037"
-      y2="55.7409"
       gradientUnits="userSpaceOnUse"
+      x1="11.9795"
+      x2="79.4037"
+      y1="19.4641"
+      y2="55.7409"
     >
       <stop stop-color="#C4D3FF" />
       <stop offset="1" stop-color="#003FFF" />
     </linearGradient>
     <linearGradient
       id="paint4_linear_2_6605"
-      x1="9.15185"
-      y1="68.1231"
-      x2="80.0529"
-      y2="71.352"
       gradientUnits="userSpaceOnUse"
+      x1="9.15185"
+      x2="80.0529"
+      y1="68.1231"
+      y2="71.352"
     >
       <stop stop-color="#7B9BFF" />
       <stop offset="0.37" stop-color="#7B9BFF" stop-opacity="0" />
@@ -109,11 +109,11 @@
     </linearGradient>
     <linearGradient
       id="paint5_linear_2_6605"
-      x1="11.9795"
-      y1="41.0203"
-      x2="64.63"
-      y2="83.5114"
       gradientUnits="userSpaceOnUse"
+      x1="11.9795"
+      x2="64.63"
+      y1="41.0203"
+      y2="83.5114"
     >
       <stop stop-color="#C4D3FF" />
       <stop offset="1" stop-color="#003FFF" />

@@ -1,6 +1,7 @@
 <script lang="ts">
   import Spinner from "$lib/components/Spinner.svelte";
   import IconCheckCircle from "$lib/icons/IconCheckCircle.svelte";
+  import IconCloseCircle from "$lib/icons/IconCloseCircle.svelte";
   import { i18n } from "$lib/stores/i18n";
   import type { ProgressStep } from "$lib/types/progress-step";
 
@@ -16,6 +17,8 @@
   <div class={`step ${state} ${last ? "last" : ""}`}>
     {#if state === "completed"}
       <IconCheckCircle />
+    {:else if state === "failed"}
+      <IconCloseCircle />
     {:else if state === "in_progress"}
       <div class="spinner">
         <span class="checkmark">{i + 1}</span>
@@ -31,6 +34,8 @@
 
     {#if state === "completed"}
       <span class="state">{$i18n.progress.completed}</span>
+    {:else if state === "failed"}
+      <span class="state">{$i18n.progress.failed}</span>
     {:else if state === "in_progress"}
       <div class="state">
         <span>{$i18n.progress.in_progress}</span>
@@ -86,6 +91,25 @@
 
     .checkmark {
       --checkmark-color: var(--progress-color);
+    }
+  }
+
+  .failed {
+    color: var(--negative-emphasis);
+    --icon-close-circle-background: var(--negative-emphasis);
+    --icon-close-circle-color: white;
+
+    .line {
+      --line-color: var(--negative-emphasis);
+    }
+
+    .state {
+      color: var(--negative-emphasis);
+      background: var(--negative-emphasis-light);
+    }
+
+    .checkmark {
+      --checkmark-color: var(--negative-emphasis);
     }
   }
 
