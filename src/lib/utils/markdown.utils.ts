@@ -69,16 +69,13 @@ const escapeSvgs = (html: string): string => {
   codeBlocks.sort((a, b) => a.start - b.start);
 
   // Helper function to check if a position is inside any code block
-  const isInsideCodeBlock = (position: number): boolean => {
-    return codeBlocks.some(
-      (block) => position >= block.start && position < block.end,
-    );
-  };
+  const isInsideCodeBlock = (position: number): boolean =>
+    codeBlocks.some((block) => position >= block.start && position < block.end);
 
   // Replace SVGs that are NOT inside code blocks
-  return html.replace(/<svg[^>]*>[\s\S]*?<\/svg>/gi, (svgMatch, offset) => {
-    return isInsideCodeBlock(offset) ? svgMatch : escapeHtml(svgMatch);
-  });
+  return html.replace(/<svg[^>]*>[\s\S]*?<\/svg>/gi, (svgMatch, offset) =>
+    isInsideCodeBlock(offset) ? svgMatch : escapeHtml(svgMatch),
+  );
 };
 
 /**

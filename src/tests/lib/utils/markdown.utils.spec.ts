@@ -151,37 +151,48 @@ describe("markdown.utils", () => {
       );
     });
 
-    it("should preserve SVGs inside fenced code blocks", async () => {
-      const markdown = `
-   Here's some code:
-   \`\`\`xml
-   <svg width="100" height="100">
-     <circle cx="50" cy="50" r="40" />
-   </svg>
-   \`\`\`
-   And a regular SVG: <svg>test</svg>
-   `;
+    it("should escape SVGs in regular markdown text", async () => {
+      const markdown = `Here's an SVG: <svg onload="alert('xss')"><circle/></svg>`;
 
       const result = await markdownToHTML(markdown);
 
-      // SVG inside code block should be preserved
-      expect(result).toContain('<svg width="100" height="100">');
-      expect(result).toContain('<circle cx="50" cy="50" r="40" />');
-
-      // SVG outside code block should be escaped
-      expect(result).toContain("&lt;svg&gt;test&lt;/svg&gt;");
+      // SVG should be escaped for security
+      expect(result).toContain("&lt;svg");
+      expect(result).toContain("&lt;/svg&gt;");
+      expect(result).not.toContain("<svg onload=\"alert('xss')\"");
     });
 
-    it("should preserve SVGs inside inline code", async () => {
-      const markdown = `Use \`<svg>icon</svg>\` for icons and <svg>other</svg> normally.`;
+    it("should escape SVGs in HTML blocks", async () => {
+      const markdown = `<div>
+   <svg xmlns="http://www.w3.org/2000/svg" onload="alert('xss')">
+     <circle cx="50" cy="50" r="40"/>
+   </svg>
+   </div>`;
 
       const result = await markdownToHTML(markdown);
 
-      // SVG inside inline code should be preserved
-      expect(result).toContain("<code><svg>icon<svg&gt;</code>");
+      // SVG should be escaped even in HTML blocks
+      expect(result).toContain("&lt;svg");
+      expect(result).toContain("&lt;circle");
+    });
 
-      // SVG outside code should be escaped
-      expect(result).toContain("&lt;svg&gt;other&lt;/svg&gt;");
+    it("should preserve SVGs in code blocks as escaped text", async () => {
+      const markdown = `
+   \`\`\`xml
+   <svg onload="alert('safe-in-code')">
+     <circle cx="50" cy="50" r="40"/>
+   </svg>
+   \`\`\``;
+
+      const result = await markdownToHTML(markdown);
+
+      // SVG in code should be HTML-encoded for display as text
+      expect(result).toContain("&lt;svg");
+      expect(result).toContain("&lt;circle");
+      expect(result).toContain("&lt;/svg&gt;");
+
+      // Should not contain executable SVG
+      expect(result).not.toContain("<svg onload=\"alert('safe-in-code')\"");
     });
   });
 });
