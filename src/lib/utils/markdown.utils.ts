@@ -47,8 +47,39 @@ export const imageToLinkRenderer = (
 
 const escapeHtml = (html: string): string =>
   html.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-const escapeSvgs = (html: string): string =>
-  html.replace(/<svg[^>]*>[\s\S]*?<\/svg>/gi, escapeHtml);
+
+const escapeSvgs = (html: string): string => {
+  // Find all code blocks (both inline and fenced) and their positions
+  const codeBlocks: Array<{ start: number; end: number }> = [];
+
+  // Match fenced code blocks (```...```)
+  const fencedCodeRegex = /```[\s\S]*?```/g;
+  let match;
+  while ((match = fencedCodeRegex.exec(html)) !== null) {
+    codeBlocks.push({ start: match.index, end: match.index + match[0].length });
+  }
+
+  // Match inline code (`...`)
+  const inlineCodeRegex = /`[^`\n]+`/g;
+  while ((match = inlineCodeRegex.exec(html)) !== null) {
+    codeBlocks.push({ start: match.index, end: match.index + match[0].length });
+  }
+
+  // Sort code blocks by start position
+  codeBlocks.sort((a, b) => a.start - b.start);
+
+  // Helper function to check if a position is inside any code block
+  const isInsideCodeBlock = (position: number): boolean => {
+    return codeBlocks.some(
+      (block) => position >= block.start && position < block.end,
+    );
+  };
+
+  // Replace SVGs that are NOT inside code blocks
+  return html.replace(/<svg[^>]*>[\s\S]*?<\/svg>/gi, (svgMatch, offset) => {
+    return isInsideCodeBlock(offset) ? svgMatch : escapeHtml(svgMatch);
+  });
+};
 
 /**
  * Escape <img> tags or convert them to links

@@ -150,5 +150,38 @@ describe("markdown.utils", () => {
         `<a href="image.png" target="_blank" rel="noopener noreferrer" type="image/png">title</a>`,
       );
     });
+
+    it("should preserve SVGs inside fenced code blocks", async () => {
+      const markdown = `
+   Here's some code:
+   \`\`\`xml
+   <svg width="100" height="100">
+     <circle cx="50" cy="50" r="40" />
+   </svg>
+   \`\`\`
+   And a regular SVG: <svg>test</svg>
+   `;
+
+      const result = await markdownToHTML(markdown);
+
+      // SVG inside code block should be preserved
+      expect(result).toContain('<svg width="100" height="100">');
+      expect(result).toContain('<circle cx="50" cy="50" r="40" />');
+
+      // SVG outside code block should be escaped
+      expect(result).toContain("&lt;svg&gt;test&lt;/svg&gt;");
+    });
+
+    it("should preserve SVGs inside inline code", async () => {
+      const markdown = `Use \`<svg>icon</svg>\` for icons and <svg>other</svg> normally.`;
+
+      const result = await markdownToHTML(markdown);
+
+      // SVG inside inline code should be preserved
+      expect(result).toContain("<code><svg>icon<svg&gt;</code>");
+
+      // SVG outside code should be escaped
+      expect(result).toContain("&lt;svg&gt;other&lt;/svg&gt;");
+    });
   });
 });
