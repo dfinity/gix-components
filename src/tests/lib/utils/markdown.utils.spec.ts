@@ -150,5 +150,49 @@ describe("markdown.utils", () => {
         `<a href="image.png" target="_blank" rel="noopener noreferrer" type="image/png">title</a>`,
       );
     });
+
+    it("should escape SVGs in regular markdown text", async () => {
+      const markdown = `Here's an SVG: <svg onload="alert('xss')"><circle/></svg>`;
+
+      const result = await markdownToHTML(markdown);
+
+      // SVG should be escaped for security
+      expect(result).toContain("&lt;svg");
+      expect(result).toContain("&lt;/svg&gt;");
+      expect(result).not.toContain("<svg onload=\"alert('xss')\"");
+    });
+
+    it("should escape SVGs in HTML blocks", async () => {
+      const markdown = `<div>
+   <svg xmlns="http://www.w3.org/2000/svg" onload="alert('xss')">
+     <circle cx="50" cy="50" r="40"/>
+   </svg>
+   </div>`;
+
+      const result = await markdownToHTML(markdown);
+
+      // SVG should be escaped even in HTML blocks
+      expect(result).toContain("&lt;svg");
+      expect(result).toContain("&lt;circle");
+    });
+
+    it("should preserve SVGs in code blocks as escaped text", async () => {
+      const markdown = `
+   \`\`\`xml
+   <svg onload="alert('safe-in-code')">
+     <circle cx="50" cy="50" r="40"/>
+   </svg>
+   \`\`\``;
+
+      const result = await markdownToHTML(markdown);
+
+      // SVG in code should be HTML-encoded for display as text
+      expect(result).toContain("&lt;svg");
+      expect(result).toContain("&lt;circle");
+      expect(result).toContain("&lt;/svg&gt;");
+
+      // Should not contain executable SVG
+      expect(result).not.toContain("<svg onload=\"alert('safe-in-code')\"");
+    });
   });
 });

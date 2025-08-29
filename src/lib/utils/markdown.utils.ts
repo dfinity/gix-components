@@ -47,8 +47,42 @@ export const imageToLinkRenderer = (
 
 const escapeHtml = (html: string): string =>
   html.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-const escapeSvgs = (html: string): string =>
-  html.replace(/<svg[^>]*>[\s\S]*?<\/svg>/gi, escapeHtml);
+
+const escapeSvgs = (html: string): string => {
+  // Early exit if no SVGs to process
+  if (!/<svg\b[^>]*>/i.test(html)) {
+    return html;
+  }
+  // Early exit if no code blocks - just escape all SVGs
+  if (!/```[\s\S]*?```|`[^`\n]+`/g.test(html)) {
+    return html.replace(/<svg[^>]*>[\s\S]*?<\/svg>/gi, escapeHtml);
+  }
+
+  // Find all code blocks (both inline and fenced) and their positions
+  const codeBlocks: Array<{ start: number; end: number }> = [];
+
+  // Match fenced code blocks (```...```)
+  const fencedCodeRegex = /```[\s\S]*?```/g;
+  let match;
+  while ((match = fencedCodeRegex.exec(html)) !== null) {
+    codeBlocks.push({ start: match.index, end: match.index + match[0].length });
+  }
+
+  // Match inline code (`...`)
+  const inlineCodeRegex = /`[^`\n]+`/g;
+  while ((match = inlineCodeRegex.exec(html)) !== null) {
+    codeBlocks.push({ start: match.index, end: match.index + match[0].length });
+  }
+
+  // Helper function to check if a position is inside any code block
+  const isInsideCodeBlock = (position: number): boolean =>
+    codeBlocks.some((block) => position >= block.start && position < block.end);
+
+  // Replace SVGs that are NOT inside code blocks
+  return html.replace(/<svg[^>]*>[\s\S]*?<\/svg>/gi, (svgMatch, offset) =>
+    isInsideCodeBlock(offset) ? svgMatch : escapeHtml(svgMatch),
+  );
+};
 
 /**
  * Escape <img> tags or convert them to links
@@ -96,7 +130,6 @@ const proposalSummaryRenderer = (marked: Marked): Renderer => {
 export const markdownToHTML = async (text: string): Promise<string> => {
   // Replace the SVG elements in the HTML with their escaped versions to improve security.
   // It's not possible to do it with html renderer because the svg consists of multiple tags.
-  // One edge case is not covered: if the svg is inside the <code> tag, it will be rendered as with &lt; & &gt; instead of "<" & ">"
   const escapedText = escapeSvgs(text);
 
   // The dynamic import cannot be analyzed by Vite. As it is intended, we use the /* @vite-ignore */ comment inside the import() call to suppress this warning.
