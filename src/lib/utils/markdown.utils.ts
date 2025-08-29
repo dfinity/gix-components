@@ -49,6 +49,15 @@ const escapeHtml = (html: string): string =>
   html.replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
 const escapeSvgs = (html: string): string => {
+  // Early exit if no SVGs to process
+  if (!/<svg\b[^>]*>/i.test(html)) {
+    return html;
+  }
+  // Early exit if no code blocks - just escape all SVGs
+  if (!/```[\s\S]*?```|`[^`\n]+`/g.test(html)) {
+    return html.replace(/<svg[^>]*>[\s\S]*?<\/svg>/gi, escapeHtml);
+  }
+
   // Find all code blocks (both inline and fenced) and their positions
   const codeBlocks: Array<{ start: number; end: number }> = [];
 
@@ -64,9 +73,6 @@ const escapeSvgs = (html: string): string => {
   while ((match = inlineCodeRegex.exec(html)) !== null) {
     codeBlocks.push({ start: match.index, end: match.index + match[0].length });
   }
-
-  // Sort code blocks by start position
-  codeBlocks.sort((a, b) => a.start - b.start);
 
   // Helper function to check if a position is inside any code block
   const isInsideCodeBlock = (position: number): boolean =>
