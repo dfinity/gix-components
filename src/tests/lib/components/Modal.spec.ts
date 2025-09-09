@@ -1,15 +1,16 @@
 import { startBusy } from "$lib";
-import Modal from "$lib/components/Modal.svelte";
+import Modal, { type ModalProps } from "$lib/components/Modal.svelte";
 import { fireEvent } from "@testing-library/svelte";
 import { render } from "../../utils/render.test-utils";
+import { mockSnippet } from "../mocks/snippet.mocks";
 import ModalTest from "./ModalTest.svelte";
 
 describe("Modal", () => {
-  const props: { visible: boolean } = { visible: true };
+  const props: ModalProps = { visible: true, children: mockSnippet };
 
   it("should display modal", async () => {
     const { container, rerender } = render(Modal, {
-      props: { visible: false },
+      props: { visible: false, children: mockSnippet },
     });
 
     expect(container.querySelector("div.modal")).toBeNull();
@@ -21,7 +22,7 @@ describe("Modal", () => {
 
   it("should display an alert modal", () => {
     const { container } = render(Modal, {
-      props: { visible: true, role: "alert" },
+      props: { visible: true, role: "alert", children: mockSnippet },
     });
 
     const alert: HTMLElement | null = container.querySelector('[role="alert"]');
@@ -74,15 +75,15 @@ describe("Modal", () => {
   });
 
   it("should render a subtitle", () => {
-    const subTitle = "My subtitle";
+    const subTitleString = "My subtitle";
     const { getByText } = render(ModalTest, {
       props: {
         ...props,
-        subTitle,
+        subTitleString,
       },
     });
 
-    expect(getByText(subTitle)).not.toBeNull();
+    expect(getByText(subTitleString)).not.toBeNull();
   });
 
   it("should render a toolbar", () => {
@@ -125,9 +126,9 @@ describe("Modal", () => {
   it("should trigger close modal on Esc", () =>
     new Promise<void>((done) => {
       const { container } = render(Modal, {
-        props,
-        events: {
-          nnsClose: () => done(),
+        props: {
+          ...props,
+          onClose: () => done(),
         },
       });
 
@@ -196,16 +197,18 @@ describe("Modal", () => {
   it("should trigger close modal on click on close button", () =>
     new Promise<void>((done) => {
       const { getByTestId } = render(ModalTest, {
-        props,
-        // TODO: remove once events is migrated to props
-        events: {
-          nnsClose: () => done(),
+        props: {
+          ...props,
+          onClose: () => done(),
         },
       });
 
       const button: HTMLElement | null = getByTestId("close-modal");
 
-      button && fireEvent.click(button);
+      expect(button).not.toBeNull();
+      expect(button).toBeInTheDocument();
+
+      fireEvent.click(button);
     }));
 
   it("should not trigger close modal on click on backdrop", () => {

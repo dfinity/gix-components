@@ -1,33 +1,58 @@
 <script lang="ts">
   import { nonNullish } from "@dfinity/utils";
-  import { createEventDispatcher } from "svelte";
+  import type { Snippet } from "svelte";
   import { get } from "svelte/store";
   import { fade } from "svelte/transition";
   import Backdrop from "$lib/components/Backdrop.svelte";
   import IconClose from "$lib/icons/IconClose.svelte";
   import { busy } from "$lib/stores/busy.store";
   import { i18n } from "$lib/stores/i18n";
+  import type { OnEventCallback } from "$lib/types/event-modifiers";
+  import { stopPropagation } from "$lib/utils/event-modifiers.utils";
   import { nextElementId } from "$lib/utils/html.utils";
 
-  export let visible = true;
-  export let role: "dialog" | "alert" = "dialog";
-  export let testId: string | undefined = undefined;
-  export let disablePointerEvents = false;
+  export interface ModalProps {
+    visible?: boolean;
+    role?: "dialog" | "alert";
+    testId?: string;
+    disablePointerEvents?: boolean;
+    title?: Snippet;
+    headerLeft?: Snippet;
+    headerRight?: Snippet;
+    subTitle?: Snippet;
+    footer?: Snippet;
+    children: Snippet;
+    onClose?: () => void;
+    onIntroEnd?: () => void;
+    onClick?: OnEventCallback;
+  }
 
-  let showHeader: boolean;
-  $: showHeader = nonNullish($$slots.title);
+  let {
+    visible = true,
+    role = "dialog",
+    testId,
+    disablePointerEvents = false,
+    title,
+    headerLeft,
+    headerRight,
+    subTitle,
+    footer,
+    children,
+    onClose,
+    onIntroEnd,
+    onClick,
+  }: ModalProps = $props();
 
-  let showHeaderLeft: boolean;
-  $: showHeaderLeft = nonNullish($$slots["header-left"]);
+  let showHeader = $derived(nonNullish(title));
+
+  let showHeaderLeft = $derived(nonNullish(headerLeft));
 
   /**
    * @deprecated according new design there should be no sticky footer
    */
-  let showFooterAlert: boolean;
-  $: showFooterAlert = nonNullish($$slots.footer) && role === "alert";
+  let showFooterAlert = $derived(nonNullish(footer) && role === "alert");
 
-  const dispatch = createEventDispatcher();
-  const close = () => dispatch("nnsClose");
+  const close = () => onClose?.();
 
   // A bit faster fade in that backdrop IN, a bit slower on OUT
   const FADE_IN_DURATION = 125 as const;
@@ -37,14 +62,14 @@
   const modalContentId = nextElementId("modal-content-");
 
   const handleKeyDown = ({ key }: KeyboardEvent) => {
-    // Check for $busy to mock the same behavior as the close button being covered by the busy overlay
+    // Check for $busy to mock the same behaviour as the close button being covered by the busy overlay
     if (visible && !disablePointerEvents && !get(busy) && key === "Escape") {
       close();
     }
   };
 </script>
 
-<svelte:window on:keydown={handleKeyDown} />
+<svelte:window onkeydown={handleKeyDown} />
 
 {#if visible}
   <div
@@ -52,9 +77,9 @@
     aria-describedby={modalContentId}
     aria-labelledby={showHeader ? modalTitleId : undefined}
     data-tid={testId}
+    onclick={nonNullish(onClick) ? stopPropagation(onClick) : undefined}
+    onintroend={onIntroEnd}
     {role}
-    on:introend
-    on:click|stopPropagation
     transition:fade|global={{ duration: 25 }}
   >
     <Backdrop {disablePointerEvents} on:nnsClose />
@@ -67,31 +92,32 @@
         <div class="header">
           {#if showHeaderLeft}
             <div class="header-left">
-              <slot name="header-left" />
+              {@render headerLeft?.()}
             </div>
           {/if}
 
           <h2 id={modalTitleId} data-tid="modal-title">
-            <slot name="title" />
+            {@render title?.()}
           </h2>
 
           <div class="header-right">
-            <slot name="header-right" />
+            {@render headerRight?.()}
 
             {#if !disablePointerEvents}
               <button
                 aria-label={$i18n.core.close}
                 data-tid="close-modal"
-                on:click|stopPropagation={close}
-                ><IconClose size="24px" /></button
+                onclick={stopPropagation(close)}
               >
+                <IconClose size="24px" />
+              </button>
             {/if}
           </div>
         </div>
       {/if}
 
       <div class="container-wrapper">
-        <slot name="sub-title" />
+        {@render subTitle?.()}
 
         <div class="container">
           <div
@@ -99,14 +125,14 @@
             class="content"
             class:alert={role === "alert"}
           >
-            <slot />
+            {@render children()}
           </div>
         </div>
       </div>
 
       {#if showFooterAlert}
         <div class="footer toolbar">
-          <slot name="footer" />
+          {@render footer?.()}
         </div>
       {/if}
     </div>

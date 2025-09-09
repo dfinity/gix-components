@@ -57,8 +57,8 @@ Open modal
 
 </div>
 
-<Modal {visible} on:nnsClose={close} on:introend={() => renderQRCodeReader = true}>
-<svelte:fragment slot="title">Scan QR Code</svelte:fragment>
+<Modal {visible} onClose={close} onIntroend={() => renderQRCodeReader = true}>
+{#snippet title()}Scan QR Code{/snippet}
 
 {#if renderQRCodeReader}
 <QRCodeReaderModal on:nnsQRCode={({detail: value}) => {
