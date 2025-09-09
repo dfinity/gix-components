@@ -8,7 +8,9 @@
 
 # Modal
 
-A Modal is a dialog that appears on top of the app's content, and must be dismissed by the app before interaction can resume. It is useful as a select component when there are a lot of options to choose from, or when filtering items in a list, as well as many other use cases.
+A Modal is a dialog that appears on top of the app's content and must be dismissed by the app before interaction can resume.
+It is useful as a select component when there are a lot of options to choose from,
+or when filtering items in a list, as well as many other use cases.
 
 ```javascript
 <script lang="ts">
@@ -19,8 +21,8 @@ A Modal is a dialog that appears on top of the app's content, and must be dismis
   Open modal
 </button>
 
-<Modal {visible} on:nnsClose={() => (visible = false)}>
-  <svelte:fragment slot="title">My title</svelte:fragment>
+<Modal {visible} onClose={() => (visible = false)}>
+  {#snippet title()}My title{/snippet}
 
   <p>My content</p>
 </Modal>
@@ -28,29 +30,26 @@ A Modal is a dialog that appears on top of the app's content, and must be dismis
 
 ## Properties
 
-| Property               | Description                                                                                             | Type                    | Default     |
-| ---------------------- | ------------------------------------------------------------------------------------------------------- | ----------------------- | ----------- |
-| `visible`              | Display or hide the modal.                                                                              | `boolean`               | `false`     |
-| `role`                 | The modal is either a dialog meant for getting work done or an alert that requires immediate attention. | `dialog` or `alert`     | `dialog`    |
-| `testId`               | Add a `data-tid` attribute to the DOM, useful for test purpose.                                         | `string` or `undefined` | `undefined` |
-| `disablePointerEvents` | Disable interactive elements - close actions - of the modal.                                            | `boolean`               | `false`     |
+| Property               | Description                                                                                                                                           | Type                    | Default     |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- | ----------- |
+| `visible`              | Display or hide the modal.                                                                                                                            | `boolean`               | `false`     |
+| `role`                 | The modal is either a dialog meant for getting work done or an alert that requires immediate attention.                                               | `dialog` or `alert`     | `dialog`    |
+| `testId`               | Add a `data-tid` attribute to the DOM, useful for test purpose.                                                                                       | `string` or `undefined` | `undefined` |
+| `disablePointerEvents` | Disable interactive elements - close actions - of the modal.                                                                                          | `boolean`               | `false`     |
+| `onClose`              | Triggered when a closing interaction element is clicks - close button or backdrop. Note that the modal itself does not update the `visible` property. | `() => void`            | `undefined` |
+| `onIntroEnd`           | Callback triggered when the intro transition ends.                                                                                                    | `() => void`            | `undefined` |
+| `onClick`              | Callback triggered when the modal is clicked.                                                                                                         | `() => void`            | `undefined` |
 
-## Slots
+## Snippets
 
-| Slot name      | Description                                                                                                                                                                       |
-| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Default slot   | The content of the modal.                                                                                                                                                         |
-| `title`        | The title of the modal. Displayed in a toolbar with a "Close" icon button on the right side.                                                                                      |
-| `header-left`  | Position content on the left side of the header title, such as additional buttons.                                                                                                |
-| `header-right` | Position content on the right side of the header title, such as additional buttons, or replace the close button with a custom button by setting `disablePointerEvents` to `true`. |
-| `toolbar`      | A sticky toolbar displayed at the bottom of the modal. Available for "alert" only.                                                                                                |
-| `sub-title`    | A slot below the title but outside of the content card.                                                                                                                           |
-
-## Events
-
-| Event      | Description                                                                                                                                           | Detail    |
-| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| `nnsClose` | Triggered when a closing interaction element is clicks - close button or backdrop. Note that the modal itself does not update the `visible` property. | No detail |
+| Snippet name    | Description                                                                                                                                                                       |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Default snippet | The content of the modal.                                                                                                                                                         |
+| `title`         | The title of the modal. Displayed in a toolbar with a "Close" icon button on the right side.                                                                                      |
+| `header-left`   | Position content on the left side of the header title, such as additional buttons.                                                                                                |
+| `header-right`  | Position content on the right side of the header title, such as additional buttons, or replace the close button with a custom button by setting `disablePointerEvents` to `true`. |
+| `toolbar`       | A sticky toolbar displayed at the bottom of the modal. Available for "alert" only.                                                                                                |
+| `sub-title`     | A snippet below the title but outside of the content card.                                                                                                                        |
 
 ## Utility Classes
 
@@ -64,10 +63,10 @@ A Modal is a dialog that appears on top of the app's content, and must be dismis
 Open modal
 </button>
 
-<Modal {visible} on:nnsClose={() => (visible = false)} {role}>
-<svelte:fragment slot="title">My title</svelte:fragment>
+<Modal {visible} onClose={() => (visible = false)} {role}>
+{#snippet title()}My title{/snippet}
 
-<p slot="sub-title">This is the subtitle</p>
+{#snippet subTitle()}<p >This is the subtitle</p>{/snippet}
 
 <DocsLoremIpsum length={role === "alert" ? 1 : 10} />
 
@@ -79,12 +78,12 @@ Open modal
 </div>
 {/if}
 
-<svelte:fragment slot="footer">
+{#snippet footer()}
 {#if role === "alert"}
 <button class="secondary">Cancel</button>
 <button class="primary">An action</button>
 {/if}
-</svelte:fragment>
+{/snippet}
 
 </Modal>
 

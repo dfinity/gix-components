@@ -62,11 +62,7 @@
 </script>
 
 {#if visible}
-  <Modal {disablePointerEvents} {testId} on:nnsClose={close}>
-    <svelte:fragment slot="title">
-      {@render title?.()}
-    </svelte:fragment>
-
+  <Modal {disablePointerEvents} onClose={close} {testId} {title}>
     <WizardTransition {transition}>
       {@render children()}
     </WizardTransition>
