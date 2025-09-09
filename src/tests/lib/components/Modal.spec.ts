@@ -1,5 +1,6 @@
 import { startBusy } from "$lib";
-import Modal, { type ModalProps } from "$lib/components/Modal.svelte";
+import Modal from "$lib/components/Modal.svelte";
+import type { ModalProps } from "$lib/types/modal";
 import { fireEvent } from "@testing-library/svelte";
 import { render } from "../../utils/render.test-utils";
 import { mockSnippet } from "../mocks/snippet.mocks";

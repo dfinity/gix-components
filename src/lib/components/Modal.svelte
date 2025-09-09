@@ -1,31 +1,14 @@
 <script lang="ts">
   import { nonNullish } from "@dfinity/utils";
-  import type { Snippet } from "svelte";
   import { get } from "svelte/store";
   import { fade } from "svelte/transition";
   import Backdrop from "$lib/components/Backdrop.svelte";
   import IconClose from "$lib/icons/IconClose.svelte";
   import { busy } from "$lib/stores/busy.store";
   import { i18n } from "$lib/stores/i18n";
-  import type { OnEventCallback } from "$lib/types/event-modifiers";
+  import type { ModalProps } from "$lib/types/modal";
   import { stopPropagation } from "$lib/utils/event-modifiers.utils";
   import { nextElementId } from "$lib/utils/html.utils";
-
-  export interface ModalProps {
-    visible?: boolean;
-    role?: "dialog" | "alert";
-    testId?: string;
-    disablePointerEvents?: boolean;
-    title?: Snippet;
-    headerLeft?: Snippet;
-    headerRight?: Snippet;
-    subTitle?: Snippet;
-    footer?: Snippet;
-    children: Snippet;
-    onClose?: () => void;
-    onIntroEnd?: () => void;
-    onClick?: OnEventCallback;
-  }
 
   let {
     visible = true,
