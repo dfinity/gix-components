@@ -57,7 +57,7 @@ Open modal
 
 </div>
 
-<Modal {visible} onClose={close} onIntroend={() => renderQRCodeReader = true}>
+<Modal {visible} onClose={close} onIntroEnd={() => renderQRCodeReader = true}>
 {#snippet title()}Scan QR Code{/snippet}
 
 {#if renderQRCodeReader}
