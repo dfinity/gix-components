@@ -10,6 +10,7 @@ export * from "./stores/toasts.store";
 export * from "./stores/wizard.state";
 export type { BusyState } from "./types/busy";
 export type { ChipGroupItem } from "./types/chip-group";
+export type { ModalProps } from "./types/modal";
 export type { ProgressBarSegment } from "./types/progress-bar";
 export type { ProgressStep, ProgressStepState } from "./types/progress-step";
 export * from "./types/theme";
