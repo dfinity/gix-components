@@ -14,7 +14,7 @@ test("Second step is in progress", async ({ page }) => {
   const showcase = page.getByTestId("showcase");
   await showcase.scrollIntoViewIfNeeded();
 
-  // Hide spinner to avoid test failing if not exact same timing
+  // Hide spinner to avoid test failing if not the exact same timing
   await page.evaluate(() =>
     document.querySelector(".spinner")?.setAttribute("style", "opacity: 0;"),
   );
@@ -32,7 +32,7 @@ test("All steps are completed", async ({ page }) => {
   await toggle.click();
 
   // Wait for animation
-  await page.waitForTimeout(2500);
+  await page.waitForTimeout(3500);
 
   await expect(page).toHaveScreenshot();
 });
