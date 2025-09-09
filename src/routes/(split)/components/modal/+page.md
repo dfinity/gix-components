@@ -22,7 +22,7 @@ or when filtering items in a list, as well as many other use cases.
 </button>
 
 <Modal {visible} onClose={() => (visible = false)}>
-  <svelte:fragment slot="title">My title</svelte:fragment>
+  {#snippet title()}My title{/snippet}
 
   <p>My content</p>
 </Modal>
