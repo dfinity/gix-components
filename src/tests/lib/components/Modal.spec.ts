@@ -138,11 +138,11 @@ describe("Modal", () => {
 
   it("should not close modal on not Esc keypress", () => {
     const { container } = render(Modal, {
-      props,
-      events: {
-        nnsClose: () => {
+      props: {
+        ...props,
+        onClose: () => {
           throw new Error("Should not close modal");
-        },
+        }
       },
     });
 
@@ -152,11 +152,11 @@ describe("Modal", () => {
 
   it("should not close modal on Esc when busy = true", () => {
     const { container } = render(Modal, {
-      props,
-      events: {
-        nnsClose: () => {
+      props: {
+        ...props,
+        onClose: () => {
           throw new Error("Should not close modal");
-        },
+        }
       },
     });
 
