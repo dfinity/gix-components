@@ -113,9 +113,9 @@ describe("Modal", () => {
   it("should trigger close modal on click on backdrop", () =>
     new Promise<void>((done) => {
       const { container } = render(Modal, {
-        props,
-        events: {
-          nnsClose: () => done(),
+        props: {
+          ...props,
+          onClose: () => done(),
         },
       });
 
@@ -138,9 +138,9 @@ describe("Modal", () => {
 
   it("should not close modal on not Esc keypress", () => {
     const { container } = render(Modal, {
-      props,
-      events: {
-        nnsClose: () => {
+      props: {
+        ...props,
+        onClose: () => {
           throw new Error("Should not close modal");
         },
       },
@@ -152,9 +152,9 @@ describe("Modal", () => {
 
   it("should not close modal on Esc when busy = true", () => {
     const { container } = render(Modal, {
-      props,
-      events: {
-        nnsClose: () => {
+      props: {
+        ...props,
+        onClose: () => {
           throw new Error("Should not close modal");
         },
       },
