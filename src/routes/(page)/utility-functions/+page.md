@@ -13,9 +13,9 @@ A collection of handy JavaScript/TypeScript utility functions you can use alongs
 
 A wrapper function to stop event propagation of a mouse event before executing a callback function.
 
-| Function          | Type                                                       |
-| ----------------- | ---------------------------------------------------------- |
-| `stopPropagation` | `<T extends EventTarget>(fn: any) => MouseEventHandler<T>` |
+| Function          | Type                                                                              |
+| ----------------- | --------------------------------------------------------------------------------- |
+| `stopPropagation` | `<T extends EventTarget>(fn: OptionalOnEventCallback<T>) => MouseEventHandler<T>` |
 
 Parameters:
 
@@ -25,15 +25,15 @@ Returns:
 
 - A function that takes an event and stop its propagation, before executing the provided function.
 
-[Source](https://github.com/dfinity/gix-components/tree/main/src/lib/utils/event-modifiers.utils.ts#L18)
+[Source](https://github.com/dfinity/gix-components/tree/main/src/lib/utils/event-modifiers.utils.ts#L21)
 
 ### preventDefault
 
 A wrapper function to prevent the default action of a mouse event before executing a callback function.
 
-| Function         | Type                                                       |
-| ---------------- | ---------------------------------------------------------- |
-| `preventDefault` | `<T extends EventTarget>(fn: any) => MouseEventHandler<T>` |
+| Function         | Type                                                                              |
+| ---------------- | --------------------------------------------------------------------------------- |
+| `preventDefault` | `<T extends EventTarget>(fn: OptionalOnEventCallback<T>) => MouseEventHandler<T>` |
 
 Parameters:
 
@@ -43,7 +43,7 @@ Returns:
 
 - A function that takes an event and prevents its default action, before executing the provided function.
 
-[Source](https://github.com/dfinity/gix-components/tree/main/src/lib/utils/event-modifiers.utils.ts#L34)
+[Source](https://github.com/dfinity/gix-components/tree/main/src/lib/utils/event-modifiers.utils.ts#L37)
 
 <!-- TSDOC_END -->
 
