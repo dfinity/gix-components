@@ -115,7 +115,7 @@ describe("Modal", () => {
       const { container } = render(Modal, {
         props,
         events: {
-          nnsClose: () => done(),
+          onClose: () => done(),
         },
       });
 
