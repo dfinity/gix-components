@@ -142,7 +142,7 @@ describe("Modal", () => {
         ...props,
         onClose: () => {
           throw new Error("Should not close modal");
-        }
+        },
       },
     });
 
@@ -156,7 +156,7 @@ describe("Modal", () => {
         ...props,
         onClose: () => {
           throw new Error("Should not close modal");
-        }
+        },
       },
     });
 
