@@ -4,6 +4,7 @@ import type { ModalProps } from "$lib/types/modal";
 import { fireEvent } from "@testing-library/svelte";
 import { render } from "../../utils/render.test-utils";
 import { mockSnippet } from "../mocks/snippet.mocks";
+import ModalPropagationTest from "./ModalPropagationTest.svelte";
 import ModalTest from "./ModalTest.svelte";
 
 describe("Modal", () => {
@@ -237,5 +238,19 @@ describe("Modal", () => {
     expect(headerLeftElement?.textContent).toBe("Left Header Content");
     expect(headerRightElement).not.toBeNull();
     expect(headerRightElement?.textContent).toBe("Right Header Content");
+  });
+
+  it("should stop the propagation of the click event", async () => {
+    const onParentClick = vi.fn();
+    const childTestId = "child-modal";
+
+    const { getByTestId } = render(ModalPropagationTest, {
+      props: { onParentClick, childTestId },
+    });
+
+    const button = getByTestId(childTestId);
+    await fireEvent.click(button);
+
+    expect(onParentClick).not.toHaveBeenCalled();
   });
 });

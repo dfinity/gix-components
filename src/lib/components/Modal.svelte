@@ -60,7 +60,7 @@
     aria-describedby={modalContentId}
     aria-labelledby={showHeader ? modalTitleId : undefined}
     data-tid={testId}
-    onclick={nonNullish(onClick) ? stopPropagation(onClick) : undefined}
+    onclick={stopPropagation(nonNullish(onClick) ? onClick : () => {})}
     onintroend={onIntroEnd}
     {role}
     transition:fade|global={{ duration: 25 }}
