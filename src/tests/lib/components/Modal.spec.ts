@@ -113,8 +113,8 @@ describe("Modal", () => {
   it("should trigger close modal on click on backdrop", () =>
     new Promise<void>((done) => {
       const { container } = render(Modal, {
-        props,
-        events: {
+        props: {
+          ...props,
           onClose: () => done(),
         },
       });
