@@ -42,7 +42,7 @@
   >
     <Backdrop
       invisible={invisibleBackdrop}
-      on:nnsClose={() => (visible = false)}
+      onClose={() => (visible = false)}
     />
     <div
       class="wrapper"
