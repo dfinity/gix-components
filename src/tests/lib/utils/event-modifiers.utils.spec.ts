@@ -56,13 +56,14 @@ describe("event-modifiers-utils", () => {
       await expect(handler(mockEvent)).rejects.toThrow(error);
     });
 
-    it("should throw if callback is not a function", async () => {
-      // @ts-expect-error Testing this on purpose
-      const handler = stopPropagation(undefined);
+    it("should not throw if callback is not a function", async () => {
+      const handler1 = stopPropagation(undefined);
 
-      await expect(handler(mockEvent)).rejects.toThrow(
-        new TypeError("fn is not a function"),
-      );
+      await expect(handler1(mockEvent)).resolves.not.toThrow();
+
+      const handler2 = stopPropagation(null);
+
+      await expect(handler2(mockEvent)).resolves.not.toThrow();
     });
 
     it("should call only the child handler and stop propagation to parent", async () => {
@@ -131,13 +132,14 @@ describe("event-modifiers-utils", () => {
       await expect(handler(mockEvent)).rejects.toThrow(error);
     });
 
-    it("should throw if callback is not a function", async () => {
-      // @ts-expect-error Testing this on purpose
-      const handler = preventDefault(undefined);
+    it("should not throw if callback is nullish", async () => {
+      const handler1 = preventDefault(undefined);
 
-      await expect(handler(mockEvent)).rejects.toThrow(
-        new TypeError("fn is not a function"),
-      );
+      await expect(handler1(mockEvent)).resolves.not.toThrow();
+
+      const handler2 = preventDefault(null);
+
+      await expect(handler2(mockEvent)).resolves.not.toThrow();
     });
 
     it("should call only the child handler and prevent default form submission", async () => {
