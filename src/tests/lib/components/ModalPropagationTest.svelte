@@ -18,7 +18,5 @@
 </script>
 
 <div onclick={onParentClick} onkeypress={() => {}} role="button" tabindex="-1">
-<Modal {disablePointerEvents} testId={childTestId} {visible}>
-  Content
-</Modal>
+  <Modal {disablePointerEvents} testId={childTestId} {visible}>Content</Modal>
 </div>
