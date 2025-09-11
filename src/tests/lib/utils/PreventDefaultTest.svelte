@@ -8,11 +8,7 @@
     childTestId?: string;
   }
 
-  let {
-    onSubmit = () => {},
-    onButtonClick,
-    childTestId,
-  }: Props = $props();
+  let { onSubmit = () => {}, onButtonClick, childTestId }: Props = $props();
 </script>
 
 <form onsubmit={onSubmit}>

@@ -8,11 +8,7 @@
     childTestId?: string;
   }
 
-  let {
-    onParentClick = () => {},
-    onChildClick,
-    childTestId,
-  }: Props = $props();
+  let { onParentClick = () => {}, onChildClick, childTestId }: Props = $props();
 </script>
 
 <div onclick={onParentClick} onkeypress={() => {}} role="button" tabindex="-1">
