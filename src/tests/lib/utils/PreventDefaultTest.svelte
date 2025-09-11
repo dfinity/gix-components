@@ -10,7 +10,7 @@
 
   let {
     onSubmit = () => {},
-    onButtonClick = () => {},
+    onButtonClick,
     childTestId,
   }: Props = $props();
 </script>

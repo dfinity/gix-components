@@ -81,6 +81,20 @@ describe("event-modifiers-utils", () => {
       expect(onChildClick).toHaveBeenCalledOnce();
       expect(onParentClick).not.toHaveBeenCalled();
     });
+
+    it("should stop propagation to parent even if the child callback is not provided", async () => {
+      const onParentClick = vi.fn();
+      const childTestId = "child-button";
+
+      const { getByTestId } = render(StopPropagationTest, {
+        props: { onParentClick, childTestId },
+      });
+
+      const button = getByTestId(childTestId);
+      await fireEvent.click(button);
+
+      expect(onParentClick).not.toHaveBeenCalled();
+    });
   });
 
   describe("preventDefault", () => {
@@ -155,6 +169,20 @@ describe("event-modifiers-utils", () => {
       await fireEvent.click(button);
 
       expect(onButtonClick).toHaveBeenCalledOnce();
+      expect(onSubmit).not.toHaveBeenCalled();
+    });
+
+    it("should prevent default form submission even if the child callback is not provided", async () => {
+      const onSubmit = vi.fn();
+      const childTestId = "submit-button";
+
+      const { getByTestId } = render(PreventDefaultTest, {
+        props: { onSubmit, childTestId },
+      });
+
+      const button = getByTestId(childTestId);
+      await fireEvent.click(button);
+
       expect(onSubmit).not.toHaveBeenCalled();
     });
   });

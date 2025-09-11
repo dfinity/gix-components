@@ -10,7 +10,7 @@
 
   let {
     onParentClick = () => {},
-    onChildClick = () => {},
+    onChildClick,
     childTestId,
   }: Props = $props();
 </script>
