@@ -41,7 +41,6 @@ describe("event-modifiers-utils", () => {
     it("should handle nullish events", async () => {
       const handler = stopPropagation(callbackMock);
 
-      // @ts-expect-error Testing this on purpose
       await handler(undefined);
 
       expect(callbackMock).toHaveBeenCalledExactlyOnceWith(undefined);
@@ -131,7 +130,6 @@ describe("event-modifiers-utils", () => {
     it("should handle nullish events", async () => {
       const handler = preventDefault(callbackMock);
 
-      // @ts-expect-error Testing this on purpose
       await handler(undefined);
 
       expect(callbackMock).toHaveBeenCalledExactlyOnceWith(undefined);

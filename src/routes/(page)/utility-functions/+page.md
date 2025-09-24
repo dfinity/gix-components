@@ -13,17 +13,17 @@ A collection of handy JavaScript/TypeScript utility functions you can use alongs
 
 A wrapper function to stop event propagation of a mouse event before executing a callback function.
 
-| Function          | Type                                                                              |
-| ----------------- | --------------------------------------------------------------------------------- |
-| `stopPropagation` | `<T extends EventTarget>(fn: OptionalOnEventCallback<T>) => MouseEventHandler<T>` |
+| Function          | Type                                                                                                                      |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `stopPropagation` | `<E extends Event = Event, T extends EventTarget = EventTarget>(fn: OptionalOnEventCallback<E, T>) => EventHandler<E, T>` |
 
 Parameters:
 
-- `fn`: - The function to be executed after stopping the event propagation. It can be a synchronous or asynchronous function, or null or undefined to skip the execution of the callback function and only stop the propagation of the event.
+- `Event`: , T extends EventTarget = EventTarget>} fn - The function to be executed after stopping the event propagation. It can be a synchronous or asynchronous function, or null or undefined to skip the execution of the callback function and only stop the propagation of the event.
 
 Returns:
 
-- A function that takes an event and stop its propagation, before executing the provided function.
+Event, T extends EventTarget = EventTarget>} - A function that takes an event and stop its propagation, before executing the provided function.
 
 [Source](https://github.com/dfinity/gix-components/tree/main/src/lib/utils/event-modifiers.utils.ts#L21)
 
@@ -31,17 +31,17 @@ Returns:
 
 A wrapper function to prevent the default action of a mouse event before executing a callback function.
 
-| Function         | Type                                                                              |
-| ---------------- | --------------------------------------------------------------------------------- |
-| `preventDefault` | `<T extends EventTarget>(fn: OptionalOnEventCallback<T>) => MouseEventHandler<T>` |
+| Function         | Type                                                                                                                      |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `preventDefault` | `<E extends Event = Event, T extends EventTarget = EventTarget>(fn: OptionalOnEventCallback<E, T>) => EventHandler<E, T>` |
 
 Parameters:
 
-- `fn`: - The function to be executed after preventing the default action. It can be a synchronous or asynchronous function, or null or undefined to skip the execution of the callback function and only prevent the default action.
+- `Event`: , T extends EventTarget = EventTarget>} fn - The function to be executed after preventing the default action. It can be a synchronous or asynchronous function, or null or undefined to skip the execution of the callback function and only prevent the default action.
 
 Returns:
 
-- A function that takes an event and prevents its default action, before executing the provided function.
+Event, T extends EventTarget = EventTarget>} - A function that takes an event and prevents its default action, before executing the provided function.
 
 [Source](https://github.com/dfinity/gix-components/tree/main/src/lib/utils/event-modifiers.utils.ts#L37)
 
