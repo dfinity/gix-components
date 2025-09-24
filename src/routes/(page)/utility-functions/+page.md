@@ -13,9 +13,9 @@ A collection of handy JavaScript/TypeScript utility functions you can use alongs
 
 A wrapper function to stop event propagation of a mouse event before executing a callback function.
 
-| Function          | Type                                                                                                       |
-| ----------------- | ---------------------------------------------------------------------------------------------------------- |
-| `stopPropagation` | `<E extends Event = Event, T extends EventTarget = EventTarget>(fn: OptionalOnEventCallback<E, T>) => any` |
+| Function          | Type                                                                                                                      |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `stopPropagation` | `<E extends Event = Event, T extends EventTarget = EventTarget>(fn: OptionalOnEventCallback<E, T>) => EventHandler<E, T>` |
 
 Parameters:
 
@@ -31,9 +31,9 @@ Event, T extends EventTarget = EventTarget>} - A function that takes an event an
 
 A wrapper function to prevent the default action of a mouse event before executing a callback function.
 
-| Function         | Type                                                                                                       |
-| ---------------- | ---------------------------------------------------------------------------------------------------------- |
-| `preventDefault` | `<E extends Event = Event, T extends EventTarget = EventTarget>(fn: OptionalOnEventCallback<E, T>) => any` |
+| Function         | Type                                                                                                                      |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `preventDefault` | `<E extends Event = Event, T extends EventTarget = EventTarget>(fn: OptionalOnEventCallback<E, T>) => EventHandler<E, T>` |
 
 Parameters:
 
