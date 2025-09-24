@@ -6,18 +6,20 @@
  */
 
 import type { OnEventCallback, OnEventParam } from "$lib/types/event-modifiers";
-import type { MouseEventHandler } from "svelte/elements";
+import type { EventHandler } from "svelte/elements";
 
 /**
  * A wrapper function to stop event propagation of a mouse event before executing a callback function.
  *
- * @param {OnEventCallback<T extends EventTarget>} fn - The function to be executed after stopping the event propagation. It can be a synchronous or asynchronous function.
+ * @param {OnEventCallback<E extends Event = Event, T extends EventTarget = EventTarget>} fn - The function to be executed after stopping the event propagation. It can be a synchronous or asynchronous function.
  *
- * @returns {MouseEventHandler<T extends EventTarget>} - A function that takes an event and stop its propagation, before executing the provided function.
+ * @returns {EventHandler<E extends Event = Event, T extends EventTarget = EventTarget>} - A function that takes an event and stop its propagation, before executing the provided function.
  */
 export const stopPropagation =
-  <T extends EventTarget>(fn: OnEventCallback<T>): MouseEventHandler<T> =>
-  async ($event: OnEventParam<T>) => {
+  <E extends Event = Event, T extends EventTarget = EventTarget>(
+    fn: OnEventCallback<E, T>,
+  ): EventHandler<E, T> =>
+  async ($event: OnEventParam<E, T>) => {
     $event?.stopPropagation();
     await fn($event);
   };
@@ -25,13 +27,15 @@ export const stopPropagation =
 /**
  * A wrapper function to prevent the default action of a mouse event before executing a callback function.
  *
- * @param {OnEventCallback<T extends EventTarget>} fn - The function to be executed after preventing the default action. It can be a synchronous or asynchronous function.
+ * @param {OnEventCallback<E extends Event = Event, T extends EventTarget = EventTarget>} fn - The function to be executed after preventing the default action. It can be a synchronous or asynchronous function.
  *
- * @returns {MouseEventHandler<T extends EventTarget>} - A function that takes an event and prevents its default action, before executing the provided function.
+ * @returns {EventHandler<E extends Event = Event, T extends EventTarget = EventTarget>} - A function that takes an event and prevents its default action, before executing the provided function.
  */
 export const preventDefault =
-  <T extends EventTarget>(fn: OnEventCallback<T>): MouseEventHandler<T> =>
-  async ($event: OnEventParam<T>) => {
+  <E extends Event = Event, T extends EventTarget = EventTarget>(
+    fn: OnEventCallback<E, T>,
+  ): EventHandler<E, T> =>
+  async ($event: OnEventParam<E, T>) => {
     $event?.preventDefault();
     await fn($event);
   };
