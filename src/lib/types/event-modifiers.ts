@@ -5,14 +5,15 @@ export type OnEventParam<
   currentTarget: EventTarget & T;
 };
 
-export type OnEventCallback<T extends EventTarget = EventTarget> = (
-  $event: OnEventParam<T>,
+export type OnEventCallback<E extends Event = Event,
+  T extends EventTarget = EventTarget,> = (
+  $event: OnEventParam<E,T>,
 ) => void | Promise<void>;
 
-export type OptionalOnEventCallback< 
+export type OptionalOnEventCallback<
   E extends Event = Event,
   T extends EventTarget = EventTarget,
                                    > =
-  | OnEventCallback<T>
+  | OnEventCallback<E,T>
   | null
   | undefined;
