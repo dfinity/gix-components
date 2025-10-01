@@ -1,14 +1,22 @@
 <script lang="ts">
-  import { createEventDispatcher } from "svelte";
   import { fade } from "svelte/transition";
   import { i18n } from "$lib/stores/i18n";
+  import { stopPropagation } from "$lib/utils/event-modifiers.utils";
   import { handleKeyPress } from "$lib/utils/keyboard.utils";
 
-  export let disablePointerEvents = false;
-  export let invisible = false;
+  interface Props {
+    disablePointerEvents?: boolean;
+    invisible?: boolean;
+    onClose?: () => void;
+  }
 
-  const dispatch = createEventDispatcher();
-  const close = () => dispatch("nnsClose");
+  let {
+    disablePointerEvents = false,
+    invisible = false,
+    onClose,
+  }: Props = $props();
+
+  const close = () => onClose?.();
 
   const FADE_IN_DURATION = 75 as const;
   const FADE_OUT_DURATION = 250 as const;
@@ -20,10 +28,10 @@
   class:visible={!invisible}
   aria-label={$i18n.core.close}
   data-tid="backdrop"
+  onclick={stopPropagation(close)}
+  onkeypress={($event) => handleKeyPress({ $event, callback: close })}
   role="button"
   tabindex="-1"
-  on:click|stopPropagation={close}
-  on:keypress={($event) => handleKeyPress({ $event, callback: close })}
   in:fade|global={{ duration: FADE_IN_DURATION }}
   out:fade|global={{ duration: FADE_OUT_DURATION }}
 ></div>
