@@ -61,7 +61,7 @@ The component fits the available space where it is used. Therefore, the parents 
 ## Snippets
 
 | Snippet name | Description                                  |
-|--------------| -------------------------------------------- |
+| ------------ | -------------------------------------------- |
 | `logo`       | An optional logo displayed over the QR code. |
 
 ## Showcase
