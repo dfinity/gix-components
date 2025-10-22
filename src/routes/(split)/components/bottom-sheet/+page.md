@@ -26,7 +26,7 @@ If you dynamically open/close this component, you might add `transition` prop to
 ## Snippets
 
 | Snippet name    | Description                             |
-|-----------------| --------------------------------------- |
+| --------------- | --------------------------------------- |
 | Default snippet | The content of the bottom sheet.        |
 | header          | Renders a fixed (if scrollable) header. |
 | footer          | Renders a fixed (if scrollable) footer. |
