@@ -15,7 +15,7 @@ In GIX components, such dialogs are displayed with a `fixed` position on **mobil
 </BottomSheet>
 ```
 
-If you dynamically open/close ths component, you might add `transition` prop to enable a sliding transition on mount/unmount:
+If you dynamically open/close this component, you might add `transition` prop to enable a sliding transition on mount/unmount:
 
 ```javascript
 <BottomSheet transition>
@@ -23,13 +23,13 @@ If you dynamically open/close ths component, you might add `transition` prop to 
 </BottomSheet>
 ```
 
-## Slots
+## Snippets
 
-| Slot name    | Description                             |
-| ------------ | --------------------------------------- |
-| Default slot | The content of the bottom sheet.        |
-| header       | Renders a fixed (if scrollable) header. |
-| footer       | Renders a fixed (if scrollable) footer. |
+| Snippet name    | Description                             |
+|-----------------| --------------------------------------- |
+| Default snippet | The content of the bottom sheet.        |
+| header          | Renders a fixed (if scrollable) header. |
+| footer          | Renders a fixed (if scrollable) footer. |
 
 ## Showcase
 
