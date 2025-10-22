@@ -1,20 +1,18 @@
 <script lang="ts">
   import { nonNullish } from "@dfinity/utils";
-  import { onDestroy } from "svelte";
-  import {
-    slide,
-    type SlideParams,
-    type TransitionConfig,
-  } from "svelte/transition";
+  import { onDestroy, type Snippet, untrack } from "svelte";
+  import { slide } from "svelte/transition";
   import { BREAKPOINT_LARGE } from "$lib/constants/constants";
   import { layoutBottomOffset } from "$lib/stores/layout.store";
 
-  export let transition = false;
+  interface Props {
+    transition?: boolean;
+    header?: Snippet;
+    footer?: Snippet;
+    children: Snippet;
+  }
 
-  let hasHeaderSlot: boolean;
-  $: hasHeaderSlot = nonNullish($$slots["header"]);
-  let hasFooterSlot: boolean;
-  $: hasFooterSlot = nonNullish($$slots["footer"]);
+  let { transition = false, header, footer, children }: Props = $props();
 
   onDestroy(() => ($layoutBottomOffset = 0));
 
@@ -25,15 +23,15 @@
     }
   };
 
-  let height: number | undefined = undefined;
-  let innerWidth: number | undefined = undefined;
-  $: (height, innerWidth, updateBottomOffset());
+  let height = $state<number | undefined>();
+  let innerWidth = $state<number | undefined>();
+  $effect(() => {
+    [height, innerWidth];
 
-  let transitionFn: (
-    node: Element,
-    params?: SlideParams | undefined,
-  ) => TransitionConfig;
-  $: transitionFn = transition ? slide : () => ({});
+    untrack(() => updateBottomOffset());
+  });
+
+  let transitionFn = $derived(transition ? slide : () => ({}));
 </script>
 
 <svelte:window bind:innerWidth />
@@ -44,19 +42,19 @@
   bind:clientHeight={height}
   transition:transitionFn|global={{ axis: "y", duration: 300 }}
 >
-  {#if hasHeaderSlot}
+  {#if nonNullish(header)}
     <span>
-      <slot name="header" />
+      {@render header()}
     </span>
   {/if}
 
   <span>
-    <slot />
+    {@render children()}
   </span>
 
-  {#if hasFooterSlot}
+  {#if nonNullish(footer)}
     <span>
-      <slot name="footer" />
+      {@render footer()}
     </span>
   {/if}
 </div>

@@ -5,7 +5,7 @@
 </script>
 
 <BottomSheet>
-  <p slot="header" data-tid={`${testId}-header`}>TEST HEADER</p>
+  {#snippet header()}<p data-tid={`${testId}-header`}>TEST HEADER</p>{/snippet}
   <p data-tid={`${testId}-content`}>TEST CONTENT</p>
-  <p slot="footer" data-tid={`${testId}-footer`}>TEST FOOTER</p>
+  {#snippet footer()}<p data-tid={`${testId}-footer`}>TEST FOOTER</p>{/snippet}
 </BottomSheet>
