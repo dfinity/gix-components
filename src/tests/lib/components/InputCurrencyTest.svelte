@@ -2,12 +2,19 @@
   import Input from "$lib/components/Input.svelte";
 
   interface Props {
+    name: string;
+    placeholder: string;
     decimals?: number;
-    value?: string | undefined;
+    value?: string;
   }
 
-  let { decimals = 8, value = $bindable() }: Props = $props();
+  let {
+    name,
+    placeholder,
+    decimals = 8,
+    value = $bindable(),
+  }: Props = $props();
 </script>
 
-<Input {decimals} inputType="currency" bind:value />
+<Input {name} {decimals} inputType="currency" {placeholder} bind:value />
 <p>Amount: <output data-tid="amount-decimals-output">{value ?? ""}</output></p>
