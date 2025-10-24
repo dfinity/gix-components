@@ -23,8 +23,8 @@
     "e2e:report": "npx playwright show-report",
     "e2e:dev": "NODE_ENV=development playwright test",
     "docs": "node scripts/docs.mjs && prettier --write 'src/routes/(page)/utility-functions/+page.md'",
-    "prepack": "node ../scripts/publish-strip-engines.mjs strip",
-    "postpack": "node ../scripts/publish-strip-engines.mjs redo"
+    "prepack": "node ./scripts/publish-strip-engines.mjs strip",
+    "postpack": "node ./scripts/publish-strip-engines.mjs redo"
   },
   "sideEffects": [
     "**/*.css"
