@@ -41,14 +41,14 @@ The input component is a wrapper to the HTML input element with custom styling a
 
 If the `inputType` is set to `icp`, the `value` bind by the component is a `number`. On the contrary, if bind to `currenty`, the value is a `string`. This to avoid issue with scientific notation enforced by JavaScript. It is then up to you to parse the currency according your need, for example to `bigint` or `BigNumber`.
 
-## Slots
+## Snippets
 
-| Slot name   | Description                                                                                                            |
+| Snippt name | Description                                                                                                            |
 | ----------- | ---------------------------------------------------------------------------------------------------------------------- |
 | `start`     | An addition before the label (e.g. an action related to the input). Need to be activated with the property `showInfo`. |
 | `label`     | A label related to the input. Need to be activated with the property `showInfo`.                                       |
 | `end`       | An addition after the label (e.g. an action related to the input). Need to be activated with the property `showInfo`.  |
-| `inner-end` | An addition displayed within the input (e.g. an action related to the input).                                          |
+| `innerEnd`  | An addition displayed within the input (e.g. an action related to the input).                                          |
 | `bottom`    | An addition below the input field.                                                                                     |
 
 Both slots are displayed `flex` with `space-between`.
@@ -70,26 +70,34 @@ Both slots are displayed `flex` with `space-between`.
     <Input placeholder="Disabled" disabled value="This is a disabled value" inputType="text" />
 
     <Input placeholder="Input text" inputType="text" value="" showInfo>
-        <svelte:fragment slot="label">A label</svelte:fragment>
-        <span slot="end" class="label">More</span>
+        {#snippet label()}A label{/snippet}
+        {#snippet end()}<span class="label">More</span>{/snippet}
     </Input>
 
     <Input placeholder="Input text" inputType="text" value="">
-        <IconQRCodeScanner slot="inner-end" />
+        {#snippet innerEnd()}
+            <IconQRCodeScanner />
+        {/snippet}
     </Input>
 
     <Input placeholder="Input text" inputType="text" value="">
-        <div slot="bottom">
-           <p>A slot to show stuff below the input field</p>
-        </div>
+        {#snippet bottom()}
+            <div>
+               <p>A slot to show stuff below the input field</p>
+            </div>
+        {/snippet}
     </Input>
 
     <Input placeholder="Input text" inputType="text" value="">
-        <IconQRCodeScanner slot="inner-end" />
+        {#snippet innerEnd()}
+            <IconQRCodeScanner />
+        {/snippet}
 
-        <div slot="bottom">
-           <p>A slot to show stuff below the input field</p>
-        </div>
+        {#snippet bottom()}
+            <div>
+               <p>A slot to show stuff below the input field</p>
+            </div>
+        {/snippet}
     </Input>
 
 </div>

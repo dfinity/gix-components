@@ -5,16 +5,16 @@
   interface Props {
     inputType?: "text" | "icp" | "currency";
     name: string;
-    value?: string | undefined;
+    value?: string;
     placeholder?: string;
     decimals?: number;
-    amount?: string | undefined;
+    amount?: string;
   }
 
   let {
     inputType = "text",
     name,
-    value = undefined,
+    value,
     placeholder = "test.placeholder",
     decimals = 8,
     amount = $bindable(),
@@ -31,6 +31,6 @@
 </script>
 
 <!-- eslint-disable svelte/valid-compile -->
-<span id="test" on:click={changeValue} />
+<span id="test" onclick={changeValue} />
 
 <Input {name} {decimals} {inputType} {placeholder} bind:value={amount} />

@@ -1,14 +1,16 @@
 <script lang="ts">
-  import Input from "$lib/components/Input.svelte";
+  import Input, {
+    type Props as InputProps,
+  } from "$lib/components/Input.svelte";
 
-  export let props = {};
+  let props: InputProps = $props();
 </script>
 
 <Input {...props}>
-  <svelte:fragment slot="end">
+  {#snippet end()}
     <button>Test Button</button>
-  </svelte:fragment>
-  <svelte:fragment slot="start">
+  {/snippet}
+  {#snippet start()}
     <button>Left Button</button>
-  </svelte:fragment>
+  {/snippet}
 </Input>
