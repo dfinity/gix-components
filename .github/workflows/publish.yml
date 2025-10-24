@@ -1,11 +1,14 @@
 name: Publish Release
 
 on:
+  workflow_dispatch:
   release:
     types: [released]
 
 jobs:
   publish:
+    if: github.event_name == 'release'
+    environment: release
     runs-on: ubuntu-22.04
     permissions:
       contents: read
@@ -13,7 +16,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Prepare
         uses: ./.github/actions/prepare
       - name: Build
@@ -22,5 +25,21 @@ jobs:
         run: printf '%s\n' '//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}' registry=https://registry.npmjs.org/ always-auth=true >> .npmrc
       - name: Publish
         run: npm publish --provenance --access public
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+
+  publish-next:
+    if: github.event_name == 'workflow_dispatch'
+    environment: release
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Package next
+        run: ./scripts/package-next
+      - name: Set up npm
+        run: printf '%s\n' '//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}' registry=https://registry.npmjs.org/ always-auth=true >> .npmrc
+      - name: Publish
+        run: npm publish --provenance --tag next
