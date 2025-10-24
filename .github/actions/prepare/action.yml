@@ -11,4 +11,6 @@ runs:
         registry-url: 'https://registry.npmjs.org'
     - name: Install dependencies
       shell: bash
-      run: npm ci
+      run: |
+        npm install -g npm@11
+        npm ci
