@@ -3,7 +3,7 @@
   import Decimal from "decimal.js";
   import { type Snippet, untrack } from "svelte";
 
-  interface Props {
+  export interface Props {
     name: string;
     inputType?: "icp" | "number" | "text" | "currency";
     required?: boolean;
