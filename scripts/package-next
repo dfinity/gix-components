@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -eux
 
+npm install -g npm@11
+
 npm ci
 
 : Package first the library
