@@ -9,6 +9,11 @@ runs:
       with:
         node-version: 22
         registry-url: 'https://registry.npmjs.org'
+    - name: Bump npm to version 11
+      shell: bash
+      run: |
+        npm install -g npm@11
     - name: Install dependencies
       shell: bash
-      run: npm ci
+      run: |
+        npm ci
