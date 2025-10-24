@@ -1,5 +1,7 @@
 name: Publish Release
 
+description: This is a description
+
 on:
   workflow_dispatch:
   release:
