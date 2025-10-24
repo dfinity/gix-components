@@ -5,6 +5,12 @@ on:
   release:
     types: [released]
 
+run-name: >-
+  ${{
+    github.event_name == 'release' && 'Publish Semver Release'
+    || github.event_name == 'workflow_dispatch' && 'Publish @next Release'
+    || 'Publish Release' }}
+
 jobs:
   publish:
     if: github.event_name == 'release'
