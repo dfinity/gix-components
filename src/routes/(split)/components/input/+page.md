@@ -44,7 +44,7 @@ If the `inputType` is set to `icp`, the `value` bind by the component is a `numb
 ## Snippets
 
 | Snippt name | Description                                                                                                            |
-|-------------| ---------------------------------------------------------------------------------------------------------------------- |
+| ----------- | ---------------------------------------------------------------------------------------------------------------------- |
 | `start`     | An addition before the label (e.g. an action related to the input). Need to be activated with the property `showInfo`. |
 | `label`     | A label related to the input. Need to be activated with the property `showInfo`.                                       |
 | `end`       | An addition after the label (e.g. an action related to the input). Need to be activated with the property `showInfo`.  |
