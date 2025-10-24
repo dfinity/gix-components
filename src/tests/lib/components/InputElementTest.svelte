@@ -1,17 +1,21 @@
 <script lang="ts">
   import Input from "$lib/components/Input.svelte";
 
-  export let name: string;
-  export let placeholder = "test.placeholder";
-  export let ariaLabel: string | undefined = undefined;
+  interface Props {
+    name: string;
+    placeholder?: string;
+    ariaLabel?: string;
+  }
 
-  let inputField: HTMLInputElement | undefined;
+  let { name, placeholder = "test.placeholder", ariaLabel }: Props = $props();
+
+  let inputField = $state<HTMLInputElement | undefined>();
 
   const changeFocus = () => {
-    inputField.focus();
+    inputField?.focus();
   };
 </script>
 
-<button id="test" aria-label={ariaLabel} on:click={changeFocus}></button>
+<button id="test" aria-label={ariaLabel} onclick={changeFocus}></button>
 
 <Input {name} {placeholder} bind:inputElement={inputField} />

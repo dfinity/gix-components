@@ -1,44 +1,91 @@
 <script lang="ts">
   import { isNullish, nonNullish } from "@dfinity/utils";
   import Decimal from "decimal.js";
-  import { createEventDispatcher } from "svelte";
+  import { type Snippet, untrack } from "svelte";
 
-  export let name: string;
-  export let inputType: "icp" | "number" | "text" | "currency" = "number";
-  export let required = true;
-  export let spellcheck: boolean | undefined = undefined;
-  export let step: number | "any" | undefined = undefined;
-  export let disabled = false;
-  export let minLength: number | undefined = undefined;
-  export let max: number | undefined = undefined;
-  export let value: string | number | undefined = undefined;
-  export let placeholder: string;
-  export let testId: string | undefined = undefined;
-  export let decimals = 8;
-  export let ignore1Password = true;
-  export let inputElement: HTMLInputElement | undefined = undefined;
-  export let autofocus = false;
+  export interface Props {
+    name: string;
+    inputType?: "icp" | "number" | "text" | "currency";
+    required?: boolean;
+    spellcheck?: boolean;
+    step?: number | "any";
+    disabled?: boolean;
+    minLength?: number;
+    max?: number;
+    value?: string | number;
+    placeholder: string;
+    testId?: string;
+    decimals?: number;
+    ignore1Password?: boolean;
+    inputElement?: HTMLInputElement;
+    autofocus?: boolean;
+    // https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete
+    autocomplete?: "off" | "on";
+    // When forwarding slots, they always appear as true
+    // This is a known issue in Svelte
+    // https://github.com/sveltejs/svelte/issues/6059
+    // To hack this, we pass a prop to avoid showing info element when not needed
+    // Ideally, this would be calculated
+    // showInfo = $$slots.label || $$slots.end
+    showInfo?: boolean;
+    onInput?: () => void;
+    onBlur?: () => void;
+    onFocus?: () => void;
+    start?: Snippet;
+    label?: Snippet;
+    end?: Snippet;
+    innerEnd?: Snippet;
+    bottom?: Snippet;
+  }
 
-  const dispatch = createEventDispatcher();
+  let {
+    name,
+    inputType = "number",
+    required = true,
+    spellcheck,
+    step = $bindable(),
+    disabled = false,
+    minLength,
+    max,
+    value = $bindable(),
+    placeholder,
+    testId,
+    decimals = 8,
+    ignore1Password = true,
+    inputElement = $bindable(),
+    autofocus = false,
+    autocomplete = $bindable(),
+    showInfo = true,
+    onInput,
+    onBlur,
+    onFocus,
+    start,
+    label,
+    end,
+    innerEnd,
+    bottom,
+  }: Props = $props();
 
-  // https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete
-  export let autocomplete: "off" | "on" | undefined = undefined;
+  $effect(() => {
+    if (inputType === "number") {
+      untrack(() => {
+        step = step ?? "any";
 
-  // When forwarding slots, they always appear as true
-  // This is a known issue in Svelte
-  // https://github.com/sveltejs/svelte/issues/6059
-  // To hack this, we pass a prop to avoid showing info element when not needed
-  // Ideally, this would be calculated
-  // showInfo = $$slots.label || $$slots.end
-  export let showInfo = true;
+        autocomplete = undefined;
+      });
 
-  $: step = inputType === "number" ? (step ?? "any") : undefined;
-  $: autocomplete =
-    inputType !== "number" ? (autocomplete ?? "off") : undefined;
+      return;
+    }
+
+    untrack(() => {
+      step = undefined;
+
+      autocomplete = autocomplete ?? "off";
+    });
+  });
 
   // This component was developed for ICP and 8 decimals in mind. The "currency" input type was added afterwards therefore, for backwards compatibility reason, if the input type is set to icp, the number of decimals remains 8.
-  let wrapDecimals = 8;
-  $: wrapDecimals = inputType === "icp" ? 8 : decimals;
+  let wrapDecimals = $derived(inputType === "icp" ? 8 : decimals);
 
   let selectionStart: number | null = 0;
   let selectionEnd: number | null = 0;
@@ -97,17 +144,18 @@
   const fixUndefinedValue = (value: string | number | undefined): string =>
     isNullish(value) ? "" : `${value}`;
 
-  let currencyValue: string = exponentToPlainNumberString(
-    fixUndefinedValue(value),
+  let currencyValue = $state(
+    exponentToPlainNumberString(fixUndefinedValue(value)),
   );
   let lastValidCurrencyValue: string | number | undefined = value;
   let internalValueChange = true;
 
-  let currency = false;
-  $: currency = ["icp", "currency"].includes(inputType);
+  let currency = $derived(["icp", "currency"].includes(inputType));
 
-  $: (value,
-    (() => {
+  $effect(() => {
+    [value];
+
+    untrack(() => {
       if (!internalValueChange && currency) {
         if (typeof value === "number") {
           currencyValue = exponentToPlainNumberString(`${value}`);
@@ -119,7 +167,8 @@
       }
 
       internalValueChange = false;
-    })());
+    });
+  });
 
   const restoreFromValidValue = (noValue = false) => {
     if (isNullish(inputElement) || !currency) {
@@ -186,7 +235,7 @@
         inputType === "number" ? +currentTarget.value : currentTarget.value;
     }
 
-    dispatch("nnsInput");
+    onInput?.();
   };
 
   const handleKeyDown = () => {
@@ -198,19 +247,17 @@
     ({ selectionStart, selectionEnd } = inputElement);
   };
 
-  let displayInnerEnd: boolean;
-  $: displayInnerEnd = nonNullish($$slots["inner-end"]);
+  let displayInnerEnd = $derived(nonNullish(innerEnd));
 
-  let displayBottom: boolean;
-  $: displayBottom = nonNullish($$slots["bottom"]);
+  let displayBottom = $derived(nonNullish(bottom));
 </script>
 
 <div class="input-block" class:disabled>
   {#if showInfo}
     <div class="info">
-      <slot name="start" />
-      <label class="label" for={name}><slot name="label" /></label>
-      <slot name="end" />
+      {@render start?.()}
+      <label class="label" for={name}>{@render label?.()}</label>
+      {@render end?.()}
     </div>
   {/if}
   <div class:with-bottom={displayBottom}>
@@ -228,27 +275,27 @@
         {disabled}
         {max}
         minlength={minLength}
+        onblur={onBlur}
+        onfocus={onFocus}
+        oninput={handleInput}
+        onkeydown={handleKeyDown}
         {placeholder}
         {required}
         {spellcheck}
         {step}
         type={currency ? "text" : inputType}
         value={currency ? currencyValue : value}
-        on:blur
-        on:focus
-        on:input={handleInput}
-        on:keydown={handleKeyDown}
       />
       {#if displayInnerEnd}
         <div class="inner-end-slot">
-          <slot name="inner-end" />
+          {@render innerEnd?.()}
         </div>
       {/if}
     </div>
 
     {#if displayBottom}
       <div class="bottom-slot">
-        <slot name="bottom" />
+        {@render bottom?.()}
       </div>
     {/if}
   </div>

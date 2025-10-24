@@ -245,10 +245,8 @@ describe("Input", () => {
   it("should render the button slot", () => {
     const { getByText } = render(InputTest, {
       props: {
-        props: {
-          ...props,
-          inputType: "text",
-        },
+        ...props,
+        inputType: "text",
       },
     });
 
@@ -258,10 +256,8 @@ describe("Input", () => {
   it("should render the start slot", () => {
     const { getByText } = render(InputTest, {
       props: {
-        props: {
-          ...props,
-          inputType: "text",
-        },
+        ...props,
+        inputType: "text",
       },
     });
 
