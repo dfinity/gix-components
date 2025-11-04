@@ -1,10 +1,10 @@
 <script lang="ts">
+	import { isNullish, nonNullish } from "@dfinity/utils";
+  import TestIdWrapper from "./TestIdWrapper.svelte";
   import IconExpandMore from "$lib/icons/IconExpandMore.svelte";
   import { i18n } from "$lib/stores/i18n";
   import type { CollapsibleProps } from "$lib/types/collapsible";
   import { handleKeyPress } from "$lib/utils/keyboard.utils";
-  import { isNullish, nonNullish } from "@dfinity/utils";
-  import TestIdWrapper from "./TestIdWrapper.svelte";
 
   let {
     id,
