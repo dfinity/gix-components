@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { isNullish, nonNullish } from "@dfinity/utils";
+  import { isNullish, nonNullish } from "@dfinity/utils";
   import TestIdWrapper from "./TestIdWrapper.svelte";
   import IconExpandMore from "$lib/icons/IconExpandMore.svelte";
   import { i18n } from "$lib/stores/i18n";
