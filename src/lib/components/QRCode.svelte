@@ -6,26 +6,40 @@
    * - DeckDeckGo: https://github.com/deckgo/deckdeckgo/blob/main/webcomponents/elements/src/components/qrcode/qrcode/qrcode.tsx
    */
   import { isNullish, nonNullish, debounce } from "@dfinity/utils";
-  import { afterUpdate, createEventDispatcher, onMount } from "svelte";
+  import { onMount, type Snippet } from "svelte";
   import type { QrCreateClass } from "$lib/types/qr-creator";
 
-  export let ariaLabel: string | undefined = undefined;
-  export let value: string;
+  interface Props {
+    ariaLabel?: string;
+    value: string;
+    // Valid CSS colors
+    fillColor?: string;
+    backgroundColor?: string;
+    // The edge radius of each module. Must be between 0 and 0.5.
+    radius?: number;
+    // https://www.qrcode.com/en/about/error_correction.html
+    ecLevel?: "L" | "M" | "Q" | "H";
+    onQRCodeRendered?: () => void;
+    logo?: Snippet;
+  }
 
-  // Valid CSS colors
-  export let fillColor = "black";
-  export let backgroundColor = "white";
+  let {
+    ariaLabel,
+    value,
+    fillColor = "black",
+    backgroundColor = "white",
+    radius = 0,
+    ecLevel = "H",
+    onQRCodeRendered,
+    logo,
+  }: Props = $props();
 
-  // The edge radius of each module. Must be between 0 and 0.5.
-  export let radius = 0;
-  // https://www.qrcode.com/en/about/error_correction.html
-  export let ecLevel: "L" | "M" | "Q" | "H" = "H";
-
-  let label: string;
-  $: label = nonNullish(ariaLabel) && ariaLabel.length > 0 ? ariaLabel : value;
+  let label = $derived(
+    nonNullish(ariaLabel) && ariaLabel.length > 0 ? ariaLabel : value,
+  );
 
   let container: HTMLDivElement | undefined;
-  let size: { width: number } | undefined = undefined;
+  let size = $state<{ width: number } | undefined>();
 
   // Add a small debounce in case the screen is resized
   const initSize = debounce(() => {
@@ -63,7 +77,8 @@
   });
 
   let once = false;
-  afterUpdate(() => {
+
+  $effect(() => {
     if (once) {
       return;
     }
@@ -71,8 +86,6 @@
     initSize();
     once = true;
   });
-
-  const dispatch = createEventDispatcher();
 
   const renderCanvas = () => {
     if (isNullish(canvas) || isNullish(size)) {
@@ -92,17 +105,21 @@
       canvas,
     );
 
-    dispatch("nnsQRCodeRendered");
+    onQRCodeRendered?.();
   };
 
-  let canvas: HTMLCanvasElement | undefined;
-  $: (QrCreator, value, canvas, (() => renderCanvas())());
+  let canvas = $state<HTMLCanvasElement | undefined>();
 
-  let showLogo: boolean;
-  $: showLogo = nonNullish($$slots.logo);
+  $effect(() => {
+    [QrCreator, value, canvas];
+
+    (() => renderCanvas())();
+  });
+
+  let showLogo = $derived(nonNullish(logo));
 </script>
 
-<svelte:window on:resize={initSize} />
+<svelte:window onresize={initSize} />
 
 <div bind:this={container} class="container" data-tid="qr-code">
   {#if nonNullish(size)}
@@ -117,7 +134,7 @@
 
   {#if showLogo}
     <div class="logo">
-      <slot name="logo" />
+      {@render logo?.()}
     </div>
   {/if}
 </div>

@@ -16,5 +16,6 @@ export type { ProgressStep, ProgressStepState } from "./types/progress-step";
 export * from "./types/theme";
 export type { ToastLevel, ToastMsg } from "./types/toast";
 export type { WizardStep, WizardSteps } from "./types/wizard";
+export * from "./utils/device.utils";
 export * from "./utils/event-modifiers.utils";
 export * from "./utils/wizard.utils";

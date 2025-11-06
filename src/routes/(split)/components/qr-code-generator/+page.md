@@ -28,13 +28,14 @@ Generates a [QR Code](https://www.qrcode.com/).
 
 ```javascript
 <QRCode value="https://nns.ic0.app/" ariaLabel="Network Nervous System">
-  <img
-    src="./img/logo.svg"
-    role="presentation"
-    alt="Test logo"
-    loading="lazy"
-    slot="logo"
-  />
+  {#snippet logo()}
+      <img
+        src="./img/logo.svg"
+        role="presentation"
+        alt="Test logo"
+        loading="lazy"
+      />
+  {/snippet}
 </QRCode>
 ```
 
@@ -57,11 +58,11 @@ This component uses the library [qr-creator](https://github.com/nimiq/qr-creator
 
 The component fits the available space where it is used. Therefore, the parents should be rendered before mounting this component.
 
-## Slots
+## Snippets
 
-| Slot name | Description                                  |
-| --------- | -------------------------------------------- |
-| `logo`    | An optional logo displayed over the QR code. |
+| Snippet name | Description                                  |
+| ------------ | -------------------------------------------- |
+| `logo`       | An optional logo displayed over the QR code. |
 
 ## Showcase
 
@@ -71,14 +72,15 @@ The component fits the available space where it is used. Therefore, the parents 
 
 {#if QRCode !== undefined}
 <svelte:component this={QRCode} {value} ariaLabel="Network Nervous System" >
+{#snippet logo()}
 <img
         src={icpRounded}
         role="presentation"
         alt="Test logo"
         loading="lazy"
-        slot="logo"
         style="width: 5vw; height: 5vw; background: var(--secondary); color: var(--secondary-contrast); padding: var(--padding-2x); border-radius: 50%;"
       />
+{/snippet}
 </svelte:component>
 {/if}
 
