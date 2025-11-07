@@ -56,7 +56,7 @@
 
   const isBrowser = typeof window !== "undefined";
 
-  let QrCreator: QrCreateClass | undefined;
+  let QrCreator = $state<QrCreateClass>();
   onMount(async () => {
     // The qr-creator library is not compatible with NodeJS environment
     if (!isBrowser) {
