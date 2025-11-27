@@ -62,7 +62,7 @@
 
     select {
       width: 100%;
-      background: transparent;
+      background: var(--input-background);
       border: none;
 
       --select-padding-inner-top-bottom: var(
