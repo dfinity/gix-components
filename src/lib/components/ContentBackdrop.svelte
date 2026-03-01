@@ -4,5 +4,5 @@
 </script>
 
 {#if $layoutMenuOpen}
-  <Backdrop on:nnsClose={() => layoutMenuOpen.set(false)} />
+  <Backdrop onClose={() => layoutMenuOpen.set(false)} />
 {/if}

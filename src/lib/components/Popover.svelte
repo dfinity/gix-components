@@ -40,10 +40,7 @@
     on:keypress
     transition:fade|global
   >
-    <Backdrop
-      invisible={invisibleBackdrop}
-      on:nnsClose={() => (visible = false)}
-    />
+    <Backdrop invisible={invisibleBackdrop} onClose={() => (visible = false)} />
     <div
       class="wrapper"
       class:rtl={direction === "rtl"}
