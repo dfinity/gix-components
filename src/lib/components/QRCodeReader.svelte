@@ -23,7 +23,7 @@
       viewfinderWidth: number,
       viewfinderHeight: number,
     ) => {
-      const minEdgePercentage = 0.7; // 70%
+      const minEdgePercentage = 0.9; // 90%
       const minEdgeSize = Math.min(viewfinderWidth, viewfinderHeight);
       const qrboxSize = Math.floor(minEdgeSize * minEdgePercentage);
       return {
