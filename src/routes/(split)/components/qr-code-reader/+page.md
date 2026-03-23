@@ -32,7 +32,7 @@ If used in a modal, prefer the wrapper `<QRCodeReaderModal />`.
 
 ## Library
 
-This component uses the library [jsQR](https://github.com/cozmo/jsQR).
+This component uses [zxing-wasm](https://github.com/nicbarker/zxing-wasm) (ZXing C++ compiled to WebAssembly) for QR code decoding, with native camera access via `getUserMedia`.
 
 ## Events
 

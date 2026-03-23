@@ -1,5 +1,4 @@
 <script lang="ts">
-  import type { Html5Qrcode, Html5QrcodeScannerState } from "html5-qrcode";
   import { createEventDispatcher, onDestroy, onMount } from "svelte";
   import { isDesktop } from "$lib/utils/device.utils";
   import { nextElementId } from "$lib/utils/html.utils";
@@ -8,90 +7,137 @@
 
   const dispatch = createEventDispatcher();
 
-  let html5QrCode: Html5Qrcode | undefined;
-
-  let ScannerState: typeof Html5QrcodeScannerState;
+  let videoElement: HTMLVideoElement | undefined;
+  let canvasElement: HTMLCanvasElement | undefined;
+  let stream: MediaStream | undefined;
+  let scanInterval: ReturnType<typeof setInterval> | undefined;
   let isDestroyed = false;
+  let isProcessingFrame = false;
 
   onMount(async () => {
-    const qrCodeSuccessCallback = (decodedText: string) =>
-      dispatch("nnsQRCode", decodedText);
-
-    // Source documentation: https://scanapp.org/blog/2022/01/09/setting-dynamic-qr-box-size-in-html5-qrcode.html
-    // eslint-disable-next-line local-rules/prefer-object-params
-    const qrboxFunction = (
-      viewfinderWidth: number,
-      viewfinderHeight: number,
-    ) => {
-      const minEdgePercentage = 0.9; // 90%
-      const minEdgeSize = Math.min(viewfinderWidth, viewfinderHeight);
-      const qrboxSize = Math.floor(minEdgeSize * minEdgePercentage);
-      return {
-        width: qrboxSize,
-        height: qrboxSize,
-      };
-    };
-
-    const { Html5Qrcode, Html5QrcodeScannerState } = await import(
-      "html5-qrcode"
-    );
-    ScannerState = Html5QrcodeScannerState;
-
-    html5QrCode = new Html5Qrcode(id);
-
-    await html5QrCode
-      .start(
-        { facingMode: "environment" },
-        {
-          fps: 10, // Optional, frame per seconds for qr code scanning
-          qrbox: qrboxFunction,
+    try {
+      stream = await navigator.mediaDevices.getUserMedia({
+        video: {
+          facingMode: "environment",
+          width: { ideal: 1920 },
+          height: { ideal: 1080 },
         },
-        qrCodeSuccessCallback,
-
-        (_errorMessage: string) => {
-          // Do nothing. This error message is throw when the QR code cannot be read.
-          // Examples of error:
-          // QR code parse error, error = NotFoundException: No MultiFormat Readers were able to detect the code.
-          // QR code parse error, error = No barcode or QR code detected.
-          // QR code parse error, error = NotFoundException: No MultiFormat Readers were able to detect the code.
-        },
-      )
-      .catch((err: unknown) => {
-        dispatch("nnsQRCodeError", err);
+        audio: false,
       });
-    if (isDestroyed) {
-      // Make sure the camera is stopped if the component is destroyed before
-      // scanning is starte.
-      await html5QrCode?.stop();
+
+      if (isDestroyed) {
+        stopStream();
+        return;
+      }
+
+      if (videoElement) {
+        videoElement.srcObject = stream;
+        await videoElement.play();
+        await startScanning();
+      }
+    } catch (err: unknown) {
+      dispatch("nnsQRCodeError", err);
     }
   });
 
-  onDestroy(async () => {
-    isDestroyed = true;
+  const startScanning = async () => {
     try {
-      if (html5QrCode?.getState() !== ScannerState?.NOT_STARTED) {
-        await html5QrCode?.stop();
-      }
+      const { readBarcodes } = await import("zxing-wasm/reader");
+
+      if (isDestroyed) return;
+
+      const scan = async () => {
+        if (
+          isProcessingFrame ||
+          isDestroyed ||
+          !videoElement ||
+          !canvasElement ||
+          videoElement.readyState < HTMLMediaElement.HAVE_CURRENT_DATA
+        ) {
+          return;
+        }
+
+        isProcessingFrame = true;
+
+        try {
+          const { videoWidth, videoHeight } = videoElement;
+          if (videoWidth === 0 || videoHeight === 0) return;
+
+          // Use full video resolution for maximum decoding accuracy on mobile
+          canvasElement.width = videoWidth;
+          canvasElement.height = videoHeight;
+
+          const ctx = canvasElement.getContext("2d", {
+            willReadFrequently: true,
+          });
+          if (!ctx) return;
+
+          ctx.drawImage(videoElement, 0, 0, videoWidth, videoHeight);
+          const imageData = ctx.getImageData(0, 0, videoWidth, videoHeight);
+
+          const results = await readBarcodes(imageData, {
+            formats: ["QRCode"],
+            tryHarder: true,
+            tryInvert: true,
+            maxNumberOfSymbols: 1,
+          });
+
+          const qrResult = results.find((r) => r.isValid);
+          if (qrResult) {
+            dispatch("nnsQRCode", qrResult.text);
+          }
+        } catch {
+          // Decoding failed on this frame — expected when no QR code is visible
+        } finally {
+          isProcessingFrame = false;
+        }
+      };
+
+      scanInterval = setInterval(scan, 100);
     } catch (err: unknown) {
-      console.error(err);
-      dispatch(
-        "nnsQRCodeError",
-        new Error("There was an error while destroying the QR code reader."),
-      );
+      dispatch("nnsQRCodeError", err);
     }
+  };
+
+  const stopStream = () => {
+    if (stream) {
+      for (const track of stream.getTracks()) {
+        track.stop();
+      }
+      stream = undefined;
+    }
+  };
+
+  onDestroy(() => {
+    isDestroyed = true;
+
+    if (scanInterval !== undefined) {
+      clearInterval(scanInterval);
+      scanInterval = undefined;
+    }
+
+    stopStream();
   });
 
   // We optimistically assume that if the QR code reader is used on desktop, it has most probably only a single "user" facing camera and that we can invert the displayed video
   const mirror = isDesktop();
 </script>
 
-<article {id} class="reader" class:mirror></article>
+<article {id} class="reader" class:mirror>
+  <video bind:this={videoElement} autoplay playsinline muted></video>
+
+  <canvas bind:this={canvasElement} class="decode-canvas"></canvas>
+
+  <div class="scan-overlay">
+    <div class="scan-region"></div>
+  </div>
+</article>
 
 <style lang="scss">
   .reader {
     position: relative;
     width: 100%;
-    height: auto;
+    height: 100%;
 
     border-radius: var(--border-radius);
     overflow: hidden;
@@ -99,13 +145,33 @@
     &.mirror {
       transform: scaleX(-1);
     }
+  }
 
-    :global(#qr-shaded-region) {
-      border-color: rgba(var(--primary-rgb), 0.4) !important;
-    }
+  video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
-    :global(#qr-shaded-region > div) {
-      background: white !important;
-    }
+  .decode-canvas {
+    display: none;
+  }
+
+  .scan-overlay {
+    position: absolute;
+    inset: 0;
+    container-type: size;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+  }
+
+  .scan-region {
+    width: min(90cqw, 90cqh);
+    aspect-ratio: 1;
+    box-shadow: 0 0 0 9999px white;
+    border: 2px solid rgba(var(--primary-rgb), 0.4);
   }
 </style>
