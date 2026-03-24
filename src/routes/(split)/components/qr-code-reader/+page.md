@@ -32,7 +32,7 @@ If used in a modal, prefer the wrapper `<QRCodeReaderModal />`.
 
 ## Library
 
-This component uses [zxing-wasm](https://github.com/nicbarker/zxing-wasm) (ZXing C++ compiled to WebAssembly) for QR code decoding, with native camera access via `getUserMedia`.
+This component uses [barcode-detector](https://github.com/Sec-ant/barcode-detector) — a [Barcode Detection API](https://developer.mozilla.org/en-US/docs/Web/API/BarcodeDetector) polyfill powered by ZXing C++ WebAssembly — for QR code decoding, with native camera access via `getUserMedia`.
 
 ## Events
 

@@ -9,7 +9,6 @@
   const dispatch = createEventDispatcher();
 
   let videoElement: HTMLVideoElement | undefined;
-  let canvasElement: HTMLCanvasElement | undefined;
   let stream: MediaStream | undefined;
   let scanInterval: ReturnType<typeof setInterval> | undefined;
   let isDestroyed = false;
@@ -46,18 +45,21 @@
 
   const startScanning = async () => {
     try {
-      const { readBarcodes } = await import("zxing-wasm/reader");
+      const { BarcodeDetector } = await import("barcode-detector/ponyfill");
 
       if (isDestroyed) {
         return;
       }
+
+      const detector = new BarcodeDetector({
+        formats: ["qr_code"],
+      });
 
       const scan = async () => {
         if (
           isProcessingFrame ||
           isDestroyed ||
           isNullish(videoElement) ||
-          isNullish(canvasElement) ||
           videoElement.readyState < HTMLMediaElement.HAVE_CURRENT_DATA
         ) {
           return;
@@ -66,39 +68,12 @@
         isProcessingFrame = true;
 
         try {
-          const { videoWidth, videoHeight } = videoElement;
+          const results = await detector.detect(videoElement);
 
-          if (videoWidth === 0 || videoHeight === 0) {
-            return;
-          }
+          const [qrResult] = results;
 
-          // Use full video resolution for maximum decoding accuracy on mobile
-          canvasElement.width = videoWidth;
-          canvasElement.height = videoHeight;
-
-          const ctx = canvasElement.getContext("2d", {
-            willReadFrequently: true,
-          });
-
-          if (isNullish(ctx)) {
-            return;
-          }
-
-          ctx.drawImage(videoElement, 0, 0, videoWidth, videoHeight);
-
-          const imageData = ctx.getImageData(0, 0, videoWidth, videoHeight);
-
-          const results = await readBarcodes(imageData, {
-            formats: ["QRCode"],
-            tryHarder: true,
-            tryInvert: true,
-            maxNumberOfSymbols: 1,
-          });
-
-          const qrResult = results.find((r) => r.isValid);
-
-          if (qrResult) {
-            dispatch("nnsQRCode", qrResult.text);
+          if (nonNullish(qrResult)) {
+            dispatch("nnsQRCode", qrResult.rawValue);
           }
         } catch {
           // Decoding failed on this frame — expected when no QR code is visible
@@ -140,8 +115,6 @@
 <article {id} class="reader" class:mirror>
   <video bind:this={videoElement} autoplay muted playsinline></video>
 
-  <canvas bind:this={canvasElement} class="decode-canvas"></canvas>
-
   <div class="scan-overlay">
     <div class="scan-region"></div>
   </div>
@@ -166,10 +139,6 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
-
-  .decode-canvas {
-    display: none;
   }
 
   .scan-overlay {
