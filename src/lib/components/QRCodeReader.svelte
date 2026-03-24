@@ -10,7 +10,7 @@
 
   let videoElement: HTMLVideoElement | undefined;
   let stream: MediaStream | undefined;
-  let scanInterval: ReturnType<typeof setInterval> | undefined;
+  let scanInterval: NodeJS.Timeout | undefined;
   let isDestroyed = false;
   let isProcessingFrame = false;
 
