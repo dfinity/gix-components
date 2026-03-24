@@ -19,11 +19,6 @@
     radius?: number;
     // https://www.qrcode.com/en/about/error_correction.html
     ecLevel?: "L" | "M" | "Q" | "H";
-    // Quiet zone (clear margin) around the QR code in CSS pixels.
-    // ISO 18004 requires at least 4 modules of quiet zone for reliable scanning.
-    // Set to a non-zero value to improve mobile scanner compatibility,
-    // especially for dark-themed or borderless QR codes.
-    quietZone?: number;
     onQRCodeRendered?: () => void;
     logo?: Snippet;
   }
@@ -35,7 +30,6 @@
     backgroundColor = "white",
     radius = 0,
     ecLevel = "H",
-    quietZone = 0,
     onQRCodeRendered,
     logo,
   }: Props = $props();
@@ -94,55 +88,22 @@
   });
 
   const renderCanvas = () => {
-    if (isNullish(canvas) || isNullish(size) || isNullish(QrCreator)) {
+    if (isNullish(canvas) || isNullish(size)) {
       return;
     }
 
-    // We draw the canvas larger and scale its container down to avoid blurring on high-density displays
-    const scaleFactor = 2;
-    const totalSize = size.width * scaleFactor;
-    const quietZonePx = Math.max(quietZone, 0) * scaleFactor;
-    const qrSize = totalSize - 2 * quietZonePx;
-
-    if (quietZonePx > 0 && qrSize > 0) {
-      // qr-creator renders edge-to-edge without a quiet zone.
-      // Render to a temporary canvas, then composite onto the main canvas
-      // with a background-colored margin to create the required quiet zone.
-      const tempCanvas = document.createElement("canvas");
-      QrCreator.render(
-        {
-          text: value,
-          radius,
-          ecLevel,
-          fill: fillColor,
-          background: backgroundColor,
-          size: qrSize,
-        },
-        tempCanvas,
-      );
-
-      canvas.width = totalSize;
-      canvas.height = totalSize;
-
-      const ctx = canvas.getContext("2d");
-      if (ctx) {
-        ctx.fillStyle = backgroundColor;
-        ctx.fillRect(0, 0, totalSize, totalSize);
-        ctx.drawImage(tempCanvas, quietZonePx, quietZonePx);
-      }
-    } else {
-      QrCreator.render(
-        {
-          text: value,
-          radius,
-          ecLevel,
-          fill: fillColor,
-          background: backgroundColor,
-          size: totalSize,
-        },
-        canvas,
-      );
-    }
+    QrCreator?.render(
+      {
+        text: value,
+        radius,
+        ecLevel,
+        fill: fillColor,
+        background: backgroundColor,
+        // We draw the canvas larger and scale its container down to avoid blurring on high-density displays
+        size: size.width * 2,
+      },
+      canvas,
+    );
 
     onQRCodeRendered?.();
   };
@@ -150,7 +111,7 @@
   let canvas = $state<HTMLCanvasElement | undefined>();
 
   $effect(() => {
-    [QrCreator, value, canvas, quietZone];
+    [QrCreator, value, canvas];
 
     (() => renderCanvas())();
   });
