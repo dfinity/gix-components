@@ -44,7 +44,9 @@
     try {
       const { readBarcodes } = await import("zxing-wasm/reader");
 
-      if (isDestroyed) return;
+      if (isDestroyed) {
+        return;
+      }
 
       const scan = async () => {
         if (
@@ -61,7 +63,9 @@
 
         try {
           const { videoWidth, videoHeight } = videoElement;
-          if (videoWidth === 0 || videoHeight === 0) return;
+          if (videoWidth === 0 || videoHeight === 0) {
+            return;
+          }
 
           // Use full video resolution for maximum decoding accuracy on mobile
           canvasElement.width = videoWidth;
@@ -70,7 +74,9 @@
           const ctx = canvasElement.getContext("2d", {
             willReadFrequently: true,
           });
-          if (!ctx) return;
+          if (!ctx) {
+            return;
+          }
 
           ctx.drawImage(videoElement, 0, 0, videoWidth, videoHeight);
           const imageData = ctx.getImageData(0, 0, videoWidth, videoHeight);
@@ -124,7 +130,7 @@
 </script>
 
 <article {id} class="reader" class:mirror>
-  <video bind:this={videoElement} autoplay playsinline muted></video>
+  <video bind:this={videoElement} autoplay muted playsinline></video>
 
   <canvas bind:this={canvasElement} class="decode-canvas"></canvas>
 
