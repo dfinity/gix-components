@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { isNullish, nonNullish } from "@dfinity/utils";
   import { createEventDispatcher, onDestroy, onMount } from "svelte";
   import { isDesktop } from "$lib/utils/device.utils";
   import { nextElementId } from "$lib/utils/html.utils";
@@ -27,12 +28,15 @@
 
       if (isDestroyed) {
         stopStream();
+
         return;
       }
 
-      if (videoElement) {
+      if (nonNullish(videoElement)) {
         videoElement.srcObject = stream;
+
         await videoElement.play();
+
         await startScanning();
       }
     } catch (err: unknown) {
@@ -52,8 +56,8 @@
         if (
           isProcessingFrame ||
           isDestroyed ||
-          !videoElement ||
-          !canvasElement ||
+          isNullish(videoElement) ||
+          isNullish(canvasElement) ||
           videoElement.readyState < HTMLMediaElement.HAVE_CURRENT_DATA
         ) {
           return;
@@ -63,6 +67,7 @@
 
         try {
           const { videoWidth, videoHeight } = videoElement;
+
           if (videoWidth === 0 || videoHeight === 0) {
             return;
           }
@@ -74,11 +79,13 @@
           const ctx = canvasElement.getContext("2d", {
             willReadFrequently: true,
           });
-          if (!ctx) {
+
+          if (isNullish(ctx)) {
             return;
           }
 
           ctx.drawImage(videoElement, 0, 0, videoWidth, videoHeight);
+
           const imageData = ctx.getImageData(0, 0, videoWidth, videoHeight);
 
           const results = await readBarcodes(imageData, {
@@ -89,6 +96,7 @@
           });
 
           const qrResult = results.find((r) => r.isValid);
+
           if (qrResult) {
             dispatch("nnsQRCode", qrResult.text);
           }
@@ -106,10 +114,9 @@
   };
 
   const stopStream = () => {
-    if (stream) {
-      for (const track of stream.getTracks()) {
-        track.stop();
-      }
+    if (nonNullish(stream)) {
+      stream.getTracks().forEach((track) => track.stop());
+
       stream = undefined;
     }
   };
@@ -117,8 +124,9 @@
   onDestroy(() => {
     isDestroyed = true;
 
-    if (scanInterval !== undefined) {
+    if (nonNullish(scanInterval)) {
       clearInterval(scanInterval);
+
       scanInterval = undefined;
     }
 
