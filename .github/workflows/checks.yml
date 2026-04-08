@@ -29,14 +29,14 @@ jobs:
 
       - name: Checkout
         if: steps.check_can_add_commit.outputs.can_add_commit == 'true'
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: ${{ github.event.pull_request.head.repo.full_name }}
           ref: ${{ github.event.pull_request.head.ref }}
           token: ${{ steps.app-token.outputs.token }}
       - name: Checkout
         if: steps.check_can_add_commit.outputs.can_add_commit == 'false'
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Install shfmt
         run: sudo snap install --classic shfmt
@@ -78,7 +78,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Prepare
         uses: ./.github/actions/prepare
       - name: Build
@@ -89,7 +89,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Prepare
         uses: ./.github/actions/prepare
       - name: Lint
@@ -100,7 +100,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Prepare
         uses: ./.github/actions/prepare
       - name: Check
@@ -111,7 +111,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Prepare
         uses: ./.github/actions/prepare
       - name: Build
@@ -125,7 +125,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Print chrome version
         run: |
           echo "google-chrome --version"
