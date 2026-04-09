@@ -12,12 +12,12 @@ jobs:
       id-token: write
     steps:
       - name: Check out the repo
-        uses: actions/checkout@v6
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
       - name: Prepare
         uses: ./.github/actions/prepare
 
       - name: Deploy to Juno
-        uses: junobuild/juno-action@main
+        uses: junobuild/juno-action@c6a23bc5159ae0676f5ed8b375fdfb5e844fa1b8 # main
         with:
           args: hosting deploy
