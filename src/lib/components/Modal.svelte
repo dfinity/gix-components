@@ -65,7 +65,7 @@
     {role}
     transition:fade|global={{ duration: 25 }}
   >
-    <Backdrop {disablePointerEvents} on:nnsClose={() => onClose?.()} />
+    <Backdrop {disablePointerEvents} {onClose} />
     <div
       class={`wrapper ${role}`}
       in:fade|global={{ duration: FADE_IN_DURATION }}
