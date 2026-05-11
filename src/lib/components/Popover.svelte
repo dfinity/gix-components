@@ -29,7 +29,7 @@
 {#if visible}
   <div
     style="--popover-top: {`${bottom}px`}; --popover-left: {`${left}px`}; --popover-right: {`${
-      window.innerWidth - right
+      document.documentElement.clientWidth - right
     }px`}"
     class="popover"
     aria-orientation="vertical"
