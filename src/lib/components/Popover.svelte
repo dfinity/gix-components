@@ -6,6 +6,7 @@
   import IconClose from "$lib/icons/IconClose.svelte";
   import { i18n } from "$lib/stores/i18n";
   import type { PopoverDirection } from "$lib/types/popover";
+  import { pickPopoverDirection } from "$lib/utils/popover.utils";
 
   export let anchor: HTMLElement | undefined = undefined;
   export let visible = false;
@@ -14,14 +15,78 @@
   export let invisibleBackdrop = false;
   export let testId = "gix-cmp-popover-component";
 
-  let bottom: number;
-  let left: number;
-  let right: number;
-  const initPosition = () =>
-    ({ bottom, left, right } = anchor
-      ? anchor.getBoundingClientRect()
-      : { bottom: 0, left: 0, right: 0 });
-  $: (anchor, visible, initPosition());
+  // Fallback used when `--padding` cannot be read (e.g. before the CSS
+  // variables are applied). Matches the default declared in
+  // `src/lib/styles/global/variables.scss`.
+  const DEFAULT_VIEWPORT_PADDING = 8;
+
+  let popoverTop = 0;
+  let popoverLeft = 0;
+  let popoverRight = 0;
+  let panelWidth = 0;
+  let effectiveDirection: PopoverDirection = direction;
+
+  const readViewportPadding = (): number => {
+    if (typeof window === "undefined") {
+      return DEFAULT_VIEWPORT_PADDING;
+    }
+    const raw = getComputedStyle(document.documentElement).getPropertyValue(
+      "--padding",
+    );
+    const parsed = parseFloat(raw);
+    return Number.isFinite(parsed) && parsed > 0
+      ? parsed
+      : DEFAULT_VIEWPORT_PADDING;
+  };
+
+  const initPosition = () => {
+    if (typeof window === "undefined") {
+      return;
+    }
+    if (!anchor) {
+      popoverTop = 0;
+      popoverLeft = 0;
+      popoverRight = 0;
+      effectiveDirection = direction;
+      return;
+    }
+    const { bottom, left, right } = anchor.getBoundingClientRect();
+    const viewportWidth = document.documentElement.clientWidth;
+    popoverTop = bottom;
+    popoverLeft = left;
+    popoverRight = viewportWidth - right;
+    effectiveDirection = pickPopoverDirection({
+      anchorLeft: left,
+      anchorRight: right,
+      panelWidth,
+      viewportWidth,
+      viewportPadding: readViewportPadding(),
+      preferredDirection: direction,
+    });
+  };
+
+  $: (anchor, visible, direction, initPosition());
+
+  const observePanelWidth = (node: HTMLElement) => {
+    const measure = () => {
+      const next = node.offsetWidth;
+      if (next === panelWidth) {
+        return;
+      }
+      panelWidth = next;
+      initPosition();
+    };
+    measure();
+    if (typeof ResizeObserver === "undefined") {
+      return {};
+    }
+    const ro = new ResizeObserver(measure);
+    ro.observe(node);
+    return {
+      destroy: () => ro.disconnect(),
+    };
+  };
+
   const close = () => (visible = false);
 </script>
 
@@ -29,9 +94,7 @@
 
 {#if visible}
   <div
-    style="--popover-top: {`${bottom}px`}; --popover-left: {`${left}px`}; --popover-right: {`${
-      document.documentElement.clientWidth - right
-    }px`}"
+    style="--popover-top: {popoverTop}px; --popover-left: {popoverLeft}px; --popover-right: {popoverRight}px"
     class="popover"
     aria-orientation="vertical"
     data-tid={testId}
@@ -47,8 +110,9 @@
     />
     <div
       class="wrapper"
-      class:rtl={direction === "rtl"}
+      class:rtl={effectiveDirection === "rtl"}
       class:with-border={invisibleBackdrop}
+      use:observePanelWidth
       transition:scale|global={{ delay: 25, duration: 150, easing: quintOut }}
     >
       {#if closeButton}

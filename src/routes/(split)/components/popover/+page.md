@@ -7,6 +7,10 @@
     let button2: HTMLButtonElement | undefined;
     let visible3 = false;
     let button3: HTMLButtonElement | undefined;
+    let visibleFlipLtr = false;
+    let buttonFlipLtr: HTMLButtonElement | undefined;
+    let visibleFlipRtl = false;
+    let buttonFlipRtl: HTMLButtonElement | undefined;
 
     const customArray = Array.from({length: 500}, (_, i) => i + 1);
 </script>
@@ -74,6 +78,42 @@ next to an anchor — commonly a button — which initiates its display.
     </Popover>
 </div>
 
+# Auto-flip at the viewport edges
+
+Popovers prefer the requested `direction` but flip to the opposite side when the
+preferred side would overflow the viewport. The two triggers below are pinned
+to the right and left edges respectively; their popovers grow back towards the
+center.
+
+<div id="flip-display">
+    <button
+        data-tid="popover-flip-ltr"
+        class="primary"
+        bind:this={buttonFlipLtr}
+        on:click={() => (visibleFlipLtr = !visibleFlipLtr)}
+    >
+        Prefers ltr (right edge)
+    </button>
+    <Popover bind:visible={visibleFlipLtr} anchor={buttonFlipLtr} direction="ltr">
+        <div class="flip-content">
+            This popover would overflow on the right, so it flips to grow leftwards.
+        </div>
+    </Popover>
+    <button
+        data-tid="popover-flip-rtl"
+        class="primary"
+        bind:this={buttonFlipRtl}
+        on:click={() => (visibleFlipRtl = !visibleFlipRtl)}
+    >
+        Prefers rtl (left edge)
+    </button>
+    <Popover bind:visible={visibleFlipRtl} anchor={buttonFlipRtl} direction="rtl">
+        <div class="flip-content">
+            This popover would overflow on the left, so it flips to grow rightwards.
+        </div>
+    </Popover>
+</div>
+
 <style>
     #display {
         padding: 1rem;
@@ -93,13 +133,27 @@ next to an anchor — commonly a button — which initiates its display.
     button {
         margin-right: 2rem;
     }
+    #flip-display {
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    #flip-display button {
+        margin-right: 0;
+    }
+    .flip-content {
+        max-width: 18rem;
+    }
 </style>
 <br />
 
 # Usage
 
 The popover placement will be below the anchor element, either from left to right (default)
-or from right to left.
+or from right to left. The `direction` prop is a _preference_: when the requested side
+would push the panel past the viewport edge, the popover flips to the opposite side and
+falls back to the side with the most room when neither fits in full.
 If the popover should overflow the viewport, it will be automatically resized to fit within the viewport,
 and the content will be scrollable.
 
@@ -122,10 +176,10 @@ and the content will be scrollable.
 
 # Properties
 
-| Property            | Description                                                          | Type                         | Default     |
-| ------------------- | -------------------------------------------------------------------- | ---------------------------- | ----------- |
-| `visible`           | Display or hide the popover.                                         | `boolean`                    | `false`     |
-| `direction`         | Layout direction, either left-to-right `ltr` or right-to-left `rtl`. | `string`                     | `ltr`       |
-| `anchor`            | The anchor element on which the popover depends on.                  | `HTMLElement` or `undefined` | `undefined` |
-| `closeButton`       | Option to add a close button on top right corner.                    | `true` or `undefined`        | `undefined` |
-| `invisibleBackdrop` | Don't darken and blur the background while the popup is open.        | `true` or `undefined`        | `undefined` |
+| Property            | Description                                                                                     | Type                         | Default     |
+| ------------------- | ----------------------------------------------------------------------------------------------- | ---------------------------- | ----------- |
+| `visible`           | Display or hide the popover.                                                                    | `boolean`                    | `false`     |
+| `direction`         | Preferred layout direction (`ltr` or `rtl`). Flips automatically when overflowing the viewport. | `string`                     | `ltr`       |
+| `anchor`            | The anchor element on which the popover depends on.                                             | `HTMLElement` or `undefined` | `undefined` |
+| `closeButton`       | Option to add a close button on top right corner.                                               | `true` or `undefined`        | `undefined` |
+| `invisibleBackdrop` | Don't darken and blur the background while the popup is open.                                   | `true` or `undefined`        | `undefined` |
