@@ -29,3 +29,48 @@ test("Should render overflowing popover", async ({ page }) => {
 
   await expect(page).toHaveScreenshot();
 });
+
+test("Should flip a ltr popover near the right viewport edge", async ({
+  page,
+}) => {
+  await page.goto(testUrl);
+
+  const button = page.getByTestId("popover-flip-ltr");
+  await button.scrollIntoViewIfNeeded();
+  await button.click();
+
+  // Wait for animation
+  await page.waitForTimeout(750);
+
+  await expect(page).toHaveScreenshot();
+});
+
+test("Should flip a rtl popover near the left viewport edge", async ({
+  page,
+}) => {
+  await page.goto(testUrl);
+
+  const button = page.getByTestId("popover-flip-rtl");
+  await button.scrollIntoViewIfNeeded();
+  await button.click();
+
+  // Wait for animation
+  await page.waitForTimeout(750);
+
+  await expect(page).toHaveScreenshot();
+});
+
+test("Should shift the popover along the viewport when neither side fits", async ({
+  page,
+}) => {
+  await page.goto(testUrl);
+
+  const button = page.getByTestId("popover-shift");
+  await button.scrollIntoViewIfNeeded();
+  await button.click();
+
+  // Wait for animation
+  await page.waitForTimeout(750);
+
+  await expect(page).toHaveScreenshot();
+});
