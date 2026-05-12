@@ -54,6 +54,7 @@ export const pickPopoverDirection = ({
     if (ltrFits) {
       return "ltr";
     }
+
     if (rtlFits) {
       return "rtl";
     }
@@ -61,6 +62,7 @@ export const pickPopoverDirection = ({
     if (rtlFits) {
       return "rtl";
     }
+
     if (ltrFits) {
       return "ltr";
     }
@@ -68,6 +70,7 @@ export const pickPopoverDirection = ({
 
   const ltrRoom = viewportWidth - viewportPadding - anchorLeft;
   const rtlRoom = anchorRight - viewportPadding;
+
   return rtlRoom > ltrRoom ? "rtl" : "ltr";
 };
 
@@ -91,9 +94,11 @@ const shiftEdgeOffset = ({
   viewportPadding: number;
 }): number => {
   const maxOffsetThatFits = viewportWidth - viewportPadding - panelWidth;
+
   if (anchorOffset <= maxOffsetThatFits) {
     return anchorOffset;
   }
+
   return Math.max(viewportPadding, maxOffsetThatFits);
 };
 
@@ -114,6 +119,7 @@ export const computePopoverPlacement = (
   params: PickPopoverPlacementParams,
 ): PopoverPlacement => {
   const direction = pickPopoverDirection(params);
+
   const {
     anchorLeft,
     anchorRight,
@@ -121,6 +127,7 @@ export const computePopoverPlacement = (
     viewportWidth,
     viewportPadding,
   } = params;
+
   const anchorFromRight = viewportWidth - anchorRight;
 
   if (panelWidth <= 0) {

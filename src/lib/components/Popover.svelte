@@ -31,10 +31,13 @@
     if (typeof window === "undefined") {
       return DEFAULT_VIEWPORT_PADDING;
     }
+
     const raw = getComputedStyle(document.documentElement).getPropertyValue(
       "--padding",
     );
+
     const parsed = parseFloat(raw);
+
     return Number.isFinite(parsed) && parsed > 0
       ? parsed
       : DEFAULT_VIEWPORT_PADDING;
@@ -44,6 +47,7 @@
     if (typeof window === "undefined") {
       return;
     }
+
     if (!anchor) {
       popoverTop = 0;
       popoverLeft = 0;
@@ -51,8 +55,11 @@
       effectiveDirection = direction;
       return;
     }
+
     const { bottom, left, right } = anchor.getBoundingClientRect();
+
     const viewportWidth = document.documentElement.clientWidth;
+
     const placement = computePopoverPlacement({
       anchorLeft: left,
       anchorRight: right,
@@ -61,6 +68,7 @@
       viewportPadding: readViewportPadding(),
       preferredDirection: direction,
     });
+
     popoverTop = bottom;
     popoverLeft = placement.left;
     popoverRight = placement.right;
@@ -71,26 +79,37 @@
 
   const observePanelWidth = (node: HTMLElement) => {
     placementResolved = false;
+
     const measure = () => {
       const next = node.offsetWidth;
+
       if (next === panelWidth) {
         return;
       }
+
       panelWidth = next;
+
       initPosition();
+
       if (next > 0) {
         placementResolved = true;
       }
     };
+
     measure();
+
     if (typeof ResizeObserver === "undefined") {
       return {};
     }
+
     const ro = new ResizeObserver(measure);
+
     ro.observe(node);
+
     return {
       destroy: () => {
         ro.disconnect();
+
         placementResolved = false;
         panelWidth = 0;
       },
