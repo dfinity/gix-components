@@ -5,10 +5,11 @@
   import Backdrop from "./Backdrop.svelte";
   import IconClose from "$lib/icons/IconClose.svelte";
   import { i18n } from "$lib/stores/i18n";
+  import type { PopoverDirection } from "$lib/types/popover";
 
   export let anchor: HTMLElement | undefined = undefined;
   export let visible = false;
-  export let direction: "ltr" | "rtl" = "ltr";
+  export let direction: PopoverDirection = "ltr";
   export let closeButton = false;
   export let invisibleBackdrop = false;
   export let testId = "gix-cmp-popover-component";
