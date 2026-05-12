@@ -53,6 +53,7 @@
       popoverLeft = 0;
       popoverRight = 0;
       effectiveDirection = direction;
+
       return;
     }
 
