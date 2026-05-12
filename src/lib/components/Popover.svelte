@@ -24,6 +24,7 @@
   let popoverLeft = 0;
   let popoverRight = 0;
   let panelWidth = 0;
+  let placementResolved = false;
   let effectiveDirection: PopoverDirection = direction;
 
   const readViewportPadding = (): number => {
@@ -68,6 +69,7 @@
   $: (anchor, visible, direction, initPosition());
 
   const observePanelWidth = (node: HTMLElement) => {
+    placementResolved = false;
     const measure = () => {
       const next = node.offsetWidth;
       if (next === panelWidth) {
@@ -75,6 +77,9 @@
       }
       panelWidth = next;
       initPosition();
+      if (next > 0) {
+        placementResolved = true;
+      }
     };
     measure();
     if (typeof ResizeObserver === "undefined") {
@@ -83,7 +88,11 @@
     const ro = new ResizeObserver(measure);
     ro.observe(node);
     return {
-      destroy: () => ro.disconnect(),
+      destroy: () => {
+        ro.disconnect();
+        placementResolved = false;
+        panelWidth = 0;
+      },
     };
   };
 
@@ -110,6 +119,7 @@
     />
     <div
       class="wrapper"
+      class:placed={placementResolved}
       class:rtl={effectiveDirection === "rtl"}
       class:with-border={invisibleBackdrop}
       use:observePanelWidth
@@ -152,7 +162,9 @@
     --size: min(calc(20 * var(--padding)), calc(100vw - var(--padding)));
 
     min-width: var(--size);
-    // limited by `100vw - right padding`
+    // Loose cap used during the first paint so we can measure the panel's
+    // natural width. `.placed` swaps this for a side-aware cap that keeps the
+    // panel inside the viewport on whichever side was chosen.
     max-width: calc(100vw - var(--padding));
 
     max-height: calc(
@@ -178,6 +190,16 @@
     &.rtl {
       left: auto;
       right: var(--popover-right);
+    }
+
+    // After the initial measurement, clamp the panel to the available room on
+    // the chosen side so it never extends past the viewport edge.
+    &.placed {
+      max-width: calc(100vw - var(--popover-left) - var(--padding));
+    }
+
+    &.placed.rtl {
+      max-width: calc(100vw - var(--popover-right) - var(--padding));
     }
 
     &.with-border {
