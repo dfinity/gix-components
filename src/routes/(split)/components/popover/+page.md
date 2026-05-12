@@ -11,6 +11,8 @@
     let buttonFlipLtr: HTMLButtonElement | undefined;
     let visibleFlipRtl = false;
     let buttonFlipRtl: HTMLButtonElement | undefined;
+    let visibleShift = false;
+    let buttonShift: HTMLButtonElement | undefined;
 
     const customArray = Array.from({length: 500}, (_, i) => i + 1);
 </script>
@@ -114,6 +116,30 @@ center.
     </Popover>
 </div>
 
+# Shift along the viewport
+
+When the panel's natural width does not fit anchored to either side, the popover
+is shifted along the viewport so it stays at its full size instead of being
+compressed.
+
+<div id="shift-display">
+    <button
+        data-tid="popover-shift"
+        class="primary"
+        bind:this={buttonShift}
+        on:click={() => (visibleShift = !visibleShift)}
+    >
+        Shift demo
+    </button>
+    <Popover bind:visible={visibleShift} anchor={buttonShift} direction="ltr">
+        <div class="shift-content">
+            Neither anchor edge has room for the natural width of this panel, so
+            the popover is shifted along the viewport and rendered at its full
+            size — instead of being compressed against the chosen side.
+        </div>
+    </Popover>
+</div>
+
 <style>
     #display {
         padding: 1rem;
@@ -144,6 +170,17 @@ center.
     }
     .flip-content {
         max-width: 18rem;
+    }
+    #shift-display {
+        padding: 1rem;
+        display: flex;
+        justify-content: center;
+    }
+    #shift-display button {
+        margin-right: 0;
+    }
+    .shift-content {
+        width: 50rem;
     }
 </style>
 <br />
