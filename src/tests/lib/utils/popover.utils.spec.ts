@@ -1,4 +1,7 @@
-import { pickPopoverDirection } from "$lib/utils/popover.utils";
+import {
+  computePopoverPlacement,
+  pickPopoverDirection,
+} from "$lib/utils/popover.utils";
 
 describe("pickPopoverDirection", () => {
   const viewportWidth = 1000;
@@ -126,5 +129,104 @@ describe("pickPopoverDirection", () => {
         preferredDirection: "ltr",
       }),
     ).toBe("rtl");
+  });
+});
+
+describe("computePopoverPlacement", () => {
+  const viewportWidth = 1000;
+  const viewportPadding = 8;
+
+  it("aligns offsets to the raw anchor edges before the panel is measured", () => {
+    expect(
+      computePopoverPlacement({
+        anchorLeft: 700,
+        anchorRight: 750,
+        panelWidth: 0,
+        viewportWidth,
+        viewportPadding,
+        preferredDirection: "ltr",
+      }),
+    ).toEqual({ direction: "ltr", left: 700, right: 250 });
+  });
+
+  it("does not shift the panel when it naturally fits on the chosen side", () => {
+    const ltrPlacement = computePopoverPlacement({
+      anchorLeft: 100,
+      anchorRight: 150,
+      panelWidth: 300,
+      viewportWidth,
+      viewportPadding,
+      preferredDirection: "ltr",
+    });
+
+    expect(ltrPlacement.direction).toBe("ltr");
+    expect(ltrPlacement.left).toBe(100);
+
+    const rtlPlacement = computePopoverPlacement({
+      anchorLeft: 800,
+      anchorRight: 850,
+      panelWidth: 300,
+      viewportWidth,
+      viewportPadding,
+      preferredDirection: "rtl",
+    });
+
+    expect(rtlPlacement.direction).toBe("rtl");
+    expect(rtlPlacement.right).toBe(viewportWidth - 850);
+  });
+
+  it("shifts the ltr panel away from the right edge so it stays inside the viewport", () => {
+    const placement = computePopoverPlacement({
+      anchorLeft: 700,
+      anchorRight: 750,
+      panelWidth: 900,
+      viewportWidth,
+      viewportPadding,
+      preferredDirection: "ltr",
+    });
+
+    expect(placement.left).toBe(viewportWidth - viewportPadding - 900);
+    expect(placement.left + 900).toBe(viewportWidth - viewportPadding);
+  });
+
+  it("shifts the rtl panel away from the left edge so it stays inside the viewport", () => {
+    const placement = computePopoverPlacement({
+      anchorLeft: 50,
+      anchorRight: 100,
+      panelWidth: 900,
+      viewportWidth,
+      viewportPadding,
+      preferredDirection: "rtl",
+    });
+
+    expect(placement.right).toBe(viewportWidth - viewportPadding - 900);
+    expect(viewportWidth - placement.right - 900).toBe(viewportPadding);
+  });
+
+  it("pins the offset to viewportPadding when the panel is wider than the usable viewport", () => {
+    const placement = computePopoverPlacement({
+      anchorLeft: 700,
+      anchorRight: 750,
+      panelWidth: 1500,
+      viewportWidth,
+      viewportPadding,
+      preferredDirection: "ltr",
+    });
+
+    expect(placement.left).toBe(viewportPadding);
+    expect(placement.right).toBe(viewportPadding);
+  });
+
+  it("respects the chosen direction returned by pickPopoverDirection", () => {
+    const placement = computePopoverPlacement({
+      anchorLeft: 900,
+      anchorRight: 950,
+      panelWidth: 300,
+      viewportWidth,
+      viewportPadding,
+      preferredDirection: "ltr",
+    });
+
+    expect(placement.direction).toBe("rtl");
   });
 });

@@ -152,10 +152,11 @@ center.
 
 The popover placement will be below the anchor element, either from left to right (default)
 or from right to left. The `direction` prop is a _preference_: when the requested side
-would push the panel past the viewport edge, the popover flips to the opposite side and
-falls back to the side with the most room when neither fits in full.
-If the popover should overflow the viewport, it will be automatically resized to fit within the viewport,
-and the content will be scrollable.
+would push the panel past the viewport edge, the popover flips to the opposite side. When
+neither side has room for the panel's natural width, the panel is shifted along the
+viewport so it still fits at its natural size, and only shrinks (via the existing
+`max-width` clamp) once it is wider than the viewport itself. The vertical placement
+behaves the same way today via `max-height`.
 
 ```javascript
 <script lang="ts">

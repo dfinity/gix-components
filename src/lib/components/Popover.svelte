@@ -6,7 +6,7 @@
   import IconClose from "$lib/icons/IconClose.svelte";
   import { i18n } from "$lib/stores/i18n";
   import type { PopoverDirection } from "$lib/types/popover";
-  import { pickPopoverDirection } from "$lib/utils/popover.utils";
+  import { computePopoverPlacement } from "$lib/utils/popover.utils";
 
   export let anchor: HTMLElement | undefined = undefined;
   export let visible = false;
@@ -53,10 +53,7 @@
     }
     const { bottom, left, right } = anchor.getBoundingClientRect();
     const viewportWidth = document.documentElement.clientWidth;
-    popoverTop = bottom;
-    popoverLeft = left;
-    popoverRight = viewportWidth - right;
-    effectiveDirection = pickPopoverDirection({
+    const placement = computePopoverPlacement({
       anchorLeft: left,
       anchorRight: right,
       panelWidth,
@@ -64,6 +61,10 @@
       viewportPadding: readViewportPadding(),
       preferredDirection: direction,
     });
+    popoverTop = bottom;
+    popoverLeft = placement.left;
+    popoverRight = placement.right;
+    effectiveDirection = placement.direction;
   };
 
   $: (anchor, visible, direction, initPosition());
