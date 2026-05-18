@@ -18,6 +18,6 @@ jobs:
         uses: ./.github/actions/prepare
 
       - name: Deploy to Juno
-        uses: junobuild/juno-action@c6a23bc5159ae0676f5ed8b375fdfb5e844fa1b8 # main
+        uses: junobuild/juno-action@dc2dc67d45c4215d261feaed25603604db227908 # main
         with:
           args: hosting deploy
