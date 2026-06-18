@@ -1,3 +1,4 @@
+import { assertNonNullish } from "@dfinity/utils";
 import { fireEvent, render } from "@testing-library/svelte";
 import { clickByTestId } from "../../utils/utils.test-utils";
 import DropdownTest from "./DropdownTest.svelte";
@@ -26,12 +27,13 @@ describe("Dropdown", () => {
     });
 
     const selectElement = container.querySelector("select");
-    selectElement && expect(selectElement.value).toBe(options[0].value);
+    assertNonNullish(selectElement);
 
-    selectElement &&
-      fireEvent.change(selectElement, { target: { value: options[4].value } });
+    expect(selectElement.value).toBe(options[0].value);
 
-    selectElement && expect(selectElement.value).toBe(options[4].value);
+    fireEvent.change(selectElement, { target: { value: options[4].value } });
+
+    expect(selectElement.value).toBe(options[4].value);
   });
 
   it("should allow setting an initial value", () => {
@@ -42,16 +44,21 @@ describe("Dropdown", () => {
     });
 
     const selectElement = container.querySelector("select");
-    selectElement && expect(selectElement.value).toBe(value);
+    assertNonNullish(selectElement);
+
+    expect(selectElement.value).toBe(value);
   });
 
   it("should bind the value", async () => {
     const { queryByTestId, container } = render(DropdownTest, { props });
 
     const selectElement = container.querySelector("select");
-    selectElement && expect(selectElement.value).toBe("1");
+    assertNonNullish(selectElement);
+
+    expect(selectElement.value).toBe("1");
 
     await clickByTestId(queryByTestId, "test");
-    selectElement && expect(selectElement.value).toBe("3");
+
+    expect(selectElement.value).toBe("3");
   });
 });
