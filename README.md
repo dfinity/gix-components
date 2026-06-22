@@ -1,5 +1,8 @@
 # GIX Components
 
+> [!WARNING]
+> **GIX Components is in maintenance mode.** The library receives critical fixes only — no new features or components are being added. We recommend against adopting it for new projects.
+
 GIX Components is a UI kit developed with [SvelteKit](https://kit.svelte.dev) by the GIX team.
 
 ## Getting Started
