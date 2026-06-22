@@ -9,6 +9,13 @@
   import "../../node_modules/prismjs/themes/prism-tomorrow.css";
 </script>
 
+<div class="maintenance-banner" role="status">
+  <span>
+    <strong>Maintenance mode.</strong> GIX Components receives critical fixes only
+    — no new features. Not recommended for new projects.
+  </span>
+</div>
+
 <Layout>
   <DocsMenu slot="menu-items" on:click />
 
@@ -24,6 +31,26 @@
 <Toasts position="top" />
 
 <style lang="scss">
+  .maintenance-banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--padding);
+
+    padding: var(--padding) var(--padding-2x);
+
+    background: var(--warning-emphasis, #b8860b);
+    color: var(--warning-emphasis-contrast, #ffffff);
+
+    text-align: center;
+    font-size: var(--font-size-small);
+    line-height: var(--line-height-standard);
+
+    strong {
+      font-weight: var(--font-weight-bold);
+    }
+  }
+
   .logo {
     display: flex;
     flex-direction: column;
