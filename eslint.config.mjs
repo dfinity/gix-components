@@ -26,8 +26,6 @@ export default [
     rules: {
       "local-rules/use-option-type-wrapper": ["off"],
       "vitest/expect-expect": ["off"],
-      "vitest/no-conditional-expect": ["off"],
-      "svelte/no-navigation-without-resolve": ["off"],
     },
   },
 ];
