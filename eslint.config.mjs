@@ -28,4 +28,12 @@ export default [
       "vitest/expect-expect": ["off"],
     },
   },
+  {
+    files: ["**/*.svelte"],
+    rules: {
+      // Svelte reactive declarations (`$:`) reassign `let` bindings, which
+      // eslint's static analysis misreads as a useless initial assignment.
+      "no-useless-assignment": ["off"],
+    },
+  },
 ];

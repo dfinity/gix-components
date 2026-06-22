@@ -13,6 +13,7 @@ describe("ScrollSentinel", () => {
     takeRecords: () => IntersectionObserverEntry[] = () => [];
     root: Element | Document | null = null;
     rootMargin = "";
+    scrollMargin = "";
     thresholds: ReadonlyArray<number> = [];
 
     constructor(private callback: IntersectionObserverCallback) {
