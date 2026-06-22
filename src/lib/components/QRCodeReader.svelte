@@ -32,9 +32,8 @@
       };
     };
 
-    const { Html5Qrcode, Html5QrcodeScannerState } = await import(
-      "html5-qrcode"
-    );
+    const { Html5Qrcode, Html5QrcodeScannerState } =
+      await import("html5-qrcode");
     ScannerState = Html5QrcodeScannerState;
 
     html5QrCode = new Html5Qrcode(id);

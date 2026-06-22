@@ -3,7 +3,6 @@ import {
   type RenderResult,
 } from "@testing-library/svelte";
 import type { Component, ComponentProps } from "svelte";
-
 // prettier-ignore
 // @ts-expect-error Testing-library type not exposed
 import type { ComponentType,MountOptions } from "@testing-library/svelte/types/component-types";

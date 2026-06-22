@@ -1,9 +1,15 @@
-export const IntersectionObserverPassive = vi.fn();
-IntersectionObserverPassive.mockReturnValue({
-  observe: () => null,
-  unobserve: () => null,
-  disconnect: () => null,
-});
+// A no-op IntersectionObserver implementation. It is a class (rather than a
+// `vi.fn()` returning an object) because it is invoked with `new`.
+export class IntersectionObserverPassive implements IntersectionObserver {
+  public readonly root: Element | Document | null = null;
+  public readonly rootMargin: string = "";
+  public readonly thresholds: ReadonlyArray<number> = [];
+  public takeRecords: () => IntersectionObserverEntry[] = () => [];
+
+  observe = () => undefined;
+  unobserve = () => undefined;
+  disconnect = () => undefined;
+}
 
 export class IntersectionObserverActive implements IntersectionObserver {
   public readonly root: Element | Document | null = null;
