@@ -2,7 +2,7 @@
 
 import { readFileSync, writeFileSync } from "fs";
 
-const en = JSON.parse(readFileSync("./src/lib/i18n/en.json"));
+const en = JSON.parse(readFileSync("./src/lib/i18n/en.json", "utf-8"));
 
 /**
  * Generate the TypeScript interfaces from the english translation file.

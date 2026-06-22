@@ -3,6 +3,7 @@
 export class IntersectionObserverPassive implements IntersectionObserver {
   public readonly root: Element | Document | null = null;
   public readonly rootMargin: string = "";
+  public readonly scrollMargin: string = "";
   public readonly thresholds: ReadonlyArray<number> = [];
   public takeRecords: () => IntersectionObserverEntry[] = () => [];
 
@@ -14,6 +15,7 @@ export class IntersectionObserverPassive implements IntersectionObserver {
 export class IntersectionObserverActive implements IntersectionObserver {
   public readonly root: Element | Document | null = null;
   public readonly rootMargin: string = "";
+  public readonly scrollMargin: string = "";
   public readonly thresholds: ReadonlyArray<number> = [];
   public takeRecords: () => IntersectionObserverEntry[] = () => [];
 
