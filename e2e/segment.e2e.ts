@@ -11,7 +11,7 @@ test("Segment page has expected h1", async ({ page }) => {
 // eslint-disable-next-line local-rules/prefer-object-params
 const clickToSegment = async (page: Page, index: number) => {
   const showcase = page.getByTestId("showcase");
-  (await showcase.locator(".segment-button").all())[index].click();
+  await showcase.locator(".segment-button").nth(index).click();
 };
 
 test("First segment is selected", async ({ page }) => {
