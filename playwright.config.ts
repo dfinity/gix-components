@@ -17,13 +17,12 @@ const config: PlaywrightTestConfig = {
   webServer,
   testDir: "e2e",
   testMatch: ["**/*.e2e.ts"],
-  // Headless Chromium renders text with a ~1px sub-pixel anti-aliasing jitter
-  // that varies run-to-run, touching every glyph edge and amounting to ~2% of a
-  // text-heavy page — enough to fail the default zero-tolerance screenshot
-  // comparison without any visual change. A 1px shift produces fully different
-  // edge pixels, so `threshold` (per-pixel) cannot absorb it; allow a small
-  // ratio of differing pixels instead. Real regressions (a stuck spinner, a
-  // missing/recoloured component, a layout shift) move well past this.
+  // Small safety net for any residual run-to-run rendering noise. The Chrome
+  // launch flags below disable font hinting / sub-pixel text positioning, which
+  // is the main source of the ~1px text jitter, so in practice diffs should be
+  // ~0; this ratio just keeps a rare stray pixel from failing the suite. Real
+  // regressions (a stuck spinner, a missing/recoloured component, a layout
+  // shift) move well past this.
   expect: {
     toHaveScreenshot: {
       maxDiffPixelRatio: 0.05,
@@ -36,7 +35,22 @@ const config: PlaywrightTestConfig = {
   projects: [
     {
       name: "Google Chrome",
-      use: { ...devices["Desktop Chrome"], channel: "chrome" },
+      use: {
+        ...devices["Desktop Chrome"],
+        channel: "chrome",
+        launchOptions: {
+          // Make text rasterisation deterministic across CI runs: disable font
+          // hinting and sub-pixel (LCD) text positioning, and pin the colour
+          // profile. Without these, headless Chrome nudges glyph edges ~1px
+          // between runs, diffing every line of text on a page.
+          args: [
+            "--font-render-hinting=none",
+            "--disable-lcd-text",
+            "--disable-font-subpixel-positioning",
+            "--force-color-profile=srgb",
+          ],
+        },
+      },
     },
   ],
 };
