@@ -36,11 +36,7 @@ describe("ChipGroup", () => {
     });
     const chipElements = getAllByTestId("chip-component");
     chipElements.forEach((chip, index) => {
-      if (index === selectedIndex) {
-        expect(chip).toHaveClass("selected");
-      } else {
-        expect(chip).not.toHaveClass("selected");
-      }
+      expect(chip.classList.contains("selected")).toBe(index === selectedIndex);
     });
   });
 
@@ -56,11 +52,7 @@ describe("ChipGroup", () => {
     fireEvent.click(chipElements[selectedIndex]);
     await tick();
     chipElements.forEach((chip, index) => {
-      if (index === selectedIndex) {
-        expect(chip).toHaveClass("selected");
-      } else {
-        expect(chip).not.toHaveClass("selected");
-      }
+      expect(chip.classList.contains("selected")).toBe(index === selectedIndex);
     });
   });
 

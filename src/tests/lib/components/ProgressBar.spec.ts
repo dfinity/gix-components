@@ -1,4 +1,5 @@
 import ProgressBar from "$lib/components/ProgressBar.svelte";
+import { assertNonNullish } from "@dfinity/utils";
 import { render } from "@testing-library/svelte";
 import ProgressBarTest from "./ProgressBarTest.svelte";
 
@@ -11,9 +12,9 @@ describe("ProgressBar", () => {
 
     const progressElement = container.querySelector("progress");
 
-    expect(progressElement).not.toBeNull();
+    assertNonNullish(progressElement);
 
-    progressElement && expect(progressElement.value).toBe(value);
+    expect(progressElement.value).toBe(value);
   });
 
   it("should render a progress element with max value", () => {
@@ -25,9 +26,9 @@ describe("ProgressBar", () => {
 
     const progressElement = container.querySelector("progress");
 
-    expect(progressElement).not.toBeNull();
+    assertNonNullish(progressElement);
 
-    progressElement && expect(progressElement.max).toBe(max);
+    expect(progressElement.max).toBe(max);
   });
 
   it("should use segment prop to calculate the prop", () => {
@@ -43,10 +44,10 @@ describe("ProgressBar", () => {
 
     const progressElement = container.querySelector("progress");
 
-    expect(progressElement).not.toBeNull();
+    assertNonNullish(progressElement);
 
     // 40 is the sum of the segments
-    progressElement && expect(progressElement.value).toBe(40);
+    expect(progressElement.value).toBe(40);
   });
 
   it("should render top and bottom slots", () => {
@@ -58,8 +59,8 @@ describe("ProgressBar", () => {
 
     const progressElement = container.querySelector("progress");
 
-    expect(progressElement).not.toBeNull();
+    assertNonNullish(progressElement);
 
-    progressElement && expect(progressElement.max).toBe(max);
+    expect(progressElement.max).toBe(max);
   });
 });

@@ -202,17 +202,15 @@ describe("Input", () => {
 
     const input: HTMLInputElement | null = container.querySelector("input");
 
-    expect(input).not.toBeNull();
+    assertNonNullish(input);
 
-    if (input) {
-      fireEvent.change(input, { target: { value: "test" } });
+    fireEvent.change(input, { target: { value: "test" } });
 
-      expect(input.value).toBe("");
+    expect(input.value).toBe("");
 
-      fireEvent.change(input, { target: { value: "123" } });
+    fireEvent.change(input, { target: { value: "123" } });
 
-      expect(input.value).toBe("123");
-    }
+    expect(input.value).toBe("123");
   });
 
   it("should accept text as input", () => {
@@ -225,21 +223,19 @@ describe("Input", () => {
 
     const input: HTMLInputElement | null = container.querySelector("input");
 
-    expect(input).not.toBeNull();
+    assertNonNullish(input);
 
-    if (input) {
-      fireEvent.change(input, { target: { value: "test" } });
+    fireEvent.change(input, { target: { value: "test" } });
 
-      expect(input.value).toBe("test");
+    expect(input.value).toBe("test");
 
-      fireEvent.change(input, { target: { value: "123" } });
+    fireEvent.change(input, { target: { value: "123" } });
 
-      expect(input.value).toBe("123");
+    expect(input.value).toBe("123");
 
-      fireEvent.change(input, { target: { value: "test123" } });
+    fireEvent.change(input, { target: { value: "test123" } });
 
-      expect(input.value).toBe("test123");
-    }
+    expect(input.value).toBe("test123");
   });
 
   it("should render the button slot", () => {

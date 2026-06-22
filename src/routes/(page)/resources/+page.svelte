@@ -1,3 +1,7 @@
+<script lang="ts">
+  import { resolve } from "$app/paths";
+</script>
+
 <h1>Resources</h1>
 
 <p>Useful resources and links.</p>
@@ -65,7 +69,7 @@
 
 <ul>
   <li>
-    <a href="/browser">Browser detection</a>
+    <a href={resolve("/browser")}>Browser detection</a>
   </li>
   <li>
     Source code on <a
