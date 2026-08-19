@@ -7,6 +7,12 @@
     let button2: HTMLButtonElement | undefined;
     let visible3 = false;
     let button3: HTMLButtonElement | undefined;
+    let visibleFlipLtr = false;
+    let buttonFlipLtr: HTMLButtonElement | undefined;
+    let visibleFlipRtl = false;
+    let buttonFlipRtl: HTMLButtonElement | undefined;
+    let visibleShift = false;
+    let buttonShift: HTMLButtonElement | undefined;
 
     const customArray = Array.from({length: 500}, (_, i) => i + 1);
 </script>
@@ -74,6 +80,66 @@ next to an anchor — commonly a button — which initiates its display.
     </Popover>
 </div>
 
+# Auto-flip at the viewport edges
+
+Popovers prefer the requested `direction` but flip to the opposite side when the
+preferred side would overflow the viewport. The two triggers below are pinned
+to the right and left edges respectively; their popovers grow back towards the
+center.
+
+<div id="flip-display">
+    <button
+        data-tid="popover-flip-ltr"
+        class="primary"
+        bind:this={buttonFlipLtr}
+        on:click={() => (visibleFlipLtr = !visibleFlipLtr)}
+    >
+        Prefers ltr (right edge)
+    </button>
+    <Popover bind:visible={visibleFlipLtr} anchor={buttonFlipLtr} direction="ltr">
+        <div class="flip-content">
+            This popover would overflow on the right, so it flips to grow leftwards.
+        </div>
+    </Popover>
+    <button
+        data-tid="popover-flip-rtl"
+        class="primary"
+        bind:this={buttonFlipRtl}
+        on:click={() => (visibleFlipRtl = !visibleFlipRtl)}
+    >
+        Prefers rtl (left edge)
+    </button>
+    <Popover bind:visible={visibleFlipRtl} anchor={buttonFlipRtl} direction="rtl">
+        <div class="flip-content">
+            This popover would overflow on the left, so it flips to grow rightwards.
+        </div>
+    </Popover>
+</div>
+
+# Shift along the viewport
+
+When the panel's natural width does not fit anchored to either side, the popover
+is shifted along the viewport so it stays at its full size instead of being
+compressed.
+
+<div id="shift-display">
+    <button
+        data-tid="popover-shift"
+        class="primary"
+        bind:this={buttonShift}
+        on:click={() => (visibleShift = !visibleShift)}
+    >
+        Shift demo
+    </button>
+    <Popover bind:visible={visibleShift} anchor={buttonShift} direction="ltr">
+        <div class="shift-content">
+            Neither anchor edge has room for the natural width of this panel, so
+            the popover is shifted along the viewport and rendered at its full
+            size — instead of being compressed against the chosen side.
+        </div>
+    </Popover>
+</div>
+
 <style>
     #display {
         padding: 1rem;
@@ -93,15 +159,41 @@ next to an anchor — commonly a button — which initiates its display.
     button {
         margin-right: 2rem;
     }
+    #flip-display {
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    #flip-display button {
+        margin-right: 0;
+    }
+    .flip-content {
+        max-width: 18rem;
+    }
+    #shift-display {
+        padding: 1rem;
+        display: flex;
+        justify-content: center;
+    }
+    #shift-display button {
+        margin-right: 0;
+    }
+    .shift-content {
+        width: 50rem;
+    }
 </style>
 <br />
 
 # Usage
 
 The popover placement will be below the anchor element, either from left to right (default)
-or from right to left.
-If the popover should overflow the viewport, it will be automatically resized to fit within the viewport,
-and the content will be scrollable.
+or from right to left. The `direction` prop is a _preference_: when the requested side
+would push the panel past the viewport edge, the popover flips to the opposite side. When
+neither side has room for the panel's natural width, the panel is shifted along the
+viewport so it still fits at its natural size, and only shrinks (via the existing
+`max-width` clamp) once it is wider than the viewport itself. The vertical placement
+behaves the same way today via `max-height`.
 
 ```javascript
 <script lang="ts">
@@ -122,10 +214,10 @@ and the content will be scrollable.
 
 # Properties
 
-| Property            | Description                                                          | Type                         | Default     |
-| ------------------- | -------------------------------------------------------------------- | ---------------------------- | ----------- |
-| `visible`           | Display or hide the popover.                                         | `boolean`                    | `false`     |
-| `direction`         | Layout direction, either left-to-right `ltr` or right-to-left `rtl`. | `string`                     | `ltr`       |
-| `anchor`            | The anchor element on which the popover depends on.                  | `HTMLElement` or `undefined` | `undefined` |
-| `closeButton`       | Option to add a close button on top right corner.                    | `true` or `undefined`        | `undefined` |
-| `invisibleBackdrop` | Don't darken and blur the background while the popup is open.        | `true` or `undefined`        | `undefined` |
+| Property            | Description                                                                                     | Type                         | Default     |
+| ------------------- | ----------------------------------------------------------------------------------------------- | ---------------------------- | ----------- |
+| `visible`           | Display or hide the popover.                                                                    | `boolean`                    | `false`     |
+| `direction`         | Preferred layout direction (`ltr` or `rtl`). Flips automatically when overflowing the viewport. | `string`                     | `ltr`       |
+| `anchor`            | The anchor element on which the popover depends on.                                             | `HTMLElement` or `undefined` | `undefined` |
+| `closeButton`       | Option to add a close button on top right corner.                                               | `true` or `undefined`        | `undefined` |
+| `invisibleBackdrop` | Don't darken and blur the background while the popup is open.                                   | `true` or `undefined`        | `undefined` |

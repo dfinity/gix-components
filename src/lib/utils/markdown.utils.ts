@@ -115,9 +115,13 @@ export const htmlRenderer = (html: string): string =>
 const proposalSummaryRenderer = (marked: Marked): Renderer => {
   const renderer = new marked.Renderer();
 
-  renderer.link = targetBlankLinkRenderer;
-  renderer.image = imageToLinkRenderer;
-  renderer.html = htmlRenderer;
+  // marked >=v5 passes token objects to renderer methods instead of positional
+  // arguments. Keep the helper functions' friendly signatures and adapt here.
+  renderer.link = ({ href, title, tokens }) =>
+    targetBlankLinkRenderer(href, title, renderer.parser.parseInline(tokens));
+  renderer.image = ({ href, title, text }) =>
+    imageToLinkRenderer(href, title, text);
+  renderer.html = ({ text }) => htmlRenderer(text);
 
   return renderer;
 };

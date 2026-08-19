@@ -5,22 +5,118 @@
   import Backdrop from "./Backdrop.svelte";
   import IconClose from "$lib/icons/IconClose.svelte";
   import { i18n } from "$lib/stores/i18n";
+  import type { PopoverDirection } from "$lib/types/popover";
+  import { computePopoverPlacement } from "$lib/utils/popover.utils";
 
   export let anchor: HTMLElement | undefined = undefined;
   export let visible = false;
-  export let direction: "ltr" | "rtl" = "ltr";
+  export let direction: PopoverDirection = "ltr";
   export let closeButton = false;
   export let invisibleBackdrop = false;
   export let testId = "gix-cmp-popover-component";
 
-  let bottom: number;
-  let left: number;
-  let right: number;
-  const initPosition = () =>
-    ({ bottom, left, right } = anchor
-      ? anchor.getBoundingClientRect()
-      : { bottom: 0, left: 0, right: 0 });
-  $: (anchor, visible, initPosition());
+  // Fallback used when `--padding` cannot be read (e.g. before the CSS
+  // variables are applied). Matches the default declared in
+  // `src/lib/styles/global/variables.scss`.
+  const DEFAULT_VIEWPORT_PADDING = 8;
+
+  let popoverTop = 0;
+  let popoverLeft = 0;
+  let popoverRight = 0;
+  let panelWidth = 0;
+  let placementResolved = false;
+  let effectiveDirection: PopoverDirection = direction;
+
+  const readViewportPadding = (): number => {
+    if (typeof window === "undefined") {
+      return DEFAULT_VIEWPORT_PADDING;
+    }
+
+    const raw = getComputedStyle(document.documentElement).getPropertyValue(
+      "--padding",
+    );
+
+    const parsed = parseFloat(raw);
+
+    return Number.isFinite(parsed) && parsed > 0
+      ? parsed
+      : DEFAULT_VIEWPORT_PADDING;
+  };
+
+  const initPosition = () => {
+    if (typeof window === "undefined") {
+      return;
+    }
+
+    if (!anchor) {
+      popoverTop = 0;
+      popoverLeft = 0;
+      popoverRight = 0;
+      effectiveDirection = direction;
+
+      return;
+    }
+
+    const { bottom, left, right } = anchor.getBoundingClientRect();
+
+    const viewportWidth = document.documentElement.clientWidth;
+
+    const placement = computePopoverPlacement({
+      anchorLeft: left,
+      anchorRight: right,
+      panelWidth,
+      viewportWidth,
+      viewportPadding: readViewportPadding(),
+      preferredDirection: direction,
+    });
+
+    popoverTop = bottom;
+    popoverLeft = placement.left;
+    popoverRight = placement.right;
+    effectiveDirection = placement.direction;
+  };
+
+  $: (anchor, visible, direction, initPosition());
+
+  const observePanelWidth = (node: HTMLElement) => {
+    placementResolved = false;
+
+    const measure = () => {
+      const next = node.offsetWidth;
+
+      if (next === panelWidth) {
+        return;
+      }
+
+      panelWidth = next;
+
+      initPosition();
+
+      if (next > 0) {
+        placementResolved = true;
+      }
+    };
+
+    measure();
+
+    if (typeof ResizeObserver === "undefined") {
+      return {};
+    }
+
+    const ro = new ResizeObserver(measure);
+
+    ro.observe(node);
+
+    return {
+      destroy: () => {
+        ro.disconnect();
+
+        placementResolved = false;
+        panelWidth = 0;
+      },
+    };
+  };
+
   const close = () => (visible = false);
 </script>
 
@@ -28,9 +124,7 @@
 
 {#if visible}
   <div
-    style="--popover-top: {`${bottom}px`}; --popover-left: {`${left}px`}; --popover-right: {`${
-      window.innerWidth - right
-    }px`}"
+    style="--popover-top: {popoverTop}px; --popover-left: {popoverLeft}px; --popover-right: {popoverRight}px"
     class="popover"
     aria-orientation="vertical"
     data-tid={testId}
@@ -46,8 +140,10 @@
     />
     <div
       class="wrapper"
-      class:rtl={direction === "rtl"}
+      class:placed={placementResolved}
+      class:rtl={effectiveDirection === "rtl"}
       class:with-border={invisibleBackdrop}
+      use:observePanelWidth
       transition:scale|global={{ delay: 25, duration: 150, easing: quintOut }}
     >
       {#if closeButton}
@@ -87,7 +183,9 @@
     --size: min(calc(20 * var(--padding)), calc(100vw - var(--padding)));
 
     min-width: var(--size);
-    // limited by `100vw - right padding`
+    // Loose cap used during the first paint so we can measure the panel's
+    // natural width. `.placed` swaps this for a side-aware cap that keeps the
+    // panel inside the viewport on whichever side was chosen.
     max-width: calc(100vw - var(--padding));
 
     max-height: calc(
@@ -113,6 +211,16 @@
     &.rtl {
       left: auto;
       right: var(--popover-right);
+    }
+
+    // After the initial measurement, clamp the panel to the available room on
+    // the chosen side so it never extends past the viewport edge.
+    &.placed {
+      max-width: calc(100vw - var(--popover-left) - var(--padding));
+    }
+
+    &.placed.rtl {
+      max-width: calc(100vw - var(--popover-right) - var(--padding));
     }
 
     &.with-border {

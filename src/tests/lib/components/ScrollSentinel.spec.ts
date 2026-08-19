@@ -13,6 +13,7 @@ describe("ScrollSentinel", () => {
     takeRecords: () => IntersectionObserverEntry[] = () => [];
     root: Element | Document | null = null;
     rootMargin = "";
+    scrollMargin = "";
     thresholds: ReadonlyArray<number> = [];
 
     constructor(private callback: IntersectionObserverCallback) {
@@ -27,13 +28,11 @@ describe("ScrollSentinel", () => {
   }
 
   beforeEach(() => {
-    vi.spyOn(global, "IntersectionObserver").mockImplementation(
-      (callback) => new MockIntersectionObserver(callback),
-    );
+    vi.stubGlobal("IntersectionObserver", MockIntersectionObserver);
   });
 
   afterEach(() => {
-    vi.restoreAllMocks();
+    vi.unstubAllGlobals();
   });
 
   it("should render a sentinel element", () => {

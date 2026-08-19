@@ -1,11 +1,15 @@
+/* eslint-disable import/order --
+   prettier-plugin-organize-imports owns import ordering and forces the
+   side-effect import first, which conflicts with this rule's newlines-between check. */
 import "@testing-library/jest-dom/vitest";
 import { configure } from "@testing-library/svelte";
-// jsdom does not implement TextEncoder
-// Polyfill the encoders with node
 import { TextDecoder, TextEncoder } from "util";
 import { IntersectionObserverPassive } from "./src/tests/lib/mocks/infinitescroll.mock";
 
-global.TextEncoder = TextEncoder;
+// jsdom does not implement TextEncoder/TextDecoder, so polyfill them with node's.
+// The `global as {...}` cast is needed because TS 6 made `Uint8Array` generic.
+(global as { TextEncoder: typeof globalThis.TextEncoder }).TextEncoder =
+  TextEncoder;
 (global as { TextDecoder: typeof TextDecoder }).TextDecoder = TextDecoder;
 (
   global as { IntersectionObserver: typeof IntersectionObserver }

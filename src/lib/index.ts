@@ -12,6 +12,7 @@ export type { BusyState } from "./types/busy";
 export type { ChipGroupItem } from "./types/chip-group";
 export type { InputProps } from "./types/input";
 export type { ModalProps } from "./types/modal";
+export type { PopoverDirection } from "./types/popover";
 export type { ProgressBarSegment } from "./types/progress-bar";
 export type { ProgressStep, ProgressStepState } from "./types/progress-step";
 export * from "./types/theme";

@@ -55,7 +55,7 @@ export const sanitize = (text: string): string => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         if (typeof (global as any).DOMPurify.sanitize === "function") {
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          domPurify = (global as any).DOMPurify as unknown as typeof DOMPurify;
+          domPurify = (global as any).DOMPurify;
         }
       }
 
