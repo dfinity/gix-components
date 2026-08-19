@@ -8,11 +8,13 @@
 
   const dispatch = createEventDispatcher();
 
+  // Delay between two scan attempts. Each scan is scheduled only once the previous one settled.
+  const SCAN_DELAY_MS = 100;
+
   let videoElement: HTMLVideoElement | undefined;
   let stream: MediaStream | undefined;
-  let scanInterval: NodeJS.Timeout | undefined;
+  let scanTimeout: NodeJS.Timeout | undefined;
   let isDestroyed = false;
-  let isProcessingFrame = false;
 
   onMount(async () => {
     try {
@@ -25,19 +27,19 @@
         audio: false,
       });
 
-      if (isDestroyed) {
+      // Release the camera rather than leaving the stream running if the component was destroyed
+      // while `getUserMedia` was pending, or if it has no video element to render the feed into.
+      if (isDestroyed || isNullish(videoElement)) {
         stopStream();
 
         return;
       }
 
-      if (nonNullish(videoElement)) {
-        videoElement.srcObject = stream;
+      videoElement.srcObject = stream;
 
-        await videoElement.play();
+      await videoElement.play();
 
-        await startScanning();
-      }
+      await startScanning();
     } catch (err: unknown) {
       dispatch("nnsQRCodeError", err);
     }
@@ -45,6 +47,9 @@
 
   const startScanning = async () => {
     try {
+      // Decoding runs in WebAssembly, which requires `wasm-unsafe-eval` in the host app `script-src`.
+      // By default the `.wasm` binary is fetched from a jsDelivr CDN at runtime — see the component
+      // documentation for how to allow that origin or serve the binary from the app instead.
       const { BarcodeDetector } = await import("barcode-detector/ponyfill");
 
       if (isDestroyed) {
@@ -56,33 +61,33 @@
       });
 
       const scan = async () => {
-        if (
-          isProcessingFrame ||
-          isDestroyed ||
-          isNullish(videoElement) ||
-          videoElement.readyState < HTMLMediaElement.HAVE_CURRENT_DATA
-        ) {
+        if (isDestroyed) {
           return;
         }
 
-        isProcessingFrame = true;
+        // Frames are skipped until the camera has decoded data to offer, but scanning is rescheduled
+        // either way — a not-yet-ready video must not stop the loop for good.
+        if (
+          nonNullish(videoElement) &&
+          videoElement.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA
+        ) {
+          try {
+            const [qrResult] = await detector.detect(videoElement);
 
-        try {
-          const results = await detector.detect(videoElement);
-
-          const [qrResult] = results;
-
-          if (nonNullish(qrResult)) {
-            dispatch("nnsQRCode", qrResult.rawValue);
+            if (nonNullish(qrResult)) {
+              dispatch("nnsQRCode", qrResult.rawValue);
+            }
+          } catch {
+            // Decoding failed on this frame — expected when no QR code is visible
           }
-        } catch {
-          // Decoding failed on this frame — expected when no QR code is visible
-        } finally {
-          isProcessingFrame = false;
+        }
+
+        if (!isDestroyed) {
+          scanTimeout = setTimeout(scan, SCAN_DELAY_MS);
         }
       };
 
-      scanInterval = setInterval(scan, 100);
+      scanTimeout = setTimeout(scan, SCAN_DELAY_MS);
     } catch (err: unknown) {
       dispatch("nnsQRCodeError", err);
     }
@@ -99,10 +104,10 @@
   onDestroy(() => {
     isDestroyed = true;
 
-    if (nonNullish(scanInterval)) {
-      clearInterval(scanInterval);
+    if (nonNullish(scanTimeout)) {
+      clearTimeout(scanTimeout);
 
-      scanInterval = undefined;
+      scanTimeout = undefined;
     }
 
     stopStream();
