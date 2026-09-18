@@ -7,9 +7,11 @@ on:
 
 run-name: >-
   ${{
-    github.event_name == 'release' && 'Publish Semver Release'
+    github.event_name == 'release' && format('Publish {0}', github.event.release.tag_name)
     || github.event_name == 'workflow_dispatch' && 'Publish @next Release'
     || 'Publish Release' }}
+
+permissions: {}
 
 jobs:
   publish:
@@ -46,4 +48,4 @@ jobs:
       - name: Package next
         run: ./scripts/package-next
       - name: Publish
-        run: npm publish --provenance --tag next
+        run: npm publish --provenance --access public --tag next
