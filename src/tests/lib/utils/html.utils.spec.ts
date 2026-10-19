@@ -29,10 +29,10 @@ describe("html-utils", () => {
       );
     });
 
-    it("should remove a style element at the start of the text", () => {
-      expect(sanitize("<style>p { color: red; }</style><p>text</p>")).toEqual(
-        "<p>text</p>",
-      );
+    it("should remove a style element inside an svg", () => {
+      expect(
+        sanitize(`<svg><style>p{color:red}</style><circle r="1"/></svg>`),
+      ).toEqual(`<svg><circle r="1"></circle></svg>`);
     });
 
     it("should remove the style attribute and keep the element", () => {
