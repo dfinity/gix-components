@@ -1,5 +1,12 @@
 # Changelog
 
+## [10.0.5](https://github.com/dfinity/gix-components/compare/v10.0.4...v10.0.5) (2026-10-19)
+
+
+### Bug Fixes
+
+* **html:** remove style elements and attributes in sanitize ([#886](https://github.com/dfinity/gix-components/issues/886)) ([a8b028d](https://github.com/dfinity/gix-components/commit/a8b028dd49aadc7183f564527f4276227c441994))
+
 ## [10.0.4](https://github.com/dfinity/gix-components/compare/v10.0.3...v10.0.4) (2026-09-18)
 
 
