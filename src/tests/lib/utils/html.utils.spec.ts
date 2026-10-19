@@ -1,4 +1,5 @@
 import { nextElementId, sanitize } from "$lib/utils/html.utils";
+import { markdownToHTML } from "$lib/utils/markdown.utils";
 
 describe("html-utils", () => {
   it("should sanitize HTML", () => {
@@ -19,6 +20,34 @@ describe("html-utils", () => {
     expect(sanitize("<UL><li><A HREF=//google.com>click</UL>")).toEqual(
       '<ul><li><a href="//google.com">click</a></li></ul>',
     );
+  });
+
+  describe("styles", () => {
+    it("should remove a style element after other content", () => {
+      expect(sanitize("<p>text</p><style>p { color: red; }</style>")).toEqual(
+        "<p>text</p>",
+      );
+    });
+
+    it("should remove a style element inside an svg", () => {
+      expect(
+        sanitize(`<svg><style>p{color:red}</style><circle r="1"/></svg>`),
+      ).toEqual(`<svg><circle r="1"></circle></svg>`);
+    });
+
+    it("should remove the style attribute and keep the element", () => {
+      expect(sanitize(`<p style="color: red;">text</p>`)).toEqual(
+        "<p>text</p>",
+      );
+    });
+
+    it("should keep the table alignment from markdown", async () => {
+      const html = await markdownToHTML(
+        "| Left | Right |\n| :--- | ----: |\n| a | b |",
+      );
+
+      expect(sanitize(html)).toEqual(html);
+    });
   });
 
   describe("target=_blank workaround", () => {

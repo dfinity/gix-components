@@ -64,7 +64,13 @@ export const sanitize = (text: string): string => {
       domPurify?.addHook("afterSanitizeAttributes", restoreTargetAttributeHook);
     }
 
-    return domPurify?.sanitize(text) ?? "";
+    // Sanitized HTML takes its styles from the host app only.
+    return (
+      domPurify?.sanitize(text, {
+        FORBID_TAGS: ["style"],
+        FORBID_ATTR: ["style"],
+      }) ?? ""
+    );
   } catch (err) {
     console.error(err);
   }
