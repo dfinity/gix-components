@@ -15,7 +15,8 @@
   class="back icon-only"
   aria-label={$i18n.core.back}
   data-tid="back"
-  onclick={stopPropagation(onBack)}><IconBack /></button
+  onclick={stopPropagation(onBack)}
+  type="button"><IconBack /></button
 >
 
 <style lang="scss">

@@ -44,13 +44,13 @@
   };
   const maxHeightStyle = (height: number | undefined): string =>
     isNullish(height) ? "" : `max-height: ${height}px;`;
-  // In case of `initiallyExpanded=true` we should avoid calculating `max-height` from the content-height
+  // Until the user toggles, we avoid calculating `max-height` from the content-height
   // because the content in the slot can be initialized w/ some delay.
   export const updateMaxHeight = () => {
     if (userUpdated) {
       maxHeight = expanded ? calculateMaxContentHeight() : 0;
     } else {
-      maxHeight = initiallyExpanded ? maxContentHeight : 0;
+      maxHeight = expanded ? maxContentHeight : 0;
     }
   };
   // Avoid to show scroll if not necessary
@@ -90,6 +90,7 @@
         data-tid="collapsible-expand-button"
         tabindex="-1"
         title={expanded ? $i18n.core.collapse : $i18n.core.expand}
+        type="button"
       >
         <IconExpandMore />
       </button>

@@ -1,5 +1,7 @@
 import { toastsStore } from "$lib/stores/toasts.store";
 import { render, waitFor } from "@testing-library/svelte";
+import { tick } from "svelte";
+import { get } from "svelte/store";
 import ToastsTest from "./ToastsTest.svelte";
 
 describe("Toasts", () => {
@@ -141,5 +143,69 @@ describe("Toasts", () => {
     await waitFor(() =>
       expect(container4.querySelectorAll("div.toast")).toHaveLength(0),
     );
+  });
+
+  describe("auto hide", () => {
+    beforeEach(() =>
+      vi.useFakeTimers({ toFake: ["setTimeout", "clearTimeout"] }),
+    );
+
+    afterEach(() => vi.useRealTimers());
+
+    it("should hide a toast after its duration", async () => {
+      render(ToastsTest);
+
+      toastsStore.show({ text: "Test", level: "success", duration: 1000 });
+
+      await tick();
+
+      vi.advanceTimersByTime(999);
+
+      expect(get(toastsStore)).toHaveLength(1);
+
+      vi.advanceTimersByTime(1);
+
+      expect(get(toastsStore)).toHaveLength(0);
+    });
+
+    it("should hide a toast after its duration is updated", async () => {
+      render(ToastsTest);
+
+      const id = toastsStore.show({ text: "Test", level: "success" });
+
+      await tick();
+
+      toastsStore.update({ id, content: { duration: 1000 } });
+
+      await tick();
+
+      vi.advanceTimersByTime(999);
+
+      expect(get(toastsStore)).toHaveLength(1);
+
+      vi.advanceTimersByTime(1);
+
+      expect(get(toastsStore)).toHaveLength(0);
+    });
+
+    it("should not hide a toast after its duration is removed", async () => {
+      render(ToastsTest);
+
+      const id = toastsStore.show({
+        text: "Test",
+        level: "success",
+        duration: 1000,
+      });
+
+      await tick();
+
+      toastsStore.update({ id, content: { duration: undefined } });
+
+      await tick();
+
+      vi.advanceTimersByTime(1000);
+
+      expect(get(toastsStore)).toHaveLength(1);
+    });
   });
 });

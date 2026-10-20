@@ -31,19 +31,25 @@
 
   let stepState = $derived(new WizardStepsState<T>(steps));
 
+  // `stepState` is not reactive: next, back and set mutate it in place.
+  // A new `transition` object re-runs the `{#key}` slide animation.
   let transition = $derived({ diff: stepState.diff });
 
-  // In Svelte 5, $effect only re-runs when stepState's reference changes — not its internal properties.
-  // So we manually sync `currentStep` whenever stepState transitions (next, back, set).
-  // This ensures reactivity works as expected (e.g. updating the UI).
-  const runStepTransition = (transition: () => WizardStepsState<T>) => {
-    stepState = transition();
-    ({ currentStep } = stepState);
-  };
-
+  // Sync `currentStep` on mount and when `steps` change.
   $effect(() => {
-    runStepTransition(() => stepState);
+    ({ currentStep } = stepState);
   });
+
+  const runStepTransition = (move: () => void) => {
+    const { currentStepIndex } = stepState;
+
+    move();
+    ({ currentStep } = stepState);
+
+    if (stepState.currentStepIndex !== currentStepIndex) {
+      transition = { diff: stepState.diff };
+    }
+  };
 
   export const next = () => runStepTransition(() => stepState.next());
   export const back = () => runStepTransition(() => stepState.back());

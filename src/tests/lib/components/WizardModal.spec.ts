@@ -1,7 +1,7 @@
 import WizardModal from "$lib/components/WizardModal.svelte";
 import type { WizardStep, WizardSteps } from "$lib/types/wizard";
 import { fireEvent, render, waitFor } from "@testing-library/svelte";
-import type { Snippet } from "svelte";
+import { tick, type Snippet } from "svelte";
 import { mockSnippet } from "../mocks/snippet.mocks";
 import WizardModalTest from "./WizardModalTest.svelte";
 
@@ -106,6 +106,57 @@ describe("WizardModal", () => {
       expect(nextButton).toBeInTheDocument();
       expect(backButton).not.toBeInTheDocument();
     });
+  });
+
+  it("should render a new step transition when the step changes", async () => {
+    const { container, getByTestId } = render(WizardModalTest);
+
+    const initialTransition = container.querySelector("div.transition");
+
+    expect(initialTransition).not.toBeNull();
+
+    await fireEvent.click(getByTestId("next-button"));
+
+    await waitFor(() => expect(getByTestId("back-button")).toBeInTheDocument());
+
+    const nextTransition = container.querySelector("div.transition");
+
+    expect(nextTransition).not.toBeNull();
+    expect(nextTransition).not.toBe(initialTransition);
+
+    await fireEvent.click(getByTestId("back-button"));
+
+    await waitFor(() => expect(getByTestId("next-button")).toBeInTheDocument());
+
+    const backTransition = container.querySelector("div.transition");
+
+    expect(backTransition).not.toBeNull();
+    expect(backTransition).not.toBe(nextTransition);
+  });
+
+  it("should not render a new step transition when the step does not change", async () => {
+    const { container, component } = render(WizardModal, {
+      props,
+    });
+
+    const initialTransition = container.querySelector("div.transition");
+
+    expect(initialTransition).not.toBeNull();
+
+    component.back();
+    await tick();
+
+    expect(container.querySelector("div.transition")).toBe(initialTransition);
+
+    component.next();
+    await tick();
+
+    expect(container.querySelector("div.transition")).toBe(initialTransition);
+
+    component.set(0);
+    await tick();
+
+    expect(container.querySelector("div.transition")).toBe(initialTransition);
   });
 
   it("should set a custom step when modal.set is called", async () => {

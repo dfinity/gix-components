@@ -18,6 +18,7 @@
   class="theme-toggle-button icon-only"
   aria-label={$i18n.theme.switch_theme}
   data-tid="theme-toggle-button"
+  type="button"
   on:click={switchTheme}
 >
   {#if isDarkMode}

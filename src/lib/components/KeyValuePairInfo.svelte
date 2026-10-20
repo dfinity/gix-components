@@ -40,6 +40,7 @@
             <button
               class="icon"
               onclick={stopPropagation(() => cmp?.toggleContent())}
+              type="button"
             >
               <IconInfo />
             </button>
@@ -53,6 +54,7 @@
           <button
             class="icon alignIconRight"
             onclick={stopPropagation(() => cmp?.toggleContent())}
+            type="button"
           >
             <IconInfo />
           </button>

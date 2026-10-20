@@ -1,6 +1,6 @@
 <script lang="ts">
   import { isNullish, nonNullish } from "@dfinity/utils";
-  import { onDestroy, onMount, type Component } from "svelte";
+  import type { Component } from "svelte";
   import { fade, fly } from "svelte/transition";
   import Html from "./Html.svelte";
   import Spinner from "./Spinner.svelte";
@@ -41,6 +41,7 @@
     icon,
     theme,
     renderAsHtml,
+    duration,
   } = $derived(msg);
 
   let scroll = $derived(overflow === undefined || overflow === "scroll");
@@ -49,31 +50,19 @@
 
   let clamp = $derived(overflow === "clamp");
 
-  let timeoutId = $state<NodeJS.Timeout | undefined>();
-
-  const autoHide = () => {
-    const { duration } = msg;
-
+  // Restart the auto hide timer each time the duration changes.
+  $effect(() => {
     if (isNullish(duration)) {
       return;
     }
 
-    timeoutId = setTimeout(close, duration);
-  };
+    const timeoutId = setTimeout(close, duration);
 
-  const cleanUpAutoHide = () => {
-    if (isNullish(timeoutId)) {
-      return;
-    }
-
-    clearTimeout(timeoutId);
-  };
+    return () => clearTimeout(timeoutId);
+  });
 
   // To avoid having the scroll visible even when not needed.
   const minHeightMessage = `min-height: ${DEFAULT_ICON_SIZE}px;`;
-
-  onMount(autoHide);
-  onDestroy(cleanUpAutoHide);
 </script>
 
 <div
@@ -117,7 +106,8 @@
     class="close"
     aria-label={$i18n.core.close}
     data-tid="close-button"
-    onclick={close}><IconClose /></button
+    onclick={close}
+    type="button"><IconClose /></button
   >
 </div>
 
