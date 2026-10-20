@@ -10,6 +10,7 @@
   aria-label={$layoutMenuOpen ? $i18n.core.close : $i18n.core.menu}
   data-tid="menu-toggle"
   onclick={() => layoutMenuOpen.set(!$layoutMenuOpen)}
+  type="button"
 >
   {#if $layoutMenuOpen}
     <IconClose />

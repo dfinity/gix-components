@@ -21,6 +21,7 @@
   aria-label={`${$i18n.core.copy}: ${value}`}
   data-tid="copy-component"
   onclick={preventDefault(stopPropagation(copyToClipboard))}
+  type="button"
 >
   <IconCopy />
 </button>

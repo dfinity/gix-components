@@ -15,7 +15,8 @@
   aria-checked={selected}
   data-tid="chip-component"
   onclick={() => onClick(id)}
-  role="radio">{label}</button
+  role="radio"
+  type="button">{label}</button
 >
 
 <style lang="scss">

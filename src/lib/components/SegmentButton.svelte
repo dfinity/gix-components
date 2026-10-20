@@ -42,6 +42,7 @@
     disabled={selected}
     onclick={onClick}
     role="tab"
+    type="button"
   >
     {@render children()}
   </button>

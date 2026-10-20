@@ -59,6 +59,5 @@ export const busy: Readable<boolean> = derived(
 // Returns the newest message that was added to the store
 export const busyMessage: Readable<string | undefined> = derived(
   busyStore,
-  ($busyStore) =>
-    $busyStore.reverse().find(({ text }) => nonNullish(text))?.text,
+  ($busyStore) => $busyStore.findLast(({ text }) => nonNullish(text))?.text,
 );

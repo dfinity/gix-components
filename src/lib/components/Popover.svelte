@@ -150,6 +150,7 @@
         <button
           class="close icon-only"
           aria-label={$i18n.core.close}
+          type="button"
           on:click|stopPropagation={close}><IconClose /></button
         >
       {/if}

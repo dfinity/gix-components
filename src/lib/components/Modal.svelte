@@ -91,6 +91,7 @@
                 aria-label={$i18n.core.close}
                 data-tid="close-modal"
                 onclick={stopPropagation(close)}
+                type="button"
               >
                 <IconClose size="24px" />
               </button>

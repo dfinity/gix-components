@@ -2,6 +2,7 @@ import type { CollapsibleProps, OnToggle } from "$lib/types/collapsible";
 import { fireEvent } from "@testing-library/dom";
 import { tick } from "svelte";
 import { render } from "../../utils/render.test-utils";
+import CollapsibleBindTest from "./CollapsibleBindTest.svelte";
 import CollapsibleTest from "./CollapsibleTest.svelte";
 
 // props
@@ -128,6 +129,27 @@ describe("Collapsible", () => {
     ).toBeInTheDocument();
 
     expect(spyToggle).not.toHaveBeenCalled();
+  });
+
+  it("should expand and collapse the content when the parent updates expanded", async () => {
+    const { getByTestId } = render(CollapsibleBindTest);
+
+    const content = getByTestId("collapsible-content");
+
+    expect(content).not.toHaveClass("expanded");
+    expect(content.getAttribute("style")).toContain("max-height: 0px;");
+
+    fireEvent.click(getByTestId("parent-toggle"));
+    await tick();
+
+    expect(content).toHaveClass("expanded");
+    expect(content.getAttribute("style")).not.toContain("max-height: 0px;");
+
+    fireEvent.click(getByTestId("parent-toggle"));
+    await tick();
+
+    expect(content).not.toHaveClass("expanded");
+    expect(content.getAttribute("style")).toContain("max-height: 0px;");
   });
 
   it("should emit state update", () =>
