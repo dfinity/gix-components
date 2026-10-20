@@ -1,5 +1,17 @@
 # Changelog
 
+## [10.0.6](https://github.com/dfinity/gix-components/compare/v10.0.5...v10.0.6) (2026-10-20)
+
+
+### Bug Fixes
+
+* Svelte 5 reactivity bugs and button type in components ([#890](https://github.com/dfinity/gix-components/issues/890)) ([39917fb](https://github.com/dfinity/gix-components/commit/39917fb38de9cbee108d0dc5ad9a0799ec3b49be))
+
+
+### Miscellaneous Chores
+
+* **deps:** fix npm audit vulnerabilities ([#888](https://github.com/dfinity/gix-components/issues/888)) ([b018b27](https://github.com/dfinity/gix-components/commit/b018b27948de9e9e52fac874f136f73591dd42b6))
+
 ## [10.0.5](https://github.com/dfinity/gix-components/compare/v10.0.4...v10.0.5) (2026-10-19)
 
 
