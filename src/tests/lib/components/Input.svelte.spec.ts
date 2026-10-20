@@ -1,4 +1,5 @@
 import Input from "$lib/components/Input.svelte";
+import type { InputProps } from "$lib/types/input";
 import { assertNonNullish, isNullish, nonNullish } from "@dfinity/utils";
 import { fireEvent, render, waitFor } from "@testing-library/svelte";
 import { tick } from "svelte";
@@ -698,6 +699,126 @@ describe("Input", () => {
             expected: autocomplete ?? expected,
           });
         });
+      },
+    );
+  });
+
+  describe("value sync", () => {
+    const renderInput = (testProps: InputProps): HTMLInputElement => {
+      const { container } = render(Input, { props: testProps });
+
+      const input: HTMLInputElement | null = container.querySelector("input");
+      assertNonNullish(input);
+
+      return input;
+    };
+
+    it.each([
+      { inputType: "currency" as const, newValue: "10" },
+      { inputType: "icp" as const, newValue: 10 },
+    ])(
+      "should show the value that the parent sets after an input that does not change the value (inputType=$inputType)",
+      async ({ inputType, newValue }) => {
+        const testProps = $state<InputProps>({
+          ...props,
+          inputType,
+          value: undefined,
+        });
+
+        const input = renderInput(testProps);
+
+        fireEvent.input(input, { target: { value: "1" } });
+        await tick();
+
+        fireEvent.input(input, { target: { value: "1." } });
+        await tick();
+
+        testProps.value = newValue;
+        await tick();
+
+        expect(input.value).toBe("10");
+        expect(testProps.value).toBe(newValue);
+      },
+    );
+
+    it("should bind undefined when a number input is cleared", async () => {
+      const testProps = $state<InputProps>({
+        ...props,
+        inputType: "number",
+        value: 5,
+      });
+
+      const input = renderInput(testProps);
+
+      fireEvent.input(input, { target: { value: "12" } });
+      await tick();
+
+      expect(testProps.value).toBe(12);
+
+      fireEvent.input(input, { target: { value: "" } });
+      await tick();
+
+      expect(testProps.value).toBeUndefined();
+      expect(input.value).toBe("");
+    });
+
+    it.each([
+      { inputType: "currency" as const, expected: "0.5" },
+      { inputType: "icp" as const, expected: 0.5 },
+    ])(
+      "should bind undefined for a lone decimal point (inputType=$inputType)",
+      async ({ inputType, expected }) => {
+        const testProps = $state<InputProps>({
+          ...props,
+          inputType,
+          value: undefined,
+        });
+
+        const input = renderInput(testProps);
+
+        fireEvent.input(input, { target: { value: "." } });
+        await tick();
+
+        expect(testProps.value).toBeUndefined();
+        expect(input.value).toBe(".");
+
+        fireEvent.input(input, { target: { value: ".a" } });
+        await tick();
+
+        expect(testProps.value).toBeUndefined();
+        expect(input.value).toBe(".");
+
+        fireEvent.input(input, { target: { value: ".5" } });
+        await tick();
+
+        expect(testProps.value).toBe(expected);
+        expect(input.value).toBe(".5");
+      },
+    );
+
+    it.each([
+      { inputType: "currency" as const, decimals: 18, value: 0.1 },
+      { inputType: "icp" as const, decimals: 8, value: 1.5 },
+      { inputType: "currency" as const, decimals: 8, value: 1e-7 },
+    ])(
+      "should keep a numeric initial value after an invalid input (inputType=$inputType, value=$value)",
+      async ({ inputType, decimals, value }) => {
+        const testProps = $state<InputProps>({
+          ...props,
+          inputType,
+          decimals,
+          value,
+        });
+
+        const input = renderInput(testProps);
+
+        const initialText = input.value;
+
+        fireEvent.input(input, { target: { value: `${initialText}a` } });
+        await tick();
+
+        expect(testProps.value).toBe(value);
+        expect(input.value).toBe(initialText);
       },
     );
   });
