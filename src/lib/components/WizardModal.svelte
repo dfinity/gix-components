@@ -41,9 +41,14 @@
   });
 
   const runStepTransition = (move: () => void) => {
+    const { currentStepIndex } = stepState;
+
     move();
     ({ currentStep } = stepState);
-    transition = { diff: stepState.diff };
+
+    if (stepState.currentStepIndex !== currentStepIndex) {
+      transition = { diff: stepState.diff };
+    }
   };
 
   export const next = () => runStepTransition(() => stepState.next());
