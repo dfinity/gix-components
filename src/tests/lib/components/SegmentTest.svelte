@@ -5,7 +5,7 @@
   export let firstSegmentId;
   export let secondSegmentId;
   export let thirdSegmentId;
-  let selectedSegmentId = firstSegmentId;
+  export let selectedSegmentId = firstSegmentId;
 </script>
 
 <Segment bind:selectedSegmentId>

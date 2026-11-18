@@ -50,4 +50,18 @@ describe("Segment", () => {
       expect(button?.classList.contains("selected")).toBeTruthy(),
     );
   });
+
+  it("should select the segment that the parent sets", async () => {
+    const { getAllByTestId, rerender } = renderSegment();
+
+    const [firstButton, , thirdButton] = getAllByTestId("segment-button");
+
+    expect(firstButton.classList.contains("selected")).toBeTruthy();
+    expect(thirdButton.classList.contains("selected")).toBeFalsy();
+
+    await rerender({ selectedSegmentId: thirdSegmentId });
+
+    expect(firstButton.classList.contains("selected")).toBeFalsy();
+    expect(thirdButton.classList.contains("selected")).toBeTruthy();
+  });
 });

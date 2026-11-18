@@ -21,6 +21,17 @@
 
   $: ($store, (() => (selectedSegmentId = $store.id))());
 
+  // The selected SegmentButton sets its element in the store.
+  const selectSegment = (id: symbol | undefined) => {
+    if ($store.id === id) {
+      return;
+    }
+
+    store.set({ id, element: undefined });
+  };
+
+  $: selectSegment(selectedSegmentId);
+
   let indicator:
     | {
         left: number;

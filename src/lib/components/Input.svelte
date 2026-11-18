@@ -110,32 +110,42 @@
   const fixUndefinedValue = (value: string | number | undefined): string =>
     isNullish(value) ? "" : `${value}`;
 
-  let currencyValue = $state(
-    exponentToPlainNumberString(fixUndefinedValue(value)),
+  const initialCurrencyValue = exponentToPlainNumberString(
+    fixUndefinedValue(value),
   );
-  let lastValidCurrencyValue: string | number | undefined = value;
-  let internalValueChange = true;
+  let currencyValue = $state(initialCurrencyValue);
+  let lastValidCurrencyValue: string | undefined = initialCurrencyValue;
+  // The value that `currencyValue` shows. If `value` is different, the parent changed it.
+  let syncedValue = value;
 
   let currency = $derived(["icp", "currency"].includes(inputType));
+
+  const setValue = (newValue: string | number | undefined) => {
+    syncedValue = newValue;
+    value = newValue;
+  };
 
   $effect(() => {
     [value];
 
     untrack(() => {
-      if (!internalValueChange && currency) {
-        if (typeof value === "number") {
-          currencyValue = exponentToPlainNumberString(`${value}`);
-        } else {
-          currencyValue = fixUndefinedValue(value);
-        }
-
-        lastValidCurrencyValue = currencyValue;
+      if (!currency || value === syncedValue) {
+        return;
       }
 
-      internalValueChange = false;
+      syncedValue = value;
+
+      if (typeof value === "number") {
+        currencyValue = exponentToPlainNumberString(`${value}`);
+      } else {
+        currencyValue = fixUndefinedValue(value);
+      }
+
+      lastValidCurrencyValue = currencyValue;
     });
   });
 
+  // `value` already matches `lastValidCurrencyValue`, so only a reset to no value changes it.
   const restoreFromValidValue = (noValue = false) => {
     if (isNullish(inputElement) || !currency) {
       return;
@@ -143,16 +153,9 @@
 
     if (noValue) {
       lastValidCurrencyValue = undefined;
+      setValue(undefined);
     }
 
-    internalValueChange = true;
-    value = isNullish(lastValidCurrencyValue)
-      ? undefined
-      : typeof lastValidCurrencyValue === "number"
-        ? lastValidCurrencyValue.toFixed(wrapDecimals)
-        : inputType === "icp"
-          ? +lastValidCurrencyValue
-          : lastValidCurrencyValue;
     currencyValue = fixUndefinedValue(lastValidCurrencyValue);
 
     // force dom update (because no active triggers)
@@ -188,17 +191,21 @@
         lastValidCurrencyValue = currentValue;
         currencyValue = fixUndefinedValue(currentValue);
 
-        internalValueChange = true;
+        // a lone "." has no digit yet, so it has no value
         // for inputType="icp" value is a number
-        value =
-          inputType === "icp"
-            ? +currentValue
-            : toStringWrapDecimals(currentValue);
+        setValue(
+          currentValue === "."
+            ? undefined
+            : inputType === "icp"
+              ? +currentValue
+              : toStringWrapDecimals(currentValue),
+        );
       }
     } else {
-      internalValueChange = true;
-      value =
-        inputType === "number" ? +currentTarget.value : currentTarget.value;
+      const { value: text } = currentTarget;
+
+      // an empty number input has no value ("" => undefined)
+      value = inputType !== "number" ? text : text === "" ? undefined : +text;
     }
 
     onInput?.();
