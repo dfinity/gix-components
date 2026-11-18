@@ -1,7 +1,9 @@
 # GIX Components
 
 > [!WARNING]
-> **GIX Components is in maintenance mode.** The library receives critical fixes only — no new features or components are being added. We recommend against adopting it for new projects.
+> **Planned shutdown.** The only known user of GIX Components is [nns-dapp](https://github.com/dfinity/nns-dapp), and it will move the components that it uses into its own repository. After that, we plan to deprecate `@dfinity/gix-components` on npm and archive this repository. If you depend on GIX Components, please tell us in [issue #892](https://github.com/dfinity/gix-components/issues/892).
+>
+> Until then, the library is in maintenance mode. It receives critical fixes only. Do not use it for new projects.
 
 GIX Components is a UI kit developed with [SvelteKit](https://kit.svelte.dev) by the GIX team.
 
